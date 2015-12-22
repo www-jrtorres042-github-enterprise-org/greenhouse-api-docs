@@ -50,15 +50,6 @@ html, body {
   width: 20px;
 }
 
-@mixin embossed-bg {
-  background:
-    linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
-    linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
-    $nav-subitem-bg;
-}
-
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
 
@@ -103,7 +94,7 @@ html, body {
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
-      color: $nav-text;
+      color: #fff;
       border-radius: 0; /* ios has a default border radius */
     }
 
@@ -111,7 +102,7 @@ html, body {
       position: absolute;
       top: 17px;
       left: $nav-padding;
-      color: $nav-text;
+      color: #fff;
       @extend %icon-search;
     }
   }
@@ -133,8 +124,6 @@ html, body {
       height: 30%;
       margin-bottom: 1em;
     }
-
-    @include embossed-bg;
 
     li {
       margin: 1em $nav-padding;
@@ -192,12 +181,6 @@ html, body {
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
       font-size: 12px;
-    }
-
-    // for embossed look:
-    @include embossed-bg;
-    &>li:last-child {
-      box-shadow: none; // otherwise it'll overflow out of the subheader
     }
   }
 
