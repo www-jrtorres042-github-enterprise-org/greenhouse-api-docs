@@ -34,15 +34,15 @@ $lang-select-bg: #222;
 $lang-select-active-bg: $examples-bg; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111; // color of language tab bg when mouse is pressed
 $main-bg: #FFFFFF;
-$aside-notice-bg: #8fbcd4;
-$aside-warning-bg: #c97a7e;
-$aside-success-bg: #6ac174;
+$aside-notice-bg: #ccf0ee;
+$aside-warning-bg: #fcf5cc;
+$aside-success-bg: #b7dd79;
 $search-notice-bg: #c97a7e;
 
 
 // TEXT COLORS
 ////////////////////
-$main-text: #333; // main content text color
+$main-text: #54585a; // main content text color
 $nav-text: #54585a;
 $nav-active-text: #fff;
 $lang-select-text: #fff; // color of unselected language tab text
@@ -68,8 +68,8 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 // FONTS
 ////////////////////
 %default-font {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
-  font-size: 13px;
+  font-family: "LLAkkuratWeb-Light", Helmut, Helvetica, Arial, sans-serif;
+  font-size: 15px;
 }
 
 %header-font {
