@@ -20,7 +20,7 @@ The Harvest API was designed to allow our customers to export their data from Gr
  2. Bar
  3. Qux
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have usage examples for cURL and Ruby! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 This documentation is open source! Feel free to leave feedback as issues in the [GitHub repo](https://github.com/capablemonkey/greenhouse-api-docs) or fork it and contribute changes!
 
@@ -37,12 +37,6 @@ credential = Base64.strict_encode64(api_token + ':')
 headers = {
   "Authorization" => "Basic " + credential
 }
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
 ```
 
 ```shell
@@ -80,3 +74,49 @@ Since only a username needs to be provided in our case, you'll need to append a 
 ### Setting credentials with cURL
 
 If you're making test API requests with cURL you can use the `-u` flag to set the username and password (which is blank). cURL will automatically generate the `Authorization` header.
+
+## Throttling
+
+```
+Status: 200 OK
+X-RateLimit-Limit: 50
+X-RateLimit-Remaining: 49
+```
+
+API requests may be throttled. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many requests are you allowed until throttling kicks in. Making too many requests in a short time frame will cause Harvest to return an `HTTP 429` response.
+
+<aside class="warning">If you need to pull data at a rate faster than the rate limit will allow, please contact us!</aside>
+
+## Pagination
+
+```
+Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next",<https://harvest.greenhouse.io/v1/candidates?page=474&per_page=2>; rel="last"
+```
+
+API methods that return a collection of results are always paginated. You can specify the current page and number of items per page with the `page` and `per_page` query parameters. Paginated results include a `Link` response header that specifies the location of the next and last pages:
+
+## Validation
+
+```json
+{
+  "message": "Validation error",
+  "errors": [
+    {
+        "message": "Must be one of: candidate, prospect",
+        "field": "type"
+    }
+  ]
+}
+```
+
+Methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status `HTTP 422`. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.
+
+## General considerations
+
+Unless otherwise specified, API methods generally conform to the following:
+
+- Properties without a value will use `null` instead of being undefined
+- "Snake Case" is used for attribute names (e.g. `first_name`)
+- Timestamps are rendered in ISO-8601 format (e.g. `2013-11-21T18:35:22Z`)
+- URLs to external resources are valid for 30 days
+- We reserve the right to add more properties to objects, but will never change or remove them
