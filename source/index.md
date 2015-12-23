@@ -11,9 +11,9 @@ toc_footers:
 
 includes:
   - introduction
-  - errors
   - candidates
   - applications
+  - errors
 
 search: true
 ---
