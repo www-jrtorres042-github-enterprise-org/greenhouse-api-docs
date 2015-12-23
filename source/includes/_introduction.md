@@ -1,20 +1,42 @@
-
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+```
+  _          _ _             
+ | |__   ___| | | ___        
+ | '_ \ / _ \ | |/ _ \       
+ | | | |  __/ | | (_) |      
+ |_| |_|\___|_|_|\___/     _ 
+ __      _____  _ __| | __| |
+ \ \ /\ / / _ \| '__| |/ _` |
+  \ V  V / (_) | |  | | (_| |
+   \_/\_/ \___/|_|  |_|\__,_|
+```
+
+With Harvest, you have access to most of your Greenhouse data!
+
+The Harvest API was designed to allow our customers to export their data from Greenhouse. However, it can also be used to...
+
+ 1. Foo
+ 2. Bar
+ 3. Qux
 
 We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+This documentation is open source! Feel free to leave feedback as issues in the [GitHub repo](https://github.com/capablemonkey/greenhouse-api-docs) or fork it and contribute changes!
 
 ## Authentication
 
 > To authorize, use this code:
 
 ```ruby
-require 'kittn'
+require 'base64'
+api_token = 'a7183e1b7e9ab09b8a5cfa87d1934c3c'
+credential = Base64.strict_encode64(api_token + ':')
+# => "YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+headers = {
+  "Authorization" => "Basic " + credential
+}
 ```
 
 ```python
@@ -24,19 +46,37 @@ api = kittn.authorize('meowmeowmeow')
 ```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+# Note the trailing colon after the username (API token):
+$ curl https://harvest.greenhouse.io/v1/candidates/ -u a7183e1b7e9ab09b8a5cfa87d1934c3c:
+...
+
+> GET /v1/candidates/ HTTP/1.1
+> Host: harvest.greenhouse.io
+> Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6
+
+...
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Harvest uses Basic Auth over HTTPS for authentication. The username is your Greenhouse API token and the password should be blank. Unauthenticated requests will return an HTTP 401 response.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+### Authorization header
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+> Your `Authorization` header should look like this:
 
-`Authorization: meowmeowmeow`
+```
+Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6
+```
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Most HTTP clients will automatically use a given username and password to generate the required Authorization header. However, you may need to explicity set this header. The header has the following format:
+
+`Authorization: Basic <base64("username:password")>`
+
+Since only a username needs to be provided in our case, you'll need to append a `:` (colon) to your Greenhouse API token and then Base64 encode the resulting string.
+
+<aside class="success">
+<b>Important</b>: Use HTTPS for all requests. Requests made over HTTP will always return an HTTP 403 response. Keep your API key a secret!
 </aside>
+
+### Setting credentials with cURL
+
+If you're making test API requests with cURL you can use the `-u` flag to set the username and password (which is blank). cURL will automatically generate the `Authorization` header.
