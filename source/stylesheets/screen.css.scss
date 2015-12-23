@@ -37,6 +37,22 @@ html, body {
   background-color: $main-bg;
   height: 100%;
   -webkit-text-size-adjust: none; /* Never autoresize text */
+
+  ::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    color: #fff;  
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: #fff;  
+  }
+
+  :-ms-input-placeholder {  
+    color: #fff;  
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
