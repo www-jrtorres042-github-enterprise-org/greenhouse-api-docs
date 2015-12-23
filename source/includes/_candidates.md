@@ -1,6 +1,77 @@
 # Candidates
 
-## Get All Kittens
+## The candidate object
+
+```json
+{
+  "id": 6801407,
+  "first_name": "Zooey",
+  "last_name": "Teddy",
+  "company": "Leeo, Inc",
+  "title": "Senior Digital Marketing Manager",
+  "created_at": "2015-05-29T18:19:00Z",
+  "last_activity": "2015-05-29T20:01:05Z",
+  "photo_url": "https://dev-localhost.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
+  "attachments": [],
+  "application_ids": [
+    7827056
+  ],
+  "phone_numbers": [
+    {
+      "value": "330-281-8004",
+      "type": "home"
+    },
+    {
+      "value": "330-281-8004",
+      "type": "home"
+    }
+  ],
+  "addresses": [
+    {
+      "value": "21 Jump Street, New York, NY 10003",
+      "type": "home"
+    }
+  ],
+  "email_addresses": [
+    {
+      "value": "zooey.teddy.6801407@example.com",
+      "type": "personal"
+    },
+    {
+      "value": "zooey.teddy.6801407@example.com",
+      "type": "personal"
+    }
+  ],
+  "website_addresses": [
+    {
+      "value": "http://www.example.com/",
+      "type": "personal"
+    }
+  ],
+  "social_media_addresses": [],
+  "recruiter": {
+    "id": 78582,
+    "name": "Carl Sacramento"
+  },
+  "coordinator": null,
+  "tags": [],
+  "custom_fields": {
+    "current_salary": null,
+    "desired_salary": null
+  }
+}
+```
+
+A candidate is a person.
+
+### Attributes
+
+| Attribute | Data type | Description |
+| --------- | --------- | ----------- |
+| id | integer | Candidate object ID |
+| first_name | string | Candidate's first name |
+
+## List all candidates
 
 ```ruby
 require 'kittn'
@@ -9,57 +80,95 @@ api = Kittn::APIClient.authorize!('meowmeowmeow')
 api.kittens.get
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl 'https://harvest.greenhouse.io/v1/candidates' \
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
-
-> The above command returns JSON structured like this:
 
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "id": 6801407,
+    "first_name": "Zooey",
+    "last_name": "Teddy",
+    "company": "Leeo, Inc",
+    "title": "Senior Digital Marketing Manager",
+    "created_at": "2015-05-29T18:19:00Z",
+    "last_activity": "2015-05-29T20:01:05Z",
+    "photo_url": "https://dev-localhost.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
+    "attachments": [],
+    "application_ids": [
+      7827056
+    ],
+    "phone_numbers": [
+      {
+        "value": "330-281-8004",
+        "type": "home"
+      },
+      {
+        "value": "330-281-8004",
+        "type": "home"
+      }
+    ],
+    "addresses": [
+      {
+        "value": "21 Jump Street, New York, NY 10003",
+        "type": "home"
+      }
+    ],
+    "email_addresses": [
+      {
+        "value": "zooey.teddy.6801407@example.com",
+        "type": "personal"
+      },
+      {
+        "value": "zooey.teddy.6801407@example.com",
+        "type": "personal"
+      }
+    ],
+    "website_addresses": [
+      {
+        "value": "http://www.example.com/",
+        "type": "personal"
+      }
+    ],
+    "social_media_addresses": [],
+    "recruiter": {
+      "id": 78582,
+      "name": "Carl Sacramento"
+    },
+    "coordinator": null,
+    "tags": [],
+    "custom_fields": {
+      "current_salary": null,
+      "desired_salary": null
+    }
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    ...
   }
 ]
+
 ```
 
-This endpoint retrieves all kittens.
+List all of an organization's candidates.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://harvest.greenhouse.io/v1/candidates`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+per_page | 10 | optional
+page | 1 | optional
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
 
-## Get a Specific Kitten
+## Retrieve a candidate
 
 ```ruby
 require 'kittn'
@@ -68,40 +177,81 @@ api = Kittn::APIClient.authorize!('meowmeowmeow')
 api.kittens.get(2)
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl 'https://harvest.greenhouse.io/v1/candidates' \
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "id": 6801407,
+  "first_name": "Zooey",
+  "last_name": "Teddy",
+  "company": "Leeo, Inc",
+  "title": "Senior Digital Marketing Manager",
+  "created_at": "2015-05-29T18:19:00Z",
+  "last_activity": "2015-05-29T20:01:05Z",
+  "photo_url": "https://dev-localhost.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
+  "attachments": [],
+  "application_ids": [
+    7827056
+  ],
+  "phone_numbers": [
+    {
+      "value": "330-281-8004",
+      "type": "home"
+    },
+    {
+      "value": "330-281-8004",
+      "type": "home"
+    }
+  ],
+  "addresses": [
+    {
+      "value": "21 Jump Street, New York, NY 10003",
+      "type": "home"
+    }
+  ],
+  "email_addresses": [
+    {
+      "value": "zooey.teddy.6801407@example.com",
+      "type": "personal"
+    },
+    {
+      "value": "zooey.teddy.6801407@example.com",
+      "type": "personal"
+    }
+  ],
+  "website_addresses": [
+    {
+      "value": "http://www.example.com/",
+      "type": "personal"
+    }
+  ],
+  "social_media_addresses": [],
+  "recruiter": {
+    "id": 78582,
+    "name": "Carl Sacramento"
+  },
+  "coordinator": null,
+  "tags": [],
+  "custom_fields": {
+    "current_salary": null,
+    "desired_salary": null
+  }
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
+Retrieve a single candidate by its `id`.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://harvest.greenhouse.io/v1/candidates/{id}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+id | The ID of the kitten to retrieve
