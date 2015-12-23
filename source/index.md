@@ -13,6 +13,7 @@ includes:
   - introduction
   - errors
   - candidates
+  - applications
 
 search: true
 ---
