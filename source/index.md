@@ -13,6 +13,8 @@ includes:
   - introduction
   - candidates
   - applications
+  - jobs
+  - organization
   - errors
 
 search: true

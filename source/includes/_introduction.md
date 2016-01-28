@@ -83,14 +83,15 @@ X-RateLimit-Limit: 50
 X-RateLimit-Remaining: 49
 ```
 
-API requests may be throttled. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many requests are you allowed until throttling kicks in. Making too many requests in a short time frame will cause Harvest to return an `HTTP 429` response.
+API requests may be throttled. Check the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers to see how many requests you are allowed until throttling kicks in. Making too many requests in a short time frame will cause Harvest to return an `HTTP 429` response.
 
 <aside class="warning">If you need to pull data at a rate faster than the rate limit will allow, please contact us!</aside>
 
 ## Pagination
 
 ```
-Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next",<https://harvest.greenhouse.io/v1/candidates?page=474&per_page=2>; rel="last"
+Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next",
+<https://harvest.greenhouse.io/v1/candidates?page=474&per_page=2>; rel="last"
 ```
 
 API methods that return a collection of results are always paginated. You can specify the current page and number of items per page with the `page` and `per_page` query parameters. Paginated results include a `Link` response header that specifies the location of the next and last pages:
