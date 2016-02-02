@@ -1,5 +1,5 @@
 ---
-title: Greenhouse Harvest API
+title: Job Board API | Greenhouse
 
 language_tabs:
   - shell
@@ -8,14 +8,10 @@ language_tabs:
 toc_footers:
   - <a href='https://www.greenhouse.io/' target="_blank">Learn more about Greenhouse</a>
   - <a href='https://github.com/capablemonkey/greenhouse-api-docs' target="_blank">GitHub repository</a>
+  - <a href="/" title="">Developers Home</a>
 
 includes:
-  - introduction
-  - candidates
-  - applications
-  - jobs
-  - organization
-  - errors
+  - job-board/jobs
 
 search: true
 ---
