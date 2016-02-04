@@ -11,22 +11,21 @@ toc_footers:
   - <a href="/" title="">Developers Home</a>
 
 includes:
-  - introduction
-  - activity_feed
-  - applications
-  - candidates
-  - departments
-  - email_templates
-  - interviews
-  - jobs
-  - offers
-  - offices
-  - rejection_reasons
-  - scorecards
-  - sources
-  - users
-  - errors
-  
+  - harvest/introduction
+  - harvest/activity_feed
+  - harvest/applications
+  - harvest/candidates
+  - harvest/departments
+  - harvest/email_templates
+  - harvest/interviews
+  - harvest/jobs
+  - harvest/offers
+  - harvest/offices
+  - harvest/rejection_reasons
+  - harvest/scorecards
+  - harvest/sources
+  - harvest/users
+  - harvest/errors
 
 search: true
 ---

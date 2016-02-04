@@ -18,8 +18,6 @@ set :fonts_dir, 'fonts'
 # Activate the syntax highlighter
 activate :syntax
 
-
-
 # Github pages require relative links
 activate :relative_assets
 set :relative_links, true
