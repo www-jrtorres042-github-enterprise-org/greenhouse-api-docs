@@ -1,5 +1,5 @@
 ---
-title: Webhooks | Greenhouse
+title: Web Hooks | Greenhouse
 
 language_tabs:
   - json
