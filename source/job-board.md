@@ -11,7 +11,12 @@ toc_footers:
   - <a href="/" title="">Developers Home</a>
 
 includes:
+  - job-board/introduction
   - job-board/jobs
+  - job-board/offices
+  - job-board/departments
+  - job-board/boards
+  - job-board/applications
 
 search: true
 ---
