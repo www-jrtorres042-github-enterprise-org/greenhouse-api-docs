@@ -12,11 +12,21 @@ toc_footers:
 
 includes:
   - introduction
-  - candidates
+  - activity_feed
   - applications
+  - candidates
+  - departments
+  - email_templates
+  - interviews
   - jobs
-  - organization
+  - offers
+  - offices
+  - rejection_reasons
+  - scorecards
+  - sources
+  - users
   - errors
+  
 
 search: true
 ---

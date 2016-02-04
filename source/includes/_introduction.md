@@ -16,13 +16,22 @@ With Harvest, you have access to most of your Greenhouse data!
 
 The Harvest API was designed to allow our customers to export their data from Greenhouse. However, it can also be used to...
 
- 1. Foo
- 2. Bar
- 3. Qux
+ 1. Update candidate information.
+ 2. Add attachments to candidate profiles.
+ 3. Advance, move, and reject applications.
 
 We have usage examples for cURL and Ruby! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 This documentation is open source! Feel free to leave feedback as issues in the [GitHub repo](https://github.com/capablemonkey/greenhouse-api-docs) or fork it and contribute changes!
+
+
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
+
+
+
+
 
 ## Authentication
 
