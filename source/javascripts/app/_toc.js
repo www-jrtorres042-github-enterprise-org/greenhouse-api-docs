@@ -7,14 +7,6 @@
   var closeToc = function() {
     $(".tocify-wrapper").removeClass('open');
     $("#nav-button").removeClass('open');
-    $('.tocify-header').removeClass('tocify-active-header');
-  };
-
-  var handleNavItemClick = function(e) {
-      closeToc();
-
-      // change color of section header:
-      $(this).parents('.tocify-header').addClass('tocify-active-header');
   };
 
   var makeToc = function() {
@@ -40,8 +32,8 @@
       return false;
     });
 
-    $(".page-wrapper").click(handleNavItemClick);
-    $(".tocify-item").click(handleNavItemClick);
+    $(".page-wrapper").click(closeToc);
+    $(".tocify-item").click(closeToc);
   };
 
   // Hack to make already open sections to start opened,
