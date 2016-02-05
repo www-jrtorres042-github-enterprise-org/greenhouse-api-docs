@@ -55,6 +55,12 @@ html, body {
 
   margin: 15px;
 
+  -o-transition:1s;
+  -ms-transition:1s;
+  -moz-transition:1s;
+  -webkit-transition:1s;
+  transition:1s;
+
   h3 {
     font-weight: bold;
     font-size: 28px;
@@ -66,9 +72,13 @@ html, body {
     text-align: center;
   }
 
-  &:link, &:visited, &:hover, &:active {
+  &:link, &:visited, &:active {
     text-decoration: none;
     color: #fff;
+  }
+
+  &:hover {
+    background-color: #018d85;
   }
 }
 
