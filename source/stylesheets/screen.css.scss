@@ -92,7 +92,7 @@ html, body {
 
   .nav-home-link:link, .nav-home-link:visited, .nav-home-link:hover, .nav-home-link:active {
     text-decoration: none;
-    color: #FFF;
+    color: $nav-home-text;
   }
 
   .nav-home {
@@ -225,10 +225,9 @@ html, body {
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
 
     li,a {
-      color: $nav-text;
+      color: $footer-items-text;
       text-decoration: none;
     }
 
@@ -237,9 +236,11 @@ html, body {
     }
 
     li {
-      font-size: 0.8em;
-      line-height: 1.7;
-      text-decoration: none;
+      padding: 0 $nav-padding 0 $nav-padding;
+      display: block;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 
