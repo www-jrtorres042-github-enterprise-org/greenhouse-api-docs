@@ -65,6 +65,11 @@ html, body {
     font-size: 16px;
     text-align: center;
   }
+
+  &:link, &:visited, &:hover, &:active {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 .footer {
@@ -109,8 +114,8 @@ html, body {
     }
 
     a:link, a:visited, a:hover, a:active {
-    text-decoration: none;
-    color: #424242;
-  }
+      text-decoration: none;
+      color: #424242;
+    }
   }
 }
