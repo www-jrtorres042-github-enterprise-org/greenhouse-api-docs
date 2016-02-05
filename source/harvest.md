@@ -1,5 +1,5 @@
 ---
-title: Harvest API | Greenhouse
+title: Harvest API
 
 language_tabs:
   - shell
@@ -26,5 +26,6 @@ includes:
   - harvest/users
   - harvest/errors
 
+slug: harvest
 search: true
 ---

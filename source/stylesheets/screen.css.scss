@@ -2,7 +2,6 @@
 @import 'fonts';
 @import 'normalize';
 @import 'compass';
-@import 'variables';
 @import 'syntax';
 @import 'icon-font';
 
@@ -207,7 +206,7 @@ html, body {
   }
 
   .tocify-active-header {
-    background-color: #448FA0;
+    background-color: $active-header-bg;
   }
 
   // Subheaders are the submenus that slide open

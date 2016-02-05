@@ -1,5 +1,5 @@
 ---
-title: Job Board API | Greenhouse
+title: Job Board API
 
 language_tabs:
   - shell
@@ -17,5 +17,6 @@ includes:
   - job-board/boards
   - job-board/applications
 
+slug: job-board
 search: true
 ---

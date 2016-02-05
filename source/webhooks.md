@@ -1,5 +1,5 @@
 ---
-title: Web Hooks | Greenhouse
+title: Web Hooks
 
 language_tabs:
   - json
@@ -7,8 +7,6 @@ language_tabs:
 toc_footers:
   - <a href="/job-board.html" title="Job Board API">Job Board API</a>
   - <a href='/harvest.html' title="Harvest API">Harvest API</a>
-
-search: true
 
 includes:
   - webhooks/introduction
@@ -18,4 +16,6 @@ includes:
   - webhooks/hire_candidate
   - webhooks/reject_candidate
 
+slug: webhooks
+search: true
 ---

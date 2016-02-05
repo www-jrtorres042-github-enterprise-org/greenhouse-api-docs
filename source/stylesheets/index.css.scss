@@ -83,6 +83,30 @@ html, body {
   }
 }
 
+.block-harvest {
+  background-color: #00b2a9;
+
+  &:hover {
+    background-color: #018d85;
+  }
+}
+
+.block-job-board {
+  background-color: #7fade3;
+
+  &:hover {
+    background-color: #5c8cc4;
+  }
+}
+
+.block-webhooks {
+  background-color: #62B2c4;
+
+  &:hover {
+    background-color: #448fa0;
+  }
+}
+
 .footer {
   width: 80%;
   height: 90px;
