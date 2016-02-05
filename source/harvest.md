@@ -6,9 +6,8 @@ language_tabs:
   - ruby
 
 toc_footers:
-  - <a href='https://www.greenhouse.io/' target="_blank">Learn more about Greenhouse</a>
-  - <a href='https://github.com/grnhse/greenhouse-api-docs' target="_blank">GitHub repository</a>
-  - <a href="/" title="">Developers Home</a>
+  - <a href="/job-board.html" title="Job Board API">Job Board API</a>
+  - <a href='/webhooks.html' title="Web Hooks">Web Hooks</a>
 
 includes:
   - harvest/introduction
