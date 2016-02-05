@@ -121,7 +121,7 @@ html, body {
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      padding: 6px 0 10px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
@@ -204,6 +204,10 @@ html, body {
     background-color: $nav-active-bg;
     color: $nav-active-text;
     border-bottom: $nav-active-bottom-border;
+  }
+
+  .tocify-active-header {
+    background-color: #448FA0;
   }
 
   // Subheaders are the submenus that slide open
