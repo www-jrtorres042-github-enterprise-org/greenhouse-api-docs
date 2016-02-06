@@ -445,6 +445,10 @@ html, body {
       padding: 10px;
     }
 
+    td:first-child {
+      white-space: nowrap;
+    }
+
     tr:last-child {
       border-bottom: 1px solid #ccc;
     }
