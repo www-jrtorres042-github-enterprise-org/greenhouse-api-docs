@@ -55,7 +55,7 @@ $footer-items-text: #9b9b9b;
 
 // SIZES
 ////////////////////
-$nav-width: 230px; // width of the navbar
+$nav-width: 200px; // width of the navbar
 $examples-width: 50%; // portion of the screen taken up by code examples
 $logo-margin: 20px; // margin between nav items and logo, ignored if search is active
 $main-padding: 28px; // padding to left and right of content & examples
@@ -71,8 +71,8 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 // FONTS
 ////////////////////
 %default-font {
-  font-family: "LLAkkuratWeb-Light", Helmut, Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-family: "LLAkkuratWeb-Regular", Helmut, Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 
 %header-font {
@@ -82,7 +82,7 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 
 %code-font {
   font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
