@@ -1,15 +1,12 @@
 ---
-title: Web Hooks | Greenhouse
+title: Web Hooks
 
 language_tabs:
   - json
 
 toc_footers:
-  - <a href='https://www.greenhouse.io/' target="_blank">Learn more about Greenhouse</a>
-  - <a href='https://github.com/grnhse/greenhouse-api-docs' target="_blank">GitHub repository</a>
-  - <a href="/" title="">Developers Home</a>
-
-search: true
+  - <a href="/job-board.html" title="Job Board API">Job Board API</a>
+  - <a href='/harvest.html' title="Harvest API">Harvest API</a>
 
 includes:
   - webhooks/introduction
@@ -19,4 +16,6 @@ includes:
   - webhooks/hire_candidate
   - webhooks/reject_candidate
 
+slug: webhooks
+search: true
 ---

@@ -7,6 +7,11 @@
 * height lookup for h1s and h2s was causing serious
 * lag spikes below 30 fps */
 
+/*
+ * Modified by Gordon Zheng to highlight section headers when a sub-item
+ * in that section is highlighted. (using headerFocusClass)
+ */
+
 // Immediately-Invoked Function Expression (IIFE) [Ben Alman Blog Post](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) that calls another IIFE that contains all of the plugin logic.  I used this pattern so that anyone viewing this code would not have to scroll to the bottom of the page to view the local parameters that were passed to the main IIFE.
 (function(tocify) {
 
@@ -32,6 +37,7 @@
         hideTocClass = "." + hideTocClassName,
         headerClassName = "tocify-header",
         headerClass = "." + headerClassName,
+        headerFocusClassName = "tocify-active-header",
         subheaderClassName = "tocify-subheader",
         subheaderClass = "." + subheaderClassName,
         itemClassName = "tocify-item",
@@ -324,9 +330,13 @@
 
                 // Removes highlighting from all of the list item's
                 self.element.find("." + self.focusClass).removeClass(self.focusClass);
+                $(headerClass).removeClass(headerFocusClassName);
 
                 // Highlights the current list item that was clicked
                 elem.addClass(self.focusClass);
+
+                // Highlights the section header when a sub-item under it is in focus
+                elem.parents(headerClass).addClass(headerFocusClassName);
 
                 // If the showAndHide option is true
                 if(self.options.showAndHide) {
@@ -342,6 +352,7 @@
 
                 // Removes highlighting from all of the list item's
                 self.element.find("." + self.focusClass).removeClass(self.focusClass);
+                $(headerClass).removeClass(headerFocusClassName);
 
                 if(!hash.length && pageload && self.options.highlightDefault) {
 
@@ -549,8 +560,14 @@
                 // Removes highlighting from all of the list item's
                 self.element.find("." + self.focusClass).removeClass(self.focusClass);
 
+                // Remove highlighting for headers
+                $(headerClass).removeClass(headerFocusClassName);
+
                 // Highlights the current list item that was clicked
                 $(this).addClass(self.focusClass);
+
+                // Highlights the section header when a sub-item under it is in focus
+                $(this).parents(headerClass).addClass(headerFocusClassName);
 
                 // If the showAndHide option is true
                 if(self.options.showAndHide) {
@@ -702,8 +719,14 @@
                             // Removes highlighting from all of the list item's
                             self.element.find("." + self.focusClass).removeClass(self.focusClass);
 
+                            // Remove highlighting for headers
+                $(headerClass).removeClass(headerFocusClassName);
+
                             // Highlights the corresponding list item
                             elem.addClass(self.focusClass);
+
+                            // Highlights the section header when a sub-item under it is in focus
+                            elem.parents(headerClass).addClass(headerFocusClassName);
 
                             // Scroll to highlighted element's header
                             var tocifyWrapper = self.tocifyWrapper;

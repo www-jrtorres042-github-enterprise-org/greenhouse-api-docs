@@ -23,11 +23,11 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #00b2a9;
-$examples-bg: #393939;
+$nav-bg: #292929;
+$examples-bg: #2f2f2f;
 $code-bg: #292929;
 $code-annotation-bg: #1c1c1c;
-$nav-subitem-bg: #4890a0;
+$nav-subitem-bg: #5eb2c5;
 $nav-active-bg: #ffffff;
 $lang-select-border: #000;
 $lang-select-bg: #222;
@@ -38,6 +38,7 @@ $aside-notice-bg: #ccf0ee;
 $aside-warning-bg: #fcf5cc;
 $aside-success-bg: #b7dd79;
 $search-notice-bg: #c97a7e;
+$footer-nav-items-bg: #2f2f2f;
 
 
 // TEXT COLORS
@@ -45,14 +46,16 @@ $search-notice-bg: #c97a7e;
 $main-text: #54585a; // main content text color
 $nav-text: #FFF;
 $nav-active-text: #54585a;
-$lang-select-text: #fff; // color of unselected language tab text
-$lang-select-active-text: #fff; // color of selected language tab text
-$lang-select-pressed-text: #fff; // color of language tab text when mouse is pressed
+$lang-select-text: #9b9b9b; // color of unselected language tab text
+$lang-select-active-text: #9b9b9b; // color of selected language tab text
+$lang-select-pressed-text: #9b9b9b; // color of language tab text when mouse is pressed
+$nav-home-text: #9b9b9b;
+$footer-items-text: #9b9b9b;
 
 
 // SIZES
 ////////////////////
-$nav-width: 230px; // width of the navbar
+$nav-width: 200px; // width of the navbar
 $examples-width: 50%; // portion of the screen taken up by code examples
 $logo-margin: 20px; // margin between nav items and logo, ignored if search is active
 $main-padding: 28px; // padding to left and right of content & examples
@@ -68,8 +71,8 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 // FONTS
 ////////////////////
 %default-font {
-  font-family: "LLAkkuratWeb-Light", Helmut, Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-family: "LLAkkuratWeb-Regular", Helmut, Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 
 %header-font {
@@ -79,7 +82,7 @@ $phone-width: $tablet-width - $nav-width; // min width before reverting to mobil
 
 %code-font {
   font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -91,7 +94,8 @@ $nav-footer-border-color: #666;
 $nav-embossed-border-top: #000;
 $nav-embossed-border-bottom: #000;
 $main-embossed-text-shadow: 0px 1px 0px #fff;
-$search-box-border-color: #fff;
+$search-box-border-color: #424242;
+$nav-active-bottom-border: #000;
 
 
 ////////////////////////////////////////////////////////////////////////////////

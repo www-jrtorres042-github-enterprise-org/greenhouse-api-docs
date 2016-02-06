@@ -2,7 +2,6 @@
 @import 'fonts';
 @import 'normalize';
 @import 'compass';
-@import 'variables';
 @import 'syntax';
 @import 'icon-font';
 
@@ -90,12 +89,28 @@ html, body {
     }
   }
 
-  // This is the logo at the top of the ToC
-  &>a>img {
-    display: block;
-    width: 25%;
-    margin-left: auto;
-    margin-right: auto;
+  .nav-home-link:link, .nav-home-link:visited, .nav-home-link:hover, .nav-home-link:active {
+    text-decoration: none;
+    color: $nav-home-text;
+  }
+
+  .nav-home {
+    height: 63px;
+    border-bottom: 1px solid #424242;
+
+    // This is the logo at the top of the ToC
+    img {
+      display: block;
+      width: 25%;
+      padding-top: 5px;
+      float: left;
+    }
+
+    span {
+      float: left;
+      font-color: #54585a;
+      margin-top: 24px;
+    }
   }
 
   &>.search {
@@ -105,7 +120,7 @@ html, body {
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      padding: 6px 0 10px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
@@ -172,7 +187,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: 50px;
   }
 
   li {
@@ -180,12 +195,18 @@ html, body {
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 230ms;
+    border-bottom: 1px solid #424242;
   }
 
   // This is the currently selected ToC entry
   .tocify-focus {
     background-color: $nav-active-bg;
     color: $nav-active-text;
+    border-bottom: $nav-active-bottom-border;
+  }
+
+  .tocify-active-header {
+    background-color: $active-header-bg;
   }
 
   // Subheaders are the submenus that slide open
@@ -203,11 +224,11 @@ html, body {
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
 
     li,a {
-      color: $nav-text;
+      color: $footer-items-text;
       text-decoration: none;
+      background-color: $footer-nav-items-bg;
     }
 
     a:hover {
@@ -215,9 +236,11 @@ html, body {
     }
 
     li {
-      font-size: 0.8em;
-      line-height: 1.7;
-      text-decoration: none;
+      padding: 0 $nav-padding 0 $nav-padding;
+      display: block;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 
@@ -420,6 +443,10 @@ html, body {
 
     td {
       padding: 10px;
+    }
+
+    td:first-child {
+      white-space: nowrap;
     }
 
     tr:last-child {

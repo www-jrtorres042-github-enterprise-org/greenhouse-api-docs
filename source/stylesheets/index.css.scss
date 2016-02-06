@@ -1,0 +1,156 @@
+@import 'fonts';
+@import 'normalize';
+
+html, body {
+  font-family: "LLAkkuratWeb-Light", Helmut, Helvetica, Arial, sans-serif;
+  color: #424242;
+}
+
+.header {
+  text-align: center;
+}
+
+.content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-big {
+  font-size: 60px;
+  width: 100%;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 140px;
+}
+
+.logo {
+  width: 140px;
+  height: 140px;
+  background-image: url('/images/logo-green.png');
+  background-size: 100%;
+}
+
+.blocks {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.block {
+  min-height: 260px;
+  height: 260px;
+  background-color: #00b2a9;
+  color: #fff;
+  padding: 30px;
+
+  flex-basis: 260px;
+  align-self: auto;
+
+  margin: 15px;
+
+  -o-transition:1s;
+  -ms-transition:1s;
+  -moz-transition:1s;
+  -webkit-transition:1s;
+  transition:1s;
+
+  h3 {
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  &:link, &:visited, &:active {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: #018d85;
+  }
+}
+
+.block-harvest {
+  background-color: #00b2a9;
+
+  &:hover {
+    background-color: #018d85;
+  }
+}
+
+.block-job-board {
+  background-color: #7fade3;
+
+  &:hover {
+    background-color: #5c8cc4;
+  }
+}
+
+.block-webhooks {
+  background-color: #62B2c4;
+
+  &:hover {
+    background-color: #448fa0;
+  }
+}
+
+.footer {
+  width: 80%;
+  height: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+
+  .footer-logo {
+    background-image: url('/images/logo-footer.png');
+    width: 200px;
+    height: 70px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    float: left;
+    margin-top: 10px;
+  }
+
+  hr {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    float: right;
+    color: #424242;
+    font-size: 16px;
+
+    li {
+      display: inline;
+      list-style-type: none;
+      padding-right: 10px;
+    }
+
+    li:first-child:before {
+      content: '';
+    }
+
+    li:before {
+      content: '\007C\00a0\00a0\00a0';
+    }
+
+    a:link, a:visited, a:hover, a:active {
+      text-decoration: none;
+      color: #424242;
+    }
+  }
+}
