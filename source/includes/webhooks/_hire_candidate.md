@@ -213,3 +213,14 @@ The Hire Candidate event occurs when an offer is accepted. This is triggered by 
 ### Noteworthy response attributes
 
 See web hook [common attributes](#common-attributes).
+
+| Attribute | Note |
+|-----------|------|
+| `application.offer.id` | Unique Greenhouse identifier of the offer. Information not included in the web hook can be retrieved via [Harvest API - GET Offers](/harvest.html#get-offers)
+| `application.offer.created_at` | Date when this offer was drafted.
+| `application.offer.sent_on` | Date when this offer was sent to the candidate.
+| `application.offer.resolved_at` | Date the offer was accepted.
+| `application.offer.starts_at` | The candidate's start date. Expected format is YYYY-MM-DD
+| `application.job` | Deprecated. Use `application.jobs[]` instead
+| `application.job.close_date` | Deprecated. Use `application.jobs[].closed_at` instead. 
+| `application.job.open_date` | Deprecated. Use `application.jobs[].opened_at` instead.
