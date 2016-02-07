@@ -86,11 +86,13 @@ Returns a list of jobs for a given `department_id`.
 
 ### HTTP Request
 
-`https://api.greenhouse.io/v1/boards/{board_token}/embed/department?id={department_id}`
+`GET https://api.greenhouse.io/v1/boards/{board_token}/embed/department?id={department_id}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
+
+### Querystring Parameters
 department_id | ID of the department to retrieve

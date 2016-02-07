@@ -103,11 +103,13 @@ Returns a list of your organization's departments and jobs for the given `office
 
 ### HTTP Request
 
-`https://api.greenhouse.io/v1/boards/{board_token}/embed/office?id={office_id}`
+`GET https://api.greenhouse.io/v1/boards/{board_token}/embed/office?id={office_id}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
+
+### Querystring Parameters
 office_id | ID of the office to retrieve
