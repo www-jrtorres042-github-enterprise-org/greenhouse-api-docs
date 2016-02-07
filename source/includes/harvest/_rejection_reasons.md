@@ -1,16 +1,26 @@
 # Rejection Reasons
 
-## GET Rejection Reasons
+## The rejection reason object
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+```json
+{
+  "id": 262,
+  "name": "Missing resume",
+  "type": {
+    "id": 1,
+    "name": "We rejected them"
+  }
+}
 ```
 
+| Attribute | Description |
+|-----------|-------------|
+| id | The rejection reason's unique identifier |
+
+## List rejection reasons
+
 ```shell
-curl 'https://harvest.greenhouse.io/v1/rejection_reasons/{id}' \
+curl 'https://harvest.greenhouse.io/v1/rejection_reasons' \
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -49,10 +59,11 @@ Retrieves your organization's rejection reasons.
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/rejection_reasons/{id}`
+`GET https://harvest.greenhouse.io/v1/rejection_reasons`
 
-### URL Parameters
+### Optional querystring parameters
 
-Parameter | Description
---------- | -----------
-id | The ID of the rejection reason to retrieve
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.

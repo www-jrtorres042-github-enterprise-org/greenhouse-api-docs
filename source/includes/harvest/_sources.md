@@ -1,16 +1,26 @@
 # Sources
 
-## GET Sources
+## The source object 
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+```json
+{
+  "id": 632,
+  "name": "Other",
+  "type": {
+    "id": 5,
+    "name": "Prospecting"
+  }
+}
 ```
 
+| Attribute | Description |
+|-----------|-------------|
+| id | The source's unique identifier |
+
+## List sources
+
 ```shell
-curl 'https://harvest.greenhouse.io/v1/sources/{id}' \
+curl 'https://harvest.greenhouse.io/v1/sources' \
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -37,7 +47,39 @@ curl 'https://harvest.greenhouse.io/v1/sources/{id}' \
 ]
 ```
 
-Retrieves your organization's sources, grouped by strategy.
+Lists an organization's sources, grouped by strategy.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/sources`
+
+### Optional querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+
+## Retrieve a source 
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/sources/{id}' \
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 632,
+  "name": "Other",
+  "type": {
+    "id": 5,
+    "name": "Prospecting"
+  }
+}
+```
 
 ### HTTP Request
 

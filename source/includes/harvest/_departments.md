@@ -1,16 +1,23 @@
 # Departments
 
-## GET Departments
+## The department object
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+```json
+{
+	"id": 1,
+	"name": "Technology"
+}
 ```
 
+| Attribute | Description |
+|-----------|-------------|
+| id | The department's unique identifier |
+| name | The department's name
+
+## List departments
+
 ```shell
-curl 'https://harvest.greenhouse.io/v1/departments/{id}' \
+curl 'https://harvest.greenhouse.io/v1/departments' \
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -27,6 +34,33 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}' \
     "name": "Administration"
   }
 ]
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/departments`
+
+### Optional querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+## Retrieve a department
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/departments/{id}' \
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"id": 1,
+	"name": "Technology"
+}
 ```
 
 Retrieves your organization's departments.
