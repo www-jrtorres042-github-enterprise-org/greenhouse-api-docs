@@ -18,6 +18,8 @@ includes:
   - harvest/email_templates
   - harvest/interviews
   - harvest/jobs
+  - harvest/job_posts
+  - harvest/job_stages
   - harvest/offers
   - harvest/offices
   - harvest/rejection_reasons

@@ -1,16 +1,160 @@
 # Candidates
 
-## GET Candidates
+## The candidate object
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+```json
+{
+  "id": 6801407,
+  "first_name": "Zooey",
+  "last_name": "Teddy",
+  "company": "Leeo, Inc",
+  "title": "Senior Digital Marketing Manager",
+  "created_at": "2015-05-29T18:19:00Z",
+  "last_activity": "2015-05-29T20:01:05Z",
+  "photo_url": "https://dev-localhost.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
+  "attachments": [],
+  "application_ids": [
+    7827056
+  ],
+  "phone_numbers": [
+    {
+      "value": "330-281-8004",
+      "type": "home"
+    },
+    {
+      "value": "330-281-8004",
+      "type": "home"
+    }
+  ],
+  "addresses": [
+    {
+      "value": "21 Jump Street, New York, NY 10003",
+      "type": "home"
+    }
+  ],
+  "email_addresses": [
+    {
+      "value": "zooey.teddy.6801407@example.com",
+      "type": "personal"
+    },
+    {
+      "value": "zooey.teddy.6801407@example.com",
+      "type": "personal"
+    }
+  ],
+  "website_addresses": [
+    {
+      "value": "http://www.example.com/",
+      "type": "personal"
+    }
+  ],
+  "social_media_addresses": [],
+  "recruiter": {
+    "id": 78582,
+    "name": "Carl Sacramento"
+  },
+  "coordinator": null,
+  "tags": [],
+  "custom_fields": {
+    "current_salary": null,
+    "desired_salary": null
+  }
+}
 ```
+
+| Attribute | Description |
+|-----------|-------------|
+| id | The candidate's unique identifier |
+| first_name | Candidate's first name |
+
+## List candidates
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/candidates' \
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 6801407,
+    "first_name": "Zooey",
+    "last_name": "Teddy",
+    "company": "Leeo, Inc",
+    "title": "Senior Digital Marketing Manager",
+    "created_at": "2015-05-29T18:19:00Z",
+    "last_activity": "2015-05-29T20:01:05Z",
+    "photo_url": "https://dev-localhost.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
+    "attachments": [],
+    "application_ids": [
+      7827056
+    ],
+    "phone_numbers": [
+      {
+        "value": "330-281-8004",
+        "type": "home"
+      },
+      {
+        "value": "330-281-8004",
+        "type": "home"
+      }
+    ],
+    "addresses": [
+      {
+        "value": "21 Jump Street, New York, NY 10003",
+        "type": "home"
+      }
+    ],
+    "email_addresses": [
+      {
+        "value": "zooey.teddy.6801407@example.com",
+        "type": "personal"
+      },
+      {
+        "value": "zooey.teddy.6801407@example.com",
+        "type": "personal"
+      }
+    ],
+    "website_addresses": [
+      {
+        "value": "http://www.example.com/",
+        "type": "personal"
+      }
+    ],
+    "social_media_addresses": [],
+    "recruiter": {
+      "id": 78582,
+      "name": "Carl Sacramento"
+    },
+    "coordinator": null,
+    "tags": [],
+    "custom_fields": {
+      "current_salary": null,
+      "desired_salary": null
+    }
+  },
+]
+```
+
+List all of an organization's candidates.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/candidates`
+
+### Optional querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+## Retrieve a candidate
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/candidates/{id}' \
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -90,18 +234,7 @@ id | The ID of the candidate to retrieve
 
 
 
-
-
-
-
-## PATCH Candidate
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+## Edit a candidate
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
@@ -272,14 +405,7 @@ tags[] | No | string | Array of tags as strings. Passing an empty array will cle
 
 
 
-## POST Attachments
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+## Create an attachment for a candidate
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}'
@@ -327,14 +453,7 @@ url | No | string | Url of the attachment (if you are providing the url, you do 
 
 
 
-## PUT Anonymize
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+## Anonymize a candidate
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}'

@@ -1,16 +1,25 @@
 # Offices
 
-## GET Offices
+## The office object
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+```json
+{
+  "id": 175,
+  "name": "San Francisco",
+  "location": {
+    "name": "San Francisco, CA"
+  }
+}
 ```
 
+| Attribute | Description |
+|-----------|-------------|
+| id | The office's unique identifier |
+
+## List offices
+
 ```shell
-curl 'https://harvest.greenhouse.io/v1/offices/{id}' \
+curl 'https://harvest.greenhouse.io/v1/offices' \
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -42,7 +51,40 @@ curl 'https://harvest.greenhouse.io/v1/offices/{id}' \
 ]
 ```
 
-All of your organization's offices.
+List all of an organization's offices.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/offices`
+
+### Optional querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+
+## Retrieve an office
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/offices/{id}' \
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 175,
+  "name": "San Francisco",
+  "location": {
+    "name": "San Francisco, CA"
+  }
+}
+```
+
+Retrieve an office by its ID.
 
 ### HTTP Request
 

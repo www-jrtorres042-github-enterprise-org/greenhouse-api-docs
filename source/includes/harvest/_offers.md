@@ -1,9 +1,36 @@
 # Offers
 
-## GET All Offers
+## The offer object
+
+```json
+{
+  "id": 4949,
+  "version": 1,
+  "application_id": 1234,
+  "created_at": "2014-02-13T22:30:58Z",
+  "resolved_at": null,
+  "sent_at": "sent_on",
+  "status": "deprecated",
+  "custom_fields": {
+    "employment_type": "Contractor",
+    "favorite_station": "The Swan",
+    "best_seasons": null,
+    "start_date": null,
+    "willing_to_negotiate": null,
+    "salary": null,
+    "notes": null
+  }
+}
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| id | The offer's unique identifier |
+
+## List offers 
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/offers/{id}' \
+curl 'https://harvest.greenhouse.io/v1/offers' \
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -51,7 +78,47 @@ curl 'https://harvest.greenhouse.io/v1/offers/{id}' \
 ]
 ```
 
-All offers made by your organization ordered by application `id`.
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/offers`
+
+### Optional querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+
+## Retrieve an offer
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/offers/{id}' \
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+  "id": 4949,
+  "version": 1,
+  "application_id": 1234,
+  "created_at": "2014-02-13T22:30:58Z",
+  "resolved_at": null,
+  "sent_at": "sent_on",
+  "status": "deprecated",
+  "custom_fields": {
+    "employment_type": "Contractor",
+    "favorite_station": "The Swan",
+    "best_seasons": null,
+    "start_date": null,
+    "willing_to_negotiate": null,
+    "salary": null,
+    "notes": null
+  }
+}
+```
+
+Retrieve an offer by its ID.
 
 ### HTTP Request
 
@@ -61,15 +128,13 @@ All offers made by your organization ordered by application `id`.
 
 Parameter | Description
 --------- | -----------
-id | ID of the application to retrieve
+id | ID of the offer to retrieve
 
 
-
-
-## GET Offers for Applications
+## List offers for application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}/offers(/current_offer)' \
+curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers' \
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -117,19 +182,61 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/offers(/current_offer)'
 ]
 ```
 
-The offers associated with this application. Greenhouse keeps offer history has updates are made over time. To fetch only the most recent offer, append `/current_offer` to the url.
+List the offers associated with an application. Greenhouse keeps offer history has updates are made over time. To fetch only the most recent offer, append `/current_offer` to the url.
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/applications/{id}/offers(/current_offer)`
+`GET https://harvest.greenhouse.io/v1/applications/{application_id}/offers`
 
-### Query Parameters
+### URL Parameters
 
 Parameter | Description
 --------- | -----------
-id | ID of the application to retrieve
+application_id | ID of the application whose offers you want to retrieve
 
+### Optional querystring parameters
 
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 
+## Retrieve current offer for application
 
+```shell
+curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/current_offer' \
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
 
+```json
+{
+  "id": 4949,
+  "version": 1,
+  "application_id": 1234,
+  "created_at": "2014-02-13T22:30:58Z",
+  "resolved_at": null,
+  "sent_at": "sent_on",
+  "status": "deprecated",
+  "custom_fields": {
+    "employment_type": "Contractor",
+    "favorite_station": "The Swan",
+    "best_seasons": null,
+    "start_date": null,
+    "willing_to_negotiate": null,
+    "salary": null,
+    "notes": null
+  }
+}
+```
+
+Fetch the current offer for an application.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/applications/{application_id}/offers/current_offer`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+application_id | ID of the application whose current offer you want to retrieve

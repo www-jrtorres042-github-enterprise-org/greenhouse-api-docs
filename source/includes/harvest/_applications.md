@@ -1,6 +1,43 @@
 # Applications
 
-## GET All Applications
+## The application object
+
+Applications are created when a candidate applies for a job.  They can one of several stages.  The final
+
+```json
+{
+  "id": 985314,
+  "person_id": 978031,
+  "prospect": false,
+  "applied_at": "2014-03-26T20:11:39Z",
+  "last_activity_at": "2014-03-27T16:13:15Z",
+  "source": {
+    "id": 1871,
+    "public_name": "Happy Hour"
+  },
+  "credited_to": {
+    "id": 4080,
+    "name": "Kate Austen"
+  },
+  "jobs": [
+    {
+      "id": 123,
+      "name": "Accounting Manager"
+    }
+  ],
+  "status": "rejected",
+  "current_stage": {
+    "id": 62828,
+    "name": "Recruiter Phone Screen"
+  }
+}
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| id | Application ID |
+
+## List applications
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications' \
@@ -31,17 +68,20 @@ curl 'https://harvest.greenhouse.io/v1/applications' \
 ]
 ```
 
-Retreive your organization's applications.
+Retreive all of an organization's applications.
 
 ### HTTP Request
 
 `GET https://harvest.greenhouse.io/v1/applications`
 
+### Optional querystring parameters
 
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 
-
-
-## GET Application
+## Retrieve an application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/4341' \
@@ -81,12 +121,7 @@ Parameter | Description
 --------- | -----------
 id | ID of the application to retrieve
 
-
-
-
-
-
-## POST Advance Application
+## Advance an application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/advance' \
@@ -135,12 +170,7 @@ Parameter | Required | Type | Description
 id | Yes | integer | ID of the application to retrieve
 from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
 
-
-
-
-
-
-## POST Move Application
+## Move an application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/move' \
@@ -201,10 +231,7 @@ id | Yes | integer | ID of the application to retrieve
 from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
 to_stage_id | Yes | integer | The ID of the job stage this application should be moved to.
 
-
-
-
-## POST Reject Application
+## Reject an application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/reject' \
