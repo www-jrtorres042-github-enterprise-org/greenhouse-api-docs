@@ -51,8 +51,12 @@
       global.toc.calculateHeights();
     });
 
-    $('.toc-footer li, .toc-appendage li').click(function(){
+    $('.toc-footer li').click(function(){
       window.location.href = $(this).children('a').attr('href');
+    });
+
+    $('.toc-appendage li').click(function() {
+      window.open($(this).children('a').attr('href'), "_blank");
     });
   });
 })(window);
