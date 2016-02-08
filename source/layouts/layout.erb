@@ -76,6 +76,9 @@ under the License.
       <% end %>
       <div id="toc">
       </div>
+      <ul class="toc-appendage">
+        <li id="github_link"><a href="<%= current_page.data.github_link %>" title="View on Github" target="_blank">View on GitHub</a></li>
+      </ul>
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>

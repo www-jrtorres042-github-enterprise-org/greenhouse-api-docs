@@ -18,4 +18,5 @@ includes:
 
 slug: webhooks
 search: true
+github_link: https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/webhooks
 ---

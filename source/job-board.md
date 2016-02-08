@@ -19,4 +19,5 @@ includes:
 
 slug: job-board
 search: true
+github_link: https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/job-board
 ---

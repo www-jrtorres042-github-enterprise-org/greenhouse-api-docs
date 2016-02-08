@@ -195,7 +195,7 @@ html, body {
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 230ms;
-    border-bottom: 1px solid #424242;
+    // border-bottom: 1px solid #424242;
   }
 
   // This is the currently selected ToC entry
@@ -221,6 +221,47 @@ html, body {
     }
   }
 
+  .toc-appendage {
+    li {
+      padding: 0 $nav-padding 0 $nav-padding;
+      display: block;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    #github_link {
+      background-image: url('/images/github-mark.png');
+      background-repeat: no-repeat;
+      background-size: 25px;
+      background-position-y: 10px;
+      background-position-x: 15px;
+
+      a:visited, a:link, a:active {
+        text-decoration: none;
+        color: $footer-items-text;
+      }
+
+      a:hover {
+        color: #fff;
+      }
+
+      a {
+        padding-left: 35px;
+
+        -o-transition:1s;
+        -ms-transition:1s;
+        -moz-transition:1s;
+        -webkit-transition:1s;
+        transition:1s;
+      }
+    }
+  }
+
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
@@ -232,7 +273,7 @@ html, body {
     }
 
     a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     li {
@@ -241,6 +282,10 @@ html, body {
       overflow-x: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 

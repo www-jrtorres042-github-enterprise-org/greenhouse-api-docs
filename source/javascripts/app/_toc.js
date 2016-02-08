@@ -50,6 +50,10 @@
     $('.content').imagesLoaded( function() {
       global.toc.calculateHeights();
     });
+
+    $('.toc-footer li, .toc-appendage li').click(function(){
+      window.location.href = $(this).children('a').attr('href');
+    });
   });
 })(window);
 

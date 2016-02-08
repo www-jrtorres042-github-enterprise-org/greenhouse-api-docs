@@ -30,4 +30,5 @@ includes:
 
 slug: harvest
 search: true
+github_link: https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/harvest
 ---
