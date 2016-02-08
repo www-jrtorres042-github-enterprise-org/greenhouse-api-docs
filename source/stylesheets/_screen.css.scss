@@ -54,6 +54,18 @@ html, body {
   }
 }
 
+@mixin link-hover-transition-to-white {
+  -o-transition:1s;
+  -ms-transition:1s;
+  -moz-transition:1s;
+  -webkit-transition:1s;
+  transition:1s;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
@@ -92,6 +104,10 @@ html, body {
   .nav-home-link:link, .nav-home-link:visited, .nav-home-link:hover, .nav-home-link:active {
     text-decoration: none;
     color: $nav-home-text;
+  }
+
+  .nav-home-link {
+    @include link-hover-transition-to-white;
   }
 
   .nav-home {
@@ -246,18 +262,10 @@ html, body {
         color: $footer-items-text;
       }
 
-      a:hover {
-        color: #fff;
-      }
-
       a {
         padding-left: 35px;
 
-        -o-transition:1s;
-        -ms-transition:1s;
-        -moz-transition:1s;
-        -webkit-transition:1s;
-        transition:1s;
+        @include link-hover-transition-to-white;
       }
     }
   }
@@ -274,6 +282,10 @@ html, body {
 
     a:hover {
       text-decoration: none;
+    }
+
+    a {
+      @include link-hover-transition-to-white;
     }
 
     li {
