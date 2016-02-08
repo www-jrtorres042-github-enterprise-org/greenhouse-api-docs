@@ -55,11 +55,11 @@ html, body {
 }
 
 @mixin link-hover-transition-to-white {
-  -o-transition:1s;
-  -ms-transition:1s;
-  -moz-transition:1s;
-  -webkit-transition:1s;
-  transition:1s;
+  -o-transition:0.5s;
+  -ms-transition:0.5s;
+  -moz-transition:0.5s;
+  -webkit-transition:0.5s;
+  transition:0.5s;
 
   &:hover {
     color: #fff;
