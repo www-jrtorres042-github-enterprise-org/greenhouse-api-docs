@@ -1,5 +1,8 @@
 @import 'fonts';
 @import 'normalize';
+@import 'variables';
+
+$full-width: $phone-width + 1;
 
 html, body {
   font-family: "LLAkkuratWeb-Light", Helmut, Helvetica, Arial, sans-serif;
@@ -37,12 +40,19 @@ html, body {
   flex-flow: row wrap;
   justify-content: space-around;
 
-  width: 100%;
   max-width: 1050px;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 150px;
+
+  @media (min-width: $full-width) {
+    width: 100%;
+  }
+
+  @media (max-width: $phone-width) {
+    width: 320px;
+  }
 }
 
 .block {
@@ -126,8 +136,17 @@ html, body {
     height: 35px;
     background-size: 100%;
     background-repeat: no-repeat;
-    float: left;
     margin-top: 10px;
+
+    @media (min-width: $full-width) {
+      float: left;
+    }
+
+    @media (max-width: $phone-width) {
+      float: none;
+      margin-left:auto;
+      margin-right:auto;
+    }
   }
 
   hr {
@@ -135,28 +154,50 @@ html, body {
     margin-bottom: 20px;
   }
 
+
+
   .footer-links {
-    float: right;
     color: #424242;
     font-size: 16px;
-
-    li {
-      display: inline;
-      list-style-type: none;
-      padding-right: 10px;
-    }
-
-    li:first-child:before {
-      content: '';
-    }
-
-    li:before {
-      content: '\007C\00a0\00a0\00a0';
-    }
+    padding: 0;
 
     a:link, a:visited, a:hover, a:active {
       text-decoration: none;
       color: #424242;
     }
+
+    li {
+      list-style-type: none;
+    }
+
+    @media (min-width: $full-width) {
+      float: right;
+
+      li {
+        display: inline;
+        padding-right: 10px;
+      }
+
+      li:before {
+        content: '\007C\00a0\00a0\00a0';
+      }
+
+      li:first-child:before {
+        content: '';
+      }
+    }
+
+    @media (max-width: $phone-width) {
+      li {
+        display: block;
+        text-align: center;
+        margin-bottom: 1.5em;
+      }
+
+      li:before {
+        content: '';
+      }
+    }
   }
 }
+
