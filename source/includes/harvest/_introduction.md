@@ -24,15 +24,6 @@ We have usage examples for cURL and Ruby! You can view code examples in the dark
 
 This documentation is open source! Feel free to leave feedback as issues in the [GitHub repo](https://github.com/capablemonkey/greenhouse-api-docs) or fork it and contribute changes!
 
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-
-
-
-
 ## Authentication
 
 > To authorize, use this code:
