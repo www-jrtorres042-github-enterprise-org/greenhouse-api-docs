@@ -26,7 +26,6 @@ includes:
   - harvest/scorecards
   - harvest/sources
   - harvest/users
-  - harvest/errors
 
 slug: harvest
 search: true

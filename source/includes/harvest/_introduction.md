@@ -121,3 +121,12 @@ Unless otherwise specified, API methods generally conform to the following:
 - Timestamps are rendered in ISO-8601 format (e.g. `2013-11-21T18:35:22Z`)
 - URLs to external resources are valid for 30 days
 - We reserve the right to add more properties to objects, but will never change or remove them
+
+## Errors
+
+Error Code | Meaning
+---------- | -------
+401 | Unauthorized -- Invalid Harvest API key.  Check to make sure you've passing it in via the `Authorization` header (Basic Auth)
+403 | Forbidden -- You do not have access to that record.
+404 | Not Found -- Resource not found
+500 | Server Error -- We had a problem with our server. Try again later or contact us: support@greenhouse.io
