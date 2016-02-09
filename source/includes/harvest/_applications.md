@@ -2,7 +2,7 @@
 
 ## The application object
 
-Applications are created when a candidate applies for a job.
+Applications associate [candidates](#candidates) with [jobs](#jobs).
 
 ```json
 {
