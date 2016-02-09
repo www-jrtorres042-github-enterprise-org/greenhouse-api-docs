@@ -127,10 +127,14 @@ Parameter | Description
 --------- | -----------
 id | ID of the application to retrieve
 
+
+
+
 ## Advance an application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}/advance' \
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -169,6 +173,14 @@ Move this application to the next stage. The response is populated with the appl
 
 `POST https://harvest.greenhouse.io/v1/applications/{id}/advance`
 
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
 ### Query Parameters
 
 Parameter | Required | Type | Description
@@ -176,10 +188,12 @@ Parameter | Required | Type | Description
 id | Yes | integer | ID of the application to retrieve
 from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
 
+
 ## Move an application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}/move' \
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -229,6 +243,13 @@ Move this application from one stage to another. The response is populated with 
 
 `POST https://harvest.greenhouse.io/v1/applications/{id}/move`
 
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
 ### Query Parameters
 
 Parameter | Required | Type | Description
@@ -240,7 +261,8 @@ to_stage_id | Yes | integer | The ID of the job stage this application should be
 ## Reject an application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}/reject' \
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -293,6 +315,13 @@ Reject this application. The response is populated with the application's inform
 ### HTTP Request
 
 `POST https://harvest.greenhouse.io/v1/applications/{id}/reject`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
 
 ### Query Parameters
 
