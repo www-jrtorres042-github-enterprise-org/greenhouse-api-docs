@@ -84,6 +84,15 @@
 }
 ```
 
+### Noteworthy attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| id | The scorecard's unique identifier |
+| candidate_id | The ID of the [candidate](#candidates) whom this scorecard was written for.
+| submitted_by | The [user](#users) who submitted this scorecard.
+| overall_recommendation | One of: `definitely_not`, `no`, `yes`, `strong_yes`, `mixed`, `no_decision`
+
 ## List scorecards
 
 ```shell

@@ -18,6 +18,7 @@
 | Attribute | Description |
 |-----------|-------------|
 | id | The user's unique identifier |
+| site_admin | If `true`, this user is a site admin, which means the user has full permissions on all jobs.
 
 ## List users
 

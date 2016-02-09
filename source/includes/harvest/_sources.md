@@ -13,9 +13,12 @@
 }
 ```
 
+### Noteworthy attributes
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The source's unique identifier |
+| type.name | One of: `attend_events`, `referrals`, `job_boards`, `candidate_search`, `other`, `social_media`, `company_marketing`, `agencies`
 
 ## List sources
 

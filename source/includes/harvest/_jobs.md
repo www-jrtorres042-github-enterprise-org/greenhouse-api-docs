@@ -39,9 +39,15 @@
 }
 ```
 
+### Noteworthy attributes
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The job's unique identifier |
+| status | One of `open`, `closed`, `draft`.
+| departments | An array containing the [department](#department) which this job belongs to.
+| offices | An array containing the [offices](#offices) this job is associated with.
+| custom_fields | Contains any custom job fields which have been defined by your organization.
 
 ## List jobs
 

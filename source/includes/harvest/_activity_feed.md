@@ -2,6 +2,8 @@
 
 ## The activity feed object
 
+### Noteworthy attributes
+
 ```json
 {
   "note": [
@@ -51,7 +53,7 @@
 |-----------|-------------|
 | note | An array of notes associated with this candidate|
 | email | An array of emails sent to and from this candidate.
-| activity | An array of event associated with this candidate
+| activity | An array of events associated with this candidate
 
 ## Retrieve activity feed for candidate
 

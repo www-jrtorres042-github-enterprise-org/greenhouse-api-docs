@@ -2,12 +2,12 @@
 
 ## The application object
 
-Applications are created when a candidate applies for a job.  They can one of several stages.  The final
+Applications are created when a candidate applies for a job.
 
 ```json
 {
   "id": 985314,
-  "person_id": 978031,
+  "candidate_id": 978031,
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39Z",
   "last_activity_at": "2014-03-27T16:13:15Z",
@@ -32,10 +32,16 @@ Applications are created when a candidate applies for a job.  They can one of se
   }
 }
 ```
+### Noteworthy attributes
 
 | Attribute | Description |
 |-----------|-------------|
 | id | Application ID |
+| prospect | If `true`, this is a prospect application which means that the associated person is a prospect and has not yet applied for this job.
+| status | One of: `rejected`, `active`, `paused`, `completed`, `unvisited`, `hired`, `converted`.
+| jobs | An array containing the [job](#jobs) that the candidate applied for.
+| candidate_id | The ID of the [candidate](#candidates) who is applying for this job.
+| current_stage | The current [stage](#job-stages) that this application is in.
 
 ## List applications
 
@@ -131,7 +137,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/advance' \
 ```json
 {
   "id": 985314,
-  "person_id": 978031,
+  "candidate_id": 978031,
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39Z",
   "last_activity_at": "2014-03-27T16:13:15Z",
@@ -191,7 +197,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/move' \
 ```json
 {
   "id": 985314,
-  "person_id": 978031,
+  "candidate_id": 978031,
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39Z",
   "last_activity_at": "2014-03-27T16:13:15Z",
@@ -256,7 +262,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/reject' \
 ```json
 {
   "id": 985314,
-  "person_id": 978031,
+  "candidate_id": 978031,
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39Z",
   "last_activity_at": "2014-03-27T16:13:15Z",

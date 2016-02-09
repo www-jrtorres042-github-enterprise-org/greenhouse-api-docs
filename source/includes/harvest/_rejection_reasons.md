@@ -2,6 +2,8 @@
 
 ## The rejection reason object
 
+Represents rejection reasons configured by an organization under the Custom Options section of Greenhouse.
+
 ```json
 {
   "id": 262,
@@ -13,9 +15,13 @@
 }
 ```
 
+### Noteworthy attributes
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The rejection reason's unique identifier |
+| name | The rejection reason's name
+| type | One of `{"id": 1, "name": "We rejected them"}`, `{"id": 2, "name": "They rejected us"}`, `{"id": 3, "name": "None specified"}`
 
 ## List rejection reasons
 

@@ -118,9 +118,14 @@
 }
 ```
 
+### Noteworthy attributes
+
 | Attribute | Description |
 |-----------|-------------|
-| title | Job post's title
+| internal | If `true`, this job post has been posted (or is *to be posted*) on an internal job board.
+| external | If `true`, this job post has been posted (or is *to be posted*) on an external job board.
+| job_id | The ID of the [job](#jobs) that this job post is for.
+| questions | An array of questions associated with this job post.
 
 ## List job posts
 

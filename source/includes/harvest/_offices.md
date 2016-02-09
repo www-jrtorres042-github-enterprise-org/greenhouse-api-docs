@@ -12,6 +12,8 @@
 }
 ```
 
+### Noteworthy attributes 
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The office's unique identifier |

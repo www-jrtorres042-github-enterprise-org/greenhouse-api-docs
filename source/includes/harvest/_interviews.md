@@ -31,10 +31,14 @@
   ]
 }
 ```
+### Noteworthy attributes
 
 | Attribute | Description |
 |-----------|-------------|
 | id | The scheduled interview's unique identifier |
+| status | One of: `to_be_scheduled`, `scheduled`, `awaiting_feedback`, `complete`, `skipped`, `collect_feedback`, `to_be_sent`, `sent`, `received`
+| organizer | The [user](#users) who is the organizer for this interview
+| interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed
 
 ## List scheduled interviews
 

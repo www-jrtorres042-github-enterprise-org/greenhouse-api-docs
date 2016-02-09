@@ -17,9 +17,13 @@
 }
 ```
 
+### Noteworthy attributes
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The email template's unique identifier |
+| type | One of: `new_candidate`, `weekly_status`, `daily_recruiting`, `stage_transition`, `new_scorecard`, `new_referral`, `agency_candidate_status`, `agency_candidate_stage`, `take_home_test_email`, `candidate_auto_reply`, `candidate_rejection`, `scorecard_reminder`, `interviewer_invite`, `candidate_email`, `team_email`, `none`, `extending_offer`, `new_agency_submission`, `non_admin_welcome`, `job_admin_welcome`, `site_admin_welcome`, `prospect_referral_receipt`, `candidate_referral_receipt`, `candidate_availability_request`, `candidate_availability_confirmation`
+
 
 ## List email templates
 

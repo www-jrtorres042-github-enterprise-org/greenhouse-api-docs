@@ -23,9 +23,14 @@
 }
 ```
 
+### Noteworthy attributes
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The offer's unique identifier |
+| version | The version number of this offer.  When an existing offer is updated, a new one is typically created with an incremented version.
+| status | One of: `unresolved`, `accepted`, `rejected`, `deprecated`.
+| application_id | The ID of the associated [application](#applications).
 
 ## List offers 
 

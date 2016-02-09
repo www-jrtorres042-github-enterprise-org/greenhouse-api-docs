@@ -44,6 +44,7 @@
 | Attribute | Description |
 |-----------|-------------|
 | id | The job stage's unique identifier |
+| interviews | An array of interviews associated with this job stage.
 
 ## List job stages for job
 

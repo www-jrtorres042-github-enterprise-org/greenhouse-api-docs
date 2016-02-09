@@ -11,7 +11,7 @@
   "title": "Senior Digital Marketing Manager",
   "created_at": "2015-05-29T18:19:00Z",
   "last_activity": "2015-05-29T20:01:05Z",
-  "photo_url": "https://dev-localhost.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
+  "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
   "attachments": [],
   "application_ids": [
     7827056
@@ -62,10 +62,16 @@
 }
 ```
 
+### Noteworthy attributes
+
 | Attribute | Description |
 |-----------|-------------|
 | id | The candidate's unique identifier |
-| first_name | Candidate's first name |
+| company | The company the candidate is currently employed at
+| title | The candidate's current title
+| application_ids | Array of [application](#applications) IDs associated with this candidate. Can contain none, one, or several application IDs.
+| recruiter | The recruiter [user](#users) who is responsible for this candidate.
+| coordinator | The coordinator [user](#users) who is responsible for this candidate.
 
 ## List candidates
 
@@ -86,7 +92,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates' \
     "title": "Senior Digital Marketing Manager",
     "created_at": "2015-05-29T18:19:00Z",
     "last_activity": "2015-05-29T20:01:05Z",
-    "photo_url": "https://dev-localhost.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
+    "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
     "attachments": [],
     "application_ids": [
       7827056
@@ -169,7 +175,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}' \
   "title": "Senior Digital Marketing Manager",
   "created_at": "2015-05-29T18:19:00Z",
   "last_activity": "2015-05-29T20:01:05Z",
-  "photo_url": "https://dev-localhost.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
+  "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
   "attachments": [],
   "application_ids": [
     7827056
