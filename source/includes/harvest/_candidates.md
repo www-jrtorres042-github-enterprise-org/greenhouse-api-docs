@@ -393,6 +393,13 @@ Update or `patch` a single candidate by its `id`.
 
 `PATCH https://harvest.greenhouse.io/v1/candidates/{id}`
 
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
 ### URL Parameters
 
 Parameter | Required | Type | Description
@@ -443,6 +450,13 @@ Post an attachment to a candidate's profile by the candidate `id`.
 ### HTTP Request
 
 `POST https://harvest.greenhouse.io/v1/candidates/{id}/attachments`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
 
 ### URL Parameters
 
@@ -560,6 +574,13 @@ Anonymize the data associated with a candidate.
 
 `PUT https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={field_names}`
 
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
 ### URL Parameters
 
 Parameter | Required | Type | Description
@@ -567,3 +588,60 @@ Parameter | Required | Type | Description
 id | Yes | integer |   The ID of the candidate
 fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, and offers.
 
+
+
+
+
+## Create a candidate's note
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/notes'
+-H "On-Behalf-Of: {greenhouse user ID}" 
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "user_id": "158108",
+  "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
+  "visibility": "admin_only"
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "created_at": "2015-07-17T16:29:31Z",
+  "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
+  "user": {
+    "id": 214,
+    "name": "Boone Carlyle"
+  },
+  "private": false,
+  "visibility": "admin_only"
+}
+```
+
+Create a candidate note. 
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/notes`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### URL Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+user_id | Yes | integer |   The ID of the user creating the note
+body | Yes | string | Note body
+visibility | Yes | string | One of: ["admin_only", "private", "public"]

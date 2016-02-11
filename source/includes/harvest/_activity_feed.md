@@ -1,6 +1,7 @@
 # Activity Feed
 
 ## The activity feed object
+The activity feed is the list of activities on a candidate's profile, including interviews, notes, and emails.
 
 ### Noteworthy attributes
 
@@ -51,9 +52,12 @@
 
 | Attribute | Description |
 |-----------|-------------|
-| note | An array of notes associated with this candidate|
+| note | An array of notes associated with this candidate.
 | email | An array of emails sent to and from this candidate.
 | activity | An array of events associated with this candidate
+
+
+
 
 ## Retrieve activity feed for candidate
 
