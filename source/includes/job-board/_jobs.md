@@ -39,17 +39,6 @@ Parameter | Description
 --------- | -----------
 content | If set to `true`, include the description of each job post.
 
-
-| Attribute | Data Type | Description |
-|-----------|-----------|-------------|
-| id | integer | Job ID |
-| title | string | Job title |
-| updated_at | datetime | Timestamp of last change to this job |
-| location.name | string | Job location |
-| absolute_url | string | URL of the job post's description page |
-| internal_job_id | integer | TODO: what is this?
-| metadata | array | Contains custom fields TODO: describe custom field objects
-
 ## Retrieve a job
 
 ```json
