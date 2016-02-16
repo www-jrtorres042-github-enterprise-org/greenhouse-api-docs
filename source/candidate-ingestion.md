@@ -10,6 +10,10 @@ toc_footers:
 
 includes:
   - candidate-ingestion/introduction
+  - candidate-ingestion/candidates
+  - candidate-ingestion/current_user
+  - candidate-ingestion/jobs
+  - candidate-ingestion/tracking_link
 
 slug: candidate-ingestion
 search: true
