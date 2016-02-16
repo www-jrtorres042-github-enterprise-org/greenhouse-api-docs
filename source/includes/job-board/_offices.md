@@ -99,7 +99,7 @@ board_token | Job Board URL token
 }
 ```
 
-Returns a list of your organization's departments and jobs for the given `officeId`
+Returns a list of your organization's departments and jobs for the given `office_id`
 
 ### HTTP Request
 

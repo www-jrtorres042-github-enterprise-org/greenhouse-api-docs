@@ -67,7 +67,7 @@ Currently, Web Hooks for all event types include these common attributes:
 | `application.status` | One of: `rejected`, `hired`, `active`
 | `application.candidate.id` | Unique Greenhouse identifier of the candidate. Information not included in the web hook can be retrieved via [Harvest API - GET Candidates](/harvest.html#get-candidates)
 | `application.candidate.phone_numbers[].type` | One of: `home`, `work`, `mobile`, `skype`, `other`
-| `application.candidate.addresses[].type` | Application Candidate Addresses[] Type
+| `application.candidate.addresses[].type` | Application Candidate Addresses Type
 | `application.candidate.email_addresses[].type` | One of: `personal`, `work`, `other`
 | `application.candidate.attachments[].type` | One of: `admin_only`, `public`, `cover_letter`, `offer_packet`, `resume`, `take_home_test`, `offer_letter`, `signed_offer_letter`
 | `application.candidate.external_id` | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
