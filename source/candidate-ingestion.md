@@ -14,6 +14,7 @@ includes:
   - candidate-ingestion/current_user
   - candidate-ingestion/jobs
   - candidate-ingestion/tracking_link
+  - candidate-ingestion/errors
 
 slug: candidate-ingestion
 search: true
