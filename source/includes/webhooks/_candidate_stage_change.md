@@ -30,7 +30,7 @@
             "name": "Take Home Test",
             "status": "to_be_scheduled",
             "interview_kit": {
-              "url": "http://localhost-app.greenhouse.io:3000/guides/113153/people/265772",
+              "url": "https://app.greenhouse.io/guides/113153/people/265772",
               "content": "Assess their skills",
               "questions": []
             },
