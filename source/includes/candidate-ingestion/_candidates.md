@@ -4,9 +4,15 @@
 
 Retrieve a candidate's data.
 
-HTTP Method | Resource URL | Content Type | Scope Required
--------------- | -------------- | --------------  | -------------- 
-GET | https://api.greenhouse.io/v1/partner/candidates | application/json | candidates.view
+
+* **HTTP Method:** GET
+
+* **Resource URL:** https://api.greenhouse.io/v1/partner/partner_candidates
+
+* **Content Type:** application/json
+
+* **Scope Required:** candidates.view
+
 
 > The API Resquest
 
@@ -59,6 +65,18 @@ applications.profile_url | String | Yes | A URL to the candidate’s profile in 
 
 
 ## Post Candidates
+
+Create one or more candidates or prospects.
+
+
+* **HTTP Method:** POST
+
+* **Resource URL:** https://api.greenhouse.io/v1/partner/candidates
+
+* **Content Type:** application/json
+
+* **Scope Required:** candidates.create
+
 
 > The API Resquest
 
