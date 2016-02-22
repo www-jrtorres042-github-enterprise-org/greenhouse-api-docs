@@ -2,16 +2,6 @@
 
 ## Retrieve Current User
 
-Retrieve details about the current user.
-
-* **HTTP Method:** GET
-
-* **Resource URL:** https://api.greenhouse.io/v1/partner/current_user
-
-* **Content Type:** application/json
-
-* **Scope Required:** N/A
-
 
 > The API Response
 
@@ -25,6 +15,20 @@ Retrieve details about the current user.
 
 ]
 ```
+
+Retrieve details about the current user.
+
+* **HTTP Method:** GET
+
+* **Resource URL:** https://api.greenhouse.io/v1/partner/current_user
+
+* **Content Type:** application/json
+
+* **Scope Required:** N/A
+
+### Request Parameters
+
+This request is simply the URL. It takes no parameters.
 
 ### Response Parameters
 

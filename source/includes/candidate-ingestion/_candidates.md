@@ -2,22 +2,7 @@
 
 ## Retrieve Candidates
 
-Retrieve a candidate's data.
-
-
-* **HTTP Method:** GET
-
-* **Resource URL:** https://api.greenhouse.io/v1/partner/partner_candidates
-
-* **Content Type:** application/json
-
-* **Scope Required:** candidates.view
-
-
 > The API Resquest
-
-The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs (as were returned in the POST method).
-
 
 ```json
 [
@@ -38,9 +23,20 @@ The request should contain a single query parameter that specifies a comma-delim
 ]
 ```
 
+Retrieve a candidate's data.
+
+* **HTTP Method:** GET
+
+* **Resource URL:** https://api.greenhouse.io/v1/partner/partner_candidates
+
+* **Content Type:** application/json
+
+* **Scope Required:** candidates.view
+
+
 ### Request Parameters
 
-The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs (as were returned in the POST method).
+The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs.
 
 Query Parameter Name | Required | Description
 -------------- | -------------- | --------------  | -------------- 
@@ -49,7 +45,7 @@ candidate_ids | Yes | Comma-delimited list of Candidate IDs (e.g. 123, 456)
 
 ### Response Parameters
 
-The response will always be an array of objects, even if only one candidate_id is provided.
+The response will always be an array of objects, even if only one `candidate_id` is provided.
 
 Property Name  | Value | Required | Description
 -------------- | -------------- | --------------  | -------------- 
@@ -66,21 +62,7 @@ applications.profile_url | String | Yes | A URL to the candidate’s profile in 
 
 ## Post Candidates
 
-Create one or more candidates or prospects.
-
-
-* **HTTP Method:** POST
-
-* **Resource URL:** https://api.greenhouse.io/v1/partner/candidates
-
-* **Content Type:** application/json
-
-* **Scope Required:** candidates.create
-
-
 > The API Resquest
-
-The response will always be an array of objects, even if only one candidate_id is provided.
 
 ```json
 {
@@ -122,6 +104,38 @@ The response will always be an array of objects, even if only one candidate_id i
 }
 ```
 
+
+> The API Response
+
+```json
+[
+	{
+	“id”: {Integer}, 
+	“application_id”: {Integer}, 
+	“external_id”: {String}, 
+	“profile_url”: {String}
+	} 
+]
+```
+
+
+
+ The API will respond with a single object if a single object was provided or an array of objects if an array was provided.
+
+Create one or more candidates or prospects.
+
+The response will always be an array of objects, even if only one candidate_id is provided.
+
+
+* **HTTP Method:** POST
+
+* **Resource URL:** https://api.greenhouse.io/v1/partner/candidates
+
+* **Content Type:** application/json
+
+* **Scope Required:** candidates.create
+
+
 ### Request Parameters
 
 Property Name  | Value | Required | Description
@@ -153,21 +167,6 @@ addresses.type | String | Yes
 external_id | String | Yes | The unique id of this candidate in your application’s system.
 notes | String | No | Free-form plain-text notes about this candidate. One way for this to be used is to send secondary information that our API can’t capture as structured data. For example: “Skills: Java, C++, Python”
 
-
-> The API Response
-
- The API will respond with a single object if a single object was provided or an array of objects if an array was provided.
-
-```json
-[
-	{
-	“id”: {Integer}, 
-	“application_id”: {Integer}, 
-	“external_id”: {String}, 
-	“profile_url”: {String}
-	} 
-]
-```
 
 ### Response Parameters
 

@@ -10,6 +10,8 @@ toc_footers:
 
 includes:
   - take-home-test/introduction
+  - take-home-test/endpoints
+  - take-home-test/errors
 
 slug: take-home-test
 search: true

@@ -1,3 +1,0 @@
-# Introduction
-
-The take home test, blah blah blah...

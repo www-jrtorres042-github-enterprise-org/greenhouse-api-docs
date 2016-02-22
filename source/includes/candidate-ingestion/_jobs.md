@@ -2,17 +2,6 @@
 
 ## Retreive Jobs
 
-Retrieve jobs that are visible for the current user. This includes all jobs listed on their organization’s public careers page and unpublished jobs the user can access.
-
-* **HTTP Method:** GET
-
-* **Resource URL:** https://api.greenhouse.io/v1/partner/jobs
-
-* **Content Type:** application/json
-
-* **Scope Required:** jobs.view
-
-
 > The API Response
 
 ```json
@@ -26,6 +15,21 @@ Retrieve jobs that are visible for the current user. This includes all jobs list
 
 ]
 ```
+
+Retrieve jobs that are visible for the current user. This includes all jobs listed on their organization’s public careers page and unpublished jobs the user can access.
+
+* **HTTP Method:** GET
+
+* **Resource URL:** https://api.greenhouse.io/v1/partner/jobs
+
+* **Content Type:** application/json
+
+* **Scope Required:** jobs.view
+
+### Request Parameters
+
+This request is simply the URL. It takes no parameters.
+
 
 ### Response Parameters
 

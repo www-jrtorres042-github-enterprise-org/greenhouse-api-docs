@@ -4,21 +4,6 @@
 
 Create a new tracking link for a specific job. Candidates that apply using this tracking link will automatically have their source set to your application and their referrer set to the current user.
 
-
-
-* **HTTP Method:** POST
-
-* **Resource URL:** https://api.greenhouse.io/v1/partner/tracking_link
-
-* **Content Type:** application/json
-
-* **Scope Required:** N/A
-
-
-### Request Parameters
-
-This request is simply the URL. It takes no parameters.
-
 > API Request
 
 ```json
@@ -26,8 +11,6 @@ This request is simply the URL. It takes no parameters.
 	“job_id": {Integer}
 }
 ```
-
-### Response Parameters
 
 > API Response
 
@@ -42,6 +25,23 @@ This request is simply the URL. It takes no parameters.
 
 ]
 ```
+
+* **HTTP Method:** POST
+
+* **Resource URL:** https://api.greenhouse.io/v1/partner/tracking_link
+
+* **Content Type:** application/json
+
+* **Scope Required:** N/A
+
+
+### Request Parameters
+
+This request is simply the URL. It takes no parameters.
+
+
+### Response Parameters
+
 
 Property Name | Value | Required | Description
 -------------- | -------------- | -------------- | -------------- 
