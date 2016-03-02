@@ -84,8 +84,8 @@ Retreive all of an organization's applications.
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 
 ## Retrieve an application
 

@@ -1,3 +1,5 @@
+require_relative 'lib/custom_renderer.rb'
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,

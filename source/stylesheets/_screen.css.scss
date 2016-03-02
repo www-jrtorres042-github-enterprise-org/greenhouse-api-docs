@@ -502,6 +502,15 @@ html, body {
       padding: 10px;
     }
 
+    td.optional {
+      &:after {
+        content: '\Aoptional';
+        font-style: italic;
+        white-space: pre;
+        opacity: .5;
+      }
+    }
+
     td:first-child {
       white-space: nowrap;
     }
