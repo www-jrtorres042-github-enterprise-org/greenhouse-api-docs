@@ -2,6 +2,8 @@
 
 ## The source object 
 
+Your organization's sources.
+
 ```json
 {
   "id": 632,
@@ -63,6 +65,8 @@ Lists an organization's sources, grouped by strategy.
 | per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 
+<br>
+[See noteworthy response attributes.] (#the-source-object)
 
 ## Retrieve a source 
 
@@ -93,3 +97,6 @@ curl 'https://harvest.greenhouse.io/v1/sources/{id}' \
 Parameter | Description
 --------- | -----------
 id | The ID of the source to retrieve
+
+<br>
+[See noteworthy response attributes.] (#the-source-object)
