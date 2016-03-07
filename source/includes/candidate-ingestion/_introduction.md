@@ -23,7 +23,7 @@ Greenhouse offers two methods of authentication for this API: OAuth 2.0 and Basi
 
 ### Authentication via OAuth 2.0.
 
-If the mutual customer’s users have accounts in both Greenhouse and the partner’s system, the preferred authentication type is via OAuth2. In this case, the partner would place an integration option on their website which would allow the user to authenticate in to Greenhouse via the partner’s application. This is similar to allowing people to register for a website using Facebook credentials. For a partner to configure this, they must supply Greenhouse with the following information:
+If the mutual customer’s users have accounts in both Greenhouse and the partner’s system, the preferred authentication type is via OAuth 2.0. In this case, the partner would place an integration option on their website which would allow the user to authenticate in to Greenhouse via the partner’s application. This is similar to allowing people to register for a website using Facebook credentials. For a partner to configure this, they must supply Greenhouse with the following information:
 
 1. **Application Name**: The name of the application as it would appear in Greenhouse.
 2. **Application URL**: The URL to the primary applilcation.
@@ -45,7 +45,7 @@ Authorize URL | https://app.greenhouse.io/oauth/authorize
 
 <br>
 
-The partner should use this information to initiate an OAuth2 flow in their application. Note the customer user can rescind this at any time. Further information about how to configure this (including a sample Ruby Gem) can be found [on GitHub.] (https://github.com/grnhse/omniauth-greenhouse)
+The partner should use this information to initiate an OAuth 2.0 flow in their application. Note the customer user can rescind this at any time. Further information about how to configure this (including a sample Ruby Gem) can be found [on GitHub.] (https://github.com/grnhse/omniauth-greenhouse)
 
 
 When the user attempts to connect with Greenhouse, they will see a prompt asking them to confirm the connection. This prompt will then associate the user’s account in the partner system with their Greenhouse account.
@@ -68,4 +68,4 @@ or as an authorized header:
 
 `Authorization: Basic base64_encode(<api_key>:)`
 
-In all cases, the customer will have supply the partner with a Partner API Key and a service user. Both items are required to submit candidates.
+In all cases, the customer will have supplied the partner with a Partner API Key and a service user. Both items are required to submit candidates.

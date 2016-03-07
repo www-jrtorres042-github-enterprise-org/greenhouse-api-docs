@@ -2,8 +2,6 @@
 
 ## Retrieve Candidates
 
-> The API Resquest
-
 ```json
 [
 	{
@@ -23,16 +21,12 @@
 ]
 ```
 
-Retrieve a candidate's data.
+Retrieve a candidate's data
 
-* **HTTP Method:** GET
+`GET https://api.greenhouse.io/v1/partner/partner_candidates`
 
-* **Resource URL:** https://api.greenhouse.io/v1/partner/partner_candidates
 
-* **Content Type:** application/json
-
-* **Scope Required:** candidates.view
-
+*scope: candidates.view*
 
 ### Request Parameters
 
@@ -47,7 +41,7 @@ candidate_ids | Yes | Comma-delimited list of Candidate IDs (e.g. 123, 456)
 
 The response will always be an array of objects, even if only one `candidate_id` is provided.
 
-Property Name  | Value | Required | Description
+Property Name  | Type | Required | Description
 -------------- | -------------- | --------------  | -------------- 
 id | Integer | Yes | The ID of the candidate
 external_id | String | No | The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.
@@ -61,8 +55,6 @@ applications.profile_url | String | Yes | A URL to the candidate’s profile in 
 
 
 ## Post Candidates
-
-> The API Resquest
 
 ```json
 {
@@ -119,26 +111,20 @@ applications.profile_url | String | Yes | A URL to the candidate’s profile in 
 ```
 
 
-
- The API will respond with a single object if a single object was provided or an array of objects if an array was provided.
-
-Create one or more candidates or prospects.
-
-The response will always be an array of objects, even if only one candidate_id is provided.
+Create one or more candidates or prospects
 
 
-* **HTTP Method:** POST
+`POST https://api.greenhouse.io/v1/partner/candidates`
 
-* **Resource URL:** https://api.greenhouse.io/v1/partner/candidates
 
-* **Content Type:** application/json
-
-* **Scope Required:** candidates.create
+*scope: candidates.create*
 
 
 ### Request Parameters
 
-Property Name  | Value | Required | Description
+The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs.
+
+Property Name  | Type | Required | Description
 -------------- | -------------- | --------------  | -------------- 
 prospect | Boolean | Yes | True if this candidte should be a propsect.(Default: true)
 job_id | Integer | Mixed | Required only if prospect is false. The ID of the job to whichc this candidate or prospect should be added.
@@ -170,7 +156,9 @@ notes | String | No | Free-form plain-text notes about this candidate. One way f
 
 ### Response Parameters
 
-Property Name  | Value | Required | Description
+ The API will respond with a single object if a single object was provided or an array of objects if an array was provided.
+
+Property Name  | Type | Required | Description
 -------------- | -------------- | --------------  | -------------- 
 id | Integer | Yes | The ID of the newly created candidate in Greenhouse.
 application_id | Integer | Yes | The ID of the application implicitly created in Greenhouse.

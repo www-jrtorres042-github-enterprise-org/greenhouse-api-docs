@@ -3,8 +3,6 @@
 ## Retrieve Current User
 
 
-> The API Response
-
 ```json
 [
 	{ 
@@ -16,15 +14,11 @@
 ]
 ```
 
-Retrieve details about the current user.
+Retrieve details about the current user
 
-* **HTTP Method:** GET
 
-* **Resource URL:** https://api.greenhouse.io/v1/partner/current_user
+`GET https://api.greenhouse.io/v1/partner/current_user`
 
-* **Content Type:** application/json
-
-* **Scope Required:** N/A
 
 ### Request Parameters
 
@@ -32,7 +26,7 @@ This request is simply the URL. It takes no parameters.
 
 ### Response Parameters
 
-Property Name | Value | Required
+Property Name | Type | Required
 -------------- | -------------- | -------------- 
 first_name | String | Yes
 last_name | String | Yes

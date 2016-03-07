@@ -38,7 +38,7 @@ Greenhouse will periodically poll the [Test Status endpoint] (#test-status) to r
 ## Authentication
 
 
-Every request Greenhouse sends to a Testing Partner’s API will utilize HTTP Basic Authentication over HTTPS. As such, we require each of the API endpoints to use HTTPS as the protocol (as opposed to unencrypted HTTP).
+Every request Greenhouse sends to a Testing Partner’s API will utilize HTTP Basic Authentication over HTTPS. As such, we require each of the API endpoints to use HTTPS.
 
 When an organization decides to utilize a Testing Partner’s integration, they will provide their Greenhouse Account Manager with their API key for that Testing Partner.
 

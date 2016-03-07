@@ -1,9 +1,5 @@
 # Errors
 
-## Error Codes
-
-> The response body will contain a JSON payload with the following form:
-
 ```json
 {
 	“errors”: [
@@ -14,7 +10,7 @@
 }
 ```
 
-Successful API responses will have a 200-level HTTP status code. Greenhouse reserves the right to add fields but will not remove or rename fields. If there is a problem processing your request, you will receive a response with a 4xx- or 5xx-level status code as follows:
+Successful API responses will have a 200-level HTTP status code. If there is a problem processing your request, you will receive a response with a 4xx- or 5xx-level status code as follows:
 
 Status Code  | Description 
 -------------- | -------------- 
@@ -26,7 +22,7 @@ Status Code  | Description
 
 ### Error Properties
 
-Property Name  | Value | Required | Description
+Property Name  | Type | Required | Description
 -------------- | -------------- | --------------  | -------------- 
 errors[] | Array | | Yes | 
 errors.message | String | Yes | A message describing the error. This is for debugging purposes and is not intended to be displayed to the end-user. The exact text should not be relied on programmatically. 

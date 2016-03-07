@@ -6,7 +6,3 @@ Status Code | Description
 -------------- | --------------
 401 | Unsuccessful authentication with the provided API key.
 404 | The requested resource could not be found.
-
-
-
-
