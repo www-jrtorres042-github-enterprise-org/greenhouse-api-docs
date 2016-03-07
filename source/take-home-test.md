@@ -10,7 +10,10 @@ toc_footers:
 
 includes:
   - take-home-test/introduction
-  - take-home-test/endpoints
+  - take-home-test/send_test
+  - take-home-test/list_tests
+  - take-home-test/test_status
+  - take-home-test/response_error
   - take-home-test/errors
 
 slug: take-home-test
