@@ -8,6 +8,8 @@ language_tabs:
 toc_footers:
   - <a href="/job-board.html" title="Job Board API">Job Board API</a>
   - <a href='/webhooks.html' title="Web Hooks">Web Hooks</a>
+  - <a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a>
+  - <a href='/take-home-test.html' title="Take Home Test API">Take Home Test API</a>
 
 includes:
   - harvest/introduction
