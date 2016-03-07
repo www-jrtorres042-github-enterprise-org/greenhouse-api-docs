@@ -122,6 +122,22 @@ html, body {
   }
 }
 
+.block-candidate-ingestion {
+  background-color: #C67F90;
+
+  &:hover {
+    background-color: #A15F6F;
+  }
+}
+
+.block-take-home-test {
+  background-color: #4AAAD3;
+
+  &:hover {
+    background-color: #3086AA;
+  }
+}
+
 .footer {
   width: 80%;
   height: 90px;
