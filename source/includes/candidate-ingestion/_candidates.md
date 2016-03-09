@@ -126,30 +126,30 @@ The request should contain a single query parameter that specifies a comma-delim
 
 Property Name  | Type | Required | Description
 -------------- | -------------- | --------------  | -------------- 
-prospect | Boolean | Yes | True if this candidte should be a propsect.(Default: true)
-job_id | Integer | Mixed | Required only if prospect is false. The ID of the job to whichc this candidate or prospect should be added.
+prospect | Boolean | Yes | True if this candidte should be a propsect. (Default: true)
+job_id | Integer | Mixed | Required only if prospect is false. The ID of the job to which this candidate or prospect should be added.
 first_name | String | Yes
 last_name | String | Yes
 company | String | No | Candidate's current company
 title | String | No | Candidate's current title
 resume | String | No | URL to the candidate’s resume. Greenhouse will attempt to ingest the docuent at this URL and add it to the candidate record.
 referrer | Object | No | If present, this value will be used to populate the “Who Gets Credit” field for the candidate’s application. If omitted, the “Who Gets Credit” field will be populated with the current user’s information.
-referrer.email | String | Yes | Used to match this referrer with an existing Greenhouse user, if possible. Note that these 3 cells are required only if referrer is included.
-referrer.first_name | String | Yes | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user.
-referrer.last_name  | String | Yes | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user.
+referrer.email | String | Mixed | Used to match this referrer with an existing Greenhouse user, if possible. Only required if referrer is included.
+referrer.first_name | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
+referrer.last_name  | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
 phone_numbers[] | Array | No
-phone_numbers.phone_number | String | Yes | Note: these are required for each phone_number element, but not required if no phone numbers are included.
-phone_numbers.type | String | Yes | Must be “mobile”, “home”, “work”, or “other”
+phone_numbers.phone_number | String | Mixed | Only required if phone_number is included.
+phone_numbers.type | String | Mixed | Must be “mobile”, “home”, “work”, or “other.” Only required if phone_number is included.
 emails[] | Array | No
-emails.email | String | Yes | Note: This is or each email element, but not required if no emails are included.
-emails.type | String | Yes | Must be “personal”, “work”, or “other” | 
+emails.email | String | Mixed | Note: Only required if email is included.
+emails.type | String | Mixed | Must be “personal”, “work”, or “other”. Only required if email is included. 
 social_media[] | Array | No
-social_media.url | String | Yes | Note: This is required for each social_ media element, but not required if no social media urls are included.
+social_media.url | String | Mixed | Note: Only required if social media urls are included.
 website[] | Array | No
-website.url | String | Yes | Note: These are required for each website element, but not required if no websites are included.
+website.url | String | Mixed | Note: Only required if websites are included.
 addresses[] | Array | No
-addresses.address | String | Yes | A free form block of text, which may include newlines (“\n”). Note: This is required for each address element, but not required if no addresses are included.
-addresses.type | String | Yes
+addresses.address | String | Mixed | A free form block of text, which may include newlines (“\n”). Only required if addresses are included.
+addresses.type | String | Mixed | Only required if addresses are included.
 external_id | String | Yes | The unique id of this candidate in your application’s system.
 notes | String | No | Free-form plain-text notes about this candidate. One way for this to be used is to send secondary information that our API can’t capture as structured data. For example: “Skills: Java, C++, Python”
 
