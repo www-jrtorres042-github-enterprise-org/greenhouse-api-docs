@@ -6,13 +6,30 @@
 
 ```json
 [
-	{ 
-		“id": {Integer}, 
-		“name”: {String}, 
-		"status": {String},
-		“public”: {Boolean}
-	}
-
+  {
+    "id": 146855,
+    "name": "Bard",
+    "status": "open",
+    "public": true
+  },
+  {
+    "id": 150056,
+    "name": "Cleric",
+    "status": "open",
+    "public": false
+  },
+  {
+    "id": 147887,
+    "name": "Druid",
+    "status": "open",
+    "public": true
+  },
+  {
+    "id": 147795,
+    "name": "Fighter",
+    "status": "open",
+    "public": true
+  }
 ]
 ```
 
