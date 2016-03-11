@@ -70,7 +70,6 @@ curl 'https://harvest.greenhouse.io/v1/applications' \
     "current_stage": null,
     "answers": []
   },
-  {...}
 ]
 ```
 

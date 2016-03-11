@@ -2,13 +2,17 @@
 
 ## Retrieve Current User
 
+```shell
+curl 'https://api.greenhouse.io/v1/partner/current_user'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
 
 ```json
 [
 	{ 
-		“first_name”: {String}, 
-		“last_name”: {String}, 
-		“email”: {String}
+		"first_name": "Ron", 
+		"last_name": "Weasley", 
+		"email": "rweasley@hogwarts.edu"
 	}
 
 ]

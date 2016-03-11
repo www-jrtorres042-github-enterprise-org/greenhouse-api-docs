@@ -2,23 +2,24 @@
 
 When a Greenhouse user sends a test to a candidate, Greenhouse will send a request to the Testing Partner's `send_test` API endpoint. The Testing Partner will then email the specified candidate the specified test.
 
-* **HTTP Method:** POST
-* **Resource URL:** Provided by Testing Partner
-* **Authentication:** HTTP Basic Auth
-
 ### Request
+
+```shell
+curl -X POST 'https://www.testing-partner.com/api/send_test'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
 
 ```json
 {
-	"partner_test_id": {String},
+	"partner_test_id": 12345,
 	"candidate":
 	{
-		"first_name": {String},
-		"last_name": {String},
-		"resume_url": {String},
-		"phone_number": {String},
-		"email": {String},
-		"greenhouse_profile_url": {String}
+		"first_name": "Harry",
+		"last_name": "Potter",
+		"resume_url": "https://hogwarts.com/resume",
+		"phone_number": "123-456-7890",
+		"email": "hpotter@hogwarts.edu",
+		"greenhouse_profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
 	}
 }
 ```
@@ -38,11 +39,11 @@ greenhouse_profile_url | String | Yes | URL to the candidate’s Greenhouse appl
 
 ### Response
 
-> API Response
+> The API Response
 
 ```json
 {
-	“partner_interview_id”: {String}
+	"partner_interview_id": 98765
 }
 ```
 
@@ -55,40 +56,3 @@ partner_interview_id | String | Yes | Identifies a candidate’s test.
 <aside class="notice">
 The partner_interview_id should not be confused with partner_test_id. While partner_test_id identifies the test, partner_interview_id identifies an instance of the test that was sent to a candidate.
 </aside>
-
-
-> Example API Request
-
-```json
-{
-	"partner_test_id": "12345",
-	"candidate": 
-		{
-			"first_name": "Kate",
-			"last_name": "Austen",
-			"resume_url": null,
-			"phone_number": "123-456-7890",
-			"email": "kate_austen@example.com",
-			"greenhouse_profile_url": "https://www.greenhouse.io/people/5345178?application_id=5699620"
-	}
-}
-```
-
-**Example**
-
-* *Testing Partner A* provided Greenhouse the following URL for its `send_test` endpoint: 
-	*https://www.testing-partnera.com/api/send_test*
-* A Greenhouse user who is an employee of `Customer 1` wants to send a test (with id: 12345) to a candidate with email: candidate@gmail.com.
-* The candidate’s Greenhouse profile page is found at 
-
-	*https://www.greenhouse.io/people/5345178?application_id=5699620*
-
-* *Testing Partner A* will then send test *12345* to *candidate@gmail.com.*
-
-> Example API Response
-
-```json
-{
-	"partner_interview_id": "98765"
-}
-```

@@ -2,19 +2,24 @@
 
 ## Retrieve Candidates
 
+```shell
+curl 'https://api.greenhouse.io/v1/partner/partner_candidates'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
 ```json
 [
 	{
-		“id”: {Integer},
-		“name”: {String}, 
-		“external_id”: {String}, 
-		“applications”: [
+		"id": 17681532,
+		"name": "Harry Potter", 
+		"external_id": 24680, 
+		"applications": [
 			{
-				“id”: {Integer},
-				“job”: {String}, 
-				“status”: {String}, 
-				“stage”: {String}, 
-				“profile_url”: {String}
+				"id": 59724,
+				"job": "Auror", 
+				"status": "Active", 
+				"stage": "Application Review", 
+				"profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
 			}
 		]
 	}
@@ -47,65 +52,69 @@ id | Integer | Yes | The ID of the candidate
 external_id | String | No | The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.
 applications[]| Array | Yes | An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.
 applications.id | Integer | Yes | The ID of the application.
-applications.job | String | Yes | Name of the job this application is for (e.g. “Software developer).
-applications.status | String | No | The candidate’s current status. Must be one of “rejected”, “completed”, “hired”, “converted”, “active.”
-applications.stage | String | Yes | The applicant’s current stage in the interview pipeline (e.g. “Recruiter Phone Screen”).
+applications.job | String | Yes | Name of the job this application is for (e.g. "Software developer).
+applications.status | String | No | The candidate’s current status. Must be one of "rejected", "completed", "hired", "converted", "active."
+applications.stage | String | Yes | The applicant’s current stage in the interview pipeline (e.g. "Recruiter Phone Screen").
 applications.profile_url | String | Yes | A URL to the candidate’s profile in Greenhouse. You must be signed in to Greenhouse to view the profile.
 
 
 
 ## Post Candidates
 
+```shell
+curl -X POST 'https://api.greenhouse.io/v1/partner/partner_candidates'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
 ```json
 {
-	“prospect”: {Boolean},
-	“first_name”: {String}, 
-	“last_name”: {String}, 
-	“company”: {String}, 
-	“title”: {String}, 
-	“resume”: {String}, 
-	“phone_numbers”: [
+	"prospect": "true",
+	"first_name": "Harry", 
+	"last_name": "Potter", 
+	"company": "Hogwarts", 
+	"title": "Student", 
+	"resume": "https://hogwarts.com/resume", 
+	"phone_numbers": [
 		{
-			“phone_number”: {String}, 
-			“type”: {String}
+			"phone_number": "123-456-7890", 
+			"type": "home"
 		} 
 	],
-	“emails”: [ 
+	"emails": [ 
 		{
-			“email”: {String},
-			“type”: {String} 
+			"email": "hpotter@hogwarts.edu",
+			"type": "other" 
 		}
 	], 
-	“social_media”: [
+	"social_media": "https://twitter.com/hp",
+	"websites": [ 
 		{
-			“url”: {String}
-		} 
-	],
-	“websites”: [ 
-		{
-			“url”: {String},
-			“type”: {String} 
+			"url": "https://harrypotter.com",
+			"type": "blog"
 		}
 	], 
-	“addresses”: [
+	"addresses": [
 		{
-			“address”: {String}, “type”: {String}
+			"address": "4 Privet Dr", 
+			"type": "home"
 		} 
 	],
-	“job_id”: {Integer}, “external_id”: {String}, “notes”: {String}
+	"job_id": 12345, 
+	"external_id": 24680, 
+	"notes": "Good at Quiddich"
 }
 ```
 
 
-> The API Response
+> API Response
 
 ```json
 [
 	{
-	“id”: {Integer}, 
-	“application_id”: {Integer}, 
-	“external_id”: {String}, 
-	“profile_url”: {String}
+	"id": 12345, 
+	"application_id": 17681532, 
+	"external_id": 24680, 
+	"profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
 	} 
 ]
 ```
@@ -130,28 +139,29 @@ prospect | Boolean | Yes | True if this candidte should be a propsect. (Default:
 job_id | Integer | Mixed | Required only if prospect is false. The ID of the job to which this candidate or prospect should be added.
 first_name | String | Yes
 last_name | String | Yes
+external_id | String | Yes | The unique id of this candidate in your application’s system.
 company | String | No | Candidate's current company
 title | String | No | Candidate's current title
 resume | String | No | URL to the candidate’s resume. Greenhouse will attempt to ingest the docuent at this URL and add it to the candidate record.
-referrer | Object | No | If present, this value will be used to populate the “Who Gets Credit” field for the candidate’s application. If omitted, the “Who Gets Credit” field will be populated with the current user’s information.
-referrer.email | String | Mixed | Used to match this referrer with an existing Greenhouse user, if possible. Only required if referrer is included.
-referrer.first_name | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
-referrer.last_name  | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
 phone_numbers[] | Array | No
 phone_numbers.phone_number | String | Mixed | Only required if phone_number is included.
-phone_numbers.type | String | Mixed | Must be “mobile”, “home”, “work”, or “other.” Only required if phone_number is included.
+phone_numbers.type | String | Mixed | Must be "mobile", "home", "work", or "other." Only required if phone_number is included.
 emails[] | Array | No
 emails.email | String | Mixed | Note: Only required if email is included.
-emails.type | String | Mixed | Must be “personal”, “work”, or “other”. Only required if email is included. 
+emails.type | String | Mixed | Must be "personal", "work", or "other". Only required if email is included. 
+addresses[] | Array | No
+addresses.address | String | Mixed | A free form block of text, which may include newlines ("\n"). Only required if addresses are included.
+addresses.type | String | Mixed | Only required if addresses are included.
 social_media[] | Array | No
 social_media.url | String | Mixed | Note: Only required if social media urls are included.
 website[] | Array | No
 website.url | String | Mixed | Note: Only required if websites are included.
-addresses[] | Array | No
-addresses.address | String | Mixed | A free form block of text, which may include newlines (“\n”). Only required if addresses are included.
-addresses.type | String | Mixed | Only required if addresses are included.
-external_id | String | Yes | The unique id of this candidate in your application’s system.
-notes | String | No | Free-form plain-text notes about this candidate. One way for this to be used is to send secondary information that our API can’t capture as structured data. For example: “Skills: Java, C++, Python”
+website.type | String | Mixed | Must be either “personal”, “company”, “portfolio”, “blog”, or “other”. Only required if websites are included.
+referrer | Object | No | If present, this value will be used to populate the "Who Gets Credit" field for the candidate’s application. If omitted, the "Who Gets Credit" field will be populated with the current user’s information.
+referrer.email | String | Mixed | Used to match this referrer with an existing Greenhouse user, if possible. Only required if referrer is included.
+referrer.first_name | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
+referrer.last_name  | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
+notes | String | No | Free-form plain-text notes about this candidate. One way for this to be used is to send secondary information that our API can’t capture as structured data. For example: "Skills: Java, C++, Python"
 
 
 ### Response Parameters

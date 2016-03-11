@@ -2,10 +2,11 @@
 
 ```json
 {
-	“errors”: [
-	{
-		“message”: “<String>”, “field”: “<String>”
-	}
+	"errors": [
+		{
+			"message": "Your request included invalid JSON.",
+			"field": "email"
+		}
 	]
 }
 ```

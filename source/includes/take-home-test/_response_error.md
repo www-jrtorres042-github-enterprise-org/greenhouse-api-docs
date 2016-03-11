@@ -2,21 +2,24 @@
 
 When Greenhouse receives a malformed response for any of Testing Partner's API endpoints, we would like to report the errors to the Testing Partner. As such, each Testing Partner should provide an API endpoint to ingest this information.
 
-* **HTTP Method:** POST
-* **Resource URL:** Provided by Testing Partner
-* **Authentication:** HTTP Basic Auth
+`POST https://www.testing-partner.com/api/request_errors`
 
 ### Request
 
 
+```shell
+curl -X POST 'https://www.testing-partner.com/api/request_errors'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
 ```json
 {
-	"api_call": {String},
-	"errors": {Array of Strings},
-	"partner_test_id": {String},
-	"partner_test_name": {String},
-	"partner_interview_id": {String},
-	"candidate_email": {String}
+	"api_call": "test_status",
+	"errors": ["partner_status is 'complete' but partner_profile url is missing"],
+	"partner_test_id" : 12345,
+	"partner_test_name": "Personality Test",
+	"partner_interview_id": 299506,
+	"candidate_email": "hpotter@hogwarts.edu"
 }
 ```
 
@@ -41,32 +44,5 @@ The partner_interview_id should not be confused with partner_test_id. While part
 
 ### Response 
 
-The response to a successful `response_errors` request should simply contain a response code of 200.
+The response to a successful `response_errors` request should contain a response code of 200.
 <br><br>
-
-> Example Request
-
-```json
-{
-	"api_call": "test_status"
-	"errors": ["partner_status is ‘complete’ but partner_profile url is missing"],
-	"partner_test_id": "12345",
-	"partner_test_name": "My First Test",
-	"partner_interview_id": "98765",
-	"candidate_email": "kate_austen@example.com"
-}
-```
-
-> The Testing Partner should respond with an HTTP status code of 200 to confirm receipt.
-
-
-
-**Example**
-
-
-* *Testing Partner A* provided Greenhouse the following URL for its `response_errors` endpoint: 
-
-	*https://www.testing-partnera.com/api/request_errors*
-
-* Greenhouse makes a `test_status` request, and it receives an invalid response: <br>
-	`partner_status` == "complete," but no `partner_profile_url` is provided.

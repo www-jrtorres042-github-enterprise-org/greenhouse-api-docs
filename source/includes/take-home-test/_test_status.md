@@ -2,15 +2,13 @@
 
 After a successful `send_test` request, Greenhouse will check whether test instance has been completed by periodically polling the `test_status` API endpoint. 
 
-* **HTTP Method:** GET
-* **Resource URL:** Provided by Testing Partner
-* **Authentication:** HTTP Basic Auth
+`GET https://www.testing-partner.com/api/test_status?partner_interview_id=12345`
 
 ### Request
 
-```
-GET https://<test-status-endpoint>?partner_interview_id=<partnerinterview-id>
-Authorization: Basic <base-64-encoded-credentials>
+```shell
+curl 'https://www.testing-partner.com/api/test_status?partner_interview_id=12345'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
  Greenhouse will send a `GET` request to the `test_status` endpoint provided by the Testing Partner. The `GET` request will contain a single query string parameter: `partner_interview_id`.
@@ -26,13 +24,20 @@ The partner_interview_id should not be confused with partner_test_id. While part
 
 ### Response
 
+> API Response
+
 ```json
 {
-	{
-		“partner_status”: {String},
-		“partner_profile_url”: {String},
-		“partner_score”: {Number},
-		“metadata”: {Object}
+	"partner_status": "complete",
+	"partner_profile_url": "http://example.com/tests/12345",
+	"partner_score": 81,
+	"metadata":
+		{
+			"Started At": "10:15 AM 26 March 2014",
+			"Completed At": "10:15 AM 26 March 2014",
+			"Notes": "This candidate did extremely well!"
+		}
+
 }
 ```
 
@@ -49,35 +54,3 @@ metadata | Object | No | A non-nested object containing keys and values that wil
 <aside class="notice">
 When Greenhouse makes a test_status request, we may only receive the numerical score of the test. To allow an organization to access more information about the test, we will link to the partner’s site using the partner_profile_url. 
 </aside>
-
-
-> Example Request
-
-```
-GET https://www.testing-partnera.com/api/test_status?partner_interview_id=98765
-```
-
-
-> Example Response
-
-```json
-{
-	"partner_status": "complete",
-	"partner_profile_url": "http://example.com/tests/12345",
-	"partner_score": 81
-	"metadata": 
-		{
-			"Started At": "10:15 AM 26 March 2014",
-			"Completed At": "10:15 AM 26 March 2014",
-			"Notes": "This candidate did extremely well!"
-		}
-
-}
-```
-
-**Example**
-
-* *Testing Partner A* provided Greenhouse the following URL for its test_status endpoint: 
-	*https://www.test-partnera.com/api/test_status*
-* A Greenhouse user who is an employee of *Customer 1* had previously sent a test to a candidate. *Testing Partner 1* emailed the test to the candidate and set the ID of the test instance to *98765*.
-* Greenhouse now needs to check the status of this test instance.

@@ -42,7 +42,7 @@ Every request Greenhouse sends to a Testing Partner’s API will utilize HTTP Ba
 
 When an organization decides to utilize a Testing Partner’s integration, they will provide their Greenhouse Account Manager with their API key for that Testing Partner.
 
-Greenhouse will then make all requests for the organization using that API key as the username in Basic Authentication.
+Greenhouse will then make all requests for the organization using that API key as the username in Basic Authentication. Greenhouse will append a : (colon) to the API token and then Base64 encode the resulting string.
 
 Upon receiving a request, the Testing Partner should inspect the API key to determine whether the request should be permitted and which data should be returned.
 

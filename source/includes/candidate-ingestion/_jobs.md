@@ -2,34 +2,31 @@
 
 ## Retreive Jobs
 
-> The API Response
+```shell
+curl 'https://api.greenhouse.io/v1/partner/jobs'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
 
 ```json
 [
   {
-    "id": 146855,
-    "name": "Bard",
+    "id": 146859,
+    "name": "Auror",
     "status": "open",
     "public": true
   },
   {
-    "id": 150056,
-    "name": "Cleric",
+    "id": 150050,
+    "name": "Professor",
+    "status": "open",
+    "public": true
+  },
+  {
+    "id": 147886,
+    "name": "Caretaker",
     "status": "open",
     "public": false
   },
-  {
-    "id": 147887,
-    "name": "Druid",
-    "status": "open",
-    "public": true
-  },
-  {
-    "id": 147795,
-    "name": "Fighter",
-    "status": "open",
-    "public": true
-  }
 ]
 ```
 
