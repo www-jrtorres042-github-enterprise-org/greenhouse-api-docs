@@ -16,15 +16,12 @@ curl -X POST 'https://api.greenhouse.io/v1/partner/tracking_link'
 > API Response
 
 ```json
-[
-	{ 
-		"tracking_link": "http://grnh.se/yvj0bj",
-		"job": "Auror", 
-		"source": "Campus Recruiting",
-		"referrer": "Hermione Granger"
-	}
-
-]
+{ 
+	"tracking_link": "http://grnh.se/yvj0bj",
+	"job": "Auror", 
+	"source": "Campus Recruiting",
+	"referrer": "Hermione Granger"
+}
 ```
 
 Create a new tracking link for a specific job. Candidates that apply using this tracking link will automatically have their source set to your application and their referrer set to the current user.
@@ -35,7 +32,10 @@ Create a new tracking link for a specific job. Candidates that apply using this 
 
 ### Request Parameters
 
-This request is simply the URL. It takes no parameters.
+
+Property Name | Type | Required
+-------------- | -------------- | -------------- 
+job_id | Integer | Yes
 
 
 ### Response Parameters

@@ -6,16 +6,14 @@
 curl 'https://api.greenhouse.io/v1/partner/current_user'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
+> API Response 
 
 ```json
-[
-	{ 
-		"first_name": "Ron", 
-		"last_name": "Weasley", 
-		"email": "rweasley@hogwarts.edu"
-	}
-
-]
+{ 
+	"first_name": "Ron", 
+	"last_name": "Weasley", 
+	"email": "rweasley@hogwarts.edu"
+}
 ```
 
 Retrieve details about the current user

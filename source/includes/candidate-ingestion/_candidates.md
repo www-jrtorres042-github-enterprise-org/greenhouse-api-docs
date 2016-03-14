@@ -8,22 +8,29 @@ curl 'https://api.greenhouse.io/v1/partner/partner_candidates'
 ```
 
 ```json
-[
-	{
-		"id": 17681532,
-		"name": "Harry Potter", 
-		"external_id": 24680, 
-		"applications": [
-			{
-				"id": 59724,
-				"job": "Auror", 
-				"status": "Active", 
-				"stage": "Application Review", 
-				"profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
-			}
-		]
-	}
-]
+{
+	"candidate_ids": 17681532
+}
+```
+
+>API Response
+
+
+```json
+{
+	"id": 17681532,
+	"name": "Harry Potter", 
+	"external_id": 24680, 
+	"applications": [
+		{
+			"id": 59724,
+			"job": "Auror", 
+			"status": "Active", 
+			"stage": "Application Review", 
+			"profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
+		}
+	]
+}
 ```
 
 Retrieve a candidate's data
@@ -109,14 +116,12 @@ curl -X POST 'https://api.greenhouse.io/v1/partner/partner_candidates'
 > API Response
 
 ```json
-[
-	{
-	"id": 12345, 
-	"application_id": 17681532, 
-	"external_id": 24680, 
-	"profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
-	} 
-]
+{
+"id": 12345, 
+"application_id": 17681532, 
+"external_id": 24680, 
+"profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
+} 
 ```
 
 
@@ -131,7 +136,6 @@ Create one or more candidates or prospects
 
 ### Request Parameters
 
-The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs.
 
 Property Name  | Type | Required | Description
 -------------- | -------------- | --------------  | -------------- 

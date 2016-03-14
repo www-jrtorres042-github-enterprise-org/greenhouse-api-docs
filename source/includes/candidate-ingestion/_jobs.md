@@ -6,6 +6,7 @@
 curl 'https://api.greenhouse.io/v1/partner/jobs'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
+> API Response
 
 ```json
 [
@@ -34,9 +35,11 @@ Retrieve jobs that are visible for the current user, including all jobs listed o
 
 `GET https://api.greenhouse.io/v1/partner/jobs`
 
-
 *scope: jobs.view*
 
+### Request Parameters
+
+This request is simply the URL. It takes no parameters.
 
 ### Response Parameters
 

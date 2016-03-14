@@ -7,8 +7,13 @@ After a successful `send_test` request, Greenhouse will check whether test insta
 ### Request
 
 ```shell
-curl 'https://www.testing-partner.com/api/test_status?partner_interview_id=12345'
+curl 'https://www.testing-partner.com/api/test_status'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+```json
+{
+	"partner_interview_id": 12345
+}
 ```
 
  Greenhouse will send a `GET` request to the `test_status` endpoint provided by the Testing Partner. The `GET` request will contain a single query string parameter: `partner_interview_id`.

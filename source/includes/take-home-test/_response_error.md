@@ -44,5 +44,13 @@ The partner_interview_id should not be confused with partner_test_id. While part
 
 ### Response 
 
+> API Response
+
+```json
+{
+	"status": 200
+}
+```
+
 The response to a successful `response_errors` request should contain a response code of 200.
 <br><br>
