@@ -26,7 +26,6 @@ permissions modal.
 
 When Greenhouse receives this information, we will supply the partner with a consumer key, a consumer secret, a token URL, and an authorize URL. For example:
 
-<br> 
 
 Attribute | Example Value
 -------------- | -------------- 
@@ -35,10 +34,11 @@ Consumer Secret | LQdulabcdefghijklEZok2fE5xGzeBcDa123gNXtN
 Token URL| https://app.greenhouse.io/oauth/token
 Authorize URL | https://app.greenhouse.io/oauth/authorize
 
-<br>
+<aside class="notice">
+Your Consumer Secret is confidential, and is best kept private. Greenhouse will request to encrypt the Consumer Secret before we send it to you via email. 
+</aside>
 
 The partner should use this information to initiate an OAuth 2.0 flow in their application. Note the customer user can rescind this at any time. Further information about how to configure this (including a sample Ruby Gem) can be found [on GitHub.] (https://github.com/grnhse/omniauth-greenhouse)
-
 
 When the user attempts to connect with Greenhouse, they will see a prompt asking them to confirm the connection. This prompt will then associate the user’s account in the partner system with their Greenhouse account.
 
