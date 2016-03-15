@@ -44,6 +44,10 @@ When the user attempts to connect with Greenhouse, they will see a prompt asking
 
 <img src="/images/prompt.png" alt= "Prompt Image" max-width>
 
+Once the OAuth process is complete and the user grants the partner permission to access their data on Greenhouse, the partner will receive an access token.  This access token must be included in the Authorization header:
+
+`Authorization: Bearer <access_token>`
+
 ### Authentication via Basic Auth
 
 If your users only have an account in Greenhouse and you will be submitting candidates as a partner (and not sourced by a user), you will likely want to authenticate via HTTP Basic Authentication. Users do not have to take any action to authorize your application to modify Greenhouse data. When using basic auth, you are required to set the On-Behalf-Of header for every request. The value should be the e-mail address of the user on behalf of whom you are taking action. For example:
