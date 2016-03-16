@@ -72,7 +72,6 @@ curl 'https://harvest.greenhouse.io/v1/applications' \
     "current_stage": null,
     "answers": []
   },
-  {...}
 ]
 ```
 
@@ -86,14 +85,13 @@ Retreive all of an organization's applications.
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| *per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 | last_activity_after | Return only applications where 'updated_at' is after this date. (Example '2014-01-05T00:00:00.000Z').
 | job_id | If supplied, only return applications that involve this job. Will return both candidates and prospects.
 
 <br>
-
-[See noteworthy response attributes.] (#the-application-object)
+[See noteworthy response attributes.](#the-application-object)
 
 ## Retrieve an application
 

@@ -38,7 +38,7 @@ html, body {
 .blocks {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
 
   max-width: 1050px;
   height: 100%;
@@ -119,6 +119,22 @@ html, body {
 
   &:hover {
     background-color: #448fa0;
+  }
+}
+
+.block-candidate-ingestion {
+  background-color: #C67F90;
+
+  &:hover {
+    background-color: #A15F6F;
+  }
+}
+
+.block-take-home-test {
+  background-color: #4AAAD3;
+
+  &:hover {
+    background-color: #3086AA;
   }
 }
 
