@@ -60,7 +60,7 @@ external_id | String | No | The external ID that was provided in your initial ca
 applications[]| Array | Yes | An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.
 applications.id | Integer | Yes | The ID of the application.
 applications.job | String | Yes | Name of the job this application is for (e.g. "Software developer).
-applications.status | String | No | The candidate’s current status. Must be one of "rejected", "completed", "hired", "converted", "active."
+applications.status | String | No | The candidate’s current status. Must be one of "rejected," "active," or "hired."
 applications.stage | String | Yes | The applicant’s current stage in the interview pipeline (e.g. "Recruiter Phone Screen").
 applications.profile_url | String | Yes | A URL to the candidate’s profile in Greenhouse. You must be signed in to Greenhouse to view the profile.
 
