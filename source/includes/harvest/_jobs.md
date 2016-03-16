@@ -117,7 +117,7 @@
 |-----------|-------------|
 | id | The job's unique identifier |
 | status | One of `open`, `closed`, `draft`.
-| departments | An array containing the [department](#department) which this job belongs to.
+| departments | An array containing the [department](#departments) which this job belongs to.
 | offices | An array containing the [offices](#offices) this job is associated with.
 | custom_fields | Contains any custom job fields which have been defined by your organization.
 | hiring_team | Lists the names and User IDs of the hiring managers, recruiters, coordinators and sourcers associated with this job. For recruiters and coordinators, there is a `responsible` boolean flag which indicates that the user is the responsible recruiter or coordinator for this job.
