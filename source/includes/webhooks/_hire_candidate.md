@@ -6,6 +6,9 @@
   "payload": {
     "application": {
       "id": 20,
+      "opening": {
+        "opening_id": "1234-56"
+      },
       "credited_to": {
         "id": 57,
         "email": "bob_johnson1@localhost.com",
@@ -20,6 +23,7 @@
         "first_name": "Johnny",
         "last_name": "Smith",
         "title": "Previous Title",
+        "external_id"=: 00000,
         "phone_numbers": [
           {
             "value": "518-555-1212",
@@ -197,11 +201,8 @@
               "Season 1",
               "Season 2"
             ]
-          }
+          },
         }
-      },
-      "opening": {
-        "opening_id": "1234-56"
       }
     }
   }

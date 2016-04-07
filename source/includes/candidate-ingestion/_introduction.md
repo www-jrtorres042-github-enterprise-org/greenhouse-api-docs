@@ -54,7 +54,7 @@ If your users only have an account in Greenhouse and you will be submitting cand
 
 `On-Behalf-Of: john.smith@example.com`
 
-Normally, this will be a service user created specifically for this purpose. If this header is missing, or Greenhouse doesn’t recognize the address, the API will issue a *401 Unauthorized* response. The application must also supply the API key. Via basic auth, you will include the API key as the basic auth username and nothing as the password. This may be included via URL:
+Normally, this will be a service user created specifically for this purpose. If this header is missing, or Greenhouse doesn’t recognize the address, the API will issue a *401 Unauthorized* response. The application must also supply the API key. Via basic auth, you will include the API key as the basic auth username and nothing as the password. Since only a username needs to be provided in our case, you’ll need to append a : (colon) to the API token and then Base64 encode the resulting string. This may be included via URL:
 
 `https://<base64_encoded_api_key>:@api.greenhouse.io/v1/partners/candidates`
 
