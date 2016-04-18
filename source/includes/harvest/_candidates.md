@@ -607,15 +607,11 @@ Parameter | Required | Type | Description
 id | Yes | integer |   The ID of the candidate
 fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, and offers.
 
-
-
-
-
 ## Create a candidate's note
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/notes'
--H "On-Behalf-Of: {greenhouse user ID}" 
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -644,7 +640,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/not
 }
 ```
 
-Create a candidate note. 
+Create a candidate note.
 
 ### HTTP Request
 
@@ -657,10 +653,10 @@ Header | Description
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 
-### URL Parameters
+### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 user_id | Yes | integer |   The ID of the user creating the note
 body | Yes | string | Note body
-visibility | Yes | string | One of: ["admin_only", "private", "public"]
+visibility | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
