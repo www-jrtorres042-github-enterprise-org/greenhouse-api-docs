@@ -3,7 +3,7 @@
 ## Retrieve Candidates
 
 ```shell
-curl 'https://api.greenhouse.io/v1/partner/partner_candidates'
+curl 'https://api.greenhouse.io/v1/partner/candidates'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
