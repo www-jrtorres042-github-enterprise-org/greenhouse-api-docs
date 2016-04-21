@@ -35,7 +35,7 @@ curl 'https://api.greenhouse.io/v1/partner/candidates'
 
 Retrieve a candidate's data
 
-`GET https://api.greenhouse.io/v1/partner/partner_candidates`
+`GET https://api.greenhouse.io/v1/partner/candidates`
 
 
 *scope: candidates.view*
