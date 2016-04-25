@@ -33,7 +33,7 @@ curl 'https://api.greenhouse.io/v1/partner/candidates'
 }
 ```
 
-Retrieve a candidate's data
+Retrieve a candidate's data. Note that this call will only return candidates that the current user has permission to view.
 
 `GET https://api.greenhouse.io/v1/partner/candidates`
 

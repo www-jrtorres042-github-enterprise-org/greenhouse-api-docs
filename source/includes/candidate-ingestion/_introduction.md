@@ -18,7 +18,7 @@ This API offers two methods of authentication: OAuth 2.0 and Basic Auth.
 If the mutual customer’s users have accounts in both Greenhouse and the partner’s system, the preferred authentication method is [OAuth 2.0](https://tools.ietf.org/html/rfc6749). In this case, the partner would place an integration option on their website which would allow the user to authenticate in to Greenhouse via the partner’s application. This is similar to allowing people to register for a website using Facebook credentials. For a partner to configure this, they must supply Greenhouse with the following information:
 
 1. **Application Name**: The name of the application as it would appear in Greenhouse.
-2. **Application URL**: The URL to the primary applilcation.
+2. **Application URL**: The URL to the primary application.
 3. **Callback URL**: This is the URL to which Greenhouse will send
 authenticated users.
 4. **Logo Image**: This is a 128x128 image that will be included in the

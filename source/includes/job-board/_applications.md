@@ -17,11 +17,6 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
   <label>Last Name <input type="text" name="last_name" /></label><br/>
   <label>Email <input type="text" name="email" /></label><br/>
   <label>Phone <input type="text" name="phone" /></label><br/>
-  <!-- "location" is any geocode-able string -->
-  <label>Location <input type="text" name="location" /></label><br/>
-  <!-- If using a geocoding service, include the longitude and latitude -->
-  <input type="hidden" name="longitude" />
-  <input type="hidden" name="latitude" />
   <label>Resume <input type="file" name="resume" /></label><br/>
   <label>Cover Letter <input type="file" name="cover_letter" /></label><br/>
   <label>LinkedIn Profile <input type="text" name="question_5555" /></label><br/>
@@ -49,7 +44,7 @@ Please note that when submitting an application through this method, Greenhouse 
 </aside>
 
 <aside class="notice">
-  In general, we would encourage customers to make use of the Embedded Job Application before going to the trouble of building their own form. Our application form is well tested, validated, battle hardened, and has built-in spam protection measures--building your own form can introduce a number of challenges which are typically not worth the additional effort.
+  In general, we would encourage customers to make use of the Embedded Job Application before going to the trouble of building their own form. Our application form is well tested, validated, battle hardened, and has built-in spam protection measures. Building your own form can introduce a number of challenges which are typically not worth the additional effort.
 </aside>
 
 ### HTTP Request
@@ -61,12 +56,12 @@ Please note that when submitting an application through this method, Greenhouse 
 Parameter | Description
 --------- | -----------
 id | Job post ID
-mapped_url_token | *(optional)* If present, the `gh_src` URL parameter, which is used to indicate the referral source of this application.
+*mapped_url_token | If present, the `gh_src` URL parameter, which is used to indicate the referral source of this application.
 first_name | Applicant's first name
 last_name | Applicant's last name
 email | Applicant's email adress
 phone | Applicant's phone number 
-location | Applicant's location.  Accepts any geocode-able string.
-longitude | If using a geocoding service, include longitude
-latitude | If using a geocoding service, include latitude
 
+<aside class="notice">
+Greenhouse is currently unable to accept or return geocode location through the Job Board API. To collect location information, we recommend adding your own custom question or using an Embedded Job Application.
+</aside>

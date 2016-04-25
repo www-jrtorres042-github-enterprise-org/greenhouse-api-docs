@@ -92,7 +92,9 @@ Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next
 <https://harvest.greenhouse.io/v1/candidates?page=474&per_page=2>; rel="last"
 ```
 
-API methods that return a collection of results are always paginated. You can specify the current page and number of items per page with the `page` and `per_page` query parameters. Paginated results include a `Link` response header that specifies the location of the next and last pages:
+API methods that return a collection of results are always paginated. You can specify the current page and number of items per page with the `page` and `per_page` query parameters. Paginated results include a `Link` response header that specifies the location of the next and last pages.
+
+Note that when this parameter is not set, results will be limited to the first page.
 
 ## Validation
 
