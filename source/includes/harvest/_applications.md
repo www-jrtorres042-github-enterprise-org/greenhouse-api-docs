@@ -85,9 +85,11 @@ Retreive all of an organization's applications.
 
 | Parameter | Description |
 |-----------|-------------|
-| *per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| *per_page | Return up to this number of objects per response. Defaults to 100.
 | *page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
-| last_activity_after | Return only applications where 'updated_at' is after this date. (Example '2014-01-05T00:00:00.000Z').
+| created_before | Return only applications that were created before this date. Date must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only applications that were created after this date. Date must be in in [ISO-8601] (#general-considerations) format.
+| last_activity_after | Return only applications where 'updated_at' is after this date. Date must be in in [ISO-8601] (#general-considerations) format.
 | job_id | If supplied, only return applications that involve this job. Will return both candidates and prospects.
 
 <br>
@@ -132,8 +134,6 @@ Retrieve an application by its `id`.
 Parameter | Description
 --------- | -----------
 id | ID of the application to retrieve
-last_activity_after | Return only applications where 'updated_at' is after this date. (Example '2014-01-05T00:00:00.000Z').
-job_id | If supplied, only return applications that involve this job. Will return both candidates and prospects.
 
 <br>
 [See noteworthy response attributes.] (#the-application-object)

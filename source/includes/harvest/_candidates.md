@@ -163,8 +163,12 @@ List all of an organization's candidates.
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response.  Must be an integer between 1 and 100.  Defaults to 100.
+| per_page | Return up to this number of objects per response. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| created_before | Return only candidates that were created before this date. Date must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only candidates that were created after this date. Date must be in in [ISO-8601] (#general-considerations) format.
+| updated_before | Return only candidates that were updated before this date. Date must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only candidates that were updated after this date. Date must be in in [ISO-8601] (#general-considerations) format.
 
 <br>
 
