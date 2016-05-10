@@ -177,14 +177,14 @@ All of your organization's job posts.
 
 | Parameter | Description |
 |-----------|-------------|
-| per_page | Return up to this number of objects per response. Defaults to 100.
+| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 | content | If present, will return the text of the job post as posted to the external job board.
 | questions | If present, will return an array of questions associated with this job post.
-| created_before | Return only job posts that were created before this date. Date must be in in [ISO-8601] (#general-considerations) format.
-| created_after | Return only job posts that were created after this date. Date must be in in [ISO-8601] (#general-considerations) format.
-| updated_before | Return only job posts that were updated before this date. Date must be in in [ISO-8601] (#general-considerations) format.
-| updated_after | Return only job posts that were updated after this date. Date must be in in [ISO-8601] (#general-considerations) format.
+| created_before | Return only job posts that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only job posts that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_before | Return only job posts that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only job posts that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)

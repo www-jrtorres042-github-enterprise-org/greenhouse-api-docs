@@ -130,10 +130,10 @@ Retrieves the stages for the specified job id.
 Parameter | Description
 --------- | -----------
 | id | The ID of the job whose job stages you want to retrieve.
-| created_before | Return only job stages that were created before this date. Date must be in in [ISO-8601] (#general-considerations) format.
-| created_after | Return only job stages that were created after this date. Date must be in in [ISO-8601] (#general-considerations) format.
-| updated_before | Return only job stages that were updated before this date. Date must be in in [ISO-8601] (#general-considerations) format.
-| updated_after | Return only job stages that were updated after this date. Date must be in in [ISO-8601] (#general-considerations) format.
+| created_before | Return only job stages that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only job stages that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_before | Return only job stages that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only job stages that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 
 <br>
 [See noteworthy response attributes.](#the-job-stage-object)
