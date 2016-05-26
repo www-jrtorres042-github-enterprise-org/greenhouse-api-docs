@@ -13,7 +13,7 @@ Returns your organization's name and job board content.
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/embed`
+`GET https://api.greenhouse.io/v1/boards/{board_token}`
 
 ### URL Parameters
 

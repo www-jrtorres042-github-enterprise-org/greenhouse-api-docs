@@ -45,7 +45,7 @@ Returns a list of your organization's departments and jobs.
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/embed/departments`
+`GET https://api.greenhouse.io/v1/boards/{board_token}/departments`
 
 ### URL Parameters
 
@@ -86,7 +86,7 @@ Returns a list of jobs for a given `department_id`.
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/embed/department?id={department_id}`
+`GET https://api.greenhouse.io/v1/boards/{board_token}/departments/{department_id}`
 
 ### URL Parameters
 
