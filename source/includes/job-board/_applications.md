@@ -62,6 +62,9 @@ first_name | Applicant's first name
 last_name | Applicant's last name
 email | Applicant's email adress
 phone | Applicant's phone number 
+location | Applicant's street address
+latitude | Applicant's home latitude
+longiture | Applicant's home longitude
 
 <aside class="notice">
 Greenhouse is currently unable to accept or return geocode location through the Job Board API. To collect location information, we recommend adding your own custom question or using an Embedded Job Application.
