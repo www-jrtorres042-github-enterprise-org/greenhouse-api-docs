@@ -153,12 +153,12 @@ Any job custom fields you have selected to be exposed in the job board API will 
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
+job_id | ID of the office to retrieve
 
 ### Querystring Parameters
 
 Parameter | Description
 --------- | -----------
-job_id | ID of the office to retrieve
 questions | *(optional)* If set to `true`, include the list of job application fields.  
 
 ### Questions

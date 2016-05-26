@@ -51,12 +51,17 @@ Please note that when submitting an application through this method, Greenhouse 
 
 `POST https://api.greenhouse.io/v1/boards/{board_token}/jobs/{id}`
 
-### Form Parameters
+### URL Parameters
 
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
 id | Job post ID
+
+### Form Parameters
+
+Parameter | Description
+--------- | -----------
 *mapped_url_token | If present, the `gh_src` URL parameter, which is used to indicate the referral source of this application.
 first_name | Applicant's first name
 last_name | Applicant's last name

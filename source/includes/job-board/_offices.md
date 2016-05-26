@@ -110,6 +110,4 @@ Returns a list of your organization's departments and jobs for the given `office
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
-
-### Querystring Parameters
 office_id | ID of the office to retrieve

@@ -93,6 +93,4 @@ Returns a list of jobs for a given `department_id`.
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
-
-### Querystring Parameters
 department_id | ID of the department to retrieve
