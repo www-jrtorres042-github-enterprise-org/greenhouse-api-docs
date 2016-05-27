@@ -32,7 +32,7 @@ Your organization's email templates.
 ## List email templates
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/email_templates/' \
+curl 'https://harvest.greenhouse.io/v1/email_templates/' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -92,7 +92,7 @@ curl 'https://harvest.greenhouse.io/v1/email_templates/' \
 ## Retrieve an email template
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/email_templates/{id}' \
+curl 'https://harvest.greenhouse.io/v1/email_templates/{id}' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

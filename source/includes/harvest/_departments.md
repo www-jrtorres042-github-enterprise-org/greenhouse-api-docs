@@ -23,7 +23,7 @@ Your organization's departments.
 List all of your organization's departments.
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/departments' \
+curl 'https://harvest.greenhouse.io/v1/departments' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -60,7 +60,7 @@ curl 'https://harvest.greenhouse.io/v1/departments' \
 ## Retrieve a department
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/departments/{id}' \
+curl 'https://harvest.greenhouse.io/v1/departments/{id}' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

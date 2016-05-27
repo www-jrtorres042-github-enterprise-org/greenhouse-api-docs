@@ -85,7 +85,7 @@ Your organization's candidates.
 ## List candidates
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/candidates' \
+curl 'https://harvest.greenhouse.io/v1/candidates' 
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -159,7 +159,7 @@ List all of an organization's candidates.
 
 `GET https://harvest.greenhouse.io/v1/candidates`
 
-### Qerystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
@@ -177,7 +177,7 @@ List all of an organization's candidates.
 ## Retrieve a candidate
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/candidates/{id}' \
+curl 'https://harvest.greenhouse.io/v1/candidates/{id}' 
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -419,7 +419,7 @@ Header | Description
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 
-### URL Parameters
+### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
@@ -444,7 +444,7 @@ tags[] | No | string | Array of tags as strings. Passing an empty array will cle
 ## Create an attachment for a candidate
 
 ```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}'
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
 -H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -481,7 +481,7 @@ Header | Description
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 
-### URL Parameters
+### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
@@ -499,7 +499,7 @@ url | No | string | Url of the attachment (if you are providing the url, you do 
 ## Anonymize a candidate
 
 ```shell
-curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}'
+curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={field_names}'
 -H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -604,11 +604,10 @@ Header | Description
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 
-### URL Parameters
+### Querystring Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-id | Yes | integer |   The ID of the candidate
 fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, and offers.
 
 ## Create a candidate's note

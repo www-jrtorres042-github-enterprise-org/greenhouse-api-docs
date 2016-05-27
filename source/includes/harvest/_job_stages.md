@@ -53,7 +53,7 @@ Stages for the job specified by the supplied id.
 ## List job stages for job
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages' \
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

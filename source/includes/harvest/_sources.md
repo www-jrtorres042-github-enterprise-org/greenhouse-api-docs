@@ -25,7 +25,7 @@ Your organization's sources.
 ## List sources
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/sources' \
+curl 'https://harvest.greenhouse.io/v1/sources'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -71,7 +71,7 @@ Lists an organization's sources, grouped by strategy.
 ## Retrieve a source 
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/sources/{id}' \
+curl 'https://harvest.greenhouse.io/v1/sources/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

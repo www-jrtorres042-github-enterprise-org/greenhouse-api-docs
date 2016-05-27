@@ -134,7 +134,7 @@ Describes the online job posts for your jobs (as seen on your Job Board).
 ## List job posts
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/job_posts' \
+curl 'https://harvest.greenhouse.io/v1/job_posts' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -192,7 +192,7 @@ All of your organization's job posts.
 ## Retrieve job post for job
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post' \
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

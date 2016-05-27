@@ -48,7 +48,7 @@ Interviews that have been scheduled for the specified application.
 ## List scheduled interviews
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews' \
+curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

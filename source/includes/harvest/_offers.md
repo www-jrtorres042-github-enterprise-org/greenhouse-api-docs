@@ -43,7 +43,7 @@ Your organization's offers.
 All offers made by your organization ordered by application_id.
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/offers' \
+curl 'https://harvest.greenhouse.io/v1/offers' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -113,7 +113,7 @@ curl 'https://harvest.greenhouse.io/v1/offers' \
 ## List offers for application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers' \
+curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -187,7 +187,7 @@ application_id | ID of the application whose offers you want to retrieve
 ## Retrieve an offer
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/offers/{id}' \
+curl 'https://harvest.greenhouse.io/v1/offers/{id}' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -231,7 +231,7 @@ id | ID of the offer to retrieve
 ## Retrieve current offer for application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/current_offer' \
+curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/current_offer' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

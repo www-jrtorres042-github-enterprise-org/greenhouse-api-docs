@@ -48,7 +48,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 ## List applications
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications' \
+curl 'https://harvest.greenhouse.io/v1/applications'
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -98,7 +98,7 @@ Retreive all of an organization's applications.
 ## Retrieve an application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/4341' \
+curl 'https://harvest.greenhouse.io/v1/applications/{id}' 
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -146,6 +146,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
 -H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "from_stage_id": 1
+}
+```
+
+> The above returns a JSON response, structured like this:
 
 ```json
 {
@@ -190,11 +199,10 @@ Header | Description
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 
-### Query Parameters
+### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-id | Yes | integer | ID of the application to retrieve
 from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
 
 
@@ -259,11 +267,10 @@ Header | Description
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 
-### Query Parameters
+### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
-id | Yes | integer | ID of the application to retrieve
 from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
 to_stage_id | Yes | integer | The ID of the job stage this application should be moved to.
 
@@ -336,11 +343,10 @@ Header | Description
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 
-### Query Parameters
+### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
-id | Yes | integer | ID of the application to retrieve
 rejection_reason_id | No | integer | The ID of the reason why this application was rejected.
 notes | No | string | Notes on why this application was rejected. These will be added to the activity feed.
 rejection_email | No | hash | An email will be sent to the candidate notifying them of this rejection.

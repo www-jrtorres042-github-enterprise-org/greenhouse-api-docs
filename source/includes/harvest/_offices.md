@@ -24,7 +24,7 @@ Your organization’s offices.
 ## List offices
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/offices' \
+curl 'https://harvest.greenhouse.io/v1/offices'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -76,7 +76,7 @@ List all of your organization's offices.
 ## Retrieve an office
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/offices/{id}' \
+curl 'https://harvest.greenhouse.io/v1/offices/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

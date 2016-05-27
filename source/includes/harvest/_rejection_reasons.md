@@ -26,7 +26,7 @@ Represents rejection reasons configured by an organization under the Custom Opti
 ## List rejection reasons
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/rejection_reasons' \
+curl 'https://harvest.greenhouse.io/v1/rejection_reasons'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

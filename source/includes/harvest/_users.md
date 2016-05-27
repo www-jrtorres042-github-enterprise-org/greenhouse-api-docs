@@ -28,7 +28,7 @@ Your organization's Greenhouse users.
 ## List users
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/users' \
+curl 'https://harvest.greenhouse.io/v1/users'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -79,7 +79,7 @@ List all of an organization's Greenhouse users.
 ## Retrieve a user 
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/users/{id}' \
+curl 'https://harvest.greenhouse.io/v1/users/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

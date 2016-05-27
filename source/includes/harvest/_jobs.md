@@ -135,7 +135,7 @@ Your organization's jobs.
 ## List jobs
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs' \
+curl 'https://harvest.greenhouse.io/v1/jobs' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -239,7 +239,7 @@ List all of your organization's jobs.
 ## Retrieve a job
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs/{id}' \
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}' 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 

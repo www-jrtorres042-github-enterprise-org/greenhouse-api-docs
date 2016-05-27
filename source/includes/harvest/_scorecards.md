@@ -99,7 +99,7 @@ All submitted scorecards ordered by candidate.
 ## List scorecards
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/scorecards' \
+curl 'https://harvest.greenhouse.io/v1/scorecards'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -213,7 +213,7 @@ List all scorecards.
 ## Retrieve a scorecard
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/scorecards/{id}' \
+curl 'https://harvest.greenhouse.io/v1/scorecards/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -317,7 +317,7 @@ id | The ID of the scorecard to retrieve
 ## List scorecards for application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards' \
+curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
