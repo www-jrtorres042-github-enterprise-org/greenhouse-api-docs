@@ -49,19 +49,24 @@ Please note that when submitting an application through this method, Greenhouse 
 
 ### HTTP Request
 
-`POST https://api.greenhouse.io/v1/applications/`
+`POST https://api.greenhouse.io/v1/boards/{board_token}/jobs/{id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+board_token | Job Board URL token
+id | Job post ID
 
 ### Form Parameters
 
 Parameter | Description
 --------- | -----------
-id | Job post ID
 *mapped_url_token | If present, the `gh_src` URL parameter, which is used to indicate the referral source of this application.
 first_name | Applicant's first name
 last_name | Applicant's last name
 email | Applicant's email adress
 phone | Applicant's phone number 
-
-<aside class="notice">
-Greenhouse is currently unable to accept or return geocode location through the Job Board API. To collect location information, we recommend adding your own custom question or using an Embedded Job Application.
-</aside>
+location | Applicant's street address
+latitude | Applicant's home latitude
+longitude | Applicant's home longitude

@@ -17,4 +17,6 @@ To call a method via JSONP (http://en.wikipedia.org/wiki/JSONP), insert the scri
 <aside class="success">
 Job Board data is publically available, so authentication is not required for any GET endpoints.
 </aside>
-Only the application submission endpoint (`POST /v1/applications`) requires Basic Auth.  [Read more](#submit-an-application).
+Only the application submission endpoint
+(`POST https://api.greenhouse.io/v1/boards/{board_token}/jobs/{id}`) requires Basic Auth.
+[Read more](#submit-an-application).

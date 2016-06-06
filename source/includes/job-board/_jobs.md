@@ -55,7 +55,7 @@ When submitting a job application, you will use the <code>id</code> field to spe
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/embed/jobs`
+`GET https://api.greenhouse.io/v1/boards/{board_token}/jobs`
 
 ### URL Parameters
 
@@ -146,19 +146,19 @@ Any job custom fields you have selected to be exposed in the job board API will 
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/embed/job?id={job_id}`
+`GET https://api.greenhouse.io/v1/boards/{board_token}/jobs/{job_id}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
+job_id | ID of the office to retrieve
 
 ### Querystring Parameters
 
 Parameter | Description
 --------- | -----------
-job_id | ID of the office to retrieve
 questions | *(optional)* If set to `true`, include the list of job application fields.  
 
 ### Questions

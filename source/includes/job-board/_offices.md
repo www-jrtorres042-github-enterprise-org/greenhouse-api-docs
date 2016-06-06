@@ -51,7 +51,7 @@ Returns a list of all of your organization's departments and jobs, grouped by of
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/embed/offices`
+`GET https://api.greenhouse.io/v1/boards/{board_token}/offices`
 
 ### URL Parameters
 
@@ -103,13 +103,11 @@ Returns a list of your organization's departments and jobs for the given `office
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/embed/office?id={office_id}`
+`GET https://api.greenhouse.io/v1/boards/{board_token}/offices/{office_id}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
-
-### Querystring Parameters
 office_id | ID of the office to retrieve
