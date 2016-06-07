@@ -62,7 +62,7 @@ List all of an organization's Greenhouse users.
 
 `GET https://harvest.greenhouse.io/v1/users`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|

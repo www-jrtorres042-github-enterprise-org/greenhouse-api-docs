@@ -58,7 +58,7 @@ Lists an organization's sources, grouped by strategy.
 
 `GET https://harvest.greenhouse.io/v1/sources`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|

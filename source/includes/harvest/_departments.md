@@ -46,7 +46,7 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 
 `GET https://harvest.greenhouse.io/v1/departments`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|

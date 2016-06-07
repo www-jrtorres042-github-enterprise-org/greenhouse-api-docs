@@ -130,6 +130,11 @@ Retrieves the stages for the specified job id.
 Parameter | Description
 --------- | -----------
 | id | The ID of the job whose job stages you want to retrieve.
+
+### Querystring parameters
+
+Parameter | Description
+--------- | -----------
 | created_before | Return only job stages that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | created_after | Return only job stages that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only job stages that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.

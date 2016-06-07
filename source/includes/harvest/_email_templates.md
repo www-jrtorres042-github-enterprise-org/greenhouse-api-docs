@@ -74,7 +74,7 @@ curl 'https://harvest.greenhouse.io/v1/email_templates/'
 
 `GET https://harvest.greenhouse.io/v1/email_templates`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|

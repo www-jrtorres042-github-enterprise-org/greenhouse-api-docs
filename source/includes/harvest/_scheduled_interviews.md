@@ -118,11 +118,15 @@ Interviews that have been scheduled for this application.
 
 `GET https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews`
 
-### Query Parameters
+### Querystring Parameters
 
 Parameter | Description
 --------- | -----------
-id | ID of the application to retrieve
+| id | ID of the application to retrieve
+| created_before | Return only scheduled interviews that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only scheduled interviews that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_before | Return only scheduled interviews that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only scheduled interviews that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 
 <br>
 [See noteworthy response attributes.] (#the-scheduled-interview-object)

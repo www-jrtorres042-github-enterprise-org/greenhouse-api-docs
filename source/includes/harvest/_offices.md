@@ -62,7 +62,7 @@ List all of your organization's offices.
 
 `GET https://harvest.greenhouse.io/v1/offices`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|

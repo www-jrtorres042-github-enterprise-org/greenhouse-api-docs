@@ -129,7 +129,7 @@ Retrieve an application by its `id`.
 
 `GET https://harvest.greenhouse.io/v1/applications/{id}`
 
-### Querystring parameters
+### URL parameters
 
 Parameter | Description
 --------- | -----------

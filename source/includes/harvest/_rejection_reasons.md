@@ -67,7 +67,7 @@ Retrieves your organization's rejection reasons.
 
 `GET https://harvest.greenhouse.io/v1/rejection_reasons`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|

@@ -95,7 +95,7 @@ curl 'https://harvest.greenhouse.io/v1/offers'
 
 `GET https://harvest.greenhouse.io/v1/offers`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
@@ -218,7 +218,7 @@ Retrieve an offer by its ID.
 
 `GET https://harvest.greenhouse.io/v1/offers/{id}`
 
-### Query Parameters
+### URL Parameters
 
 Parameter | Description
 --------- | -----------

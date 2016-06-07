@@ -196,7 +196,7 @@ List all scorecards.
 
 `GET https://harvest.greenhouse.io/v1/scorecards`
 
-### Optional querystring parameters
+### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
@@ -412,7 +412,7 @@ List all submitted scorecards for the requested application.
 
 `GET https://harvest.greenhouse.io/v1/applications/{id}/scorecards`
 
-### Query Parameters
+### URL Parameters
 
 Parameter | Description
 --------- | -----------
