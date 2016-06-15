@@ -6,6 +6,7 @@ Describes the online job posts for your jobs (as seen on your Job Board).
 
 ```json
 {
+  "id": 123,
   "title": "Button Pusher",
   "location": {
     "name": "The Island"
@@ -125,6 +126,7 @@ Describes the online job posts for your jobs (as seen on your Job Board).
 
 | Attribute | Description |
 |-----------|-------------|
+| id | Job post ID
 | internal | If `true`, this job post has been posted (or is *to be posted*) on an internal job board.
 | external | If `true`, this job post has been posted (or is *to be posted*) on an external job board.
 | job_id | The ID of the [job](#jobs) that this job post is for.
@@ -144,6 +146,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
 ```json
 [
   {
+    "id": 123,
     "title": "Button Pusher",
     "location": {
       "name": "The Island"
@@ -201,6 +204,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
 
 ```json
 {
+  "id": 123,
   "title": "Button Pusher",
   "location": {
     "name": "The Island"
@@ -231,11 +235,16 @@ Retrieves the coresponding job post for a given Job ID.
 
 `GET https://harvest.greenhouse.io/v1/jobs/{id}/job_post`
 
-### Querystring parameters
+### URL parameters
 
 Parameter | Description
 --------- | -----------
 id | The ID of the job whose job post you want to retrieve
+
+### Querystring parameters
+
+Parameter | Description
+--------- | -----------
 content | If present, will return the text of the job post as posted to the external job board.
 questions | If present, will return an array of questions associated with this job post.
 
