@@ -2,6 +2,8 @@
 
 ## Submit an application
 
+> This endpoint can take a multipart form-data POST. You should use this if you need to upload a resume or cover letter.
+
 ```html 
 <!--
 EXAMPLE FORM BELOW (simplified):
@@ -35,6 +37,22 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 </form>
 ```
 
+> or, you can POST a JSON encoded body (with `Content-Type: application/json`):
+
+```
+{
+  "first_name": "Sammy",
+  "last_name": "McSamson",
+  "email": "sammy@example.com",
+  "phone": "3337778888",
+  "location": "New York, NY",
+  "latitude": "51.5034070",
+  "longitude": "-0.1275920",
+  "resume_text": "Sammy has many years of experience as an expert basket weaving...",
+  "cover_letter_text": "I have are a very particular set of skills, skills I have acquired over a very long career. Skills that make me..."
+}
+```
+
 Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constrcuted via the "questions" array available via the [Job method](#retrieve-a-job). 
 
 Please note that when submitting an application through this method, Greenhouse will not confirm the inclusion of required fields. Validation for required fields must be done on the client side, as Greenhouse will not reject applications that are missing required fields.
@@ -55,10 +73,10 @@ Please note that when submitting an application through this method, Greenhouse 
 
 Parameter | Description
 --------- | -----------
-board_token | Job Board URL token
-id | Job post ID
+board_token | Job Board URL token.  If you're submitting an application for a job post on an internal job board, use `"internal"`.
+id | Job post ID. Both internal and external job posts are allowed.
 
-### Form Parameters
+### Request Parameters
 
 Parameter | Description
 --------- | -----------
@@ -66,7 +84,11 @@ Parameter | Description
 first_name | Applicant's first name
 last_name | Applicant's last name
 email | Applicant's email adress
-phone | Applicant's phone number 
-location | Applicant's street address
-latitude | Applicant's home latitude
-longitude | Applicant's home longitude
+*phone | Applicant's phone number
+*location | Applicant's street address
+*latitude | Applicant's home latitude
+*longitude | Applicant's home longitude
+*resume_text | Plaintext resume body
+*cover_letter_text | Plaintext cover letter body
+*resume | Resume file contents.  *Only allowed in `multipart/form-data` requests*
+*cover_letter | Cover letter file contents.  *Only allowed in `multipart/form-data` requests*
