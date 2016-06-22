@@ -22,6 +22,22 @@ Advanced settings allow customers with certain other security needs to use web h
 - Basic authentication username / password: These credentials are supplied if the web hook request needs to authenticate at the destination with HTTP Basic Authorization. These credentials will be encoded in to a HTTP Authorization header. See RFC 2617 for additional details.
 - Additional Headers: This textarea should contain any additional HTTP headers that will allow the POST request access to your environment. These headers will be included exactly as pasted, but may not include the following headers already reserved by Greenhouse: Content-Type, Content-Length, Greenhouse-Event-ID, Authorization, User-Agent, and Signature. Please consult with your technology department before including anything in this field.
 
+## Retry policy
+
+In the event of a failed web hook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 24 retries with exponential backoff according to this formula:
+
+`5 + (retry number) ^ 4` seconds relative to the last attempt
+
+| Retry number | Time since last retry | Time since original attempt
+|--------------|-----------------------|----------------------------
+| 1 | 6 seconds | 6 seconds
+| 2 | 21 seconds | 27 seconds
+| 3 | 86 seconds | 113 seconds
+| 8 | 68.4 minutes | 2.4 hours
+| 12 | 5.8 hours | 16.9 hours
+| 20 | 44.4 hours | 8.3 days
+| 24 | 92.1 hours | 20.4 days
+
 ## Disabled web hooks
 
 If a web hook is disabled, it will not trigger when the event occurs. Web hooks become disabled automatically if a ping event fails on create or update. They need to be manually re-enabled if this occurs.
