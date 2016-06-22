@@ -211,7 +211,7 @@
 
 The Hire Candidate event occurs when an offer is accepted. This is triggered by clicking the "Accept Offer" button on the candidate's Private tab.
 
-### Noteworthy response attributes
+### Noteworthy attributes
 
 See web hook [common attributes](#common-attributes).
 
