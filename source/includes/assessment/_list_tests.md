@@ -1,6 +1,6 @@
 # List Tests
 
-Greenhouse will first need to retreive the list of tests from the Testing Partner using the `list_tests` API endpoint. We will show the list of available tests to the user, who will to select the appropriate test for a given candidate. 
+Greenhouse will first need to retreive the list of tests from the Assessment Partner using the `list_tests` API endpoint. We will show the list of available tests to the user, who will to select the appropriate test for a given candidate. 
 
 `GET https://www.testing-partner.com/api/list_tests`
 
@@ -11,7 +11,7 @@ curl -X POST 'https://www.testing-partner.com/api/list_tests'
 
 ### Request
 
-Greenhouse will make a GET request to the `list_tests` endpoint specified by the Testing Partner.
+Greenhouse will make a GET request to the `list_tests` endpoint specified by the Assessment Partner.
 
 ### Response
 
@@ -31,7 +31,7 @@ Greenhouse will make a GET request to the `list_tests` endpoint specified by the
 ```
 
 
-The Testing Partner’s response should include a JSON payload containing a list of test objects for the organization. Each test object should contain the keys `partner_test_id` and `partner_test_name.`
+The Assessment Partner’s response should include a JSON payload containing a list of test objects for the organization. Each test object should contain the keys `partner_test_id` and `partner_test_name.`
 
 
 

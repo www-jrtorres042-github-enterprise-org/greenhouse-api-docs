@@ -16,7 +16,7 @@ curl 'https://www.testing-partner.com/api/test_status'
 }
 ```
 
- Greenhouse will send a `GET` request to the `test_status` endpoint provided by the Testing Partner. The `GET` request will contain a single query string parameter: `partner_interview_id`.
+ Greenhouse will send a `GET` request to the `test_status` endpoint provided by the Assessment Partner. The `GET` request will contain a single query string parameter: `partner_interview_id`.
 
 Parameter Name | Type | Required | Description
 -------------- | -------------- | -------------- | --------------

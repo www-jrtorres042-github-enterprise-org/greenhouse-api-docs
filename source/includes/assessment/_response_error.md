@@ -1,6 +1,6 @@
 # Response Error 
 
-When Greenhouse receives a malformed response for any of Testing Partner's API endpoints, we would like to report the errors to the Testing Partner. As such, each Testing Partner should provide an API endpoint to ingest this information.
+When Greenhouse receives a malformed response for any of Assessment Partner's API endpoints, we would like to report the errors to the Assessment Partner. As such, each Assessment Partner should provide an API endpoint to ingest this information.
 
 `POST https://www.testing-partner.com/api/request_errors`
 
@@ -23,11 +23,11 @@ curl -X POST 'https://www.testing-partner.com/api/request_errors'
 }
 ```
 
-After receiving a malformed response, Greenhouse will provide the Testing Partner with the details of the failed response. Each time an invalid response arrives, Greenhouse will send a POST request to the `response_error` API endpoint.
+After receiving a malformed response, Greenhouse will provide the Assessment Partner with the details of the failed response. Each time an invalid response arrives, Greenhouse will send a POST request to the `response_error` API endpoint.
 
 The body of the request will contain as much information as Greenhouse has at the moment of failure. 
 
-For example, if a `list_tests` request fails, Greenhouse can only provide the api call (in this case, ‘list_tests’) and the assorted errors (missing keys, unexpected data types, etc.). However, if a `test_status` request fails, we can provide more information (partner_test_id, partner_interview_id, etc.) that may prove useful for debugging purposes. Testing Partners can always expect to receive `api_call` and `errors` in the JSON body. 
+For example, if a `list_tests` request fails, Greenhouse can only provide the api call (in this case, ‘list_tests’) and the assorted errors (missing keys, unexpected data types, etc.). However, if a `test_status` request fails, we can provide more information (partner_test_id, partner_interview_id, etc.) that may prove useful for debugging purposes. Assessment Partners can always expect to receive `api_call` and `errors` in the JSON body. 
 
 Property Name | Value | Required | Description
 -------------- | -------------- | -------------- | --------------
