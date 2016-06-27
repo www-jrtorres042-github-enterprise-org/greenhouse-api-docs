@@ -1,5 +1,5 @@
 ---
-title: Take Home Test API
+title: Assessment API
 
 language_tabs:
   - shell
@@ -11,14 +11,14 @@ toc_footers:
   - <a href='/candidate-ingestion.html' title="Ingestion API">Ingestion API</a>
 
 includes:
-  - take-home-test/introduction
-  - take-home-test/list_tests
-  - take-home-test/send_test
-  - take-home-test/test_status
-  - take-home-test/response_error
-  - take-home-test/errors
+  - assessment/introduction
+  - assessment/list_tests
+  - assessment/send_test
+  - assessment/test_status
+  - assessment/response_error
+  - assessment/errors
 
-slug: take-home-test
+slug: assessment
 search: true
-github_link: https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/take-home-test
+github_link: https://github.com/grnhse/greenhouse-api-docs/tree/master/source/includes/assessment
 ---

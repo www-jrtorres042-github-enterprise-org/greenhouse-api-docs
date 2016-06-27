@@ -1,6 +1,6 @@
 # Send Test
 
-When a Greenhouse user sends a test to a candidate, Greenhouse will send a request to the Testing Partner's `send_test` API endpoint. The Testing Partner will then email the specified candidate the specified test.
+When a Greenhouse user sends a test to a candidate, Greenhouse will send a request to the Assessment Partner's `send_test` API endpoint. The Assessment Partner will then email the specified candidate the specified test.
 
 ### Request
 
@@ -24,7 +24,7 @@ curl -X POST 'https://www.testing-partner.com/api/send_test'
 }
 ```
 
-Greenhouse will initiate the process by sending a POST request to the `send_test` endpoint specified by the Testing Partner. The body of the POST request will contain a JSON payload. 
+Greenhouse will initiate the process by sending a POST request to the `send_test` endpoint specified by the Assessment Partner. The body of the POST request will contain a JSON payload. 
 
 Property Name | Type | Required | Description
 -------------- | -------------- | -------------- | --------------

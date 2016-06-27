@@ -8,7 +8,7 @@ toc_footers:
   - <a href="/harvest.html" title="Harvest API">Harvest API</a>
   - <a href="/job-board.html" title="Job Board API">Job Board API</a>
   - <a href='/webhooks.html' title="Web Hooks">Web Hooks</a>
-  - <a href='/take-home-test.html' title="Take Home Test">Take Home Test API</a>
+  - <a href='/assessment.html' title="Assessment">Assessment API</a>
 
 includes:
   - candidate-ingestion/introduction

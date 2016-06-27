@@ -23,11 +23,11 @@
       "rejection_reason": null,
       "current_stage": {
         "id": 71416,
-        "name": "Take Home Test",
+        "name": "Assessment",
         "interviews": [
           {
             "id": 113101,
-            "name": "Take Home Test",
+            "name": "Assessment",
             "status": "to_be_scheduled",
             "interview_kit": {
               "url": "https://app.greenhouse.io/guides/113153/people/265772",
