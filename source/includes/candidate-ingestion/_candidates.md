@@ -69,7 +69,7 @@ applications.profile_url | String | Yes | A URL to the candidate’s profile in 
 ## Post Candidates
 
 ```shell
-curl -X POST 'https://api.greenhouse.io/v1/partner/partner_candidates'
+curl -X POST 'https://api.greenhouse.io/v1/partner/candidates'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -93,7 +93,11 @@ curl -X POST 'https://api.greenhouse.io/v1/partner/partner_candidates'
 			"type": "other" 
 		}
 	], 
-	"social_media": "https://twitter.com/hp",
+	"social_media": [
+		{
+			"url": "https://twitter.com/hp"
+		}
+	],
 	"websites": [ 
 		{
 			"url": "https://harrypotter.com",

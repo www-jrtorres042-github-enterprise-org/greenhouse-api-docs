@@ -7,7 +7,6 @@ The API allows partners to:
 1. Send candidates from the partner application to Greenhouse.
 2. Retrieve the current stage and status of candidates.
 3. Retrieve jobs on which the Greenhouse user is allowed to operate.
-4. Retrieve jobs on which the Greenhouse user is allowed to operate.
 
 ## Authentication
 
