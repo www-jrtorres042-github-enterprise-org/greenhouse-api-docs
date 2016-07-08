@@ -30,8 +30,8 @@ Attribute | Example Value
 -------------- | -------------- 
 Consumer Key| bMipe4KWf987654321GrLG1Nfk1234567UshvloD
 Consumer Secret | LQdulabcdefghijklEZok2fE5xGzeBcDa123gNXtN
-Token URL| https://app.greenhouse.io/oauth/token
-Authorize URL | https://app.greenhouse.io/oauth/authorize
+Token URL| https://api.greenhouse.io/oauth/token
+Authorize URL | https://api.greenhouse.io/oauth/authorize
 
 <aside class="notice">
 Your Consumer Secret is confidential, and is best kept private. Greenhouse will request to encrypt the Consumer Secret before we send it to you via email. 
