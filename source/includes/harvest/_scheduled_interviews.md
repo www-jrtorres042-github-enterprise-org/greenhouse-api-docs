@@ -7,6 +7,7 @@ Interviews that have been scheduled for the specified application.
 ```json
 {
   "id": 9128481,
+  "application_id": 4684156,
   "start": {
     "date_time": "2014-03-26T22:15:00.000Z"
   },
@@ -33,6 +34,7 @@ Interviews that have been scheduled for the specified application.
   ]
 }
 ```
+
 ### Noteworthy attributes
 
 | Attribute | Description |
@@ -45,10 +47,10 @@ Interviews that have been scheduled for the specified application.
 | organizer | The [user](#users) who is the organizer for this interview
 | interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed.
 
-## List scheduled interviews
+## List interviews
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
+curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -57,6 +59,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
 [
   {
     "id": 9128481,
+    "application_id": 432904,
     "start": {
       "date_time": "2014-03-26T22:15:00.000Z"
     },
@@ -84,6 +87,149 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
   },
   {
     "id": 9128482,
+    "application_id": 432905,
+    "start": {
+      "date": "2014-07-08"
+    },
+    "end": {
+      "date": "2014-07-09"
+    },
+    "location": "Small Conference Room",
+    "interview": {
+      "id": 7002,
+      "name": "Whiteboarding Challenge"
+    },
+    "organizer": {
+      "id": 2000,
+      "name": "Jack Shepard"
+    },
+    "status": "complete",
+    "interviewers": [
+      {
+        "id": 3412,
+        "name": "Charlie Pace",
+        "email": "youalleverybody@example.com",
+        "scorecard_id": null
+      }
+    ]
+  }
+]
+```
+
+List all interviews for the authorized organization.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/scheduled_interviews`
+
+### Optional querystring Parameters
+
+Timestamps must be in in [ISO-8601](#general-considerations) format.
+
+Parameter | Description
+--------- | -----------
+| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| created_before | Only return scheduled interviews that were created before this timestamp.
+| created_after | Only return scheduled interviews that were created after this timestamp.
+| updated_before | Only return scheduled interviews that were updated before this timestamp.
+| updated_after | Only return scheduled interviews that were updated after this timestamp.
+| starts_before | Only return scheduled interviews scheduled to start before this timestamp.
+| starts_after | Only return scheduled interviews scheduled to start after this timestamp.
+| ends_before | Only return scheduled interviews scheduled to end before this timestamp.
+| ends_after | Only return scheduled interviews scheduled to end after this timestamp.
+
+
+## Retrieve an interview
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/scheduled_interviews/123'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+  "id": 9128481,
+  "application_id": 4684156,
+  "start": {
+    "date_time": "2014-03-26T22:15:00.000Z"
+  },
+  "end": {
+    "date_time": "2014-03-26T22:30:00.000Z"
+  },
+  "location": "Big Conference Room",
+  "status": "awaiting_feedback",
+  "interview": {
+    "id": 7001,
+    "name": "Culture Fit"
+  },
+  "organizer": {
+    "id": 2000,
+    "name": "Jack Shepard"
+  },
+  "interviewers": [
+    {
+      "id": 4080,
+      "name": "Kate Austen",
+      "email": "kate.austen@example.com",
+      "scorecard_id": 11274
+    }
+  ]
+}
+```
+
+Retrieve an interview by its ID.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/scheduled_interviews/{id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the job to interview to retrieve
+
+## List interviews for application
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+[
+  {
+    "id": 9128481,
+    "application_id": 432904,
+    "start": {
+      "date_time": "2014-03-26T22:15:00.000Z"
+    },
+    "end": {
+      "date_time": "2014-03-26T22:30:00.000Z"
+    },
+    "location": "Big Conference Room",
+    "status": "awaiting_feedback",
+    "interview": {
+      "id": 7001,
+      "name": "Culture Fit"
+    },
+    "organizer": {
+      "id": 2000,
+      "name": "Jack Shepard"
+    },
+    "interviewers": [
+      {
+        "id": 4080,
+        "name": "Kate Austen",
+        "email": "kate.austen@example.com",
+        "scorecard_id": 11274
+      }
+    ]
+  },
+  {
+    "id": 9128482,
+    "application_id": 432904,
     "start": {
       "date": "2014-07-08"
     },
@@ -123,6 +269,8 @@ Interviews that have been scheduled for this application.
 Parameter | Description
 --------- | -----------
 | id | ID of the application to retrieve
+| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 | created_before | Return only scheduled interviews that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | created_after | Return only scheduled interviews that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only scheduled interviews that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
