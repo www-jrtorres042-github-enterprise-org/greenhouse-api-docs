@@ -190,7 +190,7 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
 ]
 ```
 
-List all scorecards.
+List all of an organization's scorecards.
 
 ### HTTP Request
 

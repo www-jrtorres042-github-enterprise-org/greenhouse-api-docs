@@ -2,7 +2,7 @@
 
 ## The department object
 
-Your organization's departments.
+An organization's departments.
 
 ```json
 {
@@ -20,7 +20,7 @@ Your organization's departments.
 
 ## List departments
 
-List all of your organization's departments.
+List all of an organization's departments.
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/departments' 
@@ -73,7 +73,7 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 }
 ```
 
-Retrieves your organization's departments.
+Retrieve a department by its `id`.
 
 ### HTTP Request
 

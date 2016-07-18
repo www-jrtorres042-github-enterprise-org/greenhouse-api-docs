@@ -1,6 +1,6 @@
 # Email Templates
 
-Your organization's email templates.
+An organization's email templates.
 
 ## The email template object
 
@@ -30,6 +30,8 @@ Your organization's email templates.
 | html_body | The body of the e-mail with html styling code (may be null).
 
 ## List email templates
+
+List all of an organization's email templates.
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/email_templates/' 
@@ -113,7 +115,7 @@ curl 'https://harvest.greenhouse.io/v1/email_templates/{id}'
 }
 ```
 
-Retrieves your organization's email templates.
+Retrieve an email template by its `id`.
 
 ### HTTP Request
 

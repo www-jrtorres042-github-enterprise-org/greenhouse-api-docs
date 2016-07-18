@@ -2,7 +2,7 @@
 
 ## The offer object
 
-Your organization's offers.
+An organization's offers.
 
 ```json
 {
@@ -40,7 +40,7 @@ Your organization's offers.
 
 ## List all offers 
 
-All offers made by your organization ordered by application_id.
+All offers made by an organization ordered by application_id.
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/offers' 

@@ -2,7 +2,7 @@
 
 ## The office object
 
-Your organization’s offices.
+An organization’s offices.
 
 ```json
 {
@@ -56,7 +56,7 @@ curl 'https://harvest.greenhouse.io/v1/offices'
 ]
 ```
 
-List all of your organization's offices.
+List all of an organization's offices.
 
 ### HTTP Request
 

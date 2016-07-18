@@ -2,7 +2,7 @@
 
 ## The job object
 
-Your organization's jobs.
+An organization's jobs.
 
 ```json
 {
@@ -219,7 +219,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
 ]
 ```
 
-List all of your organization's jobs.
+List all of an organization's jobs.
 
 ### HTTP Request
 

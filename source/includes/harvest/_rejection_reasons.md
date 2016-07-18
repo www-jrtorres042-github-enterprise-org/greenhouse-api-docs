@@ -61,7 +61,7 @@ curl 'https://harvest.greenhouse.io/v1/rejection_reasons'
 ]
 ```
 
-Retrieves your organization's rejection reasons.
+List all of an organization's rejection reasons.
 
 ### HTTP Request
 

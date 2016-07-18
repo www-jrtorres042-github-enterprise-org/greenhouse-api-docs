@@ -74,8 +74,7 @@ curl 'https://harvest.greenhouse.io/v1/applications'
   },
 ]
 ```
-
-Retreive all of an organization's applications.
+List all of an organization's applications.
 
 ### HTTP Request
 

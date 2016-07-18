@@ -2,7 +2,7 @@
 
 ## The source object 
 
-Your organization's sources.
+An organization's sources.
 
 ```json
 {

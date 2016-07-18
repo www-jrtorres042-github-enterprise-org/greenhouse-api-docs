@@ -1,6 +1,6 @@
 # Job Stages
 
-Stages for the job specified by the supplied id.
+An organization's job stages.
 
 ## The job stage object
 
@@ -49,6 +49,137 @@ Stages for the job specified by the supplied id.
 |-----------|-------------|
 | id | The job stage's unique identifier |
 | interviews | An array of interviews associated with this job stage.
+
+
+## List job stages
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/job_stages' 
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 6001,
+    "name": "Cultural Fit Interview",
+    "created_at": "2015-11-22T05:31:37.263Z",
+    "updated_at": "2015-11-22T05:31:37.263Z",
+    "job_id": 12345,
+    "interviews": [
+      {
+        "id": 7890,
+        "name": "Cultural Fit Interview",
+        "interview_kit": {
+          "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
+          "questions": [
+              {
+                "id": 11052,
+                "question": "Is this person really a good fit?"
+              }
+            ]        
+          }
+        }
+      ]
+    },
+  {
+    "id": 6002,
+    "name": "Executive Interview",
+    "created_at": "2015-11-22T05:31:37.263Z",
+    "updated_at": "2015-11-22T05:31:37.263Z",
+    "job_id": 34567,
+    "interviews": [
+      {
+        "id": 7345,
+        "name": "Executive Interview",
+        "interview_kit": {
+          "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
+          "questions": [
+              {
+                "id": 11053,
+                "question": "What's their favorite color?"
+              },
+              {
+                "id": 11054,
+                "question": "Do they really want to work here?"
+              }
+            ]        
+          }
+        }
+      ]
+    }
+  ]
+```
+
+List all of an organization's job stages.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/job_stages`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+
+<br>
+[See noteworthy response attributes.](#the-job-stages-object)
+
+
+## Retrieve a job stage
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/job_stages/{id}' 
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 6001,
+  "name": "Cultural Fit Interview",
+  "created_at": "2015-11-22T05:31:37.263Z",
+  "updated_at": "2015-11-22T05:31:37.263Z",
+  "job_id": 12345,
+  "interviews": [
+    {
+      "id": 7890,
+      "name": "Cultural Fit Interview",
+      "interview_kit": {
+        "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
+        "questions": [
+            {
+              "id": 11052,
+              "question": "Is this person really a good fit?"
+            }
+          ]        
+        }
+      }
+    ]
+  }
+```
+
+Retreieve a job stage by its `id`.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/job_stages/{id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the job stage to retrieve
+
+
+<br>
+[See noteworthy response attributes.](#the-job-stages-object)
+
 
 ## List job stages for job
 
@@ -119,7 +250,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
 ]
 ```
 
-Retrieves the stages for the specified job id.
+Retrieve the stages for the specified job id.
 
 ### HTTP Request
 

@@ -1,6 +1,6 @@
 # Candidates
 
-Your organization's candidates.
+An organization's candidates.
 
 ## The candidate object
 
@@ -243,7 +243,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
 }
 ```
 
-Retrieve your organization's candidates.
+Retrieve a candidate by its `id`.
 
 ### HTTP Request
 

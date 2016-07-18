@@ -159,7 +159,7 @@ emails.email | String | Mixed | Note: Only required if email is included.
 emails.type | String | Mixed | Must be "personal", "work", or "other". Only required if email is included. 
 addresses[] | Array | No
 addresses.address | String | Mixed | A free form block of text, which may include newlines ("\n"). Only required if addresses are included.
-addresses.type | String | Mixed | Only required if addresses are included.
+addresses.type | String | Mixed | Must be "home", "work", or "other". Only required if addresses are included.
 social_media[] | Array | No
 social_media.url | String | Mixed | Note: Only required if social media urls are included.
 website[] | Array | No

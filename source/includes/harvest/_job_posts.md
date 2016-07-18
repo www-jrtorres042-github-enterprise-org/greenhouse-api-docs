@@ -1,6 +1,6 @@
 # Job Posts
 
-Describes the online job posts for your jobs (as seen on your Job Board).
+Describes the online job posts for an organization's jobs (as seen on the Job Board).
 
 ## The job post object 
 
@@ -172,7 +172,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
 ]
 ```
 
-All of your organization's job posts.
+List all of an organization's job posts.
 
 ### HTTP Request
 
@@ -229,7 +229,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
 }
 ```
 
-Retrieves the coresponding job post for a given Job ID.
+Retrieve the coresponding job post for a given Job ID.
 
 ### HTTP Request
 

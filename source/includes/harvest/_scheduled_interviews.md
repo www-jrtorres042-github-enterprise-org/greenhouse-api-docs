@@ -116,7 +116,7 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
 ]
 ```
 
-List all interviews for the authorized organization.
+List all of an organization's scheduled interviews.
 
 ### HTTP Request
 

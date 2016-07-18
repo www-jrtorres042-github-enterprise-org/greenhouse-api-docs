@@ -2,7 +2,7 @@
 
 ## The user object
 
-Your organization's Greenhouse users.
+An organization's Greenhouse users.
 
 
 ```json
