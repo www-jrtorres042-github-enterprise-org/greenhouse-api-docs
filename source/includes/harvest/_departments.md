@@ -7,7 +7,9 @@ An organization's departments.
 ```json
 {
 	"id": 1,
-	"name": "Technology"
+	"name": "Technology",
+  "parent_id": 5,
+  "child_ids": [11, 12]
 }
 ```
 
@@ -33,11 +35,15 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 [
   {
     "id": 1,
-    "name": "Technology"
+    "name": "Technology",
+    "parent_id": 5,
+    "child_ids": [11, 12]
   },
   {
     "id": 2,
-    "name": "Administration"
+    "name": "Administration",
+    "parent_id": nil,
+    "child_ids": []
   }
 ]
 ```
@@ -52,7 +58,14 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 |-----------|-------------|
 | per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| render_as | This parameter defines how to represent the list of departments. The default value is 'list'.
 
+Allowed `render_as` values:
+
+| Value | Description |
+|-------|--------------|
+| list | (Default).
+| tree | The departments are returned as a list of trees with `children`. |
 
 <br>
 [See noteworthy response attributes.](#the-department-object)
@@ -69,7 +82,9 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 ```json
 {
 	"id": 1,
-	"name": "Technology"
+	"name": "Technology",
+  "parent_id": 5,
+  "child_ids": [11, 12]
 }
 ```
 
@@ -84,6 +99,19 @@ Retrieve a department by its `id`.
 Parameter | Description
 --------- | -----------
 id | The ID of the department to retrieve
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| render_as | This parameter defines how to represent the department. The default value is 'list'.
+
+Allowed `render_as` values:
+
+| Value | Description |
+|-------|--------------|
+| list | (Default).
+| tree | The children departments are returned as a tree. |
 
 <br>
 [See noteworthy response attributes.](#the-department-object)
