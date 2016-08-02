@@ -8,8 +8,8 @@ An organization's departments.
 {
 	"id": 1,
 	"name": "Technology",
-  "parent_id": 5,
-  "child_ids": [11, 12]
+	"parent_id": 5,
+	"child_ids": [11, 12]
 }
 ```
 
@@ -83,8 +83,8 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 {
 	"id": 1,
 	"name": "Technology",
-  "parent_id": 5,
-  "child_ids": [11, 12]
+	"parent_id": 5,
+	"child_ids": [11, 12]
 }
 ```
 
