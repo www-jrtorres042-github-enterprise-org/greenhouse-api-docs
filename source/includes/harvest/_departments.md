@@ -28,9 +28,9 @@ An organization's departments.
 	    "children": []
 	  },
 	  {
-      "id": 12,
-      "name": "Engineering",
-      "children": []
+	    "id": 12,
+	    "name": "Engineering",
+	    "children": []
 	  }
 	]
 }
@@ -87,9 +87,9 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 	    "children": []
 	  },
 	  {
-      "id": 12,
-      "name": "Engineering",
-      "children": []
+	    "id": 12,
+	    "name": "Engineering",
+	    "children": []
 	  }
 	]
   },
@@ -150,9 +150,9 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 	    "children": []
 	  },
 	  {
-      "id": 12,
-      "name": "Engineering",
-      "children": []
+	    "id": 12,
+	    "name": "Engineering",
+	    "children": []
 	  }
 	]
 }

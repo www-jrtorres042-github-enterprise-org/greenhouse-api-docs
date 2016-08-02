@@ -101,47 +101,49 @@ curl 'https://harvest.greenhouse.io/v1/offices'
 > With `render_as=tree`
 
 ```json
-{
-  "id": 175,
-  "name": "San Francisco",
-  "children": [
-    {
-      "id": 190,
-      "name": "West",
-      "children": [],
-      "location": {
-        "name": "San Francisco, CA"
+[
+  {
+    "id": 175,
+    "name": "San Francisco",
+    "children": [
+      {
+        "id": 190,
+        "name": "West",
+        "children": [],
+        "location": {
+          "name": "San Francisco, CA"
+        }
+      },
+      {
+        "id": 195,
+        "name": "East",
+        "children": [],
+        "location": {
+          "name": "San Francisco, CA"
+        }
       }
-    },
-    {
-      "id": 195,
-      "name": "East",
-      "children": [],
-      "location": {
-        "name": "San Francisco, CA"
-      }
+    ],
+    "location": {
+      "name": "San Francisco, CA"
     }
-  ],
-  "location": {
-    "name": "San Francisco, CA"
   },
   {
-      "id": 344,
-      "name": "Bangkok",
-      "children": [],
-      "location": {
-        "name": "Bangkok Thailand"
-      }
-    },
-    {
-      "id": 145,
-      "name": "Remote Locations",
-      "children": [],
-      "location": {
-        "name": null
-      }
+    "id": 344,
+    "name": "Bangkok",
+    "children": [],
+    "location": {
+      "name": "Bangkok Thailand"
     }
-}
+  },
+  {
+    "id": 145,
+    "name": "Remote Locations",
+    "children": [],
+    "location": {
+      "name": null
+    }
+  }
+]
 ```
 
 List all of an organization's offices.
