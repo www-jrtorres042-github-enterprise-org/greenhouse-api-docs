@@ -72,7 +72,7 @@
 Returns the list of all job posts. The `id` field contains the unique identifier for the job post, while `internal_job_id` contains the unique identifier for the job itself. Any job custom fields you have selected to be exposed in the job board API will be shown in the `metadata` attribute.
 
 <aside class="warning">
-When submitting a job application, you will use the <code>id</code> field to specify the application's target job post. 
+When submitting a job application, you will use the <code>id</code> field to specify the application's target job post.
 </aside>
 
 
@@ -164,7 +164,7 @@ content | If set to `true`, include the description, department and office of ea
 
 Returns a job post. Setting the questions querystring parameter to
 `"true"` will include the list of job application fields; these fields
-can be used to dynamically construct your own job application form. 
+can be used to dynamically construct your own job application form.
 
 Any job custom fields you have selected to be exposed in the job board API will be shown in the `metadata` attribute.
 
@@ -193,6 +193,7 @@ Possible field types:
 |------|------------------|
 | input_file | Represent with an input of type file |
 | input_text | Represent with an input of type text |
+| input_hidden | Represent with an input of type hidden |
 | textarea | Represent with a textarea |
 | multi_value_single_select | Can be represented as either a set of radio buttons or a select
 | multi_value_multi_select | Can be represented as either a set of checkboxes or a multi-select
