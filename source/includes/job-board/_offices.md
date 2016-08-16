@@ -57,13 +57,11 @@
           "child_ids":[
           ]
         },
-        // { ... } Each dept is listed for each office
       ],
       "parent_id":10201,
       "child_ids":[
       ]
     },
-    // { ... } More offices here
   ]
 }
 ```
@@ -117,14 +115,12 @@
               "children":[
               ]
             },
-            // { ... } Each dept is listed for each office
           ]
           "children":[
           ]
         },
       ]
     },
-    // { ... } More offices here
   ]
 }
 ```

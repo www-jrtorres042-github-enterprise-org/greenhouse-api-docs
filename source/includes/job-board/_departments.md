@@ -53,7 +53,6 @@
       "child_ids":[
       ]
     },
-    // { ... } All departments are listed
   ]
 }
 ```
@@ -105,7 +104,6 @@
       "children":[
       ]
     },
-    // { ... } All departments are listed
   ]
 }
 ```
