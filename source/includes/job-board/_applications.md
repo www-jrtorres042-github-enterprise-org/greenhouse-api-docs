@@ -48,9 +48,9 @@ curl -X POST \
   "last_name": "McSamson",
   "email": "sammy@example.com",
   "phone": "3337778888",
-  "location": "New York, NY",
-  "latitude": "51.5034070",
-  "longitude": "-0.1275920",
+  "location": "110 5th Ave New York, NY, 10011",
+  "latitude": "40.7376671",
+  "longitude": "-73.9929196",
   "resume_text": "I have many years of experience as an expert basket weaver...",
   "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me..."
 }' "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
