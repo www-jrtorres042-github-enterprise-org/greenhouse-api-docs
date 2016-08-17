@@ -40,7 +40,10 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 > or, you can POST a JSON encoded body (with `Content-Type: application/json`):
 
 ```
-{
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
+-d '{
   "first_name": "Sammy",
   "last_name": "McSamson",
   "email": "sammy@example.com",
@@ -50,7 +53,8 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
   "longitude": "-0.1275920",
   "resume_text": "I have many years of experience as an expert basket weaver...",
   "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me..."
-}
+}' "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
+
 ```
 
 Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constrcuted via the "questions" array available via the [Job method](#retrieve-a-job). Please see the [Job method](#retrieve-a-job) documentation for instructions on submitting location information through the API.
