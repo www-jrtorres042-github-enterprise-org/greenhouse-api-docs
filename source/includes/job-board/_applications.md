@@ -86,9 +86,26 @@ last_name | Applicant's last name
 email | Applicant's email adress
 *phone | Applicant's phone number
 *location | Applicant's street address
-*latitude | Applicant's home latitude
-*longitude | Applicant's home longitude
+*latitude | Applicant's home latitude. This is a *hidden* field and should not be exposed directly to the applicant.
+*longitude | Applicant's home longitude. This is a *hidden* field and should not be exposed directly to the applicant.
 *resume_text | Plaintext resume body
 *cover_letter_text | Plaintext cover letter body
 *resume | Resume file contents.  *Only allowed in `multipart/form-data` requests*
 *cover_letter | Cover letter file contents.  *Only allowed in `multipart/form-data` requests*
+
+### Collecting Applicant Location
+
+Here is the suggested workflow for populating `location`, `latitude` and `longitude`:
+
+1. The applicant begins typing a location in your `location` text box.
+2. As the applicant types, your app makes a call to the [Google Places Autocomplete API](https://developers.google.com/maps/documentation/javascript/places-autocomplete)
+to retrieve suggested location names (e.g. New York, NY, United States)
+and the `place_id` associated with each location (e.g. `ChIJOwg_06VPwokRYv534QaPC8g`).
+3. Your app displays the suggested location names to the applicant.
+4. The applicant selects a suggested location.
+5. Your app uses the `place_id` from the previous API call to retrieve the latitude and
+longitude for the selected location using the [Google Place Details API](https://developers.google.com/maps/documentation/javascript/places#place_details).
+6. Your app populates the hidden `latitude` and `longitude` fields with the result of
+this API call.
+
+Note that all 3 fields must be included. If only `location` is sent and `latitude` and `longitude` are omitted, `location` will be ignored entirely.
