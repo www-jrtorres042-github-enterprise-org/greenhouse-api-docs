@@ -37,20 +37,42 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 </form>
 ```
 
+> cURL equivalent:
+
+```
+curl -X POST \
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
+  -H "Content-Type: multipart/form-data" \
+  -F "first_name=Sammy" \
+  -F "last_name=McSamson" \
+  -F "email=sammy@example.com" \
+  -F "phone=3337778888" \
+  -F "location=110 5th Ave New York, NY, 10011" \
+  -F "latitude=40.7376671" \
+  -F "longitude=-73.9929196" \
+  -F "resume=@/path/to/resume/ADA084551.pdf" \
+  -F "cover_letter=@/path/to/coverletter/blah.pdf" \
+  "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
+```
+
 > or, you can POST a JSON encoded body (with `Content-Type: application/json`):
 
 ```
-{
-  "first_name": "Sammy",
-  "last_name": "McSamson",
-  "email": "sammy@example.com",
-  "phone": "3337778888",
-  "location": "New York, NY",
-  "latitude": "51.5034070",
-  "longitude": "-0.1275920",
-  "resume_text": "I have many years of experience as an expert basket weaver...",
-  "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me..."
-}
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
+  -d '{
+    "first_name": "Sammy",
+    "last_name": "McSamson",
+    "email": "sammy@example.com",
+    "phone": "3337778888",
+    "location": "110 5th Ave New York, NY, 10011",
+    "latitude": "40.7376671",
+    "longitude": "-73.9929196",
+    "resume_text": "I have many years of experience as an expert basket weaver...",
+    "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me..."
+  }' \
+  "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
 Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constrcuted via the "questions" array available via the [Job method](#retrieve-a-job). Please see the [Job method](#retrieve-a-job) documentation for instructions on submitting location information through the API.
@@ -86,9 +108,26 @@ last_name | Applicant's last name
 email | Applicant's email adress
 *phone | Applicant's phone number
 *location | Applicant's street address
-*latitude | Applicant's home latitude
-*longitude | Applicant's home longitude
+*latitude | Applicant's home latitude. This is a *hidden* field and should not be exposed directly to the applicant.
+*longitude | Applicant's home longitude. This is a *hidden* field and should not be exposed directly to the applicant.
 *resume_text | Plaintext resume body
 *cover_letter_text | Plaintext cover letter body
 *resume | Resume file contents.  *Only allowed in `multipart/form-data` requests*
 *cover_letter | Cover letter file contents.  *Only allowed in `multipart/form-data` requests*
+
+### Collecting Applicant Location
+
+Here is the suggested workflow for populating `location`, `latitude` and `longitude`:
+
+1. The applicant begins typing a location in your `location` text box.
+2. As the applicant types, your app makes a call to the [Google Places Autocomplete API](https://developers.google.com/maps/documentation/javascript/places-autocomplete)
+to retrieve suggested location names (e.g. New York, NY, United States)
+and the `place_id` associated with each location (e.g. `ChIJOwg_06VPwokRYv534QaPC8g`).
+3. Your app displays the suggested location names to the applicant.
+4. The applicant selects a suggested location.
+5. Your app uses the `place_id` from the previous API call to retrieve the latitude and
+longitude for the selected location using the [Google Place Details API](https://developers.google.com/maps/documentation/javascript/places#place_details).
+6. Your app populates the hidden `latitude` and `longitude` fields with the result of
+this API call.
+
+Note that all 3 fields must be included. If only `location` is sent and `latitude` and `longitude` are omitted, `location` will be ignored entirely.

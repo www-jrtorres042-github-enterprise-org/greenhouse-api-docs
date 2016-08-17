@@ -218,7 +218,7 @@ job_id | ID of the office to retrieve
 
 Parameter | Description
 --------- | -----------
-questions | *(optional)* If set to `true`, include the list of job application fields.  
+*questions | If set to `true`, include an array of job application fields `questions`. If the job post has `location` set to `optional` or `required`, an array of questions used to capture the applicant's location, `location_questions`, is also included.
 
 ### Questions
 
@@ -234,32 +234,3 @@ Possible field types:
 | multi_value_multi_select | Can be represented as either a set of checkboxes or a multi-select
 
 Please note that it is possible for multiple fields to be aggregated beneath a single question. The "Resume" field is a prime example, with both an input_file and textarea type accepted. If marked as required, then we expect at least one of these fields to contain a valid value when your form is submitted to the [application submission](#applications) endpoint.
-
-### Location Questions
-
-When questions=true is passed, we'll add a `location_questions` list in the API Response in addition to the `questions` list detailed above.
-
-If a job post has "Location" set to "Hidden", the `location_questions` list will be empty.  If
-"Location" has been set to "Optional" or "Required", the list will be populated
-with three question objects, including "location", "latitude", and "longitude". These objects will be in the same format as the questions found in the normal "questions" section of the API Response.
-
-"Location" will be type `input_text`. This field should be exposed to the applicant. </br>
-"Latitude" and "Longitude"  will be type `input_hidden` and should not be exposed to the
-applicant. These fields should take Numbers that indicate the given location's coordinates.
-
-Here is the suggested workflow for populating "latitude" and "longitude":
-
-1. The applicant begins typing a location in your "Location" text box.
-2. As the applicant types, your app makes a call to the [Google Places Autocomplete API](https://developers.google.com/maps/documentation/javascript/places-autocomplete)
-to retrieve suggested location names (e.g. New York, NY, United States)
-and the `place_id` associated with each location (e.g. ChIJOwg_06VPwokRYv534QaPC8g).
-3. Your app displays the suggested location names to the applicant.
-4. The applicant selects a suggested location.
-5. Your app uses the `place_id` from the previous API call to retrieve the latitude and
-longitude for the selected location using the [Google Place Details API](https://developers.google.com/maps/documentation/javascript/places#place_details).
-6. Your app populates the hidden "latitude" and "longitude" fields with the result of
-this API call.
-
-When submitting location through the API, all 3 fields must be included.
-If only "location" is sent and "latitude" and "longitude" are omitted, we will
-ignore "location" entirely.
