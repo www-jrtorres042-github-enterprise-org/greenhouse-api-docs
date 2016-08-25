@@ -6,40 +6,42 @@ An organization's job stages.
 
 ```
 {
-	"id": 72200,
-	"name": "Face to Face",
-	"interviews": [
-	  {
-	    "id": 6001,
-	    "name": "Cultural Fit Interview",
-	    "interview_kit": {
-	      "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
-	      "questions": [
-	        {
-	          "id": 11052,
-	          "question": "Is this person really a good fit?"
-	        }
-	      ]
-	    }
-	  },
-	  {
-	    "id": 6002,
-	    "name": "Executive Interview",
-	    "interview_kit": {
-	      "content": "<h5>Purpose</h5><span>See if they can work with the boss.</span>",
-	      "questions": [
-	        {
-	          "id": 11053,
-	          "question": "What's their favorite color?"
-	        },
-	        {
-	          "id": 11054,
-	          "question": "Do they really want to work here?"
-	        }
-	      ]
-	    }
-	  }
-	]
+  "id": 72200,
+  "name": "Face to Face",
+  "interviews": [
+    {
+      "id": 6001,
+      "name": "Cultural Fit Interview",
+      "interview_kit": {
+        "id": 9123,
+        "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
+        "questions": [
+          {
+            "id": 11052,
+            "question": "Is this person really a good fit?"
+          }
+        ]
+      }
+    },
+    {
+      "id": 6002,
+      "name": "Executive Interview",
+      "interview_kit": {
+        "id": 9124,
+        "content": "<h5>Purpose</h5><span>See if they can work with the boss.</span>",
+        "questions": [
+          {
+            "id": 11053,
+            "question": "What's their favorite color?"
+          },
+          {
+            "id": 11054,
+            "question": "Do they really want to work here?"
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
@@ -73,6 +75,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
         "id": 7890,
         "name": "Cultural Fit Interview",
         "interview_kit": {
+          "id": 9124,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
           "questions": [
               {
@@ -95,6 +98,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
         "id": 7345,
         "name": "Executive Interview",
         "interview_kit": {
+          "id": 9125,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
           "questions": [
               {
@@ -151,6 +155,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages/{id}'
       "id": 7890,
       "name": "Cultural Fit Interview",
       "interview_kit": {
+        "id": 9127,
         "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
         "questions": [
             {
@@ -203,6 +208,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
         "id": 6001,
         "name": "Cultural Fit Interview",
         "interview_kit": {
+          "id": 9128,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
           "questions": [
             {
@@ -219,6 +225,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
         "updated_at": "2015-11-22T05:31:37.263Z",
         "job_id": 146219,
         "interview_kit": {
+          "id": 9129,
           "content": "<h5>Purpose</h5><span>See if they can work with the boss.</span>",
           "questions": [
             {
@@ -253,6 +260,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
         "id": 8004,
         "name": "Application Review",
         "interview_kit": {
+          "id": 9130,
           "content": null,
           "questions": []
         }
