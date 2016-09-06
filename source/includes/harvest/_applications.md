@@ -184,7 +184,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
 }
 ```
 
-Move this application to the next stage. The response is populated with the application's information which will reflect its new state. Note that only applications in the 'active' state can be advanced.
+Move this application to the next stage. The response is populated with the application's information which will reflect its new state. Note that only applications in the `active` state can be advanced.
 
 ### HTTP Request
 
@@ -253,7 +253,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
 }
 ```
 
-Move this application from one stage to another. The response is populated with the application's information which will reflect its new state. Note that only applications in the 'active' state can be moved.
+Move this application from one stage to another. The response is populated with the application's information which will reflect its new state. Note that only applications in the `active` state can be moved.
 
 ### HTTP Request
 
@@ -329,7 +329,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 }
 ```
 
-Reject this application. The response is populated with the application's information which will reflect its new state. Note that only applications in the 'active' state can be rejected.
+Reject this application. The response is populated with the application's information which will reflect its new state. Note that only applications in the `active` state can be rejected.
 
 ### HTTP Request
 
@@ -351,3 +351,76 @@ notes | No | string | Notes on why this application was rejected. These will be 
 rejection_email | No | hash | An email will be sent to the candidate notifying them of this rejection.
 rejection_email.sent_email_at | Yes, if sending rejection_email | string | The rejection email will be delayed until this time.
 rejection_email.email_template_id | No | string | The template the to use for the rejection email.
+
+## Unreject an application
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'\
+  -H "On-Behalf-Of: {greenhouse user ID}"\
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> A successful response:
+
+```json
+{
+  "id": 985314,
+  "candidate_id": 978031,
+  "prospect": false,
+  "applied_at": "2014-03-26T20:11:39.000Z",
+  "last_activity_at": "2014-03-27T16:13:15.000Z",
+  "source": {
+    "id": 1871,
+    "public_name": "Happy Hour"
+  },
+  "credited_to": {
+    "id": 4080,
+    "name": "Kate Austen"
+  },
+  "jobs": [
+    {
+      "id": 123,
+      "name": "Accounting Manager"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 62828,
+    "name": "Recruiter Phone Screen"
+  }
+}
+```
+
+> An unsuccessful response:
+
+```json
+{
+  "errors": [
+    {
+      "message": "Application must be 'rejected', is currently 'active'"
+    }
+  ]
+}
+```
+
+Unreject this application. The response is populated with the application in its new state. Note that only applications in the `rejected` state can be unrejected.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/applications/{id}/unreject`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### URL parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the application to unreject
+
+### JSON Body Parameters
+
+No JSON body parameters
