@@ -212,7 +212,7 @@ Any job custom fields you have selected to be exposed in the job board API will 
 Parameter | Description
 --------- | -----------
 board_token | Job Board URL token
-job_id | ID of the office to retrieve
+job_id | ID of the job to retrieve
 
 ### Querystring Parameters
 
