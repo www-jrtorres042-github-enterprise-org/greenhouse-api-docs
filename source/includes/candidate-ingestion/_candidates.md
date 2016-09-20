@@ -143,7 +143,7 @@ Create one or more candidates or prospects
 
 Property Name  | Type | Required | Description
 -------------- | -------------- | --------------  | -------------- 
-prospect | Boolean | Yes | True if this candidte should be a propsect. (Default: true)
+prospect | Boolean | No | True if this candidate should be a propsect. (Default: true)
 job_id | Integer | Mixed | Required only if prospect is false. The ID of the job to which this candidate or prospect should be added.
 first_name | String | Yes
 last_name | String | Yes
