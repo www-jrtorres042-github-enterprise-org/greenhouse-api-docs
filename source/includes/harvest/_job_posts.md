@@ -195,8 +195,10 @@ List all of an organization's job posts.
 
 ## Retrieve job post for job
 
+<aside class="warning">As of September 2016, we introduced the ability to add multiple job posts for a single job. To list all job posts for a job, see <a href="#list-multiple-job-posts-for-a-job">here</a>.</aside>
+
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post' 
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -247,6 +249,99 @@ Parameter | Description
 --------- | -----------
 content | If present, will return the text of the job post as posted to the external job board.
 questions | If present, will return an array of questions associated with this job post.
+
+<br>
+[See noteworthy response attributes.](#the-job-post-object)
+
+## List job posts for a job
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 129547,
+    "live": true,
+    "title": "Test job one",
+    "location": {
+      "name": "Material Plane"
+    },
+    "internal": false,
+    "external": true,
+    "job_id": 146218,
+    "content": "job post content",
+    "updated_at": "2016-09-19T14:04:25.297Z",
+    "internal_content": "",
+    "created_at": "2015-11-22T05:49:35.145Z",
+    "questions": [
+      {
+        "required": true,
+        "private": false,
+        "label": "First Name",
+        "type": "short_text",
+        "values": []
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Last Name",
+        "type": "short_text",
+        "values": []
+      }
+    ]
+  },
+  {
+    "id": 129548,
+    "live": true,
+    "title": "Test job two",
+    "location": {
+      "name": "Material Plane"
+    },
+    "internal": false,
+    "external": true,
+    "job_id": 146218,
+    "content": "job post content two",
+    "updated_at": "2016-09-19T14:04:25.297Z",
+    "internal_content": "",
+    "created_at": "2015-11-22T05:49:35.145Z",
+    "questions": [
+      {
+        "required": true,
+        "private": false,
+        "label": "First Name",
+        "type": "short_text",
+        "values": []
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Last Name",
+        "type": "short_text",
+        "values": []
+      }
+    ]
+  }
+]
+```
+
+List all the coresponding job posts for a given Job ID.
+
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/jobs/{id}/job_posts`
+
+### URL parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the job whose job posts you want to retrieve
+
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
