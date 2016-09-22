@@ -253,7 +253,7 @@ questions | If present, will return an array of questions associated with this j
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
 
-## List multiple job posts for a job
+## List job posts for a job
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
