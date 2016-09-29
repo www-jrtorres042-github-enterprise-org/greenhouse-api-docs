@@ -14,6 +14,7 @@ includes:
   - webhooks/introduction
   - webhooks/new_candidate_application
   - webhooks/new_prospect_application
+  - webhooks/update_candidate
   - webhooks/candidate_stage_change
   - webhooks/hire_candidate
   - webhooks/reject_candidate
