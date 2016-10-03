@@ -68,35 +68,3 @@ Lists an organization's sources, grouped by strategy.
 <br>
 [See noteworthy response attributes.] (#the-source-object)
 
-## Retrieve a source 
-
-```shell
-curl 'https://harvest.greenhouse.io/v1/sources/{id}'
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 632,
-  "name": "Other",
-  "type": {
-    "id": 5,
-    "name": "Prospecting"
-  }
-}
-```
-
-### HTTP Request
-
-`GET https://harvest.greenhouse.io/v1/sources/{id}`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-id | The ID of the source to retrieve
-
-<br>
-[See noteworthy response attributes.] (#the-source-object)
