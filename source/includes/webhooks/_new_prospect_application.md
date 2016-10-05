@@ -69,36 +69,39 @@
           }
         }
       },
-      "job": {
-        "id": 7347,
-        "name": "Summer Internship",
-        "requisition_id": "",
-        "notes": "Looking for the best!",
-        "status": "open",
-        "created_at": "2014-01-06T22:18:15Z",
-        "opened_at": "2014-01-06T22:18:15Z",
-        "closed_at": null,
-        "departments": [
-          {
-            "id": 237,
-            "name": "Community"
-          }
-        ],
-        "offices": [
-          {
-            "id": 54,
-            "name": "New York",
-            "location": "New York, NY"
-          }
-        ],
-        "custom_fields": {
-          "employment_type": {
-            "name": "Employment Type",
-            "type": "single_select",
-            "value": "Full Time"
+      "jobs": [
+        {
+          "id": 3485,
+          "name": "Designer",
+          "requisition_id": null,
+          "notes": "Digital and print",
+          "job_post_id": 54321,
+          "status": "open",
+          "created_at": "2013-10-02T22:59:29Z",
+          "opened_at": "2015-01-23T00:25:04Z",
+          "closed_at": null,
+          "departments": [
+            {
+              "id": 237,
+              "name": "Community"
+            }
+          ],
+          "offices": [
+            {
+              "id": 54,
+              "name": "New York",
+              "location": "New York, NY"
+            }
+          ],
+          "custom_fields": {
+            "employment_type": {
+              "name": "Employment Type",
+              "type": "single_select",
+              "value": "Full Time"
+            }
           }
         }
-      }
+      ]
     }
   }
 }
