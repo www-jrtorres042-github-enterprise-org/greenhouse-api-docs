@@ -97,7 +97,7 @@ List all of an organization's applications.
 ## Retrieve an application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}'
+curl 'https://harvest.greenhouse.io/v1/applications/{id}' 
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -142,7 +142,7 @@ id | ID of the application to retrieve
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
--H "On-Behalf-Of: {greenhouse user ID}"
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 > The above command takes a JSON request, structured like this:
@@ -209,7 +209,7 @@ from_stage_id | Yes | integer | The ID of the job stage this application is curr
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
--H "On-Behalf-Of: {greenhouse user ID}"
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -281,7 +281,7 @@ to_stage_id | Yes | integer | The ID of the job stage this application should be
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
--H "On-Behalf-Of: {greenhouse user ID}"
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -424,50 +424,3 @@ id | ID of the application to unreject
 ### JSON Body Parameters
 
 No JSON body parameters
-
-## Delete an application
-
-```shell
-curl -X DELETE 'https://harvest.greenhouse.io/v1/applications/{id}'\
-  -H "On-Behalf-Of: {greenhouse user ID}"\
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> A successful response:
-
-```json
-{
-  "message": "Application 38766866 has been deleted."
-}
-```
-
-> An unsuccessful response:
-
-```json
-{
-  "message": "Resource not found"
-}
-```
-
-Delete this application.
-
-### HTTP Request
-
-`DELETE https://harvest.greenhouse.io/v1/applications/{id}`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-### URL parameters
-
-Parameter | Description
---------- | -----------
-id | ID of the application to delete
-
-### JSON Body Parameters
-
-No JSON body parameters
-

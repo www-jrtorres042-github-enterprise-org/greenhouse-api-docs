@@ -85,7 +85,7 @@ An organization's candidates.
 ## List candidates
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/candidates'
+curl 'https://harvest.greenhouse.io/v1/candidates' 
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -177,7 +177,7 @@ List all of an organization's candidates.
 ## Retrieve a candidate
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
+curl 'https://harvest.greenhouse.io/v1/candidates/{id}' 
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -263,7 +263,7 @@ id | The ID of the candidate to retrieve
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
--H "On-Behalf-Of: {greenhouse user ID}"
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -445,7 +445,7 @@ tags[] | No | string | Array of tags as strings. Passing an empty array will cle
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
--H "On-Behalf-Of: {greenhouse user ID}"
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 > The above command takes a JSON request, structured like this:
@@ -500,7 +500,7 @@ url | No | string | Url of the attachment (if you are providing the url, you do 
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={field_names}'
--H "On-Behalf-Of: {greenhouse user ID}"
+-H "On-Behalf-Of: {greenhouse user ID}" 
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -663,49 +663,3 @@ Parameter | Required | Type | Description
 user_id | Yes | integer |   The ID of the user creating the note
 body | Yes | string | Note body
 visibility | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
-
-## Delete a candidate
-
-```shell
-curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{id}'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-> A successful response:
-
-```json
-{
-  "message": "Candidate 38766866 has been deleted."
-}
-```
-
-> An unsuccessful response:
-
-```json
-{
-  "message": "Resource not found"
-}
-```
-
-Delete this candidate.
-
-### HTTP Request
-
-`DELETE https://harvest.greenhouse.io/v1/candidates/{id}`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-### URL parameters
-
-Parameter | Description
---------- | -----------
-id | ID of the candidate to delete
-
-### JSON Body Parameters
-
-No JSON body parameters
-
