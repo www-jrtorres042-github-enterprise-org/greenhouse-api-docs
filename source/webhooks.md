@@ -18,6 +18,7 @@ includes:
   - webhooks/candidate_stage_change
   - webhooks/hire_candidate
   - webhooks/reject_candidate
+  - webhooks/job_created
 
 slug: webhooks
 search: true
