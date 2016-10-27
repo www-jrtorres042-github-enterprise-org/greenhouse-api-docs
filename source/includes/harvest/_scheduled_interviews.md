@@ -188,7 +188,7 @@ Retrieve an interview by its ID.
 
 Parameter | Description
 --------- | -----------
-id | The ID of the job to interview to retrieve
+id | The ID of the scheduled interview to retrieve
 
 ## List interviews for application
 
