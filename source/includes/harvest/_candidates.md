@@ -85,7 +85,7 @@ An organization's candidates.
 ## List candidates
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/candidates' 
+curl 'https://harvest.greenhouse.io/v1/candidates'
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -177,7 +177,7 @@ List all of an organization's candidates.
 ## Retrieve a candidate
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/candidates/{id}' 
+curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -263,7 +263,7 @@ id | The ID of the candidate to retrieve
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
--H "On-Behalf-Of: {greenhouse user ID}" 
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -445,7 +445,7 @@ tags[] | No | string | Array of tags as strings. Passing an empty array will cle
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
--H "On-Behalf-Of: {greenhouse user ID}" 
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 > The above command takes a JSON request, structured like this:
@@ -491,16 +491,11 @@ type | Yes | string | One of: ["resume", "cover_letter", "admin_only"]
 content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url)
 url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content)
 
-
-
-
-
-
 ## Anonymize a candidate
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={field_names}'
--H "On-Behalf-Of: {greenhouse user ID}" 
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -663,3 +658,80 @@ Parameter | Required | Type | Description
 user_id | Yes | integer |   The ID of the user creating the note
 body | Yes | string | Note body
 visibility | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
+
+
+## Create a candidate application
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  job_id: 3,
+  source_id: 7,
+  referrer: {
+    type: "id",
+    value: 1234
+  },
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 38776620,
+  "candidate_id": 15803530,
+  "prospect": false,
+  "applied_at": "2016-11-08T19:50:49.746Z",
+  "rejected_at": null,
+  "last_activity_at": "2016-11-04T19:46:40.377Z",
+  "source": null,
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 266926,
+      "name": "Construction Project Manager"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 1945557,
+    "name": "Application Review"
+  },
+  "answers": [],
+  "custom_fields": {
+    "birthday": null,
+    "bio": null
+  }
+}
+```
+
+Create a new application for this candidate to the given job.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/applications`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+job_id | Yes | integer | The ID of the job you want to create an application to for this candidate
+source_id | No | integer | The id of the source to be credited for this application
+referrer | No | object | An object representing the referrer
+referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
+referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
