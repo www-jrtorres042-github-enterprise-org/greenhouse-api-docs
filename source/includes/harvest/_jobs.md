@@ -135,7 +135,7 @@ An organization's jobs.
 ## List jobs
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs' 
+curl 'https://harvest.greenhouse.io/v1/jobs'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -244,7 +244,7 @@ List all of an organization's jobs.
 ## Retrieve a job
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs/{id}' 
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -336,6 +336,123 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
 Parameter | Description
 --------- | -----------
 id | The ID of the job to retrieve
+
+<br>
+[See noteworthy response attributes.](#the-job-object)
+
+## Update a job
+
+```shell
+curl --request PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+   "id": 144371,
+   "name": "New job name",
+   "requisition_id": "1",
+   "notes": "Here are some notes",
+   "team_and_responsibilities": "Info",
+   "how_to_sell_this_job": "the snacks",
+}
+```
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/jobs/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the job to retrieve
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+name | No | string | The job's name
+notes | No | email_address | Notes on the hiring plan
+anywhere | No | website_address | Boolean value indicating where the job can be done anywhere
+requisition_id | No | integer | The id of the requisition corresponding to this job posting, if applicable
+team_and_responsibilities | No | string | A description of the team the candidate would join and their responsibilities
+how_to_sell_this_job | No | string | A description for the recruiter of the desirable aspects of the job
+
+> The above returns a JSON response, structured like this:
+
+```
+{
+  "id": 112746,
+  "name": "new name",
+  "requisition_id": 2,
+  "notes": "Looking for the best!",
+  "status": "open",
+  "created_at": "2015-09-10T19:01:46.078Z",
+  "opened_at": "2015-09-10T19:01:46.078Z",
+  "closed_at": null,
+  "departments": [
+    {
+      "id": 74,
+      "name": "Guideshops",
+      "parent_id": null,
+      "child_ids": []
+    }
+  ],
+  "offices": [
+    {
+      "id": 1556,
+      "name": "San Diego",
+      "location": {
+        "name": "San Diego, CA, United States"
+      },
+      "parent_id": null,
+      "child_ids": []
+    }
+  ],
+  "hiring_team": {
+    "hiring_managers": [],
+    "recruiters": [],
+    "coordinators": [],
+    "sourcers": []
+  },
+  "custom_fields": {
+    "employment_type": null,
+    "salary": null,
+    "bonus": null,
+    "options": null
+  },
+  "openings": [
+    {
+      "opening_id": null,
+      "status": "closed",
+      "opened_at": "2015-09-10T19:01:46.077Z",
+      "closed_at": "2015-09-21T21:28:17.628Z",
+      "application_id": 18682391
+    },
+    {
+      "opening_id": null,
+      "status": "closed",
+      "opened_at": "2015-09-21T21:28:17.679Z",
+      "closed_at": "2016-03-09T20:07:35.649Z",
+      "application_id": 18492607
+    },
+    {
+      "opening_id": null,
+      "status": "open",
+      "opened_at": "2016-03-09T20:07:35.675Z",
+      "closed_at": null,
+      "application_id": null
+    }
+  ]
+}
+```
 
 <br>
 [See noteworthy response attributes.](#the-job-object)
