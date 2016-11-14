@@ -13,6 +13,7 @@ An organization's Greenhouse users.
     "juliet.burke@example.com",
      "other.woman@example.com"
   ],
+  "employee_id": "221",
   "disabled": false,
   "site_admin": true
 }
@@ -41,6 +42,7 @@ curl 'https://harvest.greenhouse.io/v1/users'
       "juliet.burke@example.com",
        "other.woman@example.com"
     ],
+    "employee_id": "221",
     "disabled": false,
     "site_admin": true
   },
@@ -50,6 +52,7 @@ curl 'https://harvest.greenhouse.io/v1/users'
     "emails": [
       "mr.eko@example.com"
     ],
+    "employee_id": "221",
     "disabled": true,
     "site_admin": false
   }
@@ -68,6 +71,7 @@ List all of an organization's Greenhouse users.
 |-----------|-------------|
 | per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| employee_id | Return a single user that matches this employee id.
 | created_before | Return only users that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | created_after | Return only users that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only users that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
@@ -91,6 +95,7 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}'
     "juliet.burke@example.com",
      "other.woman@example.com"
   ],
+  "employee_id": "221",
   "disabled": false,
   "site_admin": true
 }
