@@ -29,6 +29,10 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
   "current_stage": {
     "id": 62828,
     "name": "Recruiter Phone Screen"
+  },
+  "custom_fields": {
+    "bio": null,
+    "birthday": null
   }
 }
 ```
@@ -44,6 +48,8 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 | current_stage | The current [stage](#job-stages) that this application is in.
 | credited_to.id | The ID of the user who will receive credit for this application.
 | answers | The answers provided to the questions in this application. Array contains the text value of the question and answer. Answers are always plaintext strings; booleans are represented with Yes or No.
+| custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
+
 
 ## List applications
 
@@ -97,7 +103,7 @@ List all of an organization's applications.
 ## Retrieve an application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}' 
+curl 'https://harvest.greenhouse.io/v1/applications/{id}'
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -142,7 +148,7 @@ id | ID of the application to retrieve
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
--H "On-Behalf-Of: {greenhouse user ID}" 
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 > The above command takes a JSON request, structured like this:
@@ -209,7 +215,7 @@ from_stage_id | Yes | integer | The ID of the job stage this application is curr
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
--H "On-Behalf-Of: {greenhouse user ID}" 
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -281,7 +287,7 @@ to_stage_id | Yes | integer | The ID of the job stage this application should be
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
--H "On-Behalf-Of: {greenhouse user ID}" 
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
