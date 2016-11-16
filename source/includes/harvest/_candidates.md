@@ -327,6 +327,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
    {
    	"id": 5678,
 	"delete_value": "true"
+   }
   ]
 }
 ```
@@ -451,14 +452,14 @@ custom_fields[] | No |  custom_field | Array of hashes containing new custom fie
 
 ### Custom Field Parameters
 
-The custom field parameters are different in the PATCH method then they are in the various GET methods and responses.  Certain type of custom fields require different elements to be included, while deleting a field requires a specific argument.  What follows is the description of each item in a custom field element and what is required depending on the type.
+The custom field parameter structure is different in the PATCH method then in GET methods and responses.  Certain type of custom fields require different elements to be included, while deleting a field requires a specific argument.  What follows is the description of each item in a custom field element and what is required depending on the type.
 
 Parameter | Required for | Description
 ---------- | -------------- | ----------------
-id | all | The custom field id for this particular custom field.  One of this or name_key is required
+id | all | The custom field id for this particular custom field.  One of this or name_key is required.
 name_key | all | The field key for this custom field. This can be found in Greenhouse while editing custom options as "Immutable Field Key"  This or id is required for all custom field elements.
-value | all | The value field contains the custom field value.  In most cases this will be a string or a number.  In the case of single-select or multi-select custom fields, this will be an custom field option id or an array of custom field option ids, respectively.
-unit | currency | This contains the currency unit for a currency custom field. It is only required when updating a currency custom field.  These are the ISO-4217 3 letter currency code values.
+value | all | The value field contains the new custom field value.  In most cases this will be a string or a number.  In the case of single-select or multi-select custom fields, this will be a custom field option id or an array of custom field option ids, respectively.
+unit | currency | This contains the currency unit for a currency custom field. It is only required when updating a currency custom field.  This should accept any 3-character currency code from the ISO-4217 standard.
 delete_value  | n/a | When this element is included with a value of "true" (note, string true, not boolean true) the custom field value will be removed from Greenhouse.  Note that updating a custom field value to nil or a blank string will not work, as validations require these to be non-blank values.
 
 <br>
