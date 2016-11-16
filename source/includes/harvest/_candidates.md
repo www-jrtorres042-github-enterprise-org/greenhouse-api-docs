@@ -317,16 +317,16 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
   ],
   "custom_fields": [
     {
-  	"id": 1234,
- 	"value": "Some new value"
+        "id": 1234,
+        "value": "Some new value"
     },
     {
-	"name_key": "custom_field_name",
-	"value": "Some other new value"
+        "name_key": "custom_field_name",
+        "value": "Some other new value"
    },
    {
-   	"id": 5678,
-	"delete_value": "true"
+        "id": 5678,
+        "delete_value": "true"
    }
   ]
 }
