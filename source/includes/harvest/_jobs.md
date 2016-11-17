@@ -379,8 +379,8 @@ id | The ID of the job to retrieve
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 name | No | string | The job's name
-notes | No | email_address | Notes on the hiring plan
-anywhere | No | website_address | Boolean value indicating where the job can be done anywhere
+notes | No | string | Notes on the hiring plan
+anywhere | No | boolean | Boolean value indicating where the job can be done anywhere
 requisition_id | No | integer | The id of the requisition corresponding to this job posting, if applicable
 team_and_responsibilities | No | string | A description of the team the candidate would join and their responsibilities
 how_to_sell_this_job | No | string | A description for the recruiter of the desirable aspects of the job
