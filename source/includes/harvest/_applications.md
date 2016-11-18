@@ -444,7 +444,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/"
 
 ```json
 {
-  "source_id": 16
+  "source_id": 16,
   "referrer": {
     "type": "id",
     "value": 123
