@@ -96,7 +96,7 @@ All submitted scorecards ordered by candidate.
 | overall_recommendation | One of: `definitely_not`, `no`, `yes`, `strong_yes`, `mixed`, `no_decision`
 | attributes | Array containing the attributes of the Scorecard. Describes each attribute's name, type, rating (can be "no_decision"), and an optional note.
 
-## List scorecards
+## GET: List Scorecards
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/scorecards'
@@ -210,7 +210,7 @@ List all of an organization's scorecards.
 <br>
 [See noteworthy response attributes.] (#the-scorecard-object)
 
-## Retrieve a scorecard
+## GET: Retrieve Scorecard
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/scorecards/{id}'
@@ -314,7 +314,7 @@ id | The ID of the scorecard to retrieve
 <br>
 [See noteworthy response attributes.] (#the-scorecard-object)
 
-## List scorecards for application
+## GET: List Scorecards for Application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'

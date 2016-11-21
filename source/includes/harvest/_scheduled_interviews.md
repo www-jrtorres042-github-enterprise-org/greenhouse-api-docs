@@ -47,7 +47,7 @@ Interviews that have been scheduled for the specified application.
 | organizer | The [user](#users) who is the organizer for this interview
 | interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed.
 
-## List interviews
+## GET: List Interviews
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
@@ -140,7 +140,7 @@ Parameter | Description
 | ends_after | Only return scheduled interviews scheduled to end after this timestamp.
 
 
-## Retrieve an interview
+## GET: Retrieve Interview
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/scheduled_interviews/123'
@@ -190,7 +190,7 @@ Parameter | Description
 --------- | -----------
 id | The ID of the scheduled interview to retrieve
 
-## List interviews for application
+## GET: List Interviews Application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'

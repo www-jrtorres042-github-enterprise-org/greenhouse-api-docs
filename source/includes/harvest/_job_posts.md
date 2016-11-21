@@ -134,7 +134,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 | internal_content | The text of the job post if posted to the internal job board, if different than the external job board.
 | questions | An array of questions associated with this job post.
 
-## List job posts
+## GET: List Job Posts
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/job_posts' 
@@ -193,67 +193,7 @@ List all of an organization's job posts.
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
 
-## Retrieve job post for job
-
-<aside class="warning">As of September 2016, we introduced the ability to add multiple job posts for a single job. To list all job posts for a job, see <a href="#list-multiple-job-posts-for-a-job">here</a>.</aside>
-
-```shell
-curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 123,
-  "title": "Button Pusher",
-  "location": {
-    "name": "The Island"
-  },
-  "internal": true,
-  "external": false,
-  "live": true,
-  "job_id": 1234,
-  "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-  "internal_content": null,
-  "updated_at": "2014-04-01T17:56:19Z",
-  "questions": [
-    {
-      "required": true,
-      "private": false,
-      "label": "First Name",
-      "type": "short_text",
-      "values": []
-    },
-    {  }
-  ]
-}
-```
-
-Retrieve the coresponding job post for a given Job ID.
-
-### HTTP Request
-
-`GET https://harvest.greenhouse.io/v1/jobs/{id}/job_post`
-
-### URL parameters
-
-Parameter | Description
---------- | -----------
-id | The ID of the job whose job post you want to retrieve
-
-### Querystring parameters
-
-Parameter | Description
---------- | -----------
-content | If present, will return the text of the job post as posted to the external job board.
-questions | If present, will return an array of questions associated with this job post.
-
-<br>
-[See noteworthy response attributes.](#the-job-post-object)
-
-## List job posts for a job
+## GET: List Job Posts for Job
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
@@ -342,6 +282,67 @@ Parameter | Description
 --------- | -----------
 id | The ID of the job whose job posts you want to retrieve
 
+
+<br>
+[See noteworthy response attributes.](#the-job-post-object)
+
+
+## GET: Retrieve Job Post for Job
+
+<aside class="warning">As of September 2016, we introduced the ability to add multiple job posts for a single job. To list all job posts for a job, see <a href="#list-multiple-job-posts-for-a-job">here</a>.</aside>
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 123,
+  "title": "Button Pusher",
+  "location": {
+    "name": "The Island"
+  },
+  "internal": true,
+  "external": false,
+  "live": true,
+  "job_id": 1234,
+  "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
+  "internal_content": null,
+  "updated_at": "2014-04-01T17:56:19Z",
+  "questions": [
+    {
+      "required": true,
+      "private": false,
+      "label": "First Name",
+      "type": "short_text",
+      "values": []
+    },
+    {  }
+  ]
+}
+```
+
+Retrieve the coresponding job post for a given Job ID.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/jobs/{id}/job_post`
+
+### URL parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the job whose job post you want to retrieve
+
+### Querystring parameters
+
+Parameter | Description
+--------- | -----------
+content | If present, will return the text of the job post as posted to the external job board.
+questions | If present, will return an array of questions associated with this job post.
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)

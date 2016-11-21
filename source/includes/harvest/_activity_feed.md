@@ -59,7 +59,7 @@ The activity feed is the list of activities on a candidate's profile, including 
 
 
 
-## Retrieve activity feed for candidate
+## GET: Retrieve Activity Feed
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed' 
