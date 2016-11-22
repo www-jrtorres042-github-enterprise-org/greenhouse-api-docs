@@ -51,7 +51,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 
 
-## GET: List Applicaions
+## GET: List Applications
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications'
