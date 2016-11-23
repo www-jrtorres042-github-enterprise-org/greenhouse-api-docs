@@ -703,7 +703,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
   "source_id": 7,
   "referrer": {
     "type": "id",
-    "value": 1234
+    "value": 770
   }
 }
 ```
@@ -718,8 +718,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
   "applied_at": "2016-11-08T19:50:49.746Z",
   "rejected_at": null,
   "last_activity_at": "2016-11-04T19:46:40.377Z",
-  "source": null,
-  "credited_to": null,
+  "source": {
+    "id": 7,
+    "public_name": "Indeed"
+  },
+  "credited_to": {
+    "id": 770,
+    "name": "Moon Colorado"
+  },
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
