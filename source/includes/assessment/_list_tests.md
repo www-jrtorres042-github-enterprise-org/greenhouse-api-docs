@@ -5,7 +5,7 @@ Greenhouse will first need to retreive the list of tests from the Assessment Par
 `GET https://www.testing-partner.com/api/list_tests`
 
 ```shell
-curl -X POST 'https://www.testing-partner.com/api/list_tests'
+curl 'https://www.testing-partner.com/api/list_tests'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
