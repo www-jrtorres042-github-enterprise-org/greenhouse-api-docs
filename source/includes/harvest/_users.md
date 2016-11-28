@@ -9,13 +9,15 @@ An organization's Greenhouse users.
 {
   "id": 112,
   "name": "Juliet Burke",
+  "updated_at": "2016-11-17T16:13:48.888Z",
+  "created_at": "2015-11-18T22:26:32.243Z",  
+  "disabled": false,
+  "site_admin": true,
   "emails": [
     "juliet.burke@example.com",
-     "other.woman@example.com"
+    "other.woman@example.com"
   ],
-  "employee_id": "221",
-  "disabled": false,
-  "site_admin": true
+  "employee_id": "221"
 }
 ```
 
@@ -38,23 +40,27 @@ curl 'https://harvest.greenhouse.io/v1/users'
   {
     "id": 112,
     "name": "Juliet Burke",
+    "updated_at": "2016-11-17T16:13:48.888Z",
+    "created_at": "2015-11-18T22:26:32.243Z",  
+    "disabled": false,
+    "site_admin": true,
     "emails": [
       "juliet.burke@example.com",
-       "other.woman@example.com"
+      "other.woman@example.com"
     ],
-    "employee_id": "221",
-    "disabled": false,
-    "site_admin": true
+    "employee_id": "221"
   },
   {
     "id": 712,
     "name": "Mr. Eko",
+    "updated_at": "2016-11-03T18:05:47.361Z",
+    "created_at": "2015-11-18T22:27:11.111Z", 
+    "disabled": false,
+    "site_admin": true,
     "emails": [
       "mr.eko@example.com"
     ],
-    "employee_id": "221",
-    "disabled": true,
-    "site_admin": false
+    "employee_id": "700"
   }
 ]
 ```
