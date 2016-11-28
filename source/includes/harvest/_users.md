@@ -97,13 +97,15 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}'
 {
   "id": 112,
   "name": "Juliet Burke",
+  "updated_at": "2016-11-17T16:13:48.888Z",
+  "created_at": "2015-11-18T22:26:32.243Z",  
+  "disabled": false,
+  "site_admin": true,
   "emails": [
     "juliet.burke@example.com",
-     "other.woman@example.com"
+    "other.woman@example.com"
   ],
-  "employee_id": "221",
-  "disabled": false,
-  "site_admin": true
+  "employee_id": "221"
 }
 ```
 
