@@ -119,5 +119,10 @@ Parameter | Description
 --------- | -----------
 id | The ID of the user to retrieve
 
+### Querystring Parameters
+Parameter | Description
+--------- | -----------
+employee_id | The Employee ID of the user to retrieve
+
 <br>
 [See noteworthy response attributes.] (#the-user-object)
