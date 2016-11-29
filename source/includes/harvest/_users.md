@@ -28,7 +28,7 @@ An organization's Greenhouse users.
 | id | The user's unique identifier |
 | site_admin | If `true`, this user is a site admin, which means the user has full permissions on all non-private jobs.
 
-## List users
+## GET: List Users
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/users'
@@ -86,7 +86,7 @@ List all of an organization's Greenhouse users.
 <br>
 [See noteworthy response attributes.] (#the-user-object)
 
-## Retrieve a user 
+## GET: Retrieve User 
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/users/{id}'

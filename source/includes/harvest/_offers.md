@@ -38,7 +38,7 @@ An organization's offers.
 | status | One of: `unresolved`, `accepted`, `rejected`, `deprecated`.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 
-## List all offers 
+## GET: List Offers
 
 All offers made by an organization ordered by application_id.
 
@@ -110,7 +110,7 @@ curl 'https://harvest.greenhouse.io/v1/offers'
 [See noteworthy response attributes.](#the-offer-object)
 
 
-## List offers for application
+## GET: List Offers for Application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers'
@@ -184,51 +184,7 @@ application_id | ID of the application whose offers you want to retrieve
 [See noteworthy response attributes.](#the-offer-object)
 
 
-## Retrieve an offer
-
-```shell
-curl 'https://harvest.greenhouse.io/v1/offers/{id}' 
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-```json
-{
-  "id": 4949,
-  "version": 1,
-  "application_id": 1234,
-  "created_at": "2014-02-13T22:30:58Z",
-  "resolved_at": null,
-  "sent_at": "sent_on",
-  "status": "deprecated",
-  "custom_fields": {
-    "employment_type": "Contractor",
-    "favorite_station": "The Swan",
-    "best_seasons": null,
-    "start_date": null,
-    "willing_to_negotiate": null,
-    "salary": null,
-    "notes": null
-  }
-}
-```
-
-Retrieve an offer by its ID.
-
-### HTTP Request
-
-`GET https://harvest.greenhouse.io/v1/offers/{id}`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-id | ID of the offer to retrieve
-
-<br>
-[See noteworthy response attributes.](#the-offer-object)
-
-
-## Retrieve current offer for application
+## GET: Retrieve Current Offer for Application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/current_offer' 
@@ -267,6 +223,49 @@ Fetch the current offer for an application.
 Parameter | Description
 --------- | -----------
 application_id | ID of the application whose current offer you want to retrieve
+
+<br>
+[See noteworthy response attributes.](#the-offer-object)
+
+## GET: Retrieve Offer
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/offers/{id}' 
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+  "id": 4949,
+  "version": 1,
+  "application_id": 1234,
+  "created_at": "2014-02-13T22:30:58Z",
+  "resolved_at": null,
+  "sent_at": "sent_on",
+  "status": "deprecated",
+  "custom_fields": {
+    "employment_type": "Contractor",
+    "favorite_station": "The Swan",
+    "best_seasons": null,
+    "start_date": null,
+    "willing_to_negotiate": null,
+    "salary": null,
+    "notes": null
+  }
+}
+```
+
+Retrieve an offer by its ID.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/offers/{id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the offer to retrieve
 
 <br>
 [See noteworthy response attributes.](#the-offer-object)

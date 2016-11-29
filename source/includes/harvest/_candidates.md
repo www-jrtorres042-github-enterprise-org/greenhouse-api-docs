@@ -82,7 +82,7 @@ An organization's candidates.
 | attachments[].url | URLs expire in 30 days.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 
-## List candidates
+## GET: List Candidates
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/candidates'
@@ -174,7 +174,7 @@ List all of an organization's candidates.
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
-## Retrieve a candidate
+## GET: Retrieve Candidate
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
@@ -259,7 +259,7 @@ id | The ID of the candidate to retrieve
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
-## Edit a candidate
+## PATCH: Edit Candidate
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
@@ -466,9 +466,90 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
+## POST: Add Application
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "job_id": 266926,
+  "source_id": 7,
+  "referrer": {
+    "type": "id",
+    "value": 770
+  }
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 38776620,
+  "candidate_id": 15803530,
+  "prospect": false,
+  "applied_at": "2016-11-08T19:50:49.746Z",
+  "rejected_at": null,
+  "last_activity_at": "2016-11-04T19:46:40.377Z",
+  "source": {
+    "id": 7,
+    "public_name": "Indeed"
+  },
+  "credited_to": {
+    "id": 770,
+    "name": "Moon Colorado"
+  },
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 266926,
+      "name": "Construction Project Manager"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 1945557,
+    "name": "Application Review"
+  },
+  "answers": [],
+  "custom_fields": {
+    "birthday": null,
+    "bio": null
+  }
+}
+```
+
+Create a new application for this candidate to the given job.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/applications`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+job_id | Yes | integer | The ID of the job you want to create an application to for this candidate
+source_id | No | integer | The id of the source to be credited for this application
+referrer | No | object | An object representing the referrer
+referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
+referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
 
 
-## Create an attachment for a candidate
+## POST: Add Attachment
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
@@ -518,7 +599,62 @@ type | Yes | string | One of: ["resume", "cover_letter", "admin_only"]
 content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url)
 url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content)
 
-## Anonymize a candidate
+
+## POST: Add Note
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/notes'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "user_id": "158108",
+  "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
+  "visibility": "admin_only"
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "created_at": "2015-07-17T16:29:31Z",
+  "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
+  "user": {
+    "id": 214,
+    "name": "Boone Carlyle"
+  },
+  "private": false,
+  "visibility": "admin_only"
+}
+```
+
+Create a candidate note.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/notes`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+user_id | Yes | integer |   The ID of the user creating the note
+body | Yes | string | Note body
+visibility | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
+
+## PUT: Anonymize Candidate
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={field_names}'
@@ -630,141 +766,5 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
+<<<<<<< HEAD
 fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, offers, credited_to, headline, all_offer_versions, and follow_up_reminders.
-
-## Create a candidate's note
-
-```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/notes'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command takes a JSON request, structured like this:
-
-```
-{
-  "user_id": "158108",
-  "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
-  "visibility": "admin_only"
-}
-```
-
-> The above command returns a JSON response, structured like this:
-
-```json
-{
-  "created_at": "2015-07-17T16:29:31Z",
-  "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
-  "user": {
-    "id": 214,
-    "name": "Boone Carlyle"
-  },
-  "private": false,
-  "visibility": "admin_only"
-}
-```
-
-Create a candidate note.
-
-### HTTP Request
-
-`POST https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/notes`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | -----------
-user_id | Yes | integer |   The ID of the user creating the note
-body | Yes | string | Note body
-visibility | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
-
-
-## Create a candidate application
-
-```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command takes a JSON request, structured like this:
-
-```
-{
-  "job_id": 3,
-  "source_id": 7,
-  "referrer": {
-    "type": "id",
-    "value": 770
-  }
-}
-```
-
-> The above command returns a JSON response, structured like this:
-
-```json
-{
-  "id": 38776620,
-  "candidate_id": 15803530,
-  "prospect": false,
-  "applied_at": "2016-11-08T19:50:49.746Z",
-  "rejected_at": null,
-  "last_activity_at": "2016-11-04T19:46:40.377Z",
-  "source": {
-    "id": 7,
-    "public_name": "Indeed"
-  },
-  "credited_to": {
-    "id": 770,
-    "name": "Moon Colorado"
-  },
-  "rejection_reason": null,
-  "rejection_details": null,
-  "jobs": [
-    {
-      "id": 266926,
-      "name": "Construction Project Manager"
-    }
-  ],
-  "status": "active",
-  "current_stage": {
-    "id": 1945557,
-    "name": "Application Review"
-  },
-  "answers": [],
-  "custom_fields": {
-    "birthday": null,
-    "bio": null
-  }
-}
-```
-
-Create a new application for this candidate to the given job.
-
-### HTTP Request
-
-`POST https://harvest.greenhouse.io/v1/candidates/{id}/applications`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | ----------- | -----------
-job_id | Yes | integer | The ID of the job you want to create an application to for this candidate
-source_id | No | integer | The id of the source to be credited for this application
-referrer | No | object | An object representing the referrer
-referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
-referrer[value] | No | string | The id of the user who made the referral (not the referrer id)

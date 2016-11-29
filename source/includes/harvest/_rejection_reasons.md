@@ -23,7 +23,7 @@ Represents rejection reasons configured by an organization under the Custom Opti
 | name | The rejection reason's name
 | type | One of `{"id": 1, "name": "We rejected them"}`, `{"id": 2, "name": "They rejected us"}`, `{"id": 3, "name": "None specified"}`
 
-## List rejection reasons
+## GET: List Rejection Reasons
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/rejection_reasons'

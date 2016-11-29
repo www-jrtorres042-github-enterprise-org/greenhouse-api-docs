@@ -55,7 +55,7 @@ An organization’s offices.
 | id | The office's unique identifier |
 | name | The office's name |
 
-## List offices
+## GET: List Offices
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/offices'
@@ -164,7 +164,7 @@ List all of an organization's offices.
 [See noteworthy response attributes.] (#the-office-object)
 
 
-## Retrieve an office
+## GET: Retrieve Office
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/offices/{id}'

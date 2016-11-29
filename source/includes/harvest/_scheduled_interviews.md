@@ -47,7 +47,7 @@ Interviews that have been scheduled for the specified application.
 | organizer | The [user](#users) who is the organizer for this interview
 | interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed.
 
-## List interviews
+## GET: List Interviews
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
@@ -139,58 +139,7 @@ Parameter | Description
 | ends_before | Only return scheduled interviews scheduled to end before this timestamp.
 | ends_after | Only return scheduled interviews scheduled to end after this timestamp.
 
-
-## Retrieve an interview
-
-```shell
-curl 'https://harvest.greenhouse.io/v1/scheduled_interviews/123'
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-```json
-{
-  "id": 9128481,
-  "application_id": 4684156,
-  "start": {
-    "date_time": "2014-03-26T22:15:00.000Z"
-  },
-  "end": {
-    "date_time": "2014-03-26T22:30:00.000Z"
-  },
-  "location": "Big Conference Room",
-  "status": "awaiting_feedback",
-  "interview": {
-    "id": 7001,
-    "name": "Culture Fit"
-  },
-  "organizer": {
-    "id": 2000,
-    "name": "Jack Shepard"
-  },
-  "interviewers": [
-    {
-      "id": 4080,
-      "name": "Kate Austen",
-      "email": "kate.austen@example.com",
-      "scorecard_id": 11274
-    }
-  ]
-}
-```
-
-Retrieve an interview by its ID.
-
-### HTTP Request
-
-`GET https://harvest.greenhouse.io/v1/scheduled_interviews/{id}`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-id | The ID of the scheduled interview to retrieve
-
-## List interviews for application
+## GET: List Interviews for Application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
@@ -278,3 +227,53 @@ Parameter | Description
 
 <br>
 [See noteworthy response attributes.] (#the-scheduled-interview-object)
+
+## GET: Retrieve Interview
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/scheduled_interviews/123'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+  "id": 9128481,
+  "application_id": 4684156,
+  "start": {
+    "date_time": "2014-03-26T22:15:00.000Z"
+  },
+  "end": {
+    "date_time": "2014-03-26T22:30:00.000Z"
+  },
+  "location": "Big Conference Room",
+  "status": "awaiting_feedback",
+  "interview": {
+    "id": 7001,
+    "name": "Culture Fit"
+  },
+  "organizer": {
+    "id": 2000,
+    "name": "Jack Shepard"
+  },
+  "interviewers": [
+    {
+      "id": 4080,
+      "name": "Kate Austen",
+      "email": "kate.austen@example.com",
+      "scorecard_id": 11274
+    }
+  ]
+}
+```
+
+Retrieve an interview by its ID.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/scheduled_interviews/{id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the scheduled interview to retrieve

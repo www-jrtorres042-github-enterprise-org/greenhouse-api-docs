@@ -51,7 +51,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 
 
-## List applications
+## GET: List Applications
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications'
@@ -100,7 +100,7 @@ List all of an organization's applications.
 <br>
 [See noteworthy response attributes.](#the-application-object)
 
-## Retrieve an application
+## GET: Retrieve Application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}'
@@ -143,8 +143,80 @@ id | ID of the application to retrieve
 <br>
 [See noteworthy response attributes.] (#the-application-object)
 
+## PATCH: Update Application
 
-## Advance an application
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "source_id": 16,
+  "referrer": {
+    "type": "id",
+    "value": 123
+  }
+}
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "id": 985314,
+  "candidate_id": 978031,
+  "prospect": false,
+  "applied_at": "2014-03-26T20:11:39.000Z",
+  "last_activity_at": "2014-03-27T16:13:15.000Z",
+  "source": {
+    "id": 1871,
+    "public_name": "Happy Hour"
+  },
+  "credited_to": {
+    "id": 4080,
+    "name": "Kate Austen"
+  },
+  "jobs": [
+    {
+      "id": 123,
+      "name": "Accounting Manager"
+    }
+  ],
+  "status": "rejected",
+  "current_stage": {
+    "id": 62828,
+    "name": "Recruiter Phone Screen"
+  }
+}
+```
+
+Update this application. The response is populated with the application's information which will reflect its new state.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/applications/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+source_id | No | integer | The ID of the application's source
+referrer | No | object | An object representing the referrer
+referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
+referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+
+
+## POST: Advance Applicaiton
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
@@ -211,7 +283,7 @@ Parameter | Required | Type | Description
 from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
 
 
-## Move an application
+## POST: Move Application
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
@@ -283,7 +355,7 @@ to_stage_id | Yes | integer | The ID of the job stage this application should be
 
 [See noteworthy response attributes.] (#the-application-object)
 
-## Reject an application
+## POST: Reject Application
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
@@ -358,7 +430,7 @@ rejection_email | No | hash | An email will be sent to the candidate notifying t
 rejection_email.sent_email_at | Yes, if sending rejection_email | string | The rejection email will be delayed until this time.
 rejection_email.email_template_id | No | string | The template the to use for the rejection email.
 
-## Unreject an application
+## POST: Unreject Application
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'\
@@ -430,76 +502,3 @@ id | ID of the application to unreject
 ### JSON Body Parameters
 
 No JSON body parameters
-
-
-## Update an application
-
-```shell
-curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/"
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command takes a JSON request, structured like this:
-
-```json
-{
-  "source_id": 16,
-  "referrer": {
-    "type": "id",
-    "value": 123
-  }
-}
-```
-
-> The above returns a JSON response, structured like this:
-
-```json
-{
-  "id": 985314,
-  "candidate_id": 978031,
-  "prospect": false,
-  "applied_at": "2014-03-26T20:11:39.000Z",
-  "last_activity_at": "2014-03-27T16:13:15.000Z",
-  "source": {
-    "id": 1871,
-    "public_name": "Happy Hour"
-  },
-  "credited_to": {
-    "id": 4080,
-    "name": "Kate Austen"
-  },
-  "jobs": [
-    {
-      "id": 123,
-      "name": "Accounting Manager"
-    }
-  ],
-  "status": "rejected",
-  "current_stage": {
-    "id": 62828,
-    "name": "Recruiter Phone Screen"
-  }
-}
-```
-
-Update this application. The response is populated with the application's information which will reflect its new state.
-
-### HTTP Request
-
-`PATCH https://harvest.greenhouse.io/v1/applications/{id}`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | ----------- | -----------
-source_id | No | integer | The ID of the application's source
-referrer | No | object | An object representing the referrer
-referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
-referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
