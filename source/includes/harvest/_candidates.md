@@ -478,7 +478,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
 
 ```
 {
-  "job_id": 3,
+  "job_id": 266926,
   "source_id": 7,
   "referrer": {
     "type": "id",
