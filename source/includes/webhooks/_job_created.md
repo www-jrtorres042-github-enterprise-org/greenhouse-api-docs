@@ -61,7 +61,3 @@
 ```
 
 The Job Created event is triggered when a new job is created from scratch or copied from another job.
-
-### Noteworthy attributes
-
-See web hook [common attributes](#common-attributes).

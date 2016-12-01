@@ -22,7 +22,7 @@ An organization's sources.
 | id | The source's unique identifier |
 | type.name | One of: `attend_events`, `referrals`, `third_party_boards`, `candidate_search`, `other`, `social_media`, `company_marketing`, `agencies`, `prospecting`
 
-## List sources
+## GET: List Sources
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/sources'

@@ -29,7 +29,7 @@ An organization's email templates.
 | body | The plain text body of the e-mail (may be null).
 | html_body | The body of the e-mail with html styling code (may be null).
 
-## List email templates
+## GET: List Email Templates
 
 List all of an organization's email templates.
 
@@ -91,7 +91,7 @@ curl 'https://harvest.greenhouse.io/v1/email_templates/'
 
 [See noteworthy response attributes.](#the-email-template-object)
 
-## Retrieve an email template
+## GET: Retrieve Email Template
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/email_templates/{id}' 

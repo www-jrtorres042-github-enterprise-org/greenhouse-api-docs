@@ -43,7 +43,7 @@ An organization's departments.
 | id | The department's unique identifier |
 | name | The department's name
 
-## List departments
+## GET: List Departments
 
 List all of an organization's departments.
 
@@ -117,7 +117,7 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 <br>
 [See noteworthy response attributes.](#the-department-object)
 
-## Retrieve a department
+## GET: Retrieve Department
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/departments/{id}' 

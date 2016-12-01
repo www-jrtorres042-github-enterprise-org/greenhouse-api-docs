@@ -132,7 +132,7 @@ An organization's jobs.
 | openings[].application_id | If the opening is closed and a candidate was hired to fill the opening, this is the ID of the candidate's application. Otherwise, null.
 
 
-## List jobs
+## GET: List Jobs
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/jobs'
@@ -241,7 +241,7 @@ List all of an organization's jobs.
 [See noteworthy response attributes.](#the-job-object)
 
 
-## Retrieve a job
+## GET: Retrieve Job
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
@@ -340,7 +340,7 @@ id | The ID of the job to retrieve
 <br>
 [See noteworthy response attributes.](#the-job-object)
 
-## Update a job
+## PATCH: Update Job
 
 ```shell
 curl --request PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
@@ -371,7 +371,6 @@ curl --request PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
         "delete_value": "true"
    }
   ]
-
 }
 ```
 
