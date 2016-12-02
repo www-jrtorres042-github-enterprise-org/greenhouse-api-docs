@@ -354,7 +354,23 @@ curl --request PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
    "requisition_id": "1",
    "notes": "Here are some notes",
    "team_and_responsibilities": "Info",
-   "how_to_sell_this_job": "the snacks"
+   "how_to_sell_this_job": "the snacks",
+   "custom_fields": [
+    {
+        "id": 1234,
+        "value": "Some new value"
+    },
+    {
+        "name_key": "salary_range",
+        "min_value": 100000,
+        "max_value": 150000,
+        "unit": "USD"
+   },
+   {
+        "id": 5678,
+        "delete_value": "true"
+   }
+  ]
 }
 ```
 
@@ -384,6 +400,21 @@ anywhere | No | boolean | Boolean value indicating where the job can be done any
 requisition_id | No | string | The id of the requisition corresponding to this job posting, if applicable
 team_and_responsibilities | No | string | A description of the team the candidate would join and their responsibilities
 how_to_sell_this_job | No | string | A description for the recruiter of the desirable aspects of the job
+custom_fields | No | custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
+
+### Custom Field Parameters
+
+The custom field parameter structure is different in the PATCH method then in GET methods and responses.  Certain type of custom fields require different elements to be included, while deleting a field requires a specific argument.  What follows is the description of each item in a custom field element and what is required depending on the type.
+
+Parameter | Required for | Description
+---------- | -------------- | ----------------
+id | all | The custom field id for this particular custom field.  One of this or name_key is required.
+name_key | all | The field key for this custom field. This can be found in Greenhouse while editing custom options as "Immutable Field Key"  This or id is required for all custom field elements.
+value | all | The value field contains the new custom field value.  In most cases this will be a string or a number.  In the case of single-select or multi-select custom fields, this will be a custom field option id or an array of custom field option ids, respectively.  Value is only not used for range type custom fields.
+min_value | number_range, currency range | This contains the minimum value that is allowable for this custom field.  Must be less than max_value
+max_value | number_range, currency_range | This contains the maximum value that is allowable for this custom field.  Must be greater than min_value
+unit | currency, currency_range | This contains the currency unit for a currency custom field. It is only required when updating a currency custom field.  This should accept any 3-character currency code from the ISO-4217 standard.
+delete_value  | n/a | When this element is included with a value of "true" (note, string true, not boolean true) the custom field value will be removed from Greenhouse.  Note that updating a custom field value to nil or a blank string will not work, as validations require these to be non-blank values.
 
 > The above returns a JSON response, structured like this:
 
