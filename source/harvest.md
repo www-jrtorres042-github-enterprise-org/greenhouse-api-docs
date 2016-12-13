@@ -27,6 +27,7 @@ includes:
   - harvest/scheduled_interviews
   - harvest/scorecards
   - harvest/sources
+  - harvest/tags
   - harvest/users
 
 slug: harvest
