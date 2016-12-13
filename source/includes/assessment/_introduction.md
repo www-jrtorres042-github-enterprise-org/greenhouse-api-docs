@@ -20,7 +20,7 @@ The Assessment Partner will provide an org-level API key to the customer. The or
 
 ### Selecting the Test
 
-Once Greenhouse enters the API key for the organization, a new parnter interview stage will be available for use. The user can add this stage to the Hiring Plan of any job that has access to the new Assessment Partner stage. Greenhouse will then make an API call to the [List Tests endpoint] (#list-tests) to determine what tests the organization has configured. 
+Once Greenhouse enters the API key for the organization, a new partner interview stage will be available for use. The user can add this stage to the Hiring Plan of any job that has access to the new Assessment Partner stage. Greenhouse will then make an API call to the [List Tests endpoint] (#list-tests) to determine what tests the organization has configured. 
 
 <img src="/images/add-stage.png" alt="Add Stage Image">
 

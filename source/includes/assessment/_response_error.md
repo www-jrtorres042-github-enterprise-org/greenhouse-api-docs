@@ -33,7 +33,7 @@ Property Name | Value | Required | Description
 -------------- | -------------- | -------------- | --------------
 api_call | String | Yes | The name of the API call that generated the malformed response.
 errors | Array | Yes | An array of strings which describe an error that prevented the response from validating.
-parnter_test_id | String | No | Identifies a test available to an organization. Initially provided as a response to the [List Tests request] (#list-tests).
+partner_test_id | String | No | Identifies a test available to an organization. Initially provided as a response to the [List Tests request] (#list-tests).
 partner_test_name | String | No | A human-readable string that identifies the test. Initially provided as a response to the [List Tests request] (#list-tests).
 partner_interview_id | String | No | Identifies a candidate’s test. 
 candidate_email | String | No | The candidate’s email address. The test should be sent to this address.
