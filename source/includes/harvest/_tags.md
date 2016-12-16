@@ -7,7 +7,7 @@ Some resource types allow tags to be assigned to them. Tags are useful for group
 ```json
 {
   "id": 230,
-  "name": "New York",
+  "name": "New York"
 }
 ```
 

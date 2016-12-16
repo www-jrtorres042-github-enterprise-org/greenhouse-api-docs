@@ -12,14 +12,14 @@ toc_footers:
 
 includes:
   - webhooks/introduction
-  - webhooks/new_candidate_application
-  - webhooks/new_prospect_application
-  - webhooks/update_candidate
-  - webhooks/candidate_stage_change
-  - webhooks/hire_candidate
-  - webhooks/reject_candidate
-  - webhooks/job_created
   - webhooks/application_deleted
+  - webhooks/new_candidate_application
+  - webhooks/hire_candidate
+  - webhooks/candidate_stage_change
+  - webhooks/reject_candidate
+  - webhooks/update_candidate
+  - webhooks/job_created
+  - webhooks/new_prospect_application
 
 slug: webhooks
 search: true
