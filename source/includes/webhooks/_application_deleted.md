@@ -12,10 +12,11 @@ This web hook only fires when individual applications are destroyed.  This occur
     "rejected_by_user_id": 1234,
     "created_at": "2013-03-22T00:00:00Z",
     "rejection_note_id": 123,
-    "rejected_at": 2014-04-22T01:00:00Z",
+    "rejected_at": "2014-04-22T01:00:00Z",
     "referrer_id": 1234,
     "prospect": false
 }
+```
 
 ### Noteworthy response attributes
 

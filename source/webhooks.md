@@ -19,6 +19,7 @@ includes:
   - webhooks/hire_candidate
   - webhooks/reject_candidate
   - webhooks/job_created
+  - webhooks/application_deleted
 
 slug: webhooks
 search: true
