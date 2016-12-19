@@ -16,6 +16,7 @@ This web hook only fires when offers are deleted from the Greenhouse system.  Th
     "job_id": 4567
   }
 }
+```
 
 ### Noteworthy response attributes
 
