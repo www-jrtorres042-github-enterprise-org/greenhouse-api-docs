@@ -10,6 +10,7 @@ All submitted scorecards ordered by candidate.
   "interview": "Application Review",
   "interviewed_at": "2014-03-26T04:00:00Z",
   "candidate_id": 1234,
+  "application_id": 3456,
   "submitted_by": {
     "id": 4080,
     "name": "Kate Austen"
