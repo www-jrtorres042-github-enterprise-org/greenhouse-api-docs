@@ -1,6 +1,6 @@
 ## Offer deleted
 
-This web hook only fires when offers are deleted from the Greenhouse system.  This only happens when the "Delete" button is clicked on an individual offer or when the candidate anonymize candidate process is run.  This will not fire individually when an application is deleted.
+This web hook only fires when offers are deleted from the Greenhouse system.  This only happens when the "Delete" link is clicked on an individual offer or when the anonymize candidate process is run with the "all_offer_versions" option selected.  This will not fire individually when an application is deleted.
 
 ```json
 {
