@@ -7,12 +7,16 @@ All submitted scorecards ordered by candidate.
 ```json
 {
   "id": 123,
+  "updated_at": "2016-08-22T19:52:38.384Z",
+  "created_at": "2016-08-22T19:52:38.384Z",
   "interview": "Application Review",
-  "interviewed_at": "2014-03-26T04:00:00Z",
   "candidate_id": 1234,
+  "application_id": 3456,
+  "interviewed_at": "2016-08-18T16:00:00.000Z",
   "submitted_by": {
     "id": 4080,
-    "name": "Kate Austen"
+    "name": "Kate Austen",
+    "employee_id": null
   },
   "submitted_at": "2014-03-26T21:59:51Z",
   "overall_recommendation": "yes",
@@ -109,12 +113,16 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
 [
   {
     "id": 123,
+    "updated_at": "2016-08-22T19:52:38.384Z",
+    "created_at": "2016-08-22T19:52:38.384Z",
     "interview": "Application Review",
-    "interviewed_at": "2014-03-26T04:00:00Z",
     "candidate_id": 1234,
+    "application_id": 3456,
+    "interviewed_at": "2016-08-18T16:00:00.000Z",
     "submitted_by": {
       "id": 4080,
-      "name": "Kate Austen"
+      "name": "Kate Austen",
+      "employee_id": null
     },
     "submitted_at": "2014-03-26T21:59:51Z",
     "overall_recommendation": "yes",
@@ -221,13 +229,17 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
 [
   {
     "id": 123,
+    "updated_at": "2016-08-22T19:52:38.384Z",
+    "created_at": "2016-08-22T19:52:38.384Z",
     "interview": "Application Review",
-    "interviewed_at": "2014-03-26T04:00:00Z",
     "candidate_id": 1234,
+    "application_id": 3456,
+    "interviewed_at": "2016-08-18T16:00:00.000Z",
     "submitted_by": {
       "id": 4080,
-      "name": "Kate Austen"
-    },
+      "name": "Kate Austen",
+      "employee_id": null
+    },    
     "submitted_at": "2014-03-26T21:59:51Z",
     "overall_recommendation": "yes",
     "attributes": [
@@ -329,13 +341,17 @@ curl 'https://harvest.greenhouse.io/v1/scorecards/{id}'
 ```json
 {
   "id": 123,
+  "updated_at": "2016-08-22T19:52:38.384Z",
+  "created_at": "2016-08-22T19:52:38.384Z",
   "interview": "Application Review",
-  "interviewed_at": "2014-03-26T04:00:00Z",
   "candidate_id": 1234,
+  "application_id": 3456,
+  "interviewed_at": "2016-08-18T16:00:00.000Z",
   "submitted_by": {
     "id": 4080,
-    "name": "Kate Austen"
-  },
+    "name": "Kate Austen",
+    "employee_id": null
+  }, 
   "submitted_at": "2014-03-26T21:59:51Z",
   "overall_recommendation": "yes",
   "attributes": [
