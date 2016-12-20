@@ -20,6 +20,7 @@ includes:
   - webhooks/update_candidate
   - webhooks/job_created
   - webhooks/offer_deleted
+  - webhooks/job_updated
   - webhooks/new_prospect_application
 
 slug: webhooks
