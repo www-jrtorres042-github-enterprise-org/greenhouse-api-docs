@@ -146,7 +146,7 @@ id | ID of the application to retrieve
 ## PATCH: Update Application
 
 ```shell
-curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/"
+curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -171,15 +171,19 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/"
   "candidate_id": 978031,
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39.000Z",
+  "rejected_at": null,
   "last_activity_at": "2014-03-27T16:13:15.000Z",
   "source": {
-    "id": 1871,
+    "id": 16,
     "public_name": "Happy Hour"
   },
   "credited_to": {
     "id": 4080,
-    "name": "Kate Austen"
+    "name": "Kate Austen",
+    "employee_id": null
   },
+  "rejection_reason": null,
+  "rejection_details": null,
   "jobs": [
     {
       "id": 123,
@@ -190,7 +194,32 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/"
   "current_stage": {
     "id": 62828,
     "name": "Recruiter Phone Screen"
-  }
+  },
+  "answers": [
+    {
+      "question": "Will you now or in the future require sponsorship for employment visa status (e.g., H-1B status)? Note: Responding “Yes” to this question will not preclude you from consideration for employment.",
+      "answer": "No"
+    },
+    },
+    {
+      "id": 5678,
+      "delete_value": "true"
+    }
+  ],
+  "custom_fields": [
+    {
+      "id": 1234,
+      "value": "Some new value"
+    },
+    {
+      "name_key": "custom_field_name",
+      "value": "Some other new value"
+    },
+    {
+      "id": 5678,
+      "delete_value": "true"
+    }
+  ]
 }
 ```
 
@@ -214,7 +243,7 @@ source_id | No | integer | The ID of the application's source
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
-
+custom_fields[] | No |  custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
 
 ## POST: Advance Applicaiton
 
