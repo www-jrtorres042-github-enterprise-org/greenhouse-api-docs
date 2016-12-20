@@ -259,6 +259,39 @@ id | The ID of the candidate to retrieve
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
+## DELETE: Delete Candidate
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "message": "Person 29622362 has been deleted."
+}
+```
+
+Delete a candidate by `id`.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/candidates/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+<br>
+
+[See noteworthy response attributes.] (#the-candidate-object)
+
 ## PATCH: Edit Candidate
 
 ```shell
