@@ -13,13 +13,13 @@ toc_footers:
 includes:
   - webhooks/introduction
   - webhooks/application_deleted
-  - webhooks/offer_deleted
   - webhooks/new_candidate_application
   - webhooks/hire_candidate
   - webhooks/candidate_stage_change
   - webhooks/reject_candidate
   - webhooks/update_candidate
   - webhooks/job_created
+  - webhooks/offer_deleted
   - webhooks/new_prospect_application
 
 slug: webhooks

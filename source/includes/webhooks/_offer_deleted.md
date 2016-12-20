@@ -11,7 +11,7 @@ This web hook only fires when offers are deleted from the Greenhouse system.  Th
     "offer_status": "Created",
     "version": 1,
     "sent_on": "2013-03-22T00:00:00Z",
-    "resolved_at": 2013-03-25T00:00:00Z",
+    "resolved_at": "2013-03-25T00:00:00Z",
     "notes": "These are notes on the offer.",
     "job_id": 4567
   }
