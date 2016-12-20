@@ -89,10 +89,10 @@ id | The ID of the candidate whose tags you want to retrieve
 
 [See noteworthy response attributes.](#the-candidate-tag-object)
 
-## DELETE: Remove tag from candidate
+## PUT: Add a candidate tag
 
 ```shell
-curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}'
+curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -100,15 +100,15 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/
 
 ```json
 {
-  "success": true
+  "message": "Tag 365, 'Ruby', has been applied to candidate 29555013"
 }
 ```
 
-Remove a tag from a candidate
+Apply a tag to a given candidate
 
 ### HTTP Request
 
-`DELETE https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
+`PUT https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
 
 ### URL Parameters
 
@@ -125,10 +125,10 @@ tag_id | The ID of the tag you wish to apply
 
 No body parameters.
 
-## PUT: Add a candidate tag
+## DELETE: Remove tag from candidate
 
 ```shell
-curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/applied_tags
+curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -136,15 +136,15 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/applied_tags
 
 ```json
 {
-  "success": true
+  "message": "Tag 365 has been removed from candidate 29555013"
 }
 ```
 
-Apply a tag to a given candidate
+Remove a tag from a candidate
 
 ### HTTP Request
 
-`PUT https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
+`DELETE https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
 
 ### URL Parameters
 
