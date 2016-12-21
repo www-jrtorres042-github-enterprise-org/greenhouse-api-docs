@@ -654,6 +654,192 @@ user_id | Yes | integer |   The ID of the user creating the note
 body | Yes | string | Note body
 visibility | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
 
+## POST: Add Prospect
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "first_name": "John",
+  "last_name": "Locke",
+  "company": "The Tustin Box Company",
+  "title": "Man of Mystery",
+  "phone_numbers": [
+    {
+      "value": "555-1212",
+      "type": "mobile"
+    }
+  ],
+  "addresses": [
+    {
+      "value": "123 Fake St.",
+      "type": "home"
+    }
+  ],
+  "email_addresses": [
+    {
+      "value": "john.locke+work@example.com",
+      "type": "work"
+    },
+    {
+      "value": "john.locke@example.com",
+      "type": "personal"
+    }
+  ],
+  "website_addresses": [
+    {
+      "value": "johnlocke.example.com",
+      "type": "personal"
+    }
+  ],
+  "social_media_addresses": [
+    {
+      "value": "linkedin.example.com/john.locke"
+    },
+    {
+      "value": "@johnlocke"
+    }
+  ],
+  "tags": [
+    "Walkabout",
+    "Orientation"
+  ]
+}
+```
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "id": 29843268,
+  "first_name": "John",
+  "last_name": "Locke",
+  "company": "The Tustin Box Company",
+  "title": "Man of Mystery",
+  "created_at": "2016-12-21T19:45:01.467Z",
+  "updated_at": "2016-12-21T19:45:01.907Z",
+  "last_activity": "2016-12-21T19:45:01.867Z",
+  "photo_url": null,
+  "attachments": [],
+  "application_ids": [
+    38776657
+  ],
+  "phone_numbers": [
+    {
+      "value": "555-1212",
+      "type": "mobile"
+    }
+  ],
+  "addresses": [
+    {
+      "value": "123 Fake St.",
+      "type": "home"
+    }
+  ],
+  "email_addresses": [
+    {
+      "value": "john.locke@example.com",
+      "type": "personal"
+    },
+    {
+      "value": "john.locke+work@example.com",
+      "type": "work"
+    }
+  ],
+  "website_addresses": [
+    {
+      "value": "johnlocke.example.com",
+      "type": "personal"
+    }
+  ],
+  "social_media_addresses": [
+    {
+      "value": "@johnlocke"
+    },
+    {
+      "value": "linkedin.example.com/john.locke"
+    }
+  ],
+  "recruiter": null,
+  "coordinator": null,
+  "tags": [
+    "Orientation",
+    "Walkabout"
+  ],
+  "applications": [
+    {
+      "id": 38776657,
+      "candidate_id": 29843268,
+      "prospect": true,
+      "applied_at": "2016-12-21T19:45:01.757Z",
+      "rejected_at": null,
+      "last_activity_at": "2016-12-21T19:45:01.867Z",
+      "source": null,
+      "credited_to": null,
+      "rejection_reason": null,
+      "rejection_details": null,
+      "jobs": [],
+      "status": "active",
+      "current_stage": null,
+      "answers": [],
+      "custom_fields": {
+        "test": null
+      }
+    }
+  ],
+  "educations": [],
+  "custom_fields": {
+    "current_salary": null,
+    "desired_salary": null
+  }
+}
+```
+
+Create a new prospect.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/prospects`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+first_name | Yes | string | The prospect's first name
+last_name | Yes | string | The prospect's last name
+company | No | string | The prospect's company
+title | No | string | The prospect's title
+phone_numbers[] | No | phone_number | Array of phone numbers. Passing an empty array will clear all.
+addresses[] | No | address | Array of addresses. Passing an empty array will clear all.
+email_addresses[] | No | email_address | Array of email addresses. Passing an empty array will clear all.
+website_addresses[] | No | website_address | Array of website addresses. Passing an empty array will clear all.
+social_media_addresses[] | No | social_media_address | Array of social media addresses. Passing an empty array will clear all.
+tags[] | No | string | Array of tags as strings. Passing an empty array will clear all.
+custom_fields[] | No |  custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
+recruiter | No | Object | An object representing the prospect's recruiter
+recruiter[id] | No | Integer | The ID of the recruiter - either id or email must be present.
+recruiter[email] | No | String | The email of the recruiter - either id or email must be present.
+coordinator | No | Object | An object representing the prospect's coordinator
+coordinator[id] | No | Integer | The ID of the coordinator - either id or email must be present.
+coordinator[email] | No | String | The email of the coordinator - either id or email must be present.
+custom_fields | No | Array | Array of custom field value objects - See "Custom Field Parameters" under [Edit candidate] (#patch-edit-candidate) for parameters.
+activity_feed_notes | No | Array | An array of activity feed objects. See [Add Note] (#post-add-note) for parameters.
+
+<br>
+
+[See noteworthy response attributes.] (#the-candidate-object)
+
 ## PUT: Anonymize Candidate
 
 ```shell
