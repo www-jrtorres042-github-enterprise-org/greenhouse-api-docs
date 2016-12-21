@@ -15,6 +15,7 @@ includes:
   - webhooks/application_deleted
   - webhooks/new_candidate_application
   - webhooks/hire_candidate
+  - webhooks/candidate_deleted
   - webhooks/candidate_stage_change
   - webhooks/reject_candidate
   - webhooks/update_candidate
