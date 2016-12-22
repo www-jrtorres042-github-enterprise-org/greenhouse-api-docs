@@ -663,7 +663,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
 ```
 > The above returns a JSON response, structured like this:
 
-```json{
+```json
+{
   "id": 29843267,
   "first_name": "John",
   "last_name": "Locke",
