@@ -7,13 +7,13 @@
     "job": {
       "id": 20,
       "name": "Software Engineer",
-      "created_at": "2016-10-20T18:16:32Z",
-      "opened_at": "2016-10-20T18:16:32Z",
-      "closed_at": null,
       "requisition_id": null,
       "notes": "Looking for the best!",
       "job_post_id": 2154,
       "status": "open",
+      "created_at": "2016-10-20T18:16:32Z",
+      "opened_at": "2016-10-20T18:16:32Z",
+      "closed_at": null,
       "departments": [
         {
           "id": 7,
