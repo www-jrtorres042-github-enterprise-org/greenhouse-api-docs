@@ -100,7 +100,7 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/
 
 ```json
 {
-  "success": true
+  "message": "Tag 365 has been removed from candidate 29555013"
 }
 ```
 
@@ -128,7 +128,7 @@ No body parameters.
 ## PUT: Add a candidate tag
 
 ```shell
-curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/applied_tags
+curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -136,7 +136,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/applied_tags
 
 ```json
 {
-  "success": true
+  "message": "Tag 365, 'Ruby', has been applied to candidate 29555013"
 }
 ```
 
