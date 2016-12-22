@@ -143,6 +143,38 @@ id | ID of the application to retrieve
 <br>
 [See noteworthy response attributes.] (#the-application-object)
 
+## DELETE: Delete Application
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/applications/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "message": "Application 29622362 has been deleted."
+}
+```
+
+Delete an application by `id`.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/applications/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+<br>
+
+[See noteworthy response attributes.] (#the-candidate-object)
+
 ## PATCH: Update Application
 
 ```shell
@@ -193,6 +225,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/"
   }
 }
 ```
+
+
 
 Update this application. The response is populated with the application's information which will reflect its new state.
 
