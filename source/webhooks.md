@@ -19,6 +19,7 @@ includes:
   - webhooks/reject_candidate
   - webhooks/update_candidate
   - webhooks/job_created
+  - webhooks/job_updated
   - webhooks/offer_deleted
   - webhooks/new_prospect_application
 
