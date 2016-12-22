@@ -89,42 +89,6 @@ id | The ID of the candidate whose tags you want to retrieve
 
 [See noteworthy response attributes.](#the-candidate-tag-object)
 
-## PUT: Add a candidate tag
-
-```shell
-curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}'
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "Tag 365, 'Ruby', has been applied to candidate 29555013"
-}
-```
-
-Apply a tag to a given candidate
-
-### HTTP Request
-
-`PUT https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-candidate_id | The ID of the candidate to whom you want to apply the tag
-tag_id | The ID of the tag you wish to apply
-
-<br>
-
-[See noteworthy response attributes.](#the-candidate-tag-object)
-
-### JSON Body Parameters
-
-No body parameters.
-
 ## DELETE: Remove tag from candidate
 
 ```shell
@@ -145,6 +109,42 @@ Remove a tag from a candidate
 ### HTTP Request
 
 `DELETE https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+candidate_id | The ID of the candidate to whom you want to apply the tag
+tag_id | The ID of the tag you wish to apply
+
+<br>
+
+[See noteworthy response attributes.](#the-candidate-tag-object)
+
+### JSON Body Parameters
+
+No body parameters.
+
+## PUT: Add a candidate tag
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Tag 365, 'Ruby', has been applied to candidate 29555013"
+}
+```
+
+Apply a tag to a given candidate
+
+### HTTP Request
+
+`PUT https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
 
 ### URL Parameters
 
