@@ -151,7 +151,6 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/applications/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-```
 > The above returns a JSON response, structured like this:
 
 ```json
