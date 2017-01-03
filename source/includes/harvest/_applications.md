@@ -250,7 +250,7 @@ referrer[type] | No | string | A string representing the type of referrer: 'id',
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
 
 
-## POST: Advance Applicaiton
+## POST: Advance Application
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
