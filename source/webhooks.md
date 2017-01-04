@@ -13,7 +13,6 @@ toc_footers:
 includes:
   - webhooks/introduction
   - webhooks/application_deleted
-  - webhooks/scorecard_deleted
   - webhooks/new_candidate_application
   - webhooks/candidate_deleted
   - webhooks/hire_candidate
@@ -24,6 +23,7 @@ includes:
   - webhooks/job_updated
   - webhooks/offer_deleted
   - webhooks/new_prospect_application
+  - webhooks/scorecard_deleted
 
 slug: webhooks
 search: true
