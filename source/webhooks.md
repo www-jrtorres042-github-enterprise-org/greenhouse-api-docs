@@ -23,6 +23,7 @@ includes:
   - webhooks/job_updated
   - webhooks/offer_deleted
   - webhooks/new_prospect_application
+  - webhooks/scorecard_deleted
 
 slug: webhooks
 search: true
