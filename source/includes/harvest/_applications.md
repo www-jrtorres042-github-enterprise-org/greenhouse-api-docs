@@ -296,7 +296,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
 }
 ```
 
-Move this application from one stage to another. An application can be moved between stages on the same job or transferred to a different job. The response is populated with the application’s information which will reflect its new state. Note that only applications in the active state can be moved.
+Move this application to the next stage. The response is populated with the application's information which will reflect its new state. Note that only applications in the `active` state can be advanced.
 
 ### HTTP Request
 
@@ -365,7 +365,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
 }
 ```
 
-Move this application from one stage to another. The response is populated with the application's information which will reflect its new state. Note that only applications in the `active` state can be moved.
+Move this application from one stage to another. An application can be moved between stages on the same job or transferred to a different job. The response is populated with the application’s information which will reflect its new state. Note that only applications in the active state can be moved.
 
 ### HTTP Request
 
