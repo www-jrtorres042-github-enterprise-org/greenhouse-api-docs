@@ -232,7 +232,6 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
       "question": "Will you now or in the future require sponsorship for employment visa status (e.g., H-1B status)? Note: Responding “Yes” to this question will not preclude you from consideration for employment.",
       "answer": "No"
     },
-    },
     {
       "id": 5678,
       "delete_value": "true"
@@ -302,6 +301,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
   "candidate_id": 978031,
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39.000Z",
+  "rejected_at": null,
   "last_activity_at": "2014-03-27T16:13:15.000Z",
   "source": {
     "id": 1871,
@@ -310,7 +310,10 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
   "credited_to": {
     "id": 4080,
     "name": "Kate Austen"
+    "employee_id": null
   },
+  "rejection_reason": null,
+  "rejection_details": null,
   "jobs": [
     {
       "id": 123,
