@@ -200,7 +200,6 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
       "question": "Will you now or in the future require sponsorship for employment visa status (e.g., H-1B status)? Note: Responding “Yes” to this question will not preclude you from consideration for employment.",
       "answer": "No"
     },
-    },
     {
       "id": 5678,
       "delete_value": "true"
