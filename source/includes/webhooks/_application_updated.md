@@ -1,4 +1,4 @@
-## Application Updated
+## Application updated
 
 ```json
 {
@@ -38,6 +38,13 @@
             "interviewers": []
           }
         ]
+      },
+      "custom_fields": {
+        "custom_application_field": {
+          "name": "Custom Application Field",
+          "type": "short_text",
+          "value": "Example"
+        }
       },
       "candidate": {
         "id": 13857579,
