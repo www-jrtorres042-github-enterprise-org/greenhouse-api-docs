@@ -6,15 +6,20 @@ This web hook only fires when individual applications are destroyed.  This occur
 {
   "action": "delete_application",
   "payload": {
-    "id": 1234,
-    "candidate_id": 2345,
-    "job_id": 3456,
-    "rejected_by_user_id": 1234,
-    "created_at": "2013-03-22T00:00:00Z",
-    "rejection_note_id": 123,
-    "rejected_at": "2014-04-22T01:00:00Z",
-    "referrer_id": 1234,
-    "prospect": false
+    "application": {
+        "id": 46194062,
+        "candidate_id": 37031511,
+        "job_id": 371417,
+        "created_at": "2013-03-22T00:00:00Z",
+        "source_id": 2,
+        "candidate_rejection_reason_id": null,
+        "rejection_note_id": 123,
+        "rejected_at": "2014-04-22T01:00:00Z",
+        "referrer_id": 158104,
+        "prospect": false,
+        "rejected_by_user_id": 158103
+        }
+    }
 }
 ```
 

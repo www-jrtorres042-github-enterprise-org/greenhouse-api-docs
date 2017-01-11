@@ -6,14 +6,16 @@ This web hook only fires when offers are deleted from the Greenhouse system.  Th
 {
   "action": "offer_deleted",
   "payload": {
-    "id": 1234,
-    "application_id": 2344,
-    "offer_status": "Created",
-    "version": 1,
-    "sent_on": "2013-03-22T00:00:00Z",
-    "resolved_at": "2013-03-25T00:00:00Z",
-    "notes": "These are notes on the offer.",
-    "job_id": 4567
+    "offer": {
+      "id": 506406,
+      "application_id": 46194062,
+      "offering_user_id": 158104,
+      "offer_status": "Created",
+      "version": 1,
+      "sent_on": "2013-03-22T00:00:00Z",
+      "resolved_at": "2013-03-25T00:00:00Z",
+      "notes": "These are notes on the offer.",
+      "job_id": 371417
   }
 }
 ```

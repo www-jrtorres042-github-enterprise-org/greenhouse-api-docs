@@ -11,7 +11,6 @@
       "status": "active",
       "applied_at": "2014-12-02T23:10:16Z",
       "last_activity_at": "2014-12-02T23:10:16Z",
-      "current_stage": null,
       "source": {
         "id": 13,
         "public_name": "Referral"
@@ -22,13 +21,24 @@
         "name": "Carl Buddha"
       },
       "rejection_reason": null,
+      "rejection_details": null,
+      "current_stage": null,
+      "custom_fields": {
+        "custom_application_field": {
+          "name": "Custom Application Field",
+          "type": "short_text",
+          "value": null
+        }
+      },
       "candidate": {
         "id": 968190,
-        "created_at": "2014-12-02T23:10:16Z",
         "first_name": "Trisha",
         "last_name": "Troy",
         "title": null,
         "company": null,
+        "created_at": "2014-12-02T23:10:16Z",
+        "external_id": null,
+        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
         "phone_numbers": [
           {
             "value": "123456",
@@ -44,13 +54,21 @@
         "addresses": [],
         "website_addresses": [],
         "social_media_addresses": [],
+        "educations": [
+          {
+            "school_name": "Harvard University",
+            "degree": "Bachelor's Degree",
+            "discipline": "Information Systems",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": {
           "id": 3128,
           "email": "alicia.flopple.3128@example.com",
           "name": "Alicia Flopple"
         },
         "coordinator": null,
-        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
         "attachments": [
           {
             "filename": "resume.pdf",
@@ -71,7 +89,7 @@
       },
       "jobs": [
         {
-          "id": 3485,
+          "id": 371417,
           "name": "Designer",
           "requisition_id": null,
           "notes": "Digital and print",

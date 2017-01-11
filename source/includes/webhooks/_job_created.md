@@ -5,7 +5,7 @@
   "action": "job_created",
   "payload": {
     "job": {
-      "id": 20,
+      "id": 371417,
       "name": "Software Engineer",
       "requisition_id": null,
       "notes": "Looking for the best!",
@@ -24,9 +24,7 @@
         {
           "id": 13,
           "name": "New York City",
-          "location": {
-            "name": "New York, NY"
-          }
+          "location": "New York, NY"
         },
         {
           "id": 14,
