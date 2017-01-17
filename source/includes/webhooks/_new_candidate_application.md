@@ -17,6 +17,7 @@
       },
       "credited_to": null,
       "rejection_reason": null,
+      "rejection_details": null,
       "current_stage": {
         "id": 678901,
         "name": "Application Review",
@@ -34,13 +35,22 @@
           }
         ]
       },
+      "custom_fields": {
+        "custom_application_field": {
+          "name": "Custom Application Field",
+          "type": "short_text",
+          "value": null
+        }
+      },
       "candidate": {
         "id": 265788,
-        "created_at": "2013-10-04T01:24:48Z",
         "first_name": "Hector",
         "last_name": "Porter",
         "title": null,
         "company": null,
+        "created_at": "2013-10-04T01:24:48Z",
+        "external_id": null,
+        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
         "phone_numbers": [
           {
             "value": "330-281-8004",
@@ -56,9 +66,17 @@
         "addresses": [],
         "website_addresses": [],
         "social_media_addresses": [],
+        "educations": [
+          {
+            "school_name": "Harvard University",
+            "degree": "Bachelor's Degree",
+            "discipline": "Information Systems",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": null,
         "coordinator": null,
-        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
         "attachments": [
           {
             "filename": "resume.pdf",
@@ -79,7 +97,7 @@
       },
       "jobs": [
         {
-          "id": 3485,
+          "id": 371417,
           "name": "Designer",
           "requisition_id": null,
           "notes": "Digital and print",
@@ -90,13 +108,13 @@
           "closed_at": null,
           "departments": [
             {
-              "id": 237,
+              "id": 14501,
               "name": "Community"
             }
           ],
           "offices": [
             {
-              "id": 54,
+              "id": 9099,
               "name": "New York",
               "location": "New York, NY"
             }

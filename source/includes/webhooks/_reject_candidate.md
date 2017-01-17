@@ -24,13 +24,36 @@
           "name": "Wrong skill set"
         }
       },
+      "rejection_details": {
+        "custom_fields": {
+          "custom_rejection_question_field": {
+            "name": "Custom Rejection Question Field",
+            "type": "short_text",
+            "value": "Example"
+          }
+        }
+      },
+      "current_stage": {
+        "id": 2708728,
+        "name": "Offer",
+        "interviews": []
+      },
+      "custom_fields": {
+        "custom_application_field": {
+          "name": "Custom Application Field",
+          "type": "short_text",
+          "value": "Example123"
+        }
+      },
       "candidate": {
         "id": 265788,
-        "created_at": "2013-10-04T01:24:48Z",
         "first_name": "Hector",
         "last_name": "Porter",
         "title": null,
         "company": null,
+        "created_at": "2013-10-04T01:24:48Z",
+        "external_id": null,
+        "photo_url": "www.example.com/photo.png",
         "phone_numbers": [
           {
             "value": "330-281-8004",
@@ -46,9 +69,17 @@
         "addresses": [],
         "website_addresses": [],
         "social_media_addresses": [],
+        "educations": [
+          {
+            "school_name": "Harvard University",
+            "degree": "Bachelor's Degree",
+            "discipline": "Information Systems",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": null,
         "coordinator": null,
-        "photo_url": "www.example.com/photo.png",
         "attachments": [
           {
             "filename": "resume.pdf",
@@ -69,7 +100,7 @@
       },
       "jobs": [
         {
-          "id": 3485,
+          "id": 371417,
           "name": "Designer",
           "requisition_id": null,
           "notes": "Digital and print",
@@ -86,7 +117,7 @@
           ],
           "offices": [
             {
-              "id": 54,
+              "id": 9099,
               "name": "New York",
               "location": "New York, NY"
             }

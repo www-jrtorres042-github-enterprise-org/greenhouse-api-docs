@@ -6,18 +6,24 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
 {
   "action": "delete_candidate",
   "payload": {
-    "id": 1234,
-    "first_name": "Jack",
-    "last_name": "Sparrow",
-    "company": "Pirate Shipping",
-    "title": "Captain",
-    "created_at": "2013-03-22T00:00:00Z",
-    "headline": "Eager to find a new commission",
-    "is_private": false,
-    "recruiter_user_id": 123,
-    "coordinator_user_id": 456,
-    "can_email": false,
-    "application_ids": [123,678,987]
+    "person": {
+        "id": 37031511,
+        "first_name": "Jack",
+        "last_name": "Sparrow",
+        "company": "Pirate Shipping",
+        "title": "Captain",
+        "created_at": "2013-03-22T00:00:00Z",
+        "headline": "Eager to find a new commission",
+        "is_private": false,
+        "recruiter_user_id": 123,
+        "coordinator_user_id": 456,
+        "can_email": false,
+        "deleted_application_ids": [
+                46196263,
+                46196258
+            ]
+        }
+    }
 }
 ```
 
