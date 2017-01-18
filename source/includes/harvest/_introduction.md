@@ -77,7 +77,7 @@ If you're making test API requests with cURL you can use the `-u` flag to set th
 
 ### Setting permissions for API Keys
 
-You can specify which API endpoints that your API keys have access to from the Greenhouse Dev Center. This will allow you to permit or deny access to each endpoint individually. Any API keys created before January 8th, 2017 will have full permissions to all API endpoints that existed at that time, but any new API keys created after that point will need to be explicitly granted any required endpoint permissions.
+You can specify which API endpoints that your API keys have access to from the Greenhouse Dev Center. This will allow you to permit or deny access to each endpoint individually. Any API keys created before January 18th, 2017 will have full permissions to all API endpoints that existed at that time, but any new API keys created after that point will need to be explicitly granted any required endpoint permissions.
 
 To add or remove endpoint permissions on an API key, go to the Dev Center in Greenhouse and click on Manage Permissions for your Harvest API key to check/uncheck permissions for any endpoints.
 
