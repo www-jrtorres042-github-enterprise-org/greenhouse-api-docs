@@ -4,14 +4,14 @@ This web hook only fires when interview stages on a job are removed.  This occur
 
 ```json
 {
-  "action": "hiring_plan_interview_stage_deleted",
+  "action": "job_interview_stage_deleted",
   "payload": {
-    "hiring_plan_interview_stage": {
-      "id": 1001340,
-      "hiring_plan_id": 140288,
-      "created_at": "2015-11-10T16:56:13.567Z",
-      "updated_at": "2016-08-29T19:25:00.844Z",
-      "name": "Google Hangout",
+    "job_interview_stage": {
+      "id": 430608,
+      "job_id": 60453,
+      "created_at": "2015-03-11T13:25:25.313Z",
+      "updated_at": "2016-08-16T09:29:33.650Z",
+      "name": "Phone Screen",
       "active": true
     }
   }
