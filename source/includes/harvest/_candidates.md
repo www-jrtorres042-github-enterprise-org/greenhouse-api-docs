@@ -514,7 +514,12 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
   "referrer": {
     "type": "id",
     "value": 770
-  }
+  },
+  "attachments": [{
+    "filename": "resume.pdf",
+    "type": "resume",
+    "content": "MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6...",
+    "content_type": "application/pdf"
 }
 ```
 
@@ -578,7 +583,7 @@ source_id | No | integer | The id of the source to be credited for this applicat
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
-
+attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
 
 ## POST: Add Attachment
 
@@ -593,7 +598,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
 {
   "filename" : "resume.pdf",
   "type" : "resume",
-  "content" : "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs"
+  "content" : "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs...",
+  "content_type" : "application/pdf"
 }
 ```
 
@@ -603,7 +609,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
 {
   "filename": "resume.pdf",
   "url": "https://prod-heroku.s3.amazonaws.com/...",
-  "type": "resume"
+  "type": "resume",
+  "content_type": "application/pdf"
 }
 ```
 
@@ -629,6 +636,9 @@ filename | Yes | string | Name of the file
 type | Yes | string | One of: ["resume", "cover_letter", "admin_only"]
 content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url)
 url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content)
+content_type | No* | string | The content-type of the document you are sending.  When using a URL, this generally isn't needed, as the responding server will deliver a content type.  This should be included for encoded content.  Accepted content types are: "text/html", "text/plain", "text/javascript", "text/css", "text/calendar", "text/csv", "text/vcard", "image/png", "image/jpeg", "image/gif", "image/bmp", "image/tiff", "video/mpeg", "application/xml", "application/rss+xml", "application/atom+xml", "application/x-yaml", "multipart/form-data", "application/x-www-form-urlencoded", "application/json", "application/pdf", "application/zip", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/javascript", "application/msgpack"
+
+\* \- content_type is not required for purposes of backward compatibility. It is _strongly_ recommended that you always include content type for document uploads.
 
 ## POST: Add Candidate
 
