@@ -598,7 +598,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
 {
   "filename" : "resume.pdf",
   "type" : "resume",
-  "content" : "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs",
+  "content" : "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs...",
   "content_type" : "application/pdf"
 }
 ```

@@ -1,0 +1,705 @@
+GET LIST APPLICATIONS + APPLICATION OBJECT 
+
+Active Application
+
+[
+  {
+    "id": 15259626,
+    "candidate_id": 8170865,
+    "prospect": false,
+    "applied_at": "2015-07-24T19:48:53.101Z",
+    "rejected_at": null,
+    "last_activity_at": "2015-09-09T18:49:58.581Z",
+    "source": {
+      "id": 27,
+      "public_name": "LinkedIn (Ad Posting)"
+    },
+    "credited_to": null,
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [
+      {
+        "id": 94170,
+        "name": "Draft of Sales/Marketing Job"
+      }
+    ],
+    "status": "active",
+    "current_stage": {
+      "id": 665665,
+      "name": "Preliminary Phone Screen"
+    },
+    "answers": [],
+    "custom_fields": {
+      "test_application_field": null
+    }
+  },
+
+Rejected Application 
+
+  {
+    "id": 17338010,
+    "candidate_id": 13540259,
+    "prospect": false,
+    "applied_at": "2015-08-14T18:19:41.133Z",
+    "rejected_at": "2015-08-17T21:08:29.686Z",
+    "last_activity_at": "2015-12-03T17:17:30.213Z",
+    "source": null,
+    "credited_to": {
+      "id": null,
+      "name": "Melissandre"
+    },
+    "rejection_reason": {
+      "id": 8,
+      "name": "Lacking skill(s)/qualification(s)",
+      "type": {
+        "id": 1,
+        "name": "We rejected them"
+      }
+    },
+    "rejection_details": null,
+    "jobs": [
+      {
+        "id": 98204,
+        "name": "Draft of Engineering Job"
+      }
+    ],
+    "status": "rejected",
+    "current_stage": {
+      "id": 694685,
+      "name": "Preliminary Phone Screen"
+    },
+    "answers": [],
+    "custom_fields": {
+      "test_application_field": null
+    }
+  },
+  
+  Hired Candidate 
+
+  {
+    "id": 23239258,
+    "candidate_id": 14834098,
+    "prospect": false,
+    "applied_at": "2015-12-28T20:53:12.801Z",
+    "rejected_at": null,
+    "last_activity_at": "2016-12-30T07:10:03.082Z",
+    "source": {
+      "id": 62839,
+      "public_name": "Lord Varys Recruiting Agency"
+    },
+    "credited_to": {
+      "id": 92121,
+      "name": "Amanda Segal",
+      "employee_id": null
+    },
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [
+      {
+        "id": 87181,
+        "name": "Product Manager"
+      }
+    ],
+    "status": "hired",
+    "current_stage": null,
+    "answers": [],
+    "custom_fields": {
+      "test_application_field": null
+    }
+  },
+
+  Active Application w/ custom Job Post Questions - ***showing Closed and Confidential job 
+
+    {
+    "id": 22968728,
+    "candidate_id": 14572311,
+    "prospect": false,
+    "applied_at": "2015-12-18T20:46:01.362Z",
+    "rejected_at": null,
+    "last_activity_at": "2016-02-17T14:31:46.668Z",
+    "source": {
+      "id": 2,
+      "public_name": "Jobs page on your website"
+    },
+    "credited_to": null,
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [
+      {
+        "id": 191454,
+        "name": "Full Stack - DELETE DRAFT"
+      }
+    ],
+    "status": "active",
+    "current_stage": {
+      "id": 1399815,
+      "name": "HR Phone Screen"
+    },
+    "answers": [
+      {
+        "question": "Why do you want to work for us?",
+        "answer": "test"
+      },
+      {
+        "question": "How many years experience do you have? ",
+        "answer": "0-2"
+      },
+      {
+        "question": "Website",
+        "answer": null
+      },
+      {
+        "question": "How did you hear about this job?",
+        "answer": "test"
+      },
+      {
+        "question": "Are you willing to work remotely?",
+        "answer": "No"
+      }
+    ],
+    "custom_fields": {
+      "test_application_field": null
+    }
+  },
+
+  Active application w/ Answers to Job Post question on Open Job 
+
+  {
+    "id": 44180942,
+    "candidate_id": 34073673,
+    "prospect": false,
+    "applied_at": "2016-12-05T19:33:32.373Z",
+    "rejected_at": null,
+    "last_activity_at": "2016-12-30T07:10:01.506Z",
+    "source": {
+      "id": 2,
+      "public_name": "Jobs page on your website"
+    },
+    "credited_to": null,
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [
+      {
+        "id": 157132,
+        "name": "Director of Customer Service - (2016)"
+      }
+    ],
+    "status": "active",
+    "current_stage": {
+      "id": 1124558,
+      "name": "Application Review"
+    },
+    "answers": [
+      {
+        "question": "Are you willing to work remotely?",
+        "answer": "No"
+      },
+      {
+        "question": "How did you hear about this job?",
+        "answer": null
+      },
+      {
+        "question": "Do you have 7+ years experience in customer service?",
+        "answer": null
+      },
+      {
+        "question": "Website",
+        "answer": null
+      },
+      {
+        "question": "LinkedIn Profile",
+        "answer": null
+      }
+    ],
+    "custom_fields": {
+      "test_application_field": null
+    }
+  },
+
+  Active Prospect
+
+  {
+    "id": 40572063,
+    "candidate_id": 31606225,
+    "prospect": true,
+    "applied_at": "2016-10-07T13:11:53.870Z",
+    "rejected_at": null,
+    "last_activity_at": "2016-12-30T07:10:01.220Z",
+    "source": {
+      "id": 94361,
+      "public_name": "Maildrop"
+    },
+    "credited_to": {
+      "id": 344207,
+      "name": "Schedule Test",
+      "employee_id": null
+    },
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [],
+    "status": "active",
+    "current_stage": null,
+    "answers": [],
+    "custom_fields": {
+      "test_application_field": null
+    }
+  },
+
+  GET RETIEVE APPLICATION
+
+  Active Application
+
+  {
+  "id": 15259626,
+  "candidate_id": 8170865,
+  "prospect": false,
+  "applied_at": "2015-07-24T19:48:53.101Z",
+  "rejected_at": null,
+  "last_activity_at": "2015-09-09T18:49:58.581Z",
+  "source": {
+    "id": 27,
+    "public_name": "LinkedIn (Ad Posting)"
+  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 94170,
+      "name": "Draft of Sales/Marketing Job"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 665665,
+    "name": "Preliminary Phone Screen"
+  },
+  "answers": [],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
+
+Rejected Application
+
+{
+  "id": 17338010,
+  "candidate_id": 13540259,
+  "prospect": false,
+  "applied_at": "2015-08-14T18:19:41.133Z",
+  "rejected_at": "2015-08-17T21:08:29.686Z",
+  "last_activity_at": "2015-12-03T17:17:30.213Z",
+  "source": null,
+  "credited_to": {
+    "id": null,
+    "name": "Melissandre"
+  },
+  "rejection_reason": {
+    "id": 8,
+    "name": "Lacking skill(s)/qualification(s)",
+    "type": {
+      "id": 1,
+      "name": "We rejected them"
+    }
+  },
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 98204,
+      "name": "Draft of Engineering Job"
+    }
+  ],
+  "status": "rejected",
+  "current_stage": {
+    "id": 694685,
+    "name": "Preliminary Phone Screen"
+  },
+  "answers": [],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
+
+DELETE APPLICATION - fine 
+
+PATCH UPDATE APPLICATION - 
+
+Update this application. The response is populated with the application’s information which will reflect its new state. - Can be ACTIVE, REJECTED, HIRED
+
+Active Application
+
+{
+  "id": 15259626,
+  "candidate_id": 8170865,
+  "prospect": false,
+  "applied_at": "2015-07-24T19:48:53.101Z",
+  "rejected_at": null,
+  "last_activity_at": "2015-09-09T18:49:58.581Z",
+  "source": {
+    "id": 16,
+    "public_name": "LinkedIn (Prospecting)"
+  },
+  "credited_to": {
+    "id": 107050,
+    "name": "Dan Smith",
+    "employee_id": null
+  },
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 94170,
+      "name": "Draft of Sales/Marketing Job"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 665665,
+    "name": "Preliminary Phone Screen"
+  },
+  "answers": [],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
+
+Rejected Application
+
+{
+  "id": 17338010,
+  "candidate_id": 13540259,
+  "prospect": false,
+  "applied_at": "2015-08-14T18:19:41.133Z",
+  "rejected_at": "2015-08-17T21:08:29.686Z",
+  "last_activity_at": "2015-12-03T17:17:30.213Z",
+  "source": {
+    "id": 16,
+    "public_name": "LinkedIn (Prospecting)"
+  },
+  "credited_to": {
+    "id": 107050,
+    "name": "Dan Smith",
+    "employee_id": null
+  },
+  "rejection_reason": {
+    "id": 8,
+    "name": "Lacking skill(s)/qualification(s)",
+    "type": {
+      "id": 1,
+      "name": "We rejected them"
+    }
+  },
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 98204,
+      "name": "Draft of Engineering Job"
+    }
+  ],
+  "status": "rejected",
+  "current_stage": {
+    "id": 694685,
+    "name": "Preliminary Phone Screen"
+  },
+  "answers": [],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
+
+Hired Application 
+
+{
+  "id": 23239258,
+  "candidate_id": 14834098,
+  "prospect": false,
+  "applied_at": "2015-12-28T20:53:12.801Z",
+  "rejected_at": null,
+  "last_activity_at": "2016-12-30T07:10:03.082Z",
+  "source": {
+    "id": 16,
+    "public_name": "LinkedIn (Prospecting)"
+  },
+  "credited_to": {
+    "id": 107050,
+    "name": "Dan Smith",
+    "employee_id": null
+  },
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 87181,
+      "name": "Product Manager"
+    }
+  ],
+  "status": "hired",
+  "current_stage": null,
+  "answers": [],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
+
+POST ADVANCE APPLICATION
+
+{
+  "id": 44180942,
+  "candidate_id": 34073673,
+  "prospect": false,
+  "applied_at": "2016-12-05T19:33:32.373Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-01-05T00:44:09.506Z",
+  "source": {
+    "id": 2,
+    "public_name": "Jobs page on your website"
+  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 157132,
+      "name": "Director of Customer Service - (2016)"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 1124597,
+    "name": "Preliminary Phone Screen"
+  },
+  "answers": [
+    {
+      "question": "Are you willing to work remotely?",
+      "answer": "No"
+    },
+    {
+      "question": "How did you hear about this job?",
+      "answer": null
+    },
+    {
+      "question": "Do you have 7+ years experience in customer service?",
+      "answer": null
+    },
+    {
+      "question": "Website",
+      "answer": null
+    },
+    {
+      "question": "LinkedIn Profile",
+      "answer": null
+    }
+  ],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
+
+POST MOVE APPLICATION
+
+{
+  "id": 44180942,
+  "candidate_id": 34073673,
+  "prospect": false,
+  "applied_at": "2016-12-05T19:33:32.373Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-01-05T00:49:57.527Z",
+  "source": {
+    "id": 2,
+    "public_name": "Jobs page on your website"
+  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 157132,
+      "name": "Director of Customer Service - (2016)"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 1124594,
+    "name": "Face to Face"
+  },
+  "answers": [
+    {
+      "question": "Are you willing to work remotely?",
+      "answer": "No"
+    },
+    {
+      "question": "How did you hear about this job?",
+      "answer": null
+    },
+    {
+      "question": "Do you have 7+ years experience in customer service?",
+      "answer": null
+    },
+    {
+      "question": "Website",
+      "answer": null
+    },
+    {
+      "question": "LinkedIn Profile",
+      "answer": null
+    }
+  ],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
+
+POST REJECT APPLICATION 
+
+Rejected Candidate Response
+
+{
+  "id": 40201820,
+  "candidate_id": 31244684,
+  "prospect": false,
+  "applied_at": "2016-09-30T14:55:59.640Z",
+  "rejected_at": "2017-01-05T01:30:56.058Z",
+  "last_activity_at": "2017-01-05T01:30:56.126Z",
+  "source": {
+    "id": 94361,
+    "public_name": "Maildrop"
+  },
+  "credited_to": null,
+  "rejection_reason": {
+    "id": 9504,
+    "name": "Hired another candidate",
+    "type": {
+      "id": 1,
+      "name": "We rejected them"
+    }
+  },
+  "rejection_details": {},
+  "jobs": [
+    {
+      "id": 87181,
+      "name": "Product Manager"
+    }
+  ],
+  "status": "rejected",
+  "current_stage": {
+    "id": 617494,
+    "name": "Application Review"
+  },
+  "answers": [],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
+
+Rejected Prospect 
+
+{
+  "id": 46049982,
+  "candidate_id": 13424360,
+  "prospect": true,
+  "applied_at": "2017-01-05T00:18:19.974Z",
+  "rejected_at": "2017-01-05T01:02:55.890Z",
+  "last_activity_at": "2017-01-05T01:02:55.919Z",
+  "source": {
+    "id": 16,
+    "public_name": "LinkedIn (Prospecting)"
+  },
+  "credited_to": {
+    "id": 107050,
+    "name": "Dan Smith",
+    "employee_id": null
+  },
+  "rejection_reason": {
+    "id": 14,
+    "name": "None specified",
+    "type": {
+      "id": 3,
+      "name": "None specified"
+    }
+  },
+  "rejection_details": {},
+  "jobs": [],
+  "status": "rejected",
+  "current_stage": null,
+  "answers": [],
+  "custom_fields": {
+    "test_application_field": null
+  }
+
+
+POST UNREJECT APPLICATION
+
+Candidate Application 
+
+{
+  "id": 31637692,
+  "candidate_id": 23061048,
+  "prospect": false,
+  "applied_at": "2016-05-20T01:08:54.951Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-01-05T01:06:35.458Z",
+  "source": {
+    "id": 2,
+    "public_name": "Jobs page on your website"
+  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 216565,
+      "name": "Campaign Manager"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 1587267,
+    "name": "Phone Interview"
+  },
+  "answers": [
+    {
+      "question": "LinkedIn Profile",
+      "answer": null
+    },
+    {
+      "question": "Website",
+      "answer": null
+    },
+    {
+      "question": "How did you hear about this job?",
+      "answer": null
+    }
+  ],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}  
+
+Prospect Application
+
+{
+  "id": 46049982,
+  "candidate_id": 13424360,
+  "prospect": true,
+  "applied_at": "2017-01-05T00:18:19.974Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-01-05T01:07:38.618Z",
+  "source": {
+    "id": 16,
+    "public_name": "LinkedIn (Prospecting)"
+  },
+  "credited_to": {
+    "id": 107050,
+    "name": "Dan Smith",
+    "employee_id": null
+  },
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [],
+  "status": "active",
+  "current_stage": null,
+  "answers": [],
+  "custom_fields": {
+    "test_application_field": null
+  }
+}
