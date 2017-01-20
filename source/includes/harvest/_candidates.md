@@ -58,8 +58,20 @@ An organization's candidates.
   "coordinator": null,
   "tags": [],
   "custom_fields": {
-    "current_salary": null,
+    "current_salary": "$123,000",
     "desired_salary": null
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": "$123,000"
+    },
+    "new_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": null
+    }
   }
 }
 ```
@@ -81,6 +93,7 @@ An organization's candidates.
 | attachments[].type | One of: ["admin_only", "public", "cover_letter", "offer_packet", "resume", "take_home_test"]
 | attachments[].url | URLs expire in 30 days.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
+| keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
 
 ## GET: List Candidates
 
@@ -146,10 +159,22 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
     "coordinator": null,
     "tags": [],
     "custom_fields": {
-      "current_salary": null,
+      "current_salary": "$123,000",
       "desired_salary": null
+    },
+    "keyed_custom_fields": {
+      "current_salary": {
+        "name": "Current salary",
+        "type": "short_text",
+        "value": "$123,000"
+      },
+      "new_salary": {
+        "name": "Desired salary",
+        "type": "short_text",
+        "value": null
+      }
     }
-  },
+  }
 ]
 ```
 
@@ -239,6 +264,18 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
   "custom_fields": {
     "current_salary": null,
     "desired_salary": null
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": null
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": null
+    }
   }
 }
 ```
@@ -447,6 +484,18 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
     "custom_fields": {
       "current_salary": "$23k",
       "desired_salary": "$42k"
+    },
+    "keyed_custom_fields": {
+      "current_salary": {
+        "name": "Current salary",
+        "type": "short_text",
+        "value": "$23k"
+      },
+      "desired_salary": {
+        "name": "Desired salary",
+        "type": "short_text",
+        "value": "$42k"
+      }
     }
   }
 ]
@@ -558,6 +607,18 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
   "custom_fields": {
     "birthday": null,
     "bio": null
+  },
+  "keyed_custom_fields": {
+    "date_of_birth": {
+      "name": "Birthday",
+      "type": "date",
+      "value": null
+    },
+    "bio": {
+      "name": "Bio",
+      "type": "long_text",
+      "value": null
+    }
   }
 }
 ```
@@ -788,13 +849,31 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
       "answers": [],
       "custom_fields": {
         "test": null
-      }
+      },
+      "keyed_custom_fields": {
+        "some_custom_field": {
+          "name": "Test",
+          "type": "short_text",
+          "value": null
+        },
     }
   ],
   "educations": [],
   "custom_fields": {
     "current_salary": null,
     "desired_salary": null
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": null
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": null
+    }
   }
 }
 ```
@@ -1029,13 +1108,32 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "answers": [],
       "custom_fields": {
         "test": null
-      }
-    }
+      },
+      "keyed_custom_fields": {
+         "test": {
+            "name": "Test",
+            "type": "long_text",
+            "value": null
+          }
+        }
+     }
   ],
   "educations": [],
   "custom_fields": {
     "current_salary": null,
     "desired_salary": null
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": null
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": null
+    }
   }
 }
 ```
@@ -1171,6 +1269,18 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
   "custom_fields": {
     "current_salary": "$23k",
     "desired_salary": "$42k"
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": "$23k"
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": "$42k"
+    }
   }
 }
 ```
