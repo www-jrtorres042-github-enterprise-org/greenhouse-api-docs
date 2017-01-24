@@ -520,31 +520,31 @@ delete_value  | n/a | When this element is included with a value of "true" (note
     "sourcers": []
   },
   "custom_fields": {
-    "employment_type": null,
-    "salary": null,
-    "bonus": null,
-    "options": null
+    "employment_type": "Full-time",
+    "salary": "$123,000",
+    "bonus": 1000,
+    "options": "1500"
   },
   "keyed_custom_fields": {
     "bonus": {
       "name": "Bonus",
       "type": "number",
-      "value": null
+      "value": 1000
     },
     "time_type": {
       "name": "Employment Type",
       "type": "single_select",
-      "value": null
+      "value": "Full-time"
     },
     "stock_options": {
       "name": "Options",
       "type": "short_text",
-      "value": null
+      "value": "1500"
     },
     "salary": {
       "name": "Salary",
       "type": "short_text",
-      "value": null
+      "value": "$123,000"
     }
   },
   "openings": [

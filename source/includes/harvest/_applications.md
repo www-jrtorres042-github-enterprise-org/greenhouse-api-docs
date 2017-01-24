@@ -31,19 +31,19 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
     "name": "Recruiter Phone Screen"
   },
   "custom_fields": {
-    "bio": null,
-    "birthday": null
+    "bio": "This is a bio",
+    "birthday": "1992-01-27"
   },
   "keyed_custom_fields": {
     "date_of_birth": {
       "name": "Birthday",
       "type": "date",
-      "value": null
+      "value": "1992-01-27"
     },
     "bio": {
       "name": "Bio",
       "type": "long_text",
-      "value": null
+      "value": "This is a bio"
     }
   }
 }

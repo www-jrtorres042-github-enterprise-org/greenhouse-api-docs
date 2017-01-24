@@ -262,19 +262,19 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
   "coordinator": null,
   "tags": [],
   "custom_fields": {
-    "current_salary": null,
-    "desired_salary": null
+    "current_salary": "$123k",
+    "desired_salary": "$150k"
   },
   "keyed_custom_fields": {
     "current_salary": {
       "name": "Current salary",
       "type": "short_text",
-      "value": null
+      "value": "$123k"
     },
     "desired_salary": {
       "name": "Desired salary",
       "type": "short_text",
-      "value": null
+      "value": "$150k"
     }
   }
 }
@@ -605,19 +605,19 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
   },
   "answers": [],
   "custom_fields": {
-    "birthday": null,
-    "bio": null
+    "birthday": "1992-01-27",
+    "bio": "This is my bio"
   },
   "keyed_custom_fields": {
     "date_of_birth": {
       "name": "Birthday",
       "type": "date",
-      "value": null
+      "value": "1992-01-27"
     },
     "bio": {
       "name": "Bio",
       "type": "long_text",
-      "value": null
+      "value": "This is my bio"
     }
   }
 }
@@ -860,14 +860,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
   ],
   "educations": [],
   "custom_fields": {
-    "current_salary": null,
+    "current_salary": "$123,000",
     "desired_salary": null
   },
   "keyed_custom_fields": {
     "current_salary": {
       "name": "Current salary",
       "type": "short_text",
-      "value": null
+      "value": "$123,000"
     },
     "desired_salary": {
       "name": "Desired salary",
@@ -1107,32 +1107,32 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "current_stage": null,
       "answers": [],
       "custom_fields": {
-        "test": null
+        "test": "A test value"
       },
       "keyed_custom_fields": {
          "test": {
             "name": "Test",
             "type": "long_text",
-            "value": null
+            "value": "A test value"
           }
         }
      }
   ],
   "educations": [],
   "custom_fields": {
-    "current_salary": null,
-    "desired_salary": null
+    "current_salary": "$123,000",
+    "desired_salary": "$150,000"
   },
   "keyed_custom_fields": {
     "current_salary": {
       "name": "Current salary",
       "type": "short_text",
-      "value": null
+      "value": "$123,000"
     },
     "desired_salary": {
       "name": "Desired salary",
       "type": "short_text",
-      "value": null
+      "value": "$150,000"
     }
   }
 }

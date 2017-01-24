@@ -17,10 +17,10 @@ An organization's offers.
     "employment_type": "Contractor",
     "favorite_station": "The Swan",
     "best_seasons": null,
-    "start_date": null,
+    "start_date": "2004-09-21",
     "willing_to_negotiate": null,
-    "salary": null,
-    "notes": null
+    "salary": "Around $100k",
+    "notes": "This is a note field"
   },
   "keyed_custom_fields": {
     "time_type": {
@@ -41,7 +41,7 @@ An organization's offers.
     "start_date": {
       "name": "Start Date",
       "type": "date",
-      "value": null
+      "value": "2004-09-21"
     },
     "will_negotiate": {
       "name": "Willing to negotiate",
@@ -51,12 +51,12 @@ An organization's offers.
     "salary": {
       "name": "Salary",
       "type": "short_text",
-      "value": null
+      "value": "Around $100k"
     },
     "notes": {
       "name": "Notes",
       "type": "long_text",
-      "value": null
+      "value": "This is a note field"
     }
   }
 }
@@ -99,10 +99,10 @@ curl 'https://harvest.greenhouse.io/v1/offers'
       "employment_type": "Contractor",
       "favorite_station": "The Swan",
       "best_seasons": null,
-      "start_date": null,
+      "start_date": "2004-09-21",
       "willing_to_negotiate": null,
-      "salary": null,
-      "notes": null
+      "salary": "$123,000",
+      "notes": "This is a note field"
     },
     "keyed_custom_fields": {
       "time_type": {
@@ -123,7 +123,7 @@ curl 'https://harvest.greenhouse.io/v1/offers'
       "start_date": {
         "name": "Start Date",
         "type": "date",
-        "value": null
+        "value": "2004-09-21"
       },
       "will_negotiate": {
         "name": "Willing to negotiate",
@@ -133,12 +133,12 @@ curl 'https://harvest.greenhouse.io/v1/offers'
       "salary": {
         "name": "Salary",
         "type": "currency",
-        "value": null
+        "value": "$123,000"
       },
       "notes": {
         "name": "Notes",
         "type": "long_text",
-        "value": null
+        "value": "This is a note field"
       }
     }
   },
@@ -398,8 +398,8 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/curr
     "best_seasons": null,
     "start_date": null,
     "willing_to_negotiate": null,
-    "salary": null,
-    "notes": null
+    "salary": "$123,000",
+    "notes": "This is a note field"
   },
   "keyed_custom_fields": {
     "time_type": {
@@ -430,12 +430,12 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/curr
     "salary": {
       "name": "Salary",
       "type": "currency",
-      "value": null
+      "value": "$123,000"
     },
     "notes": {
       "name": "Notes",
       "type": "long_text",
-      "value": null
+      "value": "This is a note field"
     }
   }
 }
