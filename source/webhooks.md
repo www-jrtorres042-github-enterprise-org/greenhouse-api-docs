@@ -23,6 +23,7 @@ includes:
   - webhooks/job_created
   - webhooks/job_updated
   - webhooks/offer_deleted
+  - webhooks/interview_deleted
   - webhooks/new_prospect_application
   - webhooks/scorecard_deleted
 
