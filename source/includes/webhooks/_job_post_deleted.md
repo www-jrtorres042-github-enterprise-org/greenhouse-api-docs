@@ -1,6 +1,6 @@
 ## Job Post deleted
 
-This web hook fires when a job post is deleted.  This occurs when the delete link is clicked after a job post is made not live. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
+This web hook fires when a job post is deleted.  This occurs when the delete link is clicked on a job post. Only job posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
 
 ```json
 {
