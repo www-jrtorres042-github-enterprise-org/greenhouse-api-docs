@@ -1,6 +1,6 @@
 ## Interview deleted
 
-This web hook fires when an interview record in the Greenhouse database is deleted. This is not the same as when an interview is deleted in the application, because sometimes interview records are cleared and repurposed. This web hook will not fire if an interview is deleted because a candidate, application, or hiring plan is deleted.
+This web hook fires when a scheduled interview is cancelled or the interview is deleted directly. This web hook will not fire if an interview is deleted because a candidate, application, or hiring plan is deleted.
 
 ```json
 {
