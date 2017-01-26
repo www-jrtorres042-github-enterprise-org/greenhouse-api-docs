@@ -1,6 +1,6 @@
 ## Job deleted
 
-This web hook only fires when jobs are deleted from the Greenhouse system. This only happens when a job is closed, and then the "Delete" button is clicked from the Job Dashboard.
+This web hook only fires when jobs are deleted from the Greenhouse system. This only happens when a job is closed and then the "Delete" button is clicked from the Job Dashboard.
 
 ```json
 {
