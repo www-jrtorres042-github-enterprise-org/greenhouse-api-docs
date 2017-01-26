@@ -517,7 +517,6 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-id | No | integer |   The ID of the candidate to retrieve
 first_name | No | string | The candidate's first name
 last_name | No | string | The candidate's last name
 company | No | string | The candidate's company
