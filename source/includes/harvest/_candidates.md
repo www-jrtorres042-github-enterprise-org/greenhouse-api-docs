@@ -691,7 +691,6 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-id | Yes | integer |   The ID of the candidate to retrieve
 filename | Yes | string | Name of the file
 type | Yes | string | One of: ["resume", "cover_letter", "admin_only"]
 content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url)
