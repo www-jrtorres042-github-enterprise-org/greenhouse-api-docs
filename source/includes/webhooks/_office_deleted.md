@@ -1,6 +1,6 @@
 ## Office deleted
 
-This web hook fires when offices are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the "Remove" button is clicked after clicking the "X" next to an office name. This will not fire individually when an organization is deleted.
+This web hook fires when offices are deleted from the Greenhouse system from the Configure &raquo; Organization screen. This only happens when the "Remove" button is clicked after clicking the "X" next to an office name.
 
 ```json
 {
@@ -29,5 +29,5 @@ This web hook fires when offices are deleted from the Greenhouse system from the
 | `id` | The Greenhouse id for the office |
 | `name` | The name of the office deleted |
 | `location` | The location for the office |
-| `child_ids` | Any former child office ids |
-| `parent_id` | The office's parent office id |
+| `child_ids` | Any former child office ids; will be [] if empty  |
+| `parent_id` | The office's parent office id; will be null if empty  |
