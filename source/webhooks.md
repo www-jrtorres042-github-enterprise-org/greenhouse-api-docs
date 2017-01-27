@@ -26,6 +26,8 @@ includes:
   - webhooks/interview_deleted
   - webhooks/new_prospect_application
   - webhooks/scorecard_deleted
+  - webhooks/office_deleted
+  - webhooks/department_deleted
 
 
 slug: webhooks
