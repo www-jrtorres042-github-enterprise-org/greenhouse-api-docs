@@ -23,9 +23,15 @@ includes:
   - webhooks/job_created
   - webhooks/job_updated
   - webhooks/offer_deleted
+  - webhooks/interview_deleted
   - webhooks/new_prospect_application
   - webhooks/scorecard_deleted
+<<<<<<< HEAD
   - webhooks/job_deleted
+=======
+  - webhooks/office_deleted
+  - webhooks/department_deleted
+>>>>>>> 74d7817f0386675ade371a9f5a4f87b76478adb0
 
 
 slug: webhooks
