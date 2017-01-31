@@ -21,6 +21,7 @@
         "name": "Ada Lacey"
       },
       "rejection_reason": null,
+      "rejection_details": null,
       "current_stage": {
         "id": 71416,
         "name": "Assessment",
@@ -44,14 +45,21 @@
           }
         ]
       },
+      "custom_fields": {
+        "custom_application_field": {
+          "name": "Custom Application Field",
+          "type": "short_text",
+          "value": "Example"
+        }
+      },
       "candidate": {
         "id": 265772,
-        "created_at": "2013-10-04T01:24:44Z",
         "first_name": "Giuseppe",
         "last_name": "Hurley",
-        "external_id": "241b399ce4b0fd1c84e5528d",
         "title": "Great Person",
         "company": null,
+        "created_at": "2013-10-04T01:24:44Z",
+        "external_id": "241b399ce4b0fd1c84e5528d",
         "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
         "phone_numbers": [
           {
@@ -80,6 +88,15 @@
         "social_media_addresses": [
           {
             "value": "linkedin.example.com/ghurley"
+          }
+        ],
+        "educations": [
+          {
+            "school_name": "Harvard University",
+            "degree": "Bachelor's Degree",
+            "discipline": "Information Systems",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
           }
         ],
         "recruiter": {
@@ -126,6 +143,7 @@
           "name": "Designer",
           "requisition_id": null,
           "notes": "Digital and print",
+          "job_post_id": 553282,
           "status": "open",
           "created_at": "2013-10-02T22:59:29Z",
           "opened_at": "2015-01-23T00:25:04Z",

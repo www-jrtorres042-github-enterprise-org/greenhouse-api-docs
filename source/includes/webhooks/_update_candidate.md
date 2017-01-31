@@ -9,7 +9,7 @@
       "first_name": "Ronald",
       "last_name": "Ronnie",
       "title": "Director of Strategic Janitorial Initiatives",
-      "company": "BLAH",
+      "company": "Example",
       "created_at": "2016-08-23T17:51:27Z",
       "external_id": "946aa514658",
       "photo_url": null,
@@ -40,6 +40,15 @@
       "social_media_addresses": [
         {
           "value": "@ronaldronnie99999"
+        }
+      ],
+      "educations": [
+        {
+          "school_name": "Harvard University",
+          "degree": "Bachelor's Degree",
+          "discipline": "Information Systems",
+          "start_date": "01/01/2012",
+          "end_date": "01/01/2016"
         }
       ],
       "recruiter": {

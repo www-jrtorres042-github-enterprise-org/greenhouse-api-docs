@@ -5,12 +5,12 @@
   "action": "hire_candidate",
   "payload": {
     "application": {
-      "id": 20,
+      "id": 46194062,
       "opening": {
         "opening_id": "1234-56"
       },
       "credited_to": {
-        "id": 57,
+        "id": 158104,
         "email": "bob_johnson1@localhost.com",
         "name": "Robert Johnson"
       },
@@ -19,7 +19,7 @@
         "public_name": "Monster"
       },
       "candidate": {
-        "id": 19,
+        "id": 35897443,
         "first_name": "Johnny",
         "last_name": "Smith",
         "title": "Previous Title",
@@ -81,7 +81,7 @@
         }
       },
       "job": {
-        "id": 20,
+        "id": 323753,
         "name": "Developer",
         "open_date": "2014-11-20T22:49:14Z",
         "close_date": "2014-11-25T22:49:14Z",
@@ -96,9 +96,7 @@
           {
             "id": 13,
             "name": "New York City",
-            "location": {
-              "name": "New York, NY"
-            }
+            "location": "New York, NY"
           },
           {
             "id": 14,
@@ -130,11 +128,11 @@
       },
       "jobs": [
         {
-          "id": 20,
+          "id": 323753,
           "name": "Developer",
+          "requisition_id": null,
           "opened_at": "2014-11-20T22:49:14Z",
           "closed_at": "2014-11-25T22:49:14Z",
-          "requisition_id": null,
           "departments": [
             {
               "id": 7,
@@ -145,9 +143,7 @@
             {
               "id": 13,
               "name": "New York City",
-              "location": {
-                "name": "New York, NY"
-              }
+              "location": "New York, NY"
             },
             {
               "id": 14,
@@ -178,8 +174,15 @@
           }
         }
       ],
+      "custom_fields": {
+        "custom_application_field": {
+          "name": "Custom Application Field",
+          "type": "short_text",
+          "value": "Example123"
+        }
+      },
       "offer": {
-        "id": 13,
+        "id": 506409,
         "version": 2,
         "created_at": "2014-11-20T22:49:14Z",
         "sent_at": "2014-11-10",

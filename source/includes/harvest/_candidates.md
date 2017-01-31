@@ -58,8 +58,20 @@ An organization's candidates.
   "coordinator": null,
   "tags": [],
   "custom_fields": {
-    "current_salary": null,
+    "current_salary": "$123,000",
     "desired_salary": null
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": "$123,000"
+    },
+    "new_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": null
+    }
   }
 }
 ```
@@ -81,6 +93,7 @@ An organization's candidates.
 | attachments[].type | One of: ["admin_only", "public", "cover_letter", "offer_packet", "resume", "take_home_test"]
 | attachments[].url | URLs expire in 30 days.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
+| keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
 
 ## GET: List Candidates
 
@@ -146,10 +159,22 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
     "coordinator": null,
     "tags": [],
     "custom_fields": {
-      "current_salary": null,
+      "current_salary": "$123,000",
       "desired_salary": null
+    },
+    "keyed_custom_fields": {
+      "current_salary": {
+        "name": "Current salary",
+        "type": "short_text",
+        "value": "$123,000"
+      },
+      "new_salary": {
+        "name": "Desired salary",
+        "type": "short_text",
+        "value": null
+      }
     }
-  },
+  }
 ]
 ```
 
@@ -237,8 +262,20 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
   "coordinator": null,
   "tags": [],
   "custom_fields": {
-    "current_salary": null,
-    "desired_salary": null
+    "current_salary": "$123k",
+    "desired_salary": "$150k"
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": "$123k"
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": "$150k"
+    }
   }
 }
 ```
@@ -447,6 +484,18 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
     "custom_fields": {
       "current_salary": "$23k",
       "desired_salary": "$42k"
+    },
+    "keyed_custom_fields": {
+      "current_salary": {
+        "name": "Current salary",
+        "type": "short_text",
+        "value": "$23k"
+      },
+      "desired_salary": {
+        "name": "Desired salary",
+        "type": "short_text",
+        "value": "$42k"
+      }
     }
   }
 ]
@@ -468,7 +517,6 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-id | No | integer |   The ID of the candidate to retrieve
 first_name | No | string | The candidate's first name
 last_name | No | string | The candidate's last name
 company | No | string | The candidate's company
@@ -514,7 +562,12 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
   "referrer": {
     "type": "id",
     "value": 770
-  }
+  },
+  "attachments": [{
+    "filename": "resume.pdf",
+    "type": "resume",
+    "content": "MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6...",
+    "content_type": "application/pdf"
 }
 ```
 
@@ -551,8 +604,20 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
   },
   "answers": [],
   "custom_fields": {
-    "birthday": null,
-    "bio": null
+    "birthday": "1992-01-27",
+    "bio": "This is my bio"
+  },
+  "keyed_custom_fields": {
+    "date_of_birth": {
+      "name": "Birthday",
+      "type": "date",
+      "value": "1992-01-27"
+    },
+    "bio": {
+      "name": "Bio",
+      "type": "long_text",
+      "value": "This is my bio"
+    }
   }
 }
 ```
@@ -578,7 +643,7 @@ source_id | No | integer | The id of the source to be credited for this applicat
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
-
+attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
 
 ## POST: Add Attachment
 
@@ -593,7 +658,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
 {
   "filename" : "resume.pdf",
   "type" : "resume",
-  "content" : "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs"
+  "content" : "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs...",
+  "content_type" : "application/pdf"
 }
 ```
 
@@ -603,7 +669,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
 {
   "filename": "resume.pdf",
   "url": "https://prod-heroku.s3.amazonaws.com/...",
-  "type": "resume"
+  "type": "resume",
+  "content_type": "application/pdf"
 }
 ```
 
@@ -624,11 +691,13 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-id | Yes | integer |   The ID of the candidate to retrieve
 filename | Yes | string | Name of the file
 type | Yes | string | One of: ["resume", "cover_letter", "admin_only"]
 content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url)
 url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content)
+content_type | No* | string | The content-type of the document you are sending.  When using a URL, this generally isn't needed, as the responding server will deliver a content type.  This should be included for encoded content.  Accepted content types are: <ul><li>"application/atom+xml"</li><li>"application/javascript"</li><li>"application/json"</li><li>"application/msgpack"</li><li>"application/pdf"</li><li>"application/rss+xml"</li><li>"application/vnd.ms-excel"</li><li>"application/vnd.openxmlformats-<br>officedocument.spreadsheetml.sheet"</li><li>"application/vnd.openxmlformats-<br>officedocument.wordprocessingml.document"</li><li>"application/xml"</li><li>"application/x-www-form-urlencoded"</li><li>"application/x-yaml"</li><li>"application/zip"</li><li>"multipart/form-data"</li><li>"image/bmp"</li><li>"image/gif"</li><li>"image/jpeg"</li><li>"image/png"</li><li>"image/tiff"</li><li>"text/calendar"</li><li>"text/css"</li><li>"text/csv"</li><li>"text/html"</li><li>"text/javascript"</li><li>"text/plain"</li><li>"text/vcard"</li><li>"video/mpeg"</li></ul>
+
+\* \- content_type is not required for purposes of backward compatibility. It is _strongly_ recommended that you always include content type for document uploads.
 
 ## POST: Add Candidate
 
@@ -778,13 +847,31 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
       "answers": [],
       "custom_fields": {
         "test": null
-      }
+      },
+      "keyed_custom_fields": {
+        "some_custom_field": {
+          "name": "Test",
+          "type": "short_text",
+          "value": null
+        },
     }
   ],
   "educations": [],
   "custom_fields": {
-    "current_salary": null,
+    "current_salary": "$123,000",
     "desired_salary": null
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": "$123,000"
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": null
+    }
   }
 }
 ```
@@ -1018,14 +1105,33 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "current_stage": null,
       "answers": [],
       "custom_fields": {
-        "test": null
-      }
-    }
+        "test": "A test value"
+      },
+      "keyed_custom_fields": {
+         "test": {
+            "name": "Test",
+            "type": "long_text",
+            "value": "A test value"
+          }
+        }
+     }
   ],
   "educations": [],
   "custom_fields": {
-    "current_salary": null,
-    "desired_salary": null
+    "current_salary": "$123,000",
+    "desired_salary": "$150,000"
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": "$123,000"
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": "$150,000"
+    }
   }
 }
 ```
@@ -1161,6 +1267,18 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
   "custom_fields": {
     "current_salary": "$23k",
     "desired_salary": "$42k"
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": "$23k"
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": "$42k"
+    }
   }
 }
 ```
