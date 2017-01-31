@@ -14,7 +14,6 @@ An organization's candidates.
   "created_at": "2015-05-29T18:19:00Z",
   "last_activity": "2015-05-29T20:01:05Z",
   "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
-  "url": "https://app.greenhouse.io/people/6801407",
   "attachments": [],
   "application_ids": [
     7827056
@@ -116,7 +115,6 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
     "created_at": "2015-05-29T18:19:00Z",
     "last_activity": "2015-05-29T20:01:05Z",
     "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
-    "url": "https://app.greenhouse.io/people/6801407",
     "attachments": [],
     "application_ids": [
       7827056
@@ -220,7 +218,6 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
   "created_at": "2015-05-29T18:19:00Z",
   "last_activity": "2015-05-29T20:01:05Z",
   "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
-  "url": "https://app.greenhouse.io/people/6801407",
   "attachments": [],
   "application_ids": [
     7827056
@@ -416,7 +413,6 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
     "created_at": "2014-03-26T20:11:39Z",
     "last_activity": "2014-03-26T20:11:39Z",
     "photo_url": null,
-    "url": "https://app.greenhouse.io/people/123",
     "attachments": [
       {
         "filename": "resume.pdf",
@@ -585,7 +581,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
   "applied_at": "2016-11-08T19:50:49.746Z",
   "rejected_at": null,
   "last_activity_at": "2016-11-04T19:46:40.377Z",
-  "url": "https://app.greenhouse.io/people/15803530?application_id=38776620",
   "source": {
     "id": 7,
     "public_name": "Indeed"
@@ -780,7 +775,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
   "updated_at": "2016-12-21T15:26:45.894Z",
   "last_activity": "2016-12-21T15:26:45.868Z",
   "photo_url": null,
-  "url": "https://app.greenhouse.io/people/29843267",
   "attachments": [],
   "application_ids": [
     38776656
@@ -836,7 +830,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
       "rejected_at": null,
       "last_activity_at": "2016-12-21T15:26:45.868Z",
       "source": null,
-      "url": "https://app.greenhouse.io/people/29843267?application_id=38776656",
       "credited_to": null,
       "rejection_reason": null,
       "rejection_details": null,
@@ -1049,7 +1042,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   "updated_at": "2016-12-21T19:45:01.907Z",
   "last_activity": "2016-12-21T19:45:01.867Z",
   "photo_url": null,
-  "url": "https://app.greenhouse.io/people/29843267",
   "attachments": [],
   "application_ids": [
     38776657
@@ -1104,7 +1096,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "applied_at": "2016-12-21T19:45:01.757Z",
       "rejected_at": null,
       "last_activity_at": "2016-12-21T19:45:01.867Z",
-      "url": "https://app.greenhouse.io/people/29843268?application_id=38776657",
       "source": null,
       "credited_to": null,
       "rejection_reason": null,
@@ -1205,7 +1196,6 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
   "created_at": "2014-03-26T20:11:39Z",
   "last_activity": "2014-03-26T20:11:39Z",
   "photo_url": null,
-  "url": "https://app.greenhouse.io/people/123",
   "attachments": [
     {
       "filename": "resume.pdf",

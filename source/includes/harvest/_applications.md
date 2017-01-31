@@ -11,7 +11,6 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39.000Z",
   "last_activity_at": "2014-03-27T16:13:15.000Z",
-  "url": "https://app.greenhouse.io/people/978031?application_id=985314",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
@@ -77,7 +76,6 @@ curl 'https://harvest.greenhouse.io/v1/applications'
   {
     "id": 4341,
     "candidate_id": 23123,
-    "url": "https://app.greenhouse.io/people/23123?application_id=4341",
     "prospect": true,
     "applied_at": "2014-03-26T18:03:45.000Z",
     "last_activity_at": "2014-03-27T16:12:02.000Z",
@@ -126,7 +124,6 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}'
 {
   "id": 4341,
   "candidate_id": 23123,
-  "url": "https://app.greenhouse.io/people/23123?application_id=4341",
   "prospect": true,
   "applied_at": "2014-03-26T18:03:45.000Z",
   "last_activity_at": "2014-03-27T16:12:02.000Z",
@@ -221,7 +218,6 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
   "applied_at": "2014-03-26T20:11:39.000Z",
   "rejected_at": null,
   "last_activity_at": "2014-03-27T16:13:15.000Z",
-  "url": "https://app.greenhouse.io/people/978031?application_id=985314",
   "source": {
     "id": 16,
     "public_name": "Happy Hour"
@@ -320,7 +316,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
   "applied_at": "2014-03-26T20:11:39.000Z",
   "rejected_at": null,
   "last_activity_at": "2014-03-27T16:13:15.000Z",
-  "url": "https://app.greenhouse.io/people/978031?application_id=985314",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
@@ -393,7 +388,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39.000Z",
   "last_activity_at": "2014-03-27T16:13:15.000Z",
-  "url": "https://app.greenhouse.io/people/978031?application_id=985314",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
@@ -470,7 +464,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39.000Z",
   "last_activity_at": "2014-03-27T16:13:15.000Z",
-  "url": "https://app.greenhouse.io/people/978031?application_id=985314",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
@@ -533,7 +526,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'\
   "prospect": false,
   "applied_at": "2014-03-26T20:11:39.000Z",
   "last_activity_at": "2014-03-27T16:13:15.000Z",
-  "url": "https://app.greenhouse.io/people/978031?application_id=985314",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
