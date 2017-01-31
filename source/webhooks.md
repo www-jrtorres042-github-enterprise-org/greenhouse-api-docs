@@ -25,8 +25,10 @@ includes:
   - webhooks/offer_deleted
   - webhooks/new_prospect_application
   - webhooks/scorecard_deleted
+  - webhooks/job_deleted
+  - webhooks/office_deleted
+  - webhooks/department_deleted
   - webhooks/job_post_deleted
-
 
 slug: webhooks
 search: true

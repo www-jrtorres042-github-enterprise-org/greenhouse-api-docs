@@ -38,6 +38,27 @@ An organization's jobs.
       "unit": "USD"
     }
   },
+  "keyed_custom_fields": {
+    "employment_type": {
+      "name": "Time type",
+      "type": "single_select",
+      "value": "Full-Time"
+    },
+    "budget": {
+      "name": "Maximum Budget",
+      "type": "short_text",
+      "value": "Full-Time"
+    },
+    "salary_range": {
+      "name": "Salary Range",
+      "type": "currency_range",
+      "value": {
+        "min_value": 70000,
+        "max_value": 90000,
+        "unit": "USD"
+      }
+    }
+  },
   "hiring_team": {
     "hiring_managers": [
       {
@@ -124,6 +145,7 @@ An organization's jobs.
 | offices | An array containing the [offices](#offices) this job is associated with.
 | hiring_team | Lists the names and User IDs of the hiring managers, recruiters, coordinators and sourcers associated with this job. For recruiters and coordinators, there is a `responsible` boolean flag which indicates that the user is the responsible recruiter or coordinator for this job.
 | custom_fields | Contains any custom job fields which have been defined by your organization.
+| keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
 | openings | Lists the openings associated with this job.
 | openings[].id | Custom identifier set by an organization. Can be `null`.
 | openings[].status | One of: `["open", "closed"]`
@@ -194,10 +216,32 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
       ]
     },
     "custom_fields": {
-      "bonus": "1000",
+      "bonus": 1000,
       "employment_type": "Full-time",
       "options": "2000",
       "salary": "54111"
+    },
+    "keyed_custom_fields": {
+      "bonus": {
+        "name": "Bonus",
+        "type": "number",
+        "value": 1000
+      },
+      "time_type": {
+        "name": "Employment Type",
+        "type": "single_select",
+        "value": "Full-time"
+      },
+      "stock_options": {
+        "name": "Options",
+        "type": "short_text",
+        "value": "2000"
+      },
+      "salary": {
+        "name": "Salary",
+        "type": "short_text",
+        "value": "54111"
+      }
     },
     "openings": [
       {
@@ -306,6 +350,28 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
     "employment_type": "Full-time",
     "options": "2000",
     "salary": "54111"
+  },
+  "keyed_custom_fields": {
+    "bonus": {
+      "name": "Bonus",
+      "type": "number",
+      "value": 1000
+    },
+    "time_type": {
+      "name": "Employment Type",
+      "type": "single_select",
+      "value": "Full-time"
+    },
+    "stock_options": {
+      "name": "Options",
+      "type": "short_text",
+      "value": "2000"
+    },
+    "salary": {
+      "name": "Salary",
+      "type": "short_text",
+      "value": "54111"
+    }
   },
   "openings": [
     {
@@ -454,10 +520,32 @@ delete_value  | n/a | When this element is included with a value of "true" (note
     "sourcers": []
   },
   "custom_fields": {
-    "employment_type": null,
-    "salary": null,
-    "bonus": null,
-    "options": null
+    "employment_type": "Full-time",
+    "salary": "$123,000",
+    "bonus": 1000,
+    "options": "1500"
+  },
+  "keyed_custom_fields": {
+    "bonus": {
+      "name": "Bonus",
+      "type": "number",
+      "value": 1000
+    },
+    "time_type": {
+      "name": "Employment Type",
+      "type": "single_select",
+      "value": "Full-time"
+    },
+    "stock_options": {
+      "name": "Options",
+      "type": "short_text",
+      "value": "1500"
+    },
+    "salary": {
+      "name": "Salary",
+      "type": "short_text",
+      "value": "$123,000"
+    }
   },
   "openings": [
     {
