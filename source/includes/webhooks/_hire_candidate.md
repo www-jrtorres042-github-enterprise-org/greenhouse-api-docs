@@ -18,12 +18,14 @@
         "id": 25,
         "public_name": "Monster"
       },
+      "url": "https://app.greenhouse.io/people/35897443?application_id=46194062",
       "candidate": {
         "id": 35897443,
         "first_name": "Johnny",
         "last_name": "Smith",
         "title": "Previous Title",
         "external_id": 00000,
+        "url": "https://app.greenhouse.io/people/35897443",
         "phone_numbers": [
           {
             "value": "518-555-1212",

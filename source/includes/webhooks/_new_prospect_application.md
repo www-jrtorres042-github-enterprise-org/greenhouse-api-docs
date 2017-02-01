@@ -11,6 +11,7 @@
       "status": "active",
       "applied_at": "2014-12-02T23:10:16Z",
       "last_activity_at": "2014-12-02T23:10:16Z",
+      "url": "https://app.greenhouse.io/people/968190?application_id=979554",
       "source": {
         "id": 13,
         "public_name": "Referral"
