@@ -43,6 +43,7 @@ The activity feed is the list of activities on a candidate's profile, including 
       }
     },
     {
+      "id": 6757869,
       "created_at": "2014-03-26T20:26:38Z",
       "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
       "user": null
@@ -112,6 +113,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
       }
     },
     {
+      "id": 6757869,
       "created_at": "2014-03-26T20:26:38Z",
       "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
       "user": null
