@@ -7,6 +7,7 @@ The activity feed is the list of activities on a candidate's profile, including 
 {
   "note": [
     {
+      "id": 12345,
       "created_at": "2014-03-26T20:11:40Z",
       "body": "Very mysterious.",
       "private": false,
@@ -18,6 +19,7 @@ The activity feed is the list of activities on a candidate's profile, including 
   ],
   "email": [
     {
+      "id": 234675,
       "created_at": "2014-04-01T15:55:06Z",
       "subject": "Regarding your application",
       "body": "Hey John,  just wanted to touch base!",
@@ -32,6 +34,7 @@ The activity feed is the list of activities on a candidate's profile, including 
   ],
   "activity": [
     {
+      "id": 6756789,
       "created_at": "2014-04-01T15:55:29Z",
       "body": "Reason: Lacking hustle\n\nThis candidate turned out to be problematic for us...",
       "user": {
@@ -40,6 +43,7 @@ The activity feed is the list of activities on a candidate's profile, including 
       }
     },
     {
+      "id": 6757869,
       "created_at": "2014-03-26T20:26:38Z",
       "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
       "user": null
@@ -52,6 +56,7 @@ The activity feed is the list of activities on a candidate's profile, including 
 
 | Attribute | Description |
 |-----------|-------------|
+| id | The internal Greenhouse ID of the activity feed note.
 | note | An array of notes associated with this candidate.
 | email | An array of emails sent to and from this candidate.
 | activity | An array of events associated with this candidate
@@ -72,6 +77,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
 {
   "note": [
     {
+      "id": 12345,
       "created_at": "2014-03-26T20:11:40Z",
       "body": "Very mysterious.",
       "private": false,
@@ -83,6 +89,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
   ],
   "email": [
     {
+      "id": 23454,
       "created_at": "2014-04-01T15:55:06Z",
       "subject": "Regarding your application",
       "body": "Hey John,  just wanted to touch base!",
@@ -97,6 +104,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
   ],
   "activity": [
     {
+      "id": 6756789,
       "created_at": "2014-04-01T15:55:29Z",
       "body": "Reason: Lacking hustle\n\nThis candidate turned out to be problematic for us...",
       "user": {
@@ -105,6 +113,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
       }
     },
     {
+      "id": 6757869,
       "created_at": "2014-03-26T20:26:38Z",
       "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
       "user": null
