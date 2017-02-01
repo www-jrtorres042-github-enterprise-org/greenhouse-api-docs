@@ -11,6 +11,7 @@
       "status": "active",
       "applied_at": "2013-03-22T00:00:00Z",
       "last_activity_at": "2015-02-09T16:38:36Z",
+      "url": "https://app.greenhouse.io/people/265772?application_id= 265277",
       "source": {
         "id": 31,
         "name": "Agency"
@@ -61,6 +62,7 @@
         "created_at": "2013-10-04T01:24:44Z",
         "external_id": "241b399ce4b0fd1c84e5528d",
         "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+        "url": "https://app.greenhouse.io/people/265772",
         "phone_numbers": [
           {
             "value": "330-281-8004",

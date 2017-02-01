@@ -11,6 +11,7 @@
       "status": "active",
       "applied_at": "2013-03-22T00:00:00Z",
       "last_activity_at": "2015-03-18T20:28:09Z",
+      "url": "https://app.greenhouse.io/people/265788?application_id=265293",
       "source": {
         "id": 27,
         "public_name": "LinkedIn"
@@ -51,6 +52,7 @@
         "created_at": "2013-10-04T01:24:48Z",
         "external_id": null,
         "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+        "url": "https://app.greenhouse.io/people/265788",
         "phone_numbers": [
           {
             "value": "330-281-8004",

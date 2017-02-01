@@ -11,6 +11,7 @@
       "status": "rejected",
       "applied_at": "2013-03-22T00:00:00Z",
       "last_activity_at": "2015-02-11T15:50:41Z",
+      "url": "https://app.greenhouse.io/people/265788?application_id=265293",
       "source": {
         "id": 27,
         "public_name": "LinkedIn"

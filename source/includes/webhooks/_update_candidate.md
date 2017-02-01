@@ -13,6 +13,7 @@
       "created_at": "2016-08-23T17:51:27Z",
       "external_id": "946aa514658",
       "photo_url": null,
+      "url": "https://app.greenhouse.io/people/15696179",
       "phone_numbers": [
         {
           "value": "911",

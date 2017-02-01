@@ -11,6 +11,7 @@
       "status": "active",
       "applied_at": "2015-12-03T06:31:26Z",
       "last_activity_at": "2015-12-03T06:31:26Z",
+      "url": "https://app.greenhouse.io/people/13857579?application_id=22202940",
       "source": {
         "id":2,
         "name": "Jobs page on your website"
@@ -55,6 +56,7 @@
         "created_at": "2015-12-03T06:31:26Z",
         "external_id": null,
         "photo_url": "https://photo.com/photo.jpg",
+        "url": "https://app.greenhouse.io/people/13857579",
         "phone_numbers": [
           {
             "value": "330-281-8004",
