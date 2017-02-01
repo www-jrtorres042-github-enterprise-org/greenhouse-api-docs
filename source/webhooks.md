@@ -20,17 +20,17 @@ includes:
   - webhooks/candidate_stage_change
   - webhooks/reject_candidate
   - webhooks/update_candidate
+  - webhooks/department_deleted
+  - webhooks/interview_deleted
   - webhooks/job_created
+  - webhooks/job_deleted
   - webhooks/job_updated
+  - webhooks/job_post_deleted
+  - webhooks/job_stage_deleted
   - webhooks/offer_deleted
+  - webhooks/office_deleted
   - webhooks/new_prospect_application
   - webhooks/scorecard_deleted
-  - webhooks/job_stage_deleted
-  - webhooks/job_deleted
-  - webhooks/office_deleted
-  - webhooks/department_deleted
-  - webhooks/job_post_deleted
-  - webhooks/interview_deleted
 
 slug: webhooks
 search: true
