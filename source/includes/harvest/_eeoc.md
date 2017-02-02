@@ -39,7 +39,9 @@ Every application may have zero or one EEOC object.
 |disability_status|See the EEOC Reference below
 |submitted_at| The timestamp at which the EEOC data was submitted.
 
-## EEOC Reference
+
+
+### EEOC Reference
 
 ### Race
 
@@ -109,7 +111,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/eeoc'
 
 Retrieve an application's EEOC data by an application ID.
 
-## HTTP Request
+### HTTP Request
 
 `GET https://harvest.greenhouse.io/v1/applications/{id}/eeoc`
 
