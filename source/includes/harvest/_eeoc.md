@@ -77,7 +77,7 @@ Every application may have zero or one EEOC object.
 |2|No, I don't have a disability
 |3|I don't wish to answer
 
-## GET: Retrieve Application's EEOC Data
+## GET: Retrieve EEOC Data for Application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/eeoc'
