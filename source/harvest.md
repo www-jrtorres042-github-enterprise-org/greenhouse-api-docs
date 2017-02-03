@@ -17,6 +17,7 @@ includes:
   - harvest/applications
   - harvest/candidates
   - harvest/departments
+  - harvest/eeoc
   - harvest/email_templates
   - harvest/job_posts
   - harvest/job_stages
