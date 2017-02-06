@@ -9,16 +9,27 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
   "id": 985314,
   "candidate_id": 978031,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39.000Z",
-  "last_activity_at": "2014-03-27T16:13:15.000Z",
+  "applied_at": "2016-03-26T20:11:39.000Z",
+  "rejected_at": "2016-08-17T21:08:29.686Z",
+  "last_activity_at": "2016-08-27T16:13:15.000Z",
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
   },
   "credited_to": {
     "id": 4080,
-    "name": "Kate Austen"
+    "name": "Kate Austen",
+    "employee_id": null
   },
+  "rejection_reason": {
+    "id": 8,
+    "name": "Lacking skill(s)/qualification(s)",
+    "type": {
+      "id": 1,
+      "name": "We rejected them"
+    }
+  },
+  "rejection_details": null,
   "jobs": [
     {
       "id": 123,
@@ -30,6 +41,16 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
     "id": 62828,
     "name": "Recruiter Phone Screen"
   },
+  "answers": [
+    {
+      "question": "Why do you want to work for us?",
+      "answer": "I heard you're awesome!"
+    },
+    {
+      "question": "How did you hear about this job?",
+      "answer": "From a former colleague."
+    }
+  ],
   "custom_fields": {
     "bio": "This is a bio",
     "birthday": "1992-01-27"
@@ -59,7 +80,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 | candidate_id | The ID of the [candidate](#candidates) who is applying for this job.
 | current_stage | The current [stage](#job-stages) that this application is in.
 | credited_to.id | The ID of the user who will receive credit for this application.
-| answers | The answers provided to the questions in this application. Array contains the text value of the question and answer. Answers are always plaintext strings; booleans are represented with Yes or No.
+| answers | The answers provided to the questions in the job post for this application. Array contains the text value of the question and answer. Answers are always plaintext strings.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
 
@@ -67,7 +88,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 ## GET: List Applications
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications'
+curl -X GET 'https://harvest.greenhouse.io/v1/applications'
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -78,19 +99,32 @@ curl 'https://harvest.greenhouse.io/v1/applications'
     "candidate_id": 23123,
     "prospect": true,
     "applied_at": "2014-03-26T18:03:45.000Z",
+    "rejected_at": null,
     "last_activity_at": "2014-03-27T16:12:02.000Z",
-    "source": null,
+    "source": {
+      "id": 13,
+      "public_name": "Linkedin (Prospecting)"
+    },
     "credited_to": {
       "id": 4080,
       "name": "Kate Austen"
     },
-    "rejected_at": null,
     "rejection_reason": null,
-    "jobs": [],
+    "rejection_details": null,
+    "jobs": [
+      {
+        "id": 203037,
+        "name": "Full Stack Engineer - New York "
+      },
+      {
+        "id": 201428,
+        "name": "Full Stack Engineer - Austin"
+      }
+    ],
     "status": "active",
     "current_stage": null,
     "answers": []
-  },
+  } 
 ]
 ```
 List all of an organization's applications.
@@ -116,28 +150,47 @@ List all of an organization's applications.
 ## GET: Retrieve Application
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}'
+curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 ```json
 {
-  "id": 4341,
-  "candidate_id": 23123,
-  "prospect": true,
-  "applied_at": "2014-03-26T18:03:45.000Z",
-  "last_activity_at": "2014-03-27T16:12:02.000Z",
-  "source": null,
-  "credited_to": {
-    "id": 4080,
-    "name": "Kate Austen"
-  },
+  "id": 23239258,
+  "candidate_id": 14834098,
+  "prospect": false,
+  "applied_at": "2015-12-28T20:53:12.801Z",
   "rejected_at": null,
+  "last_activity_at": "2016-12-30T07:10:03.082Z",
+  "source": {
+    "id": 16,
+    "public_name": "Referral"
+  },
+  "credited_to": {
+    "id": 107050,
+    "name": "Ivan Interviewer",
+    "employee_id": null
+  },
   "rejection_reason": null,
-  "jobs": [],
-  "status": "active",
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 87181,
+      "name": "Product Manager"
+    }
+  ],
+  "status": "hired",
   "current_stage": null,
-  "answers": []
+  "answers": [
+    {
+      "question": "How many years experience do you have?",
+      "answer": "5-7"
+    },
+    {
+      "question": "Website",
+      "answer": "mywebsite.com"
+    }
+  ]
 }
 ```
 
@@ -172,7 +225,7 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/applications/{id}'
 }
 ```
 
-Delete an application by `id`.
+Delete an application by `id`. Note that only candidate applications can be deleted, you cannot delete a prospect application.
 
 ### HTTP Request
 
@@ -212,17 +265,17 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
 
 ```json
 {
-  "id": 985314,
-  "candidate_id": 978031,
+  "id": 47669412,
+  "candidate_id": 38445573,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39.000Z",
+  "applied_at": "2017-01-25T22:46:08.601Z",
   "rejected_at": null,
-  "last_activity_at": "2014-03-27T16:13:15.000Z",
+  "last_activity_at": "2017-01-25T22:46:11.284Z",
   "source": {
-    "id": 16,
-    "public_name": "Happy Hour"
+    "id": 33,
+    "public_name": "Glassdoor"
   },
-  "credited_to": {
+   "credited_to": {
     "id": 4080,
     "name": "Kate Austen",
     "employee_id": null
@@ -231,45 +284,47 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
   "rejection_details": null,
   "jobs": [
     {
-      "id": 123,
-      "name": "Accounting Manager"
+      "id": 211706,
+      "name": "Community Manager - New York"
     }
   ],
-  "status": "rejected",
+  "status": "active",
   "current_stage": {
-    "id": 62828,
-    "name": "Recruiter Phone Screen"
-  },
+    "id": 1551138,
+    "name": "Application Review"
+   },
   "answers": [
     {
-      "question": "Will you now or in the future require sponsorship for employment visa status (e.g., H-1B status)? Note: Responding “Yes” to this question will not preclude you from consideration for employment.",
-      "answer": "No"
+      "question": "How many years experience do you have?",
+      "answer": "2-4"
     },
     {
-      "id": 5678,
-      "delete_value": "true"
+      "question": "Can do you the travel required for this job?",
+      "answer": "Yes"
     }
   ],
-  "custom_fields": [
-    {
-      "id": 1234,
-      "value": "Some new value"
+  "custom_fields": {
+    "current_title": "Community Manager",
+    "requires_visa_sponsorship?": false
+  },
+  "keyed_custom_fields": {
+    "current_title": {
+      "name": "Current Title",
+      "type": "short_text",
+      "value": "Community Manager"
     },
-    {
-      "name_key": "custom_field_name",
-      "value": "Some other new value"
-    },
-    {
-      "id": 5678,
-      "delete_value": "true"
+    "requires_visa_sponsorship_": {
+      "name": "Requires visa sponsorship?",
+      "type": "boolean",
+      "value": false
     }
-  ]
+  }
 }
 ```
 
 
 
-Update this application. The response is populated with the application's information which will reflect its new state.
+Update this application. The response is populated with the application's information which will reflect its new state. You can update applications whose status is `active`, `rejected`, or `hired`.
 
 ### HTTP Request
 
@@ -310,33 +365,55 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
 
 ```json
 {
-  "id": 985314,
-  "candidate_id": 978031,
+  "id": 47669412,
+  "candidate_id": 38445573,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39.000Z",
+  "applied_at": "2017-01-25T22:46:08.601Z",
   "rejected_at": null,
-  "last_activity_at": "2014-03-27T16:13:15.000Z",
+  "last_activity_at": "2017-01-25T22:58:48.679Z",
   "source": {
-    "id": 1871,
-    "public_name": "Happy Hour"
+    "id": 16,
+    "public_name": "LinkedIn (Prospecting)"
   },
-  "credited_to": {
-    "id": 4080,
-    "name": "Kate Austen"
-    "employee_id": null
-  },
+  "credited_to": null,
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
     {
-      "id": 123,
-      "name": "Accounting Manager"
+      "id": 211706,
+      "name": "Community Manager - New York"
     }
   ],
   "status": "active",
   "current_stage": {
-    "id": 2,
-    "name": "Recruiter Phone Screen"
+    "id": 1551141,
+    "name": "Take Home Test"
+ },
+  "answers": [
+    {
+      "question": "How many years experience do you have?",
+      "answer": "2-4"
+    },
+    {
+      "question": "Can do you the travel required for this job?",
+      "answer": "Yes"
+    }
+  ],
+  "custom_fields": {
+    "current_title": "Community Manager",
+    "requires_visa_sponsorship?": false
+  },
+  "keyed_custom_fields": {
+    "current_title": {
+      "name": "Current Title",
+      "type": "short_text",
+      "value": "Community Manager"
+    },
+    "requires_visa_sponsorship_": {
+      "name": "Requires visa sponsorship?",
+      "type": "boolean",
+      "value": false
+    }
   }
 }
 ```
@@ -383,29 +460,55 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
 
 ```json
 {
-  "id": 985314,
-  "candidate_id": 978031,
+  "id": 48206478,
+  "candidate_id": 36952451,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39.000Z",
-  "last_activity_at": "2014-03-27T16:13:15.000Z",
+  "applied_at": "2017-02-01T14:26:02.282Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-02-01T14:51:12.670Z",
   "source": {
-    "id": 1871,
-    "public_name": "Happy Hour"
+    "id": 33,
+    "public_name": "Glassdoor"
   },
-  "credited_to": {
-    "id": 4080,
-    "name": "Kate Austen"
-  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
   "jobs": [
     {
-      "id": 123,
-      "name": "Accounting Manager"
+      "id": 211706,
+      "name": "Community Manager - New York"
     }
   ],
   "status": "active",
   "current_stage": {
-    "id": 2,
-    "name": "Recruiter Phone Screen"
+    "id": 1551142,
+    "name": "Offer"
+  },
+  "answers": [
+    {
+      "question": "How many years experience do you have?",
+      "answer": "2-4"
+    },
+    {
+      "question": "Can do you the travel required for this job?",
+      "answer": "Yes"
+    }
+  ],
+  "custom_fields": {
+    "current_title": "Community Manager",
+    "requires_visa_sponsorship?": false
+  },
+  "keyed_custom_fields": {
+    "current_title": {
+      "name": "Current Title",
+      "type": "short_text",
+      "value": "Community Manager"
+    },
+    "requires_visa_sponsorship_": {
+      "name": "Requires visa sponsorship?",
+      "type": "boolean",
+      "value": false
+    }
   }
 }
 ```
@@ -447,7 +550,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 ```json
 {
   "rejection_reason_id": 815,
-  "notes": "The candidate is not qualified for this position.",
+  "notes": "The prospect is not qualified for this position.",
   "rejection_email": {
     "send_email_at": "2014-03-26T20:11:39Z",
     "email_template_id": 42
@@ -459,30 +562,34 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 
 ```json
 {
-  "id": 985314,
-  "candidate_id": 978031,
-  "prospect": false,
-  "applied_at": "2014-03-26T20:11:39.000Z",
-  "last_activity_at": "2014-03-27T16:13:15.000Z",
+  "id": 46205883,
+  "candidate_id": 36959505,
+  "prospect": true,
+  "applied_at": "2017-01-06T18:57:26.407Z",
+  "rejected_at": "2017-02-01T14:58:08.184Z",
+  "last_activity_at": "2017-02-01T14:58:08.220Z",
   "source": {
-    "id": 1871,
-    "public_name": "Happy Hour"
+    "id": 16,
+    "public_name": "LinkedIn (Prospecting)"
   },
   "credited_to": {
-    "id": 4080,
-    "name": "Kate Austen"
+    "id": 118636,
+    "name": "Ivan Interviewer",
+    "employee_id": null
   },
-  "jobs": [
-    {
-      "id": 123,
-      "name": "Accounting Manager"
+  "rejection_reason": {
+    "id": 815,
+    "name": "Not qualified",
+    "type": {
+      "id": 1,
+      "name": "We rejected them"
     }
-  ],
+  },
+  "rejection_details": {},
+  "jobs": [],
   "status": "rejected",
-  "current_stage": {
-    "id": 62828,
-    "name": "Recruiter Phone Screen"
-  }
+  "current_stage": null,
+  "answers": []
 }
 ```
 
@@ -521,30 +628,31 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'\
 
 ```json
 {
-  "id": 985314,
-  "candidate_id": 978031,
+  "id": 40201833,
+  "candidate_id": 20382646,
   "prospect": false,
-  "applied_at": "2014-03-26T20:11:39.000Z",
-  "last_activity_at": "2014-03-27T16:13:15.000Z",
+  "applied_at": "2016-09-30T14:56:20.698Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-02-01T15:57:09.697Z",
   "source": {
-    "id": 1871,
-    "public_name": "Happy Hour"
+    "id": 94361,
+    "public_name": "Maildrop"
   },
-  "credited_to": {
-    "id": 4080,
-    "name": "Kate Austen"
-  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
   "jobs": [
     {
-      "id": 123,
-      "name": "Accounting Manager"
+      "id": 87181,
+      "name": "Product Manager"
     }
   ],
   "status": "active",
   "current_stage": {
-    "id": 62828,
-    "name": "Recruiter Phone Screen"
-  }
+    "id": 617495,
+    "name": "Preliminary Phone Screen"
+  },
+  "answers": []
 }
 ```
 
