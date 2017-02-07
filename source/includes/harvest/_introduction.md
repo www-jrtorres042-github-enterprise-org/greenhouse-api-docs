@@ -93,15 +93,6 @@ API requests are limited to 50 calls per 10 seconds, though that limit is subjec
 
 ## Pagination
 
-API methods that return a collection of results are always paginated. They will work either one of two ways:
-
-* Random access using `page`. Access a page directly by supplying the page number.
-* Cursor-based using `since_id`. No random access.  `since_id` will return only the objects with IDs greater than `since_id`. 
-
-All paginated results include a `Link` (see [RFC-5988](https://tools.ietf.org/html/rfc5988)) response header that specifies the location of the next and if applicable, last pages. Note that when this header is not set, results will be limited to the first page. In the case of cursor-based pagination, the end is reached when the `next` url returns zero results.
-
-### Link Header Examples
-
 > For random access paging:
 
 ```
@@ -114,6 +105,15 @@ Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next
 ```
 Link: <https://harvest.greenhouse.io/v1/eeoc?since_id=83842>; rel="next"
 ```
+
+API methods that return a collection of results are always paginated. They will work either one of two ways:
+
+* Random access using `page`. Access a page directly by supplying the page number.
+* Cursor-based using `since_id`. No random access.  `since_id` will return only the objects with IDs greater than `since_id`. 
+
+All paginated results include a `Link` (see [RFC-5988](https://tools.ietf.org/html/rfc5988)) response header that specifies the location of the next and if applicable, last pages. Note that when this header is not set, results will be limited to the first page. In the case of cursor-based pagination, the end is reached when the `next` url returns zero results.
+
+
 
 ## Validation
 
