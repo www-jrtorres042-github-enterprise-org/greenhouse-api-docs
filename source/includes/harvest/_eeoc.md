@@ -37,7 +37,7 @@ Every application may have zero or one EEOC object.
 |gender|See the EEOC Reference below
 |veteran_status|See the EEOC Reference below
 |disability_status|See the EEOC Reference below
-|submitted_at| The timestamp at which the EEOC data was submitted.
+|submitted_at| The timestamp in [ISO-8601] (#general-considerations) at which the EEOC data was submitted.
 
 
 
@@ -76,6 +76,22 @@ Every application may have zero or one EEOC object.
 |1|Yes, I have a disability (or previously had a disability)
 |2|No, I don't have a disability
 |3|I don't wish to answer
+
+## GET: List EEOC
+
+List all of an organization's EEOC data.
+
+### HTTP Request
+`GET https://harvest.greenhouse.io/v1/eeoc`
+
+### Query string parameters
+Parameter | Description
+--------- | -----------
+*per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+*since_id | An integer. Returns only objects with an ID greater than `since_id`.
+*submitted_before | Return only EEOC data submitted before this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+*submitted_after | Return only EEOC data submitted after this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+
 
 ## GET: Retrieve EEOC Data for Application
 

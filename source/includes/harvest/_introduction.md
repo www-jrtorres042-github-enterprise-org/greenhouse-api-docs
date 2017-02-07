@@ -98,9 +98,12 @@ Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next
 <https://harvest.greenhouse.io/v1/candidates?page=474&per_page=2>; rel="last"
 ```
 
-API methods that return a collection of results are always paginated. You can specify the current page and number of items per page with the `page` and `per_page` query parameters. Paginated results include a `Link` response header that specifies the location of the next and last pages.
+API methods that return a collection of results are always paginated. They will work either one of two ways:
 
-Note that when this parameter is not set, results will be limited to the first page.
+* Random access using `page`. Access a page directly by supplying the page number.
+* Cursor-based using `since_id`. No random access.  `since_id` will return only the objects with IDs greater than `since_id`. 
+
+All paginated results include a `Link` response header that specifies the location of the next and if applicable, last pages. Note that when this header is not set, results will be limited to the first page. In the case of cursor-based pagination, the end is reached when the `next` url returns zero results.
 
 ## Validation
 
