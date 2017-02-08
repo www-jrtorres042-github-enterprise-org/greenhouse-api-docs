@@ -440,6 +440,7 @@ curl --request PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
 }
 ```
 
+
 ### HTTP Request
 
 `PATCH https://harvest.greenhouse.io/v1/jobs/{id}`
