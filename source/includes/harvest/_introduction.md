@@ -102,13 +102,13 @@ Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next
 
 API methods that return a collection of results are always paginated. Paginated results will include a `Link` (see [RFC-5988](https://tools.ietf.org/html/rfc5988)) response header with the following information.
 
-* `next`. Always included. The corresponding URL is the link to the next page.
-* `prev`. Optionally included. The corresponding URL is the link to the previous page.
-* `last`. Optionally included. The corresponding URL is the link to the last page.
+* `next`. *Always provided in response.* The corresponding URL is the link to the next page.
+* `prev`. *Not always provided in response.* The corresponding URL is the link to the previous page.
+* `last`. *Not always provided in response.* The corresponding URL is the link to the last page.
 
 Note that when this header is not set, there is only one page, the first page, of results.
 
-**WARNING:** Paging URLs may differ per paginated endpoint and may change in the future, therefore it is important to use the Link headers and not page by manually changing the paging-related query parameters.
+<aside class="warning">Paging URLs may differ per paginated endpoint and may change in the future, therefore it is important to use the Link headers and not page by manually changing the paging-related query parameters.</aside>
 
 ## Validation
 
