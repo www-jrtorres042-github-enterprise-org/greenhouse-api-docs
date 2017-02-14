@@ -108,11 +108,11 @@ API methods that return a collection of results are always paginated. Paginated 
 
 Note that when this header is not set, there is only one page, the first page, of results.
 
-<aside class="warning">As of February 2017, we are transitioning to a new method for paging while maintaining backwards compatibility. The endpoints that implement the newer paging mechanism only support returning a `next` link in the header and are:
+As of February 2017,  we are transitioning to a new method for paging while maintaining backwards compatibility.  Currently, the new method *only* supports providing a `next` link and is used by the following endpoints:
 
-* [GET: List EEOC](#GET: List EEOC)
+* [GET: List EEOC](#get-list-eeoc)
 
-Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
+<aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 
 ## Validation
 
