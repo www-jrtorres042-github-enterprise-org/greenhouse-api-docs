@@ -10,6 +10,7 @@ An organization's jobs.
   "name": "Archaeologist",
   "requisition_id": "abc123",
   "notes": "<p>Resistance to electro-magnetic radiation a plus!</p>",
+  "confidential": false,
   "status": "closed",
   "created_at": "2013-12-10T14:42:58Z",
   "opened_at": "2013-12-11T14:42:58Z",
@@ -141,6 +142,7 @@ An organization's jobs.
 | id | The job's unique identifier |
 | requisition_id | An arbitrary ID provided by an external source; does not map to another entity within Greenhouse.
 | status | One of `open`, `closed`, `draft`.
+| confidential | One of `true`, `false`. If the job is confidential or not. |
 | departments | An array containing the [department](#departments) which this job belongs to.
 | offices | An array containing the [offices](#offices) this job is associated with.
 | hiring_team | Lists the names and User IDs of the hiring managers, recruiters, coordinators and sourcers associated with this job. For recruiters and coordinators, there is a `responsible` boolean flag which indicates that the user is the responsible recruiter or coordinator for this job.
@@ -168,6 +170,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
     "name": "Good Cop",
     "requisition_id": "1",
     "notes": null,
+    "confidential": true,
     "status": "open",
     "created_at": "2015-11-19T19:53:32.662Z",
     "opened_at": "2015-11-19T19:53:32.662Z",
@@ -298,6 +301,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
   "name": "Good Cop",
   "requisition_id": "1",
   "notes": null,
+  "confidential": false,
   "status": "open",
   "created_at": "2015-11-19T19:53:32.662Z",
   "opened_at": "2015-11-19T19:53:32.662Z",
@@ -491,6 +495,7 @@ delete_value  | n/a | When this element is included with a value of "true" (note
   "name": "new name",
   "requisition_id": 2,
   "notes": "Looking for the best!",
+  "confidential": false,
   "status": "open",
   "created_at": "2015-09-10T19:01:46.078Z",
   "opened_at": "2015-09-10T19:01:46.078Z",
