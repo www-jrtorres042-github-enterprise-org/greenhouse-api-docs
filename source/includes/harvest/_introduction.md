@@ -93,14 +93,26 @@ API requests are limited to 50 calls per 10 seconds, though that limit is subjec
 
 ## Pagination
 
+> Example paging header
+
 ```
 Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next",
 <https://harvest.greenhouse.io/v1/candidates?page=474&per_page=2>; rel="last"
 ```
 
-API methods that return a collection of results are always paginated. You can specify the current page and number of items per page with the `page` and `per_page` query parameters. Paginated results include a `Link` response header that specifies the location of the next and last pages.
+API methods that return a collection of results are always paginated. Paginated results will include a `Link` (see [RFC-5988](https://tools.ietf.org/html/rfc5988)) response header with the following information.
 
-Note that when this parameter is not set, results will be limited to the first page.
+* `next`. The corresponding URL is the link to the next page.
+* `prev`. The corresponding URL is the link to the previous page.
+* `last`. The corresponding URL is the link to the last page.
+
+Note that when this header is not set, there is only one page, the first page, of results.
+
+As of February 2017,  we are transitioning to a new method for paging while maintaining backwards compatibility.  Currently, the new method *only* supports providing a `next` link and is used by the following endpoints:
+
+* [GET: List EEOC](#get-list-eeoc)
+
+<aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 
 ## Validation
 
