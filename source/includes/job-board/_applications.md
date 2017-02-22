@@ -40,7 +40,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 > cURL equivalent:
 
 ```
-curl -X POST \
+curl -X POST \ 
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
   -H "Content-Type: multipart/form-data" \
   -F "first_name=Sammy" \
@@ -52,6 +52,13 @@ curl -X POST \
   -F "longitude=-73.9929196" \
   -F "resume=@/path/to/resume/ADA084551.pdf" \
   -F "cover_letter=@/path/to/coverletter/blah.pdf" \
+  -F "educations[][school_name_id]=5417077" \
+  -F "educations[][degree_id]=5494452"\
+  -F "educations[][discipline_id]=5494865" \
+  -F "educations[][start_date][month]=8" \
+  -F "educations[][start_date][year]=2012" \
+  -F "educations[][end_date][month]=5" \
+  -F "educations[][end_date][year]=2016"
   "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
@@ -130,7 +137,7 @@ email | Applicant's email adress
 *cover_letter_text | Plaintext cover letter body
 *resume | Resume file contents.  *Only allowed in `multipart/form-data` requests*
 *cover_letter | Cover letter file contents.  *Only allowed in `multipart/form-data` requests*
-*educations | An array of educations. Each education should has five fields. school_name_id, degree_id, discipline_id, start_date with a hash of month and year, end_date with a hash of month and year. You can get the school_name_id, degree_id, discipline_id from our [List Schools](#list-schools), [List Degrees](#list-degrees), [List Disciplines](#list-disciplines) apis.
+*educations | An array of education objects. Each education object should have five fields: school_name_id, degree_id, discipline_id, start_date, and end_date. start_date and end_date will use a hash of month and year. You can get the school_name_id, degree_id, discipline_id from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints.
 
 ### Collecting Applicant Location
 
