@@ -18,6 +18,7 @@ includes:
   - webhooks/candidate_deleted
   - webhooks/hire_candidate
   - webhooks/candidate_stage_change
+  - webhooks/unhire_candidate
   - webhooks/reject_candidate
   - webhooks/update_candidate
   - webhooks/department_deleted
