@@ -1,4 +1,4 @@
-## Unhire Candidate
+## Candidate unhired
 
 ```json
 {
