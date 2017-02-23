@@ -5,46 +5,53 @@ The activity feed is the list of activities on a candidate's profile, including 
 
 ```json
 {
-  "note": [
+  "notes": [
     {
       "id": 12345,
       "created_at": "2014-03-26T20:11:40Z",
       "body": "Very mysterious.",
-      "private": false,
       "user": {
         "id": 512,
-        "name": "Sayid Jarrah"
-      }
+        "name": "Sayid Jarrah",
+        "employee_id": null
+      },
+      "private": false,
+      "visiblity": "public",
+      "visibility": "public"
     }
   ],
-  "email": [
+  "emails": [
     {
       "id": 234675,
       "created_at": "2014-04-01T15:55:06Z",
       "subject": "Regarding your application",
       "body": "Hey John,  just wanted to touch base!",
-      "from": "boone.carlyle@example.com",
       "to": "john.locke@example.com",
+      "from": "boone.carlyle@example.com",
       "cc": null,
       "user": {
         "id": 214,
-        "name": "Boone Carlyle"
+        "name": "Boone Carlyle",
+        "employee_id": null
       }
     }
   ],
-  "activity": [
+  "activities": [
     {
       "id": 6756789,
       "created_at": "2014-04-01T15:55:29Z",
+      "subject": null,
       "body": "Reason: Lacking hustle\n\nThis candidate turned out to be problematic for us...",
       "user": {
         "id": 214,
-        "name": "Boone Carlyle"
+        "name": "Boone Carlyle",
+        "employee_id": 12345
       }
     },
     {
       "id": 6757869,
       "created_at": "2014-03-26T20:26:38Z",
+      "subject": null,
       "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
       "user": null
     }
@@ -62,7 +69,7 @@ The activity feed is the list of activities on a candidate's profile, including 
 | activity | An array of events associated with this candidate.
 | visibility* | The visibility setting on the note.  One of `admin_only`, `public`, or `private`.
 
-\* - Due to a legacy typo, the response includes the same value as `visiblity`. It is safe to ignore this value; but it is maintained for backward compatibility.
+\* - Due to a legacy typo, the response includes the same value as `visiblity`. It is safe to ignore this value, but it is maintained for backward compatibility.
 
 
 
@@ -77,46 +84,53 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
 
 ```json
 {
-  "note": [
+  "notes": [
     {
       "id": 12345,
       "created_at": "2014-03-26T20:11:40Z",
       "body": "Very mysterious.",
-      "private": false,
       "user": {
         "id": 512,
-        "name": "Sayid Jarrah"
-      }
+        "name": "Sayid Jarrah",
+        "employee_id": null
+      },
+      "private": false,
+      "visiblity": "public",
+      "visibility": "public"
     }
   ],
-  "email": [
+  "emails": [
     {
-      "id": 23454,
+      "id": 234675,
       "created_at": "2014-04-01T15:55:06Z",
       "subject": "Regarding your application",
       "body": "Hey John,  just wanted to touch base!",
-      "from": "boone.carlyle@example.com",
       "to": "john.locke@example.com",
+      "from": "boone.carlyle@example.com",
       "cc": null,
       "user": {
         "id": 214,
-        "name": "Boone Carlyle"
+        "name": "Boone Carlyle",
+        "employee_id": null
       }
     }
   ],
-  "activity": [
+  "activities": [
     {
       "id": 6756789,
       "created_at": "2014-04-01T15:55:29Z",
+      "subject": null,
       "body": "Reason: Lacking hustle\n\nThis candidate turned out to be problematic for us...",
       "user": {
         "id": 214,
-        "name": "Boone Carlyle"
+        "name": "Boone Carlyle",
+        "employee_id": 12345
       }
     },
     {
       "id": 6757869,
       "created_at": "2014-03-26T20:26:38Z",
+      "subject": null,
       "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
       "user": null
     }
