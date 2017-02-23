@@ -31,6 +31,7 @@ includes:
   - webhooks/office_deleted
   - webhooks/new_prospect_application
   - webhooks/scorecard_deleted
+  - webhooks/unhire_candidate
 
 slug: webhooks
 search: true
