@@ -59,8 +59,10 @@ The activity feed is the list of activities on a candidate's profile, including 
 | id | The internal Greenhouse ID of the activity feed note.
 | note | An array of notes associated with this candidate.
 | email | An array of emails sent to and from this candidate.
-| activity | An array of events associated with this candidate
+| activity | An array of events associated with this candidate.
+| visibility* | The visibility setting on the note.  One of `admin_only`, `public`, or `private`.
 
+\* - Due to a legacy typo, the response includes the same value as `visiblity`. It is safe to ignore this value; but it is maintained for backward compatibility.
 
 
 
