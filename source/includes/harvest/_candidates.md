@@ -939,13 +939,16 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/not
 
 ```json
 {
+  "id": 226809052,
   "created_at": "2015-07-17T16:29:31Z",
   "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
   "user": {
     "id": 214,
-    "name": "Boone Carlyle"
+    "name": "Boone Carlyle",
+    "employee_id": null
   },
   "private": false,
+  "visiblity": "admin_only",
   "visibility": "admin_only"
 }
 ```
@@ -969,7 +972,10 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 user_id | Yes | integer |   The ID of the user creating the note
 body | Yes | string | Note body
-visibility | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
+visibility* | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
+
+\* - Due to a legacy typo, the response includes the same value as `visiblity`. It is safe to ignore this value, but it is maintained for backward compatibility.
+
 
 ## POST: Add Prospect
 
