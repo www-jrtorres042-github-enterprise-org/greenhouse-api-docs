@@ -1,7 +1,5 @@
 ## Unhire Candidate
 
-This web hook only fires when the "Unhire" button is clicked in Greenhouse.  This button is only available on the candidate profile page after a candidate has been hired.
-
 ```json
 {
   "action": "unhire_candidate",
@@ -137,6 +135,6 @@ This web hook only fires when the "Unhire" button is clicked in Greenhouse.  Thi
 }
 ```
 
-The New Candidate Application event occurs when a new application is created for a candidate.
+This web hook only fires when the "Unhire" button is clicked in Greenhouse.  This button is only available on the candidate profile page after a candidate has been hired.
 
 See web hook [common attributes](#common-attributes).
