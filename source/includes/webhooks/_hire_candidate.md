@@ -166,14 +166,14 @@
           ],
           "hiring_team": {
             "hiring_managers": [
-	      {"user_id": 1234, "employee_id": "abc-123"}
+              {"user_id": 1234, "employee_id": "abc-123"}
+            ],
+            "sourcers": [],
+            "recruiters": [
+              {"user_id": 2345, "employee_id": null},
+              {"user_id": 3456, "employee_id": "abc-234"}
 	    ],
-	    "sourcers": [],
-	    "recruiters": [
-	      {"user_id": 2345, "employee_id": null},
-	      {"user_id": 3456, "employee_id": "abc-234"}
-	    ],
-	    "coordinators": [],
+            "coordinators": [],
           },
           "custom_fields": {
             "approved": {
