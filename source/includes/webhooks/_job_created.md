@@ -70,3 +70,7 @@
 ```
 
 The Job Created event is triggered when a new job is created from scratch or copied from another job.
+
+| Attribute | Note |
+|-----------|------|
+| `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
