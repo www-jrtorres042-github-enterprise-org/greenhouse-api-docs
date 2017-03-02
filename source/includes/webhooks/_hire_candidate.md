@@ -106,6 +106,26 @@
             "location": null
           }
         ],
+        "hiring_team": {
+          "hiring_managers": [
+            {
+              "user_id": 1234, 
+              "employee_id": "abc-123"
+            }
+          ],
+          "sourcers": [],
+          "recruiters": [
+            {
+              "user_id": 2345, 
+              "employee_id": null
+            },
+            {
+              "user_id": 3456, 
+              "employee_id": "abc-234"
+            }
+          ],
+          "coordinators": []
+        },
         "custom_fields": {
           "approved": {
             "name": "Approved",
@@ -153,6 +173,26 @@
               "location": null
             }
           ],
+          "hiring_team": {
+            "hiring_managers": [
+              {
+                "user_id": 1234, 
+                "employee_id": "abc-123"
+              }
+            ],
+            "sourcers": [],
+            "recruiters": [
+              {
+                "user_id": 2345, 
+                "employee_id": null
+              },
+              {
+                "user_id": 3456, 
+                "employee_id": "abc-234"
+              }
+            ],
+            "coordinators": []
+          },
           "custom_fields": {
             "approved": {
               "name": "Approved",
@@ -230,3 +270,4 @@ See web hook [common attributes](#common-attributes).
 | `application.job` | Deprecated. Use `application.jobs[]` instead
 | `application.job.close_date` | Deprecated. Use `application.jobs[].closed_at` instead. 
 | `application.job.open_date` | Deprecated. Use `application.jobs[].opened_at` instead.
+| `job.hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.

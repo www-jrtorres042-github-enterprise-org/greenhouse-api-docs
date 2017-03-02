@@ -27,6 +27,26 @@
           "location": "New York, NY"
         }
       ],
+      "hiring_team": {
+        "hiring_managers": [
+          {
+            "user_id": 1234, 
+            "employee_id": "abc-123"
+          }
+        ],
+        "sourcers": [],
+        "recruiters": [
+          {
+            "user_id": 2345, 
+            "employee_id": null
+          },
+          {
+            "user_id": 3456, 
+            "employee_id": "abc-234"
+          }
+        ],
+        "coordinators": []
+      },
       "custom_fields": {
         "bonus": {
           "name": "Bonus",
@@ -55,3 +75,7 @@
 ```
 
 The Job Updated event is triggered any time one or more of the following fields are changed for a job: Internal Job Name, Department, Office, Level, Open Date, Status, Notes, Team and Responsibilities, and How To Sell This Job. Changes to custom job fields will not trigger this event.
+
+| Attribute | Note |
+|-----------|------|
+| `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
