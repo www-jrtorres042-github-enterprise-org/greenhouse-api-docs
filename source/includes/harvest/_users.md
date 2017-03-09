@@ -127,7 +127,7 @@ employee_id | The Employee ID of the user to retrieve
 <br>
 [See noteworthy response attributes.] (#the-user-object)
 
-## POST: Create User
+## POST: Add User
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/users'
