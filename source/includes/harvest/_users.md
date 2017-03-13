@@ -126,3 +126,29 @@ employee_id | The Employee ID of the user to retrieve
 
 <br>
 [See noteworthy response attributes.] (#the-user-object)
+
+## PATCH: Disable User
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/disable'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+Disable a user. It is safe to call this method on a user that is currently disabled. If the user is already disabled, nothing happens.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/users/{id}/disable`
+
+## PATCH: Enable User
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+Enable a user. It is safe to call this method on a user that is currently enabled. If the user is already enabled, nothing happens.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/users/{id}/enable`
