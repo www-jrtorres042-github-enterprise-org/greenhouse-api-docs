@@ -236,7 +236,7 @@ id | The ID of the office to retrieve
 <br>
 [See noteworthy response attributes.] (#the-office-object)
 
-## POST: Add Department
+## POST: Add Office
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/offices
