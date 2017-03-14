@@ -235,3 +235,60 @@ id | The ID of the office to retrieve
 
 <br>
 [See noteworthy response attributes.] (#the-office-object)
+
+## POST: Add Department
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/offices
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "name": "A New Office",
+  "parent_id": 12345,
+  "primary_contact_user_id": 234,
+  "location": "New York, NY"
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 3,
+  "name": "A New Office",
+  "location": {
+    "name": "New York, NY"
+  },
+  "primary_contact_user_id": 234,
+  "parent_id": 12345,
+  "child_ids": []
+}
+```
+
+Create a new office
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/offices`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.  Must be a user who can create offices.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+`name` |  yes | string | The name of your new office.  Must be less than 255 characters and unique within your organization.
+`location` | no | string | This is a text representation of the office's location.  This is free-form text.  It is not geo-located.
+`primary_contact_user_id` | no | number | The id of the user who will be the primary in-house contact for this office.  This user must be a site-admin.
+`parent_id`* | no | number | The office id for the new office to be nested under.  If this isn't included, the office will be created at the top level.
+
+\* - The tiered office feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
