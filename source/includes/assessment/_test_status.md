@@ -12,7 +12,7 @@ curl 'https://www.testing-partner.com/api/test_status'
 ```
 ```json
 {
-	"partner_interview_id": 12345
+	"partner_interview_id": "12345"
 }
 ```
 
