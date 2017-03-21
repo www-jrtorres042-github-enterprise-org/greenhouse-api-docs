@@ -6,33 +6,49 @@ This is a list of endpoints which can be used to populate Education data for can
 {
   "items": [
     {
-      "id": 1403525,
+      "id": 5494452,
       "text": "High School"
     },
     {
-      "id": 1403526,
+      "id": 5494478,
       "text": "Associate's Degree"
     },
     {
-      "id": 1403527,
+      "id": 5494516,
       "text": "Bachelor's Degree"
     },
     {
-      "id": 1403528,
+      "id": 5494551,
       "text": "Master's Degree"
     },
     {
-      "id": 1403529,
+      "id": 5494580,
       "text": "Master of Business Administration (M.B.A.)"
     },
     {
-      "id": 1403534,
+      "id": 5494607,
+      "text": "Juris Doctor (J.D.)"
+    },
+    {
+      "id": 5494638,
+      "text": "Doctor of Medicine (M.D.)"
+    },
+    {
+      "id": 5494662,
+      "text": "Doctor of Philosophy (Ph.D.)"
+    },
+    {
+      "id": 5494689,
+      "text": "Engineer's Degree"
+    },
+    {
+      "id": 5494710,
       "text": "Other"
     }
   ],
   "meta": {
-    "total_count": 6,
-    "per_page": 30
+    "total_count": 10,
+    "per_page": 100
   }
 }
 
@@ -55,32 +71,56 @@ board_token | Job Board URL token
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 term | No | string | Returns any degrees containing this string in their name.
-page | No | string | A cursor for use in pagination. Returns the n-th chunk of objects (30 per page).
+page | No | string | A cursor for use in pagination. Returns the n-th chunk of objects (100 per page).
 
 ## List Disciplines
 ```json
 {
   "items": [
     {
-      "id": 1403541,
+      "id": 5494865,
+      "text": "Accounting"
+    },
+    {
+      "id": 5494892,
+      "text": "African Studies"
+    },
+    {
+      "id": 5494917,
+      "text": "Agriculture"
+    },
+    {
+      "id": 5494940,
+      "text": "Anthropology"
+    },
+    {
+      "id": 5494964,
+      "text": "Applied Health Services"
+    },
+    {
+      "id": 5495009,
+      "text": "Architecture"
+    },
+    {
+      "id": 5495033,
       "text": "Art"
     },
     {
-      "id": 1403553,
-      "text": "Earth Sciences"
+      "id": 5495051,
+      "text": "Asian Studies"
     },
     {
-      "id": 1403563,
-      "text": "Fine Arts"
+      "id": 5495074,
+      "text": "Biology"
     },
     {
-      "id": 1403569,
-      "text": "Industrial Arts & Carpentry"
+      "id": 5495101,
+      "text": "Business"
     }
   ],
   "meta": {
-    "total_count": 4,
-    "per_page": 30
+    "total_count": 71,
+    "per_page": 100
   }
 }
 ```
@@ -102,7 +142,7 @@ board_token | Job Board URL token
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 term | No | string | Returns any disciplines containing this string in their name.
-page | No | string | A cursor for use in pagination. Returns the n-th chunk of objects (30 per page).
+page | No | string | A cursor for use in pagination. Returns the n-th chunk of objects (100 per page).
 
 
 ## List Schools
@@ -112,33 +152,49 @@ page | No | string | A cursor for use in pagination. Returns the n-th chunk of o
 {
   "items": [
     {
-      "id": 1,
-      "text": "CUNY - New York City College of Technology"
+      "id": 5417077,
+      "text": "Abraham Baldwin Agricultural College"
     },
     {
-      "id": 2,
-      "text": "Metropolitan College of New York"
+      "id": 5417117,
+      "text": "Academy of Art University"
     },
     {
-      "id": 3,
-      "text": "New York Institute of Technology"
+      "id": 5417156,
+      "text": "Acadia University"
     },
     {
-      "id": 4,
-      "text": "New York University"
+      "id": 5417194,
+      "text": "Adams State University"
     },
     {
-      "id": 5,
-      "text": "Polytechnic Institute of New York University"
+      "id": 5417217,
+      "text": "Adelphi University"
     },
     {
-      "id": 6,
-      "text": "St. Joseph's College New York"
+      "id": 5417245,
+      "text": "Adrian College"
+    },
+    {
+      "id": 5417295,
+      "text": "Adventist University of Health Sciences"
+    },
+    {
+      "id": 5417331,
+      "text": "Agnes Scott College"
+    },
+    {
+      "id": 5417366,
+      "text": "AIB College of Business"
+    },
+    {
+      "id": 5417384,
+      "text": "Alaska Pacific University"
     }
   ],
   "meta": {
-    "total_count": 6,
-    "per_page": 30
+    "total_count": 2464,
+    "per_page": 100
   }
 }
 ```
@@ -160,5 +216,5 @@ board_token | Job Board URL token
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 term | No | string | Returns any schools containing this string in their name.
-page | No | string | A cursor for use in pagination. Returns the n-th chunk of objects (30 per page).
+page | No | string | A cursor for use in pagination. Returns the n-th chunk of objects (100 per page).
 
