@@ -4,7 +4,7 @@
 
 > This endpoint can take a multipart form-data POST. You should use this if you need to upload a resume or cover letter.
 
-```html 
+```html
 <!--
 EXAMPLE FORM BELOW (simplified):
 
@@ -40,7 +40,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 > cURL equivalent:
 
 ```
-curl -X POST \
+curl -X POST \ 
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
   -H "Content-Type: multipart/form-data" \
   -F "first_name=Sammy" \
@@ -52,6 +52,13 @@ curl -X POST \
   -F "longitude=-73.9929196" \
   -F "resume=@/path/to/resume/ADA084551.pdf" \
   -F "cover_letter=@/path/to/coverletter/blah.pdf" \
+  -F "educations[][school_name_id]=5417077" \
+  -F "educations[][degree_id]=5494452"\
+  -F "educations[][discipline_id]=5494865" \
+  -F "educations[][start_date][month]=8" \
+  -F "educations[][start_date][year]=2012" \
+  -F "educations[][end_date][month]=5" \
+  -F "educations[][end_date][year]=2016"
   "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
@@ -70,7 +77,23 @@ curl -X POST \
     "latitude": "40.7376671",
     "longitude": "-73.9929196",
     "resume_text": "I have many years of experience as an expert basket weaver...",
-    "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me..."
+    "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me...",
+    "educations": [
+      {
+        "school_name_id" : "1403524",
+        "degree_id": "1403534",
+        "discipline_id": "1403605",
+        "start_date": { "month": "1", "year": "1989"},
+        "end_date": { "month": "2", "year": "1990"}
+      },
+      {
+        "school_name_id" : "1401063",
+        "degree_id": "1403525",
+        "discipline_id": "1403608",
+        "start_date": { "month": "1", "year": "2011"},
+        "end_date": { "month": "2", "year": "2012"}
+      }
+    ]
   }' \
   "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
@@ -80,7 +103,7 @@ Use this endpoint to submit a new application. This endpoint accepts a multipart
 Note that when submitting an application through this method, Greenhouse will not confirm the inclusion of required fields. Validation for required fields must be done on the client side, as Greenhouse will not reject applications that are missing required fields.
 
 <aside class="warning">
-  This method requires HTTP Basic Auth over SSL/TLS: the Basic Auth username is your API key (found on the API Credentials page). No password is required. 
+  This method requires HTTP Basic Auth over SSL/TLS: the Basic Auth username is your API key (found on the API Credentials page). No password is required.
 </aside>
 
 <aside class="notice">
@@ -114,6 +137,7 @@ email | Applicant's email adress
 *cover_letter_text | Plaintext cover letter body
 *resume | Resume file contents.  *Only allowed in `multipart/form-data` requests*
 *cover_letter | Cover letter file contents.  *Only allowed in `multipart/form-data` requests*
+*educations | An array of education objects. Each education object should have five fields: school_name_id, degree_id, discipline_id, start_date, and end_date. start_date and end_date will use a hash of month and year. You can get the school_name_id, degree_id, discipline_id from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints.
 
 ### Collecting Applicant Location
 
