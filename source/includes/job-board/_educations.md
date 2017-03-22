@@ -1,4 +1,4 @@
-# Education
+# Educations
 This is a list of endpoints which can be used to populate Education data for candidate applications. Instructions for posting applications that include Education information can be found under [Applications](#submit-an-application).
 
 ## List Degrees
