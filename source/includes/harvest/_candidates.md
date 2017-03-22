@@ -853,7 +853,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
           "name": "Test",
           "type": "short_text",
           "value": null
-        },
+        }
+      }
     }
   ],
   "educations": [],
