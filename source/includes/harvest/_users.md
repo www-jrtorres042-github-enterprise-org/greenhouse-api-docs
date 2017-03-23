@@ -168,3 +168,63 @@ email | Yes | string | The user's email address. Must be a valid email address.
 send_email_invite* | No | boolean | If true, an email will be sent to the above email address inviting them to login. If false, nothing happens. Default is false.
 
 \* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.
+
+## PATCH: Disable User
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/disable'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 253528,
+  "name": "Bob Smith",
+  "updated_at": "2017-03-23T18:58:27.796Z",
+  "created_at": "2016-04-28T15:28:16.440Z",
+  "disabled": true,
+  "site_admin": false,
+  "emails": [
+    "bob@email.org"
+  ],
+  "employee_id": "221"
+}
+```
+
+Disable a user. It is safe to call this method on a user that is currently disabled. If the user is already disabled, nothing happens.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/users/{id}/disable`
+
+## PATCH: Enable User
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 253528,
+  "name": "Bob Smith",
+  "updated_at": "2017-03-23T18:58:27.796Z",
+  "created_at": "2016-04-28T15:28:16.440Z",
+  "disabled": false,
+  "site_admin": false,
+  "emails": [
+    "bob@email.org"
+  ],
+  "employee_id": "221"
+}
+```
+
+Enable a user. It is safe to call this method on a user that is currently enabled. If the user is already enabled, nothing happens.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/users/{id}/enable`
