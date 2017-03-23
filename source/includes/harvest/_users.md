@@ -173,21 +173,23 @@ send_email_invite* | No | boolean | If true, an email will be sent to the above 
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/disable'
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
+> The above command returns JSON structured like this:
 
 ```json
 {
   "id": 253528,
-  "name": "User Two",
+  "name": "Bob Smith",
   "updated_at": "2017-03-23T18:58:27.796Z",
   "created_at": "2016-04-28T15:28:16.440Z",
   "disabled": true,
   "site_admin": false,
   "emails": [
-    "rachelleffel1+8@gmail.com"
+    "bob@email.org"
   ],
-  "employee_id": null
+  "employee_id": "221"
 }
 ```
 
@@ -201,21 +203,23 @@ Disable a user. It is safe to call this method on a user that is currently disab
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
+> The above command returns JSON structured like this:
 
 ```json
 {
   "id": 253528,
-  "name": "User Two",
+  "name": "Bob Smith",
   "updated_at": "2017-03-23T18:58:27.796Z",
   "created_at": "2016-04-28T15:28:16.440Z",
   "disabled": false,
   "site_admin": false,
   "emails": [
-    "rachelleffel1+8@gmail.com"
+    "bob@email.org"
   ],
-  "employee_id": null
+  "employee_id": "221"
 }
 ```
 
