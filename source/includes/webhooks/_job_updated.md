@@ -74,7 +74,7 @@
 }
 ```
 
-The Job Updated event is triggered any time one or more of the following fields are changed for a job: Internal Job Name, Department, Office, Level, Open Date, Status, Notes, Team and Responsibilities, and How To Sell This Job. Changes to custom job fields will not trigger this event.
+The Job Updated event is triggered any time one or more of the following fields are changed for a job: Internal Job Name, Department, Office, Level, Open Date, Status, Notes, Team and Responsibilities, How To Sell This Job, and Custom Job Fields. Changes to Job Post fields will not trigger this event.
 
 | Attribute | Note |
 |-----------|------|

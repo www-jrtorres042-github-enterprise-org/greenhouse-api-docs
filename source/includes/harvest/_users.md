@@ -127,6 +127,48 @@ employee_id | The Employee ID of the user to retrieve
 <br>
 [See noteworthy response attributes.] (#the-user-object)
 
+## POST: Add User
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/users'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "first_name": "Bob",
+  "last_name": "Smith",
+  "email": "bob@email.org",
+  "send_email_invite": true
+}
+```
+
+Create a new user with Basic permissions.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/users`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+first_name | Yes | string | The user's first name
+last_name | Yes | string | The user's last name
+email | Yes | string | The user's email address. Must be a valid email address.
+send_email_invite* | No | boolean | If true, an email will be sent to the above email address inviting them to login. If false, nothing happens. Default is false.
+
+\* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.
+
 ## PATCH: Disable User
 
 ```shell
