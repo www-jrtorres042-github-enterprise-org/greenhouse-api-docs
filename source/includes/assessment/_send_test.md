@@ -11,7 +11,7 @@ curl -X POST 'https://www.testing-partner.com/api/send_test'
 
 ```json
 {
-	"partner_test_id": 12345,
+	"partner_test_id": "12345",
 	"candidate":
 	{
 		"first_name": "Harry",
@@ -43,7 +43,7 @@ greenhouse_profile_url | String | Yes | URL to the candidate’s Greenhouse appl
 
 ```json
 {
-	"partner_interview_id": 98765
+	"partner_interview_id": "98765"
 }
 ```
 

@@ -16,9 +16,9 @@ curl -X POST 'https://www.testing-partner.com/api/request_errors'
 {
 	"api_call": "test_status",
 	"errors": ["partner_status is 'complete' but partner_profile url is missing"],
-	"partner_test_id" : 12345,
+	"partner_test_id" : "12345",
 	"partner_test_name": "Personality Test",
-	"partner_interview_id": 299506,
+	"partner_interview_id": "299506",
 	"candidate_email": "hpotter@hogwarts.edu"
 }
 ```
