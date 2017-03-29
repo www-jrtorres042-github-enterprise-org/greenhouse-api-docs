@@ -126,8 +126,6 @@ employee_id | The Employee ID of the user to retrieve
 
 <br>
 [See noteworthy response attributes.] (#the-user-object)
-<<<<<<< HEAD
-=======
 
 ## POST: Add User
 
@@ -230,4 +228,3 @@ Enable a user. It is safe to call this method on a user that is currently enable
 ### HTTP Request
 
 `PATCH https://harvest.greenhouse.io/v1/users/{id}/enable`
->>>>>>> 0c4c80b099b9d7805cf3a48cf981b9feef40caaa
