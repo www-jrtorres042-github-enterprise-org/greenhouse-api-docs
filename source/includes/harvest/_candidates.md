@@ -194,6 +194,7 @@ List all of an organization's candidates.
 | created_after | Return only candidates that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only candidates that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only candidates that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| job_id | If supplied, only return candidates that have applied to this job. Will return both when a candidate has applied to a job and when they're a prospect for a job.
 
 <br>
 
