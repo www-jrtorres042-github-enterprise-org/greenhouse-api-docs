@@ -559,6 +559,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
 {
   "job_id": 266926,
   "source_id": 7,
+  "initial_stage_id": 2708728,
   "referrer": {
     "type": "id",
     "value": 770
