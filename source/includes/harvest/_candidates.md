@@ -559,6 +559,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
 {
   "job_id": 266926,
   "source_id": 7,
+  "initial_stage_id": 2708728,
   "referrer": {
     "type": "id",
     "value": 770
@@ -640,6 +641,7 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
 job_id | Yes | integer | The ID of the job you want to create an application to for this candidate
 source_id | No | integer | The id of the source to be credited for this application
+initial_stage_id | No | integer | The ID of the job stage this application will be created in.
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
