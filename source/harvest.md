@@ -30,6 +30,7 @@ includes:
   - harvest/sources
   - harvest/tags
   - harvest/users
+  - harvest/user_roles
 
 slug: harvest
 search: true
