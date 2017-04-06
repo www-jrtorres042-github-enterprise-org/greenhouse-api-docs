@@ -50,29 +50,6 @@ Greenhouse uses a digital signature which is generated using the secret key ente
 
 The header contains: the SHA algorithm used to generate the signature, a space, and the signature. To verify the request came from Greenhouse, compute the HMAC digest using your secret key and the body and compare it to the signature portion (after the space) contained in the header. If they match, you can be sure the web hook was sent from Greenhouse.
 
-## Disabled web hooks
-
-If a web hook is disabled, it will not trigger when the event occurs. Web hooks become disabled automatically if a ping event fails on create or update. They need to be manually re-enabled if this occurs.
-
-## Retry policy
-
-In the event of a failed web hook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 24 retries with exponential backoff according to this formula:
-
-`5 + (retry number) ^ 4` seconds relative to the last attempt
-
-| Retry number | Time since last retry | Time since original attempt
-|--------------|-----------------------|----------------------------
-| 1 | 6 seconds | 6 seconds
-| 2 | 21 seconds | 27 seconds
-| 3 | 86 seconds | 113 seconds
-| 8 | 68.4 minutes | 2.4 hours
-| 12 | 5.8 hours | 16.9 hours
-| 20 | 44.4 hours | 8.3 days
-| 24 | 92.1 hours | 20.4 days
-
-
-# Events
-
 ## Common Attributes
 
 Currently, Web Hooks for all event types include these common attributes:
@@ -94,3 +71,23 @@ Currently, Web Hooks for all event types include these common attributes:
 | `application.opening.opening_id` | This is an external opening id that may be defined for an HRIS system. This does not reference anything else in Greenhouse and may be blank.
 | `custom_fields` | Contains a hash map/associative array. The key of the hash map is an immutable key; which is an underscore-slugged version of the custom field's name at creation time. The exported properties reflect the active values of the custom field at the time of the export. All custom fields, public and private, will be exported. If a field exists but does not have a value, it will be exported with a value of null for singular values and empty arrays for multiple values. *Important Note*: If a custom field is created with the name `Salary` the key will be `salary`. If later the name of this custom field is changed to `Wage` or `Bonus`, the key will remain `salary`.
 | `custom_fields[].type` | One of: `short_text`, `long_text`, `boolean`, `single_select`, `multi_select`, `currency`, `currency_range`, `number`, `number_range`, `date`, or `url`.
+
+## Disabled web hooks
+
+If a web hook is disabled, it will not trigger when the event occurs. Web hooks become disabled automatically if a ping event fails on create or update. They need to be manually re-enabled if this occurs.
+
+## Retry policy
+
+In the event of a failed web hook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 24 retries with exponential backoff according to this formula:
+
+`5 + (retry number) ^ 4` seconds relative to the last attempt
+
+| Retry number | Time since last retry | Time since original attempt
+|--------------|-----------------------|----------------------------
+| 1 | 6 seconds | 6 seconds
+| 2 | 21 seconds | 27 seconds
+| 3 | 86 seconds | 113 seconds
+| 8 | 68.4 minutes | 2.4 hours
+| 12 | 5.8 hours | 16.9 hours
+| 20 | 44.4 hours | 8.3 days
+| 24 | 92.1 hours | 20.4 days

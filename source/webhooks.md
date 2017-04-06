@@ -12,27 +12,11 @@ toc_footers:
 
 includes:
   - webhooks/introduction
-  - webhooks/application_deleted
-  - webhooks/application_updated
-  - webhooks/new_candidate_application
-  - webhooks/candidate_deleted
-  - webhooks/hire_candidate
-  - webhooks/candidate_stage_change
-  - webhooks/unhire_candidate
-  - webhooks/reject_candidate
-  - webhooks/unreject_candidate
-  - webhooks/update_candidate
-  - webhooks/department_deleted
-  - webhooks/interview_deleted
-  - webhooks/job_created
-  - webhooks/job_deleted
-  - webhooks/job_updated
-  - webhooks/job_post_deleted
-  - webhooks/job_stage_deleted
-  - webhooks/offer_deleted
-  - webhooks/office_deleted
-  - webhooks/new_prospect_application
-  - webhooks/scorecard_deleted
+  - webhooks/application_events
+  - webhooks/candidate_events
+  - webhooks/job_events
+  - webhooks/organization_events
+  - webhooks/other_events
 
 slug: webhooks
 search: true
