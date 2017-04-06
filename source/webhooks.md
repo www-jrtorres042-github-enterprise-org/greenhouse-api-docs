@@ -14,9 +14,9 @@ includes:
   - webhooks/introduction
   - webhooks/application_events
   - webhooks/candidate_events
+  - webhooks/interview_events
   - webhooks/job_events
   - webhooks/organization_events
-  - webhooks/other_events
 
 slug: webhooks
 search: true

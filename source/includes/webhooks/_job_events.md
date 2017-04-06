@@ -191,3 +191,80 @@ The Job Updated event is triggered any time one or more of the following fields 
 | Attribute | Note |
 |-----------|------|
 | `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
+
+## Job Post deleted
+
+This web hook fires when a job post is deleted.  This occurs when the delete link is clicked on a job post. Only job posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
+
+```json
+{
+  "action": "job_post_deleted",
+  "payload": {
+    "job_post": {
+      "id": 258341,
+      "job_id": 284999,
+      "title": "Software Engineer",
+      "location": "Dallas",
+      "content": "<p>A pretty interesting job post!</p>",
+      "updated_at": "2017-01-19T20:01:53.146Z",
+      "internal_content": null,
+      "questions": [
+        {
+          "required": false,
+          "private": false,
+          "label": "LinkedIn Profile",
+          "type": "input_text",
+          "values": []
+        },
+        {
+          "required": false,
+          "private": false,
+          "label": "Website",
+          "type": "input_text",
+          "values": []
+        },
+        {
+          "required": false,
+          "private": false,
+          "label": "How did you hear about this job?",
+          "type": "input_text",
+          "values": []
+        },
+        {
+          "required": true,
+          "private": true,
+          "label": "Are you a cool engineer?",
+          "type": "multi_value_single_select",
+          "values": [
+            "Yes",
+            "No",
+            "As a cucumber"
+          ]
+        }
+      ],
+      "external": true,
+      "internal": false,
+      "live": false
+    }
+  }
+}
+```
+## Job Stage deleted
+
+This web hook only fires when interview stages on a job are removed.  This occurs when the remove stage link is used in the Job Setup section of the application. This will not fire when a job is deleted. A job being deleted implies all of its stages have been deleted with them.
+
+```json
+{
+  "action": "job_interview_stage_deleted",
+  "payload": {
+    "job_interview_stage": {
+      "id": 430608,
+      "job_id": 60453,
+      "created_at": "2015-03-11T13:25:25.313Z",
+      "updated_at": "2016-08-16T09:29:33.650Z",
+      "name": "Phone Screen",
+      "active": true
+    }
+  }
+}
+```
