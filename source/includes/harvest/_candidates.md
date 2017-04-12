@@ -1315,6 +1315,8 @@ fields | Yes | comma-delimited string | The set of field names that should be an
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
+-d '{ "primary_candidate_id": 73821, "duplicate_candidate_id": 839283 }'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
