@@ -116,7 +116,7 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
 ]
 ```
 
-List the criteria for job permissions that will be granted to the user when jobs created in the future match that criteria.
+List the permissions that will be granted to the user when a job is created in a particular Department/Office combination.
 
 ### HTTP Request
 
