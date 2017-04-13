@@ -86,6 +86,63 @@ List all of an organization's Greenhouse users.
 <br>
 [See noteworthy response attributes.] (#the-user-object)
 
+## GET: List Future Job Permissions for User
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+[
+  {
+    "id": 87819,
+    "office_id": null,
+    "department_id": null,
+    "user_role_id": 4730
+  },
+  {
+    "id": 92834,
+    "office_id": 8232,
+    "department_id": null,
+    "user_role_id": 4730
+  },
+  {
+    "id": 82129,
+    "office_id": 8232,
+    "department_id": 92921,
+    "user_role_id": 4730
+  }
+]
+```
+
+List the criteria for job permissions that will be granted to the user when jobs created in the future match that criteria.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user whose job permissions to retrieve
+
+
+### HTTP Response
+
+An array of objects of the following:
+
+Parameter | Description
+--------- | -----------
+id | The ID representing the criteria
+office_id | The ID of the office. The user role will be granted when a job is created belonging to this office.
+department_id | The ID of the department. The use role will be granted when a job is created belonging to this department.
+user\_role\_id | The ID of the user role that will be granted to the user.
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
+
 ## GET: Retrieve User 
 
 ```shell
