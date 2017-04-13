@@ -150,6 +150,8 @@ id | The ID representing the job permission
 job_id | The ID of the job for the job permission
 user_role_id | The ID of the user role for the job permission
 
+Note: Users that are Site Admins have permissions on all public jobs and will return an empty array.
+
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
 ## GET: Retrieve User 
