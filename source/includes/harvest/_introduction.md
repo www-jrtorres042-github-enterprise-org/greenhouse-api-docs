@@ -111,6 +111,7 @@ Note that when this header is not set, there is only one page, the first page, o
 As of February 2017,  we are transitioning to a new method for paging while maintaining backwards compatibility.  Currently, the new method *only* supports providing a `next` link and is used by the following endpoints:
 
 * [GET: List EEOC](#get-list-eeoc)
+* [GET: List User Roles](#get-list-user-roles)
 
 <aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 
