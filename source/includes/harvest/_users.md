@@ -86,6 +86,74 @@ List all of an organization's Greenhouse users.
 <br>
 [See noteworthy response attributes.] (#the-user-object)
 
+## GET: List Job Permissions for User
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+[
+  {
+    "id": 7879576,
+    "job_id": 80722,
+    "user_role_id": 4730
+  },
+  {
+    "id": 7879577,
+    "job_id": 83475,
+    "user_role_id": 4730
+  },
+  {
+    "id": 7879579,
+    "job_id": 146048,
+    "user_role_id": 4730
+  },
+  {
+    "id": 7879580,
+    "job_id": 87904,
+    "user_role_id": 4730
+  },
+  {
+    "id": 7879582,
+    "job_id": 116958,
+    "user_role_id": 4730
+  },
+  {
+    "id": 7879583,
+    "job_id": 82318,
+    "user_role_id": 4730
+  }
+]
+```
+
+List the job permissions for a given user.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user whose job permissions to retrieve
+
+### HTTP Response
+
+An array of objects of the following:
+
+Parameter | Description
+--------- | -----------
+id | The ID representing the job permission
+job_id | The ID of the job for the job permission
+user_role_id | The ID of the user role for the job permission
+
+Note: This endpoint is only intended for use with Job Admin and/or Interviewer users, as these roles are assigned on a per job basis. Users that are Site Admins have permissions on all public jobs and will return an empty array. Basic users cannot be assigned to any jobs and will also return an empty array.
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
 ## GET: Retrieve User 
 
 ```shell
