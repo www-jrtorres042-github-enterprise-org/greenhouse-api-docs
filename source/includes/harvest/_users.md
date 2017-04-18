@@ -126,7 +126,7 @@ List the permissions that will be granted to the user when a job is created in a
 
 Parameter | Description
 --------- | -----------
-id | The ID of the user whose job permissions to retrieve
+id | The ID of the user whose future job permissions to retrieve
 
 
 ### HTTP Response
@@ -135,9 +135,9 @@ An array of objects of the following:
 
 Parameter | Description
 --------- | -----------
-id | The ID representing the criteria
+id | The ID representing the future job permissions
 office_id | The ID of the office. The user role will be granted when a job is created belonging to this office.
-department_id | The ID of the department. The use role will be granted when a job is created belonging to this department.
+department_id | The ID of the department. The user role will be granted when a job is created belonging to this department.
 user\_role\_id | The ID of the user role that will be granted to the user.
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
