@@ -28,63 +28,62 @@ An organization's Greenhouse users.
 | id | The user's unique identifier |
 | site_admin | If `true`, this user is a site admin, which means the user has full permissions on all non-private jobs.
 
-## GET: List Users
+
+## GET: List Future Job Permissions for User
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/users'
+curl 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 ```json
 [
   {
-    "id": 112,
-    "name": "Juliet Burke",
-    "updated_at": "2016-11-17T16:13:48.888Z",
-    "created_at": "2015-11-18T22:26:32.243Z",  
-    "disabled": false,
-    "site_admin": true,
-    "emails": [
-      "juliet.burke@example.com",
-      "other.woman@example.com"
-    ],
-    "employee_id": "221"
+    "id": 87819,
+    "office_id": null,
+    "department_id": null,
+    "user_role_id": 4730
   },
   {
-    "id": 712,
-    "name": "Mr. Eko",
-    "updated_at": "2016-11-03T18:05:47.361Z",
-    "created_at": "2015-11-18T22:27:11.111Z", 
-    "disabled": false,
-    "site_admin": true,
-    "emails": [
-      "mr.eko@example.com"
-    ],
-    "employee_id": "700"
+    "id": 92834,
+    "office_id": 8232,
+    "department_id": null,
+    "user_role_id": 4730
+  },
+  {
+    "id": 82129,
+    "office_id": 8232,
+    "department_id": 92921,
+    "user_role_id": 4730
   }
 ]
 ```
 
-List all of an organization's Greenhouse users.
+List the permissions that will be granted to the user when a job is created in a particular Department/Office combination.
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/users`
+`GET https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs`
 
-### Querystring parameters
+### URL Parameters
 
-| Parameter | Description |
-|-----------|-------------|
-| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
-| employee_id | Return a single user that matches this employee id.
-| created_before | Return only users that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| created_after | Return only users that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| updated_before | Return only users that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| updated_after | Return only users that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+Parameter | Description
+--------- | -----------
+id | The ID of the user whose future job permissions to retrieve
 
-<br>
-[See noteworthy response attributes.] (#the-user-object)
+
+### HTTP Response
+
+An array of objects of the following:
+
+Parameter | Description
+--------- | -----------
+id | The ID representing the future job permissions
+office_id | The ID of the office. The user role will be granted when a job is created belonging to this office.
+department_id | The ID of the department. The user role will be granted when a job is created belonging to this department.
+user\_role\_id | The ID of the user role that will be granted to the user.
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
 ## GET: List Job Permissions for User
 
@@ -153,6 +152,64 @@ user_role_id | The ID of the user role for the job permission
 Note: This endpoint is only intended for use with Job Admin and/or Interviewer users, as these roles are assigned on a per job basis. Users that are Site Admins have permissions on all public jobs and will return an empty array. Basic users cannot be assigned to any jobs and will also return an empty array.
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
+## GET: List Users
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/users'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+[
+  {
+    "id": 112,
+    "name": "Juliet Burke",
+    "updated_at": "2016-11-17T16:13:48.888Z",
+    "created_at": "2015-11-18T22:26:32.243Z",  
+    "disabled": false,
+    "site_admin": true,
+    "emails": [
+      "juliet.burke@example.com",
+      "other.woman@example.com"
+    ],
+    "employee_id": "221"
+  },
+  {
+    "id": 712,
+    "name": "Mr. Eko",
+    "updated_at": "2016-11-03T18:05:47.361Z",
+    "created_at": "2015-11-18T22:27:11.111Z", 
+    "disabled": false,
+    "site_admin": true,
+    "emails": [
+      "mr.eko@example.com"
+    ],
+    "employee_id": "700"
+  }
+]
+```
+
+List all of an organization's Greenhouse users.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/users`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| employee_id | Return a single user that matches this employee id.
+| created_before | Return only users that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only users that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_before | Return only users that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only users that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+
+<br>
+[See noteworthy response attributes.] (#the-user-object)
 
 ## GET: Retrieve User 
 
