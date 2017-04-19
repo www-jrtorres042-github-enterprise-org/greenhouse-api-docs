@@ -1310,3 +1310,131 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, offers, credited_to, headline, all_offer_versions, and follow_up_reminders.
+
+## PUT: Merge Candidates
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
+-d '{ "primary_candidate_id": 73821, "duplicate_candidate_id": 839283 }'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 123,
+  "first_name": "Anonymized",
+  "last_name": "123",
+  "company": "The Tustin Box Company",
+  "title": "Man of Mystery",
+  "created_at": "2014-03-26T20:11:39Z",
+  "last_activity": "2014-03-26T20:11:39Z",
+  "photo_url": null,
+  "attachments": [
+    {
+      "filename": "resume.pdf",
+      "url": "https://prod-heroku.s3.amazonaws.com/...",
+      "type": "resume"
+    },
+    {
+      "filename": "cover_letter.pdf",
+      "url": "https://prod-heroku.s3.amazonaws.com/...",
+      "type": "cover_letter"
+    },
+    {
+      "filename": "portfolio.pdf",
+      "url": "https://prod-heroku.s3.amazonaws.com/...",
+      "type": "attachment"
+    }
+  ],
+  "application_ids": [
+    456
+  ],
+  "phone_numbers": [
+    {
+      "value": "555-1212",
+      "type": "mobile"
+    }
+  ],
+  "addresses": [
+    {
+      "value": "123 Fake St.",
+      "type": "home"
+    }
+  ],
+  "email_addresses": [
+    {
+      "value": "john.locke+work@example.com",
+      "type": "work"
+    },
+    {
+      "value": "john.locke@example.com",
+      "type": "personal"
+    }
+  ],
+  "website_addresses": [
+    {
+      "value": "johnlocke.example.com",
+      "type": "personal"
+    }
+  ],
+  "social_media_addresses": [
+    {
+      "value": "linkedin.example.com/john.locke"
+    },
+    {
+      "value": "@johnlocke"
+    }
+  ],
+  "recruiter": {
+    "id": 712,
+    "name": "Charlie Pace"
+  },
+  "coordinator": {
+    "id": 16,
+    "name": "Hugo Reyes"
+  },
+  "tags": [
+    "Walkabout",
+    "Orientation"
+  ],
+  "custom_fields": {
+    "current_salary": "$23k",
+    "desired_salary": "$42k"
+  },
+  "keyed_custom_fields": {
+    "current_salary": {
+      "name": "Current salary",
+      "type": "short_text",
+      "value": "$23k"
+    },
+    "desired_salary": {
+      "name": "Desired salary",
+      "type": "short_text",
+      "value": "$42k"
+    }
+  }
+}
+```
+
+Merge two candidates into one.
+
+### HTTP Request
+
+`PUT https://harvest.greenhouse.io/v1/candidates/merge`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+primary\_candidate\_id | Yes | integer | The id of the first candidate that will be merged. This candidate will also be the result of the merge.
+duplicate\_candidate\_id | Yes | integer | The id of the second candidate that will be merged. ***This candidate will cease to exist after the merge is complete.***
