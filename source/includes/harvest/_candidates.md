@@ -11,6 +11,7 @@ An organization's candidates.
   "last_name": "Teddy",
   "company": "Leeo, Inc",
   "title": "Senior Digital Marketing Manager",
+  "is_private": false,
   "created_at": "2015-05-29T18:19:00Z",
   "last_activity": "2015-05-29T20:01:05Z",
   "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
@@ -83,6 +84,7 @@ An organization's candidates.
 | id | The candidate's unique identifier |
 | company | The company at which the candidate currently works
 | title | The candidate's current title
+| is_private | Whether the candidate is private or not. One of: ["true", "false"]
 | application_ids | Array of [application](#applications) IDs associated with this candidate. Can contain none, one, or several application IDs.
 | phone_numbers[].type | One of: ["home", "work", "mobile", "skype", "other"]
 | addresses[].type | One of: ["home", "work", "other"]
@@ -112,6 +114,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
     "last_name": "Teddy",
     "company": "Leeo, Inc",
     "title": "Senior Digital Marketing Manager",
+    "is_private": false,
     "created_at": "2015-05-29T18:19:00Z",
     "last_activity": "2015-05-29T20:01:05Z",
     "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
@@ -216,6 +219,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
   "last_name": "Teddy",
   "company": "Leeo, Inc",
   "title": "Senior Digital Marketing Manager",
+  "is_private": false,
   "created_at": "2015-05-29T18:19:00Z",
   "last_activity": "2015-05-29T20:01:05Z",
   "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
@@ -345,6 +349,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
   "last_name": "Locke",
   "company": "The Tustin Box Company",
   "title": "Man of Mystery",
+  "is_private": true,
   "phone_numbers": [
     {
       "value": "555-1212",
@@ -411,6 +416,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
     "last_name": "Locke",
     "company": "The Tustin Box Company",
     "title": "Man of Mystery",
+    "is_private": true,
     "created_at": "2014-03-26T20:11:39Z",
     "last_activity": "2014-03-26T20:11:39Z",
     "photo_url": null,
@@ -522,6 +528,7 @@ first_name | No | string | The candidate's first name
 last_name | No | string | The candidate's last name
 company | No | string | The candidate's company
 title | No | string | The candidate's title
+is_private | Whether the candidate is private or not. One of: ["true", "false"]
 phone_numbers[] | No | phone_number | Array of phone numbers. Passing an empty array will clear all.
 addresses[] | No | address | Array of addresses. Passing an empty array will clear all.
 email_addresses[] | No | email_address | Array of email addresses. Passing an empty array will clear all.
@@ -718,6 +725,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
   "last_name": "Locke",
   "company": "The Tustin Box Company",
   "title": "Man of Mystery",
+  "is_private": false,
   "phone_numbers": [
     {
       "value": "555-1212",
@@ -774,6 +782,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
   "last_name": "Locke",
   "company": "The Tustin Box Company",
   "title": "Man of Mystery",
+  "is_private": false,
   "created_at": "2016-12-21T15:26:45.245Z",
   "updated_at": "2016-12-21T15:26:45.894Z",
   "last_activity": "2016-12-21T15:26:45.868Z",
@@ -996,6 +1005,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   "last_name": "Locke",
   "company": "The Tustin Box Company",
   "title": "Man of Mystery",
+  "is_private": false,
   "phone_numbers": [
     {
       "value": "555-1212",
@@ -1047,6 +1057,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   "last_name": "Locke",
   "company": "The Tustin Box Company",
   "title": "Man of Mystery",
+  "is_private": false,
   "created_at": "2016-12-21T19:45:01.467Z",
   "updated_at": "2016-12-21T19:45:01.907Z",
   "last_activity": "2016-12-21T19:45:01.867Z",
@@ -1202,6 +1213,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
   "last_name": "123",
   "company": "The Tustin Box Company",
   "title": "Man of Mystery",
+  "is_private": false,
   "created_at": "2014-03-26T20:11:39Z",
   "last_activity": "2014-03-26T20:11:39Z",
   "photo_url": null,
