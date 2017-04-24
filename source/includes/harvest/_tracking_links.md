@@ -116,7 +116,9 @@ job_id | The ID of the job associated with the tracking link
 
 [See noteworthy response attributes.](#the-tracking-link-object)
 
-## GET: List tags applied to candidate
+## GET: A Specific Job Tracking Link
+
+Retrieve the specific tracking link for a specified job.
 
 ```shell
 curl -X GET 'https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links/{id}'
@@ -147,8 +149,6 @@ curl -X GET 'https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links/{id}'
   }
 ]
 ```
-
-Retrieve the specific tracking link for a specified job.
 
 ### HTTP Request
 
