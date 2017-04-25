@@ -22,7 +22,7 @@ Job Posts can have tracking links associated with them that tell you the source 
     "name": "Some Employee",
     "employee_id": "ABC12345"
   }
-},
+}
 ```
 
 ## JSON Schema
@@ -62,7 +62,10 @@ curl -X GET 'https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links'
     "related_post_id": null,
     "related_post_type": null,
     "job_id": 271,
-    "source": null,
+    "source": {
+      "id": 8,
+      "public_name": "Tech Job Board"
+    },
     "credited_to": null
   },
   {
@@ -77,7 +80,11 @@ curl -X GET 'https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links'
       "id": 4,
       "public_name": "Twitter"
     },
-    "credited_to": null
+    "credited_to": {
+      "id": 113384,
+      "name": "Robert Referrer",
+      "employee_id": null
+    }
   },
   {
     "id": 163,
@@ -87,7 +94,10 @@ curl -X GET 'https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links'
     "related_post_id": null,
     "related_post_type": null,
     "job_id": 271,
-    "source": null,
+    "source": {
+      "id": 7,
+      "public_name": "Indeed"
+    },
     "credited_to": null
   },
   {
@@ -98,7 +108,10 @@ curl -X GET 'https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links'
     "related_post_id": null,
     "related_post_type": null,
     "job_id": 271,
-    "source": null,
+    "source": {
+      "id": 33,
+      "public_name": "Glassdoor"
+    },
     "credited_to": null
   }
 ]
