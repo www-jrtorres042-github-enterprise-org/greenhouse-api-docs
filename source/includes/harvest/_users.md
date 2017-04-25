@@ -367,9 +367,9 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
 
 ```
 {
-	"id": 271232,
-	"job_id": 12891,
-	"user_role_id": 1172
+  "id": 271232,
+  "job_id": 12891,
+  "user_role_id": 1172
 }
 ```
 
