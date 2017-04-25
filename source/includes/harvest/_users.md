@@ -366,11 +366,11 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
 > The above command takes a JSON request, structured like this:
 
 ```
-  {
-    "id": 271232,
-    "job_id": 12891,
-    "user_role_id": 1172
-  },
+{
+	"id": 271232,
+	"job_id": 12891,
+	"user_role_id": 1172
+}
 ```
 
 Creates a job permission with a specific user role for a given user.
@@ -399,3 +399,39 @@ Parameter | Type | Description
 id | integer | The ID of the created job permission
 job_id | integer | The ID of the job for the created job permission. This is the same job_id supplied in the request.
 user\_role\_id | integer | The ID of the user_role for the created job permission. This is the same user\_role\_id supplied in the request.
+
+
+## DELETE: Remove a Job Permission
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
+-d '{ "job_permission_id": {job_permission_id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "message": "Job Permission 321231 has been deleted."
+}
+```
+
+Removes a user's job permission.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+job\_permission\_id | Yes | integer | The ID of the job permission
