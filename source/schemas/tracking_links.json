@@ -12,7 +12,34 @@
     "job_id": {
       "description": "The id of the job associated with this tracking link.",
       "title": "Job ID",
-      "type": "integer"
+      "type": ["integer", "null"]
+    },
+    "job_post_id": {
+      "description": "The id of the job post associated with this tracking link.",
+      "title": "Job Post ID",
+      "type": ["integer", "null"]
+    },
+    "job_board": {
+      "description": "The job board associated with this tracking link.",
+      "title": "Job Board",
+      "type": ["object", "null"],
+      "properties": {
+        "id": {
+          "description": "The ID of the job board.",
+          "title": "ID",
+          "type": "integer"
+        },
+        "company_name": {
+          "description": "The name of the company associated with the job board.",
+          "title": "Company Name",
+          "type": "string"
+        },
+        "url_token": {
+          "description": "The token used in the URL for the job board.",
+          "title": "URL Token",
+          "type": "string"
+        }
+      }
     },
     "token": {
       "description": "The token included in the job board link.",

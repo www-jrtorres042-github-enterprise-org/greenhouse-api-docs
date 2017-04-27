@@ -1,6 +1,6 @@
 # Tracking Links
 
-Job Posts can have tracking links associated with them that tell you the source and referrer for a particular job post link.
+Tracking Links are a way of tracking which URLs are posted from which referrers/sources linking back to any combination of job posts, job boards, and jobs.
 
 ## The tracking link object
 
@@ -13,6 +13,12 @@ Job Posts can have tracking links associated with them that tell you the source 
   "related_post_id": 1,
   "related_post_type": "SocialMediaPost",
   "job_id": 271,
+  "job_post_id": 1275,
+  "job_board": {
+    "id": 8578,
+    "company_name": "Business Corp",
+    "url_token": "businessco"
+  },
   "source": {
     "id": 4,
     "public_name": "Twitter"
@@ -38,141 +44,58 @@ To view the JSON Schema definition for the Tracking Link object, please [click h
 | related_post_id | If there is an associated social media post, the Greenhouse ID for that post |
 | related_post_type | What type of post (for example, Social Media posts will be "SocialMediaPost") |
 | job_id | The job associated with this tracking link |
+| job_post_id | The job post associated with this tracking link |
+| job_board | The job board associated with this tracking link |
 | source | The source of the job (recruiter, social media site, etc) |
 | credited_to | The employee credited with a referral for this tracking link |
 
-## GET: List A Job's Tracking Links
+## GET: Tracking Link for Token
 
-List all of a job's tracking links
+Retrieve the specific tracking link data for the supplied token
 
 ```shell
-curl -X GET 'https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links'
+curl -X GET 'https://harvest.greenhouse.io/v1/tracking_links/{token}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 154,
-    "token": "28gqos",
-    "created_at": "2012-10-05T22:02:14.156Z",
-    "updated_at": "2016-09-27T17:52:56.533Z",
-    "related_post_id": null,
-    "related_post_type": null,
-    "job_id": 271,
-    "source": {
-      "id": 8,
-      "public_name": "Tech Job Board"
-    },
-    "credited_to": null
+{
+  "id": 162,
+  "token": "tnch4u",
+  "created_at": "2012-10-07T15:06:35.975Z",
+  "updated_at": "2016-09-27T17:52:56.533Z",
+  "related_post_id": 1,
+  "related_post_type": "SocialMediaPost",
+  "job_id": 271,
+  "job_post_id": 1275,
+  "job_board": {
+    "id": 8578,
+    "company_name": "Business Corp",
+    "url_token": "businessco"
   },
-  {
-    "id": 162,
-    "token": "tnch4u",
-    "created_at": "2012-10-07T15:06:35.975Z",
-    "updated_at": "2016-09-27T17:52:56.533Z",
-    "related_post_id": 1,
-    "related_post_type": "SocialMediaPost",
-    "job_id": 271,
-    "source": {
-      "id": 4,
-      "public_name": "Twitter"
-    },
-    "credited_to": {
-      "id": 113384,
-      "name": "Robert Referrer",
-      "employee_id": null
-    }
+  "source": {
+    "id": 4,
+    "public_name": "Twitter"
   },
-  {
-    "id": 163,
-    "token": "ios7u4",
-    "created_at": "2012-10-07T18:44:28.673Z",
-    "updated_at": "2016-09-27T17:52:56.533Z",
-    "related_post_id": null,
-    "related_post_type": null,
-    "job_id": 271,
-    "source": {
-      "id": 7,
-      "public_name": "Indeed"
-    },
-    "credited_to": null
-  },
-  {
-    "id": 164,
-    "token": "7ofrcb",
-    "created_at": "2012-10-07T19:24:59.135Z",
-    "updated_at": "2016-09-27T17:52:56.533Z",
-    "related_post_id": null,
-    "related_post_type": null,
-    "job_id": 271,
-    "source": {
-      "id": 33,
-      "public_name": "Glassdoor"
-    },
-    "credited_to": null
+  "credited_to": {
+    "id": 1,
+    "name": "Some Employee",
+    "employee_id": "ABC12345"
   }
-]
+}
 ```
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links`
+`GET https://harvest.greenhouse.io/v1/tracking_links/{token}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-job_id | The ID of the job associated with the tracking link
-
-[See noteworthy response attributes.](#the-tracking-link-object)
-
-## GET: A Specific Job Tracking Link
-
-Retrieve the specific tracking link for a specified job.
-
-```shell
-curl -X GET 'https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links/{id}'
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 162,
-    "token": "tnch4u",
-    "created_at": "2012-10-07T15:06:35.975Z",
-    "updated_at": "2016-09-27T17:52:56.533Z",
-    "related_post_id": 1,
-    "related_post_type": "SocialMediaPost",
-    "job_id": 271,
-    "source": {
-      "id": 4,
-      "public_name": "Twitter"
-    },
-    "credited_to": {
-      "id": 1,
-      "name": "Some Employee",
-      "employee_id": "ABC12345"
-    }
-  }
-]
-```
-
-### HTTP Request
-
-`GET https://harvest.greenhouse.io/v1/jobs/{job_id}/tracking_links/{id}`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-id | The ID of the tracking link you want to receive
-job_id | The ID of the job associated with the tracking link
+token | The token you want to retrieve the data for
 
 <br>
 
