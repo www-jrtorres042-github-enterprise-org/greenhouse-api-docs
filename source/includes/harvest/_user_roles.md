@@ -48,3 +48,7 @@ curl 'https://harvest.greenhouse.io/v1/user_roles'
 ```
 
 List the organization's roles that can be assigned to a user.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/user_roles`
