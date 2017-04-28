@@ -1,6 +1,6 @@
 # Tracking Links
 
-Tracking Links are a way of tracking which URLs are posted from which referrers/sources linking back to any combination of job posts, job boards, and jobs.
+Tracking Links are URLs which allow users to track the source and/or referrer of candidates who applied through the link. Greenhouse generates Tracking Links by appending a token to the end of a job post or job boad URL. These tokens represent a combination of source_id and/or referrer_id, and can link back to a job post, job board, or job.
 
 ## The tracking link object
 
@@ -42,16 +42,16 @@ To view the JSON Schema definition for the Tracking Link object, please [click h
 | id | The tracking link's unique identifier |
 | token | The token present in the url |
 | related_post_id | If there is an associated social media post, the Greenhouse ID for that post |
-| related_post_type | What type of post (for example, Social Media posts will be "SocialMediaPost") |
+| related_post_type | Will be "SocialMediaPost" if the link was posted through the social network sharing feature, otherwise this value will be `null` |
 | job_id | The job associated with this tracking link |
 | job_post_id | The job post associated with this tracking link |
 | job_board | The job board associated with this tracking link |
 | source | The source of the job (recruiter, social media site, etc) |
 | credited_to | The employee credited with a referral for this tracking link |
 
-## GET: Tracking Link for Token
+## GET: Tracking Link Data for Token
 
-Retrieve the specific tracking link data for the supplied token
+Retrieve the specific tracking link data for the supplied token.
 
 ```shell
 curl -X GET 'https://harvest.greenhouse.io/v1/tracking_links/{token}'
