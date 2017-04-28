@@ -78,7 +78,7 @@ An array of objects of the following:
 
 Parameter | Type | Description
 --------- | ----------- | ---------------
-id | integer | The ID representing the future job permissions
+id | integer | The unique ID associating a specific user to a future job permission.
 office_id | integer | The ID of the office. The user role will be granted when a job is created belonging to this office.
 department_id | integer | The ID of the department. The user role will be granted when a job is created belonging to this department.
 user\_role\_id | integer | The ID of the user role that will be granted to the user.
@@ -145,9 +145,9 @@ An array of objects of the following:
 
 Parameter | Type | Description
 --------- | ----------- | ------------
-id | integer | The ID representing the job permission
-job_id | integer | The ID of the job for the job permission
-user\_role\_id | integer | The ID of the user role for the job permission
+id | integer | The unique ID associating a specific user to a job and user role.
+job_id | integer | The ID of the job to be added or removed
+user\_role\_id | integer | The ID of the user role to be assigned for this job
 
 Note: This endpoint is only intended for use with Job Admin and/or Interviewer users, as these roles are assigned on a per job basis. Users that are Site Admins have permissions on all public jobs and will return an empty array. Basic users cannot be assigned to any jobs and will also return an empty array.
 
@@ -350,7 +350,7 @@ Parameter | Required | Type | Description
 first_name | Yes | string | The user's first name
 last_name | Yes | string | The user's last name
 email | Yes | string | The user's email address. Must be a valid email address.
-send_email_invite* | No | boolean | If true, an email will be sent to the above email address inviting them to login. If false, nothing happens. Default is false.
+send_email_invite* | No | boolean | If true, an email will be sent to the user alerting them of any new job permissions that have been assigned to them. Emails are never sent when permissions are removed. If false, nothing happens. Default is false.
 
 \* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.
 
@@ -363,7 +363,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> The above command takes a JSON request, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```
 {
