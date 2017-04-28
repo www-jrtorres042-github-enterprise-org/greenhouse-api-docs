@@ -410,7 +410,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> The above command takes a JSON request, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```
 {
