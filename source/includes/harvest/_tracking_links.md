@@ -31,10 +31,6 @@ Tracking Links are URLs which allow users to track the source and/or referrer of
 }
 ```
 
-## JSON Schema
-
-To view the JSON Schema definition for the Tracking Link object, please [click here](/schemas/tracking_links.json). This will tell you all of the valid types and definitions, as well as expected fields in the response.
-
 ### Noteworthy attributes
 
 | Attribute | Description |
@@ -48,6 +44,11 @@ To view the JSON Schema definition for the Tracking Link object, please [click h
 | job_board | The job board associated with this tracking link |
 | source | The source of the job (recruiter, social media site, etc) |
 | credited_to | The employee credited with a referral for this tracking link |
+
+## JSON Schema
+
+To view the JSON Schema definition for the Tracking Link object, please [click here](/schemas/tracking_links.json). This will tell you all of the valid types and definitions, as well as expected fields in the response.
+
 
 ## GET: Tracking Link Data for Token
 
