@@ -400,7 +400,7 @@ id | integer | The ID of the created job permission
 job_id | integer | The ID of the job for the created job permission. This is the same job_id supplied in the request.
 user\_role\_id | integer | The ID of the user_role for the created job permission. This is the same user\_role\_id supplied in the request.
 
-Note: At this time, this endpoint does not support assigning a user role to a user for a confidential job.
+Note: This endpoint does not support assigning a user role to a user for a confidential job.
 
 
 ## DELETE: Remove a Job Permission
