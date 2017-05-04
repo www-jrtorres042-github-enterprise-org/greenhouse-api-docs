@@ -79,6 +79,41 @@ Note: This endpoint is only intended for use with Job Admin and/or Interviewer u
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
+## DELETE: Remove a Job Permission
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
+-d '{ "job_permission_id": {job_permission_id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns a JSON response, structured like this:
+
+```
+{
+  "message": "Job Permission 321231 has been deleted."
+}
+```
+
+Removes a user's job permission.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+job\_permission\_id | Yes | integer | The ID of the job permission
+
 ## PUT: Add a Job Permission
 
 ```shell
@@ -118,41 +153,6 @@ job_id | Yes | integer | The ID of the job
 user\_role\_id | Yes | integer | The ID of the user role
 
 Note: This endpoint does not support assigning a user role to a user for a confidential job.
-
-## DELETE: Remove a Job Permission
-
-```shell
-curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
--d '{ "job_permission_id": {job_permission_id}'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command returns a JSON response, structured like this:
-
-```
-{
-  "message": "Job Permission 321231 has been deleted."
-}
-```
-
-Removes a user's job permission.
-
-### HTTP Request
-
-`DELETE https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | -----------
-job\_permission\_id | Yes | integer | The ID of the job permission
 
 
 ## The future job permission object
@@ -222,6 +222,41 @@ id | The ID of the user whose future job permissions to retrieve
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
+## DELETE: Remove a Future Job Permission
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
+-d '{ "future_job_permission_id": {future_job_permission_id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns a JSON response, structured like this:
+
+```
+{
+  "message": "Future Job Permission 639234 has been deleted."
+}
+```
+
+Removes a user's future job permission.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+future\_job\_permission\_id | Yes | integer | The ID of the future job permission
+
 ## PUT: Add a Future Job Permission
 
 ```shell
@@ -261,38 +296,3 @@ Parameter | Required | Type | Description
 office_id | No | integer | The ID of the office. Set to null to include all offices.
 department_id | No | integer | The ID of the department. Set to null to include all departments.
 user\_role\_id | Yes | integer | The ID of the user role
-
-## DELETE: Remove a Future Job Permission
-
-```shell
-curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
--d '{ "future_job_permission_id": {future_job_permission_id}'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command returns a JSON response, structured like this:
-
-```
-{
-  "message": "Future Job Permission 639234 has been deleted."
-}
-```
-
-Removes a user's future job permission.
-
-### HTTP Request
-
-`DELETE https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | -----------
-future\_job\_permission\_id | Yes | integer | The ID of the future job permission
