@@ -76,12 +76,12 @@ id | The ID of the user whose future job permissions to retrieve
 
 An array of objects of the following:
 
-Parameter | Description
---------- | -----------
-id | The ID representing the future job permissions
-office_id | The ID of the office. The user role will be granted when a job is created belonging to this office.
-department_id | The ID of the department. The user role will be granted when a job is created belonging to this department.
-user\_role\_id | The ID of the user role that will be granted to the user.
+Parameter | Type | Description
+--------- | ----------- | ---------------
+id | integer | The unique ID associating a specific user to a future job permission.
+office_id | integer | The ID of the office. The user role will be granted when a job is created belonging to this office.
+department_id | integer | The ID of the department. The user role will be granted when a job is created belonging to this department.
+user\_role\_id | integer | The ID of the user role that will be granted to the user.
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
@@ -143,11 +143,11 @@ id | The ID of the user whose job permissions to retrieve
 
 An array of objects of the following:
 
-Parameter | Description
---------- | -----------
-id | The ID representing the job permission
-job_id | The ID of the job for the job permission
-user_role_id | The ID of the user role for the job permission
+Parameter | Type | Description
+--------- | ----------- | ------------
+id | integer | The unique ID associating a specific user to a job and user role.
+job_id | integer | The ID of the job to be added or removed
+user\_role\_id | integer | The ID of the user role to be assigned for this job
 
 Note: This endpoint is only intended for use with Job Admin and/or Interviewer users, as these roles are assigned on a per job basis. Users that are Site Admins have permissions on all public jobs and will return an empty array. Basic users cannot be assigned to any jobs and will also return an empty array.
 
@@ -350,6 +350,90 @@ Parameter | Required | Type | Description
 first_name | Yes | string | The user's first name
 last_name | Yes | string | The user's last name
 email | Yes | string | The user's email address. Must be a valid email address.
-send_email_invite* | No | boolean | If true, an email will be sent to the above email address inviting them to login. If false, nothing happens. Default is false.
+send_email_invite* | No | boolean | If true, an email will be sent to the user alerting them of any new job permissions that have been assigned to them. Emails are never sent when permissions are removed. If false, nothing happens. Default is false.
 
 \* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.
+
+## PUT: Add a Job Permission
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
+-d '{ "job_id": {job_id}, "user_role_id": {user_role_id} }'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns a JSON response, structured like this:
+
+```
+{
+  "id": 271232,
+  "job_id": 12891,
+  "user_role_id": 1172
+}
+```
+
+Creates a job permission with a specific user role for a given user.
+
+### HTTP Request
+
+`PUT https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+job_id | Yes | integer | The ID of the job 
+user\_role\_id | Yes | integer | The ID of the user role
+
+### HTTP Response
+
+Parameter | Type | Description
+--------- | ----------- | -------------
+id | integer | The ID of the created job permission
+job_id | integer | The ID of the job for the created job permission. This is the same job_id supplied in the request.
+user\_role\_id | integer | The ID of the user_role for the created job permission. This is the same user\_role\_id supplied in the request.
+
+Note: This endpoint does not support assigning a user role to a user for a confidential job.
+
+
+## DELETE: Remove a Job Permission
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
+-d '{ "job_permission_id": {job_permission_id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns a JSON response, structured like this:
+
+```
+{
+  "message": "Job Permission 321231 has been deleted."
+}
+```
+
+Removes a user's job permission.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+job\_permission\_id | Yes | integer | The ID of the job permission
