@@ -402,7 +402,6 @@ user\_role\_id | integer | The ID of the user_role for the created job permissio
 
 Note: This endpoint does not support assigning a user role to a user for a confidential job.
 
-
 ## DELETE: Remove a Job Permission
 
 ```shell
@@ -437,3 +436,89 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 job\_permission\_id | Yes | integer | The ID of the job permission
+
+## PUT: Add a Future Job Permission
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
+-d '{ "office_id": {office_id}, "department_id": {department_id}, "user_role_id": {user_role_id} }'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns a JSON response, structured like this:
+
+```
+{
+  "id": 9283,
+  "office_id": 281921,
+  "department_id": 61921,
+  "user_role_id": 91821
+}
+```
+
+Creates a future job permission with a specific user role for a given user.
+
+### HTTP Request
+
+`PUT https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+office_id | No | integer | The ID of the office. Set to null to include all offices.
+department_id | No | integer | The ID of the department. Set to null to include all departments.
+user\_role\_id | Yes | integer | The ID of the user role
+
+### HTTP Response
+
+Parameter | Type | Description
+--------- | ----------- | -------------
+id | integer | The ID of the created future job permission
+office_id | integer | The ID of the office for the created job permission. This is the same office_id supplied in the request.
+department_id | integer | The ID of the department for the created job permission. This is the same office_id supplied in the request.
+user\_role\_id | integer | The ID of the user_role for the created job permission. This is the same user\_role\_id supplied in the request.
+
+
+
+## DELETE: Remove a Future Job Permission
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
+-d '{ "future_job_permission_id": {future_job_permission_id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns a JSON response, structured like this:
+
+```
+{
+  "message": "Future Job Permission 639234 has been deleted."
+}
+```
+
+Removes a user's future job permission.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+future\_job\_permission\_id | Yes | integer | The ID of the future job permission
