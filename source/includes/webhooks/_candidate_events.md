@@ -182,7 +182,7 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
 
 ## Candidate merged
 
-This web hook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This web hook supersedes the candidate deleted web hook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged web hook will fire when candidates records are removed via a merge.  If a candidate deleted web hook is configured but candidate merged is not, then the candidate deleted web hook will fire when a candidate is merged.  The payload for a candidate merged web hook matches the payload for candidate deleted except it contains the id of the new candidate.
+This web hook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This web hook supersedes the candidate deleted web hook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged web hook will fire when candidate records are removed via merge.  If a candidate deleted web hook is configured but candidate merged is not, then the candidate deleted web hook will fire when a candidate record is deleted via merge.  The payload for a candidate merged web hook matches the payload for candidate deleted except it contains the id of the winning candidate record.
 
 ```json
 {
