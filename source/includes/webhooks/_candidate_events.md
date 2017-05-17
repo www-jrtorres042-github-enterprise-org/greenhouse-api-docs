@@ -200,9 +200,6 @@ This web hook will fire when a candidate or prospect is merged with another cand
         "recruiter_user_id": 123,
         "coordinator_user_id": 456,
         "can_email": false,
-        "deleted_application_ids": [
-                46196263
-        ],
         "new_candidate_id": 457456
     }
   }
