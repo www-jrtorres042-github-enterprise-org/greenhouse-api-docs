@@ -31,6 +31,7 @@ includes:
   - harvest/tags
   - harvest/tracking_links
   - harvest/users
+  - harvest/user_permissions
   - harvest/user_roles
 
 slug: harvest
