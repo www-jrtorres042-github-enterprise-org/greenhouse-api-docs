@@ -178,40 +178,7 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
 | `recruiter_user_id` | The Greenhouse user_id of this candidate's recruiter |
 | `coordinator_user_id` | The Greenhouse user_id of this candidate's coordinator |
 | `can_email` | True or false; if this candidate can be e-mailed. |
-| `application_ids` | This is an array containing the Greenhouse application ids that will be deleted as a consequence of this candidate being deleted |
-
-## Candidate merged
-
-This web hook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This web hook supersedes the candidate deleted web hook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged web hook will fire when candidate records are removed via merge.  If a candidate deleted web hook is configured but candidate merged is not, then the candidate deleted web hook will fire when a candidate record is deleted via merge.  The payload for a candidate merged web hook matches the payload for candidate deleted except it contains the id of the winning candidate record.
-
-```json
-{
-  "action": "merge_candidate",
-  "payload": {
-    "person": {
-        "id": 37031511,
-        "first_name": "Jack",
-        "last_name": "Sparrow",
-        "company": "Pirate Shipping",
-        "title": "Captain",
-        "created_at": "2013-03-22T00:00:00Z",
-        "headline": "Eager to find a new commission",
-        "is_private": false,
-        "recruiter_user_id": 123,
-        "coordinator_user_id": 456,
-        "can_email": false,
-        "new_candidate_id": 457456
-    }
-  }
-}
-```
-
-### Noteworthy response attributes
-
-| Attribute | Note |
-|------------|--------|
-| `deleted_application_ids` | In many merge cases, this section will be blank, as applications will have been merged into the new candidate. |
-| `new_candidate_id` | The ID of the candidate to whom this candidate has been merged |
+| `application_ids` | This is an array containing the Greenhouse application IDs that will be deleted as a consequence of this candidate being deleted |
 
 ## Candidate hired
 
@@ -466,6 +433,39 @@ See web hook [common attributes](#common-attributes).
 | `application.job.close_date` | Deprecated. Use `application.jobs[].closed_at` instead. 
 | `application.job.open_date` | Deprecated. Use `application.jobs[].opened_at` instead.
 | `job.hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
+
+## Candidate merged
+
+This web hook will fire when a candidate or prospect is merged with another candidate.  This process should fire for regular manual merges and auto-merges.  It will also fire per candidate for a bulk merge.  This web hook supersedes the candidate deleted web hook.  If both candidate deleted and candidate merged are configured on your site, only the candidate merged web hook will fire when candidate records are removed via merge.  If a candidate deleted web hook is configured but candidate merged is not, then the candidate deleted web hook will fire when a candidate record is deleted via merge.  The payload for a candidate merged web hook matches the payload for candidate deleted except it contains the ID of the winning candidate record.
+
+```json
+{
+  "action": "merge_candidate",
+  "payload": {
+    "person": {
+        "id": 37031511,
+        "first_name": "Jack",
+        "last_name": "Sparrow",
+        "company": "Pirate Shipping",
+        "title": "Captain",
+        "created_at": "2013-03-22T00:00:00Z",
+        "headline": "Eager to find a new commission",
+        "is_private": false,
+        "recruiter_user_id": 123,
+        "coordinator_user_id": 456,
+        "can_email": false,
+        "new_candidate_id": 457456
+    }
+  }
+}
+```
+
+### Noteworthy response attributes
+
+| Attribute | Note |
+|------------|--------|
+| `deleted_application_ids` | In many merge cases, this section will be blank, as applications will have been merged into the new candidate. |
+| `new_candidate_id` | The ID of the candidate to whom this candidate has been merged |
 
 ## Candidate stage change
 
