@@ -202,7 +202,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users'
   "first_name": "Bob",
   "last_name": "Smith",
   "email": "bob@email.org",
-  "send_email_invite": true
+  "send_email_invite": true,
+  "employee_id", "ABC12345"
 }
 ```
 
@@ -226,5 +227,6 @@ first_name | Yes | string | The user's first name
 last_name | Yes | string | The user's last name
 email | Yes | string | The user's email address. Must be a valid email address.
 send_email_invite* | No | boolean | If true, an email will be sent to the user alerting them of any new job permissions that have been assigned to them. Emails are never sent when permissions are removed. If false, nothing happens. Default is false.
+employee_id | No | string | The user's external employee id.
 
 \* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.
