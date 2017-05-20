@@ -55,7 +55,7 @@ Harvest uses Basic Auth over HTTPS for authentication. The username is your Gree
 
 Harvest API keys can be obtained in Greenhouse.  In order to create a Harvest API key, a user must be granted the "Can manage ALL organization's API Credentials" in the "Developer permission" section. That user can then go Configure >> Dev Center >> API Credential Management.  From there, you can create a Harvest API key and choose which endpoints it may access.
 
-**Important Note:** Users with Harvest API keys may access all the data in the endpoint.  Access to data in Harvest in binary: everything or nothing. Harvest API keys should be given to internal developers with this understand and to third parties with caution.  Each key should only be allowed to access the endpoints it absolutely needs.
+**Important Note:** Users with Harvest API keys may access all the data in the endpoint.  Access to data in Harvest in binary: everything or nothing. Harvest API keys should be given to internal developers with this understanding and to third parties with caution.  Each key should only be allowed to access the endpoints it absolutely needs.
 
 ### Authorization header
 
