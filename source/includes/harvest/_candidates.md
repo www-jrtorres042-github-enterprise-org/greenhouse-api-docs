@@ -1045,7 +1045,17 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   "tags": [
     "Walkabout",
     "Orientation"
-  ]
+  ],
+  "application": {
+    "job_ids": [123, 456, 789],
+    "source_id": 1234,
+    "referrer": {
+      "type": "id",
+      "value": 770
+    },
+    "custom_fields": [],
+    "attachments": []
+  }
 }
 ```
 > The above returns a JSON response, structured like this:
@@ -1191,6 +1201,8 @@ coordinator[id] | No | Integer | The ID of the coordinator - either id or email 
 coordinator[email] | No | String | The email of the coordinator - either id or email must be present.
 custom_fields | No | Array | Array of custom field value objects - See "Custom Field Parameters" under [Edit candidate] (#patch-edit-candidate) for parameters.
 activity_feed_notes | No | Array | An array of activity feed objects. See [Add Note] (#post-add-note) for parameters.
+application | No | Hash | As opposed to candidate, a prospect is a single application object that contains multiple job ids.  A prospect in Greenhouse can be attached to zero or many jobs.  If the request does not contain an application object, the person will be created as a jobless prospect.  The source_id, referrer, custom_fields, and attachments parameters in this object match the format of the [Add Application] (#post-add-application) endpoint.
+application[job_ids] | No | Array | This element is unique to the prospects endpoint. This contains an array of job ids to which the prospect will be assigned.  Note that even if the application object is included, this may still be blank or omitted and the request will create a jobless prospect. A normal use case for this would be creating a jobless prospect but still wanting to attach their resume or identify their source.
 
 <br>
 
