@@ -1167,7 +1167,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
 }
 ```
 
-Create a new prospect. The difference between a prospect and a candidate is that a prospect can be on no jobs or many jobs. A prospect application cannot be added to a job stage. When a prospect is ready to be added to a job stage, they can be converted to a candidate in Greenhouse. Alternatively, you can add a candidate application to a prospect's profile by using the candidate [Add Candidate Application] (#post-add-candidate-application) endpoint. 
+Create a new prospect. The difference between a prospect and a candidate is that a prospect can be on no jobs or many jobs. A prospect application cannot be added to a job stage. When a prospect is ready to be added to a job stage, they can be converted to a candidate in Greenhouse. Alternatively, you can add a candidate application to a prospect's profile by using the [Add Candidate Application] (#post-add-candidate-application) endpoint. 
 
 ### HTTP Request
 
