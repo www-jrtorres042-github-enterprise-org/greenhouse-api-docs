@@ -553,7 +553,7 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
-## POST: Add Application
+## POST: Add Candidate Application
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
@@ -631,7 +631,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
 }
 ```
 
-Create a new application for this candidate to the given job.
+Create a new application for this candidate or prospect. If a prospect, this will add a new candidate application to the given job on their profile, this will not convert their existing prospect application into a candidate application.
 
 ### HTTP Request
 
@@ -1046,7 +1046,17 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   "tags": [
     "Walkabout",
     "Orientation"
-  ]
+  ],
+  "application": {
+    "job_ids": [123, 456, 789],
+    "source_id": 1234,
+    "referrer": {
+      "type": "id",
+      "value": 770
+    },
+    "custom_fields": [],
+    "attachments": []
+  }
 }
 ```
 > The above returns a JSON response, structured like this:
@@ -1157,7 +1167,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
 }
 ```
 
-Create a new prospect.
+Create a new prospect. The difference between a prospect and a candidate is that a prospect can be on no jobs or many jobs. A prospect application cannot be added to a job stage. When a prospect is ready to be added to a job stage, they can be converted to a candidate in Greenhouse. Alternatively, you can add a candidate application to a prospect's profile by using the candidate [Add Candidate Application] (#post-add-candidate-application) endpoint. 
 
 ### HTTP Request
 
@@ -1192,6 +1202,8 @@ coordinator[id] | No | Integer | The ID of the coordinator - either id or email 
 coordinator[email] | No | String | The email of the coordinator - either id or email must be present.
 custom_fields | No | Array | Array of custom field value objects - See "Custom Field Parameters" under [Edit candidate] (#patch-edit-candidate) for parameters.
 activity_feed_notes | No | Array | An array of activity feed objects. See [Add Note] (#post-add-note) for parameters.
+application | No | Hash | As opposed to candidate, a prospect is a single application object that contains multiple job ids.  A prospect in Greenhouse can be attached to zero or many jobs.  If the request does not contain an application object, the person will be created as a jobless prospect.  The source_id, referrer, custom_fields, and attachments parameters in this object match the format of the [Add Application] (#post-add-application) endpoint.
+application[job_ids] | No | Array | This element is unique to the prospects endpoint. This contains an array of job ids to which the prospect will be assigned.  Note that even if the application object is included, this may still be blank or omitted and the request will create a jobless prospect. A normal use case for this would be creating a jobless prospect but still wanting to attach their resume or identify their source.
 
 <br>
 
