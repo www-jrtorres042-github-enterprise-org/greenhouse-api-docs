@@ -553,7 +553,7 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
-## POST: Add Application
+## POST: Add Candidate Application
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
@@ -631,7 +631,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
 }
 ```
 
-Create a new application for this candidate to the given job.
+Create a new application for this candidate or prospect. If a prospect, this will add a new candidate application to the given job on their profile, this will not convert their existing prospect application into a candidate application.
 
 ### HTTP Request
 
@@ -1166,7 +1166,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
 }
 ```
 
-Create a new prospect.
+Create a new prospect. The difference between a prospect and a candidate is that a prospect can be on no jobs or many jobs. A prospect application cannot be added to a job stage. When a prospect is ready to be added to a job stage, they can be converted to a candidate in Greenhouse. Alternatively, you can add a candidate application to a prospect's profile by using the candidate [Add Candidate Application] (#post-add-candidate-application) endpoint. 
 
 ### HTTP Request
 
