@@ -203,7 +203,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users'
   "last_name": "Smith",
   "email": "bob@email.org",
   "send_email_invite": true,
-  "employee_id", "ABC12345"
+  "employee_id": "ABC12345"
 }
 ```
 
