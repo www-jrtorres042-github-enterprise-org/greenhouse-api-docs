@@ -413,7 +413,8 @@ id | The ID of the job to retrieve
 ## PATCH: Update Job
 
 ```shell
-curl --request PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
+curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -581,3 +582,164 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 
 <br>
 [See noteworthy response attributes.](#the-job-object)
+
+
+## POST: Create Job
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/jobs'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+   "template_job_id": 12345,
+   "number_of_openings": 2,
+   "job_post_name": "External Name That Appears On Job Boards",
+   "job_name": "Internal Name That Appears On Hiring Plans",
+   "department_id": 123,
+   "office_ids": [
+      234, 
+      345
+    ],
+   "requisition_id": "abc-123",
+   "opening_ids": [
+      "abc-123-1", 
+      "abc-123-2"
+    ]
+}
+```
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/jobs`
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+template_job_id | Yes | Number | This is the job we will use to generate the new job. The new job will receive most of the settings of the template job. The On-Behalf-Of user must have access to this job.
+number_of_openings | Yes | Number | The number of openings that will be created for this job.
+job_post_name | No | String | This will be the name on the new job post. If this is not included, the job post names in the base job will be copied.
+job_name | No | String | This is the internal name of the new job.  If this is not included, the name of the new job will be "Copy Of (the template job's name)"
+department_id | No | Number | The department of the new job. This should be a department id from the Departments endpoint. If this element is omitted, the new job will receive the department of the template job. If this element is included but blank, it will create the job with no departments. If the organization requires jobs to have a department, this case will return a 422 response.
+office_ids | No | Array[Numbers] | The offices of the new job. These should be office ids from the Offices endpoint. If this element is omitted, the new job will receive the offices of the template job.  If this element is included but blank, it will create the job with no offices. If the organization requires jobs to have an office, this case will return a 422 response.
+requisition_id | No | String | A requisition id for this job.
+opening_ids | No | Array[Strings] | An array of opening ids for the new job. If this is included, the number of opening ids in this array must match the number_of_openings element.
+
+> The above returns a JSON response, structured like this:
+
+```
+{
+  "id": 112746,
+  "name": "Internal Name That Appears On Hiring Plans",
+  "requisition_id": "abc-123",
+  "notes": "Looking for the best!",
+  "confidential": false,
+  "status": "open",
+  "created_at": "2015-09-10T19:01:46.078Z",
+  "opened_at": "2015-09-10T19:01:46.078Z",
+  "closed_at": null,
+  "departments": [
+    {
+      "id": 123,
+      "name": "Guideshops",
+      "parent_id": null,
+      "child_ids": []
+    }
+  ],
+  "offices": [
+    {
+      "id": 234,
+      "name": "San Diego",
+      "location": {
+        "name": "San Diego, CA, United States"
+      },
+      "parent_id": null,
+      "child_ids": []
+    },
+    {
+      "id": 345,
+      "name": "New York",
+      "location": {
+        "name": "New York, NY, United States"
+      },
+      "parent_id": null,
+      "child_ids": []
+    }
+  ],
+   "hiring_team": {
+    "hiring_managers": [
+      {
+        "id": 158108,
+        "name": "Sam McsSamson"
+      }
+    ],
+    "recruiters": [
+      {
+        "id": 158101,
+        "name": "Major Tom",
+        "responsible": true
+      }
+    ],
+    "coordinators": [
+      {
+        "id": 158109,
+        "name": "Roger Cord",
+        "responsible": true
+      }
+    ],
+    "sourcers": [
+      {
+        "id": 158102,
+        "name": "Lara Sourcerer"
+      }
+    ]
+  },
+  "custom_fields": {
+    "employment_type": "Full-time",
+    "salary": "$123,000",
+    "bonus": 1000,
+    "options": "1500"
+  },
+  "keyed_custom_fields": {
+    "bonus": {
+      "name": "Bonus",
+      "type": "number",
+      "value": 1000
+    },
+    "time_type": {
+      "name": "Employment Type",
+      "type": "single_select",
+      "value": "Full-time"
+    },
+    "stock_options": {
+      "name": "Options",
+      "type": "short_text",
+      "value": "1500"
+    },
+    "salary": {
+      "name": "Salary",
+      "type": "short_text",
+      "value": "$123,000"
+    }
+  },
+  "openings": [
+    {
+      "opening_id": "abc-123-1",
+      "status": "open",
+      "opened_at": "2015-09-10T19:01:46.077Z",
+      "closed_at": null,
+      "application_id": null
+    },
+    {
+      "opening_id": "abc-123-2",
+      "status": "open",
+      "opened_at": "2015-09-10T19:01:46.077Z",
+      "closed_at": null,
+      "application_id": null
+    }
+  ]
+}
+```
