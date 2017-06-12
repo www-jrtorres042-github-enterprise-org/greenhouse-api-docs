@@ -583,6 +583,66 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 <br>
 [See noteworthy response attributes.](#the-job-object)
 
+## PUT: Replace Hiring Team
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+    "hiring_managers": [{"user_id": 1234}, {"user_id": 2345}],
+    "sourcers": [{"user_id": 3456}, {"user_id": 4567}],
+    "recruiters": [
+      {
+        "user_id": 5678,
+        "responsible_for_future_candidates:" true,
+        "responsible_for_active_candidates:" true,
+        "responsible_for_inactive_candidates:" true,
+      }, 
+      {
+        "user_id": 6789,
+        "responsible_for_future_candidates:" false,
+        "responsible_for_active_candidates:" false,
+        "responsible_for_inactive_candidates:" false,
+      }
+    ],
+    "coordinators": [
+      {
+        "user_id": 7890,
+        "responsible_for_future_candidates:" false,
+        "responsible_for_active_candidates:" true,
+        "responsible_for_inactive_candidates:" true,
+      }, 
+      {
+        "user_id": 8901,
+        "responsible_for_future_candidates:" false,
+        "responsible_for_active_candidates:" false,
+        "responsible_for_inactive_candidates:" false,
+      }
+    ]
+}
+```
+
+### HTTP Request
+
+`PUT https://harvest.greenhouse.io/v1/jobs/:id/hiring_team`
+
+### JSON Body Parameters
+
+There are four types of hiring team members, represented by the four hashes sent in the JSON body.  If any of these types are not included, hiring team members of that type will not be changed.  If a blank element `{}` is included, that part of the hiring team will be cleared.  
+
+Note this put method REPLACES the existing members of the hiring team.  For each element included in the JSON request body, the existing hiring team members in Greenhouse will be removed and replaced with the current members. Also, this process is transactional; if there is one failure, no elements will be updated.  Finally, if you have a Hiring Team Updated web hook configured on your matter, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+responsible_for_future_candidates | Yes for coordinator/recruiter | boolean | The user becomes the responsible person for all new candidates. Only one user in the group of users may be designated as responsible.
+responsible_for_active_candidates | Yes for coordinator/recruiter | boolean | The user becomes the responsible person for all existing candidates with active applications
+responsible_for_inactive_candidates | Yes for coordinator/recruiter | boolean | The user becomes the responsible person fall all hired and rejected candidates
+
+On success, this will return a 200 response code with a success message in the JSON body.
 
 ## POST: Create Job
 
