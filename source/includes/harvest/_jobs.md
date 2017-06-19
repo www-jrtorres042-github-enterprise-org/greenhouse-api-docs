@@ -612,9 +612,9 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{id}'
     "coordinators": [
       {
         "user_id": 7890,
-        "responsible_for_future_candidates:" false,
-        "responsible_for_active_candidates:" true,
-        "responsible_for_inactive_candidates:" true,
+        "responsible_for_future_candidates:" true,
+        "responsible_for_active_candidates:" false,
+        "responsible_for_inactive_candidates:" false,
       }, 
       {
         "user_id": 8901,
