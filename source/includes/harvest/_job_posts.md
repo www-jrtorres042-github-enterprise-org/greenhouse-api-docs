@@ -269,7 +269,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
 ]
 ```
 
-List all the coresponding job posts for a given Job ID.
+List all the corresponding job posts for a given Job ID.
 
 
 ### HTTP Request
@@ -325,7 +325,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
 }
 ```
 
-Retrieve the coresponding job post for a given Job ID.
+Retrieve the corresponding job post for a given Job ID.
 
 ### HTTP Request
 
@@ -346,3 +346,46 @@ questions | If present, will return an array of questions associated with this j
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
+
+## PATCH: Update Job Post's Status
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/job_posts/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "status": "live"
+}
+```
+> The above returns a JSON response on success:
+
+```json
+{
+  "success": true
+}
+```
+
+Update the live/offline status for a single job post by its `id`.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/job_posts/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+status | yes | string | One of 'live' or 'offline'
+
+
