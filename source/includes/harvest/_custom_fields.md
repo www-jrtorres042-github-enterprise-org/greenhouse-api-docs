@@ -86,7 +86,18 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
 ]
 ```
 
-If the "field_type" argument is left off the URL, it will return all the custom fields in the organization.  If a field_type argument is included, the API will only return custom fields of that type.  For example, if "offer" is included in the URL as the field_type, the endpoint will only return custom fields with the "offer" field type.  Due to this structure, the trailing slash is required on this endpoint.
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/custom_fields/{field_type}`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| field_type | Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type. 
+
+<br>
+[See noteworthy response attributes.](#the-custom-field-object)
 
 ## GET: Retrieve Custom Field
 
@@ -123,3 +134,16 @@ curl 'https://harvest.greenhouse.io/v1/custom_field/{id}'
   ]
 }
 ```
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/custom_field/{id}`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the custom field to retrieve
+
+<br>
+[See noteworthy response attributes.](#the-custom-field-object)
