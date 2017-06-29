@@ -35,21 +35,11 @@ An organization's custom_fields.
 
 | Attribute | Description |
 |-----------|-------------|
-
-  "field_type": "job",
-  "priority": 1,
-  "value_type": "single_select",
-  "private": true,
-  "required": false,
-  "require_approval": true,
-  "trigger_new_version": false,
-  "name_key": "custom_field_name",
-
 | id | The custom field's unique identifier |
 | name | The field's name in Greenhouse |
-| field_type | one of job, candidate, application, offer, rejection_question, referral_question. This is also included in the URL as an argument, which will return only custom fields that match the given type.
+| field_type | One of job, candidate, application, offer, rejection_question, referral_question. This is also included in the URL as an argument, which will return only custom fields that match the given type.
 | priority | Numeric field used for ordering in Greenhouse.
-| value_type | one of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
+| value_type | One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
 | private | Boolean value to say if this field is private in Greenhouse.
 | required | The object this field exists on can not be saved if this value is not set.
 | require_approval | Only applicable to job custom fields, changes to this fields requires an approval flow in Greenhouse to be re-done. 
@@ -96,7 +86,18 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
 ]
 ```
 
-If the "field_type" argument is left off the URL, it will return all the custom fields in the organization.  If a field_type argument is included, the API will only return custom fields of that type.  For example, if "offer" is included in the URL as the field_type, the endpoint will only return custom fields with the "offer" field type.  Due to this structure, the trailing slash is required on this endpoint.
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/custom_fields/{field_type}`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| field_type | Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type. 
+
+<br>
+[See noteworthy response attributes.](#the-custom-field-object)
 
 ## GET: Retrieve Custom Field
 
@@ -133,3 +134,16 @@ curl 'https://harvest.greenhouse.io/v1/custom_field/{id}'
   ]
 }
 ```
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/custom_field/{id}`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the custom field to retrieve
+
+<br>
+[See noteworthy response attributes.](#the-custom-field-object)
