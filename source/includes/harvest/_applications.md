@@ -611,11 +611,11 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
 }
 ```
 
-Move this application to any stage in a different job.  If new_stage_id is omitted, the initial stage of the new job will be selected. Prospect applications can't be moved in this way.
+Move this application to any stage on a different job.  If new_stage_id is omitted, the initial stage of the new job will be selected. Prospect applications can't be moved in this way.
 
 ### HTTP Request
 
-`POST https://harvest.greenhouse.io/v1/applications/{id}/move`
+`POST https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job`
 
 ### Headers
 
@@ -628,8 +628,8 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
-from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
-to_stage_id | Yes | integer | The ID of the job stage this application should be moved to.
+new_job_id | Yes | integer | The ID of the job to which this application should be transferred
+new_stage_id | No | integer | The stage on the destination job this application should be placed in. If this is omitted, the application will be sent to the job's initial stage
 
 <br>
 
