@@ -99,6 +99,8 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
 <br>
 [See noteworthy response attributes.](#the-custom-field-object)
 
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
 ## GET: Retrieve Custom Field
 
 ```shell
