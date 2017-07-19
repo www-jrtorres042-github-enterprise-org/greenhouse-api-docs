@@ -426,6 +426,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
    "notes": "Here are some notes",
    "team_and_responsibilities": "Info",
    "how_to_sell_this_job": "the snacks",
+   "office_ids": [1556],
    "custom_fields": [
     {
         "id": 1234,
@@ -473,6 +474,7 @@ requisition_id | No | string | The id of the requisition corresponding to this j
 team_and_responsibilities | No | string | A description of the team the candidate would join and their responsibilities
 how_to_sell_this_job | No | string | A description for the recruiter of the desirable aspects of the job
 custom_fields | No | custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
+office_ids | No | Array | Replace the current offices for this job with new offices. If your organization requires at least one office, trying to set this to blank will return an error.
 
 ### Custom Field Parameters
 
