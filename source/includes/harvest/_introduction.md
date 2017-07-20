@@ -116,6 +116,7 @@ As of February 2017,  we are transitioning to a new method for paging while main
 
 * [GET: List EEOC](#get-list-eeoc)
 * [GET: List User Roles](#get-list-user-roles)
+* [GET: List Custom Fields](#get-list-custom-fields)
 
 <aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 

@@ -16,6 +16,7 @@ includes:
   - harvest/activity_feed
   - harvest/applications
   - harvest/candidates
+  - harvest/custom_fields
   - harvest/departments
   - harvest/eeoc
   - harvest/email_templates
