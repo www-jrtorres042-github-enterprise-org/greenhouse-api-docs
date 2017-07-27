@@ -150,6 +150,26 @@ id | The ID of the custom field to retrieve
 <br>
 [See noteworthy response attributes.](#the-custom-field-object)
 
+## The custom field options object
+
+Refers to the options available for single-select and multi-select custom fields.
+
+```json
+[
+  {
+    "id": 123456,
+    "name": "Option A",
+    "prioirty": 0
+  }
+]
+```
+
+### Noteworthy attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| priority | Numeric field used for ordering in Greenhouse.
+
 
 ## GET: List Custom Field Options
 
@@ -190,13 +210,6 @@ Given a single select or multi select custom field, return all its options.
 | Parameter | Description |
 |-----------|-------------|
 | type | One of all, active, or inactive.  Inactive returns only custom field options that have been deleted.  Active is the default and returns all custom field options currently active.  All returns both active and inactive.  If this isn't included, active fields will be returned.
-
-
-### Noteworthy attributes
-
-| Attribute | Description |
-|-----------|-------------|
-| priority | Numeric field used for ordering in Greenhouse.
 
 <br>
 
