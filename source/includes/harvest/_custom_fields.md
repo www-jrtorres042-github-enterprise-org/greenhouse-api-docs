@@ -150,28 +150,8 @@ id | The ID of the custom field to retrieve
 <br>
 [See noteworthy response attributes.](#the-custom-field-object)
 
-## Custom Field Options
 
-Given a single select or multi select custom field, return all its options.
-
-## The custom field option object
-
-```json
-[
-  {
-    "id": 123456,
-    "name": "Option A",
-    "prioirty": 0
-  }
-]
-
-### Noteworthy attributes
-
-| Attribute | Description |
-|-----------|-------------|
-| priority | Numeric field used for ordering in Greenhouse.
-
-## GET: List Custom Fields
+## GET: List Custom Field Options
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
@@ -199,16 +179,24 @@ curl 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
   }
 ]
 ```
+Given a single select or multi select custom field, return all its options.
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options?type=<all | active | inactive>`
+`GET https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options`
 
 ### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
 | type | One of all, active, or inactive.  Inactive returns only custom field options that have been deleted.  Active is the default and returns all custom field options currently active.  All returns both active and inactive.  If this isn't included, active fields will be returned.
+
+
+### Noteworthy attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| priority | Numeric field used for ordering in Greenhouse.
 
 <br>
 
