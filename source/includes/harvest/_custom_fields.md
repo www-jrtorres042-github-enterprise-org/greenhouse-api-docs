@@ -155,13 +155,11 @@ id | The ID of the custom field to retrieve
 Refers to the options available for single-select and multi-select custom fields.
 
 ```json
-[
-  {
-    "id": 123456,
-    "name": "Option A",
-    "prioirty": 0
-  }
-]
+{
+  "id": 123456,
+  "name": "Option A",
+  "prioirty": 0
+}
 ```
 
 ### Noteworthy attributes
