@@ -218,7 +218,7 @@ This endpoint supports pagination. See the [Pagination](#pagination) section for
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
-  -H "On-Behalf-Of: {Greenhouse user ID}
+  -H "On-Behalf-Of: {greenhouse user ID}"
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -241,17 +241,18 @@ Add additional options to a single select or multi select custom field.
 
 ### Headers
 
-| Header | Description |
-| On-Behalf-Of | ID of the user issuing this request.
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 ### JSON Body Parameters
 
-| Parameter | Required? | Description |
-|-----------|-------------|
-| options | Yes | An array of one or many new custom field options.
-| name | Yes | The name of the new custom field option.  If a new field is added with the same name as an existing custom field option in this custom field, it will be ignored.  No error will be raised in this case.
-| priority | Yes | This is used to order the custom fields in Greenhouse.
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+| options | Yes | array | An array of one or many new custom field options.
+| name | Yes | string | The name of the new custom field option.  If a new field is added with the same name as an existing custom field option in this custom field, it will be ignored.  No error will be raised in this case.
+| priority | Yes | integer | This is used to order the custom fields in Greenhouse.
 
 <br>
 
-This returns a 201 on success.  It does not return the objects created.
+**This returns a 201 on success.  It does not return the objects created.
