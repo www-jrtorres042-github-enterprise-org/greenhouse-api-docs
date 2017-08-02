@@ -10,8 +10,10 @@ An organization's offers.
   "version": 1,
   "application_id": 1234,
   "created_at": "2014-02-13T22:30:58Z",
+  "updated_at": "2014-07-31T20:49:05.604Z",
+  "sent_at": null,
   "resolved_at": null,
-  "sent_at": "sent_on",
+  "starts_at": null,
   "status": "deprecated",
   "custom_fields": {
     "employment_type": "Contractor",
@@ -72,6 +74,7 @@ An organization's offers.
 | created_at | Date whe this offer was created.
 | resolved_at | Date when this offer was resolved (e.g. when it was accepted, rejected).
 | sent_at | Date when this offer was sent to the candidate.
+| starts_at | Date when the candidate starts. This is the date value entered in the default Start Date field on candidate's Offer Details. This is the first field on their Offer Details, above the custom fields.
 | status | One of: `unresolved`, `accepted`, `rejected`, `deprecated`.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
@@ -92,8 +95,10 @@ curl 'https://harvest.greenhouse.io/v1/offers'
     "version": 1,
     "application_id": 1234,
     "created_at": "2014-02-13T22:30:58Z",
+    "updated_at": "2014-07-31T20:49:05.604Z",
+    "sent_at": null,
     "resolved_at": null,
-    "sent_at": "sent_on",
+    "starts_at": null,
     "status": "deprecated",
     "custom_fields": {
       "employment_type": "Contractor",
@@ -145,11 +150,13 @@ curl 'https://harvest.greenhouse.io/v1/offers'
   {
     "id": 5318,
     "version": 1,
-    "application_id": 2345,
-    "created_at": "2014-05-12T18:02:34Z",
-    "resolved_at": "2014-05-12T20:52:35Z",
-    "sent_at": "sent_on",
-    "status": "accepted",
+    "application_id": 1234,
+    "created_at": "2014-02-13T22:30:58Z",
+    "updated_at": "2014-07-31T20:49:05.604Z",
+    "sent_at": null,
+    "resolved_at": null,
+    "starts_at": null,
+    "status": "deprecated",
     "custom_fields": {
       "employment_type": "Part-Time",
       "favorite_station": "The Looking Glass",
@@ -239,8 +246,10 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers'
     "version": 1,
     "application_id": 1234,
     "created_at": "2014-02-13T22:30:58Z",
+    "updated_at": "2014-07-31T20:49:05.604Z",
+    "sent_at": null,
     "resolved_at": null,
-    "sent_at": "sent_on",
+    "starts_at": null,
     "status": "deprecated",
     "custom_fields": {
       "employment_type": "Contractor",
@@ -293,10 +302,12 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers'
     "id": 5318,
     "version": 2,
     "application_id": 1234,
-    "created_at": "2014-05-12T18:02:34Z",
-    "resolved_at": "2014-05-12T20:52:35Z",
-    "sent_at": "sent_on",
-    "status": "accepted",
+    "created_at": "2014-02-13T22:30:58Z",
+    "updated_at": "2014-07-31T20:49:05.604Z",
+    "sent_at": null,
+    "resolved_at": null,
+    "starts_at": null,
+    "status": "deprecated",
     "custom_fields": {
       "employment_type": "Part-Time",
       "favorite_station": "The Looking Glass",
@@ -389,8 +400,10 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/curr
   "version": 1,
   "application_id": 1234,
   "created_at": "2014-02-13T22:30:58Z",
+  "updated_at": "2014-07-31T20:49:05.604Z",
+  "sent_at": null,
   "resolved_at": null,
-  "sent_at": "sent_on",
+  "starts_at": null,
   "status": "deprecated",
   "custom_fields": {
     "employment_type": "Contractor",
@@ -469,8 +482,10 @@ curl 'https://harvest.greenhouse.io/v1/offers/{id}'
   "version": 1,
   "application_id": 1234,
   "created_at": "2014-02-13T22:30:58Z",
+  "updated_at": "2014-07-31T20:49:05.604Z",
+  "sent_at": null,
   "resolved_at": null,
-  "sent_at": "sent_on",
+  "starts_at": null,
   "status": "deprecated",
   "custom_fields": {
     "employment_type": "Contractor",

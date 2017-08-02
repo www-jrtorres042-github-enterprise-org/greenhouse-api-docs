@@ -212,3 +212,47 @@ Given a single select or multi select custom field, return all its options.
 <br>
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
+
+## POST: Create Custom Field Options
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
+  -H "On-Behalf-Of: {greenhouse user ID}"
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "options": [
+    {"name": "Option A", "priority": 5},
+    {"name": "Option B", "priority": 6},
+    {"name": "Option C", "priority": 7}
+  ]
+}
+```
+Add additional options to a single select or multi select custom field.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+| options | Yes | array | An array of one or many new custom field options.
+| name | Yes | string | The name of the new custom field option.  If a new field is added with the same name as an existing custom field option in this custom field, it will be ignored.  No error will be raised in this case.
+| priority | Yes | integer | This is used to order the custom fields in Greenhouse.
+
+<br>
+
+**This returns a 201 on success.  It does not return the objects created.
