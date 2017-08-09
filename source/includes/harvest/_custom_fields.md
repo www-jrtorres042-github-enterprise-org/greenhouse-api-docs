@@ -310,4 +310,4 @@ option_ids | Yes | array | An array of the custom field option ids to be removed
 
 <br>
 
-\* - Note this will not return a list of which option_ids were not found. It will only return a number of options that were not processed.  If you were to run the same exact command twice in a row, the only difference would be that on the second run, the message would inform you that an ID was not found.
+\* - Note this does not return a list of option_ids that were not found. It only returns a number of options that were not processed.  If you were to run the same exact command twice in a row, the only difference would be that on the second run, the message would inform you that an ID was not found.
