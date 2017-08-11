@@ -222,7 +222,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_op
   -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> The above command returns JSON structured like this:
+> The above command takes a JSON request, structured like this:
 
 ```json
 {
@@ -233,6 +233,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_op
   ]
 }
 ```
+
+> The above returns a success message on success with a 201 response.
+
+```
+{
+  "message": "success"
+}
+```
+
 Add additional options to a single select or multi select custom field.
 
 ### HTTP Request
@@ -256,3 +265,49 @@ Parameter | Required | Type | Description
 <br>
 
 **This returns a 201 on success.  It does not return the objects created.
+
+## DELETE: Remove Custom Field Options
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
+  -H "On-Behalf-Of: {greenhouse user ID}"
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "option_ids": [1, 2, 3, 4]
+}
+```
+
+> The above request is idempotent.  It will return a message with a 200 response and a message stating how many of the IDs were deleted and how many were not found.
+
+```
+{
+  "message": "3 option(s) deleted. 1 option(s) not found."
+}
+```
+
+Destroy custom field options
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+option_ids | Yes | array | An array of the custom field option ids to be removed.
+
+<br>
+
+\* Note this does not return a list of option_ids that were not found. It only returns a number of options that were not processed.  If you were to run the same exact command twice in a row, the only difference would be that on the second run, the message would inform you that an ID was not found.
