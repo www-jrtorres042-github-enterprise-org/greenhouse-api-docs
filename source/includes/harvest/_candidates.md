@@ -924,7 +924,7 @@ coordinator[id] | No | Integer | The ID of the coordinator - either id or email 
 coordinator[email] | No | String | The email of the coordinator - either id or email must be present.
 custom_fields | No | Array | Array of custom field value objects - See "Custom Field Parameters" under [Edit candidate] (#patch-edit-candidate) for parameters.
 activity_feed_notes | No | Array | An array of activity feed objects. See [Add Note] (#post-add-note) for parameters.
-applications | Yes | Array | An array of application objects. At least one required. See [Add Application] (#post-add-application) for parameters.
+applications | Yes | Array | An array of application objects. At least one required. See [Add Application] (#post-add-candidate-application) for parameters.
 
 <br>
 
