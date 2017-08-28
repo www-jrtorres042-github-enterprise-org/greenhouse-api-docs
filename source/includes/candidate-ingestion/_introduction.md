@@ -8,7 +8,7 @@ The API allows partners to:
 2. Retrieve the current stage and status of candidates.
 3. Retrieve jobs on which the Greenhouse user is allowed to operate.
 
-Note: Your organization must be able to create prospects in order to create prospects using the Candidate Ingestion API.
+Note: The organization must be able to create prospects in order to create prospects using the Candidate Ingestion API.
 
 ## Authentication
 
