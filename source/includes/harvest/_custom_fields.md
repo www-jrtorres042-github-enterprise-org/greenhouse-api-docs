@@ -266,6 +266,58 @@ Parameter | Required | Type | Description
 
 **This returns a 201 on success.  It does not return the objects created.
 
+
+## PATCH: Update Custom Field Options
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
+  -H "On-Behalf-Of: {greenhouse user ID}"
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "options": [
+    {"id": 123, "name": "Option A", "priority": 5},
+    {"id": 234, "name": "Option B", "priority": 6},
+    {"id": 345, "name": "Option C", "priority": 7}
+  ]
+}
+```
+
+> The above request returns a JSON success message.
+
+```
+{
+  "message": "success"
+}
+```
+
+Update the names or priorities of existing options in a single select or multi select custom field.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+| options | Yes | array | An array of one or many new custom field options.
+| id | Yes | integer | The ID of the custom field option that will be updated.
+| name | No | string | If included, the custom field option with this ID will be updated to this name.  This can not duplicate the name of any other option in this field or any option in this request.
+| priority | No | integer | If included, The custom field option with this ID will be updated with this value.
+
+<br>
+
 ## DELETE: Remove Custom Field Options
 
 ```shell
