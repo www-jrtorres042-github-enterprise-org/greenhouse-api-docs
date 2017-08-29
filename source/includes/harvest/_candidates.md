@@ -396,8 +396,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
         "value": "Some new value"
     },
     {
-        "name_key": "custom_field_name",
-        "value": "Some other new value"
+        "name_key": "single_select_field_name",
+        "value": 12345
    },
    {
         "id": 5678,
@@ -545,7 +545,7 @@ Parameter | Required for | Description
 ---------- | -------------- | ----------------
 id | all | The custom field id for this particular custom field.  One of this or name_key is required.
 name_key | all | The field key for this custom field. This can be found in Greenhouse while editing custom options as "Immutable Field Key"  This or id is required for all custom field elements.
-value | all | The value field contains the new custom field value.  In most cases this will be a string or a number.  In the case of single-select or multi-select custom fields, this will be a custom field option id or an array of custom field option ids, respectively.
+value | all | The value field contains the new custom field value.  In most cases this will be a string or a number.  In the case of single-select or multi-select custom fields, this will be a custom field option id or an array of custom field option ids, respectively. In the case of single-select fields, this can also be a string that matches an existing option value name exactly.
 unit | currency | This contains the currency unit for a currency custom field. It is only required when updating a currency custom field.  This should accept any 3-character currency code from the ISO-4217 standard.
 delete_value  | n/a | When this element is included with a value of "true" (note, string true, not boolean true) the custom field value will be removed from Greenhouse.  Note that updating a custom field value to nil or a blank string will not work, as validations require these to be non-blank values.
 
