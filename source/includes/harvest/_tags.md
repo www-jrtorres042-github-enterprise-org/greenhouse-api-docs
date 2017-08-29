@@ -110,6 +110,12 @@ Remove a tag from a candidate
 
 `DELETE https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
 
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
 ### URL Parameters
 
 Parameter | Description
@@ -145,6 +151,12 @@ Apply a tag to a given candidate
 ### HTTP Request
 
 `PUT https://harvest.greenhouse.io/v1/candidates/{candidate_id}/tags/{tag_id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 ### URL Parameters
 
