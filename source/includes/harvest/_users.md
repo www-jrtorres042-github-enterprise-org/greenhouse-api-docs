@@ -187,6 +187,46 @@ Enable a user. It is safe to call this method on a user that is currently enable
 
 `PATCH https://harvest.greenhouse.io/v1/users/{id}/enable`
 
+## PATCH: Edit User
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "first_name": "Bob",
+  "last_name": "Smith",
+  "employee_id": "ABC12345"
+}
+```
+
+Edit a user's basic information.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/users/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+first_name | No | string | The user's new first name. If included, this cannot be blank.
+last_name | No | string | The user's new last name. If included, this cannot be blank.
+employee_id* | No | string | The user's external employee id. If included, this cannot be blank, nor can it match any other employee-id for a user in this organization. 
+
+\* - If the employee id feature is not enabled for your organization, attempting to edit this field will raise an API Error.
+
 ## POST: Add User
 
 ```shell
