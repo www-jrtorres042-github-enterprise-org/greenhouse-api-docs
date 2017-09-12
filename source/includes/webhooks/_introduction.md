@@ -65,6 +65,10 @@ Currently, Web Hooks for all event types include these common attributes:
 | `application.candidate.email_addresses[].type` | One of: `personal`, `work`, `other`
 | `application.candidate.attachments[].type` | One of: `admin_only`, `public`, `cover_letter`, `offer_packet`, `resume`, `take_home_test`, `offer_letter`, `signed_offer_letter`
 | `application.candidate.external_id` | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
+| `application.prospect` | If true, this is a prospect application which means that the associated person is a prospect and has not yet applied for this job. (Only prospects will have non-null values for `prospect_owner`, `prospect_pool`, or `prospect_stage` under `prospect_detail`)  |
+| `application.prospect_detail.prospect_owner` | The user responsible for keeping track of the prospect. Either null or a user's `id` and `name` |
+| `application.prospect_detail.prospect_pool` | The current prospect pool of a prospect. Either null or a pool's `id` and `name` |
+| `application.prospect_detail.prospect_stage` | The current prospect stage of a prospect. Either null or a stage's `id` and `name` |
 | `application.jobs[]` | Candidates will have one job. Prospects will have 0 or more jobs.
 | `application.jobs[].id` | Unique Greenhouse identifier of the job. Information not included in the web hook can be retrieved via [Harvest API - GET Jobs](/harvest.html#jobs)
 | `application.jobs[].requisition_id` | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
