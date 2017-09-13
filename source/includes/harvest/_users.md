@@ -270,3 +270,46 @@ send_email_invite* | No | boolean | If true, an email will be sent to the user a
 employee_id | No | string | The user's external employee id.
 
 \* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.
+
+## POST: Add E-mail Address To User
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/email_addresses'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "email": "bob@email.org",
+  "send_verification": true,
+}
+```
+
+Creates a new unverified e-mail address on the given user. The address will not be considered verified until the user receives the verification e-mail and clicks on the link to verify the address. There is no method in the API to verify an e-mail address. This endpoint is also used to re-send a verification e-mail. The request body to do this is exactly the same. If an unverified e-mail is received with send_verification set to true, Greenhouse will attempt to re-send the verification e-mail. If you attempt this with a verified e-mail, nothing occurs.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/users/{id}/email_addresses`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+email | Yes | string | The user's email address. Must be a valid email address.
+send_verification | No | boolean | If true, an email will be sent to the user to verify this e-mail address. If false, nothing happens. Default is false.
+employee_id | No | string | The user's external employee id.
+
+There are 3 successful response states for this endpoint.
+
+* 201: A new e-mail address was received and created. This will be the response code regardless of the verification setting.
+* 200: An e-mail was generated for an unverified e-mail address. This is the case if we attempt to re-send a verification e-mail to an unverified e-mail address.
+* 204: A request was made which caused Greenhouse to do nothing. This will occur if you attempt to re-send a verification e-mail to an address that has already been verified or if you make a follow-up request to an unverified e-mail with send_verification set to false.
