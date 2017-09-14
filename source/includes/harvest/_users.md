@@ -306,7 +306,6 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 email | Yes | string | The user's email address. Must be a valid email address.
 send_verification | No | boolean | If true, an email will be sent to the user to verify this e-mail address. If false, nothing happens. Default is false.
-employee_id | No | string | The user's external employee id.
 
 There are 3 successful response states for this endpoint.
 
