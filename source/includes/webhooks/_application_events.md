@@ -10,6 +10,11 @@
       "id": 265293,
       "rejected_at": null,
       "prospect": false,
+      "prospect_detail": {
+        "prospect_owner": null,
+        "prospect_pool": null,
+        "prospect_stage": null
+      },
       "status": "active",
       "applied_at": "2013-03-22T00:00:00Z",
       "last_activity_at": "2015-03-18T20:28:09Z",
@@ -182,6 +187,11 @@ This web hook only fires when individual applications are destroyed.  This occur
       "id": 22202940,
       "rejected_at": null,
       "prospect": false,
+      "prospect_detail": {
+        "prospect_owner": null,
+        "prospect_pool": null,
+        "prospect_stage": null
+      },
       "status": "active",
       "applied_at": "2015-12-03T06:31:26Z",
       "last_activity_at": "2015-12-03T06:31:26Z",
