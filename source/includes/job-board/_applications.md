@@ -78,6 +78,14 @@ curl -X POST \
     "longitude": "-73.9929196",
     "resume_text": "I have many years of experience as an expert basket weaver...",
     "cover_letter_text": "I have a very particular set of skills, skills I have acquired over a very long career. Skills that make me...",
+    "gender": 2,
+    "race": 4,
+    "veteran_status": 3,
+    "disability_status": 3,
+    "question_12345": "Here is some short text for the first question",
+    "question_12346": 1,
+    "question_12347": 5869311,
+    "question_12348": [5869319,5869317],
     "educations": [
       {
         "school_name_id" : "1403524",
