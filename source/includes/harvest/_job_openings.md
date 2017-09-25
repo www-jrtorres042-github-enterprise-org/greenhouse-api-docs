@@ -88,6 +88,7 @@ This endpoint supports pagination. See the [Pagination](#pagination) section for
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings/{id}' -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
 
 > The above command returns JSON structured like this:
 
