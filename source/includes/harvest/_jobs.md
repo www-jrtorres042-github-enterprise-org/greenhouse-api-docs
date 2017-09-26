@@ -104,6 +104,7 @@ An organization's jobs.
   },
   "openings": [
     {
+      "id": 123,
       "opening_id": "3-1",
       "status": "open",
       "opened_at": "2015-11-20T23:14:14.736Z",
@@ -111,6 +112,7 @@ An organization's jobs.
       "application_id": null
     },
     {
+      "id": 124,
       "opening_id": "3-2",
       "status": "open",
       "opened_at": "2015-11-20T23:14:14.739Z",
@@ -118,6 +120,7 @@ An organization's jobs.
       "application_id": null
     },
     {
+      "id": 125,
       "opening_id": null,
       "status": "open",
       "opened_at": "2016-02-03T20:00:00.000Z",
@@ -125,6 +128,7 @@ An organization's jobs.
       "application_id": null
     },
     {
+      "id": 126,
       "opening_id": "2-4",
       "status": "closed",
       "opened_at": "2016-02-03T16:38:46.985Z",
@@ -149,7 +153,7 @@ An organization's jobs.
 | custom_fields | Contains any custom job fields which have been defined by your organization.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
 | openings | Lists the openings associated with this job.
-| openings[].id | Custom identifier set by an organization. Can be `null`.
+| openings[].opening_id | Custom identifier set by an organization. Can be `null`.
 | openings[].status | One of: `["open", "closed"]`
 | openings[].opened_at | Timestamp when the opening was created. |
 | openings[].closed_at | Timestamp when the opening was closed. An opening is closed when it is filled or removed.
@@ -248,6 +252,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
     },
     "openings": [
       {
+        "id": 123,
         "opening_id": "1-1",
         "status": "closed",
         "opened_at": "2015-11-19T19:53:32.564Z",
@@ -255,6 +260,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
         "application_id": 24709881
       },
       {
+        "id": 124,
         "opening_id": "1-2",
         "status": "open",
         "opened_at": "2015-11-19T19:53:32.565Z",
@@ -379,6 +385,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
   },
   "openings": [
     {
+      "id": 123,
       "opening_id": "1-1",
       "status": "closed",
       "opened_at": "2015-11-19T19:53:32.564Z",
@@ -386,6 +393,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
       "application_id": 24709881
     },
     {
+      "id": 124,
       "opening_id": "1-2",
       "status": "open",
       "opened_at": "2015-11-19T19:53:32.565Z",
@@ -558,6 +566,7 @@ delete_value  | n/a | When this element is included with a value of "true" (note
   },
   "openings": [
     {
+      "id": 123,
       "opening_id": null,
       "status": "closed",
       "opened_at": "2015-09-10T19:01:46.077Z",
@@ -565,6 +574,7 @@ delete_value  | n/a | When this element is included with a value of "true" (note
       "application_id": 18682391
     },
     {
+      "id": 124,
       "opening_id": null,
       "status": "closed",
       "opened_at": "2015-09-21T21:28:17.679Z",
@@ -572,6 +582,7 @@ delete_value  | n/a | When this element is included with a value of "true" (note
       "application_id": 18492607
     },
     {
+      "id": 125,
       "opening_id": null,
       "status": "open",
       "opened_at": "2016-03-09T20:07:35.675Z",
@@ -728,6 +739,7 @@ opening_ids | No | Array[Strings] | An array of opening ids for the new job. If 
   },
   "openings": [
     {
+      "id": 123,
       "opening_id": "abc-123-1",
       "status": "open",
       "opened_at": "2015-09-10T19:01:46.077Z",
@@ -735,6 +747,7 @@ opening_ids | No | Array[Strings] | An array of opening ids for the new job. If 
       "application_id": null
     },
     {
+      "id": 124,
       "opening_id": "abc-123-2",
       "status": "open",
       "opened_at": "2015-09-10T19:01:46.077Z",
