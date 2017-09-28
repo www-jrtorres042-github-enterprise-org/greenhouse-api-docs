@@ -60,6 +60,10 @@ curl -X POST \
   -F "educations[][end_date][month]=5" \
   -F "educations[][end_date][year]=2016" \
   -F "mapped_url_token=token12345" \
+  -F "question_12349_url=http://dropbox.com/dl/attachment.pdf" \
+  -F "question_12349_url_filename=attachment.pdf" \
+  -F "question_12350_content=SGVsbG8sIHdvcmxkIQo=" \
+  -F "question_12350_content_filename=something_else.txt" \
   "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
@@ -87,6 +91,10 @@ curl -X POST \
     "question_12346": 1,
     "question_12347": 5869311,
     "question_12348": [5869319,5869317],
+    "question_12349_url": "http://dropbox.com/dl/attachment.pdf",
+    "question_12349_url_filename": "attachment.pdf",
+    "question_12350_content": "SGVsbG8sIHdvcmxkIQo=",
+    "question_12350_content_filename": "something_else.txt",
     "educations": [
       {
         "school_name_id" : "1403524",
@@ -148,6 +156,14 @@ email | Applicant's email adress
 *resume | Resume file contents.  *Only allowed in `multipart/form-data` requests*
 *cover_letter | Cover letter file contents.  *Only allowed in `multipart/form-data` requests*
 *educations | An array of education objects. Each education object should have five fields: school_name_id, degree_id, discipline_id, start_date, and end_date. start_date and end_date will use a hash of month and year. You can get the school_name_id, degree_id, discipline_id from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints.
+
+### Submitting Attachments
+
+We support 3 ways to attach files to your payloads.
+
+1. Sending the document as an attachment in a multipart form.
+1. Sending URL and filename of the document.
+1. Sending a Base64 encoded string of the document and its filename.
 
 ### Collecting Applicant Location
 
