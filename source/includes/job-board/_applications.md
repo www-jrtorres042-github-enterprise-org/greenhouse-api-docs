@@ -14,7 +14,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
   <!-- represents the ID of the job post -->
   <input type="hidden" name="id" value="55555" />
   <!-- place the value of the gh_src URL parameter in the field below -->
-  <input type="hidden" name="mapped_url_token" />
+  <input type="hidden" name="mapped_url_token" value="token12345" />
   <label>First Name <input type="text" name="first_name" /></label><br/>
   <label>Last Name <input type="text" name="last_name" /></label><br/>
   <label>Email <input type="text" name="email" /></label><br/>
@@ -58,7 +58,8 @@ curl -X POST \
   -F "educations[][start_date][month]=8" \
   -F "educations[][start_date][year]=2012" \
   -F "educations[][end_date][month]=5" \
-  -F "educations[][end_date][year]=2016"
+  -F "educations[][end_date][year]=2016" \
+  -F "mapped_url_token=token12345" \
   "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
@@ -101,7 +102,8 @@ curl -X POST \
         "start_date": { "month": "1", "year": "2011"},
         "end_date": { "month": "2", "year": "2012"}
       }
-    ]
+    ],
+    "mapped_url_token":"token12345"
   }' \
   "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
