@@ -6,74 +6,188 @@ An organization's candidates.
 
 ```json
 {
-  "id": 6801407,
-  "first_name": "Zooey",
-  "last_name": "Teddy",
-  "company": "Leeo, Inc",
-  "title": "Senior Digital Marketing Manager",
-  "is_private": false,
-  "created_at": "2015-05-29T18:19:00Z",
-  "last_activity": "2015-05-29T20:01:05Z",
-  "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
-  "attachments": [],
-  "application_ids": [
-    7827056
-  ],
-  "phone_numbers": [
-    {
-      "value": "330-281-8004",
-      "type": "home"
+    "id": 53883394,
+    "first_name": "John",
+    "last_name": "Locke",
+    "company": "The Tustin Box Company",
+    "title": "Man of Mystery",
+    "created_at": "2017-08-15T03:31:46.591Z",
+    "updated_at": "2017-09-28T12:29:30.497Z",
+    "last_activity": "2017-09-28T12:29:30.481Z",
+    "is_private": false,
+    "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=cg%2BhyNTvvNgTTzWtsMJJZvPRYH4%3D",
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/683/131/original/John_Locke_Offer_Packet_09_27_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=R5TbJPzD7TO5NgX8K8Y0yogPstY%3D",
+            "type": "offer_packet"
+        }
+    ],
+    "application_ids": [
+        69102626,
+        65153308
+    ],
+    "phone_numbers": [
+        {
+            "value": "555-555-5555",
+            "type": "mobile"
+        }
+    ],
+    "addresses": [
+        {
+            "value": "123 City Street\nNew York, Ny 10001",
+            "type": "home"
+        }
+    ],
+    "email_addresses": [
+        {
+            "value": "test@work.com",
+            "type": "work"
+        },
+        {
+            "value": "test@example.com",
+            "type": "personal"
+        }
+    ],
+    "website_addresses": [
+        {
+            "value": "mysite.com",
+            "type": "personal"
+        }
+    ],
+    "social_media_addresses": [
+        {
+            "value": "twitter.com/test"
+        }
+    ],
+    "recruiter": {
+        "id": 92120,
+        "first_name": "Greenhouse",
+        "last_name": "Admin",
+        "name": "Greenhouse Admin",
+        "employee_id": null
     },
-    {
-      "value": "330-281-8004",
-      "type": "home"
-    }
-  ],
-  "addresses": [
-    {
-      "value": "21 Jump Street, New York, NY 10003",
-      "type": "home"
-    }
-  ],
-  "email_addresses": [
-    {
-      "value": "zooey.teddy.6801407@example.com",
-      "type": "personal"
+    "coordinator": null,
+    "tags": [
+        "Python",
+        "Ruby"
+    ],
+    "applications": [
+        {
+            "id": 69102626,
+            "candidate_id": 53883394,
+            "prospect": false,
+            "applied_at": "2017-09-27T12:03:02.728Z",
+            "rejected_at": "2017-09-27T12:11:40.877Z",
+            "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "source": {
+                "id": 16,
+                "public_name": "LinkedIn (Prospecting)"
+            },
+            "credited_to": {
+                "id": 165372,
+                "first_name": "Joel",
+                "last_name": "Job Admin",
+                "name": "Joel Job Admin",
+                "employee_id": null
+            },
+            "rejection_reason": {
+                "id": 9504,
+                "name": "Hired another candidate",
+                "type": {
+                    "id": 1,
+                    "name": "We rejected them"
+                }
+            },
+            "rejection_details": {},
+            "jobs": [
+                {
+                    "id": 149995,
+                    "name": "DevOps Engineer"
+                }
+            ],
+            "status": "rejected",
+            "current_stage": {
+                "id": 1073533,
+                "name": "Take Home Test"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        },
+        {
+            "id": 65153308,
+            "candidate_id": 53883394,
+            "prospect": false,
+            "applied_at": "2017-08-15T03:31:46.637Z",
+            "rejected_at": null,
+            "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "source": {
+                "id": 12,
+                "public_name": "Meetups"
+            },
+            "credited_to": {
+                "id": 566819,
+                "first_name": "Bob",
+                "last_name": "Smith",
+                "name": "Bob Smith",
+                "employee_id": null
+            },
+            "rejection_reason": null,
+            "rejection_details": null,
+            "jobs": [
+                {
+                    "id": 299100,
+                    "name": "Data Scientist - BK"
+                }
+            ],
+            "status": "active",
+            "current_stage": {
+                "id": 2966800,
+                "name": "Face to Face"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        }
+    ],
+    "educations": [
+        {
+            "id": 561227,
+            "school_name": "University of Michigan - Ann Arbor",
+            "degree": "Bachelor's Degree",
+            "discipline": "Computer Science"
+        }
+    ],
+    "employments": [],
+    "custom_fields": {
+        "desired_salary": "1000000000",
+        "work_remotely": true,
+        "graduation_year": "2018"
     },
-    {
-      "value": "zooey.teddy.6801407@example.com",
-      "type": "personal"
+    "keyed_custom_fields": {
+        "desired_salary": {
+            "name": "Desired Salary",
+            "type": "short_text",
+            "value": "1000000000"
+        },
+        "work_remotely": {
+            "name": "Work Remotely",
+            "type": "boolean",
+            "value": true
+        },
+        "graduation_year_1": {
+            "name": "Graduation Year",
+            "type": "single_select",
+            "value": "2018"
+        }
     }
-  ],
-  "website_addresses": [
-    {
-      "value": "http://www.example.com/",
-      "type": "personal"
-    }
-  ],
-  "social_media_addresses": [],
-  "recruiter": {
-    "id": 78582,
-    "name": "Carl Sacramento"
-  },
-  "coordinator": null,
-  "tags": [],
-  "custom_fields": {
-    "current_salary": "$123,000",
-    "desired_salary": null
-  },
-  "keyed_custom_fields": {
-    "current_salary": {
-      "name": "Current salary",
-      "type": "short_text",
-      "value": "$123,000"
-    },
-    "new_salary": {
-      "name": "Desired salary",
-      "type": "short_text",
-      "value": null
-    }
-  }
 }
 ```
 
@@ -108,76 +222,181 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
 
 ```json
 [
-  {
-    "id": 6801407,
-    "first_name": "Zooey",
-    "last_name": "Teddy",
-    "company": "Leeo, Inc",
-    "title": "Senior Digital Marketing Manager",
+ {
+    "id": 53883394,
+    "first_name": "John",
+    "last_name": "Locke",
+    "company": "The Tustin Box Company",
+    "title": "Man of Mystery",
+    "created_at": "2017-08-15T03:31:46.591Z",
+    "updated_at": "2017-09-28T12:29:30.497Z",
+    "last_activity": "2017-09-28T12:29:30.481Z",
     "is_private": false,
-    "created_at": "2015-05-29T18:19:00Z",
-    "last_activity": "2015-05-29T20:01:05Z",
-    "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
-    "attachments": [],
+    "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=cg%2BhyNTvvNgTTzWtsMJJZvPRYH4%3D",
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/683/131/original/John_Locke_Offer_Packet_09_27_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=R5TbJPzD7TO5NgX8K8Y0yogPstY%3D",
+            "type": "offer_packet"
+        }
+    ],
     "application_ids": [
-      7827056
+        69103370,
+        65153308
     ],
     "phone_numbers": [
-      {
-        "value": "330-281-8004",
-        "type": "home"
-      },
-      {
-        "value": "330-281-8004",
-        "type": "home"
-      }
+        {
+            "value": "555-555-5555",
+            "type": "mobile"
+        }
     ],
     "addresses": [
-      {
-        "value": "21 Jump Street, New York, NY 10003",
-        "type": "home"
-      }
+        {
+            "value": "123 City Street\nNew York, Ny 10001",
+            "type": "home"
+        }
     ],
     "email_addresses": [
-      {
-        "value": "zooey.teddy.6801407@example.com",
-        "type": "personal"
-      },
-      {
-        "value": "zooey.teddy.6801407@example.com",
-        "type": "personal"
-      }
+        {
+            "value": "test@work.com",
+            "type": "work"
+        }
     ],
     "website_addresses": [
-      {
-        "value": "http://www.example.com/",
-        "type": "personal"
-      }
+        {
+            "value": "mysite.com",
+            "type": "personal"
+        }
     ],
-    "social_media_addresses": [],
+   "social_media_addresses": [],
     "recruiter": {
-      "id": 78582,
-      "name": "Carl Sacramento"
+        "id": 92120,
+        "first_name": "Greenhouse",
+        "last_name": "Admin",
+        "name": "Greenhouse Admin",
+        "employee_id": null
     },
     "coordinator": null,
-    "tags": [],
+    "tags": [
+        "Python",
+        "Ruby"
+    ],
+    "applications": [
+        {
+            "id": 69103370,
+            "candidate_id": 53883394,
+            "prospect": true,
+            "applied_at": "2017-09-27T12:21:37.234Z",
+            "rejected_at": null,
+            "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "source": {
+                "id": 16,
+                "public_name": "LinkedIn (Prospecting)"
+            },
+            "credited_to": {
+                "id": 92120,
+                "first_name": "Greenhouse",
+                "last_name": "Admin",
+                "name": "Greenhouse Admin",
+                "employee_id": null
+            },
+            "rejection_reason": null,
+            "rejection_details": null,
+            "jobs": [
+                {
+                    "id": 87752,
+                    "name": "Full Stack Engineer"
+                }
+            ],
+            "status": "active",
+            "current_stage": null,
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": {
+                    "id": 224,
+                    "name": "Cold Outreach: Sourced"
+                },
+                "prospect_stage": {
+                    "id": 817,
+                    "name": "Contacted"
+                },
+                "prospect_owner": {
+                    "id": 92120,
+                    "name": "Greenhouse Admin"
+                }
+            }
+        },
+        {
+            "id": 65153308,
+            "candidate_id": 53883394,
+            "prospect": false,
+            "applied_at": "2017-08-15T03:31:46.637Z",
+            "rejected_at": null,
+            "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "source": {
+                "id": 12,
+                "public_name": "Meetups"
+            },
+            "credited_to": {
+                "id": 566819,
+                "first_name": "Bob",
+                "last_name": "Smith",
+                "name": "Bob Smith",
+                "employee_id": null
+            },
+            "rejection_reason": null,
+            "rejection_details": null,
+            "jobs": [
+                {
+                    "id": 299100,
+                    "name": "Data Scientist - BK"
+                }
+            ],
+            "status": "active",
+            "current_stage": {
+                "id": 2966800,
+                "name": "Face to Face"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        }
+    ],
+    "educations": [
+        {
+            "id": 561227,
+            "school_name": "University of Michigan - Ann Arbor",
+            "degree": "Bachelor's Degree",
+            "discipline": "Computer Science"
+        }
+    ],
+    "employments": [],
     "custom_fields": {
-      "current_salary": "$123,000",
-      "desired_salary": null
+        "desired_salary": "1000000000",
+        "work_remotely": true,
+        "graduation_year": "2018"
     },
     "keyed_custom_fields": {
-      "current_salary": {
-        "name": "Current salary",
-        "type": "short_text",
-        "value": "$123,000"
-      },
-      "new_salary": {
-        "name": "Desired salary",
-        "type": "short_text",
-        "value": null
-      }
-    }
-  }
+        "desired_salary": {
+            "name": "Desired Salary",
+            "type": "short_text",
+            "value": "1000000000"
+        },
+        "work_remotely": {
+            "name": "Work Remotely",
+            "type": "boolean",
+            "value": true
+        },
+        "graduation_year_1": {
+            "name": "Graduation Year",
+            "type": "single_select",
+            "value": "2018"
+        }
+     }
+  } 
 ]
 ```
 
@@ -214,74 +433,179 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
 
 ```json
 {
-  "id": 6801407,
-  "first_name": "Zooey",
-  "last_name": "Teddy",
-  "company": "Leeo, Inc",
-  "title": "Senior Digital Marketing Manager",
-  "is_private": false,
-  "created_at": "2015-05-29T18:19:00Z",
-  "last_activity": "2015-05-29T20:01:05Z",
-  "photo_url": "https://blah.s3.amazonaws.com/people/photos/006/801/407/original/photo.jpg?AWSAccessKeyId=AKIAJOIDJAU24P2KP55A&Expires=1453190734&Signature=sd1cv%2BQuFCL%2F2TDJeBH5r4mM0jU%3D",
-  "attachments": [],
-  "application_ids": [
-    7827056
-  ],
-  "phone_numbers": [
-    {
-      "value": "330-281-8004",
-      "type": "home"
+    "id": 53883394,
+    "first_name": "John",
+    "last_name": "Locke",
+    "company": "The Tustin Box Company",
+    "title": "Man of Mystery",
+    "created_at": "2017-08-15T03:31:46.591Z",
+    "updated_at": "2017-09-28T12:29:30.497Z",
+    "last_activity": "2017-09-28T12:29:30.481Z",
+    "is_private": false,
+    "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=cg%2BhyNTvvNgTTzWtsMJJZvPRYH4%3D",
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/683/131/original/John_Locke_Offer_Packet_09_27_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=R5TbJPzD7TO5NgX8K8Y0yogPstY%3D",
+            "type": "offer_packet"
+        }
+    ],
+    "application_ids": [
+        69102626,
+        65153308
+    ],
+    "phone_numbers": [
+        {
+            "value": "555-555-5555",
+            "type": "mobile"
+        }
+    ],
+    "addresses": [],
+    "email_addresses": [
+        {
+            "value": "test@work.com",
+            "type": "work"
+        },
+        {
+            "value": "test@example.com",
+            "type": "personal"
+        }
+    ],
+    "website_addresses": [
+        {
+            "value": "mysite.com",
+            "type": "personal"
+        }
+    ],
+    "social_media_addresses": [],
+    "recruiter": {
+        "id": 92120,
+        "first_name": "Greenhouse",
+        "last_name": "Admin",
+        "name": "Greenhouse Admin",
+        "employee_id": null
     },
-    {
-      "value": "330-281-8004",
-      "type": "home"
-    }
-  ],
-  "addresses": [
-    {
-      "value": "21 Jump Street, New York, NY 10003",
-      "type": "home"
-    }
-  ],
-  "email_addresses": [
-    {
-      "value": "zooey.teddy.6801407@example.com",
-      "type": "personal"
+    "coordinator": null,
+    "tags": [
+        "Python",
+        "Ruby"
+    ],
+    "applications": [
+        {
+            "id": 69102626,
+            "candidate_id": 53883394,
+            "prospect": false,
+            "applied_at": "2017-09-27T12:03:02.728Z",
+            "rejected_at": "2017-09-27T12:11:40.877Z",
+            "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "source": {
+                "id": 16,
+                "public_name": "LinkedIn (Prospecting)"
+            },
+            "credited_to": {
+                "id": 165372,
+                "first_name": "Joel",
+                "last_name": "Job Admin",
+                "name": "Joel Job Admin",
+                "employee_id": null
+            },
+            "rejection_reason": {
+                "id": 9504,
+                "name": "Hired another candidate",
+                "type": {
+                    "id": 1,
+                    "name": "We rejected them"
+                }
+            },
+            "rejection_details": {},
+            "jobs": [
+                {
+                    "id": 149995,
+                    "name": "DevOps Engineer"
+                }
+            ],
+            "status": "rejected",
+            "current_stage": {
+                "id": 1073533,
+                "name": "Take Home Test"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        },
+        {
+            "id": 65153308,
+            "candidate_id": 53883394,
+            "prospect": false,
+            "applied_at": "2017-08-15T03:31:46.637Z",
+            "rejected_at": null,
+            "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "source": {
+                "id": 12,
+                "public_name": "Meetups"
+            },
+            "credited_to": {
+                "id": 566819,
+                "first_name": "Bob",
+                "last_name": "Smith",
+                "name": "Bob Smith",
+                "employee_id": null
+            },
+            "rejection_reason": null,
+            "rejection_details": null,
+            "jobs": [
+                {
+                    "id": 299100,
+                    "name": "Data Scientist - BK"
+                }
+            ],
+            "status": "active",
+            "current_stage": {
+                "id": 2966800,
+                "name": "Face to Face"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        }
+    ],
+    "educations": [
+        {
+            "id": 561227,
+            "school_name": "University of Michigan - Ann Arbor",
+            "degree": "Bachelor's Degree",
+            "discipline": "Computer Science"
+        }
+    ],
+    "employments": [],
+    "custom_fields": {
+        "desired_salary": "1000000000",
+        "work_remotely": true,
+        "graduation_year": "2018"
     },
-    {
-      "value": "zooey.teddy.6801407@example.com",
-      "type": "personal"
+    "keyed_custom_fields": {
+        "desired_salary": {
+            "name": "Desired Salary",
+            "type": "short_text",
+            "value": "1000000000"
+        },
+        "work_remotely": {
+            "name": "Work Remotely",
+            "type": "boolean",
+            "value": true
+        },
+        "graduation_year_1": {
+            "name": "Graduation Year",
+            "type": "single_select",
+            "value": "2018"
+        }
     }
-  ],
-  "website_addresses": [
-    {
-      "value": "http://www.example.com/",
-      "type": "personal"
-    }
-  ],
-  "social_media_addresses": [],
-  "recruiter": {
-    "id": 78582,
-    "name": "Carl Sacramento"
-  },
-  "coordinator": null,
-  "tags": [],
-  "custom_fields": {
-    "current_salary": "$123k",
-    "desired_salary": "$150k"
-  },
-  "keyed_custom_fields": {
-    "current_salary": {
-      "name": "Current salary",
-      "type": "short_text",
-      "value": "$123k"
-    },
-    "desired_salary": {
-      "name": "Desired salary",
-      "type": "short_text",
-      "value": "$150k"
-    }
-  }
 }
 ```
 
@@ -345,8 +669,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
 
 ```json
 {
-  "first_name": "John",
-  "last_name": "Locke",
+  "first_name": "New",
+  "last_name": "Name",
   "company": "The Tustin Box Company",
   "title": "Man of Mystery",
   "is_private": true,
@@ -411,100 +735,133 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
 ```json
 [
   {
-    "id": 123,
-    "first_name": "John",
-    "last_name": "Locke",
-    "company": "The Tustin Box Company",
-    "title": "Man of Mystery",
-    "is_private": true,
-    "created_at": "2014-03-26T20:11:39Z",
-    "last_activity": "2014-03-26T20:11:39Z",
-    "photo_url": null,
-    "attachments": [
-      {
-        "filename": "resume.pdf",
-        "url": "https://prod-heroku.s3.amazonaws.com/...",
-        "type": "resume"
+      "id": 53883394,
+      "first_name": "New",
+      "last_name": "Name",
+      "company": "The Tustin Box Company",
+      "title": "Man of Mystery",
+      "created_at": "2017-08-15T03:31:46.591Z",
+      "updated_at": "2017-09-28T12:54:34.257Z",
+      "last_activity": "2017-09-28T12:54:34.243Z",
+      "is_private": true,
+      "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509195274&Signature=NHilozZgXPHOI9uvpKTnf3A50Gc%3D",
+      "attachments": [
+          {
+              "filename": "John_Locke_Offer_Packet_09_28_2017.pdf",
+              "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/815/020/original/John_Locke_Offer_Packet_09_28_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509195274&Signature=Vb7z8GlHJXvwqhvx%2BTrIZ32zaVo%3D",
+              "type": "offer_packet"
+          }
+      ],
+      "application_ids": [
+          65153308
+      ],
+      "phone_numbers": [
+          {
+              "value": "555-1212",
+              "type": "mobile"
+          }
+      ],
+      "addresses": [
+          {
+              "value": "123 Fake Street",
+              "type": "home"
+          }
+      ],
+      "email_addresses": [
+          {
+              "value": "john.locke+work@example.com",
+              "type": "work"
+          },
+          {
+              "value": "john.locke@example.com",
+              "type": "personal"
+          }
+      ],
+      "website_addresses": [
+          {
+              "value": "johnlocke.example.com",
+              "type": "personal"
+          }
+      ],
+       "social_media_addresses": [
+          {
+            "value": "linkedin.example.com/john.locke"
+          },
+          {
+            "value": "@johnlocke"
+          }
+      ],
+      "recruiter": {
+          "id": 92120,
+          "first_name": "Greenhouse",
+          "last_name": "Admin",
+          "name": "Greenhouse Admin",
+          "employee_id": null
       },
-      {
-        "filename": "cover_letter.pdf",
-        "url": "https://prod-heroku.s3.amazonaws.com/...",
-        "type": "cover_letter"
+      "coordinator": null,
+      "tags": [
+          "Walkabout",
+          "Orientation"
+      ],
+      "applications": [
+          {
+              "id": 65153308,
+              "candidate_id": 53883394,
+              "prospect": false,
+              "applied_at": "2017-08-15T03:31:46.637Z",
+              "rejected_at": null,
+              "last_activity_at": "2017-09-28T12:54:34.243Z",
+              "source": {
+                  "id": 12,
+                  "public_name": "Meetups"
+              },
+              "credited_to": {
+                  "id": 566819,
+                  "first_name": "Bob",
+                  "last_name": "Smith",
+                  "name": "Bob Smith",
+                  "employee_id": "ABC12345"
+              },
+              "rejection_reason": null,
+              "rejection_details": null,
+              "jobs": [
+                  {
+                      "id": 299100,
+                      "name": "Data Scientist - BK"
+                  }
+              ],
+              "status": "active",
+              "current_stage": {
+                  "id": 2966800,
+                  "name": "Face to Face"
+              },
+              "answers": [],
+              "prospect_detail": {
+                  "prospect_pool": null,
+                  "prospect_stage": null,
+                  "prospect_owner": null
+              }
+          }
+      ],
+      "educations": [],
+      "employments": [],
+      "custom_fields": {
+        "current_salary": "$23k",
+        "desired_salary": "$42k"
       },
-      {
-        "filename": "portfolio.pdf",
-        "url": "https://prod-heroku.s3.amazonaws.com/...",
-        "type": "attachment"
-      }
-    ],
-    "application_ids": [
-      456
-    ],
-    "phone_numbers": [
-      {
-        "value": "555-1212",
-        "type": "mobile"
-      }
-    ],
-    "addresses": [
-      {
-        "value": "123 Fake St.",
-        "type": "home"
-      }
-    ],
-    "email_addresses": [
-      {
-        "value": "john.locke+work@example.com",
-        "type": "work"
-      },
-      {
-        "value": "john.locke@example.com",
-        "type": "personal"
-      }
-    ],
-    "website_addresses": [
-      {
-        "value": "johnlocke.example.com",
-        "type": "personal"
-      }
-    ],
-    "social_media_addresses": [
-      {
-        "value": "linkedin.example.com/john.locke"
-      },
-      {
-        "value": "@johnlocke"
-      }
-    ],
-    "recruiter": {
-      "id": 712,
-      "name": "Charlie Pace"
-    },
-    "coordinator": {
-      "id": 16,
-      "name": "Hugo Reyes"
-    },
-    "tags": [
-      "Walkabout",
-      "Orientation"
-    ],
-    "custom_fields": {
-      "current_salary": "$23k",
-      "desired_salary": "$42k"
-    },
-    "keyed_custom_fields": {
-      "current_salary": {
-        "name": "Current salary",
-        "type": "short_text",
-        "value": "$23k"
-      },
-      "desired_salary": {
-        "name": "Desired salary",
-        "type": "short_text",
-        "value": "$42k"
-      }
-    }
-  }
+      "keyed_custom_fields": {
+        "current_salary": {
+          "name": "Current salary",
+          "type": "short_text",
+          "value": "$23k"
+        },
+        "desired_salary": {
+          "name": "Desired salary",
+          "type": "short_text",
+          "value": "$42k"
+        }
+     }
+  }     
 ]
 ```
 
@@ -595,9 +952,12 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
     "public_name": "Indeed"
   },
   "credited_to": {
-    "id": 770,
-    "name": "Moon Colorado"
-  },
+        "id": 770,
+        "first_name": "Moon",
+        "last_name": "Colorado",
+        "name": "Moon Colorado",
+        "employee_id": null
+    },
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
@@ -616,17 +976,10 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
     "birthday": "1992-01-27",
     "bio": "This is my bio"
   },
-  "keyed_custom_fields": {
-    "date_of_birth": {
-      "name": "Birthday",
-      "type": "date",
-      "value": "1992-01-27"
-    },
-    "bio": {
-      "name": "Bio",
-      "type": "long_text",
-      "value": "This is my bio"
-    }
+  "prospect_detail": {
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
   }
 }
 ```
@@ -768,7 +1121,10 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
   ],
   "applications": [
     {
-      "job_id": 4614
+      "job_id": 215725
+    },
+     {
+      "job_id": 185289
     }
   ]
 }
@@ -777,115 +1133,135 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
 
 ```json
 {
-  "id": 29843267,
-  "first_name": "John",
-  "last_name": "Locke",
-  "company": "The Tustin Box Company",
-  "title": "Man of Mystery",
-  "is_private": false,
-  "created_at": "2016-12-21T15:26:45.245Z",
-  "updated_at": "2016-12-21T15:26:45.894Z",
-  "last_activity": "2016-12-21T15:26:45.868Z",
-  "photo_url": null,
-  "attachments": [],
-  "application_ids": [
-    38776656
-  ],
-  "phone_numbers": [
-    {
-      "value": "555-1212",
-      "type": "mobile"
-    }
-  ],
-  "addresses": [
-    {
-      "value": "123 Fake St.",
-      "type": "home"
-    }
-  ],
-  "email_addresses": [
-    {
-      "value": "john.locke@example.com",
-      "type": "personal"
-    },
-    {
-      "value": "john.locke+work@example.com",
-      "type": "work"
-    }
-  ],
-  "website_addresses": [
-    {
-      "value": "johnlocke.example.com",
-      "type": "personal"
-    }
-  ],
-  "social_media_addresses": [
-    {
-      "value": "@johnlocke"
-    },
-    {
-      "value": "linkedin.example.com/john.locke"
-    }
-  ],
-  "recruiter": null,
-  "coordinator": null,
-  "tags": [
-    "Orientation",
-    "Walkabout"
-  ],
-  "applications": [
-    {
-      "id": 38776656,
-      "candidate_id": 29843267,
-      "prospect": false,
-      "applied_at": "2016-12-21T15:26:45.519Z",
-      "rejected_at": null,
-      "last_activity_at": "2016-12-21T15:26:45.868Z",
-      "source": null,
-      "credited_to": null,
-      "rejection_reason": null,
-      "rejection_details": null,
-      "jobs": [
+    "id": 57683957,
+    "first_name": "John",
+    "last_name": "Locke",
+    "company": "The Tustin Box Company",
+    "title": "Man of Mystery",
+    "created_at": "2017-09-28T13:27:54.735Z",
+    "updated_at": "2017-09-28T13:27:55.229Z",
+    "last_activity": "2017-09-28T13:27:55.213Z",
+    "is_private": false,
+    "photo_url": null,
+    "attachments": [],
+    "application_ids": [
+        69201605,
+        69201604
+    ],
+    "phone_numbers": [
         {
-          "id": 4614,
-          "name": "Customer Experience Ninja"
+            "value": "555-1212",
+            "type": "mobile"
         }
-      ],
-      "status": "active",
-      "current_stage": {
-        "id": 30641,
-        "name": "Application Review"
-      },
-      "answers": [],
-      "custom_fields": {
-        "test": null
-      },
-      "keyed_custom_fields": {
-        "some_custom_field": {
-          "name": "Test",
-          "type": "short_text",
-          "value": null
+    ],
+    "addresses": [
+        {
+            "value": "123 Fake St.",
+            "type": "home"
         }
-      }
-    }
-  ],
-  "educations": [],
-  "custom_fields": {
-    "current_salary": "$123,000",
-    "desired_salary": null
-  },
-  "keyed_custom_fields": {
-    "current_salary": {
-      "name": "Current salary",
-      "type": "short_text",
-      "value": "$123,000"
+    ],
+    "email_addresses": [
+        {
+            "value": "john.locke@example.com",
+            "type": "personal"
+        },
+        {
+            "value": "john.locke+work@example.com",
+            "type": "work"
+        }
+    ],
+    "website_addresses": [
+        {
+            "value": "johnlocke.example.com",
+            "type": "personal"
+        }
+    ],
+    "social_media_addresses": [
+        {
+            "value": "@johnlocke"
+        },
+        {
+            "value": "linkedin.example.com/john.locke"
+        }
+    ],
+    "recruiter": null,
+    "coordinator": null,
+    "tags": [
+        "Orientation",
+        "Walkabout"
+    ],
+    "applications": [
+        {
+            "id": 69201605,
+            "candidate_id": 57683957,
+            "prospect": false,
+            "applied_at": "2017-09-28T13:27:54.873Z",
+            "rejected_at": null,
+            "last_activity_at": "2017-09-28T13:27:55.213Z",
+            "source": null,
+            "credited_to": null,
+            "rejection_reason": null,
+            "rejection_details": null,
+            "jobs": [
+                {
+                    "id": 185289,
+                    "name": "Product Specialist"
+                }
+            ],
+            "status": "active",
+            "current_stage": {
+                "id": 1355395,
+                "name": "Application Review"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        },
+        {
+            "id": 69201604,
+            "candidate_id": 57683957,
+            "prospect": false,
+            "applied_at": "2017-09-28T13:27:54.812Z",
+            "rejected_at": null,
+            "last_activity_at": "2017-09-28T13:27:55.213Z",
+            "source": null,
+            "credited_to": null,
+            "rejection_reason": null,
+            "rejection_details": null,
+            "jobs": [
+                {
+                    "id": 215725,
+                    "name": "Operations Manger "
+                }
+            ],
+            "status": "active",
+            "current_stage": {
+                "id": 1579673,
+                "name": "Application Review"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        }
+    ],
+    "educations": [],
+    "employments": [],
+    "custom_fields": {
+        "desired_salary": null,
+        "work_remotely": null,
+        "graduation_year": null
     },
-    "desired_salary": {
-      "name": "Desired salary",
-      "type": "short_text",
-      "value": null
+    "keyed_custom_fields": {
+        "desired_salary": null,
+        "work_remotely": null,
+        "graduation_year_1": null
     }
-  }
 }
 ```
 
@@ -956,9 +1332,11 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/not
   "created_at": "2015-07-17T16:29:31Z",
   "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
   "user": {
-    "id": 214,
-    "name": "Boone Carlyle",
-    "employee_id": null
+     "id": 214,
+        "first_name": "Boone",
+        "last_name": "Carlyle",
+        "name": "Boone Carlyle",
+        "employee_id": null
   },
   "private": false,
   "visiblity": "admin_only",
@@ -1221,99 +1599,112 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
 
 ```json
 {
-  "id": 123,
-  "first_name": "Anonymized",
-  "last_name": "123",
-  "company": "The Tustin Box Company",
-  "title": "Man of Mystery",
-  "is_private": false,
-  "created_at": "2014-03-26T20:11:39Z",
-  "last_activity": "2014-03-26T20:11:39Z",
-  "photo_url": null,
-  "attachments": [
-    {
-      "filename": "resume.pdf",
-      "url": "https://prod-heroku.s3.amazonaws.com/...",
-      "type": "resume"
+    "id": 53883394,
+    "first_name": "Anonymized",
+    "last_name": "53883394",
+    "company": null,
+    "title": null,
+    "created_at": "2017-08-15T03:31:46.591Z",
+    "updated_at": "2017-09-28T13:36:04.725Z",
+    "last_activity": "2017-09-28T13:31:37.929Z",
+    "is_private": false,
+    "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509197765&Signature=pr0qNjZvTvLCV2td9hebhEa7P3Y%3D",
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_28_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/815/020/original/John_Locke_Offer_Packet_09_28_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509197765&Signature=rV%2FW668FnnG4EFGLJbHrnY%2B7Mvs%3D",
+            "type": "offer_packet"
+        }
+    ],
+    "application_ids": [
+        69201279
+    ],
+    "phone_numbers": [],
+    "addresses": [
+        {
+            "value": "123 City Street\nNew York, Ny 10001",
+            "type": "home"
+        }
+    ],
+    "email_addresses": [],
+    "website_addresses": [
+        {
+            "value": "mysite.com",
+            "type": "personal"
+        }
+    ],
+    "social_media_addresses": [],
+    "recruiter": {
+        "id": 92120,
+        "first_name": "Greenhouse",
+        "last_name": "Admin",
+        "name": "Greenhouse Admin",
+        "employee_id": null
     },
-    {
-      "filename": "cover_letter.pdf",
-      "url": "https://prod-heroku.s3.amazonaws.com/...",
-      "type": "cover_letter"
+    "coordinator": null,
+    "tags": [
+        "Python",
+        "Ruby"
+    ],
+    "applications": [
+        {
+            "id": 69201279,
+            "candidate_id": 53883394,
+            "prospect": false,
+            "applied_at": "2017-09-28T13:21:22.749Z",
+            "rejected_at": null,
+            "last_activity_at": "2017-09-28T13:31:37.929Z",
+            "source": {
+                "id": 7,
+                "public_name": "Indeed"
+            },
+            "credited_to": {
+                "id": 566993,
+                "first_name": "Jane",
+                "last_name": "Smith",
+                "name": "Jane Smith",
+                "employee_id": null
+            },
+            "rejection_reason": null,
+            "rejection_details": null,
+            "jobs": [
+                {
+                    "id": 213967,
+                    "name": "Head of Product"
+                }
+            ],
+            "status": "active",
+            "current_stage": {
+                "id": 1567309,
+                "name": "Application Review"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        }
+    ],
+    "educations": [
+        {
+            "id": 561227,
+            "school_name": "University of Michigan - Ann Arbor",
+            "degree": "Bachelor's Degree",
+            "discipline": "Computer Science"
+        }
+    ],
+    "employments": [],
+    "custom_fields": {
+        "desired_salary": null,
+        "work_remotely": null,
+        "graduation_year": null
     },
-    {
-      "filename": "portfolio.pdf",
-      "url": "https://prod-heroku.s3.amazonaws.com/...",
-      "type": "attachment"
+    "keyed_custom_fields": {
+        "desired_salary": null,
+        "work_remotely": null,
+        "graduation_year_1": null
     }
-  ],
-  "application_ids": [
-    456
-  ],
-  "phone_numbers": [
-    {
-      "value": "555-1212",
-      "type": "mobile"
-    }
-  ],
-  "addresses": [
-    {
-      "value": "123 Fake St.",
-      "type": "home"
-    }
-  ],
-  "email_addresses": [
-    {
-      "value": "john.locke+work@example.com",
-      "type": "work"
-    },
-    {
-      "value": "john.locke@example.com",
-      "type": "personal"
-    }
-  ],
-  "website_addresses": [
-    {
-      "value": "johnlocke.example.com",
-      "type": "personal"
-    }
-  ],
-  "social_media_addresses": [
-    {
-      "value": "linkedin.example.com/john.locke"
-    },
-    {
-      "value": "@johnlocke"
-    }
-  ],
-  "recruiter": {
-    "id": 712,
-    "name": "Charlie Pace"
-  },
-  "coordinator": {
-    "id": 16,
-    "name": "Hugo Reyes"
-  },
-  "tags": [
-    "Walkabout",
-    "Orientation"
-  ],
-  "custom_fields": {
-    "current_salary": "$23k",
-    "desired_salary": "$42k"
-  },
-  "keyed_custom_fields": {
-    "current_salary": {
-      "name": "Current salary",
-      "type": "short_text",
-      "value": "$23k"
-    },
-    "desired_salary": {
-      "name": "Desired salary",
-      "type": "short_text",
-      "value": "$42k"
-    }
-  }
 }
 ```
 
@@ -1350,98 +1741,127 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
 
 ```json
 {
-  "id": 123,
-  "first_name": "Anonymized",
-  "last_name": "123",
-  "company": "The Tustin Box Company",
-  "title": "Man of Mystery",
-  "created_at": "2014-03-26T20:11:39Z",
-  "last_activity": "2014-03-26T20:11:39Z",
-  "photo_url": null,
-  "attachments": [
-    {
-      "filename": "resume.pdf",
-      "url": "https://prod-heroku.s3.amazonaws.com/...",
-      "type": "resume"
+    "id": 55961742,
+    "first_name": "Justin",
+    "last_name": "Locke",
+    "company": "The Tustin Box Company",
+    "title": "Man of Mystery",
+    "created_at": "2017-09-07T22:54:06.629Z",
+    "updated_at": "2017-09-28T13:41:43.655Z",
+    "last_activity": "2017-09-28T13:41:43.631Z",
+    "is_private": false,
+    "photo_url": null,
+    "attachments": [
+        {
+            "filename": "Justin Locke resume.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/048/999/636/original/Byron%20Sonnett%20resume.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509198103&Signature=Zc%2BenNvJyxH4FatQBRFz8248GUM%3D",
+            "type": "resume"
+        },
+         {
+            "filename": "Justin Locke cover leter.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/048/999/636/original/Byron%20Sonnett%20resume.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509198103&Signature=Zc%2BenNvJyxH4FatQBRFz8248GUM%3D",
+            "type": "cover_letter"
+        }
+    ],
+    "application_ids": [
+        67398864
+    ],
+    "phone_numbers": [
+        {
+            "value": "222-555-4608",
+            "type": "home"
+        }
+    ],
+    "addresses": [],
+    "email_addresses": [
+        {
+            "value": "justin.locke@example.com",
+            "type": "personal"
+        }
+    ],
+    "website_addresses": [
+        {
+            "value": "example.com",
+            "type": "other"
+        }
+    ],
+    "social_media_addresses": [],
+    "recruiter": null,
+    "coordinator": null,
+    "tags": [
+        "Comp Sci"
+    ],
+    "applications": [
+        {
+            "id": 67398864,
+            "candidate_id": 55961742,
+            "prospect": false,
+            "applied_at": "2017-09-07T23:00:25.746Z",
+            "rejected_at": null,
+            "last_activity_at": "2017-09-28T13:41:43.631Z",
+            "source": {
+                "id": 7,
+                "public_name": "Indeed"
+            },
+            "credited_to": {
+                "id": 92121,
+                "first_name": "Jane",
+                "last_name": "Smith",
+                "name": "Jane Smith",
+                "employee_id": "456"
+            },
+            "rejection_reason": null,
+            "rejection_details": null,
+            "jobs": [
+                {
+                    "id": 213967,
+                    "name": "Product Manager"
+                }
+            ],
+            "status": "active",
+            "current_stage": {
+                "id": 1567309,
+                "name": "Application Review"
+            },
+            "answers": [],
+            "prospect_detail": {
+                "prospect_pool": null,
+                "prospect_stage": null,
+                "prospect_owner": null
+            }
+        }
+    ],
+    "educations": [
+        {
+            "id": 561227,
+            "school_name": "University of Michigan - Ann Arbor",
+            "degree": "Bachelor's Degree",
+            "discipline": "Computer Science"
+        }
+    ],
+    "employments": [],
+      "custom_fields": {
+        "desired_salary": "120K",
+        "work_remotely": true,
+        "graduation_year": "2018"
     },
-    {
-      "filename": "cover_letter.pdf",
-      "url": "https://prod-heroku.s3.amazonaws.com/...",
-      "type": "cover_letter"
-    },
-    {
-      "filename": "portfolio.pdf",
-      "url": "https://prod-heroku.s3.amazonaws.com/...",
-      "type": "attachment"
+    "keyed_custom_fields": {
+        "desired_salary": {
+            "name": "Desired Salary",
+            "type": "short_text",
+            "value": "120K"
+        },
+        "work_remotely": {
+            "name": "Work Remotely",
+            "type": "boolean",
+            "value": true
+        },
+        "graduation_year_1": {
+            "name": "Graduation Year",
+            "type": "single_select",
+            "value": "2018"
+        }
     }
-  ],
-  "application_ids": [
-    456
-  ],
-  "phone_numbers": [
-    {
-      "value": "555-1212",
-      "type": "mobile"
-    }
-  ],
-  "addresses": [
-    {
-      "value": "123 Fake St.",
-      "type": "home"
-    }
-  ],
-  "email_addresses": [
-    {
-      "value": "john.locke+work@example.com",
-      "type": "work"
-    },
-    {
-      "value": "john.locke@example.com",
-      "type": "personal"
-    }
-  ],
-  "website_addresses": [
-    {
-      "value": "johnlocke.example.com",
-      "type": "personal"
-    }
-  ],
-  "social_media_addresses": [
-    {
-      "value": "linkedin.example.com/john.locke"
-    },
-    {
-      "value": "@johnlocke"
-    }
-  ],
-  "recruiter": {
-    "id": 712,
-    "name": "Charlie Pace"
-  },
-  "coordinator": {
-    "id": 16,
-    "name": "Hugo Reyes"
-  },
-  "tags": [
-    "Walkabout",
-    "Orientation"
-  ],
-  "custom_fields": {
-    "current_salary": "$23k",
-    "desired_salary": "$42k"
-  },
-  "keyed_custom_fields": {
-    "current_salary": {
-      "name": "Current salary",
-      "type": "short_text",
-      "value": "$23k"
-    },
-    "desired_salary": {
-      "name": "Desired salary",
-      "type": "short_text",
-      "value": "$42k"
-    }
-  }
 }
 ```
 
