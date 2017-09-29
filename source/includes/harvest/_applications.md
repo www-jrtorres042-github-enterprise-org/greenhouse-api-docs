@@ -51,6 +51,11 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
       "answer": "From a former colleague."
     }
   ],
+  "prospect_detail": {
+      "prospect_pool": null,
+      "prospect_stage": null,
+      "prospect_owner": null
+  },
   "custom_fields": {
     "bio": "This is a bio",
     "birthday": "1992-01-27"
@@ -95,36 +100,113 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
 ```json
 [
   {
-    "id": 4341,
-    "candidate_id": 23123,
-    "prospect": true,
-    "applied_at": "2014-03-26T18:03:45.000Z",
+    "id": 69306314,
+    "candidate_id": 57683957,
+    "prospect": false,
+    "applied_at": "2017-09-29T12:56:05.244Z",
     "rejected_at": null,
-    "last_activity_at": "2014-03-27T16:12:02.000Z",
+    "last_activity_at": "2017-09-29T13:00:28.038Z",
     "source": {
-      "id": 13,
-      "public_name": "Linkedin (Prospecting)"
+        "id": 2,
+        "public_name": "Jobs page on your website"
     },
-    "credited_to": {
+     "credited_to": {
       "id": 4080,
       "name": "Kate Austen"
     },
     "rejection_reason": null,
     "rejection_details": null,
     "jobs": [
-      {
-        "id": 203037,
-        "name": "Full Stack Engineer - New York "
-      },
-      {
-        "id": 201428,
-        "name": "Full Stack Engineer - Austin"
-      }
+        {
+            "id": 107761,
+            "name": "UX Designer - Boston"
+        }
+    ],
+    "status": "active",
+    "current_stage": {
+        "id": 767358,
+        "name": "Application Review"
+    },
+    "answers": [
+        {
+            "question": "How did you hear about this job?",
+            "answer": "Online Research"
+        },
+        {
+            "question": "Website",
+            "answer": "mytestwebsite.com"
+        }
+    ],
+    "prospect_detail": {
+        "prospect_pool": null,
+        "prospect_stage": null,
+        "prospect_owner": null
+    },
+    "custom_fields": {
+        "application_custom_test": "Option 1"
+    },
+    "keyed_custom_fields": {
+        "application_custom_test": {
+            "name": "Application Custom Test",
+            "type": "single_select",
+            "value": "Option 1"
+        }
+    }
+},
+{
+    "id": 69306509,
+    "candidate_id": 57683957,
+    "prospect": true,
+    "applied_at": "2017-09-29T13:00:04.058Z",
+    "rejected_at": null,
+    "last_activity_at": "2017-09-29T13:08:19.111Z",
+    "source": {
+        "id": 100674,
+        "public_name": "Campus Job Fair"
+    },
+    "credited_to": {
+        "id": 566819,
+        "first_name": "Bob",
+        "last_name": "Smith",
+        "name": "Bob Smith",
+        "employee_id": "ABC12345"
+    },
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [
+        {
+            "id": 224587,
+            "name": "Product Manager "
+        },
+        {
+            "id": 109322,
+            "name": "Web Developer "
+        }
     ],
     "status": "active",
     "current_stage": null,
-    "answers": []
-  }
+    "answers": [],
+    "prospect_detail": {
+        "prospect_pool": {
+            "id": 227,
+            "name": "Opted In: In-Person Event"
+        },
+        "prospect_stage": {
+            "id": 826,
+            "name": "In Discussion"
+        },
+        "prospect_owner": {
+            "id": 92120,
+            "name": "Greenhouse Admin"
+        }
+    },
+    "custom_fields": {
+        "application_custom_test": null
+    },
+    "keyed_custom_fields": {
+        "application_custom_test": null
+    }
+  }  
 ]
 ```
 List all of an organization's applications.
@@ -190,8 +272,30 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
       "question": "Website",
       "answer": "mywebsite.com"
     }
-  ]
+  ],
+  "prospect_detail": {
+      "prospect_pool": null,
+      "prospect_stage": null,
+      "prospect_owner": null
+  },
+  "custom_fields": {
+      "application_custom_test": "Option 1",
+      "custom_boolean_test": true
+  },
+  "keyed_custom_fields": {
+      "application_custom_test": {
+          "name": "Application Custom Test",
+          "type": "single_select",
+          "value": "Option 1"
+      },
+      "custom_boolean_test": {
+          "name": "Custom Boolean Test",
+          "type": "boolean",
+          "value": true
+      }
+   }
 }
+
 ```
 
 Retrieve an application by its `id`.
@@ -265,60 +369,61 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
 
 ```json
 {
-  "id": 47669412,
-  "candidate_id": 38445573,
-  "prospect": false,
-  "applied_at": "2017-01-25T22:46:08.601Z",
-  "rejected_at": null,
-  "last_activity_at": "2017-01-25T22:46:11.284Z",
-  "source": {
-    "id": 33,
-    "public_name": "Glassdoor"
-  },
-   "credited_to": {
-    "id": 4080,
-    "name": "Kate Austen",
-    "employee_id": null
-  },
-  "rejection_reason": null,
-  "rejection_details": null,
-  "jobs": [
-    {
-      "id": 211706,
-      "name": "Community Manager - New York"
-    }
-  ],
-  "status": "active",
-  "current_stage": {
-    "id": 1551138,
-    "name": "Application Review"
-   },
-  "answers": [
-    {
-      "question": "How many years experience do you have?",
-      "answer": "2-4"
+    "id": 69306314,
+    "candidate_id": 57683957,
+    "prospect": false,
+    "applied_at": "2017-09-29T12:56:05.244Z",
+    "rejected_at": null,
+    "last_activity_at": "2017-09-29T13:23:01.191Z",
+    "source": {
+        "id": 16,
+        "public_name": "LinkedIn (Prospecting)"
     },
-    {
-      "question": "Can do you the travel required for this job?",
-      "answer": "Yes"
-    }
-  ],
-  "custom_fields": {
-    "current_title": "Community Manager",
-    "requires_visa_sponsorship?": false
-  },
-  "keyed_custom_fields": {
-    "current_title": {
-      "name": "Current Title",
-      "type": "short_text",
-      "value": "Community Manager"
+    "credited_to": {
+        "id": 4080,
+        "name": "Kate Austen",
+        "employee_id": null
     },
-    "requires_visa_sponsorship_": {
-      "name": "Requires visa sponsorship?",
-      "type": "boolean",
-      "value": false
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [
+        {
+            "id": 107761,
+            "name": "UX Designer - Boston"
+        }
+    ],
+    "status": "active",
+    "current_stage": {
+        "id": 767377,
+        "name": "Take Home Test"
+    },
+    "answers": [
+        {
+            "question": "How did you hear about this job?",
+            "answer": "Online Research"
+        },
+        {
+            "question": "LinkedIn Profile",
+            "answer": "linkedin.com/john.locke"
+        }
+    ],
+    "prospect_detail": {
+        "prospect_pool": null,
+        "prospect_stage": null,
+        "prospect_owner": null
+    },
+    "custom_fields": {
+        "application_custom_test": "Option 1",
+        "custom_boolean_test": null
+    },
+    "keyed_custom_fields": {
+        "application_custom_test": {
+            "name": "Application Custom Test",
+            "type": "single_select",
+            "value": "Option 1"
+        },
+        "custom_boolean_test": null
     }
-  }
 }
 ```
 
@@ -399,6 +504,11 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
       "answer": "Yes"
     }
   ],
+  "prospect_detail": {
+     "prospect_pool": null,
+     "prospect_stage": null,
+     "prospect_owner": null
+  },
   "custom_fields": {
     "current_title": "Community Manager",
     "requires_visa_sponsorship?": false
@@ -494,6 +604,11 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
       "answer": "Yes"
     }
   ],
+  "prospect_detail": {
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
+  },
   "custom_fields": {
     "current_title": "Community Manager",
     "requires_visa_sponsorship?": false
@@ -592,6 +707,11 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
       "answer": "Yes"
     }
   ],
+  "prospect_detail": {
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
+  },
   "custom_fields": {
     "current_title": "Community Manager",
     "requires_visa_sponsorship?": false
@@ -660,34 +780,57 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 
 ```json
 {
-  "id": 46205883,
-  "candidate_id": 36959505,
-  "prospect": true,
-  "applied_at": "2017-01-06T18:57:26.407Z",
-  "rejected_at": "2017-02-01T14:58:08.184Z",
-  "last_activity_at": "2017-02-01T14:58:08.220Z",
-  "source": {
-    "id": 16,
-    "public_name": "LinkedIn (Prospecting)"
-  },
-  "credited_to": {
-    "id": 118636,
-    "name": "Ivan Interviewer",
-    "employee_id": null
-  },
-  "rejection_reason": {
-    "id": 815,
-    "name": "Not qualified",
-    "type": {
-      "id": 1,
-      "name": "We rejected them"
+    "id": 69201605,
+    "candidate_id": 57683957,
+    "prospect": false,
+    "applied_at": "2017-09-28T13:27:54.873Z",
+    "rejected_at": "2017-09-29T12:58:48.924Z",
+    "last_activity_at": "2017-09-29T13:23:01.191Z",
+    "source": {
+        "id": 16,
+        "public_name": "LinkedIn (Prospecting)"
+    },
+    "credited_to": {
+        "id": 566819,
+        "first_name": "Bob",
+        "last_name": "Smith",
+        "name": "Bob Smith",
+        "employee_id": "ABC12345"
+    },
+    "rejection_reason": {
+        "id": 9504,
+        "name": "Hired another candidate",
+        "type": {
+            "id": 1,
+            "name": "We rejected them"
+        }
+    },
+    "rejection_details": {},
+    "jobs": [
+        {
+            "id": 185289,
+            "name": "Product Specialist"
+        }
+    ],
+    "status": "rejected",
+    "current_stage": {
+        "id": 1355395,
+        "name": "Face to Face"
+    },
+    "answers": [],
+    "prospect_detail": {
+        "prospect_pool": null,
+        "prospect_stage": null,
+        "prospect_owner": null
+    },
+    "custom_fields": {
+        "application_custom_test": null,
+        "custom_boolean_test": null
+    },
+    "keyed_custom_fields": {
+        "application_custom_test": null,
+        "custom_boolean_test": null
     }
-  },
-  "rejection_details": {},
-  "jobs": [],
-  "status": "rejected",
-  "current_stage": null,
-  "answers": []
 }
 ```
 
@@ -726,31 +869,50 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'\
 
 ```json
 {
-  "id": 40201833,
-  "candidate_id": 20382646,
-  "prospect": false,
-  "applied_at": "2016-09-30T14:56:20.698Z",
-  "rejected_at": null,
-  "last_activity_at": "2017-02-01T15:57:09.697Z",
-  "source": {
-    "id": 94361,
-    "public_name": "Maildrop"
-  },
-  "credited_to": null,
-  "rejection_reason": null,
-  "rejection_details": null,
-  "jobs": [
-    {
-      "id": 87181,
-      "name": "Product Manager"
+    "id": 69201605,
+    "candidate_id": 57683957,
+    "prospect": false,
+    "applied_at": "2017-09-28T13:27:54.873Z",
+    "rejected_at": null,
+    "last_activity_at": "2017-09-29T13:34:58.354Z",
+    "source": {
+        "id": 16,
+        "public_name": "LinkedIn (Prospecting)"
+    },
+    "credited_to": {
+        "id": 566819,
+        "first_name": "Bob",
+        "last_name": "Smith",
+        "name": "Bob Smith",
+        "employee_id": null
+    },
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [
+        {
+            "id": 185289,
+            "name": "Product Specialist"
+        }
+    ],
+    "status": "active",
+    "current_stage": {
+        "id": 1355398,
+        "name": "Face to Face"
+    },
+    "answers": [],
+    "prospect_detail": {
+        "prospect_pool": null,
+        "prospect_stage": null,
+        "prospect_owner": null
+    },
+    "custom_fields": {
+        "application_custom_test": null,
+        "custom_boolean_test": null
+    },
+    "keyed_custom_fields": {
+        "application_custom_test": null,
+        "custom_boolean_test": null
     }
-  ],
-  "status": "active",
-  "current_stage": {
-    "id": 617495,
-    "name": "Preliminary Phone Screen"
-  },
-  "answers": []
 }
 ```
 
