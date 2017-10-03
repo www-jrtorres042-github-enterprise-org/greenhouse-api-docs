@@ -11,7 +11,8 @@ This endpoint is used to managing openings on jobs.
     "status": "open",
     "opened_at": "2015-11-19T19:53:32.565Z",
     "closed_at": null,
-    "application_id": null
+    "application_id": null,
+    "close_reason": null
 },
 {
     "id": 123,
@@ -19,7 +20,11 @@ This endpoint is used to managing openings on jobs.
     "status": "closed",
     "opened_at": "2015-11-19T19:53:32.565Z",
     "closed_at": "2015-12-14T19:53:32.565Z",
-    "application_id": 65565
+    "application_id": 65565,
+    "close_reason": {
+      "id": 678,
+      "name": "Hired - Backfill"
+    }
 }
 ```
 
@@ -49,7 +54,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings' -H "Authorization
     "status": "open",
     "opened_at": "2015-11-19T19:53:32.565Z",
     "closed_at": null,
-    "application_id": null
+    "application_id": null,
+    "close_reason": null
   },
   {
     "id": 123,
@@ -57,7 +63,11 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings' -H "Authorization
     "status": "closed",
     "opened_at": "2015-11-19T19:53:32.565Z",
     "closed_at": "2015-12-14T19:53:32.565Z",
-    "application_id": 65565
+    "application_id": 65565,
+    "close_reason": {
+      "id": 678,
+      "name": "Hired - Backfill"
+    }
   }
 ]
 ```
@@ -99,7 +109,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings/{id}' -H "Authoriz
     "status": "open",
     "opened_at": "2015-11-19T19:53:32.565Z",
     "closed_at": null,
-    "application_id": null
+    "application_id": null,
+    "close_reason": null
 }
 ```
 
