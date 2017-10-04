@@ -141,8 +141,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings'
 ```json
 {
     "openings": [
-	{"opening_id": "abc-123"},
-	{"opening_id": null}
+      {"opening_id": "abc-123"},
+      {"opening_id": null}
     ]
 }
 ```
@@ -167,6 +167,7 @@ openings.opening_id | yes | Array | This is a string that contains an opening_id
 **Note**: Adding new openings may re-trigger approvals. For approvals to start recruiting, this will reset approvals only if the job is in draft mode. If the job is open for hiring, these approvals will not reset. For official job approvals, this will reset approvals only if the job is open.
 
 > The above returns a JSON response, structured like this:
+
 ```
 {
     "id": 123456,
