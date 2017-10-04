@@ -163,7 +163,7 @@ An organization's jobs.
 | openings[].opened_at | Timestamp when the opening was created. |
 | openings[].closed_at | Timestamp when the opening was closed. An opening is closed when it is filled or removed.
 | openings[].application_id | If the opening is closed and a candidate was hired to fill the opening, this is the ID of the candidate's application. Otherwise, null.
-| openings[].close_reason | If the opening is closed, it may or may not have a reason for the closure. That is recorded here. This may be blank.
+| openings[].close_reason | If the opening is closed, it may or may not have a reason for the closure. This contains the id and name of the close reason.
 
 
 ## GET: List Jobs
