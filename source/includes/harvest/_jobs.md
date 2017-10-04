@@ -108,8 +108,12 @@ An organization's jobs.
       "opening_id": "3-1",
       "status": "open",
       "opened_at": "2015-11-20T23:14:14.736Z",
-      "closed_at": null,
-      "application_id": null
+      "closed_at": "2017-11-20T23:14:14.736Z",
+      "application_id": 45678,
+      "close_reason": {
+        "id": 678,
+        "name": "Hired - Backfill"
+      }
     },
     {
       "id": 124,
@@ -117,7 +121,8 @@ An organization's jobs.
       "status": "open",
       "opened_at": "2015-11-20T23:14:14.739Z",
       "closed_at": null,
-      "application_id": null
+      "application_id": null,
+      "close_reason": null
     },
     {
       "id": 125,
@@ -158,6 +163,7 @@ An organization's jobs.
 | openings[].opened_at | Timestamp when the opening was created. |
 | openings[].closed_at | Timestamp when the opening was closed. An opening is closed when it is filled or removed.
 | openings[].application_id | If the opening is closed and a candidate was hired to fill the opening, this is the ID of the candidate's application. Otherwise, null.
+| openings[].close_reason | If the opening is closed, it may or may not have a reason for the closure. This contains the id and name of the close reason.
 
 
 ## GET: List Jobs
@@ -257,7 +263,11 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
         "status": "closed",
         "opened_at": "2015-11-19T19:53:32.564Z",
         "closed_at": "2016-01-26T23:59:07.592Z",
-        "application_id": 24709881
+        "application_id": 24709881,
+        "close_reason": {
+          "id": 678,
+          "name": "Hire - Backfill"
+        }
       },
       {
         "id": 124,
@@ -265,7 +275,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
         "status": "open",
         "opened_at": "2015-11-19T19:53:32.565Z",
         "closed_at": null,
-        "application_id": null
+        "application_id": null,
+        "close_reason": null
       }
     ]
   }
@@ -390,7 +401,11 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
       "status": "closed",
       "opened_at": "2015-11-19T19:53:32.564Z",
       "closed_at": "2016-01-26T23:59:07.592Z",
-      "application_id": 24709881
+      "application_id": 24709881,
+      "close_reason": {
+        "id": 678,
+        "name": "Hire - Backfill"
+       }
     },
     {
       "id": 124,
@@ -398,7 +413,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
       "status": "open",
       "opened_at": "2015-11-19T19:53:32.565Z",
       "closed_at": null,
-      "application_id": null
+      "application_id": null,
+      "close_reason": null
     }
   ]
 }
@@ -575,7 +591,11 @@ delete_value  | n/a | When this element is included with a value of "true" (note
       "status": "closed",
       "opened_at": "2015-09-10T19:01:46.077Z",
       "closed_at": "2015-09-21T21:28:17.628Z",
-      "application_id": 18682391
+      "application_id": 18682391,
+      "close_reason": {
+        "id": 678,
+        "name": "Hire - Backfill"
+      }
     },
     {
       "id": 124,
@@ -583,7 +603,11 @@ delete_value  | n/a | When this element is included with a value of "true" (note
       "status": "closed",
       "opened_at": "2015-09-21T21:28:17.679Z",
       "closed_at": "2016-03-09T20:07:35.649Z",
-      "application_id": 18492607
+      "application_id": 18492607,
+      "close_reason": {
+        "id": 679,
+        "name": "Hired"
+      }
     },
     {
       "id": 125,
@@ -591,7 +615,8 @@ delete_value  | n/a | When this element is included with a value of "true" (note
       "status": "open",
       "opened_at": "2016-03-09T20:07:35.675Z",
       "closed_at": null,
-      "application_id": null
+      "application_id": null,
+      "close_reason": null
     }
   ]
 }
@@ -748,7 +773,8 @@ opening_ids | No | Array[Strings] | An array of opening ids for the new job. If 
       "status": "open",
       "opened_at": "2015-09-10T19:01:46.077Z",
       "closed_at": null,
-      "application_id": null
+      "application_id": null,
+      "close_reason": null
     },
     {
       "id": 124,
@@ -756,7 +782,8 @@ opening_ids | No | Array[Strings] | An array of opening ids for the new job. If 
       "status": "open",
       "opened_at": "2015-09-10T19:01:46.077Z",
       "closed_at": null,
-      "application_id": null
+      "application_id": null,
+      "close_reason": null
     }
   ]
 }
