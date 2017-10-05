@@ -417,6 +417,7 @@ List all of an organization's candidates.
 | updated_before | Return only candidates that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only candidates that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | job_id | If supplied, only return candidates that have applied to this job. Will return both when a candidate has applied to a job and when they're a prospect for a job.
+| email | If supplied, only return candidates who have a matching e-mail address. If supplied with job_id, only return a candidate with a matching e-mail with an application on the job.
 
 <br>
 
