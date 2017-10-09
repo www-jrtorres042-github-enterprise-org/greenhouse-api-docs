@@ -82,6 +82,7 @@ List all of an organization's Greenhouse users.
 | created_after | Return only users that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only users that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only users that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| email | Return only the user who has this e-mail address as their primary e-mail or a secondary e-mail.
 
 <br>
 [See noteworthy response attributes.] (#the-user-object)
