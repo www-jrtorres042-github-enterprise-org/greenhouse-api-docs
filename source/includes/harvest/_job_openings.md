@@ -180,3 +180,37 @@ openings.opening_id | yes | Array | This is a string that contains an opening_id
     "open_date": "2017-10-02T19:53:32.565Z"
 }
 ```
+
+## DELETE: Destroy Openings
+
+``` shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+    "ids": [123, 456, 789]
+}
+```
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/jobs/{job_id}/openings`
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+ids | yes | Array | An array of opening ids to delete. Important to note that these are not `opening_id` from the other endpoints, but the unique `id` identifier.
+
+**Note**: Closed/Filled openings can't be destroyed. This request is idempotent and will return the number of items destroyed, the number of closed items that couldn't be destroyed, and the number of IDs that could not be found. If you were to run the same request twice, the destroyed ID count would decrease and the invalid ID count would increase.
+
+> The above returns a JSON response, structured like this
+
+```
+{
+    "success": "2 opening(s) destroyed. 1 opening(s) were closed and not destroyed. 0 id(s) were not found."
+}
+```
