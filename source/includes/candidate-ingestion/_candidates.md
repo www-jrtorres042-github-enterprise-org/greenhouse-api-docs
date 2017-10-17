@@ -42,7 +42,7 @@ Retrieve a candidate's data. Note that this call will only return candidates tha
 
 ### Request Parameters
 
-The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs.
+The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs. If you provide any candidate id's that don't exist or to which you do not have access, this endpoint will ignore them and only return the candidates that exist to this API key.
 
 Query Parameter Name | Required | Description
 -------------- | -------------- | --------------  | -------------- 
