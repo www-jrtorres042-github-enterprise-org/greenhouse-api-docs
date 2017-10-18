@@ -37,6 +37,7 @@ An organization's custom_fields.
 |-----------|-------------|
 | id | The custom field's unique identifier |
 | name | The field's name in Greenhouse |
+| active | Boolean value which is false if the custom field has been deleted, true otherwise. |
 | field_type | One of job, candidate, application, offer, rejection_question, referral_question. This is also included in the URL as an argument, which will return only custom fields that match the given type.
 | priority | Numeric field used for ordering in Greenhouse.
 | value_type | One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
@@ -62,6 +63,7 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
   {
     "id": 123456,
     "name": "Custom Field Name",
+    "active": true,
     "field_type": "job",
     "priority": 1,
     "value_type": "single_select",
@@ -90,11 +92,17 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
 
 `GET https://harvest.greenhouse.io/v1/custom_fields/{field_type}`
 
+### URL parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| field_type | Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type.  One of: `offer`, `candidate`, `application`, `job`, `rejection_question`, `referral_question`.
+
 ### Querystring parameters
 
 | Parameter | Description |
 |-----------|-------------|
-| field_type | Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type. 
+| include_inactive | When `true`, include inactive custom fields. Otherwise exclude inactive custom fields.  Defaults to `false`.
 
 <br>
 [See noteworthy response attributes.](#the-custom-field-object)
@@ -114,6 +122,7 @@ curl 'https://harvest.greenhouse.io/v1/custom_field/{id}'
 {
   "id": 123456,
   "name": "Custom Field Name",
+  "active": true,
   "field_type": "job",
   "priority": 1,
   "value_type": "single_select",
@@ -158,7 +167,7 @@ Refers to the options available for single-select and multi-select custom fields
 {
   "id": 123456,
   "name": "Option A",
-  "prioirty": 0
+  "priority": 0
 }
 ```
 
@@ -183,17 +192,17 @@ curl 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
   {
     "id": 123456,
     "name": "Option A",
-    "prioirty": 0
+    "priority": 0
   },
   {
     "id": 123457,
     "name": "Option B",
-    "prioirty": 1
+    "priority": 1
   },
   {
     "id": 123458,
     "name": "Option C",
-    "prioirty": 2
+    "priority": 2
   }
 ]
 ```
