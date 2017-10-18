@@ -173,9 +173,9 @@ referrer.email | String | Mixed | Used to match this referrer with an existing G
 referrer.first_name | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
 referrer.last_name  | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
 notes | String | No | Free-form plain-text notes about this candidate. One way for this to be used is to send secondary information that our API can’t capture as structured data. For example: "Skills: Java, C++, Python"
-prospect_pool_id | Integer | Mixed | Used to put a prospect in the Prospect Pool with this id. Only required if prospect_pool_stage_id is included. prospect property must be set to true.
-prospect_pool_stage_id | Integer | No | Used to put a prospect in the Prospect Pool Stage with this id. The stage must belong to the prospect pool provided in prospect_pool_id. prospect property must be set to true.
-prospect_owner_email | String | No | Used to set the prospect owner for a prospect by providing a valid user's email that exists in Greenhouse. prospect property must be set to true.
+prospect_pool_id | Integer | Mixed | Used to put a prospect in the Prospect Pool with this id. Only required if prospect_pool_stage_id is included. "prospect" property must be set to true.
+prospect_pool_stage_id | Integer | No | Used to put a prospect in the Prospect Pool Stage with this id. The stage must belong to the prospect pool provided in prospect_pool_id. The list of stages  will be ordered the same way that it is configured to be ordered in Greenhouse. "prospect" property must be set to true.
+prospect_owner_email | String | No | Used to set the prospect owner for a prospect by providing a valid user's email that exists in Greenhouse. "prospect" property must be set to true.
 
 
 ### Response Parameters
