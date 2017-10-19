@@ -81,4 +81,4 @@ Property Name | Type | Required | Description
 -------------- | -------------- | -------------- | --------------
 id | Integer | Yes | The ID of the prospect pool.
 name | String | Yes | The name of the prospect pool.
-stages | Object | Yes | The stages that belong to a prospect pool with the id and name of the stage.
+stages | Object | Yes | The stages that belong to a prospect pool with the id and name of the stage. The list of stages will be ordered the same way that it is configured to be ordered in Greenhouse.
