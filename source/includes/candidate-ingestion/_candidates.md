@@ -19,14 +19,14 @@ curl 'https://api.greenhouse.io/v1/partner/candidates'
 ```json
 {
 	"id": 17681532,
-	"name": "Harry Potter", 
-	"external_id": 24680, 
+	"name": "Harry Potter",
+	"external_id": 24680,
 	"applications": [
 		{
 			"id": 59724,
-			"job": "Auror", 
-			"status": "Active", 
-			"stage": "Application Review", 
+			"job": "Auror",
+			"status": "Active",
+			"stage": "Application Review",
 			"profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
 		}
 	]
@@ -45,7 +45,7 @@ Retrieve a candidate's data. Note that this call will only return candidates tha
 The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs.
 
 Query Parameter Name | Required | Description
--------------- | -------------- | --------------  | -------------- 
+-------------- | -------------- | --------------  | --------------
 candidate_ids | Yes | Comma-delimited list of Candidate IDs (e.g. 123, 456)
 
 
@@ -54,7 +54,7 @@ candidate_ids | Yes | Comma-delimited list of Candidate IDs (e.g. 123, 456)
 The response will always be an array of objects, even if only one `candidate_id` is provided.
 
 Property Name  | Type | Required | Description
--------------- | -------------- | --------------  | -------------- 
+-------------- | -------------- | --------------  | --------------
 id | Integer | Yes | The ID of the candidate
 external_id | String | No | The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.
 applications[]| Array | Yes | An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.
@@ -76,43 +76,46 @@ curl -X POST 'https://api.greenhouse.io/v1/partner/candidates'
 ```json
 {
 	"prospect": "true",
-	"first_name": "Harry", 
-	"last_name": "Potter", 
-	"company": "Hogwarts", 
-	"title": "Student", 
-	"resume": "https://hogwarts.com/resume", 
+	"first_name": "Harry",
+	"last_name": "Potter",
+	"company": "Hogwarts",
+	"title": "Student",
+	"resume": "https://hogwarts.com/resume",
 	"phone_numbers": [
 		{
-			"phone_number": "123-456-7890", 
+			"phone_number": "123-456-7890",
 			"type": "home"
-		} 
+		}
 	],
-	"emails": [ 
+	"emails": [
 		{
 			"email": "hpotter@hogwarts.edu",
-			"type": "other" 
+			"type": "other"
 		}
-	], 
+	],
 	"social_media": [
 		{
 			"url": "https://twitter.com/hp"
 		}
 	],
-	"websites": [ 
+	"websites": [
 		{
 			"url": "https://harrypotter.com",
 			"type": "blog"
 		}
-	], 
+	],
 	"addresses": [
 		{
-			"address": "4 Privet Dr", 
+			"address": "4 Privet Dr",
 			"type": "home"
-		} 
+		}
 	],
-	"job_id": 12345, 
-	"external_id": 24680, 
-	"notes": "Good at Quiddich"
+	"job_id": 12345,
+	"external_id": 24680,
+	"notes": "Good at Quiddich",
+	"prospect_pool_id": 123,
+	"prospect_pool_stage_id": 456,
+	"prospect_owner_email": "prospect_owners_email@example.com",
 }
 ```
 
@@ -121,11 +124,11 @@ curl -X POST 'https://api.greenhouse.io/v1/partner/candidates'
 
 ```json
 {
-"id": 12345, 
-"application_id": 17681532, 
-"external_id": 24680, 
+"id": 12345,
+"application_id": 17681532,
+"external_id": 24680,
 "profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
-} 
+}
 ```
 
 
@@ -142,7 +145,7 @@ Create one or more candidates or prospects
 
 
 Property Name  | Type | Required | Description
--------------- | -------------- | --------------  | -------------- 
+-------------- | -------------- | --------------  | --------------
 prospect | Boolean | No | True if this candidate should be a prospect. The organization must be able to create prospects to set this field. (Default: true)
 job_id | Integer | Mixed | Required only if prospect is false. The ID of the job to which this candidate or prospect should be added.
 first_name | String | Yes
@@ -150,13 +153,13 @@ last_name | String | Yes
 external_id | String | Yes | The unique id of this candidate in your application’s system.
 company | String | No | Candidate's current company
 title | String | No | Candidate's current title
-resume | String | No | URL to the candidate’s resume. Greenhouse will attempt to ingest the docuent at this URL and add it to the candidate record.
+resume | String | No | URL to the candidate’s resume. Greenhouse will attempt to ingest the document at this URL and add it to the candidate record.
 phone_numbers[] | Array | No
 phone_numbers.phone_number | String | Mixed | Only required if phone_number is included.
 phone_numbers.type | String | Mixed | Must be "mobile", "home", "work", or "other." Only required if phone_number is included.
 emails[] | Array | No
 emails.email | String | Mixed | Note: Only required if email is included.
-emails.type | String | Mixed | Must be "personal", "work", or "other". Only required if email is included. 
+emails.type | String | Mixed | Must be "personal", "work", or "other". Only required if email is included.
 addresses[] | Array | No
 addresses.address | String | Mixed | A free form block of text, which may include newlines ("\n"). Only required if addresses are included.
 addresses.type | String | Mixed | Must be "home", "work", or "other". Only required if addresses are included.
@@ -170,6 +173,9 @@ referrer.email | String | Mixed | Used to match this referrer with an existing G
 referrer.first_name | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
 referrer.last_name  | String | Mixed | Used to create a new ‘Referrer’ in Greenhouse if referrer.email does not match an existing user. Only required if referrer is included.
 notes | String | No | Free-form plain-text notes about this candidate. One way for this to be used is to send secondary information that our API can’t capture as structured data. For example: "Skills: Java, C++, Python"
+prospect_pool_id | Integer | Mixed | Used to put a prospect in the Prospect Pool with this id. Only required if prospect_pool_stage_id is included. "prospect" property must be set to true.
+prospect_pool_stage_id | Integer | No | Used to put a prospect in the Prospect Pool Stage with this id. The stage must belong to the prospect pool provided in prospect_pool_id. The list of stages  will be ordered the same way that it is configured to be ordered in Greenhouse. "prospect" property must be set to true.
+prospect_owner_email | String | No | Used to set the prospect owner for a prospect by providing a valid user's email that exists in Greenhouse. "prospect" property must be set to true.
 
 
 ### Response Parameters
@@ -177,10 +183,8 @@ notes | String | No | Free-form plain-text notes about this candidate. One way f
  The API will respond with a single object if a single object was provided or an array of objects if an array was provided.
 
 Property Name  | Type | Required | Description
--------------- | -------------- | --------------  | -------------- 
+-------------- | -------------- | --------------  | --------------
 id | Integer | Yes | The ID of the newly created candidate in Greenhouse.
 application_id | Integer | Yes | The ID of the application implicitly created in Greenhouse.
 external_id | String | Yes | The external ID that was provided in your request.
 profile_url | String | Yes | A URL to the candidate’s profile within Greenhouse. The user must be signed into Greenhouse to view the profile.
-
-
