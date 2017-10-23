@@ -37,18 +37,18 @@
       "hiring_team": {
         "hiring_managers": [
           {
-            "user_id": 1234, 
+            "user_id": 1234,
             "employee_id": "abc-123"
           }
         ],
         "sourcers": [],
         "recruiters": [
           {
-            "user_id": 2345, 
+            "user_id": 2345,
             "employee_id": null
           },
           {
-            "user_id": 3456, 
+            "user_id": 3456,
             "employee_id": "abc-234"
           }
         ],
@@ -141,18 +141,18 @@ This web hook only fires when jobs are deleted from the Greenhouse system. This 
       "hiring_team": {
         "hiring_managers": [
           {
-            "user_id": 1234, 
+            "user_id": 1234,
             "employee_id": "abc-123"
           }
         ],
         "sourcers": [],
         "recruiters": [
           {
-            "user_id": 2345, 
+            "user_id": 2345,
             "employee_id": null
           },
           {
-            "user_id": 3456, 
+            "user_id": 3456,
             "employee_id": "abc-234"
           }
         ],
@@ -191,6 +191,96 @@ The Job Updated event is triggered any time one or more of the following fields 
 | Attribute | Note |
 |-----------|------|
 | `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
+
+## Job Post created
+
+This web hook fires when a job post is created. This occurs when a new job post is added from the job set up.
+
+```json
+{
+  "action": "job_post_created",
+  "payload": {
+    "id": 1815002,
+    "title": "A Cool Job",
+    "location": "New York, NY",
+    "content": "<p>Hey, this is a neat job. You should apply!</p>",
+    "internal_content": null,
+    "updated_at": "2017-10-12T15:06:32.691Z",
+    "job_id": 1842002,
+    "external": true,
+    "internal": false,
+    "live": false,
+    "questions": [
+      {
+        "required": false,
+        "private": false,
+        "label": "LinkedIn Profile",
+        "type": "input_text",
+        "values": []
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Website",
+        "type": "input_text",
+        "values": []
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "How did you hear about this job?",
+        "type": "input_text",
+        "values": []
+      }
+    ]
+  }
+}
+```
+
+## Job Post updated
+
+This web hook fires when a job post is updated via the "Edit Job Post" page. It also fires when the live status of the job changes from on to off or vice-versa.
+
+```json
+{
+  "action": "job_post_updated",
+  "payload": {
+    "id": 1813002,
+    "title": "A Cool Job",
+    "location": "At a Cool Place",
+    "content": "<p>Come work for us!</p>",
+    "internal_content": null,
+    "updated_at": "2017-10-12T18:29:08.399Z",
+    "job_id": 1842002,
+    "external": true,
+    "internal": false,
+    "live": false,
+    "questions": [
+      {
+        "required": false,
+        "private": false,
+        "label": "LinkedIn Profile",
+        "type": "input_text",
+        "values": []
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Website",
+        "type": "input_text",
+        "values": []
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "How did you hear about this job?",
+        "type": "input_text",
+        "values": []
+      }
+    ]
+  }
+}
+```
 
 ## Job Post deleted
 
