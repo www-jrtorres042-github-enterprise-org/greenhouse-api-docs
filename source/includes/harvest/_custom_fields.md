@@ -43,7 +43,7 @@ An organization's custom_fields.
 | value_type | One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
 | private | Boolean value to say if this field is private in Greenhouse.
 | required | The object this field exists on can not be saved if this value is not set.
-| require_approval | Only applicable to job custom fields, changes to this fields requires an approval flow in Greenhouse to be re-done. 
+| require_approval | Only applicable to job custom fields, changes to this fields requires an approval flow in Greenhouse to be re-done.
 | trigger_new_version | Only applicable to offer custom fields, changes to this field creates a new offer version.
 | name_key | Listed as "immutable field key" in Greenhouse, this value is based of the name of the field when it is created and does not change as the field's name is later updated.
 | custom_field_options | For single_select and multi_select field_types, this is the list of options for that select.
@@ -102,7 +102,7 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
 
 | Parameter | Description |
 |-----------|-------------|
-| include_inactive | When `true`, include inactive custom fields. Otherwise exclude inactive custom fields.  Defaults to `false`.
+| include_inactive | When `true`, include inactive custom fields. Otherwise excludes inactive custom fields.  Defaults to `false`.
 
 <br>
 [See noteworthy response attributes.](#the-custom-field-object)

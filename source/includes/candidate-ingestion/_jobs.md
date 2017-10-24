@@ -1,6 +1,6 @@
 # Jobs
 
-## Retreive Jobs
+## Retrieve Jobs
 
 ```shell
 curl 'https://api.greenhouse.io/v1/partner/jobs'

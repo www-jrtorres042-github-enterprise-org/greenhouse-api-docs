@@ -1,6 +1,6 @@
 # Prospect Pools
 
-## Retreive Prospect Pools
+## Retrieve Prospect Pools
 
 ```shell
 curl 'https://api.greenhouse.io/v1/partner/prospect_pools'

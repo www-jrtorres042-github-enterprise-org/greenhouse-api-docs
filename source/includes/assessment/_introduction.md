@@ -4,7 +4,7 @@ Greenhouse integrates with many candidate testing platforms, including code test
 
 ### Working with Greenhouse to implement the integration
 
-To begin the integration process, please send the following information to us at partners@greenhouse.io: 
+To begin the integration process, please send the following information to us at partners@greenhouse.io:
 
 1. URL for your `list_tests` API call
 2. URL for your `send_test` API call
@@ -20,19 +20,19 @@ The Assessment Partner will provide an org-level API key to the customer. The or
 
 ### Selecting the Test
 
-Once Greenhouse enters the API key for the organization, a new partner interview stage will be available for use. The user can add this stage to the Hiring Plan of any job that has access to the new Assessment Partner stage. Greenhouse will then make an API call to the [List Tests endpoint] (#list-tests) to determine what tests the organization has configured. 
+Once Greenhouse enters the API key for the organization, a new partner interview stage will be available for use. The user can add this stage to the Hiring Plan of any job that has access to the new Assessment Partner stage. Greenhouse will then make an API call to the [List Tests endpoint] (#list-tests) to determine what tests the organization has configured.
 
 <img src="/images/add-stage.png" alt="Add Stage Image">
 
 ### Sending the Test
 
-When a candidate reaches this Interview Stage, the user will click the "Send Test" button to send the test to the candidate via the [Send Test endpoint] (#send-test). Greenhouse will send the Test ID and candidate email to the Assessment Partner, who will email the test to the candidate. The Assessment Partner will then send Greenhouse the ID for this unique test instance. 
+When a candidate reaches this Interview Stage, the user will click the "Send Test" button to send the test to the candidate via the [Send Test endpoint] (#send-test). Greenhouse will send the Test ID and candidate email to the Assessment Partner, who will email the test to the candidate. The Assessment Partner will then send Greenhouse the ID for this unique test instance.
 
 <img src="/images/send-test.png" alt="Add Stage Image">
 
 ### Receiving the Test Results
 
-Greenhouse will periodically poll the [Test Status endpoint] (#test-status) to retreive the candidate's test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate’s score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.
+Greenhouse will periodically poll the [Test Status endpoint] (#test-status) to retrieve the candidate's test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate’s score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.
 
 
 ## Authentication
@@ -50,11 +50,11 @@ Upon receiving a request, the Assessment Partner should inspect the API key to d
 
 * *Assessment Partner A* provided *Customer 1* with an API key.
 * *Customer 1* provided this key to Greenhouse.
-* *Assessment Partner A* provided the following URL for its `list_tests` endpoint: 
+* *Assessment Partner A* provided the following URL for its `list_tests` endpoint:
 
 	*https://www.testing-partner-a.com/api/list_tests*
 
-*  Greenhouse would make the following request to retreive the list of available tests: 
+*  Greenhouse would make the following request to retrieve the list of available tests:
 
 	*GET https://www.testing-partner-a.com/api/list_tests*
 	*Authorization: Basic < base-64-encoded-credentials >*

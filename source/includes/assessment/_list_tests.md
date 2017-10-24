@@ -1,6 +1,6 @@
 # List Tests
 
-Greenhouse will first need to retreive the list of tests from the Assessment Partner using the `list_tests` API endpoint. We will show the list of available tests to the user, who will to select the appropriate test for a given candidate. 
+Greenhouse will first need to retrieve the list of tests from the Assessment Partner using the `list_tests` API endpoint. We will show the list of available tests to the user, who will to select the appropriate test for a given candidate. 
 
 `GET https://www.testing-partner.com/api/list_tests`
 
