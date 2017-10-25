@@ -214,3 +214,48 @@ ids | yes | Array | An array of opening ids to delete. Important to note that th
     "success": "2 opening(s) destroyed. 1 opening(s) were closed and not destroyed. 0 id(s) were not found."
 }
 ```
+
+## PATCH: Edit Openings
+
+``` shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings/{d}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+    "opening_id": "abc-123",
+    "status": "closed",
+    "close_reason_id": 1234
+}
+```
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/jobs/{job_id}/openings/{id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+job_id | The ID of the job on which to add new openings.
+id | The ID of the opening. Note this is the immutable internal id, and not the free-text "opening_id" from the JSON body.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+opening_id | no | string | This is a string that contains an opening_id. This may be a blank string. Changing an opening_id may re-trigger approvals. For approvals to start recruiting, this will reset approvals only if the job is in draft mode. If the job is open for hiring, these approvals will not reset. For official job approvals, this will reset approvals only if the job is open.
+status | no | string | This can be used to set an open opening to closed by using the word "closed".  Status may only be used to set an open opening to closed. It does not accept any other value and cannot be used to re-open a closed opening. If the last opening is closed, it will close the hiring plan.
+close_reason_id | no | integer | When closing, you may provide a close_reason_id. Providing a close_reason_id without closing the opening will return an error.
+
+**Note**: Only open openings may be patched. Attempting to patch a closed opening will return an error. If the job is closed at the same time the opening_id is changed, approvals will be ignored in favor of closing the opening.
+
+> The above returns a JSON response, structured like this:
+
+```
+{
+    "success": "true"
+}
+```
