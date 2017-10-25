@@ -23,7 +23,7 @@ When closing an opening, it is possible to designate the reason the opening is b
 List all of an organization's close reasons.
 
 ```shell
-curl -X GET 'https://harvest.greenhouse.io/v1/tags/close_reasons'
+curl -X GET 'https://harvest.greenhouse.io/v1/close_reasons'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -48,7 +48,7 @@ curl -X GET 'https://harvest.greenhouse.io/v1/tags/close_reasons'
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/tags/close_reasons`
+`GET https://harvest.greenhouse.io/v1/close_reasons`
 
 <br>
 
