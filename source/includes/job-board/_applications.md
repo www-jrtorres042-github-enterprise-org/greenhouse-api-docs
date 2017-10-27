@@ -116,7 +116,7 @@ curl -X POST \
   "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
-Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constrcuted via the "questions" array available via the [Job method](#retrieve-a-job). Please see the [Job method](#retrieve-a-job) documentation for instructions on submitting location information through the API.
+Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constructed via the "questions" array available via the [Job method](#retrieve-a-job). Please see the [Job method](#retrieve-a-job) documentation for instructions on submitting location information through the API.
 
 Note that when submitting an application through this method, Greenhouse will not confirm the inclusion of required fields. Validation for required fields must be done on the client side, as Greenhouse will not reject applications that are missing required fields.
 
@@ -125,7 +125,7 @@ Note that when submitting an application through this method, Greenhouse will no
 </aside>
 
 <aside class="notice">
-  In general, we would encourage customers to make use of the Embedded Job Application before going to the trouble of building their own form. Our application form is well tested, validated, battle hardened, and has built-in spam protection measures. Building your own form can introduce a number of challenges which are typically not worth the additional effort.
+  In general, we would encourage customers to make use of the Embedded Job Application before going to the trouble of building their own form. Our application form is well tested, validated, battle-hardened, and has built-in spam protection measures. Building your own form can introduce a number of challenges which are typically not worth the additional effort.
 </aside>
 
 ### HTTP Request
@@ -146,7 +146,7 @@ Parameter | Description
 *mapped_url_token | If present, the `gh_src` URL parameter, which is used to indicate the referral source of this application.
 first_name | Applicant's first name
 last_name | Applicant's last name
-email | Applicant's email adress
+email | Applicant's email address
 *phone | Applicant's phone number
 *location | Applicant's street address
 *latitude | Applicant's home latitude. This is a *hidden* field and should not be exposed directly to the applicant.
