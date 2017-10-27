@@ -1,6 +1,6 @@
 # Close Reasons
 
-When closing an opening, it is possible to designate the reason the opening is being closed. This might be "Filled" or "Cancelled" or some other reason.  These reasons are configured in Greenhouse
+When closing an opening, it is possible to designate the reason the opening is being closed. This might be "Filled" or "Cancelled" or some other reason.  These reasons are configured in Greenhouse.
 
 ## The close reason object
 
