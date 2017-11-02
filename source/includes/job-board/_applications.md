@@ -132,11 +132,16 @@ Note that when submitting an application through this method, Greenhouse will no
 
 `POST https://api.greenhouse.io/v1/boards/{board_token}/jobs/{id}`
 
+Parameter | Description
+ --------- | -----------
+ board_token | Job Board URL token.  If you're submitting an application for a job post on an internal job board, use `"internal"`.
+ id | Job post ID. Both internal and external job posts are allowed.
+
 ### Request Headers
 
 Parameter | Description
 --------- | -----------
-Authorization | This header should include a basic authorization with a Base64 encoded API token
+Authorization | This header should include a basic authorization with a **Base64 encoded** API token
 
 ### Request Parameters
 
