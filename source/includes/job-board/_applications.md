@@ -64,7 +64,7 @@ curl -X POST \
   -F "question_12349_url_filename=attachment.pdf" \
   -F "question_12350_content=SGVsbG8sIHdvcmxkIQo=" \
   -F "question_12350_content_filename=something_else.txt" \
-  "https://api.greenhouse.io/v1/applications"
+  "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
 > or, you can POST a JSON encoded body (with `Content-Type: application/json`):
@@ -113,7 +113,7 @@ curl -X POST \
     ],
     "mapped_url_token":"token12345"
   }' \
-  "https://api.greenhouse.io/v1/applications"
+  "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
 Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constructed via the "questions" array available via the [Job method](#retrieve-a-job). Please see the [Job method](#retrieve-a-job) documentation for instructions on submitting location information through the API.
@@ -130,7 +130,7 @@ Note that when submitting an application through this method, Greenhouse will no
 
 ### HTTP Request
 
-`POST https://api.greenhouse.io/v1/applications`
+`POST https://api.greenhouse.io/v1/boards/{board_token}/jobs/{id}`
 
 ### Request Headers
 
