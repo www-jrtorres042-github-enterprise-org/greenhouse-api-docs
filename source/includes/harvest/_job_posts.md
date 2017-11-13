@@ -23,6 +23,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "required": true,
       "private": false,
       "label": "First Name",
+      "name": "first_name",
       "type": "short_text",
       "values": []
     },
@@ -30,6 +31,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "required": true,
       "private": false,
       "label": "Last Name",
+      "name": "last_name",
       "type": "short_text",
       "values": []
     },
@@ -37,6 +39,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "required": true,
       "private": false,
       "label": "Email",
+      "name": "email",
       "type": "short_text",
       "values": []
     },
@@ -44,6 +47,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "required": false,
       "private": false,
       "label": "Phone",
+      "name": "phone",
       "type": "short_text",
       "values": []
     },
@@ -51,6 +55,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "required": true,
       "private": false,
       "label": "Resume",
+      "name": "resume",
       "type": "attachment",
       "values": []
     },
@@ -58,20 +63,15 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "required": false,
       "private": false,
       "label": "Cover Letter",
+      "name": "cover_letter",
       "type": "attachment",
       "values": []
     },
     {
       "required": false,
       "private": false,
-      "label": "Location",
-      "type": "short_text",
-      "values": []
-    },
-    {
-      "required": false,
-      "private": false,
       "label": "Have you ever won the lottery?",
+      "name": "question_234567",
       "type": "boolean",
       "values": [
         {
@@ -89,6 +89,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "private": true,
       "label": "Do you know what 'the numbers' are?",
       "type": "multi_select",
+      "name": "question_345678[]",
       "values": [
         {
           "value": 862,
@@ -108,6 +109,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "required": true,
       "private": false,
       "label": "LinkedIn Profile",
+      "name": "question_45678",
       "type": "short_text",
       "values": []
     },
@@ -115,6 +117,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "required": true,
       "private": false,
       "label": "How did you hear about this job?",
+      "name": "question_56789",
       "type": "short_text",
       "values": []
     }
@@ -133,6 +136,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 | content | The text of the job post as posted to the external job board.
 | internal_content | The text of the job post if posted to the internal job board, if different than the external job board.
 | questions | An array of questions associated with this job post.
+| questions.name | When submitting applications through the Job Board API, this is the name of the POST parameter used to submit questions. Custom questions are prefixed with "question_" while Greenhouse standard application questions have a consistent name for every job post. 
 
 ## GET: List Job Posts
 
@@ -163,6 +167,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
         "required": true,
         "private": false,
         "label": "First Name",
+        "name": "first_name",
         "type": "short_text",
         "values": []
       },
@@ -223,6 +228,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
         "required": true,
         "private": false,
         "label": "First Name",
+        "name": "first_name",
         "type": "short_text",
         "values": []
       },
@@ -230,6 +236,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
         "required": true,
         "private": false,
         "label": "Last Name",
+        "name": "last_name",
         "type": "short_text",
         "values": []
       }
@@ -254,6 +261,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
         "required": true,
         "private": false,
         "label": "First Name",
+        "name": "first_name",
         "type": "short_text",
         "values": []
       },
@@ -261,6 +269,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
         "required": true,
         "private": false,
         "label": "Last Name",
+        "name": "last_name",
         "type": "short_text",
         "values": []
       }
