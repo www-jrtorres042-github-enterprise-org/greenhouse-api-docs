@@ -299,7 +299,8 @@ List all of an organization's jobs.
 | created_after | Return only jobs that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only jobs that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only jobs that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-
+| requisition_id | If included, will return only the jobs that match the given requisition_id
+| opening_id | If included, will return only the jobs that contain at least one opening with the given opening_id.
 
 <br>
 [See noteworthy response attributes.](#the-job-object)
