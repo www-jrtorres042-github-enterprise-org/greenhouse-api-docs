@@ -80,6 +80,9 @@ An organization's candidates.
             "applied_at": "2017-09-27T12:03:02.728Z",
             "rejected_at": "2017-09-27T12:11:40.877Z",
             "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "location": { 
+                "address": "New York, New York, USA" 
+            },
             "source": {
                 "id": 16,
                 "public_name": "LinkedIn (Prospecting)"
@@ -125,6 +128,7 @@ An organization's candidates.
             "applied_at": "2017-08-15T03:31:46.637Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "location": nil,
             "source": {
                 "id": 12,
                 "public_name": "Meetups"
@@ -289,6 +293,9 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
             "applied_at": "2017-09-27T12:21:37.234Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "location": { 
+                "address": "New York, New York, USA" 
+            },
             "source": {
                 "id": 16,
                 "public_name": "LinkedIn (Prospecting)"
@@ -333,6 +340,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
             "applied_at": "2017-08-15T03:31:46.637Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "location": null,
             "source": {
                 "id": 12,
                 "public_name": "Meetups"
@@ -500,6 +508,9 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "applied_at": "2017-09-27T12:03:02.728Z",
             "rejected_at": "2017-09-27T12:11:40.877Z",
             "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "location": { 
+                "address": "New York, New York, USA" 
+            },
             "source": {
                 "id": 16,
                 "public_name": "LinkedIn (Prospecting)"
@@ -545,6 +556,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "applied_at": "2017-08-15T03:31:46.637Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T12:29:30.481Z",
+            "location": null,
             "source": {
                 "id": 12,
                 "public_name": "Meetups"
@@ -813,6 +825,9 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
               "applied_at": "2017-08-15T03:31:46.637Z",
               "rejected_at": null,
               "last_activity_at": "2017-09-28T12:54:34.243Z",
+              "location": { 
+                  "address": "New York, New York, USA" 
+              },
               "source": {
                   "id": 12,
                   "public_name": "Meetups"
@@ -1200,6 +1215,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             "applied_at": "2017-09-28T13:27:54.873Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T13:27:55.213Z",
+            "location": { 
+                "address": "New York, New York, USA" 
+            },
             "source": null,
             "credited_to": null,
             "rejection_reason": null,
@@ -1229,6 +1247,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             "applied_at": "2017-09-28T13:27:54.812Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T13:27:55.213Z",
+            "location": null,
             "source": null,
             "credited_to": null,
             "rejection_reason": null,
@@ -1508,6 +1527,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "rejected_at": null,
       "last_activity_at": "2016-12-21T19:45:01.867Z",
       "source": null,
+      "location": null,
       "credited_to": null,
       "rejection_reason": null,
       "rejection_details": null,
@@ -1656,6 +1676,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
             "applied_at": "2017-09-28T13:21:22.749Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T13:31:37.929Z",
+            "location": null,
             "source": {
                 "id": 7,
                 "public_name": "Indeed"
@@ -1801,6 +1822,9 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
             "applied_at": "2017-09-07T23:00:25.746Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T13:41:43.631Z",
+            "location": { 
+                "address": "New York, New York, USA" 
+            },
             "source": {
                 "id": 7,
                 "public_name": "Indeed"
