@@ -12,6 +12,9 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
   "applied_at": "2016-03-26T20:11:39.000Z",
   "rejected_at": "2016-08-17T21:08:29.686Z",
   "last_activity_at": "2016-08-27T16:13:15.000Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
   "source": {
     "id": 1871,
     "public_name": "Happy Hour"
@@ -85,6 +88,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 | candidate_id | The ID of the [candidate](#candidates) who is applying for this job.
 | current_stage | The current [stage](#job-stages) that this application is in.
 | credited_to.id | The ID of the user who will receive credit for this application.
+| location | The contents of the location question on a job post.
 | answers | The answers provided to the questions in the job post for this application. Array contains the text value of the question and answer. Answers are always plaintext strings. Booleans will return `Yes` or `No`.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
@@ -106,6 +110,9 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
     "applied_at": "2017-09-29T12:56:05.244Z",
     "rejected_at": null,
     "last_activity_at": "2017-09-29T13:00:28.038Z",
+    "location": { 
+        "address": "New York, New York, USA" 
+    },
     "source": {
         "id": 2,
         "public_name": "Jobs page on your website"
@@ -160,6 +167,7 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
     "applied_at": "2017-09-29T13:00:04.058Z",
     "rejected_at": null,
     "last_activity_at": "2017-09-29T13:08:19.111Z",
+    "location": null,
     "source": {
         "id": 100674,
         "public_name": "Campus Job Fair"
@@ -244,6 +252,9 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
   "applied_at": "2015-12-28T20:53:12.801Z",
   "rejected_at": null,
   "last_activity_at": "2016-12-30T07:10:03.082Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
   "source": {
     "id": 16,
     "public_name": "Referral"
@@ -375,6 +386,9 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
     "applied_at": "2017-09-29T12:56:05.244Z",
     "rejected_at": null,
     "last_activity_at": "2017-09-29T13:23:01.191Z",
+    "location": { 
+        "address": "New York, New York, USA" 
+    },
     "source": {
         "id": 16,
         "public_name": "LinkedIn (Prospecting)"
@@ -476,6 +490,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
   "applied_at": "2017-01-25T22:46:08.601Z",
   "rejected_at": null,
   "last_activity_at": "2017-01-25T22:58:48.679Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
   "source": {
     "id": 16,
     "public_name": "LinkedIn (Prospecting)"
@@ -576,6 +593,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
   "applied_at": "2017-02-01T14:26:02.282Z",
   "rejected_at": null,
   "last_activity_at": "2017-02-01T14:51:12.670Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
   "source": {
     "id": 33,
     "public_name": "Glassdoor"
@@ -679,6 +699,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
   "applied_at": "2017-02-01T14:26:02.282Z",
   "rejected_at": null,
   "last_activity_at": "2017-02-01T14:51:12.670Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
   "source": {
     "id": 33,
     "public_name": "Glassdoor"
@@ -786,6 +809,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
     "applied_at": "2017-09-28T13:27:54.873Z",
     "rejected_at": "2017-09-29T12:58:48.924Z",
     "last_activity_at": "2017-09-29T13:23:01.191Z",
+    "location": { 
+        "address": "New York, New York, USA" 
+    },
     "source": {
         "id": 16,
         "public_name": "LinkedIn (Prospecting)"
@@ -875,6 +901,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'\
     "applied_at": "2017-09-28T13:27:54.873Z",
     "rejected_at": null,
     "last_activity_at": "2017-09-29T13:34:58.354Z",
+    "location": { 
+        "address": "New York, New York, USA" 
+    },
     "source": {
         "id": 16,
         "public_name": "LinkedIn (Prospecting)"
