@@ -7,132 +7,258 @@
   "action": "new_candidate_application",
   "payload": {
     "application": {
-      "id": 265293,
+      "id": 71980812,
       "rejected_at": null,
       "prospect": false,
-      "prospect_detail": {
-        "prospect_owner": null,
-        "prospect_pool": null,
-        "prospect_stage": null
-      },
       "status": "active",
-      "applied_at": "2013-03-22T00:00:00Z",
-      "last_activity_at": "2015-03-18T20:28:09Z",
-      "url": "https://app.greenhouse.io/people/265788?application_id=265293",
+      "applied_at": "2017-10-27T14:44:43Z",
+      "last_activity_at": "2017-10-27T14:44:42Z",
+      "url": "http://app.greenhouse.io/people/60304594?application_id=71980812",
       "source": {
-        "id": 27,
-        "public_name": "LinkedIn"
+        "id": 16,
+        "name": "LinkedIn (Prospecting)"
       },
-      "credited_to": null,
+      "credited_to": {
+        "id": 92120,
+        "email": "test123@example.com",
+        "name": "Greenhouse Admin"
+      },
       "rejection_reason": null,
       "rejection_details": null,
       "current_stage": {
-        "id": 678901,
-        "name": "Application Review",
+        "id": 2944102,
+        "name": "Preliminary Phone Screen",
         "interviews": [
           {
-            "id": 989099,
-            "name":"Application Review",
-            "status": "collect_feedback",
+            "id": 4368004,
+            "name": "Preliminary Screening Call",
+            "status": "to_be_scheduled",
             "interview_kit": {
-              "url": "http://app.greenhouse.io/guides/67656/people/265788",
-              "content": "",
-              "questions": []
+              "url": "http://app.greenhouse.io/guides/4368142/people/60304594?application_id=71980812",
+              "content": "<p>Directions on how to conduct this interview.</p>",
+              "questions": [
+                {
+                  "id": 3136352,
+                  "question": "Could you tell me about your previous experience?"
+                },
+                {
+                  "id": 3136353,
+                  "question": "Why do you want to work with us?"
+                }
+              ]
             },
             "interviewers": []
           }
         ]
       },
+      "prospect_detail": {
+        "prospect_pool": null,
+        "prospect_stage": null,
+        "prospect_owner": null
+      },
       "custom_fields": {
-        "custom_application_field": {
-          "name": "Custom Application Field",
-          "type": "short_text",
+        "application_custom_test": {
+          "name": "Application Custom Test",
+          "type": "single_select",
+          "value": null
+        },
+        "custom_boolean_test": {
+          "name": "Custom Boolean Test",
+          "type": "boolean",
           "value": null
         }
       },
       "candidate": {
-        "id": 265788,
-        "first_name": "Hector",
-        "last_name": "Porter",
-        "title": null,
-        "company": null,
-        "created_at": "2013-10-04T01:24:48Z",
+        "id": 60304594,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "title": "Manager",
+        "company": "Current Company Co.",
+        "created_at": "2017-10-27T14:44:42Z",
         "external_id": null,
-        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
-        "url": "https://app.greenhouse.io/people/265788",
+        "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/060/304/738/original/cats_schrodinger.png?AWSAccessKeyId=AKIAI2HNOZGNEUVWYNFQ&Expires=1511732959&Signature=YcaE3lmhvfwSzvgbl4sUrQzP12U%3D",
+        "url": "http://app.greenhouse.io/people/60304594",
         "phone_numbers": [
           {
-            "value": "330-281-8004",
-            "type": "home"
+            "value": "555-555-5555",
+            "type": "mobile"
           }
         ],
         "email_addresses": [
           {
-            "value": "hector.porter.265788@example.com",
+            "value": "person@work.com",
+            "type": "work"
+          },
+          {
+            "value": "person@example.com",
             "type": "personal"
           }
         ],
-        "addresses": [],
-        "website_addresses": [],
-        "social_media_addresses": [],
-        "educations": [
+        "addresses": [
           {
-            "school_name": "Harvard University",
-            "degree": "Bachelor's Degree",
-            "discipline": "Information Systems",
-            "start_date": "01/01/2012",
-            "end_date": "01/01/2016"
+            "value": "123 Test Street\nNew York, NY 10001",
+            "type": "home"
           }
         ],
-        "recruiter": null,
-        "coordinator": null,
+        "website_addresses": [
+          {
+            "value": "mysite.com",
+            "type": "personal"
+          }
+        ],
+        "social_media_addresses": [
+          {
+            "value": "socialmedia.com"
+          }
+        ],
+        "educations": [
+          {
+            "school_name": "Stanford University",
+            "degree": "Bachelor's Degree",
+            "discipline": "Computer Science",
+            "start_date": "09/15/2007",
+            "end_date": "05/15/2011"
+          }
+        ],
+        "employments": [],
+        "recruiter": {
+          "id": 92120,
+          "email": "employee@test.com",
+          "name": "Betty Smith"
+        },
+        "coordinator": {
+          "id": 92427,
+          "email": "user@example.com",
+          "name": "Bonnie Bonnet"
+        },
         "attachments": [
           {
-            "filename": "resume.pdf",
-            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "filename": "Test Cover Letter.docx",
+            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/081/539/559/original/Test%20Cover%20Letter.docx?AWSAccessKeyId=AKIAI2HNOZGNEUVWYNFQ&Expires=1511732684&Signature=prY2TFZT6WbAqzOhvkJdVeNnfCo%3D",
+            "type": "cover_letter"
+          },
+          {
+            "filename": "Test Resume.docx",
+            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/081/539/558/original/Test%20Resume.docx?AWSAccessKeyId=AKIAI2HNOZGNEUVWYNFQ&Expires=1511732684&Signature=M24vittUtIXRgL6lDYOB0pRBv9Q%3D",
             "type": "resume"
           }
         ],
         "tags": [
-          "Import from Previous ATS"
+          "Ruby",
+          "Comp Sci"
         ],
         "custom_fields": {
-          "favorite_color": {
-            "name": "Favorite Color",
+          "date_test": {
+            "name": "Date Test",
+            "type": "date",
+            "value": ""
+          },
+          "desired_salary": {
+            "name": "Desired Salary",
             "type": "short_text",
-            "value": "Blue"
+            "value": null
+          },
+          "graduation_year_1": {
+            "name": "Graduation Year",
+            "type": "single_select",
+            "value": null
+          },
+          "work_remotely": {
+            "name": "Work Remotely",
+            "type": "boolean",
+            "value": null
           }
         }
       },
       "jobs": [
         {
-          "id": 371417,
-          "name": "Designer",
-          "requisition_id": null,
-          "notes": "Digital and print",
-          "job_post_id": 54321,
+          "id": 274075,
+          "name": "Data Scientist",
+          "requisition_id": "ABC",
+          "notes": null,
+          "job_post_id": 263533,
           "status": "open",
-          "created_at": "2013-10-02T22:59:29Z",
-          "opened_at": "2015-01-23T00:25:04Z",
+          "created_at": "2016-07-14T17:21:30Z",
+          "opened_at": "2016-07-20T16:00:00Z",
           "closed_at": null,
+          "url": "http://app.greenhouse.io/sdash/274075",
           "departments": [
             {
-              "id": 14501,
-              "name": "Community"
+              "id": 8717,
+              "name": "Data Science"
             }
           ],
           "offices": [
             {
-              "id": 9099,
-              "name": "New York",
-              "location": "New York, NY"
+              "id": 16478,
+              "name": "London",
+              "location": "London, United Kingdom"
             }
           ],
+          "hiring_team": {
+            "hiring_managers": [
+              {
+                "user_id": 92913,
+                "employee_id": "123ABC"
+              }
+            ],
+            "sourcers": [
+              {
+                  "user_id": 92427,
+                "employee_id": null
+              }
+            ],
+            "recruiters":  [
+              {
+                  "user_id": 92427,
+                "employee_id": null
+              }
+            ],
+            "coordinators": [
+              {
+                "user_id": 92427,
+                "employee_id": "DEFG123"
+              }
+            ]
+          },
           "custom_fields": {
+            "date_test": {
+              "name": "Date Test",
+              "type": "date",
+              "value": "2017-10-27"
+            },
             "employment_type": {
-              "name": "Employment Type",
+              "name": "Employment",
               "type": "single_select",
-              "value": "Full Time"
+              "value": "Full-time"
+            },
+            "replacement_role_": {
+              "name": "Replacement Role",
+              "type": "boolean",
+              "value": true
+            }
+            "salary_range_2": {
+              "name": "Salary Range",
+              "type": "currency_range",
+              "value": {
+                "unit": null,
+                "min_value": "10000.0",
+                "max_value": "10000.0"
+              }
+            },
+            "test_field_1": {
+              "name": "Test Short Text Field",
+              "type": "short_text",
+              "value": "test"
+            },
+            "test_user_field": {
+              "name": "Test User Field",
+              "type": "user",
+              "value": {
+                "user_id": 117730,
+                "name": "Job Admin",
+                "email": "asegal+jobadmin@greenhouse.io"
+              }
             }
           }
         }
