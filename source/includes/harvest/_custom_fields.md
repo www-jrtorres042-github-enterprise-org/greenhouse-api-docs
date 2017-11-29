@@ -98,6 +98,12 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
 |-----------|-------------|
 | field_type | Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type.  One of: `offer`, `candidate`, `application`, `job`, `rejection_question`, `referral_question`.
 
+### Querystring parameters   
+
+| Parameter | Description |   
+|-----------|-------------|   
+| include_inactive | When `true`, include inactive custom fields. Otherwise excludes inactive custom fields.  Defaults to `false`.
+
 <br>
 [See noteworthy response attributes.](#the-custom-field-object)
 
