@@ -421,6 +421,64 @@ The Application Updated event occurs when an application is updated.
 
 See web hook [common attributes](#common-attributes).
 
+## Offer created
+
+This web hook fires when creating a new offer in Greenhouse. This may also fire when changing an offer if the change causes a new version to be created. When bulk creating offers, this will fire per offer created.
+
+```json
+{
+    "action": "offer_created",
+    "payload": {
+        "id": 12345,
+        "application_id": 234556,
+        "job_id": 45678,
+        "user_id": 67890,
+        "version": 1,
+        "sent_on": "2013-03-22T00:00:00Z",
+        "resolved_at": "2013-03-25T00:00:00Z",
+        "start_date": "04/15/2013",
+        "notes": "Vacation scheduled 4/20 - 4/23",
+        "offer_status": "Accepted",
+        "custom_fields": {
+            "custom_application_field": {
+                "name": "Custom Application Field",
+                "type": "short_text",
+                "value": "Example"
+            }
+        }
+    }
+}
+```
+
+## Offer updated
+
+This web hook fires when an offer is updated. In some cases, an offer may be changed without generating a new version. In that case, this will fire by itself. If a change causes a new offer version to be generated, this will fire on the old version with the update to deprecate this offer and also a new "create" web hook will fire for the new version. This web hook should also fire when a person is hired,  which marks the offer as "accepted." 
+
+```json
+{
+    "action": "offer_updated",
+    "payload": {
+        "id": 12345,
+        "application_id": 234556,
+        "job_id": 45678,
+        "user_id": 67890,
+        "version": 2,
+        "sent_on": "2013-03-22T00:00:00Z",
+        "resolved_at": "2013-03-25T00:00:00Z",
+        "start_date": "04/15/2013",
+        "notes": "Vacation scheduled 4/20 - 4/23",
+        "offer_status": "Deprecated",
+        "custom_fields": {
+            "custom_application_field": {
+                "name": "Custom Application Field",
+                "type": "short_text",
+                "value": "Example"
+            }
+        }
+    }
+}
+```
+
 ## Offer deleted
 
 This web hook only fires when offers are deleted from the Greenhouse system.  This only happens when the "Delete" link is clicked on an individual offer or when the anonymize candidate process is run with the "all_offer_versions" option selected.  This will not fire individually when an application is deleted.
