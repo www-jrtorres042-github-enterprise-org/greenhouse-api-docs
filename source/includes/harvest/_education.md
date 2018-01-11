@@ -43,7 +43,7 @@ List all this organization's education levels.
 
 This endpoint retrieves all the degree and/or education levels for this organization, sorted by priority.
 
-[See noteworthy response attributes.](#the-education-objects)
+[See education object.](#the-education-objects)
 
 ## GET: List Disciplines
 
@@ -75,7 +75,7 @@ List all this organization's disciplines.
 
 This endpoint retrieves all the disciplines for this organization, sorted by priority.
 
-[See noteworthy response attributes.](#the-education-objects)
+[See education object.](#the-education-objects)
 
 ## GET: List Schools
 
@@ -107,4 +107,4 @@ List all this organization's schools.
 
 This endpoint retrieves all the schools for this organization, sorted by priority.
 
-[See noteworthy response attributes.](#the-education-objects)
+[See education object.](#the-education-objects)
