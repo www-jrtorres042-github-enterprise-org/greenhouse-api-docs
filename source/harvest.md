@@ -20,6 +20,7 @@ includes:
   - harvest/custom_fields
   - harvest/departments
   - harvest/eeoc
+  - harvest/education
   - harvest/email_templates
   - harvest/job_openings
   - harvest/job_posts
