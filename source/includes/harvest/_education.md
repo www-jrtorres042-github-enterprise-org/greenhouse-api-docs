@@ -13,10 +13,10 @@ Each of the education objects contain an `id`, `name`, and `priority`. When orde
 }
 ```
 
-## GET: List Education
+## GET: List Degrees
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/educations' -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+curl 'https://harvest.greenhouse.io/v1/degrees' -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 > The above command returns JSON structured like this:
 
@@ -35,11 +35,11 @@ curl 'https://harvest.greenhouse.io/v1/educations' -H "Authorization: Basic MGQw
 ]
 ```
 
-List all this organization's education levels.
+List all this organization's degree levels.
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/educations`
+`GET https://harvest.greenhouse.io/v1/degree`
 
 This endpoint retrieves all the degree and/or education levels for this organization, sorted by priority.
 
