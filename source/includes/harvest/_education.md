@@ -39,7 +39,7 @@ List all this organization's degree levels.
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/degree`
+`GET https://harvest.greenhouse.io/v1/degrees`
 
 This endpoint retrieves all the degree and/or education levels for this organization, sorted by priority.
 
