@@ -285,7 +285,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/email_addresses'
 ```
 {
   "email": "bob@email.org",
-  "send_verification": true,
+  "send_verification": true
 }
 ```
 
