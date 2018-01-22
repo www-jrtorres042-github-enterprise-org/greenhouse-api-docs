@@ -1282,7 +1282,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
     ],
     "educations": [
         {
-            "id": 459,
+            "id": 561226,
             "school_name": "Siena College",
             "discipline": "Computer Science",
             "degree": "Bachelor's Degree"
@@ -1574,7 +1574,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   ],
   "educations": [
     {
-      "id": 459,
+      "id": 561226,
       "school_name": "Siena College",
       "discipline": "Computer Science",
       "degree": "Bachelor's Degree"
