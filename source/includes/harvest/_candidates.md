@@ -1132,6 +1132,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
       "value": "@johnlocke"
     }
   ],
+  "educations": [
+    {
+      "school_id": 459,
+      "discipline_id": 940,
+      "degree_id": 1230,
+      "start_date": "2001-09-15T00:00:00.000Z",
+      "end_date": "2004-05-15T00:00:00.000Z"
+    }
+  ],
   "tags": [
     "Walkabout",
     "Orientation"
@@ -1271,7 +1280,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             }
         }
     ],
-    "educations": [],
+    "educations": [
+        {
+            "id": 561226,
+            "school_name": "Siena College",
+            "discipline": "Computer Science",
+            "degree": "Bachelor's Degree"
+        }
+    ],
     "employments": [],
     "custom_fields": {
         "desired_salary": null,
@@ -1442,6 +1458,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "value": "@johnlocke"
     }
   ],
+  "educations": [
+    {
+      "school_id": 459,
+      "discipline_id": 940,
+      "degree_id": 1230,
+      "start_date": "2001-09-15T00:00:00.000Z",
+      "end_date": "2004-05-15T00:00:00.000Z"
+    }
+  ],
   "tags": [
     "Walkabout",
     "Orientation"
@@ -1547,7 +1572,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
         }
      }
   ],
-  "educations": [],
+  "educations": [
+    {
+      "id": 561226,
+      "school_name": "Siena College",
+      "discipline": "Computer Science",
+      "degree": "Bachelor's Degree"
+    }
+  ],
   "custom_fields": {
     "current_salary": "$123,000",
     "desired_salary": "$150,000"
