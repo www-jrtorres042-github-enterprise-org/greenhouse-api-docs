@@ -192,7 +192,7 @@ The Job Updated event is triggered any time one or more of the following fields 
 |-----------|------|
 | `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
 
-## Job Approved: Official Approval
+## Job Approved
 
 ```json
 {
@@ -271,7 +271,7 @@ The Job Updated event is triggered any time one or more of the following fields 
 }
 ```
 
-The Job Approved event is triggered when a Greenhouse job has "Official job approval" configured. When the final approval is received and the job is officially approved, this web hook will be generated.
+The Job Approved event is triggered when the final approval is received in a Greenhouse job's approval flow. "Approvals to start recruiting" will be identified as "approval_flow_type": "open_job" while "Official job approval" will be identified as "approval_flow_type": "offer_job".
 
 ## Job Post created
 
