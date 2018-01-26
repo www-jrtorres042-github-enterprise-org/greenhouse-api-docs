@@ -1405,6 +1405,63 @@ visibility* | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
 \* - Due to a legacy typo, the response includes the same value as `visiblity`. It is safe to ignore this value, but it is maintained for backward compatibility.
 
 
+## POST: Add Education
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/educations'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "school_id": 459,
+  "discipline_id": 940,
+  "degree_id": 1230,
+  "start_date": "2001-09-15T00:00:00.000Z",
+  "end_date": "2004-05-15T00:00:00.000Z"
+}
+```
+
+> The above command returns a JSON response with a 201 status, structured like this:
+
+```json
+{
+  "school_name": "Siena College",
+  "discipline": "Computer Science",
+  "degree": "Bachelor's Degree"
+  "start_date": "2001-09-15T00:00:00.000Z",
+  "end_date": "2004-05-15T00:00:00.000Z"
+}
+```
+
+Create a new education record
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/educations`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+school_id | Yes | integer |  The ID of the college attended; from the GET schools endpoint
+discipline_id | Yes | integer | The ID of the discipline of the candidate's education; from the GET disciplines endpoint.
+degree_id | Yes | integer | The type of degree received; from the GET degrees endpoint
+start_date | Yes | DateTime | The date the candidate began attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
+end_date | Yes | DateTime | The date the candidate finished attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
+
+* - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but only Month and Year will be displayed on the candidate profile in Greenhouse. 
+
 ## POST: Add Prospect
 
 ```shell
