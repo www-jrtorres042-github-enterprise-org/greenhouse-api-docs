@@ -298,7 +298,7 @@ id | The ID of the job whose job posts you want to retrieve
 
 ## GET: Retrieve Job Post for Job
 
-<aside class="warning">As of September 2016, we introduced the ability to add multiple job posts for a single job. To list all job posts for a job, see <a href="#list-multiple-job-posts-for-a-job">here</a>.</aside>
+<aside class="warning">As of September 2016, we introduced the ability to add multiple job posts for a single job. To list all job posts for a job, see <a href="#get-list-job-posts-for-job">here</a>.</aside>
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
