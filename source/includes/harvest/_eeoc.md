@@ -137,7 +137,7 @@ Parameter | Description
 --------- | -----------
 *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 *submitted_before | Return only EEOC data submitted before this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
-*submitted_after | Return only EEOC data submitted after this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+*submitted_after | Return only EEOC data submitted at or after this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 

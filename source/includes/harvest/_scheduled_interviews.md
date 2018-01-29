@@ -131,13 +131,13 @@ Parameter | Description
 | per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 | created_before | Only return scheduled interviews that were created before this timestamp.
-| created_after | Only return scheduled interviews that were created after this timestamp.
+| created_after | Only return scheduled interviews that were created at or after this timestamp.
 | updated_before | Only return scheduled interviews that were updated before this timestamp.
-| updated_after | Only return scheduled interviews that were updated after this timestamp.
+| updated_after | Only return scheduled interviews that were updated at or after this timestamp.
 | starts_before | Only return scheduled interviews scheduled to start before this timestamp.
-| starts_after | Only return scheduled interviews scheduled to start after this timestamp.
+| starts_after | Only return scheduled interviews scheduled to start at or after this timestamp.
 | ends_before | Only return scheduled interviews scheduled to end before this timestamp.
-| ends_after | Only return scheduled interviews scheduled to end after this timestamp.
+| ends_after | Only return scheduled interviews scheduled to end at or after this timestamp.
 
 ## GET: List Interviews for Application
 
@@ -221,9 +221,9 @@ Parameter | Description
 | per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 | created_before | Return only scheduled interviews that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| created_after | Return only scheduled interviews that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only scheduled interviews that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only scheduled interviews that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| updated_after | Return only scheduled interviews that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only scheduled interviews that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 
 <br>
 [See noteworthy response attributes.] (#the-scheduled-interview-object)
