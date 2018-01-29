@@ -1,6 +1,6 @@
 # Test Status
 
-After a successful `send_test` request, Greenhouse will check whether test instance has been completed by periodically polling the `test_status` API endpoint. 
+After a successful `send_test` request, Greenhouse will check whether the test instance has been completed by polling the `test_status` endpoint hourly. We will discontinue polling the `test_status` endpoint after we receive a `partner_status` of `complete`, or after 8 weeks has passed since the test was sent.
 
 `GET https://www.testing-partner.com/api/test_status?partner_interview_id=12345`
 
@@ -51,7 +51,7 @@ The response to a `test_status` request should contain a JSON object in its body
 
 Property Name | Type | Required | Description
 -------------- | -------------- | -------------- | --------------
-partner_status | String | Yes | Describes the current state of the test instance. If the test has been completed and results are available, this value should be **"complete."** We will continue to poll until the status is "complete."
+partner_status | String | Yes | Describes the current state of the test instance. If the test has been completed and results are available, this value should be **"complete".** We will continue to poll until the status is "complete", or until 8 weeks has passed since the test was sent.
 partner_profile_url| String | Required only if status is **complete**. | URL to the candidate’s page on the Test Partner’s website. 
 partner_score | Number | No | Numerical score reflecting the candidate’s performance on the test.
 metadata | Object | No | A non-nested object containing keys and values that will be displayed in our test results. All of the values must be Javascript primitives.
