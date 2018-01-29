@@ -129,6 +129,10 @@ List all of an organization's job stages.
 |-----------|-------------|
 | per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| created_before | Return only job stages that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only job stages that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_before | Return only job stages that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only job stages that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 
 <br>
 [See noteworthy response attributes.](#the-job-stages-object)
@@ -234,9 +238,9 @@ Parameter | Description
 Parameter | Description
 --------- | -----------
 | created_before | Return only job stages that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| created_after | Return only job stages that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only job stages that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only job stages that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| updated_after | Return only job stages that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only job stages that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 
 <br>
 [See noteworthy response attributes.](#the-job-stage-object)

@@ -296,9 +296,9 @@ List all of an organization's jobs.
 | per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 | created_before | Return only jobs that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| created_after | Return only jobs that were created after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only jobs that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only jobs that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| updated_after | Return only jobs that were updated after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only jobs that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | requisition_id | If included, will return only the jobs that match the given requisition_id
 | opening_id | If included, will return only the jobs that contain at least one opening with the given opening_id.
 
