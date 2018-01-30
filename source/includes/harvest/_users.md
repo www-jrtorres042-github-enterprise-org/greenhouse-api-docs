@@ -158,36 +158,6 @@ Disable a user. It is safe to call this method on a user that is currently disab
 
 `PATCH https://harvest.greenhouse.io/v1/users/{id}/disable`
 
-## PATCH: Enable User
-
-```shell
-curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 253528,
-  "name": "Bob Smith",
-  "updated_at": "2017-03-23T18:58:27.796Z",
-  "created_at": "2016-04-28T15:28:16.440Z",
-  "disabled": false,
-  "site_admin": false,
-  "emails": [
-    "bob@email.org"
-  ],
-  "employee_id": "221"
-}
-```
-
-Enable a user. It is safe to call this method on a user that is currently enabled. If the user is already enabled, nothing happens.
-
-### HTTP Request
-
-`PATCH https://harvest.greenhouse.io/v1/users/{id}/enable`
-
 ## PATCH: Edit User
 
 ```shell
@@ -227,6 +197,36 @@ last_name | No | string | The user's new last name. If included, this cannot be 
 employee_id* | No | string | The user's external employee id. If included, this cannot be blank, nor can it match any other employee-id for a user in this organization. 
 
 \* - If the employee id feature is not enabled for your organization, attempting to edit this field will raise an API Error.
+
+## PATCH: Enable User
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 253528,
+  "name": "Bob Smith",
+  "updated_at": "2017-03-23T18:58:27.796Z",
+  "created_at": "2016-04-28T15:28:16.440Z",
+  "disabled": false,
+  "site_admin": false,
+  "emails": [
+    "bob@email.org"
+  ],
+  "employee_id": "221"
+}
+```
+
+Enable a user. It is safe to call this method on a user that is currently enabled. If the user is already enabled, nothing happens.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/users/{id}/enable`
 
 ## POST: Add User
 

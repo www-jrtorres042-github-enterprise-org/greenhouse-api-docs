@@ -5,27 +5,29 @@ This endpoint is used to managing openings on jobs.
 ## The job opening object
 
 ```
-{
-    "id": 123,
-    "opening_id": "OPENED-1",
-    "status": "open",
-    "opened_at": "2015-11-19T19:53:32.565Z",
-    "closed_at": null,
-    "application_id": null,
-    "close_reason": null
-},
-{
-    "id": 123,
-    "opening_id": "CLOSED-1",
-    "status": "closed",
-    "opened_at": "2015-11-19T19:53:32.565Z",
-    "closed_at": "2015-12-14T19:53:32.565Z",
-    "application_id": 65565,
-    "close_reason": {
-      "id": 678,
-      "name": "Hired - Backfill"
+[
+    {
+        "id": 123,
+        "opening_id": "OPENED-1",
+        "status": "open",
+        "opened_at": "2015-11-19T19:53:32.565Z",
+        "closed_at": null,
+        "application_id": null,
+        "close_reason": null
+    },
+    {
+        "id": 123,
+        "opening_id": "CLOSED-1",
+        "status": "closed",
+        "opened_at": "2015-11-19T19:53:32.565Z",
+        "closed_at": "2015-12-14T19:53:32.565Z",
+        "application_id": 65565,
+        "close_reason": {
+          "id": 678,
+          "name": "Hired - Backfill"
+        }
     }
-}
+]
 ```
 
 ### Noteworthy Attributes
@@ -130,57 +132,6 @@ Retrieve the information for a single opening.
 
 [See noteworthy response attributes.](#the-job-opening-object)
 
-## POST: Create New Openings
-
-``` shell
-curl -X POST 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-```json
-{
-    "openings": [
-      {"opening_id": "abc-123"},
-      {"opening_id": null}
-    ]
-}
-```
-
-### HTTP Request
-
-`POST https://harvest.greenhouse.io/v1/jobs/{job_id}/openings`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-job_id | The ID of the job on which to add new openings.
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | -----------
-openings | yes | Array | This an array of opening IDs, which contain one element.
-openings.opening_id | yes | Array | This is a string that contains an opening_id. One new opening will be created for each hash element in the array. Opening ID is not required to have a string value and may be null.  Greenhouse has an internal limit of 100 open openings. If you attempt to create more than 100 openings in a single request, or if this request would create more than 100 open openings, the request will fail.
-
-**Note**: Adding new openings may re-trigger approvals. For approvals to start recruiting, this will reset approvals only if the job is in draft mode. If the job is open for hiring, these approvals will not reset. For official job approvals, this will reset approvals only if the job is open.
-
-> The above returns a JSON response, structured like this:
-
-```
-{
-    "id": 123456,
-    "opening_id": "abc-123",
-    "open_date": "2017-10-02T19:53:32.565Z"
-},
-{
-    "id": 123457,
-    "opening_id": null,
-    "open_date": "2017-10-02T19:53:32.565Z"
-}
-```
-
 ## DELETE: Destroy Openings
 
 ``` shell
@@ -257,5 +208,56 @@ close_reason_id | no | integer | When closing, you may provide a close_reason_id
 ```
 {
     "success": "true"
+}
+```
+
+## POST: Create New Openings
+
+``` shell
+curl -X POST 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+{
+    "openings": [
+      {"opening_id": "abc-123"},
+      {"opening_id": null}
+    ]
+}
+```
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/jobs/{job_id}/openings`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+job_id | The ID of the job on which to add new openings.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+openings | yes | Array | This an array of opening IDs, which contain one element.
+openings.opening_id | yes | Array | This is a string that contains an opening_id. One new opening will be created for each hash element in the array. Opening ID is not required to have a string value and may be null.  Greenhouse has an internal limit of 100 open openings. If you attempt to create more than 100 openings in a single request, or if this request would create more than 100 open openings, the request will fail.
+
+**Note**: Adding new openings may re-trigger approvals. For approvals to start recruiting, this will reset approvals only if the job is in draft mode. If the job is open for hiring, these approvals will not reset. For official job approvals, this will reset approvals only if the job is open.
+
+> The above returns a JSON response, structured like this:
+
+```
+{
+    "id": 123456,
+    "opening_id": "abc-123",
+    "open_date": "2017-10-02T19:53:32.565Z"
+},
+{
+    "id": 123457,
+    "opening_id": null,
+    "open_date": "2017-10-02T19:53:32.565Z"
 }
 ```
