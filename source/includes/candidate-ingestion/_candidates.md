@@ -20,7 +20,7 @@ curl 'https://api.greenhouse.io/v1/partner/candidates'
 {
 	"id": 17681532,
 	"name": "Harry Potter",
-	"external_id": 24680,
+	"external_id": "24680",
 	"applications": [
 		{
 			"id": 59724,
@@ -111,11 +111,11 @@ curl -X POST 'https://api.greenhouse.io/v1/partner/candidates'
 		}
 	],
 	"job_id": 12345,
-	"external_id": 24680,
+	"external_id": "24680",
 	"notes": "Good at Quiddich",
 	"prospect_pool_id": 123,
 	"prospect_pool_stage_id": 456,
-	"prospect_owner_email": "prospect_owners_email@example.com",
+	"prospect_owner_email": "prospect_owners_email@example.com"
 }
 ```
 
@@ -126,7 +126,7 @@ curl -X POST 'https://api.greenhouse.io/v1/partner/candidates'
 {
 "id": 12345,
 "application_id": 17681532,
-"external_id": 24680,
+"external_id": "24680",
 "profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
 }
 ```
