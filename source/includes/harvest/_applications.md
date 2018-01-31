@@ -566,112 +566,6 @@ Parameter | Required | Type | Description
 from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
 
 
-## POST: Move Application (Same Job)
-
-```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command takes a JSON request, structured like this:
-
-```json
-{
-  "from_stage_id": 1,
-  "to_stage_id": 2
-}
-```
-
-> The above returns a JSON response, structured like this:
-
-```json
-{
-  "id": 48206478,
-  "candidate_id": 36952451,
-  "prospect": false,
-  "applied_at": "2017-02-01T14:26:02.282Z",
-  "rejected_at": null,
-  "last_activity_at": "2017-02-01T14:51:12.670Z",
-  "location": { 
-    "address": "New York, New York, USA" 
-  },
-  "source": {
-    "id": 33,
-    "public_name": "Glassdoor"
-  },
-  "credited_to": null,
-  "rejection_reason": null,
-  "rejection_details": null,
-  "jobs": [
-    {
-      "id": 211706,
-      "name": "Community Manager - New York"
-    }
-  ],
-  "status": "active",
-  "current_stage": {
-    "id": 1551142,
-    "name": "Offer"
-  },
-  "answers": [
-    {
-      "question": "How many years experience do you have?",
-      "answer": "2-4"
-    },
-    {
-      "question": "Can do you the travel required for this job?",
-      "answer": "Yes"
-    }
-  ],
-  "prospect_detail": {
-    "prospect_pool": null,
-    "prospect_stage": null,
-    "prospect_owner": null
-  },
-  "custom_fields": {
-    "current_title": "Community Manager",
-    "requires_visa_sponsorship?": false
-  },
-  "keyed_custom_fields": {
-    "current_title": {
-      "name": "Current Title",
-      "type": "short_text",
-      "value": "Community Manager"
-    },
-    "requires_visa_sponsorship_": {
-      "name": "Requires visa sponsorship?",
-      "type": "boolean",
-      "value": false
-    }
-  }
-}
-```
-
-Move this application from one stage to another. An application can only be moved between stages on the same job. The response is populated with the application’s information which will reflect its new state. Note that only applications in the `active` state can be moved.
-
-### HTTP Request
-
-`POST https://harvest.greenhouse.io/v1/applications/{id}/move`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | ----------- | -----------
-from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
-to_stage_id | Yes | integer | The ID of the job stage this application should be moved to.
-
-<br>
-
-[See noteworthy response attributes.] (#the-application-object)
-
 ## POST: Move Application (Different Job)
 
 ```shell
@@ -773,6 +667,112 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
 new_job_id | Yes | integer | The ID of the job to which this application should be transferred
 new_stage_id | No | integer | The stage on the destination job this application should be placed in. If this is omitted, the application will be sent to the job's initial stage
+
+<br>
+
+[See noteworthy response attributes.] (#the-application-object)
+
+## POST: Move Application (Same Job)
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "from_stage_id": 1,
+  "to_stage_id": 2
+}
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "id": 48206478,
+  "candidate_id": 36952451,
+  "prospect": false,
+  "applied_at": "2017-02-01T14:26:02.282Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-02-01T14:51:12.670Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
+  "source": {
+    "id": 33,
+    "public_name": "Glassdoor"
+  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 211706,
+      "name": "Community Manager - New York"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 1551142,
+    "name": "Offer"
+  },
+  "answers": [
+    {
+      "question": "How many years experience do you have?",
+      "answer": "2-4"
+    },
+    {
+      "question": "Can do you the travel required for this job?",
+      "answer": "Yes"
+    }
+  ],
+  "prospect_detail": {
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
+  },
+  "custom_fields": {
+    "current_title": "Community Manager",
+    "requires_visa_sponsorship?": false
+  },
+  "keyed_custom_fields": {
+    "current_title": {
+      "name": "Current Title",
+      "type": "short_text",
+      "value": "Community Manager"
+    },
+    "requires_visa_sponsorship_": {
+      "name": "Requires visa sponsorship?",
+      "type": "boolean",
+      "value": false
+    }
+  }
+}
+```
+
+Move this application from one stage to another. An application can only be moved between stages on the same job. The response is populated with the application’s information which will reflect its new state. Note that only applications in the `active` state can be moved.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/applications/{id}/move`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+from_stage_id | Yes | integer | The ID of the job stage this application is currently in.
+to_stage_id | Yes | integer | The ID of the job stage this application should be moved to.
 
 <br>
 

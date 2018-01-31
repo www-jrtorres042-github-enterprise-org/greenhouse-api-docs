@@ -128,7 +128,9 @@ An organization's candidates.
             "applied_at": "2017-08-15T03:31:46.637Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T12:29:30.481Z",
-            "location": nil,
+            "location": {
+                "address": "New York, New York, United States"
+            },
             "source": {
                 "id": 12,
                 "public_name": "Meetups"
@@ -927,103 +929,6 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
-## POST: Add Candidate Application
-
-```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
--H "On-Behalf-Of: {greenhouse user ID}"
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command takes a JSON request, structured like this:
-
-```
-{
-  "job_id": 266926,
-  "source_id": 7,
-  "initial_stage_id": 2708728,
-  "referrer": {
-    "type": "id",
-    "value": 770
-  },
-  "attachments": [{
-    "filename": "resume.pdf",
-    "type": "resume",
-    "content": "MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6...",
-    "content_type": "application/pdf"
-}
-```
-
-> The above command returns a JSON response, structured like this:
-
-```json
-{
-  "id": 38776620,
-  "candidate_id": 15803530,
-  "prospect": false,
-  "applied_at": "2016-11-08T19:50:49.746Z",
-  "rejected_at": null,
-  "last_activity_at": "2016-11-04T19:46:40.377Z",
-  "source": {
-    "id": 7,
-    "public_name": "Indeed"
-  },
-  "credited_to": {
-        "id": 770,
-        "first_name": "Moon",
-        "last_name": "Colorado",
-        "name": "Moon Colorado",
-        "employee_id": null
-    },
-  "rejection_reason": null,
-  "rejection_details": null,
-  "jobs": [
-    {
-      "id": 266926,
-      "name": "Construction Project Manager"
-    }
-  ],
-  "status": "active",
-  "current_stage": {
-    "id": 1945557,
-    "name": "Application Review"
-  },
-  "answers": [],
-  "custom_fields": {
-    "birthday": "1992-01-27",
-    "bio": "This is my bio"
-  },
-  "prospect_detail": {
-    "prospect_pool": null,
-    "prospect_stage": null,
-    "prospect_owner": null
-  }
-}
-```
-
-Create a new application for this candidate or prospect. If a prospect, this will add a new candidate application to the given job on their profile, this will not convert their existing prospect application into a candidate application.
-
-### HTTP Request
-
-`POST https://harvest.greenhouse.io/v1/candidates/{id}/applications`
-
-### Headers
-
-Header | Description
---------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | ----------- | -----------
-job_id | Yes | integer | The ID of the job you want to create an application to for this candidate
-source_id | No | integer | The id of the source to be credited for this application
-initial_stage_id | No | integer | The ID of the job stage this application will be created in.
-referrer | No | object | An object representing the referrer
-referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
-referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
-attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
 
 <aside class="notice">
     There may be a delay between when Greenhouse receives the POST: Add Candidate Application request and when Greenhouse creates the full application record, which will result in a truncated API response. The truncated response body will contain the Application ID of the newly created application. You can retrieve the full application record by requesting the Application ID with the GET: Retrieve Application endpoint. If you receive a 404 error from the GET: Retrieve Application endpoint, this indicates that the full application record is still not available. Until the application record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
@@ -1352,6 +1257,104 @@ applications | Yes | Array | An array of application objects. At least one requi
 </aside>
 
 [See noteworthy response attributes.] (#the-candidate-object)
+
+## POST: Add Candidate Application
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "job_id": 266926,
+  "source_id": 7,
+  "initial_stage_id": 2708728,
+  "referrer": {
+    "type": "id",
+    "value": 770
+  },
+  "attachments": [{
+    "filename": "resume.pdf",
+    "type": "resume",
+    "content": "MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6...",
+    "content_type": "application/pdf"
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 38776620,
+  "candidate_id": 15803530,
+  "prospect": false,
+  "applied_at": "2016-11-08T19:50:49.746Z",
+  "rejected_at": null,
+  "last_activity_at": "2016-11-04T19:46:40.377Z",
+  "source": {
+    "id": 7,
+    "public_name": "Indeed"
+  },
+  "credited_to": {
+        "id": 770,
+        "first_name": "Moon",
+        "last_name": "Colorado",
+        "name": "Moon Colorado",
+        "employee_id": null
+    },
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 266926,
+      "name": "Construction Project Manager"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 1945557,
+    "name": "Application Review"
+  },
+  "answers": [],
+  "custom_fields": {
+    "birthday": "1992-01-27",
+    "bio": "This is my bio"
+  },
+  "prospect_detail": {
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
+  }
+}
+```
+
+Create a new application for this candidate or prospect. If a prospect, this will add a new candidate application to the given job on their profile, this will not convert their existing prospect application into a candidate application.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/applications`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+job_id | Yes | integer | The ID of the job you want to create an application to for this candidate
+source_id | No | integer | The id of the source to be credited for this application
+initial_stage_id | No | integer | The ID of the job stage this application will be created in.
+referrer | No | object | An object representing the referrer
+referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
+referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
 
 ## POST: Add Note
 
