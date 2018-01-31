@@ -1025,6 +1025,10 @@ referrer[type] | No | string | A string representing the type of referrer: 'id',
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
 attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
 
+<aside class="notice">
+    There may be a delay between when Greenhouse receives the POST: Add Candidate Application request and when Greenhouse creates the full application record, which will result in a truncated API response. The truncated response body will contain the Application ID of the newly created application. You can retrieve the full application record by requesting the Application ID with the GET: Retrieve Application endpoint. If you receive a 404 error from the GET: Retrieve Application endpoint, this indicates that the full application record is still not available. Until the application record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
+</aside>
+
 ## POST: Add Attachment
 
 ```shell
@@ -1075,9 +1079,13 @@ filename | Yes | string | Name of the file
 type | Yes | string | One of: ["resume", "cover_letter", "admin_only"]
 content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url)
 url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content)
-content_type | No* | string | The content-type of the document you are sending.  When using a URL, this generally isn't needed, as the responding server will deliver a content type.  This should be included for encoded content.  Accepted content types are: <ul><li>"application/atom+xml"</li><li>"application/javascript"</li><li>"application/json"</li><li>"application/msgpack"</li><li>"application/pdf"</li><li>"application/rss+xml"</li><li>"application/vnd.ms-excel"</li><li>"application/vnd.openxmlformats-<br>officedocument.spreadsheetml.sheet"</li><li>"application/vnd.openxmlformats-<br>officedocument.wordprocessingml.document"</li><li>"application/xml"</li><li>"application/x-www-form-urlencoded"</li><li>"application/x-yaml"</li><li>"application/zip"</li><li>"multipart/form-data"</li><li>"image/bmp"</li><li>"image/gif"</li><li>"image/jpeg"</li><li>"image/png"</li><li>"image/tiff"</li><li>"text/calendar"</li><li>"text/css"</li><li>"text/csv"</li><li>"text/html"</li><li>"text/javascript"</li><li>"text/plain"</li><li>"text/vcard"</li><li>"video/mpeg"</li></ul>
+content_type | No* | string | The content-type of the document you are sending. When using a URL, this generally isn't needed, as the responding server will deliver a content type.  This should be included for encoded content.  Accepted content types are: <ul><li>"application/atom+xml"</li><li>"application/javascript"</li><li>"application/json"</li><li>"application/msgpack"</li><li>"application/pdf"</li><li>"application/rss+xml"</li><li>"application/vnd.ms-excel"</li><li>"application/vnd.openxmlformats-<br>officedocument.spreadsheetml.sheet"</li><li>"application/vnd.openxmlformats-<br>officedocument.wordprocessingml.document"</li><li>"application/xml"</li><li>"application/x-www-form-urlencoded"</li><li>"application/x-yaml"</li><li>"application/zip"</li><li>"multipart/form-data"</li><li>"image/bmp"</li><li>"image/gif"</li><li>"image/jpeg"</li><li>"image/png"</li><li>"image/tiff"</li><li>"text/calendar"</li><li>"text/css"</li><li>"text/csv"</li><li>"text/html"</li><li>"text/javascript"</li><li>"text/plain"</li><li>"text/vcard"</li><li>"video/mpeg"</li></ul>
 
 \* \- content_type is not required for purposes of backward compatibility. It is _strongly_ recommended that you always include content type for document uploads.
+
+<aside class="notice">
+    There may be a delay between when Greenhouse receives the POST: Add Attachment request and when Greenhouse creates the full attachment record, which will result in a truncated API response. The truncated response body will contain the Attachment ID. You can retrieve the full attachment record by requesting the Candidate ID with the GET: Retrieve Candidate endpoint. The candidate record will contain the newly created attachment. If the newly created attachment is missing from the candidate record, this indicates that the full attachment record is still not available. Until the attachment record has been made fully-available in the API, please continue to request the candidate record until the attachment is included in the API Response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
+</aside>
 
 ## POST: Add Candidate
 
@@ -1339,7 +1347,9 @@ custom_fields | No | Array | Array of custom field value objects - See "Custom F
 activity_feed_notes | No | Array | An array of activity feed objects. See [Add Note] (#post-add-note) for parameters.
 applications | Yes | Array | An array of application objects. At least one required. See [Add Application] (#post-add-candidate-application) for parameters.
 
-<br>
+<aside class="notice">
+    There may be a delay between when Greenhouse receives the POST: Add Candidate request and when Greenhouse creates the full candidate record, which will result in a truncated API response. The truncated response body will contain the Candidate ID and the Application ID(s) of the newly created candidate. You can retrieve the full candidate record by requesting the Candidate ID with the GET: Retrieve Candidate endpoint. If you receive a 404 error from the GET: Retrieve Candidate endpoint, this indicates that the full candidate record is still not available. Until the candidate record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
+</aside>
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
@@ -1404,6 +1414,9 @@ visibility* | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
 
 \* - Due to a legacy typo, the response includes the same value as `visiblity`. It is safe to ignore this value, but it is maintained for backward compatibility.
 
+<aside class="notice">
+    There may be a delay between when Greenhouse receives the POST: Add Note request and when Greenhouse creates the full note record, which will result in a truncated API response. The truncated response body will contain the Note ID. You can retrieve the full note record by requesting the Candidate ID with the GET: Retrieve Candidate endpoint. The candidate record will contain the newly created note, which will have the Note ID from the truncated API response. If the newly created note is missing from the candidate record, this indicates that the full note record is still not available. Until the note record has been made fully-available in the API, please continue to request the candidate record until the note is included in the API Response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
+</aside>
 
 ## POST: Add Prospect
 
@@ -1637,7 +1650,9 @@ activity_feed_notes | No | Array | An array of activity feed objects. See [Add N
 application | No | Hash | As opposed to candidate, a prospect is a single application object that contains multiple job ids.  A prospect in Greenhouse can be attached to zero or many jobs.  If the request does not contain an application object, the person will be created as a jobless prospect.  The source_id, referrer, custom_fields, and attachments parameters in this object match the format of the [Add Application] (#post-add-application) endpoint.
 application[job_ids] | No | Array | This element is unique to the prospects endpoint. This contains an array of job ids to which the prospect will be assigned.  Note that even if the application object is included, this may still be blank or omitted and the request will create a jobless prospect. A normal use case for this would be creating a jobless prospect but still wanting to attach their resume or identify their source.
 
-<br>
+<aside class="notice">
+    There may be a delay between when Greenhouse receives the POST: Add Prospect request and when Greenhouse creates the full prospect record, which will result in a truncated API response. The truncated response body will contain the Prospect ID. You can retrieve the full prospect record by requesting the Prospect ID with the GET: Retrieve Candidate endpoint. If you receive a 404 error from the GET: Retrieve Candidate endpoint, this indicates that the full prospect record is still not available. Until the prospect record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
+</aside>
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
