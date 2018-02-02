@@ -1421,6 +1421,63 @@ visibility* | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
     There may be a delay between when Greenhouse receives the POST: Add Note request and when Greenhouse creates the full note record, which will result in a truncated API response. The truncated response body will contain the Note ID. You can retrieve the full note record by requesting the Candidate ID with the GET: Retrieve Candidate endpoint. The candidate record will contain the newly created note, which will have the Note ID from the truncated API response. If the newly created note is missing from the candidate record, this indicates that the full note record is still not available. Until the note record has been made fully-available in the API, please continue to request the candidate record until the note is included in the API Response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
 </aside>
 
+## POST: Add Education
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/educations'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "school_id": 459,
+  "discipline_id": 940,
+  "degree_id": 1230,
+  "start_date": "2001-09-15T00:00:00.000Z",
+  "end_date": "2004-05-15T00:00:00.000Z"
+}
+```
+
+> The above command returns a JSON response with a 201 status, structured like this:
+
+```json
+{
+  "school_name": "Siena College",
+  "discipline": "Computer Science",
+  "degree": "Bachelor's Degree"
+  "start_date": "2001-09-15T00:00:00.000Z",
+  "end_date": "2004-05-15T00:00:00.000Z"
+}
+```
+
+Create a new education record
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/educations`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+school_id | Yes | integer |  The ID of the college attended; from the GET schools endpoint
+discipline_id | Yes | integer | The ID of the discipline of the candidate's education; from the GET disciplines endpoint.
+degree_id | Yes | integer | The type of degree received; from the GET degrees endpoint
+start_date | Yes | DateTime | The date the candidate began attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
+end_date | Yes | DateTime | The date the candidate finished attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
+
+* - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but only Month and Year will be displayed on the candidate profile in Greenhouse. The "latest education" will be updated automatically.
+
 ## POST: Add Prospect
 
 ```shell
