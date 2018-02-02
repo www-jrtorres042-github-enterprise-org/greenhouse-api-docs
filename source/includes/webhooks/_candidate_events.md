@@ -93,6 +93,15 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
             "type": "home"
           }
         ],
+        "educations": [
+          {
+            "school_name": "Harvard University",
+            "degree": "Bachelor's Degree",
+            "discipline": "Information Systems",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": {
           "id": 55,
           "email": "bob_johnson@localhost.com",
