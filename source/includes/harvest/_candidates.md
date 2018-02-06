@@ -168,7 +168,9 @@ An organization's candidates.
             "id": 561227,
             "school_name": "University of Michigan - Ann Arbor",
             "degree": "Bachelor's Degree",
-            "discipline": "Computer Science"
+            "discipline": "Computer Science",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
         }
     ],
     "employments": [],
@@ -380,7 +382,9 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
             "id": 561227,
             "school_name": "University of Michigan - Ann Arbor",
             "degree": "Bachelor's Degree",
-            "discipline": "Computer Science"
+            "discipline": "Computer Science",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
         }
     ],
     "employments": [],
@@ -596,7 +600,9 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "id": 561227,
             "school_name": "University of Michigan - Ann Arbor",
             "degree": "Bachelor's Degree",
-            "discipline": "Computer Science"
+            "discipline": "Computer Science",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
         }
     ],
     "employments": [],
