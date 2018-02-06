@@ -1451,9 +1451,10 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/educations'
 
 ```json
 {
+  "id": 5690098,
   "school_name": "Siena College",
   "discipline": "Computer Science",
-  "degree": "Bachelor's Degree"
+  "degree": "Bachelor's Degree",
   "start_date": "2001-09-15T00:00:00.000Z",
   "end_date": "2004-05-15T00:00:00.000Z"
 }
@@ -1482,7 +1483,7 @@ degree_id | Yes | integer | The type of degree received; from the GET degrees en
 start_date | Yes | DateTime | The date the candidate began attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
 end_date | Yes | DateTime | The date the candidate finished attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
 
-* - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but only Month and Year will be displayed on the candidate profile in Greenhouse. The "latest education" will be updated automatically.
+* - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but only Month and Year will be displayed on the candidate profile in Greenhouse. The "latest education" will be updated automatically. Day and time information in these timestamps will be recorded but not referenced in Greenhouse.
 
 ## POST: Add Prospect
 
