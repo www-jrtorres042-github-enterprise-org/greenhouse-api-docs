@@ -675,9 +675,6 @@ Header | Description
 --------- | -----------
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
-<br>
-
-[See noteworthy response attributes.] (#the-candidate-object)
 
 ## PATCH: Edit Candidate
 
@@ -1484,6 +1481,36 @@ start_date | Yes | DateTime | The date the candidate began attendance. Timestamp
 end_date | Yes | DateTime | The date the candidate finished attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
 
 * - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but only Month and Year will be displayed on the candidate profile in Greenhouse. The "latest education" will be updated automatically. Day and time information in these timestamps will be recorded but not referenced in Greenhouse.
+
+## DELETE: Remove Education From Candidate
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/educations/{education_id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "success": true,
+  "message": "Education 29622362 has been deleted."
+}
+```
+
+Delete an education record by candidate and education id.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/candidates/{candidate_id}/educations/{education_id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
 
 ## POST: Add Prospect
 
