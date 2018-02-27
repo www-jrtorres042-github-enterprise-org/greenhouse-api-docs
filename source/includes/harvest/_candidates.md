@@ -1512,6 +1512,61 @@ Header | Description
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 
+## POST: Add Employment
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/employments'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "company_name": "Greenhouse",
+  "title": "Engineer",
+  "start_date": "2001-09-15T00:00:00.000Z",
+  "end_date": "2004-05-15T00:00:00.000Z"
+}
+```
+
+> The above command returns a JSON response with a 201 status, structured like this:
+
+```json
+{
+  "id": 5690098,
+  "company_name": "Greenhouse",
+  "title": "Engineer",
+  "start_date": "2001-09-15T00:00:00.000Z",
+  "end_date": "2004-05-15T00:00:00.000Z"
+}
+```
+
+Create a new employment record
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/employments`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+company_name | Yes | String |  A free text field indicating an employer's name
+title | Yes | String | A free text field indicating the candidate's title while at the employer.
+start_date | Yes | DateTime | The date the candidate began at employer. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
+end_date | No | DateTime | The date the candidate finished at employer. Timestamp must be in in [ISO-8601] (#general-considerations) format.* An empty end_date indicates current employment.
+
+* - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but time will be ignored in the context of employment. The "latest employment" will be updated automatically. 
+
 ## POST: Add Prospect
 
 ```shell
