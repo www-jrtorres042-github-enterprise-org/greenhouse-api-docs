@@ -102,6 +102,14 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
             "end_date": "01/01/2016"
           }
         ],
+        "employments": [
+          {
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": {
           "id": 55,
           "email": "bob_johnson@localhost.com",
@@ -417,6 +425,14 @@ This web hook will fire when a candidate or prospect is merged with another cand
             "end_date": "01/01/2016"
           }
         ],
+        "employments": [
+          {
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": {
           "id": 3128,
           "email": "alicia.flopple.3128@example.com",
@@ -581,6 +597,14 @@ See web hook [common attributes](#common-attributes).
             "end_date": "01/01/2016"
           }
         ],
+        "employments": [
+          {
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": null,
         "coordinator": null,
         "attachments": [
@@ -724,6 +748,14 @@ See web hook [common attributes](#common-attributes).
             "end_date": "01/01/2016"
           }
         ],
+        "employments": [
+          {
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": null,
         "coordinator": null,
         "attachments": [
@@ -852,6 +884,14 @@ See web hook [common attributes](#common-attributes).
             "end_date": "01/01/2016"
           }
         ],
+        "employments": [
+          {
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
         "recruiter": null,
         "coordinator": null,
         "attachments": [
@@ -968,6 +1008,14 @@ See web hook [common attributes](#common-attributes).
           "end_date": "01/01/2016"
         }
       ],
+      "employments": [
+        {
+          "company_name": "Greenhouse",
+          "title": "Engineer",
+          "start_date": "01/01/2012",
+          "end_date": "01/01/2016"
+        }
+      ],
       "recruiter": {
         "id": 169779,
         "email": "hank.hollandaise.169779@example.com",
@@ -1077,6 +1125,14 @@ See web hook [common attributes](#common-attributes).
             "school_name": "Harvard University",
             "degree": "Bachelor's Degree",
             "discipline": "Information Systems",
+            "start_date": "01/01/2012",
+            "end_date": "01/01/2016"
+          }
+        ],
+        "employments": [
+          {
+            "company_name": "Greenhouse",
+            "title": "Engineer",
             "start_date": "01/01/2012",
             "end_date": "01/01/2016"
           }
