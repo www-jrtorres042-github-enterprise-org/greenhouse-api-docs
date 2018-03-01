@@ -173,7 +173,15 @@ An organization's candidates.
             "end_date": "2016-05-15T00:00:00.000Z"
         }
     ],
-    "employments": [],
+    "employments": [
+        {
+            "id": 8485064,
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
+        }
+    ],
     "custom_fields": {
         "desired_salary": "1000000000",
         "work_remotely": true,
@@ -387,7 +395,15 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
             "end_date": "2016-05-15T00:00:00.000Z"
         }
     ],
-    "employments": [],
+    "employments": [
+        {
+            "id": 8485064,
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
+        }
+    ],
     "custom_fields": {
         "desired_salary": "1000000000",
         "work_remotely": true,
@@ -605,7 +621,15 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "end_date": "2016-05-15T00:00:00.000Z"
         }
     ],
-    "employments": [],
+    "employments": [
+        {
+            "id": 8485064,
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
+        }
+    ],
     "custom_fields": {
         "desired_salary": "1000000000",
         "work_remotely": true,
@@ -1057,6 +1081,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
       "end_date": "2004-05-15T00:00:00.000Z"
     }
   ],
+  "employments": [
+      {
+          "id": 8485064,
+          "company_name": "Greenhouse",
+          "title": "Engineer",
+          "start_date": "2012-08-15T00:00:00.000Z",
+          "end_date": "2016-05-15T00:00:00.000Z"
+      }
+  ],
   "tags": [
     "Walkabout",
     "Orientation"
@@ -1204,7 +1237,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             "degree": "Bachelor's Degree"
         }
     ],
-    "employments": [],
+    "employments": [
+        {
+            "id": 8485064,
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
+        }
+    ],
     "custom_fields": {
         "desired_salary": null,
         "work_remotely": null,
@@ -1913,7 +1954,15 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
             "discipline": "Computer Science"
         }
     ],
-    "employments": [],
+    "employments": [
+        {
+            "id": 8485064,
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
+        }
+    ],
     "custom_fields": {
         "desired_salary": null,
         "work_remotely": null,
@@ -2062,8 +2111,16 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
             "discipline": "Computer Science"
         }
     ],
-    "employments": [],
-      "custom_fields": {
+    "employments": [
+        {
+            "id": 8485064,
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
+        }
+    ],
+    "custom_fields": {
         "desired_salary": "120K",
         "work_remotely": true,
         "graduation_year": "2018"
