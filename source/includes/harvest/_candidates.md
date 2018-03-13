@@ -1081,6 +1081,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
       "end_date": "2004-05-15T00:00:00.000Z"
     }
   ],
+  "employments": [
+      {
+          "id": 8485064,
+          "company_name": "Greenhouse",
+          "title": "Engineer",
+          "start_date": "2012-08-15T00:00:00.000Z",
+          "end_date": "2016-05-15T00:00:00.000Z"
+      }
+  ],
   "tags": [
     "Walkabout",
     "Orientation"
@@ -1226,6 +1235,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             "school_name": "Siena College",
             "discipline": "Computer Science",
             "degree": "Bachelor's Degree"
+        }
+    ],
+    "employments": [
+        {
+            "id": 8485064,
+            "company_name": "Greenhouse",
+            "title": "Engineer",
+            "start_date": "2012-08-15T00:00:00.000Z",
+            "end_date": "2016-05-15T00:00:00.000Z"
         }
     ],
     "custom_fields": {
@@ -1652,6 +1670,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "end_date": "2004-05-15T00:00:00.000Z"
     }
   ],
+  "employments": [
+      {
+          "id": 8485064,
+          "company_name": "Greenhouse",
+          "title": "Engineer",
+          "start_date": "2012-08-15T00:00:00.000Z",
+          "end_date": "2016-05-15T00:00:00.000Z"
+      }
+  ],
   "tags": [
     "Walkabout",
     "Orientation"
@@ -1764,6 +1791,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "discipline": "Computer Science",
       "degree": "Bachelor's Degree"
     }
+  ],
+  "employments": [
+      {
+          "id": 8485064,
+          "company_name": "Greenhouse",
+          "title": "Engineer",
+          "start_date": "2012-08-15T00:00:00.000Z",
+          "end_date": "2016-05-15T00:00:00.000Z"
+      }
   ],
   "custom_fields": {
     "current_salary": "$123,000",
