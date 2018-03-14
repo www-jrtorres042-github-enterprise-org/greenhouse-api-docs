@@ -323,7 +323,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> The above command takes a JSON request, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```
 [
@@ -351,7 +351,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
     }
 ]
 ```
-
 
 Returns all pending approvals for this user. Pending approvals are defined as an approval chain that is not approved or rejected, that this user has not already approved or rejected, in a group that has not yet determined approval or rejection.
 
