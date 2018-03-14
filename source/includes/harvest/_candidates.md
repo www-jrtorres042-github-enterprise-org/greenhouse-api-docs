@@ -1608,6 +1608,37 @@ end_date | No | DateTime | The date the candidate finished at employer. Timestam
 
 * - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but time will be ignored in the context of employment. The "latest employment" will be updated automatically. 
 
+
+## DELETE: Remove Employment From Candidate
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/employments/{employment_id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "success": true,
+  "message": "Employment 29622362 has been deleted."
+}
+```
+
+Delete an employment record by candidate and employment id.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/candidates/{candidate_id}/employments/{employment_id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
 ## POST: Add Prospect
 
 ```shell
