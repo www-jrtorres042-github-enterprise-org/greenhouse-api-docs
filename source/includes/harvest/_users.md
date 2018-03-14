@@ -336,7 +336,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
         "reminder_sent_at": "2017-03-25T18:58:27.796Z",
         "reminders_sent": 2,
         "approver_group_id": 3432,
-        "reminder_sent_by_user_id": 343
+        "reminder_sent_by_user_id": 343,
+        "hiring_plan_id": 4567,
+        "offer_id": null
     },
     {
         "id": 34568,
@@ -347,7 +349,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
         "reminder_sent_at": "2017-04-25T18:58:27.796Z",
         "reminders_sent": 1,
         "approver_group_id": 3436,
-        "reminder_sent_by_user_id": 343
+        "reminder_sent_by_user_id": 343,
+        "hiring_plan_id": 4568,
+        "offer_id": 4534
     }
 ]
 ```
@@ -357,6 +361,19 @@ Returns all pending approvals for this user. Pending approvals are defined as an
 ### HTTP Request
 
 `GET https://harvest.greenhouse.io/v1/users/{id}/pending_approvals`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user whose pending approvals we want.
+
+### Querystring Parameters
+
+Parameter | Description
+--------- | -----------
+type | 'job' or 'offer', where 'job' return approvals to start recruiting and official job approvals and 'offer' returns offer approvals. Leave this blank to return all types.
+
 
 ### Noteworthy Attributes
 
