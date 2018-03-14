@@ -313,3 +313,55 @@ There are 3 successful response states for this endpoint.
 * 201: A new e-mail address was received and created. This will be the response code regardless of the verification setting.
 * 200: An e-mail was generated for an unverified e-mail address. This is the case if we attempt to re-send a verification e-mail to an unverified e-mail address.
 * 204: A request was made which caused Greenhouse to do nothing. This will occur if you attempt to re-send a verification e-mail to an address that has already been verified or if you make a follow-up request to an unverified e-mail with send_verification set to false.
+
+
+## GET: Pending Approvals
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+[
+    {
+        "id": 34564,
+        "status": "waiting",
+        "created_at": "2017-03-23T18:58:27.796Z",
+        "resolved_at": nil,
+        "request_sent_at": "2017-03-23T18:58:27.796Z",
+        "reminder_sent_at": "2017-03-25T18:58:27.796Z",
+        "reminders_sent": 2,
+        "approver_group_id": 3432,
+        "reminder_sent_by_user_id": 343
+    },
+    {
+        "id": 34568,
+        "status": "due",
+        "created_at": "2017-04-23T18:58:27.796Z",
+        "resolved_at": nil,
+        "request_sent_at": "2017-04-23T18:58:27.796Z",
+        "reminder_sent_at": "2017-04-25T18:58:27.796Z",
+        "reminders_sent": 1,
+        "approver_group_id": 3436,
+        "reminder_sent_by_user_id": 343
+    }
+]
+```
+
+
+Returns all pending approvals for this user. Pending approvals are defined as an approval chain that is not approved or rejected, that this user has not already approved or rejected, in a group that has not yet determined approval or rejection.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/users/{id}/pending_approvals`
+
+### Noteworthy Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| status | This is either "waiting" or "due" for pending approvals |
+| approver_group_id | This is Approver Group ID used in post requests to replace this user in approval steps. |
