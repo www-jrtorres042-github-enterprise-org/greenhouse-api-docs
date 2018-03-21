@@ -318,8 +318,7 @@ There are 3 successful response states for this endpoint.
 ## GET: Pending Approvals
 
 ```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
--H "On-Behalf-Of: {greenhouse user ID}"
+curl -X GET 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
