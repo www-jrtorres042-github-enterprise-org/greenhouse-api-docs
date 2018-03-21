@@ -41,7 +41,7 @@ GEM
     i18n (0.7.0)
     json (1.8.3)
     kramdown (1.7.0)
-    libv8 (3.16.14.7)
+    libv8 (3.16.14.19)
     listen (2.10.1)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -140,4 +140,4 @@ DEPENDENCIES
   therubyracer (~> 0.12.1)
 
 BUNDLED WITH
-   1.10.2
+   1.16.1
