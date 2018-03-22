@@ -119,6 +119,7 @@ As of February 2017,  we are transitioning to a new method for paging while main
 * [GET: List Custom Fields](#get-list-custom-fields)
 * [GET: List Custom Field Options](#get-list-custom-field-options)
 * [GET: List Job Openings](#get-list-job-openings)
+* [GET: List Approvals For Job](#get-list-approvals-for-job)
 
 <aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 
