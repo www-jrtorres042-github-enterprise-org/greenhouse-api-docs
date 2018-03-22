@@ -33,7 +33,7 @@ An organization's approvals
 ## GET: List Approvals For Job
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/jobs/{id}/approval_flows'
+curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -124,7 +124,7 @@ Given an approval flow, request it be started. This will change the state of the
 
 `POST https://harvest.greenhouse.io/v1/approval_flows/{id}/request_approvals`
 
-## GET: Pending Approvals
+## GET: Pending Approvals For User
 
 ```shell
 curl -X GET 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
@@ -168,7 +168,7 @@ Returns all pending approvals for this user. Pending approvals are defined as an
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/users/{id}/pending_approvals`
+`GET https://harvest.greenhouse.io/v1/users/{user_id}/pending_approvals`
 
 ### URL Parameters
 
