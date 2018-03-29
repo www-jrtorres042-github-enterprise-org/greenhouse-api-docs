@@ -15,6 +15,7 @@ includes:
   - harvest/introduction
   - harvest/activity_feed
   - harvest/applications
+  - harvest/approvals
   - harvest/candidates
   - harvest/close_reasons
   - harvest/custom_fields
