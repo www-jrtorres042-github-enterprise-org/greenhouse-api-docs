@@ -13,7 +13,27 @@ An organization's approvals
   "approval_type": "offer_candidate",
   "approval_status": "pending",
   "job_id": 12321,
-  "requested_by_user_id": 543
+  "requested_by_user_id": 543,
+  "approver_groups": [
+    {
+      "id": 2011242,
+      "approvals_required": 1,
+      "created_at": "2018-03-30T19:32:04.295Z",
+      "resolved_at": null,
+      "priority": 1,
+      "job_id": 12321,
+      "offer_id": null
+    },
+    {
+      "id": 2011241,
+      "approvals_required": 1,
+      "created_at": "2018-03-30T19:32:00.150Z",
+      "resolved_at": "2018-03-30T19:34:17.374Z",
+      "priority": 0,
+      "job_id": 12321,
+      "offer_id": null
+    }
+  ]
 }
 ```
 
@@ -47,7 +67,27 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
         "approval_type": "offer_candidate",
         "approval_status": "pending",
         "job_id": 12321,
-        "requested_by_user_id": 543
+        "requested_by_user_id": 543,
+        "approver_groups": [
+            {
+                "id": 2011242,
+                "approvals_required": 1,
+                "created_at": "2018-03-30T19:32:04.295Z",
+                "resolved_at": null,
+                "priority": 1,
+                "job_id": 12321,
+                "offer_id": null
+            },
+            {
+                "id": 2011241,
+                "approvals_required": 1,
+                "created_at": "2018-03-30T19:32:00.150Z",
+                "resolved_at": "2018-03-30T19:34:17.374Z",
+                "priority": 0,
+                "job_id": 12321,
+                "offer_id": null
+            }
+        ]
     },
     {
         "id": 49395,
@@ -57,8 +97,19 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
         "approval_type": "offer_job",
         "approval_status": "pending",
         "job_id": 12321,
-        "requested_by_user_id": 545
-    },
+        "requested_by_user_id": 545,
+        "approver_groups": [
+            {
+                "id": 2011247,
+                "approvals_required": 1,
+                "created_at": "2018-03-30T19:32:04.295Z",
+                "resolved_at": null,
+                "priority": 1,
+                "job_id": 12321,
+                "offer_id": null
+            },
+        ]
+    }
 ]
 ```
 
@@ -93,7 +144,27 @@ curl 'https://harvest.greenhouse.io/v1/approval_flows/{id}'
   "approval_type": "offer_candidate",
   "approval_status": "pending",
   "job_id": 12321,
-  "requested_by_user_id": 543
+  "requested_by_user_id": 543,
+  "approver_groups": [
+    {
+      "id": 2011242,
+      "approvals_required": 1,
+      "created_at": "2018-03-30T19:32:04.295Z",
+      "resolved_at": null,
+      "priority": 1,
+      "job_id": 12321,
+      "offer_id": null
+    },
+    {
+      "id": 2011241,
+      "approvals_required": 1,
+      "created_at": "2018-03-30T19:32:00.150Z",
+      "resolved_at": "2018-03-30T19:34:17.374Z",
+      "priority": 0,
+      "job_id": 12321,
+      "offer_id": null
+    }
+  ]
 }
 ```
 
@@ -190,3 +261,65 @@ type | 'job' or 'offer', where 'offer' returns only approvals which are for a sp
 | status | This is either "waiting" or "due" for pending approvals |
 | approver_group_id | This is Approver Group ID used in post requests to replace this user in approval steps. |
 
+## PUT: Replace an approver in an approver group
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/approver_groups/{id}/replace_approvers'
+  -H "On-Behalf-Of: {greenhouse user ID}"
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "remove_user_id": 1443,
+  "add_user_id": 5432
+}
+```
+
+> The above returns a JSON success message with the following information.
+
+```
+{
+  "success": "true",
+  "message": "Approver group updated.",
+  "approval_flow_id": 454,
+  "approver_group_id": 343,
+  "removed_user_id": 1443,
+  "added_user_id": 5432,
+  "new_approver_id": 4332
+}
+```
+
+Removes the approver with user id given in remove_user_id and adds a new approver with the user id in add_user_id. Only approvers in unresolved groups may be replaced with this endpoint. If a group is currently "due", the new user will be notified that action is required.
+
+### HTTP Request
+
+`PUT https://harvest.greenhouse.io/v1/approver_groups/{approver_group_id}/replace_approvers`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes. Must have access to the approval flow.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user whose pending approvals we want.
+
+### Input JSON Parameters
+
+Parameter | Description
+--------- | -----------
+remove_user_id | The user id of the approver to be removed. |
+add_user_id | The user id of the new approver. Must have access to this approval flow
+
+### Noteworthy Output JSON Parameters
+
+Parameter | Description
+--------- | -----------
+approval_flow_id | The approval flow that was changed. |
+new_approver_id | The new approver that was created with add_user_id
