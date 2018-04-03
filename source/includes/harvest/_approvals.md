@@ -1,6 +1,6 @@
 # Approvals
 
-# The approval flow object
+## The approval flow object
 
 An organization's approvals
 
@@ -308,18 +308,18 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Description
 --------- | -----------
-id | The ID of the user whose pending approvals we want.
+approver_group_id | The approver group in which we are replacing an approver.
 
 ### Input JSON Parameters
 
 Parameter | Description
 --------- | -----------
 remove_user_id | The user id of the approver to be removed. |
-add_user_id | The user id of the new approver. Must have access to this approval flow
+add_user_id | The user id of the new approver. Must have access to this approval flow.
 
 ### Noteworthy Output JSON Parameters
 
 Parameter | Description
 --------- | -----------
 approval_flow_id | The approval flow that was changed. |
-new_approver_id | The new approver that was created with add_user_id
+new_approver_id | The new approver that was created with add_user_id.
