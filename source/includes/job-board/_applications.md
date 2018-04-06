@@ -155,19 +155,50 @@ email | Applicant's email address
 *location | Applicant's street address
 *latitude | Applicant's home latitude. This is a *hidden* field and should not be exposed directly to the applicant.
 *longitude | Applicant's home longitude. This is a *hidden* field and should not be exposed directly to the applicant.
-*resume_text | Plaintext resume body
-*cover_letter_text | Plaintext cover letter body
-*resume | Resume file contents.  *Only allowed in `multipart/form-data` requests*
-*cover_letter | Cover letter file contents.  *Only allowed in `multipart/form-data` requests*
+*resume | *Please see below for details.*
+*cover_letter | *Please see below for details.*
 *educations | An array of education objects. Each education object should have five fields: school_name_id, degree_id, discipline_id, start_date, and end_date. start_date and end_date will use a hash of month and year. You can get the school_name_id, degree_id, discipline_id from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints.
 
 ### Submitting Attachments
 
-We support 3 ways to attach files to your payloads.
+We support 4 methods of uploading attachments when submitting a candidate application:
 
-1. Sending the document as an attachment in a multipart form.
-1. Sending URL and filename of the document.
-1. Sending a Base64 encoded string of the document and its filename.
+1. Submit a path the attachment on your local machine.
+2. Submit a path the attachment on an external server.
+3. Submit the Base64-encoded string of the attachment.
+4. Submit the plaintext contents of the attachment.
+
+</br>
+
+**Resume Attachments**
+
+Method | Availability | Required Fields | Example
+--------- | ----------- | ----------- | -----------
+Path to file on local machine | Multipart/form-data  | "resume" | "resume": "@/Users/UserName/Documents/resume.pdf"
+Path to file on external server  | Multipart/form-data or JSON | "resume_url", "resume_url_filename" | "resume_url": "https://example.com/resume.pdf", "resume_url_filename": "resume.pdf"
+Base64-encoded file contents | Multipart/form-data or JSON | "resume_content", "resume_content_filename" | "resume_content": "SGVsbG8sIHdvcmxkIQo=", "resume_content_filename": "resume.pdf"
+Plaintext file contents | Multipart/form-data  or JSON | "resume_text" | "resume_text": "This is my awesome resume!"
+
+</br>
+
+**Cover Letter Attachments**
+
+Method | Availability | Required Fields | Example
+--------- | ----------- | ----------- | -----------
+Path to file on local machine | Multipart/form-data | "cover_letter" | "cover_letter": "@/Users/UserName/Documents/coverletter.pdf"
+Path to file on external server  | Multipart/form-data or JSON | "cover_letter_url", "cover_letter_url_filename" | "cover_letter_url": "https://example.com/coverletter.pdf", "cover_letter_url_filename": "coverletter.pdf"
+Base64-encoded file contents | Multipart/form-data or JSON | "cover_letter_content", "cover_letter_content_filename" | "cover_letter_content": "SGVsbG8sIHdvcmxkIQo=", "cover_letter_content_filename": "coverletter.pdf"
+Plaintext file contents | Multipart/form-data  or JSON | "cover_letter_text" | "cover_letter_text": "This is my awesome cover letterl!"
+
+</br>
+
+**Custom Question Attachments**
+
+Method | Availability | Required Fields | Example
+--------- | ----------- | ----------- | -----------
+Path to file on local machine | Multipart/form-data | "question_12345" | "question_12345": "@/Users/UserName/Documents/attachment.pdf"
+Path to file on external server  | Multipart/form-data or JSON | "question_12345_url", "question_12345_url_filename" | "question_12345_url": "https://example.com/attachment.pdf", "question_12345_url_filename": "attachment.pdf"
+Base64-encoded file contents | Multipart/form-data or JSON | "question_12345_content", "question_12345_content_filename" | "question_12345_content": "SGVsbG8sIHdvcmxkIQo=", "question_12345_content_filename": "attachment.pdf"
 
 ### Collecting Applicant Location
 
