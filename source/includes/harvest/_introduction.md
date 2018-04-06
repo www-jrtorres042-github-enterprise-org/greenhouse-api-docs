@@ -22,7 +22,7 @@ The Harvest API was designed to allow our customers to export their data from Gr
 
 We have usage examples for cURL (and soon, Ruby)! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This documentation is open source! Feel free to leave feedback as issues in the [GitHub repo](https://github.com/capablemonkey/greenhouse-api-docs) or fork it and contribute changes!
+This documentation is open source! Feel free to leave feedback as issues in the [GitHub repo](https://github.com/grnhse/greenhouse-api-docs) or fork it and contribute changes!
 
 ## Authentication
 
