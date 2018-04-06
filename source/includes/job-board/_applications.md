@@ -188,7 +188,7 @@ Method | Availability | Required Fields | Example
 Path to file on local machine | Multipart/form-data | "cover_letter" | "cover_letter": "@/Users/UserName/Documents/coverletter.pdf"
 Path to file on external server  | Multipart/form-data or JSON | "cover_letter_url", "cover_letter_url_filename" | "cover_letter_url": "https://example.com/coverletter.pdf", "cover_letter_url_filename": "coverletter.pdf"
 Base64-encoded file contents | Multipart/form-data or JSON | "cover_letter_content", "cover_letter_content_filename" | "cover_letter_content": "SGVsbG8sIHdvcmxkIQo=", "cover_letter_content_filename": "coverletter.pdf"
-Plaintext file contents | Multipart/form-data  or JSON | "cover_letter_text" | "cover_letter_text": "This is my awesome cover letterl!"
+Plaintext file contents | Multipart/form-data  or JSON | "cover_letter_text" | "cover_letter_text": "This is my awesome cover letter!"
 
 </br>
 
