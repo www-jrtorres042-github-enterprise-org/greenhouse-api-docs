@@ -287,8 +287,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/approver_groups/{id}/replace_appro
   "approval_flow_id": 454,
   "approver_group_id": 343,
   "removed_user_id": 1443,
-  "added_user_id": 5432,
-  "new_approver_id": 4332
+  "added_user_id": 5432
 }
 ```
 
@@ -322,4 +321,3 @@ add_user_id | The user id of the new approver. Must have access to this approval
 Parameter | Description
 --------- | -----------
 approval_flow_id | The approval flow that was changed. |
-new_approver_id | The new approver that was created with add_user_id.
