@@ -34,7 +34,7 @@ on the API Management screen.
 
 ## Resource Limitations
 
-## Pagination
+Be kind.
 
 ## Errors
 

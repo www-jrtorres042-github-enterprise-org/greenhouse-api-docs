@@ -2,7 +2,7 @@
 title: Greenhouse Onboarding API
 
 language_tabs:
-  - shell
+  - Examples
 
 toc_footers:
   - <a href="/harvest.html" title="Harvest API">Harvest API</a>
@@ -12,6 +12,7 @@ toc_footers:
   
 includes:
   - gho/introduction
+  - gho/pagination
   - gho/api
 
 slug: gho
