@@ -13,6 +13,7 @@ toc_footers:
 includes:
   - gho/introduction
   - gho/pagination
+  - gho/errors
   - gho/api
 
 slug: gho

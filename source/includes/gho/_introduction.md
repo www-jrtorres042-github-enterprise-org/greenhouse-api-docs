@@ -35,7 +35,3 @@ on the API Management screen.
 ## Resource Limitations
 
 Be kind.
-
-## Errors
-
-## General considerations
