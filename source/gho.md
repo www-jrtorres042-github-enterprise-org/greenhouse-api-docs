@@ -12,6 +12,7 @@ toc_footers:
   
 includes:
   - gho/introduction
+  - gho/api
 
 slug: gho
 search: true
