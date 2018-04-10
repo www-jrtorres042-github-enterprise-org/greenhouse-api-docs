@@ -19,7 +19,7 @@ date_of_birth | [DateFilter](#datefilter) |
 with_custom_field_value | [WithCustomFieldValue](#withcustomfieldvalue) | 
 # Mutations
 ## updateEmployeeProfile \([Employee](#employee)\)
-Update an Employee's profile
+Update an employee's profile
 
 Argument | Type | Description
 --------- | ----------- | -----------
@@ -27,7 +27,7 @@ id | [ID](#id) |
 employee_updates | [UpdateEmployee](#updateemployee) | 
 # Types
 ## CustomField
-    Represents a single CustomField record for your company.  CustomFields can be stored and display in a variety of    different ways.  The types are described via the [CustomFieldTypes](#customfieldtypes) enum.  
+    Represents a single CustomField record for your company.  CustomFields can be stored and displayed in a variety of    ways.  The types are described via the [CustomFieldTypes](#customfieldtypes) enum.  
 
 Field | Type | Description
 --------- | ----------- | -----------
@@ -51,7 +51,7 @@ value | [Value](#value) |     A different type of value will be stored based upo
 value_updated_at | [DateTime](#datetime) | The time of the most recent update to this field.
 
 ## Department
-    Represents a single department in your company.  Employees can belong only belong to a single Department.  It is    possible for employees to not belong to any Department.  Departments are used in a variety of ways in Greenhouse    Onboarding, including permissions and onboarding plans  
+    Represents a single department in your company.  Employees may belong to zero or one department. Departments are    used in a variety of ways in Greenhouse Onboarding, including permissions and onboarding plans.  
 
 Field | Type | Description
 --------- | ----------- | -----------
@@ -82,7 +82,7 @@ custom_field_values | [CustomFieldValue](#customfieldvalue) |     A list of all 
 date_of_birth | [Date](#date) | Note that only administrators can see the birth year for employees
 date_of_termination | [Date](#date) | This information is only available on terminated employees
 department | [Department](#department) | 
-documents | [Document](#document) |     These are documents that were either came over from Greenhouse Recruiting, were attached directly to the employee    profile, or attached to a task.  This does _not_ include E-Signature requests.  
+documents | [Document](#document) |     These are documents that either came over from Greenhouse Recruiting, were attached directly to the employee    profile, or attached to a task.  This does _not_ include E-Signature requests.  
 email | [String](#string) | The employee's work email.  They need this in order to sign in
 employment_status | [EmploymentStatus](#employmentstatus) | 
 first_name | [String](#string) | 
@@ -146,7 +146,7 @@ updated_at | [DateTime](#datetime) |
 
 Field | Type | Description
 --------- | ----------- | -----------
-updateEmployeeProfile | [Employee](#employee) | Update an Employee's profile
+updateEmployeeProfile | [Employee](#employee) | Update an employee's profile
 
 ## PageInfo
 Information about pagination in a connection.
@@ -259,25 +259,22 @@ A URL-formatted String
 The actual value of a Custom Field Value. Can be of an arbitrary type (string, int, object, etc.)
 
 # Enums
+NOTE: Enums are unquoted in user input but quotes in API output.
 ## CustomFieldTypes
 Possible type values for CustomFieldValues
 
 Value | Description
 --------- | ---------
-TEXT | 
-LONG_TEXT | 
-MULTIPLE_CHOICE | 
-MULTIPLE_SELECT | 
-CONFIRMABLE | 
-CONTACT | 
-TEAM | 
-DATE | 
-EMPLOYEE | 
-ADDRESS | 
-LEGAL_NAME | 
-PREFERRED_NAME | 
-IMAGE | 
-COUNTRY | 
+TEXT | Displayed as a single line text field. Stored as a String.
+LONG_TEXT | Displayed as a multiline text box. Stored as a String.
+MULTIPLE_CHOICE | Displayed as a dropdown.  Stored as a String.
+MULTIPLE_SELECT | Displayed as a tag field.  Stored as an Array of Strings.
+CONFIRMABLE | Displayed as a text field where the user has to enter the value twice.  Stored as a String.
+CONTACT | Displayed as group of inputs.  Stored as JSON.
+TEAM | Displayed as a dropdown of teams. Stored as a Team ID.
+DATE | Displayed as a datepicker.  Stored as a DateTime
+EMPLOYEE | Displayed as a dropdown of employees.  Stored as an Employee ID.
+ADDRESS | Displayed as group of inputs.  Stored as JSON.
 
 ## EmploymentStatus
 Possible employment statuses for an employee

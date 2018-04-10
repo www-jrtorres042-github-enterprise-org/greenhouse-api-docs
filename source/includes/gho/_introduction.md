@@ -10,17 +10,25 @@ This documentation is open source! Feel free to leave feedback as issues in the
 
 ## GraphQL
 
-Greenhouse Onboarding currently only supports GraphQL; we do not have a traditional REST API.  GraphQL is much more
-powerful than traditional APIs, allowing consumers to:
+Greenhouse Onboarding only supports [GraphQL]((http://graphql.org/)); we do not have a traditional REST API.  
+We made the decision to use GraphQL because it allows us you to:
 
-* Increase throughput by requesting only the data your are interested in.
+* Increase throughput by requesting only the data you are interested in.
 * Use introspection to know precisely what our schema looks like.  Tools like 
 [GraphiQL](https://github.com/graphql/graphiql) will allow you to quickly and easily explore our entire API.  It even
 supports autocomplete!
-* Program against [an industry-wide standard](http://graphql.org/) supported by a variety of tools and organizations.
+* Program against an industry-wide standard supported by a variety of tools and organizations.
 
 ## Authentication
 
+```shell
+$ curl https://harvest.greenhouse.io/v1/candidates/ -u your_access_key:your_value
+...
+
+> GET /api/v2/graphql HTTP/1.1
+> Host: onboarding-api.greenhouse.io
+> Authorization: Basic eW91cl9hY2Nlc3Nfa2V5OnlvdXJfdmFsdWU=
+```
 The Greenhouse Onboarding API is secured with HTTP Basic Authentication over HTTPS.  Clients are required to supply
 both a username and password.  Credentials can be generated inside of the Greenhouse Onboarding product on the
 [Settings > API Management screen](https://onboarding.greenhouse.io/settings/api_management).  Only Super Admins can
@@ -28,7 +36,7 @@ generate or revoke API keys.  Use the `Access Key` field as the username and the
 
 <img src="/images/gho/api-management.png" alt="API Management">
 
-Using the Greenhouse Onboarding API provides access to _all_ of your companies information.  There is no way to limit
+Using the Greenhouse Onboarding API provides access to _all_ of your company's information.  There is no way to limit
 the scope of an API key.  Only share your API key with people that you trust.  API keys can be revoked at any time
 on the API Management screen.
 
