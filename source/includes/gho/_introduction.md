@@ -22,7 +22,7 @@ supports autocomplete!
 ## Authentication
 
 ```shell
-$ curl https://harvest.greenhouse.io/v1/candidates/ -u your_access_key:your_value
+$ curl https://onboarding-api.greenhouse.io/api/v2/graphql -u your_access_key:your_value
 ...
 
 > GET /api/v2/graphql HTTP/1.1
