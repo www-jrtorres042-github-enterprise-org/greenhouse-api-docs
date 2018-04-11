@@ -1244,7 +1244,7 @@ A list of possible anonymized fields are provided. If the item in "attribute" is
 | `follow_up_reminders` | Destroy any follow-up reminders configured on this person. |
 | `full_name` | Set `candidate.first_name` to "Anonymized" and `candidate.last_name` to the `candidate.id`. |
 | `headline` | Set the candidate's headline to null. |
-| `inmails` | Destroy record of any LinkedIn Inmails ynced to this candidate from LinkedIn. |
+| `inmails` | Destroy record of any LinkedIn Inmails synced to this candidate from LinkedIn. |
 | `innotes` | Destroy record of any LinkedIn Innotes synced to this candidate from LinkedIn. |
 | `location` | For each of this candidate's applications, set `application.location` to null. |
 | `notes` | Destroy all notes on this candidate. |
