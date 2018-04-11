@@ -1223,10 +1223,10 @@ A list of possible anonymized fields are provided. If the item in "attribute" is
 
 | Attribute | Anonymize Process |
 |------------|--------|
-| `activity_items` | Destroy all items in the candidate's activity feed. |
+| `activity_items` | Destroy all items in the candidate's activity feed of type "activity". In Harvest's Activity Feed endpoint, these are items in the `activities` section. |
 | `addresses` | Destroy all values from `candidate.addresses` |
 | `all_offer_versions` | For each of this candidate's applications, destroy all offers. (For legacy reasons, this will also raise an [Offer Deleted](#offer-deleted) web hook if one is configured.) |
-| `application_questions` | For each of this candidate's applications, destroy all answers to all application questions. |
+| `application_questions` | For each of this candidate's applications, destroy all values from `application.answers`. |
 | `attachments` | Destroy all attachments on this candidate and all their associated applications. |
 | `candidate_photo` | Destroy the candidate's photo. |
 | `candidate_stage_data` | For each of this candidate's applications, set the `created_at` time to now, remove the candidate from the current stage, destroy all stage transition information, and set the candidate back to the first stage. |
@@ -1244,16 +1244,16 @@ A list of possible anonymized fields are provided. If the item in "attribute" is
 | `follow_up_reminders` | Destroy any follow-up reminders configured on this person. |
 | `full_name` | Set `candidate.first_name` to "Anonymized" and `candidate.last_name` to the `candidate.id`. |
 | `headline` | Set the candidate's headline to null. |
-| `inmails` | Destroy record of any LinkedIn Inmails sent to this candidate via Greenhouse. |
-| `innotes` | Destroy record of any LinkedIn Innotes sent to this candidate via Greenhouse. |
-| `location` | For each of this candidate's applications, remove the `location` information. |
+| `inmails` | Destroy record of any LinkedIn Inmails ynced to this candidate from LinkedIn. |
+| `innotes` | Destroy record of any LinkedIn Innotes synced to this candidate from LinkedIn. |
+| `location` | For each of this candidate's applications, set `application.location` to null. |
 | `notes` | Destroy all notes on this candidate. |
 | `offers` | Destroy all information on all offers on any of this candidate's applications without destroying that an offer was made. |
 | `phone_numbers` | Remove all values from `candidate.phone_numbers` |
 | `prospect_jobs` | Remove all associations between this prospect and jobs. |
 | `prospect_offices` | Remove all associations between this prospect and offices. |
 | `prospect_offices_and_departments` | Remove all associations between this prospect and departments. |
-| `prospect_owner` | For each of this candidate's applications, destroy the prospect owner. |
+| `prospect_owner` | For each of this candidate's prospect applications, destroy the prospect owner. |
 | `prospect_pool_and_stage` | For each of this candidate's application, destroy the prospect pool and the prospect pool stage. |
 | `recruiter` | Set `candidate.recruiter` to null |
 | `referral_questions` | Destroy all referral answers for this candidate. |
