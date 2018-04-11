@@ -1202,3 +1202,66 @@ See web hook [common attributes](#common-attributes).
 The New Prospect Application event occurs when a new prospect application is created.
 
 See web hook [common attributes](#common-attributes).
+
+## Candidate anonymized
+
+This web hook will fire when a particular candidate receives an anonymize event. Anonymize events may occur from the [Anonymize Endpoint](#put-anonymize-candidate) in Harvest or may be configured in the GDPR page in the Greenhouse application. An anonymize web hook consists of the action type, the id of the candidate who had properties anonymized, and the information that was anonymized. 
+
+```json
+{
+  "action": "candidate_anonymized",
+  "payload": {
+    "candidate_id": 37031511,
+    "anonymized_fields": ["full_name", "current_title"]
+  }
+}
+```
+
+### Anonymized Fields
+
+A list of possible anonymized fields are provided. If the item in "attribute" is received in the anonymized_fields array, the corresponding changes in notes have been applied in Greenhouse. Note that some of these fields may not be accessible via other web hooks or via Harvest.
+
+| Attribute | Anonymize Process |
+|------------|--------|
+| `activity_items` | Destroy all items in the candidate's activity feed of type "activity". In Harvest's Activity Feed endpoint, these are items in the `activities` section. |
+| `addresses` | Destroy all values from `candidate.addresses` |
+| `all_offer_versions` | For each of this candidate's applications, destroy all offers. (For legacy reasons, this will also raise an [Offer Deleted](#offer-deleted) web hook if one is configured.) |
+| `application_questions` | For each of this candidate's applications, destroy all values from `application.answers`. |
+| `attachments` | Destroy all attachments on this candidate and all their associated applications. |
+| `candidate_photo` | Destroy the candidate's photo. |
+| `candidate_stage_data` | For each of this candidate's applications, set the `created_at` time to now, remove the candidate from the current stage, destroy all stage transition information, and set the candidate back to the first stage. |
+| `coordinator` | Set `candidate.coordinator` to null |
+| `credited_to` | For each of this candidate's application, destroy `application.credited_to`. |
+| `custom_application_fields` | For each of this candidate's applications, destroy `application.custom_fields`. |
+| `custom_candidate_fields` | Destroy all values from `candidate.custom_fields` |
+| `custom_rejection_question_fields` | For each of this candidate's application, destroy all custom fields on rejection details. |
+| `current_company` | Set `candidate.company` to null. |
+| `current_title` | Set `candidate.title` to null. |
+| `education` | Remove all values from `candidate.educations` |
+| `email_addresses` | Destroy all values from `candidate.email_addresses` |
+| `employment` | Remove all values from `candidate.employments` |
+| `emails` | Destroy record of any e-mails sent to this candidate via Greenhouse. |
+| `follow_up_reminders` | Destroy any follow-up reminders configured on this person. |
+| `full_name` | Set `candidate.first_name` to "Anonymized" and `candidate.last_name` to the `candidate.id`. |
+| `headline` | Set the candidate's headline to null. |
+| `inmails` | Destroy record of any LinkedIn Inmails synced to this candidate from LinkedIn. |
+| `innotes` | Destroy record of any LinkedIn Innotes synced to this candidate from LinkedIn. |
+| `location` | For each of this candidate's applications, set `application.location` to null. |
+| `notes` | Destroy all notes on this candidate. |
+| `offers` | Destroy all information on all offers on any of this candidate's applications without destroying that an offer was made. |
+| `phone_numbers` | Remove all values from `candidate.phone_numbers` |
+| `prospect_jobs` | Remove all associations between this prospect and jobs. |
+| `prospect_offices` | Remove all associations between this prospect and offices. |
+| `prospect_offices_and_departments` | Remove all associations between this prospect and departments. |
+| `prospect_owner` | For each of this candidate's prospect applications, destroy the prospect owner. |
+| `prospect_pool_and_stage` | For each of this candidate's application, destroy the prospect pool and the prospect pool stage. |
+| `recruiter` | Set `candidate.recruiter` to null |
+| `referral_questions` | Destroy all referral answers for this candidate. |
+| `rejection_notes` | Destroy all notes specifically related to this candidate's rejection. |
+| `rejection_reasons` | Set `rejection_reason` on all candidate applications to null. |
+| `scorecards_and_interviews` | Destroy all scorecards with this candidate id and all interviews with any application from this candidate id |
+| `social_media_links` | Remove all values from `candidate.social_media_addresses` |
+| `source` | Remove `application.source` in all this candidate's applications. |
+| `tags` | Remove all values from `candidate.tags` |
+| `touchpoints` | Destroy all touchpoints on the candidate, all the candidate's applications, and any notes associated with touchpoints. |
+| `websites` | Remove all values from `candidate.website_addresses` |

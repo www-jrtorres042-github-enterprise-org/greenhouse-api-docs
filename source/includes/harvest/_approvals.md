@@ -1,8 +1,8 @@
 # Approvals
 
-## The approval flow object
-
 An organization's approvals
+
+## The approval flow object
 
 ```json
 {
