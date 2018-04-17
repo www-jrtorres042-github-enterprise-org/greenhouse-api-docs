@@ -40,6 +40,69 @@ Using the Greenhouse Onboarding API provides access to _all_ of your company's i
 the scope of an API key.  Only share your API key with people that you trust.  API keys can be revoked at any time
 on the API Management screen.
 
-## Resource Limitations
+## Rate Limiting
 
-Be kind.
+The Greenhouse Onboarding API imposes limits on the the number of requests a single client can send us, as well as the
+complexity of these requests.  This is done to ensure our servers can always service requests as quickly as possible.
+
+### Request Costs
+
+```json
+{
+  "errors": [
+    {
+      "message": "Rate limit reached.",
+      "limit": 100,
+      "remaining": 0,
+      "resetAt": "2018-01-01T01:00:00Z"
+    }
+  ]
+}
+```
+
+GraphQL gives clients the ability to specify the exact data to be returned in each request.  This means that some
+requests can query lots of data, while others are much simpler and only return a handful of fields.  For this reason,
+a simple rate-limiting protocol of "X requests per hour" is not a good fit.
+
+Instead, each API key is given a budget of "API points" that can be spent on requests.  Each request can have a separate
+cost.  Once the API key has run out of points, all further requests will return an error message stating that requests
+are now being throttled.
+
+This message indicates the total number of API points this API key has in its budget and when the API points will
+be restored to the maximum limit.
+
+```graphql
+{
+  employee(id: 1) {
+    email
+  }
+
+  rateLimit {
+    cost
+    limit
+    remaining
+  }
+}
+```
+
+```json
+{
+  "data": {
+     "employee": {
+       "email": "test@example.com"
+    },
+    "rateLimit": {
+      "cost": 1,
+      "limit": 100,
+      "remaining": 99
+    }
+  }
+}
+```
+Clients can ask for this information before their requests have been throttled by querying for the `rateLimit` object.
+In general, the more complex a query, the higher its cost.  We reserve the right to change the costs for each query,
+and the budgets for API keys, at any time.
+
+### Maximum Depth
+
+The Greenhouse Onboarding API limits the maximum depth of any request to 10.
