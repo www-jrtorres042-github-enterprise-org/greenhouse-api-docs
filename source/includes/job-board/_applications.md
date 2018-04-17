@@ -141,7 +141,8 @@ Parameter | Description
 
 Parameter | Description
 --------- | -----------
-Authorization | This header should include a basic authorization with a **Base64 encoded** API token
+Authorization | This header should include a basic authorization with a **Base64 encoded** API key
+Content-Type | Required if the request contains an attachment
 
 ### Request Parameters
 
@@ -163,42 +164,42 @@ email | Applicant's email address
 
 We support 4 methods of uploading attachments when submitting a candidate application:
 
-1. Submit a path the attachment on your local machine.
-2. Submit a path the attachment on an external server.
-3. Submit the Base64-encoded string of the attachment.
-4. Submit the plaintext contents of the attachment.
+1. Submit the attachment via direct upload using multipart/form-data.
+2. Submit a path to the attachment on an external server.
+3. Submit the Base64-encoded file contents.
+4. Submit the plaintext file contents.
 
 </br>
 
 **Resume Attachments**
 
-Method | Availability | Required Fields | Example
+Method | Content-Type | Required Fields | Example 
 --------- | ----------- | ----------- | -----------
-Path to file on local machine | Multipart/form-data  | "resume" | "resume": "@/Users/UserName/Documents/resume.pdf"
-Path to file on external server  | Multipart/form-data or JSON | "resume_url", "resume_url_filename" | "resume_url": "https://example.com/resume.pdf", "resume_url_filename": "resume.pdf"
-Base64-encoded file contents | Multipart/form-data or JSON | "resume_content", "resume_content_filename" | "resume_content": "SGVsbG8sIHdvcmxkIQo=", "resume_content_filename": "resume.pdf"
-Plaintext file contents | Multipart/form-data  or JSON | "resume_text" | "resume_text": "This is my awesome resume!"
+Direct upload | multipart/form-data  | "resume" | "resume": "@/Users/UserName/Documents/resume.pdf" *(this example is specific to cURL)*
+Path to file on external server  | multipart/form-data *or* application/json | "resume_url", "resume_url_filename" | "resume_url": "https://example.com/resume.pdf", "resume_url_filename": "resume.pdf"
+Base64-encoded file contents | application/json | "resume_content", "resume_content_filename" | "resume_content": "SGVsbG8sIHdvcmxkIQo=", "resume_content_filename": "resume.pdf"
+Plaintext file contents | multipart/form-data *or* application/json | "resume_text" | "resume_text": "This is my awesome resume!"
 
 </br>
 
 **Cover Letter Attachments**
 
-Method | Availability | Required Fields | Example
+Method | Content-Type | Required Fields | Example
 --------- | ----------- | ----------- | -----------
-Path to file on local machine | Multipart/form-data | "cover_letter" | "cover_letter": "@/Users/UserName/Documents/coverletter.pdf"
-Path to file on external server  | Multipart/form-data or JSON | "cover_letter_url", "cover_letter_url_filename" | "cover_letter_url": "https://example.com/coverletter.pdf", "cover_letter_url_filename": "coverletter.pdf"
-Base64-encoded file contents | Multipart/form-data or JSON | "cover_letter_content", "cover_letter_content_filename" | "cover_letter_content": "SGVsbG8sIHdvcmxkIQo=", "cover_letter_content_filename": "coverletter.pdf"
-Plaintext file contents | Multipart/form-data  or JSON | "cover_letter_text" | "cover_letter_text": "This is my awesome cover letter!"
+Direct upload | multipart/form-data | "cover_letter" | "cover_letter": "@/Users/UserName/Documents/coverletter.pdf" *(this example is specific to cURL)*
+Path to file on external server  | multipart/form-data *or* application/json | "cover_letter_url", "cover_letter_url_filename" | "cover_letter_url": "https://example.com/coverletter.pdf", "cover_letter_url_filename": "coverletter.pdf"
+Base64-encoded file contents | application/json | "cover_letter_content", "cover_letter_content_filename" | "cover_letter_content": "SGVsbG8sIHdvcmxkIQo=", "cover_letter_content_filename": "coverletter.pdf"
+Plaintext file contents | multipart/form-data *or* application/json | "cover_letter_text" | "cover_letter_text": "This is my awesome cover letter!"
 
 </br>
 
 **Custom Question Attachments**
 
-Method | Availability | Required Fields | Example
+Method | Content-Type | Required Fields | Example
 --------- | ----------- | ----------- | -----------
-Path to file on local machine | Multipart/form-data | "question_12345" | "question_12345": "@/Users/UserName/Documents/attachment.pdf"
-Path to file on external server  | Multipart/form-data or JSON | "question_12345_url", "question_12345_url_filename" | "question_12345_url": "https://example.com/attachment.pdf", "question_12345_url_filename": "attachment.pdf"
-Base64-encoded file contents | Multipart/form-data or JSON | "question_12345_content", "question_12345_content_filename" | "question_12345_content": "SGVsbG8sIHdvcmxkIQo=", "question_12345_content_filename": "attachment.pdf"
+Direct upload | multipart/form-data | "question_12345" | "question_12345": "@/Users/UserName/Documents/attachment.pdf" *(this example is specific to cURL)*
+Path to file on external server  | multipart/form-data *or* application/json | "question_12345_url", "question_12345_url_filename" | "question_12345_url": "https://example.com/attachment.pdf", "question_12345_url_filename": "attachment.pdf"
+Base64-encoded file contents | application/json | "question_12345_content", "question_12345_content_filename" | "question_12345_content": "SGVsbG8sIHdvcmxkIQo=", "question_12345_content_filename": "attachment.pdf"
 
 ### Collecting Applicant Location
 
