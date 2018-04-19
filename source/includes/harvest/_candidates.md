@@ -1461,9 +1461,73 @@ visibility* | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
 
 \* - Due to a legacy typo, the response includes the same value as `visiblity`. It is safe to ignore this value, but it is maintained for backward compatibility.
 
-<aside class="notice">
-    There may be a delay between when Greenhouse receives the POST: Add Note request and when Greenhouse creates the full note record, which will result in a truncated API response. The truncated response body will contain the Note ID. You can retrieve the full note record by requesting the Candidate ID with the GET: Retrieve Candidate endpoint. The candidate record will contain the newly created note, which will have the Note ID from the truncated API response. If the newly created note is missing from the candidate record, this indicates that the full note record is still not available. Until the note record has been made fully-available in the API, please continue to request the candidate record until the note is included in the API Response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
-</aside>
+
+## POST: Add E-mail Note
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/emails'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+  "user_id": "214",
+  "to": "candidate@example.com",
+  "from": "recruiter@example.com",
+  "cc": ["manager@example.com"],
+  "subject": "Interview Scheduled",
+  "body": "An interview has been scheduled for tomorrow."
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 226809053,
+  "created_at": "2015-07-17T16:29:31Z",
+  "subject": "Interview Scheduled",
+  "body": "An interview has been scheduled for tomorrow.",
+  "to": "candidate@example.com",
+  "from": "recruiter@example.com",
+  "cc": ["manager@example.com"],
+  "user": {
+    "id": 214,
+    "first_name": "Donald",
+    "last_name": "Johnson",
+    "name": "Donald Johnson",
+    "employee_id": null
+  }
+}
+```
+
+Create a candidate e-mail note.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/emails`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+user_id | Yes | integer |   The ID of the user creating the note
+to | Yes | string | This is a free text field that is meant to be an e-mail address. E-mail format will not be validated.
+from | Yes | string | This is a free text field that is meant to be an e-mail address. E-mail format will not be validated.
+cc | No | Array | This is meant to be an array of e-mail addresses. E-mail format will not be validated.
+subject | Yes | string | The subject line of the e-mail.
+body | Yes | string | The body of the e-mail.
+
 
 ## POST: Add Education
 
