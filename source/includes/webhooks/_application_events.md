@@ -236,7 +236,7 @@
               "name": "Replacement Role",
               "type": "boolean",
               "value": true
-            }
+            },
             "salary_range_2": {
               "name": "Salary Range",
               "type": "currency_range",
