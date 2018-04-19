@@ -112,7 +112,7 @@ All submitted scorecards ordered by candidate.
 | id | The scorecard's unique identifier |
 | candidate_id | The ID of the [candidate](#candidates) whom this scorecard was written for.
 | submitted_by | The [user](#users) who submitted this scorecard.
-| overall_recommendation | One of: `definitely_not`, `no`, `yes`, `strong_yes`, `mixed`, `no_decision`
+| overall_recommendation | One of: `definitely_not`, `no`, `yes`, `strong_yes`, `no_decision`
 | attributes | Array containing the attributes of the Scorecard. Describes each attribute's name, type, rating (can be "no_decision"), and an optional note.
 
 ## GET: List Scorecards
