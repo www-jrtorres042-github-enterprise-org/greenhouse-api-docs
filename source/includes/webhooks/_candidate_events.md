@@ -65,7 +65,7 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
         "first_name": "Johnny",
         "last_name": "Smith",
         "title": "Previous Title",
-        "external_id": 12345,
+        "external_id": "12345",
         "url": "https://app.greenhouse.io/people/35897443",
         "phone_numbers": [
           {
