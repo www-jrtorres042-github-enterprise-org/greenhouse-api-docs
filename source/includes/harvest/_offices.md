@@ -236,6 +236,46 @@ id | The ID of the office to retrieve
 <br>
 [See noteworthy response attributes.] (#the-office-object)
 
+## PATCH: Edit Office
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/offices/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```
+{
+   "name": "Research and Development",
+   "location": "New York, NY"
+}
+```
+
+Edit an office’s basic information.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/offices/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+name | Yes | string | The office’s name. If included, this cannot be blank.
+location | No | string | The office’s location.
+external_id* | No | string | The office’s external ID. If included, this must be unique to this office within the organization.
+
+\* - If the external id feature is not enabled for your organization, attempting to edit this field will raise an API Error.
+
+
 ## POST: Add Office
 
 ```shell
