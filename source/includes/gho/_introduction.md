@@ -22,17 +22,17 @@ supports autocomplete!
 ## Authentication
 
 ```shell
-$ curl https://onboarding-api.greenhouse.io/api/v2/graphql -u your_access_key:your_value
+$ curl https://onboarding-api.greenhouse.io/graphql -u your_access_key:your_secret_key
 ...
 
-> GET /api/v2/graphql HTTP/1.1
+> GET /graphql HTTP/1.1
 > Host: onboarding-api.greenhouse.io
 > Authorization: Basic eW91cl9hY2Nlc3Nfa2V5OnlvdXJfdmFsdWU=
 ```
 The Greenhouse Onboarding API is secured with HTTP Basic Authentication over HTTPS.  Clients are required to supply
 both a username and password.  Credentials can be generated inside of the Greenhouse Onboarding product on the
 [Settings > API Management screen](https://onboarding.greenhouse.io/settings/api_management).  Only Super Admins can
-generate or revoke API keys.  Use the `Access Key` field as the username and the `Value` field as the password.
+generate or revoke API keys.  Use the `Access Key` field as the username and the `Secret Key` field as the password.
 
 <img src="/images/gho/api-management.png" alt="API Management">
 
