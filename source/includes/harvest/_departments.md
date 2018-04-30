@@ -8,10 +8,11 @@ An organization's departments.
 
 ```json
 {
-	"id": 1,
-	"name": "Technology",
-	"parent_id": 5,
-	"child_ids": [11, 12]
+  "id": 1,
+  "name": "Technology",
+  "parent_id": 5,
+  "child_ids": [11, 12],
+  "external_id": null
 }
 ```
 
@@ -19,20 +20,23 @@ An organization's departments.
 
 ```json
 {
-	"id": 1,
-	"name": "Technology",
-	"children": [
-	  {
-	    "id": 11,
-	    "name": "Design",
-	    "children": []
-	  },
-	  {
-	    "id": 12,
-	    "name": "Engineering",
-	    "children": []
-	  }
-	]
+  "id": 1,
+  "name": "Technology",
+  "children": [
+    {
+      "id": 11,
+      "name": "Design",
+      "children": [],
+      "external_id": null
+    },
+    {
+      "id": 12,
+      "name": "Engineering",
+      "children": [],
+      "external_id": null
+    }
+  ],
+  "external_id": null
 }
 ```
 
@@ -42,6 +46,7 @@ An organization's departments.
 |-----------|-------------|
 | id | The department's unique identifier |
 | name | The department's name
+| external_id | The department's external ID
 
 ## GET: List Departments
 
@@ -62,13 +67,15 @@ curl 'https://harvest.greenhouse.io/v1/departments'
     "id": 1,
     "name": "Technology",
     "parent_id": 5,
-    "child_ids": [11, 12]
+    "child_ids": [11, 12],
+    "external_id": null
   },
   {
     "id": 2,
     "name": "Administration",
     "parent_id": null,
-    "child_ids": []
+    "child_ids": [],
+    "external_id": null
   }
 ]
 ```
@@ -81,22 +88,26 @@ curl 'https://harvest.greenhouse.io/v1/departments'
     "id": 1,
     "name": "Technology",
     "children": [
-	  {
-	    "id": 11,
-	    "name": "Design",
-	    "children": []
-	  },
-	  {
-	    "id": 12,
-	    "name": "Engineering",
-	    "children": []
-	  }
-	]
+      {
+        "id": 11,
+        "name": "Design",
+        "children": [],
+        "external_id": null
+      },
+      {
+        "id": 12,
+        "name": "Engineering",
+        "children": [],
+        "external_id": null
+      }
+    ],
+    "external_id": null
   },
   {
     "id": 2,
     "name": "Administration",
-    "children": []
+    "children": [],
+    "external_id": null
   }
 ]
 ```
@@ -133,7 +144,8 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 	"id": 1,
 	"name": "Technology",
 	"parent_id": 5,
-	"child_ids": [11, 12]
+	"child_ids": [11, 12],
+	"external_id": null
 }
 ```
 
@@ -141,20 +153,23 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 
 ```json
 {
-	"id": 1,
-	"name": "Technology",
-	"children": [
-	  {
-	    "id": 11,
-	    "name": "Design",
-	    "children": []
-	  },
-	  {
-	    "id": 12,
-	    "name": "Engineering",
-	    "children": []
-	  }
-	]
+  "id": 1,
+  "name": "Technology",
+  "children": [
+    {
+      "id": 11,
+      "name": "Design",
+      "children": [],
+      "external_id": null
+    },
+    {
+      "id": 12,
+      "name": "Engineering",
+      "children": [],
+      "external_id": null
+    }
+  ],
+  "external_id": null
 }
 ```
 
@@ -203,7 +218,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/departments
   "id": 3,
   "name": "A New Department",
   "parent_id": 12345,
-  "child_ids": []
+  "child_ids": [],
+  "external_id": null
 }
 ```
 
@@ -225,5 +241,8 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
 name |  yes | string | The name of your new department.  Must be less than 255 characters and unique within your organization.
 parent_id* | no | number | The department id for the new department to be nested under.  If this isn't included, the department will be created at the top level.
+external_id** | no | string | The external_id for the office.
 
 \* - The tiered department feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
+
+\** - The external_id feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
