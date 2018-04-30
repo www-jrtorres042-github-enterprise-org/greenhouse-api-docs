@@ -22,7 +22,12 @@ supports autocomplete!
 ## Authentication
 
 ```shell
-$ curl https://onboarding-api.greenhouse.io/graphql -u your_access_key:your_secret_key
+$ curl https://onboarding-api.greenhouse.io/graphql \
+  -X POST \
+  -u your_access_key:your_secret_key \
+  -d '{"query":"{\n  rateLimit {\n    limit\n  }\n}"}' \
+  -H "Content-Type: application/json"
+
 ...
 
 > GET /graphql HTTP/1.1
