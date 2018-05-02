@@ -11,10 +11,15 @@ An organization’s offices.
   "id": 175,
   "name": "San Francisco",
   "parent_id": 180,
-  "child_ids": [190, 195],
+  "child_ids": [
+    190,
+    195
+  ],
   "location": {
     "name": "San Francisco, CA"
-  }
+  },
+  "primary_contact_user_id": null,
+  "external_id": null
 }
 ```
 
@@ -31,7 +36,9 @@ An organization’s offices.
       "children": [],
       "location": {
         "name": "San Francisco, CA"
-      }
+      },
+      "primary_contact_user_id": null,
+      "external_id": null
     },
     {
       "id": 195,
@@ -39,12 +46,16 @@ An organization’s offices.
       "children": [],
       "location": {
         "name": "San Francisco, CA"
-      }
+      },
+      "primary_contact_user_id": null,
+      "external_id": null
     }
   ],
   "location": {
     "name": "San Francisco, CA"
-  }
+  },
+  "primary_contact_user_id": null,
+  "external_id": null
 }
 ```
 
@@ -54,6 +65,8 @@ An organization’s offices.
 |-----------|-------------|
 | id | The office's unique identifier |
 | name | The office's name |
+| location | The office's location |
+| external_id | The office's external_id |
 
 ## GET: List Offices
 
@@ -72,10 +85,15 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     "id": 175,
     "name": "San Francisco",
     "parent_id": 180,
-    "child_ids": [190, 195],
+    "child_ids": [
+      190,
+      195
+    ],
     "location": {
       "name": "San Francisco, CA"
-    }
+    },
+    "primary_contact_user_id": null,
+    "external_id": null
   },
   {
     "id": 344,
@@ -84,7 +102,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     "child_ids": [],
     "location": {
       "name": "Bangkok Thailand"
-    }
+    },
+    "primary_contact_user_id": null,
+    "external_id": null
   },
   {
     "id": 145,
@@ -93,7 +113,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     "child_ids": [],
     "location": {
       "name": null
-    }
+    },
+    "primary_contact_user_id": null,
+    "external_id": null
   }
 ]
 ```
@@ -112,7 +134,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
         "children": [],
         "location": {
           "name": "San Francisco, CA"
-        }
+        },
+        "primary_contact_user_id": null,
+        "external_id": null
       },
       {
         "id": 195,
@@ -120,12 +144,16 @@ curl 'https://harvest.greenhouse.io/v1/offices'
         "children": [],
         "location": {
           "name": "San Francisco, CA"
-        }
+        },
+        "primary_contact_user_id": null,
+        "external_id": null
       }
     ],
     "location": {
       "name": "San Francisco, CA"
-    }
+    },
+    "primary_contact_user_id": null,
+    "external_id": null
   },
   {
     "id": 344,
@@ -133,7 +161,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     "children": [],
     "location": {
       "name": "Bangkok Thailand"
-    }
+    },
+    "primary_contact_user_id": null,
+    "external_id": null
   },
   {
     "id": 145,
@@ -141,7 +171,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     "children": [],
     "location": {
       "name": null
-    }
+    },
+    "primary_contact_user_id": null,
+    "external_id": null
   }
 ]
 ```
@@ -181,7 +213,9 @@ curl 'https://harvest.greenhouse.io/v1/offices/{id}'
   "child_ids": [190, 195],
   "location": {
     "name": "San Francisco, CA"
-  }
+  },
+  "primary_contact_user_id": null,
+  "external_id": null
 }
 ```
 
@@ -198,7 +232,9 @@ curl 'https://harvest.greenhouse.io/v1/offices/{id}'
       "children": [],
       "location": {
         "name": "San Francisco, CA"
-      }
+      },
+      "primary_contact_user_id": null,
+      "external_id": null
     },
     {
       "id": 195,
@@ -206,12 +242,16 @@ curl 'https://harvest.greenhouse.io/v1/offices/{id}'
       "children": [],
       "location": {
         "name": "San Francisco, CA"
-      }
+      },
+      "primary_contact_user_id": null,
+      "external_id": null
     }
   ],
   "location": {
     "name": "San Francisco, CA"
-  }
+  },
+  "primary_contact_user_id": null,
+  "external_id": null
 }
 ```
 
@@ -306,7 +346,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/offices
   },
   "primary_contact_user_id": 234,
   "parent_id": 12345,
-  "child_ids": []
+  "child_ids": [],
+  "external_id": null
 }
 ```
 
@@ -330,5 +371,8 @@ Parameter | Required | Type | Description
 `location` | no | string | This is a text representation of the office's location.  This is free-form text.  It is not geo-located.
 `primary_contact_user_id` | no | number | The id of the user who will be the primary in-house contact for this office.  This user must be a site-admin.
 `parent_id`* | no | number | The office id for the new office to be nested under.  If this isn't included, the office will be created at the top level.
+`external_id`** | no | string | The external_id for the office.
 
 \* - The tiered office feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
+
+\** - The external_id feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
