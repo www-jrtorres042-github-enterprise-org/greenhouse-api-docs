@@ -66,7 +66,7 @@ An organization’s offices.
 | id | The office's unique identifier |
 | name | The office's name |
 | location | The office's location |
-| external_id | The office's external_id |
+| external_id | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
 
 ## GET: List Offices
 

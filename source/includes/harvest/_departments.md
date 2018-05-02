@@ -46,7 +46,7 @@ An organization's departments.
 |-----------|-------------|
 | id | The department's unique identifier |
 | name | The department's name
-| external_id | The department's external ID
+| external_id | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
 
 ## GET: List Departments
 
