@@ -114,6 +114,14 @@ html, body {
   }
 }
 
+.block-gho {
+  background-color: #4a9cd5;
+
+  &:hover {
+    background-color: #2384C7;
+  }
+}
+
 .block-webhooks {
   background-color: #62B2c4;
 
