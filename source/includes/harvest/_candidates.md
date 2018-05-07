@@ -1015,9 +1015,6 @@ content_type | No* | string | The content-type of the document you are sending. 
 
 \* \- content_type is not required for purposes of backward compatibility. It is _strongly_ recommended that you always include content type for document uploads.
 
-<aside class="notice">
-    There may be a delay between when Greenhouse receives the POST: Add Attachment request and when Greenhouse creates the full attachment record, which will result in a truncated API response. The truncated response body will contain the Attachment ID. You can retrieve the full attachment record by requesting the Candidate ID with the GET: Retrieve Candidate endpoint. The candidate record will contain the newly created attachment. If the newly created attachment is missing from the candidate record, this indicates that the full attachment record is still not available. Until the attachment record has been made fully-available in the API, please continue to request the candidate record until the attachment is included in the API Response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
-</aside>
 
 ## POST: Add Candidate
 
