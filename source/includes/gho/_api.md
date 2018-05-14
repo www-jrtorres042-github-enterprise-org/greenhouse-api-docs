@@ -2,8 +2,6 @@
 ## contactRelationships \([\[String\]](#string)\)
 The list of valid options for the 'Contact' custom field type
 
-Argument | Type | Description | Required
---------- | ----------- | ----------- | -----------
 ## countries \([\[Country\]](#country)\)
 The list of countries
 
@@ -363,8 +361,6 @@ id | [Int](#int) |  |
 ## rateLimit \([RateLimit](#ratelimit)\)
 Information about your current API quota
 
-Argument | Type | Description | Required
---------- | ----------- | ----------- | -----------
 ## team \([Team](#team)\)
 A single team
 
@@ -730,8 +726,7 @@ name | [String](#string) |
 states | [\[State\]](#state) | 
 
 ## CustomField
-Represents a single CustomField record for your company.  CustomFields can be stored and displayed in a variety of
-ways.  The types are described via the [CustomFieldTypes](#customfieldtypes) enum.
+Represents a single CustomField record for your company. CustomFields can be stored and displayed in a variety of ways. The types are described via the [CustomFieldTypes](#customfieldtypes) enum.
 
 Field | Type | Description
 --------- | ----------- | -----------
@@ -776,14 +771,11 @@ Field | Type | Description
 createdAt | [DateTime](#datetime) | 
 customField | [CustomField](#customfield) | 
 updatedAt | [DateTime](#datetime) | 
-value | [Value](#value) | A different type of value will be stored based upon the field type of the [CustomField](#customfield).  Some types
-have the data stored as a nested object.  Note that the type is a scalar named [Value](#value).  Even though
-it appears to be an object, you are not able to use GraphQL to determine its shape.
+value | [Value](#value) | A different type of value will be stored based upon the field type of the [CustomField](#customfield). Some types have the data stored as a nested object. Note that the type is a scalar named [Value](#value). Even though it appears to be an object, you are not able to use GraphQL to determine its shape.
 valueUpdatedAt | [DateTime](#datetime) | The time of the most recent update to this field.
 
 ## Department
-Represents a single department in your company.  Employees may belong to zero or one department. Departments are
-used in a variety of ways in Greenhouse Onboarding, including permissions and onboarding plans.
+Represents a single department in your company. Employees may belong to zero or one department. Departments are used in a variety of ways in Greenhouse Onboarding, including permissions and onboarding plans.
 
 Field | Type | Description
 --------- | ----------- | -----------
@@ -824,17 +816,14 @@ A single Employee that works for your company.
 
 Field | Type | Description
 --------- | ----------- | -----------
-about | [String](#string) | A brief description of the employee.  This information is displayed on both the employee's profile and is also
-featured prominently in the Welcome Experience for any new hires that report to this employee.
+about | [String](#string) | A brief description of the employee. This information is displayed on both the employee's profile and is also featured prominently in the Welcome Experience for any new hires that report to this employee.
 createdAt | [DateTime](#datetime) | 
-customFieldValues | [\[CustomFieldValue\]](#customfieldvalue) | A list of all other profile information for this employee.  Administrators can configure these fields on the
-[Settings > Custom Fields](https://onboarding.greenhouse.io/settings/fields) page.
+customFieldValues | [\[CustomFieldValue\]](#customfieldvalue) | A list of all other profile information for this employee. Administrators can configure these fields on the [Settings > Custom Fields](https://onboarding.greenhouse.io/settings/fields) page.
 dateOfBirth | [Date](#date) | Note that only administrators can see the birth year for employees
 dateOfTermination | [Date](#date) | This information is only available on terminated employees
 department | [Department](#department) | 
-documents | [\[Document\]](#document) | These are documents that came over from Greenhouse Recruiting, were attached directly to the employee
-profile, or attached to a task.  This does _not_ include E-Signature requests.
-email | [String](#string) | The employee's work email.  They need this in order to sign in
+documents | [\[Document\]](#document) | These are documents that came over from Greenhouse Recruiting, were attached directly to the employee profile, or attached to a task. This does _not_ include E-Signature requests.
+email | [String](#string) | The employee's work email. They need this in order to sign in
 employmentStatus | [EmploymentStatus](#employmentstatus) | 
 firstName | [String](#string) | 
 hrManager | [Employee](#employee) | The employee's HR Manager.
@@ -846,13 +835,10 @@ middleName | [String](#string) |
 otherCriteria | [\[OtherCriterion\]](#othercriterion) | 
 personalEmail | [String](#string) | The employee's personal email.
 phoneNumber | [String](#string) | 
-preferredFirstName | [String](#string) | This is the name that your employee prefers to go by.  If this value is set, Greenhouse Onboarding will display
-this name everywhere in the product instead of the employee's legal name.
+preferredFirstName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 preferredLastName | [String](#string) | 
-profileImage | [File](#file) | A file containing the employee's profile image.  This image is displayed in emails, reports and directory pages.
-signatureRequests | [\[SignatureRequest\]](#signaturerequest) | These are E-Signature requests initiated through Greenhouse Onboardinging.  Keep in mind that these requests can
-be in a number of different states in their lifecycle and may not always have a signed document available to
-download.
+profileImage | [File](#file) | A file containing the employee's profile image. This image is displayed in emails, reports and directory pages.
+signatureRequests | [\[SignatureRequest\]](#signaturerequest) | These are E-Signature requests initiated through Greenhouse Onboardinging. Keep in mind that these requests can be in a number of different states in their lifecycle and may not always have a signed document available to download.
 startDate | [Date](#date) | 
 suffix | [String](#string) | 
 title | [String](#string) | The employee's job title.
@@ -880,14 +866,13 @@ A File record
 
 Field | Type | Description
 --------- | ----------- | -----------
-expiresAt | [DateTime](#datetime) | The time when the URL will expire.  After this time, you will need to generate a new URL.
+expiresAt | [DateTime](#datetime) | The time when the URL will expire. After this time, you will need to generate a new URL.
 fileName | [String](#string) | The original name of the file.
 fileSize | [Int](#int) | The file size, in bytes
 fileUrl | [String](#string) | An expiring URL you can use to download the file.
 
 ## Location
-Represents a single location in your company.  Employees may belong to zero or one location. Locations are
-used in a variety of ways in Greenhouse Onboarding, including permissions and onboarding plans.
+Represents a single location in your company. Employees may belong to zero or one location. Locations are used in a variety of ways in Greenhouse Onboarding, including permissions and onboarding plans.
 
 Field | Type | Description
 --------- | ----------- | -----------
@@ -1012,12 +997,10 @@ A template used when assigning signature requests.
 
 Field | Type | Description
 --------- | ----------- | -----------
-counterSigner | [Employee](#employee) | The default employee responsible for counter-signing documents created from this template, if applicable.
-Individual SignatureRequest objects can override the counter signer.
+counterSigner | [Employee](#employee) | The default employee responsible for counter-signing documents created from this template, if applicable. Individual SignatureRequest objects can override the counter signer.
 createdAt | [DateTime](#datetime) | 
-name | [String](#string) | The name of the template.  This is the label administrators will see.
-publicName | [String](#string) | The public-facing name of the template.  This is the name the new hire will see.
-If this is null, new hires will see the name field.
+name | [String](#string) | The name of the template. This is the label administrators will see.
+publicName | [String](#string) | The public-facing name of the template. This is the name the new hire will see. If this is null, new hires will see the name field.
 updatedAt | [DateTime](#datetime) | 
 
 ## State
@@ -1258,14 +1241,14 @@ Possible type values for CustomFieldValues
 
 Value | Description
 --------- | ---------
-ADDRESS | Displayed as group of inputs.  Stored as JSON.
-CONFIRMABLE | Displayed as a text field where the user has to enter the value twice.  Stored as a String.
-CONTACT | Displayed as group of inputs.  Stored as JSON.
-DATE | Displayed as a datepicker.  Stored as a DateTime
-EMPLOYEE | Displayed as a dropdown of employees.  Stored as an Employee ID.
+ADDRESS | Displayed as group of inputs. Stored as JSON.
+CONFIRMABLE | Displayed as a text field where the user has to enter the value twice. Stored as a String.
+CONTACT | Displayed as group of inputs. Stored as JSON.
+DATE | Displayed as a datepicker. Stored as a DateTime
+EMPLOYEE | Displayed as a dropdown of employees. Stored as an Employee ID.
 LONG_TEXT | Displayed as a multiline text box. Stored as a String.
-MULTIPLE_CHOICE | Displayed as a dropdown.  Stored as a String.
-MULTIPLE_SELECT | Displayed as a tag field.  Stored as an Array of Strings.
+MULTIPLE_CHOICE | Displayed as a dropdown. Stored as a String.
+MULTIPLE_SELECT | Displayed as a tag field. Stored as an Array of Strings.
 TEAM | Displayed as a dropdown of teams. Stored as a Team ID.
 TEXT | Displayed as a single line text field. Stored as a String.
 

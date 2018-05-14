@@ -56,5 +56,9 @@ To fetch the next page of information, pass the `endCursor` value into the `afte
 connection.  To the right you can see an example on how to fetch employees via the 
 [employees](#employees-employeeconnection) connection.
 
+When requesting a paginated resource, you will always need to provide a value for either the `first` or `last` arguments.
+You'll use these arguments to specify the number of records that should be included on a page. If you provide a value larger
+than our maximum, you will receive the maximum number of records.
+
 As a general rule, we attempt to avoid nested sets of pagination.  For example, the list of CustomFieldValue records
 for each employee will be a simple array instead of another paginated connection.
