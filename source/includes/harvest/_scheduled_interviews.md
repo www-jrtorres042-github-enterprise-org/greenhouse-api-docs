@@ -43,7 +43,7 @@ Interviews that have been scheduled for the specified application.
 | start | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
 | end | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
 | location | The location of the interview.
-| status | One of: `to_be_scheduled`, `scheduled`, `awaiting_feedback`, `complete`, `skipped`, `collect_feedback`, `to_be_sent`, `sent`, `received`.
+| status | One of: `scheduled`, `awaiting_feedback`, `complete`
 | organizer | The [user](#users) who is the organizer for this interview
 | interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed.
 
