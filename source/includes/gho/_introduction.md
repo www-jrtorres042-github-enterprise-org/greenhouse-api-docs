@@ -1,6 +1,6 @@
 # Introduction
 
-Our Greenhouse Onboarding API allows you to query and modify your employee, task, and company information.
+Our Greenhouse Onboarding API allows you to query and modify your employee, and query company information.
 
 If you are not using our Onboarding product and would like to know more, 
 [please visit our site.](https://greenhouse.io/onboarding)
