@@ -42,46 +42,14 @@ first | [Int](#int) | Returns the first _n_ elements from the list. |
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
 ## employee \([Employee](#employee)\)
 ```graphql
-# Request an employee and limit their customFieldValues to those with specific permanentFieldIds.
-# The permanentFieldIds argument can be used when you are interested in only getting a handful of
+# Request an employee but limit their customFieldValues to those of specific customFields.
+# The customFieldIds argument can be used when you are interested in only getting a specific
 # customFieldValues for the employee.
 {
   employee(id: 20) {
-    customFieldValues(permanentFieldIds: ["emergency_contact", "favorite_food"]) {
-      custom_field {
-        permanentFieldId
-        fieldType
-      }
-      value
-    }
-  }
-}
-
-```
-
-```graphql
-# Request an employee and limit their customFieldValues to those that have been updated after 2018-04-14 1PM UTC
-{
-  employee(id: 20) {
-    customFieldValues(updated: { after: "2018-04-04T13:00:00Z" }) {
-      custom_field {
-        permanentFieldId
-        fieldType
-      }
-      value
-    }
-  }
-}
-
-```
-
-```graphql
-# Request an employee and limit their customFieldValues to those that have been updated before 2018-04-14 1PM UTC
-{
-  employee(id: 20) {
-    customFieldValues(updated: { before: "2018-04-04T13:00:00Z" }) {
-      custom_field {
-        permanentFieldId
+    customFieldValues(customFieldIds: ["emergency_contact", "favorite_food"]) {
+      customField {
+        id
         fieldType
       }
       value
@@ -101,7 +69,7 @@ last | [Int](#int) | Returns the last _n_ elements from the list. |
         email
       }
       file {
-        file_url
+        fileUrl
       }
       signatureRequestTemplate {
         publicName
@@ -121,7 +89,7 @@ id | [Int](#int) |  |
 # Request only those employees that have title "Account Manager". For each employee that fits the criteria,
 # return their id and email
 {
-  employees(first: 25, title: "Account Manager") {
+  employees(first: 25, titles: ["Account Manager"]) {
     pageInfo {
       hasNextPage
       endCursor
@@ -159,22 +127,17 @@ id | [Int](#int) |  |
 ```
 
 ```graphql
-# Request only those employees that have a value set for the "favorite_food" Custom Field. For these employees, return
+# Request only those employees that have a value (ANY value) set for the "favorite_food" Custom Field. For these employees, return
 # ALL of their customFieldValues.
 {
-  employees(first: 25, customFieldValues: [{permanentFieldId: "favorite_food"}]) {
+  employees(first: 25, customFieldValues: [{id: "favorite_food"}]) {
     pageInfo {
       hasNextPage
       endCursor
     }
     edges {
       node {
-        customFieldValues {
-          custom_field {
-            permanentFieldId
-          }
-          value
-        }
+        id
       }
     }
   }
@@ -183,11 +146,13 @@ id | [Int](#int) |  |
 ```
 
 ```graphql
-# Request only those employees that have "Hot Dogs" or "Chicken Nuggets" set for their "favorite_food" Custom Field
+# Request only those employees that have "Hot Dogs" or "Chicken Nuggets" set for their "favorite_food" Custom Field.
+# Because the "favorite_food" Custom Field is of type text, we provide the "textValues" argument (as opposed to
+# dateValues or idValues)
 {
   employees(
     first: 25,
-    customFieldValues: [{permanentFieldId: "favorite_food", textValues: ["Hot Dogs", "Chicken Nuggets"]}]
+    customFieldValues: [{id: "favorite_food", textValues: ["Hot Dogs", "Chicken Nuggets"]}]
   ) {
     pageInfo {
       hasNextPage
@@ -196,8 +161,8 @@ id | [Int](#int) |  |
     edges {
       node {
         customFieldValues {
-          custom_field {
-            permanentFieldId
+          customField {
+            id
           }
           value
         }
@@ -209,12 +174,12 @@ id | [Int](#int) |  |
 ```
 
 ```graphql
-# Request only those employees that have any value set for their "favorite_food" Custom Field and "Blue" for their
-# "favorite_color" Custom Field
+# Request only those employees that have a value set for their "favorite_food" Custom Field and "Blue" for their
+# "favorite_color" Custom Field. For each of these employees, return their ID and email address.
 {
   employees(
     first: 25,
-    customFieldValues: [{permanentFieldId: "favorite_food"}, {permanentFieldId: "favorite_color", textValues: "Blue"}]
+    customFieldValues: [{id: "favorite_food"}, {id: "favorite_color", textValues: ["Blue"]}]
   ) {
     pageInfo {
       hasNextPage
@@ -222,13 +187,9 @@ id | [Int](#int) |  |
     }
     edges {
       node {
-        customFieldValues {
-          custom_field {
-            permanentFieldId
-          }
-          value
-        }
-      }
+        id
+        email
+    	}
     }
   }
 }
@@ -236,18 +197,23 @@ id | [Int](#int) |  |
 ```
 
 ```graphql
-# Request employees that have any value set for "favorite_food" and that value has been updated after "2018-04-13"
+# Request employees that have a value set for the "favorite_food" Custom Field. Return each employee's ID and
+# customFieldValues, but only return the customFieldValue for the "favorite_food" customFieldValue.
 {
-  employees(first: 25, customFieldValues: [{permanentFieldId: "favorite_food", valueUpdated: {after: "2018-04-13"}}]) {
+  employees(
+    first: 25,
+    customFieldValues: [{ id: "favorite_food" }]
+  ) {
     pageInfo {
       hasNextPage
       endCursor
     }
     edges {
       node {
-        customFieldValues(permanentFieldIds: ["favorite_food"]) {
-          custom_field {
-            permanentFieldId
+        id
+        customFieldValues(customFieldIds: ["favorite_food"]) {
+          customField {
+            id
           }
           value
         }
@@ -260,11 +226,12 @@ id | [Int](#int) |  |
 
 ```graphql
 # Request employees that have a date value between "2017-04-13" and "2018-04-13" (exclusive) for the
-# "one_year_anniversary" Custom Field
+# "1_year_anniversary" Custom Field. For each of these employees, return their ID and
+# the value for the "1_year_anniversary" Custom Field (and only the value for this Custom Field).
 {
   employees(
     first: 25,
-    customFieldValues: [{permanentFieldId: "one_year_anniversary", dateValue: {after: "2017-04-13", before: "2018-04-13"}}]
+    customFieldValues: [{ id: "1_year_anniversary", dateValue: { after: "2017-04-13", before: "2018-04-13" } }]
   ) {
     pageInfo {
       hasNextPage
@@ -272,9 +239,10 @@ id | [Int](#int) |  |
     }
     edges {
       node {
-        customFieldValues {
-          custom_field {
-            permanentFieldId
+        id
+        customFieldValues(customFieldIds: ["1_year_anniversary"]) {
+          customField {
+            id
           }
           value
         }
@@ -286,21 +254,22 @@ id | [Int](#int) |  |
 ```
 
 ```graphql
-# Request employees that have Employee 35 or Employee 40 set as the value for the "mentor" Custom Field
+# Request employees that have Employee 35 or Employee 40 set as the value for the "mentor" Custom Field. For each of
+# these employees, return their id, email address, and "about me" text.
 {
-  employees(first: 25, customFieldValues: [{permanentFieldId: "mentor", idValues: [35, 40]}]) {
+  employees(
+    first: 25,
+    customFieldValues: [{id: "mentor", idValues: [35, 40]}]
+  ) {
     pageInfo {
       hasNextPage
       endCursor
     }
     edges {
       node {
-        customFieldValues {
-          custom_field {
-            permanentFieldId
-          }
-          value
-        }
+        id
+        email
+        about
       }
     }
   }
@@ -394,16 +363,17 @@ last | [Int](#int) | Returns the last _n_ elements from the list. |
 # Mutations
 ## addPendingHire \([PendingHire](#pendinghire)\)
 ```graphql
-# Create a PendingHire with a value for a text, long text, confirmable, or multiple_choice Custom Field
+# Create a PendingHire with required information as well as a value for a text Custom Field (long text, confirmable,
+# and multiple_choice Custom Fields also take Strings as the "value").
 mutation {
   addPendingHire(
-    addPendingHireInput: {
+    pendingHireInfo: {
       firstName: "Joe"
       lastName: "Schmoe"
-      email:"joe@example.com"
+      email: "joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
-        { permanentFieldId: "favorite_food", value: "Egg McMuffins" }
+        { id: "favorite_food", value: "Egg McMuffins" }
       ]
     }
   ) {
@@ -411,8 +381,8 @@ mutation {
     lastName
     email
     workCountryCode
-    customFieldValues {
-      custom_field { permanentFieldId }
+    customFieldValues(customFieldIds: ["favorite_food"]) {
+      customField { id }
       value
     }
   }
@@ -421,16 +391,18 @@ mutation {
 ```
 
 ```graphql
-# Create a PendingHire with a value for a multiple select Custom Field
+# Create a PendingHire with required information as well as a value for a Multiple Select Custom Field. These Custom
+# Fields require a JSON Array-formatted string (including escaped quotes) for the "value". Also of note, each of the
+# elements in the array must be a valid option for the given Custom Field.
 mutation {
   addPendingHire(
-    addPendingHireInput: {
+    pendingHireInfo: {
       firstName: "Joe"
       lastName: "Schmoe"
-      email:"joe@example.com"
+      email: "joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
-        { permanentFieldId: "equipment_required", value: "[\"Ergonomic Keyboard\", \"Standing Desk\"]" }
+        { id: "required_equipment", value: "[\"Ergonomic Keyboard\", \"Standing Desk\"]" }
       ]
     }
   ) {
@@ -438,8 +410,8 @@ mutation {
     lastName
     email
     workCountryCode
-    customFieldValues {
-      custom_field { permanentFieldId }
+    customFieldValues(customFieldIds: ["required_equipment"]) {
+      customField { id }
       value
     }
   }
@@ -448,16 +420,17 @@ mutation {
 ```
 
 ```graphql
-# Create a PendingHire with a value for a Team Custom Field
+# Create a PendingHire with required information as well as a value for a Team Custom Field. These Custom Fields
+# require an ID for the "value."
 mutation {
   addPendingHire(
-    addPendingHireInput: {
+    pendingHireInfo: {
       firstName: "Joe"
       lastName: "Schmoe"
-      email:"joe@example.com"
+      email: "joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
-        { permanentFieldId: "primary_social_club", value: 14 }
+        { id: "primary_social_club", value: 14 }
       ]
     }
   ) {
@@ -466,7 +439,7 @@ mutation {
     email
     workCountryCode
     customFieldValues {
-      custom_field { permanentFieldId }
+      customField { id }
       value
     }
   }
@@ -475,17 +448,18 @@ mutation {
 ```
 
 ```graphql
-# Create a PendingHire with a value for an Address Custom Field
+# Create a PendingHire with required information as well as a value for an Address Custom Field. These Custom
+# Fields require a JSON Object-formatted string (including escaped quotes) for the "value".
 mutation {
   addPendingHire(
-    addPendingHireInput: {
+    pendingHireInfo: {
       firstName: "Joe"
       lastName: "Schmoe"
-      email:"joe@example.com"
+      email:"joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
         {
-          permanentFieldId: "primary_address",
+          id: "address",
           value: "{\"address_line_1\":\"123 Test Street\",\"address_line_2\":\"Apartment 1\",\"city\":\"Pawnee\", \"state\":\"IN\", \"zipcode\":\"12345\",\"country\":\"USA\"}"
         }
       ]
@@ -495,8 +469,8 @@ mutation {
     lastName
     email
     workCountryCode
-    customFieldValues {
-      custom_field { permanentFieldId }
+    customFieldValues(customFieldIds: ["address"]) {
+      customField { id }
       value
     }
   }
@@ -505,17 +479,18 @@ mutation {
 ```
 
 ```graphql
-# Create a PendingHire with a value for a Contact Custom Field
+# Create a PendingHire with required information as well as a value for a Contact Custom Field. These Custom
+# Fields require a JSON Object-formatted string (including escaped quotes) for the "value".
 mutation {
   addPendingHire(
-    addPendingHireInput: {
+    pendingHireInfo: {
       firstName: "Joe"
       lastName: "Schmoe"
-      email:"joe@example.com"
+      email:"joe12344321@example.com"
       workCountryCode: "USA"
       customFieldValues: [
         {
-          permanentFieldId: "emergency_contact",
+          id: "emergency_contact",
           value: "{\"first_name\": \"Joe\", \"last_name\": \"Schmoe\", \"email\":\"jschmoe@aol.com\", \"phone\": \"123.456.7890\", \"relationship\": \"Other\"}" }
       ]
     }
@@ -524,8 +499,8 @@ mutation {
     lastName
     email
     workCountryCode
-    customFieldValues {
-      custom_field { permanentFieldId }
+    customFieldValues(customFieldIds: ["emergency_contact"]) {
+      customField { id }
       value
     }
   }
@@ -534,16 +509,17 @@ mutation {
 ```
 
 ```graphql
-# Create a PendingHire with a value for a date Custom Field
+# Create a PendingHire with required information as well as a value for a Date Custom Field. These Custom Fields
+# require a String formatted as such: YYYY-MM-DD.
 mutation {
   addPendingHire(
-    addPendingHireInput: {
+    pendingHireInfo: {
       firstName: "Joe"
       lastName: "Schmoe"
-      email:"joe@example.com"
+      email:"joe4321@example.com"
       workCountryCode: "USA"
       customFieldValues: [
-        { permanentFieldId: "fully_vested", value: "2019-12-12" }
+        { id: "fully_vested", value: "2019-12-12" }
       ]
     }
   ) {
@@ -551,8 +527,8 @@ mutation {
     lastName
     email
     workCountryCode
-    customFieldValues {
-      custom_field { permanentFieldId }
+    customFieldValues(customFieldIds: ["fully_vested"]) {
+      customField { id }
       value
     }
   }
@@ -566,19 +542,69 @@ Argument | Type | Description | Required
 pendingHireInfo | [AddPendingHireInput!](#addpendinghireinput) |  | Required
 ## updateEmployeeProfile \([Employee](#employee)\)
 ```graphql
-# Update/create the value for a text, long text, confirmable, or multiple_choice Custom Field
+# Update an employee's email address, date of birth, and department. Return these fields to confirm the change.
+mutation {
+  updateEmployeeProfile(
+    id: 25,
+    employeeUpdates: {
+      email: "new_email_address@example.com"
+      dateOfBirth: "1985-04-07"
+      department: 1
+    }
+  ) {
+    email
+    dateOfBirth
+    department {
+      id
+    }
+  }
+}
+
+```
+
+```graphql
+# Update/create the value for a text, long text, confirmable, or multiple_choice Custom Field. For Custom Fields of
+# these types, provide a string for the value. Here we update the "favorite_food" Custom Field Value (a text Custom
+# Field) to "Egg McMuffins". We ask for the employee's customFieldValues, but we limit them to those that
+# belong to the "favorite_food" Custom Field. E.g. we filter out the irrelevant customFieldValues.
 mutation {
   updateEmployeeProfile(
     id: 20,
     employeeUpdates: {
       customFieldValues: [
-        { permanentFieldId: "favorite_food", value: "Egg McMuffins" }
+        { id: "favorite_food", value: "Egg McMuffins" }
       ]
     }
   ) {
-    customFieldValues {
-      custom_field {
-        permanentFieldId
+    customFieldValues(customFieldIds: ["favorite_food"]) {
+      customField {
+        id
+      }
+      value
+    }
+  }
+}
+
+```
+
+```graphql
+# Update/create the value for a Multiple Select Custom Field. For these Custom Fields, "value" must be a string
+# representing a JSON Array (including escaped quotation marks).  Also of note, each of the values of this array must
+# be one of the pre-defined values for the given Custom Field.  Here, we set the "required_equipment" Custom Field Value
+# to contain "Ergonomic Keyboard" and "Standing Desk". We then request the updated Employee's value for this Custom Field
+# to confirm the change.
+mutation {
+  updateEmployeeProfile(
+    id: 20,
+    employeeUpdates: {
+      customFieldValues: [
+        { id: "required_equipment", value: "[\"Ergonomic Keyboard\", \"Standing Desk\"]" }
+      ]
+    }
+  ) {
+    customFieldValues(customFieldIds: ["required_equipment"]) {
+      customField {
+        id
         fieldType
       }
       value
@@ -589,19 +615,21 @@ mutation {
 ```
 
 ```graphql
-# Update/create the value for a multiple select Custom Field
+# Update/create the value for a Team Custom Field. For Custom Fields of type "Team" we provide an ID as the
+# value.  This value represents the ID of the new Team.  Here we change the this employees "primary_social_club" to be
+# Team 14.  These Team IDs can be found by utilizing the team query.
 mutation {
   updateEmployeeProfile(
     id: 20,
     employeeUpdates: {
       customFieldValues: [
-				{ permanentFieldId: "equipment_required", value: "[\"Ergonomic Keyboard\", \"Standing Desk\"]" }
+        { id: "primary_social_club", value: 14 }
       ]
     }
   ) {
-    customFieldValues {
-      custom_field {
-        permanentFieldId
+    customFieldValues(customFieldIds: ["primary_social_club"]) {
+      customField {
+        id
         fieldType
       }
       value
@@ -612,19 +640,48 @@ mutation {
 ```
 
 ```graphql
-# Update/create the value for a Team Custom Field
+# Update/create the value for an Address Custom Field. These Custom Fields require a String value.  This String value
+# must be a JSON Object (with quotes escaped accordingly).
 mutation {
   updateEmployeeProfile(
     id: 20,
     employeeUpdates: {
       customFieldValues: [
-				{ permanentFieldId: "primary_social_club", value: 14 }
+        {
+          id: "address",
+          value: "{\"address_line_1\":\"123 Test Street\",\"address_line_2\":\"Apartment 1\",\"city\":\"Pawnee\", \"state\":\"IN\", \"zipcode\":\"12345\",\"country\":\"USA\"}"
+        }
       ]
     }
   ) {
-    customFieldValues {
-      custom_field {
-        permanentFieldId
+    customFieldValues(customFieldIds: ["address"]) {
+      customField {
+        id
+      }
+      value
+    }
+  }
+}
+
+```
+
+```graphql
+# Update/create the value for a Contact Custom Field. These Custom Fields require a String value. This String value
+# must be a JSON Object (with quotes escaped accordingly).
+mutation {
+  updateEmployeeProfile(
+    id: 20,
+    employeeUpdates: {
+      customFieldValues: [
+        {
+          id: "emergency_contact",
+          value: "{\"first_name\": \"Joe\", \"last_name\": \"Schmoe\", \"email\":\"jschmoe@aol.com\", \"phone\": \"123.456.7890\", \"relationship\": \"Other\"}" }
+      ]
+    }
+  ) {
+    customFieldValues(customFieldIds: ["emergency_contact"]) {
+      customField {
+        id
         fieldType
       }
       value
@@ -635,72 +692,19 @@ mutation {
 ```
 
 ```graphql
-# Update/create the value for an Address Custom Field. Note that the value is a serialized JSON string (with quotes
-# escaped).
+# Update/create the value for a date Custom Field. These Custom Fields require a String formatted as such: YYYY-MM-DD
 mutation {
   updateEmployeeProfile(
     id: 20,
     employeeUpdates: {
       customFieldValues: [
-				{
-				  permanentFieldId: "primary_address",
-				  value: "{\"address_line_1\":\"123 Test Street\",\"address_line_2\":\"Apartment 1\",\"city\":\"Pawnee\", \"state\":\"IN\", \"zipcode\":\"12345\",\"country\":\"USA\"}"
-				}
+        { id: "fully_vested", value: "2019-12-12" }
       ]
     }
   ) {
-    customFieldValues {
-      custom_field {
-        permanentFieldId
-        fieldType
-      }
-      value
-    }
-  }
-}
-
-```
-
-```graphql
-# Update/create the value for a Contact Custom Field. Note that the value is a serialized JSON string (with quotes
-# escaped).
-mutation {
-  updateEmployeeProfile(
-    id: 20,
-    employeeUpdates: {
-      customFieldValues: [
-    		{
-    		  permanentFieldId: "emergency_contact",
-    		  value: "{\"first_name\": \"Joe\", \"last_name\": \"Schmoe\", \"email\":\"jschmoe@aol.com\", \"phone\": \"123.456.7890\", \"relationship\": \"Other\"}" }
-      ]
-    }
-  ) {
-    customFieldValues {
-      custom_field {
-        permanentFieldId
-        fieldType
-      }
-      value
-    }
-  }
-}
-
-```
-
-```graphql
-# Update/create the value for a date Custom Field
-mutation {
-  updateEmployeeProfile(
-    id: 20,
-    employeeUpdates: {
-      customFieldValues: [
-        { permanentFieldId: "fully_vested", value: "2019-12-12" }
-      ]
-    }
-  ) {
-    customFieldValues {
-      custom_field {
-        permanentFieldId
+    customFieldValues(customFieldIds: ["fully_vested"]) {
+      customField {
+        id
         fieldType
       }
       value
@@ -713,8 +717,8 @@ Update an employee's profile
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [ID!](#id) |  | Required
 employeeUpdates | [UpdateEmployee!](#updateemployee) |  | Required
+id | [ID!](#id) |  | Required
 # Types
 ## Country
 A country
@@ -1275,4 +1279,3 @@ COMPLETED | Document has been successfully signed and verified.
 ERROR | Could not be completed due to an error processing the E-Signature.
 WAITING_FOR_COUNTER_SIGNATURE | Document awaiting counter-signer signature.
 WAITING_FOR_SIGNATURE | Waiting for the employee to sign the document.
-
