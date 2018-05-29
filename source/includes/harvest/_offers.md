@@ -225,8 +225,11 @@ curl 'https://harvest.greenhouse.io/v1/offers'
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
 | created_before | Return only offers that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | created_after | Return only offers that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| updated_before | Return only offers that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_before | Return only offers that were updated at or before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only offers that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| resolved_after | Return only offers that were resolved at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| resolved_before | Return only offers that were resolved at or before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| status | Return only offers that have a particular status.  One of: `unresolved`, `accepted`, `rejected`, `deprecated`.
 
 <br>
 [See noteworthy response attributes.](#the-offer-object)
