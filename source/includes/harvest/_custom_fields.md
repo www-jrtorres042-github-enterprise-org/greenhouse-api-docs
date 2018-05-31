@@ -96,7 +96,7 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
 
 | Parameter | Description |
 |-----------|-------------|
-| field_type | Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type.  One of: `offer`, `candidate`, `application`, `job`, `rejection_question`, `referral_question`.
+| *field_type | Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type.  One of: `offer`, `candidate`, `application`, `job`, `rejection_question`, `referral_question`.
 
 ### Querystring parameters   
 
@@ -247,7 +247,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_op
 
 ```
 {
-  "message": "success"
+    "success": true
 }
 ```
 
@@ -300,7 +300,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_o
 
 ```
 {
-  "message": "success"
+    "success": true
 }
 ```
 
