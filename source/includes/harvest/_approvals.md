@@ -91,7 +91,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
     },
     {
         "id": 49395,
-        "offer_id": nil,
+        "offer_id": null,
         "sequential": true,
         "version": 1,
         "approval_type": "offer_job",
@@ -117,7 +117,7 @@ List all of a job's approval flows
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/jobs/{id}/approval_flow`
+`GET https://harvest.greenhouse.io/v1/jobs/{id}/approval_flows`
 
 ### Querystring parameters
 
@@ -210,27 +210,34 @@ curl -X GET 'https://harvest.greenhouse.io/v1/users/{id}/pending_approvals'
         "id": 34564,
         "status": "waiting",
         "created_at": "2017-03-23T18:58:27.796Z",
-        "resolved_at": nil,
+        "resolved_at": null,
         "request_sent_at": "2017-03-23T18:58:27.796Z",
         "reminder_sent_at": "2017-03-25T18:58:27.796Z",
         "reminders_sent": 2,
         "approver_group_id": 3432,
         "reminder_sent_by_user_id": 343,
         "hiring_plan_id": 4567,
-        "offer_id": null
+        "offer_id": null,
+        "approval_flow_id": 292244,
+        "approval_flow_type": "open_job",
+        "approval_flow_status": "pending"
+        
     },
     {
         "id": 34568,
         "status": "due",
         "created_at": "2017-04-23T18:58:27.796Z",
-        "resolved_at": nil,
+        "resolved_at": null,
         "request_sent_at": "2017-04-23T18:58:27.796Z",
         "reminder_sent_at": "2017-04-25T18:58:27.796Z",
         "reminders_sent": 1,
         "approver_group_id": 3436,
         "reminder_sent_by_user_id": 343,
         "hiring_plan_id": 4568,
-        "offer_id": 4534
+        "offer_id": 4534,
+        "approval_flow_id": 268182,
+        "approval_flow_type": "offer_candidate",
+        "approval_flow_status": "pending"
     }
 ]
 ```
