@@ -81,50 +81,52 @@ Every application may have zero or one EEOC object.
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/eeoc'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 > The above command returns JSON structured like this:
 
 ```json
-[{
-  "application_id": 286,
-  "candidate_id": 406,
-  "race": {
-    "id": 7,
-    "description": "Two or More Races"
+[
+  {
+    "application_id": 286,
+    "candidate_id": 406,
+    "race": {
+      "id": 7,
+      "description": "Two or More Races"
+    },
+    "gender": {
+      "id": 1,
+      "description": "Male"
+    },
+    "veteran_status": {
+      "id": 3,
+      "message": "I don't wish to answer"
+    },
+    "disability_status": {
+      "id": 1,
+      "description": "Yes, I have a disability (or previously had a disability)"
+    },
+    "submitted_at": "2017-01-29T15:09:46.806Z"
   },
-  "gender": {
-    "id": 1,
-    "description": "Male"
-  },
-  "veteran_status": {
-    "id": 3,
-    "message": "I don't wish to answer"
-  },
-  "disability_status": {
-    "id": 1,
-    "description": "Yes, I have a disability (or previously had a disability)"
-  },
-  "submitted_at": "2017-01-29T15:09:46.806Z"
-},
-{
-  "application_id": 287,
-  "candidate_id": 342,
-  "race": {
-    "id": 7,
-    "description": "Two or More Races"
-  },
-  "gender": {
-    "id": 2,
-    "description": "Female"
-  },
-  "veteran_status": null,
-  "disability_status": {
-    "id": 1,
-    "description": "Yes, I have a disability (or previously had a disability)"
-  },
-  "submitted_at": "2017-01-30T17:10:32.432Z"
-}]
+  {
+    "application_id": 287,
+    "candidate_id": 342,
+    "race": {
+      "id": 7,
+      "description": "Two or More Races"
+    },
+    "gender": {
+      "id": 2,
+      "description": "Female"
+    },
+    "veteran_status": null,
+    "disability_status": {
+      "id": 1,
+      "description": "Yes, I have a disability (or previously had a disability)"
+    },
+    "submitted_at": "2017-01-30T17:10:32.432Z"
+  }
+]
 ```
 
 List all of an organization's EEOC data.
@@ -145,7 +147,7 @@ This endpoint supports pagination. See the [Pagination](#pagination) section for
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/eeoc'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 > The above command returns JSON structured like this:
 
