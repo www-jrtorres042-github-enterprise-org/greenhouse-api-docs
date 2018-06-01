@@ -6,15 +6,19 @@ An organization's email templates.
 
 ```json
 {
-  "id": 230,
-  "name": "Default Scorecard Due",
-  "description": null,
+  "id": 48765,
+  "name": "Default Scorecard Reminder",
+  "description": "To be sent to an interviewer when their scorecard is due.",
   "default": true,
+  "updated_at": "2018-06-01T17:04:13.598Z",
+  "created_at": "2015-11-18T22:26:32.154Z",
   "type": "scorecard_reminder",
   "from": null,
-  "cc": [],
-  "body": "Just a friendly reminder to please submit feedback for your interview with  earlier today.",
-  "html_body": null,
+  "cc": [
+      "example.user@example.com"
+  ],
+  "body": null,
+  "html_body": "<p>Hello,</p>\r\n<p>Please help us keep our hiring on track!</p>\r\n<p>Send in your feedback now for the interview you conducted earlier today with {{CANDIDATE_NAME}}.</p>\r\n<p>It's easy - just visit the following link to fill out your scorecard online: {{SCORECARD_LINK}}</p>\r\n<p>Thanks,<br /> {{ORGANIZER_NAME}}</p>",
   "user": null
 }
 ```
@@ -25,9 +29,10 @@ An organization's email templates.
 |-----------|-------------|
 | id | The email template's unique identifier |
 | type | One of: `new_candidate`, `weekly_status`, `daily_recruiting`, `stage_transition`, `new_scorecard`, `new_referral`, `agency_candidate_status`, `agency_candidate_stage`, `take_home_test_email`, `candidate_auto_reply`, `candidate_rejection`, `scorecard_reminder`, `interviewer_invite`, `candidate_email`, `team_email`, `none`, `extending_offer`, `new_agency_submission`, `non_admin_welcome`, `job_admin_welcome`, `site_admin_welcome`, `prospect_referral_receipt`, `candidate_referral_receipt`, `candidate_availability_request`, `candidate_availability_confirmation`
+| from | The user who is set to send the email. If the from address can change based on which user took an action in Greenhouse (e.g. scorecard reminders sent from the person who scheduled the interview), this field will be `null`.
+| body | The plain text body of the e-mail (may be `null`).
 | user |  The user this template belongs to. If null, this is an 'organization wide' template available to everyone.
-| body | The plain text body of the e-mail (may be null).
-| html_body | The body of the e-mail with html styling code (may be null).
+| html_body | The body of the e-mail with html styling code (may be `null`).
 
 ## GET: List Email Templates
 
@@ -43,30 +48,39 @@ curl 'https://harvest.greenhouse.io/v1/email_templates/'
 ```json
 [
   {
-    "id": 230,
-    "name": "Default Scorecard Due",
-    "description": null,
+    "id": 48765,
+    "name": "Default Scorecard Reminder",
+    "description": "To be sent to an interviewer when their scorecard is due.",
     "default": true,
+    "updated_at": "2018-06-01T17:04:13.598Z",
+    "created_at": "2015-11-18T22:26:32.154Z",
     "type": "scorecard_reminder",
     "from": null,
-    "cc": [],
-    "body": "Just a friendly reminder to please submit feedback for your interview with  earlier today.",
-    "html_body": null,
+    "cc": [
+        "example.user@example.com"
+    ],
+    "body": null,
+    "html_body": "<p>Hello,</p>\r\n<p>Please help us keep our hiring on track!</p>\r\n<p>Send in your feedback now for the interview you conducted earlier today with {{CANDIDATE_NAME}}.</p>\r\n<p>It's easy - just visit the following link to fill out your scorecard online: {{SCORECARD_LINK}}</p>\r\n<p>Thanks,<br /> {{ORGANIZER_NAME}}</p>",
     "user": null
   },
   {
-    "id": 1978,
-    "name": "Candidate On-site Confirmation",
-    "description": "",
+    "id": 200008,
+    "name": "Personal Candidate Email Template",
+    "description": "To email candidates",
     "default": false,
-    "type": "none",
-    "from": "ben.linus@example.com",
-    "cc": ["coordinator@example.com"],
-    "body": "Hi , it's go time!",
-    "html_body": "<p><b>Hi </b>,</p> <p><i>it's go time!</i></p>",
+    "updated_at": "2018-06-01T17:08:03.320Z",
+    "created_at": "2018-06-01T17:08:03.320Z",
+    "type": "candidate_email",
+    "from": "{{MY_EMAIL_ADDRESS}}",
+    "cc": [],
+    "body": null,
+    "html_body": "Hi&nbsp;{{CANDIDATE_FIRST_NAME}},<br /><br />Please let me know if you're still interested in&nbsp;{{JOB_NAME}}.<br /><br />Thank you!<br /><br />{{MY_SIGNATURE}}",
     "user": {
-      "id": 442,
-      "name": "Ben Linus"
+        "id": 297349,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "name": "Jane Smith",
+        "employee_id": "12345"
     }
   }
 ]
@@ -102,15 +116,19 @@ curl 'https://harvest.greenhouse.io/v1/email_templates/{id}'
 
 ```json
 {
-  "id": 230,
-  "name": "Default Scorecard Due",
-  "description": null,
+  "id": 48765,
+  "name": "Default Scorecard Reminder",
+  "description": "To be sent to an interviewer when their scorecard is due.",
   "default": true,
+  "updated_at": "2018-06-01T17:04:13.598Z",
+  "created_at": "2015-11-18T22:26:32.154Z",
   "type": "scorecard_reminder",
   "from": null,
-  "cc": [],
-  "body": "Just a friendly reminder to please submit feedback for your interview with  earlier today.",
-  "html_body": null,
+  "cc": [
+      "example.user@example.com"
+  ],
+  "body": null,
+  "html_body": "<p>Hello,</p>\r\n<p>Please help us keep our hiring on track!</p>\r\n<p>Send in your feedback now for the interview you conducted earlier today with {{CANDIDATE_NAME}}.</p>\r\n<p>It's easy - just visit the following link to fill out your scorecard online: {{SCORECARD_LINK}}</p>\r\n<p>Thanks,<br /> {{ORGANIZER_NAME}}</p>",
   "user": null
 }
 ```

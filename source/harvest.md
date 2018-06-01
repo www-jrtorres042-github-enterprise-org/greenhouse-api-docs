@@ -20,8 +20,8 @@ includes:
   - harvest/close_reasons
   - harvest/custom_fields
   - harvest/departments
-  - harvest/eeoc
   - harvest/education
+  - harvest/eeoc
   - harvest/email_templates
   - harvest/job_openings
   - harvest/job_posts

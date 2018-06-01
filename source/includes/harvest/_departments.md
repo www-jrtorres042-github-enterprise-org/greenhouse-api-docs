@@ -8,11 +8,14 @@ An organization's departments.
 
 ```json
 {
-  "id": 1,
+  "id": 12345,
   "name": "Technology",
-  "parent_id": 5,
-  "child_ids": [11, 12],
-  "external_id": null
+  "parent_id": null,
+  "child_ids": [
+      34065,
+      25908
+  ],
+  "external_id": "89076"
 }
 ```
 
@@ -20,23 +23,37 @@ An organization's departments.
 
 ```json
 {
-  "id": 1,
+  "id": 12345,
   "name": "Technology",
   "children": [
     {
-      "id": 11,
+      "id": 34065,
       "name": "Design",
       "children": [],
-      "external_id": null
+      "external_id": "32526"
     },
     {
-      "id": 12,
+      "id": 25908,
       "name": "Engineering",
-      "children": [],
-      "external_id": null
+      "children": [               
+        {
+            "id": 14510,
+            "name": "Third-Level Department",
+            "children": [
+              {
+                  "id": 14502,
+                  "name": "Strategy",
+                  "children": [],
+                  "external_id": null
+              }
+            ],
+            "external_id": "56735"
+        }
+      ],
+      "external_id": "47658"
     }
   ],
-  "external_id": null
+  "external_id": "26758"
 }
 ```
 
@@ -57,23 +74,24 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> The above command returns JSON structured like this:
-
-> With `render_as=list` (default)
+> The above command returns JSON structured like this, with `render_as=list` (default)
 
 ```json
 [
   {
-    "id": 1,
+    "id": 12345,
     "name": "Technology",
-    "parent_id": 5,
-    "child_ids": [11, 12],
-    "external_id": null
-  },
-  {
-    "id": 2,
-    "name": "Administration",
     "parent_id": null,
+    "child_ids": [
+        34065,
+        25908
+    ],
+    "external_id": "89076"
+  }
+  {
+    "id": 67890,
+    "name": "Administration",
+    "parent_id": 54647,
     "child_ids": [],
     "external_id": null
   }
@@ -85,28 +103,36 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 ```json
 [
   {
-    "id": 1,
+    "id": 12345,
     "name": "Technology",
     "children": [
       {
-        "id": 11,
+        "id": 34065,
         "name": "Design",
         "children": [],
-        "external_id": null
+        "external_id": "32526"
       },
       {
-        "id": 12,
+        "id": 25908,
         "name": "Engineering",
-        "children": [],
-        "external_id": null
+        "children": [               
+          {
+              "id": 14510,
+              "name": "Third-Level Department",
+              "children": [],
+              "external_id": "56735"
+          }
+        ],
+        "external_id": "47658"
       }
     ],
-    "external_id": null
-  },
+    "external_id": "26758"
+  }
   {
-    "id": 2,
+    "id": 67890,
     "name": "Administration",
-    "children": [],
+    "parent_id": 54647,
+    "child_ids": [],
     "external_id": null
   }
 ]
@@ -141,11 +167,14 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 
 ```json
 {
-	"id": 1,
-	"name": "Technology",
-	"parent_id": 5,
-	"child_ids": [11, 12],
-	"external_id": null
+  "id": 12345,
+  "name": "Technology",
+  "parent_id": null,
+  "child_ids": [
+      34065,
+      25908
+  ],
+  "external_id": "89076"
 }
 ```
 
@@ -153,22 +182,36 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 
 ```json
 {
-  "id": 1,
+  "id": 12345,
   "name": "Technology",
   "children": [
     {
-      "id": 11,
+      "id": 34065,
       "name": "Design",
       "children": [],
-      "external_id": null
+      "external_id": "32526"
     },
     {
-      "id": 12,
+      "id": 25908,
       "name": "Engineering",
-      "children": [],
-      "external_id": null
+      "children": [               
+        {
+            "id": 14510,
+            "name": "Third-Level Department",
+            "children": [],
+            "external_id": "56735"
+        }
+      ],
+      "external_id": "47658"
     }
   ],
+  "external_id": "26758"
+}
+{
+  "id": 67890,
+  "name": "Administration",
+  "parent_id": 54647,
+  "child_ids": [],
   "external_id": null
 }
 ```
@@ -211,6 +254,21 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/departments/{id}'
 }
 ```
 
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 45644,
+  "name": "Engineering",
+  "parent_id": null,
+  "child_ids": [
+      34065,
+      25908
+  ],
+  "external_id": "EXTERNAL_ID_1234"
+}
+```
+
 Edit a department's basic information.
 
 ### HTTP Request
@@ -246,7 +304,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/departments
 ```
 {
   "name": "A New Department",
-  "parent_id": 12345
+  "parent_id": 12345,
+  "external_id": "456454"
 }
 ```
 
@@ -254,11 +313,11 @@ curl -X POST 'https://harvest.greenhouse.io/v1/departments
 
 ```json
 {
-  "id": 3,
+  "id": 34535,
   "name": "A New Department",
   "parent_id": 12345,
   "child_ids": [],
-  "external_id": null
+  "external_id": "456454"
 }
 ```
 

@@ -21,8 +21,10 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
   },
   "credited_to": {
     "id": 4080,
+    "first_name": "Kate",
+    "last_name": "Austen",
     "name": "Kate Austen",
-    "employee_id": null
+    "employee_id": "12345"
   },
   "rejection_reason": {
     "id": 8,
@@ -32,7 +34,17 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
       "name": "We rejected them"
     }
   },
-  "rejection_details": null,
+"rejection_details": {
+  "custom_fields": {
+      "custom_rejection_question_field": "Not a good fit"
+  },
+  "keyed_custom_fields": {
+      "custom_rejection_question_field": {
+          "name": "Was this candidate a good fit?",
+          "type": "short_text",
+          "value": "This candidate wasn't a good fit."
+      }
+  }
   "jobs": [
     {
       "id": 123,
@@ -117,9 +129,12 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
         "id": 2,
         "public_name": "Jobs page on your website"
     },
-     "credited_to": {
+    "credited_to": {
       "id": 4080,
-      "name": "Kate Austen"
+      "first_name": "Kate",
+      "last_name": "Austen",
+      "name": "Kate Austen",
+      "employee_id": "12345"
     },
     "rejection_reason": null,
     "rejection_details": null,
@@ -191,9 +206,18 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "name": "Web Developer "
         }
     ],
-    "status": "active",
+    "status": "hired",
     "current_stage": null,
-    "answers": [],
+    "answers": [
+      {
+          "question": "How did you hear about this job?",
+          "answer": "Online Research"
+      },
+      {
+          "question": "Website",
+          "answer": "mytestwebsite.com"
+      }
+    ],
     "prospect_detail": {
         "prospect_pool": {
             "id": 227,
@@ -209,10 +233,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
         }
     },
     "custom_fields": {
-        "application_custom_test": null
+        "application_custom_test": "Option 1"
     },
     "keyed_custom_fields": {
-        "application_custom_test": null
+        "application_custom_test": {
+            "name": "Application Custom Test",
+            "type": "single_select",
+            "value": "Option 1"
+        }
     }
   }  
 ]
@@ -246,65 +274,64 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
 
 ```json
 {
-  "id": 23239258,
-  "candidate_id": 14834098,
-  "prospect": false,
-  "applied_at": "2015-12-28T20:53:12.801Z",
-  "rejected_at": null,
-  "last_activity_at": "2016-12-30T07:10:03.082Z",
-  "location": { 
-    "address": "New York, New York, USA" 
-  },
-  "source": {
-    "id": 16,
-    "public_name": "Referral"
-  },
-  "credited_to": {
-    "id": 107050,
-    "name": "Ivan Interviewer",
-    "employee_id": null
-  },
-  "rejection_reason": null,
-  "rejection_details": null,
-  "jobs": [
-    {
-      "id": 87181,
-      "name": "Product Manager"
-    }
-  ],
-  "status": "hired",
-  "current_stage": null,
-  "answers": [
-    {
-      "question": "How many years experience do you have?",
-      "answer": "5-7"
+    "id": 69306314,
+    "candidate_id": 57683957,
+    "prospect": false,
+    "applied_at": "2017-09-29T12:56:05.244Z",
+    "rejected_at": null,
+    "last_activity_at": "2017-09-29T13:00:28.038Z",
+    "location": { 
+        "address": "New York, New York, USA" 
     },
-    {
-      "question": "Website",
-      "answer": "mywebsite.com"
+    "source": {
+        "id": 2,
+        "public_name": "Jobs page on your website"
+    },
+    "credited_to": {
+      "id": 4080,
+      "first_name": "Kate",
+      "last_name": "Austen",
+      "name": "Kate Austen",
+      "employee_id": "12345"
+    },
+    "rejection_reason": null,
+    "rejection_details": null,
+    "jobs": [
+        {
+            "id": 107761,
+            "name": "UX Designer - Boston"
+        }
+    ],
+    "status": "active",
+    "current_stage": {
+        "id": 767358,
+        "name": "Application Review"
+    },
+    "answers": [
+        {
+            "question": "How did you hear about this job?",
+            "answer": "Online Research"
+        },
+        {
+            "question": "Website",
+            "answer": "mytestwebsite.com"
+        }
+    ],
+    "prospect_detail": {
+        "prospect_pool": null,
+        "prospect_stage": null,
+        "prospect_owner": null
+    },
+    "custom_fields": {
+        "application_custom_test": "Option 1"
+    },
+    "keyed_custom_fields": {
+        "application_custom_test": {
+            "name": "Application Custom Test",
+            "type": "single_select",
+            "value": "Option 1"
+        }
     }
-  ],
-  "prospect_detail": {
-      "prospect_pool": null,
-      "prospect_stage": null,
-      "prospect_owner": null
-  },
-  "custom_fields": {
-      "application_custom_test": "Option 1",
-      "custom_boolean_test": true
-  },
-  "keyed_custom_fields": {
-      "application_custom_test": {
-          "name": "Application Custom Test",
-          "type": "single_select",
-          "value": "Option 1"
-      },
-      "custom_boolean_test": {
-          "name": "Custom Boolean Test",
-          "type": "boolean",
-          "value": true
-      }
-   }
 }
 
 ```
@@ -380,64 +407,64 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
 
 ```json
 {
-    "id": 69306314,
-    "candidate_id": 57683957,
-    "prospect": false,
-    "applied_at": "2017-09-29T12:56:05.244Z",
-    "rejected_at": null,
-    "last_activity_at": "2017-09-29T13:23:01.191Z",
-    "location": { 
-        "address": "New York, New York, USA" 
-    },
-    "source": {
-        "id": 16,
-        "public_name": "LinkedIn (Prospecting)"
-    },
-    "credited_to": {
-        "id": 4080,
-        "name": "Kate Austen",
-        "employee_id": null
-    },
-    "rejection_reason": null,
-    "rejection_details": null,
-    "jobs": [
-        {
-            "id": 107761,
-            "name": "UX Designer - Boston"
-        }
-    ],
-    "status": "active",
-    "current_stage": {
-        "id": 767377,
-        "name": "Take Home Test"
-    },
-    "answers": [
-        {
-            "question": "How did you hear about this job?",
-            "answer": "Online Research"
-        },
-        {
-            "question": "LinkedIn Profile",
-            "answer": "linkedin.com/john.locke"
-        }
-    ],
-    "prospect_detail": {
-        "prospect_pool": null,
-        "prospect_stage": null,
-        "prospect_owner": null
-    },
-    "custom_fields": {
-        "application_custom_test": "Option 1",
-        "custom_boolean_test": null
-    },
-    "keyed_custom_fields": {
-        "application_custom_test": {
-            "name": "Application Custom Test",
-            "type": "single_select",
-            "value": "Option 1"
-        },
-        "custom_boolean_test": null
-    }
+  "id": 69306314,
+  "candidate_id": 57683957,
+  "prospect": false,
+  "applied_at": "2017-09-29T12:56:05.244Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-09-29T13:00:28.038Z",
+  "location": { 
+      "address": "New York, New York, USA" 
+  },
+  "source": {
+      "id": 2,
+      "public_name": "Jobs page on your website"
+  },
+  "credited_to": {
+    "id": 4080,
+    "first_name": "Kate",
+    "last_name": "Austen",
+    "name": "Kate Austen",
+    "employee_id": "12345"
+  },
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+      {
+          "id": 107761,
+          "name": "UX Designer - Boston"
+      }
+  ],
+  "status": "active",
+  "current_stage": {
+      "id": 767358,
+      "name": "Application Review"
+  },
+  "answers": [
+      {
+          "question": "How did you hear about this job?",
+          "answer": "Online Research"
+      },
+      {
+          "question": "Website",
+          "answer": "mytestwebsite.com"
+      }
+  ],
+  "prospect_detail": {
+      "prospect_pool": null,
+      "prospect_stage": null,
+      "prospect_owner": null
+  },
+  "custom_fields": {
+      "application_custom_test": "Option 1"
+  },
+  "keyed_custom_fields": {
+      "application_custom_test": {
+          "name": "Application Custom Test",
+          "type": "single_select",
+          "value": "Option 1"
+      }
+  }
 }
 ```
 
@@ -476,7 +503,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
 
 ```json
 {
-  "from_stage_id": 1
+  "from_stage_id": 123
 }
 ```
 
@@ -484,63 +511,63 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
 
 ```json
 {
-  "id": 47669412,
-  "candidate_id": 38445573,
+  "id": 69306314,
+  "candidate_id": 57683957,
   "prospect": false,
-  "applied_at": "2017-01-25T22:46:08.601Z",
+  "applied_at": "2017-09-29T12:56:05.244Z",
   "rejected_at": null,
-  "last_activity_at": "2017-01-25T22:58:48.679Z",
+  "last_activity_at": "2017-09-29T13:00:28.038Z",
   "location": { 
-    "address": "New York, New York, USA" 
+      "address": "New York, New York, USA" 
   },
   "source": {
-    "id": 16,
-    "public_name": "LinkedIn (Prospecting)"
+      "id": 2,
+      "public_name": "Jobs page on your website"
   },
-  "credited_to": null,
+  "credited_to": {
+    "id": 4080,
+    "first_name": "Kate",
+    "last_name": "Austen",
+    "name": "Kate Austen",
+    "employee_id": "12345"
+  },
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
-    {
-      "id": 211706,
-      "name": "Community Manager - New York"
-    }
+      {
+          "id": 107761,
+          "name": "UX Designer - Boston"
+      }
   ],
   "status": "active",
   "current_stage": {
-    "id": 1551141,
-    "name": "Take Home Test"
- },
+      "id": 456,
+      "name": "Phone Interview"
+  },
   "answers": [
-    {
-      "question": "How many years experience do you have?",
-      "answer": "2-4"
-    },
-    {
-      "question": "Can do you the travel required for this job?",
-      "answer": "Yes"
-    }
+      {
+          "question": "How did you hear about this job?",
+          "answer": "Online Research"
+      },
+      {
+          "question": "Website",
+          "answer": "mytestwebsite.com"
+      }
   ],
   "prospect_detail": {
-     "prospect_pool": null,
-     "prospect_stage": null,
-     "prospect_owner": null
+      "prospect_pool": null,
+      "prospect_stage": null,
+      "prospect_owner": null
   },
   "custom_fields": {
-    "current_title": "Community Manager",
-    "requires_visa_sponsorship?": false
+      "application_custom_test": "Option 1"
   },
   "keyed_custom_fields": {
-    "current_title": {
-      "name": "Current Title",
-      "type": "short_text",
-      "value": "Community Manager"
-    },
-    "requires_visa_sponsorship_": {
-      "name": "Requires visa sponsorship?",
-      "type": "boolean",
-      "value": false
-    }
+      "application_custom_test": {
+          "name": "Application Custom Test",
+          "type": "single_select",
+          "value": "Option 1"
+      }
   }
 }
 ```
@@ -587,63 +614,63 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
 
 ```json
 {
-  "id": 48206478,
-  "candidate_id": 36952451,
+  "id": 69306314,
+  "candidate_id": 57683957,
   "prospect": false,
-  "applied_at": "2017-02-01T14:26:02.282Z",
+  "applied_at": "2017-09-29T12:56:05.244Z",
   "rejected_at": null,
-  "last_activity_at": "2017-02-01T14:51:12.670Z",
+  "last_activity_at": "2017-09-29T13:00:28.038Z",
   "location": { 
-    "address": "New York, New York, USA" 
+      "address": "New York, New York, USA" 
   },
   "source": {
-    "id": 33,
-    "public_name": "Glassdoor"
+      "id": 2,
+      "public_name": "Jobs page on your website"
   },
-  "credited_to": null,
+  "credited_to": {
+    "id": 4080,
+    "first_name": "Kate",
+    "last_name": "Austen",
+    "name": "Kate Austen",
+    "employee_id": "12345"
+  },
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
-    {
-      "id": 123456,
-      "name": "Community Manager - New York"
-    }
+      {
+          "id": 123456,
+          "name": "UX Designer - Boston"
+      }
   ],
   "status": "active",
   "current_stage": {
-    "id": 234567,
-    "name": "Application Review"
+      "id": 234567,
+      "name": "Application Review"
   },
   "answers": [
-    {
-      "question": "How many years experience do you have?",
-      "answer": "2-4"
-    },
-    {
-      "question": "Can do you the travel required for this job?",
-      "answer": "Yes"
-    }
+      {
+          "question": "How did you hear about this job?",
+          "answer": "Online Research"
+      },
+      {
+          "question": "Website",
+          "answer": "mytestwebsite.com"
+      }
   ],
   "prospect_detail": {
-    "prospect_pool": null,
-    "prospect_stage": null,
-    "prospect_owner": null
+      "prospect_pool": null,
+      "prospect_stage": null,
+      "prospect_owner": null
   },
   "custom_fields": {
-    "current_title": "Community Manager",
-    "requires_visa_sponsorship?": false
+      "application_custom_test": "Option 1"
   },
   "keyed_custom_fields": {
-    "current_title": {
-      "name": "Current Title",
-      "type": "short_text",
-      "value": "Community Manager"
-    },
-    "requires_visa_sponsorship_": {
-      "name": "Requires visa sponsorship?",
-      "type": "boolean",
-      "value": false
-    }
+      "application_custom_test": {
+          "name": "Application Custom Test",
+          "type": "single_select",
+          "value": "Option 1"
+      }
   }
 }
 ```
@@ -803,60 +830,87 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 
 ```json
 {
-    "id": 69201605,
-    "candidate_id": 57683957,
-    "prospect": false,
-    "applied_at": "2017-09-28T13:27:54.873Z",
-    "rejected_at": "2017-09-29T12:58:48.924Z",
-    "last_activity_at": "2017-09-29T13:23:01.191Z",
-    "location": { 
-        "address": "New York, New York, USA" 
-    },
-    "source": {
-        "id": 16,
-        "public_name": "LinkedIn (Prospecting)"
-    },
-    "credited_to": {
-        "id": 566819,
-        "first_name": "Bob",
-        "last_name": "Smith",
-        "name": "Bob Smith",
-        "employee_id": "ABC12345"
-    },
-    "rejection_reason": {
-        "id": 9504,
-        "name": "Hired another candidate",
-        "type": {
-            "id": 1,
-            "name": "We rejected them"
-        }
-    },
-    "rejection_details": {},
-    "jobs": [
-        {
-            "id": 185289,
-            "name": "Product Specialist"
-        }
-    ],
-    "status": "rejected",
-    "current_stage": {
-        "id": 1355395,
-        "name": "Face to Face"
-    },
-    "answers": [],
-    "prospect_detail": {
-        "prospect_pool": null,
-        "prospect_stage": null,
-        "prospect_owner": null
-    },
-    "custom_fields": {
-        "application_custom_test": null,
-        "custom_boolean_test": null
-    },
-    "keyed_custom_fields": {
-        "application_custom_test": null,
-        "custom_boolean_test": null
+  "id": 985314,
+  "candidate_id": 978031,
+  "prospect": false,
+  "applied_at": "2016-03-26T20:11:39.000Z",
+  "rejected_at": "2016-08-17T21:08:29.686Z",
+  "last_activity_at": "2016-08-27T16:13:15.000Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
+  "source": {
+    "id": 1871,
+    "public_name": "Happy Hour"
+  },
+  "credited_to": {
+    "id": 4080,
+    "first_name": "Kate",
+    "last_name": "Austen",
+    "name": "Kate Austen",
+    "employee_id": "12345"
+  },
+  "rejection_reason": {
+    "id": 815,
+    "name": "The prospect is not qualified for this position.",
+    "type": {
+      "id": 1,
+      "name": "We rejected them"
     }
+  },
+"rejection_details": {
+  "custom_fields": {
+      "custom_rejection_question_field": "Not a good fit"
+  },
+  "keyed_custom_fields": {
+      "custom_rejection_question_field": {
+          "name": "Was this candidate a good fit?",
+          "type": "short_text",
+          "value": "This candidate wasn't a good fit."
+      }
+  }
+  "jobs": [
+    {
+      "id": 123,
+      "name": "Accounting Manager"
+    }
+  ],
+  "status": "rejected",
+  "current_stage": {
+    "id": 62828,
+    "name": "Recruiter Phone Screen"
+  },
+  "answers": [
+    {
+      "question": "Why do you want to work for us?",
+      "answer": "I heard you're awesome!"
+    },
+    {
+      "question": "How did you hear about this job?",
+      "answer": "From a former colleague."
+    }
+  ],
+  "prospect_detail": {
+      "prospect_pool": null,
+      "prospect_stage": null,
+      "prospect_owner": null
+  },
+  "custom_fields": {
+    "bio": "This is a bio",
+    "birthday": "1992-01-27"
+  },
+  "keyed_custom_fields": {
+    "date_of_birth": {
+      "name": "Birthday",
+      "type": "date",
+      "value": "1992-01-27"
+    },
+    "bio": {
+      "name": "Bio",
+      "type": "long_text",
+      "value": "This is a bio"
+    }
+  }
 }
 ```
 
@@ -895,54 +949,64 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'\
 
 ```json
 {
-    "id": 69201605,
-    "candidate_id": 57683957,
-    "prospect": false,
-    "applied_at": "2017-09-28T13:27:54.873Z",
-    "rejected_at": null,
-    "last_activity_at": "2017-09-29T13:34:58.354Z",
-    "location": { 
-        "address": "New York, New York, USA" 
-    },
-    "source": {
-        "id": 16,
-        "public_name": "LinkedIn (Prospecting)"
-    },
-    "credited_to": {
-        "id": 566819,
-        "first_name": "Bob",
-        "last_name": "Smith",
-        "name": "Bob Smith",
-        "employee_id": null
-    },
-    "rejection_reason": null,
-    "rejection_details": null,
-    "jobs": [
-        {
-            "id": 185289,
-            "name": "Product Specialist"
-        }
-    ],
-    "status": "active",
-    "current_stage": {
-        "id": 1355398,
-        "name": "Face to Face"
-    },
-    "answers": [],
-    "prospect_detail": {
-        "prospect_pool": null,
-        "prospect_stage": null,
-        "prospect_owner": null
-    },
-    "custom_fields": {
-        "application_custom_test": null,
-        "custom_boolean_test": null
-    },
-    "keyed_custom_fields": {
-        "application_custom_test": null,
-        "custom_boolean_test": null
-    }
-}
+  "id": 69306314,
+  "candidate_id": 57683957,
+  "prospect": false,
+  "applied_at": "2017-09-29T12:56:05.244Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-09-29T13:00:28.038Z",
+  "location": { 
+      "address": "New York, New York, USA" 
+  },
+  "source": {
+      "id": 2,
+      "public_name": "Jobs page on your website"
+  },
+  "credited_to": {
+    "id": 4080,
+    "first_name": "Kate",
+    "last_name": "Austen",
+    "name": "Kate Austen",
+    "employee_id": "12345"
+  },
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+      {
+          "id": 107761,
+          "name": "UX Designer - Boston"
+      }
+  ],
+  "status": "active",
+  "current_stage": {
+      "id": 767358,
+      "name": "Application Review"
+  },
+  "answers": [
+      {
+          "question": "How did you hear about this job?",
+          "answer": "Online Research"
+      },
+      {
+          "question": "Website",
+          "answer": "mytestwebsite.com"
+      }
+  ],
+  "prospect_detail": {
+      "prospect_pool": null,
+      "prospect_stage": null,
+      "prospect_owner": null
+  },
+  "custom_fields": {
+      "application_custom_test": "Option 1"
+  },
+  "keyed_custom_fields": {
+      "application_custom_test": {
+          "name": "Application Custom Test",
+          "type": "single_select",
+          "value": "Option 1"
+      }
+  }
 ```
 
 > An unsuccessful response:

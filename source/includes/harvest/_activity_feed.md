@@ -12,8 +12,10 @@ The activity feed is the list of activities on a candidate's profile, including 
       "body": "Very mysterious.",
       "user": {
         "id": 512,
+        "first_name": "Sayid",
+        "last_name": "Jarrah",
         "name": "Sayid Jarrah",
-        "employee_id": null
+        "employee_id": "12345"
       },
       "private": false,
       "visiblity": "public",
@@ -28,11 +30,13 @@ The activity feed is the list of activities on a candidate's profile, including 
       "body": "Hey John,  just wanted to touch base!",
       "to": "john.locke@example.com",
       "from": "boone.carlyle@example.com",
-      "cc": null,
+      "cc": "sam.smith@example.com",
       "user": {
         "id": 214,
+        "first_name": "Boone",
+        "last_name": "Carlyle",
         "name": "Boone Carlyle",
-        "employee_id": null
+        "employee_id": "67890"
       }
     }
   ],
@@ -40,20 +44,28 @@ The activity feed is the list of activities on a candidate's profile, including 
     {
       "id": 6756789,
       "created_at": "2014-04-01T15:55:29Z",
-      "subject": null,
+      "subject": "Candidate Rejected",
       "body": "Reason: Lacking hustle\n\nThis candidate turned out to be problematic for us...",
       "user": {
         "id": 214,
+        "first_name": "Boone",
+        "last_name": "Carlyle",
         "name": "Boone Carlyle",
-        "employee_id": 12345
+        "employee_id": "67890"
       }
     },
     {
       "id": 6757869,
       "created_at": "2014-03-26T20:26:38Z",
-      "subject": null,
+      "subject": "Candidate Stage Change",
       "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
-      "user": null
+      "user": {
+        "id": 214,
+        "first_name": "Boone",
+        "last_name": "Carlyle",
+        "name": "Boone Carlyle",
+        "employee_id": "67890"
+      }
     }
   ]
 }
@@ -91,8 +103,10 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
       "body": "Very mysterious.",
       "user": {
         "id": 512,
+        "first_name": "Sayid",
+        "last_name": "Jarrah",
         "name": "Sayid Jarrah",
-        "employee_id": null
+        "employee_id": "12345"
       },
       "private": false,
       "visiblity": "public",
@@ -107,11 +121,13 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
       "body": "Hey John,  just wanted to touch base!",
       "to": "john.locke@example.com",
       "from": "boone.carlyle@example.com",
-      "cc": null,
+      "cc": "sam.smith@example.com",
       "user": {
         "id": 214,
+        "first_name": "Boone",
+        "last_name": "Carlyle",
         "name": "Boone Carlyle",
-        "employee_id": null
+        "employee_id": "67890"
       }
     }
   ],
@@ -119,20 +135,28 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed'
     {
       "id": 6756789,
       "created_at": "2014-04-01T15:55:29Z",
-      "subject": null,
+      "subject": "Candidate Rejected",
       "body": "Reason: Lacking hustle\n\nThis candidate turned out to be problematic for us...",
       "user": {
         "id": 214,
+        "first_name": "Boone",
+        "last_name": "Carlyle",
         "name": "Boone Carlyle",
-        "employee_id": 12345
+        "employee_id": "67890"
       }
     },
     {
       "id": 6757869,
       "created_at": "2014-03-26T20:26:38Z",
-      "subject": null,
+      "subject": "Candidate Stage Change",
       "body": "John Locke was moved into Recruiter Phone Screen for Accounting Manager on 03/27/2014 by Boone Carlyle",
-      "user": null
+      "user": {
+        "id": 214,
+        "first_name": "Boone",
+        "last_name": "Carlyle",
+        "name": "Boone Carlyle",
+        "employee_id": "67890"
+      }
     }
   ]
 }

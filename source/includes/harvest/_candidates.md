@@ -65,9 +65,15 @@ An organization's candidates.
         "first_name": "Greenhouse",
         "last_name": "Admin",
         "name": "Greenhouse Admin",
-        "employee_id": null
+        "employee_id": "67890"
+        },
+    "coordinator": {
+        "id": 453636,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "name": "Jane Smith",
+        "employee_id": "12345"
     },
-    "coordinator": null,
     "tags": [
         "Python",
         "Ruby"
@@ -102,7 +108,18 @@ An organization's candidates.
                     "name": "We rejected them"
                 }
             },
-            "rejection_details": {},
+            "rejection_details": {
+                "custom_fields": {
+                    "custom_rejection_question_field": null
+                },
+                "keyed_custom_fields": {
+                    "custom_rejection_question_field": {
+                        "name": "Custom Rejection Question Field",
+                        "type": "short_text",
+                        "value": null
+                    }
+                }
+            },
             "jobs": [
                 {
                     "id": 149995,
@@ -114,7 +131,20 @@ An organization's candidates.
                 "id": 1073533,
                 "name": "Take Home Test"
             },
-            "answers": [],
+            "answers": [
+                {
+                    "question": "How did you hear about this job?",
+                    "answer": "A friend"
+                },
+                {
+                    "question": "Website",
+                    "answer": "https://example.com"
+                },
+                {
+                    "question": "LinkedIn Profile",
+                    "answer": "https://linkedin.com/example"
+                }
+            ],
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -492,7 +522,12 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "type": "mobile"
         }
     ],
-    "addresses": [],
+    "addresses": [
+        {
+            "value": "123 City Street\nNew York, Ny 10001",
+            "type": "home"
+        }
+    ],
     "email_addresses": [
         {
             "value": "test@work.com",
@@ -509,15 +544,25 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "type": "personal"
         }
     ],
-    "social_media_addresses": [],
+    "social_media_addresses": [
+        {
+            "value": "twitter.com/test"
+        }
+    ],
     "recruiter": {
         "id": 92120,
         "first_name": "Greenhouse",
         "last_name": "Admin",
         "name": "Greenhouse Admin",
-        "employee_id": null
+        "employee_id": "67890"
+        },
+    "coordinator": {
+        "id": 453636,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "name": "Jane Smith",
+        "employee_id": "12345"
     },
-    "coordinator": null,
     "tags": [
         "Python",
         "Ruby"
@@ -552,7 +597,18 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                     "name": "We rejected them"
                 }
             },
-            "rejection_details": {},
+            "rejection_details": {
+                "custom_fields": {
+                    "custom_rejection_question_field": null
+                },
+                "keyed_custom_fields": {
+                    "custom_rejection_question_field": {
+                        "name": "Custom Rejection Question Field",
+                        "type": "short_text",
+                        "value": null
+                    }
+                }
+            },
             "jobs": [
                 {
                     "id": 149995,
@@ -564,7 +620,20 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                 "id": 1073533,
                 "name": "Take Home Test"
             },
-            "answers": [],
+            "answers": [
+                {
+                    "question": "How did you hear about this job?",
+                    "answer": "A friend"
+                },
+                {
+                    "question": "Website",
+                    "answer": "https://example.com"
+                },
+                {
+                    "question": "LinkedIn Profile",
+                    "answer": "https://linkedin.com/example"
+                }
+            ],
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -578,7 +647,9 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "applied_at": "2017-08-15T03:31:46.637Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T12:29:30.481Z",
-            "location": null,
+            "location": {
+                "address": "New York, New York, United States"
+            },
             "source": {
                 "id": 12,
                 "public_name": "Meetups"
@@ -704,6 +775,7 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -965,6 +1037,7 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -1020,6 +1093,7 @@ content_type | No* | string | The content-type of the document you are sending. 
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -1303,13 +1377,14 @@ applications | Yes | Array | An array of application objects. At least one requi
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command takes a JSON request, structured like this:
 
-```
+```json
 {
   "job_id": 266926,
   "source_id": 7,
@@ -1401,6 +1476,7 @@ attachments | No | array | An array of attachments to be uploaded to this applic
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/notes'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -1463,6 +1539,7 @@ visibility* | Yes | string | One of: `"admin_only"`, `"private"`, `"public"`
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/emails'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -1490,13 +1567,15 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/activity_feed/ema
   "body": "An interview has been scheduled for tomorrow.",
   "to": "candidate@example.com",
   "from": "recruiter@example.com",
-  "cc": ["manager@example.com"],
+  "cc": [
+    "manager@example.com"
+    ],
   "user": {
     "id": 214,
     "first_name": "Donald",
     "last_name": "Johnson",
     "name": "Donald Johnson",
-    "employee_id": null
+    "employee_id": "12345"
   }
 }
 ```
@@ -1530,13 +1609,14 @@ body | Yes | string | The body of the e-mail.
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/educations'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command takes a JSON request, structured like this:
 
-```
+```json
 {
   "school_id": 459,
   "discipline_id": 940,
@@ -1596,8 +1676,8 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/educa
 
 ```json
 {
-  "success": true,
-  "message": "Education 29622362 has been deleted."
+    "success": true,
+    "message": "Education ID 2002247 destroyed."
 }
 ```
 
@@ -1618,6 +1698,7 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/employments'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -1682,8 +1763,8 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/candidates/{candidate_id}/emplo
 
 ```json
 {
-  "success": true,
-  "message": "Employment 29622362 has been deleted."
+    "success": true,
+    "message": "Employment ID 823384 destroyed."
 }
 ```
 
@@ -1704,6 +1785,7 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -2110,10 +2192,18 @@ fields | Yes | comma-delimited string | The set of field names that should be an
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
--d '{ "primary_candidate_id": 73821, "duplicate_candidate_id": 839283 }'
 -H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{ 
+    "primary_candidate_id": 73821, 
+    "duplicate_candidate_id": 839283 
+}
 ```
 
 > The above command returns a JSON response, structured like this:
