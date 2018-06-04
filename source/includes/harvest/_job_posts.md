@@ -170,10 +170,9 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
         "name": "first_name",
         "type": "short_text",
         "values": []
-      },
-      {  }
+      }
     ]
-  },
+  }
 ]
 ```
 
@@ -328,8 +327,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
       "label": "First Name",
       "type": "short_text",
       "values": []
-    },
-    {  }
+    }
   ]
 }
 ```
