@@ -249,15 +249,19 @@ openings.opening_id | yes | Array | This is a string that contains an opening_id
 
 > The above returns a JSON response, structured like this:
 
-```
+```json
 {
-    "id": 123456,
-    "opening_id": "abc-123",
-    "open_date": "2017-10-02T19:53:32.565Z"
-},
-{
-    "id": 123457,
-    "opening_id": null,
-    "open_date": "2017-10-02T19:53:32.565Z"
+    "openings": [
+        {
+            "id": 123456,
+            "opening_id": "abc-123",
+            "open_date": "2017-10-02T19:53:32.565Z"
+        },
+        {
+            "id": 123457,
+            "opening_id": null,
+            "open_date": "2017-10-02T19:53:32.565Z"
+        }
+    ]
 }
 ```
