@@ -17,7 +17,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
   "job_id": 1234,
   "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
   "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-  "updated_at": "2014-04-01T17:56:19Z",
+  "updated_at": "2016-11-21T15:39:24Z",
+  "created_at": "2014-04-01T17:56:19Z",
   "questions": [
     {
       "required": true,
@@ -171,7 +172,8 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-    "updated_at": "2014-04-01T17:56:19Z",
+    "updated_at": "2016-11-21T15:39:24Z",
+    "created_at": "2014-04-01T17:56:19Z",
     "questions": [
       {
         "required": true,
@@ -334,7 +336,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-    "updated_at": "2014-04-01T17:56:19Z",
+    "updated_at": "2016-11-21T15:39:24Z",
+    "created_at": "2014-04-01T17:56:19Z"
     "questions": [
       {
         "required": true,
@@ -461,7 +464,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "external": true,
     "job_id": 146218,
     "content": "job post content two",
-    "updated_at": "2016-09-19T14:04:25.297Z",
+    "updated_at": "2016-11-21T15:39:24Z",
+    "created_at": "2014-04-01T17:56:19Z"
     "internal_content": "",
     "created_at": "2015-11-22T05:49:35.145Z",
     "questions": [
@@ -530,7 +534,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-    "updated_at": "2014-04-01T17:56:19Z",
+    "updated_at": "2016-11-21T15:39:24Z",
+    "created_at": "2014-04-01T17:56:19Z"
     "questions": [
       {
         "required": true,
