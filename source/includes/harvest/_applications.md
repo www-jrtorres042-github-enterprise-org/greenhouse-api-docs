@@ -261,6 +261,7 @@ List all of an organization's applications.
 | created_after | Return only applications that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | last_activity_after | Return only applications where 'last_activity_at' is at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | job_id | If supplied, only return applications that involve this job. Will return both candidates and prospects.
+| status | If supplied, only return applications that match this status. Accepted values are active, converted, hired, and rejected. If anything else is used, an empty response will be returned rather than an error.
 
 <br>
 [See noteworthy response attributes.](#the-application-object)
