@@ -805,6 +805,113 @@ to_stage_id | Yes | integer | The ID of the job stage this application should be
 
 [See noteworthy response attributes.] (#the-application-object)
 
+## POST: Hire Application
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "start_date": "2017-03-15",
+  "opening_id": "ABC-123",
+  "close_reason_id": 43432
+}
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "id": 48206478,
+  "candidate_id": 36952451,
+  "prospect": false,
+  "applied_at": "2017-02-01T14:26:02.282Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-02-01T14:51:12.670Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
+  "source": {
+    "id": 33,
+    "public_name": "Glassdoor"
+  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 211706,
+      "name": "Community Manager - New York"
+    }
+  ],
+  "status": "hired",
+  "current_stage": null,
+  "answers": [
+    {
+      "question": "How many years experience do you have?",
+      "answer": "2-4"
+    },
+    {
+      "question": "Can do you the travel required for this job?",
+      "answer": "Yes"
+    }
+  ],
+  "prospect_detail": {
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
+  },
+  "custom_fields": {
+    "current_title": "Community Manager",
+    "requires_visa_sponsorship?": false
+  },
+  "keyed_custom_fields": {
+    "current_title": {
+      "name": "Current Title",
+      "type": "short_text",
+      "value": "Community Manager"
+    },
+    "requires_visa_sponsorship_": {
+      "name": "Requires visa sponsorship?",
+      "type": "boolean",
+      "value": false
+    }
+  }
+}
+```
+
+Hire this application. The application must not be a prospect and all approvals for the job and offer must have occurred. 
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/applications/{id}/hire`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+start_date | No* | string | The start_date of the employee. This is only required if start_dates are required and there is not an outstanding offer on the user that already contains a start date. Must be in the format YYYY-MM-DD |
+opening_id | No | integer | An opening ID to fill with this hire. This is the unique Greenhouse id of the opening (id in the openings endpoint) and not the human readable opening id text. If no opening is provided one will be selected. |
+close_reason_id | No | integer | The close reason to assign to the opening that will be closed with this hire.
+
+<br>
+
+Note that "current_stage" in the response JSON is null. A hired application no longer has a current stage.
+
+[See noteworthy response attributes.] (#the-application-object)
+
 ## POST: Reject Application
 
 ```shell
