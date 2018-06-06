@@ -44,7 +44,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
           "type": "short_text",
           "value": "This candidate wasn't a good fit."
       }
-  }
+  },
   "jobs": [
     {
       "id": 123,
