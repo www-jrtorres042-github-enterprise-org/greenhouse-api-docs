@@ -6,15 +6,15 @@ An organization's offers.
 
 ```json
 {
-  "id": 4949,
+  "id": 1142785,
   "version": 1,
-  "application_id": 1234,
-  "created_at": "2014-02-13T22:30:58Z",
-  "updated_at": "2014-07-31T20:49:05.604Z",
-  "sent_at": null,
-  "resolved_at": null,
-  "starts_at": null,
-  "status": "deprecated",
+  "application_id": 91081818,
+  "created_at": "2018-06-06T20:23:10.378Z",
+  "updated_at": "2018-06-06T20:23:43.388Z",
+  "sent_at": "2018-06-07",
+  "resolved_at": "2018-06-06T20:23:43.387Z",
+  "starts_at": "2018-07-20",
+  "status": "accepted",
   "custom_fields": {
     "employment_type": "Contractor",
     "favorite_station": "The Swan",
@@ -91,71 +91,71 @@ curl 'https://harvest.greenhouse.io/v1/offers'
 ```json
 [
   {
-    "id": 4949,
-    "version": 1,
-    "application_id": 1234,
-    "created_at": "2014-02-13T22:30:58Z",
-    "updated_at": "2014-07-31T20:49:05.604Z",
-    "sent_at": null,
-    "resolved_at": null,
-    "starts_at": null,
-    "status": "deprecated",
-    "custom_fields": {
-      "employment_type": "Contractor",
-      "favorite_station": "The Swan",
-      "best_seasons": null,
-      "start_date": "2004-09-21",
-      "willing_to_negotiate": null,
-      "salary": "$123,000",
-      "notes": "This is a note field"
-    },
-    "keyed_custom_fields": {
-      "time_type": {
-        "name": "Employment Type",
-        "type": "single_select",
-        "value": "Contractor"
-      },
-      "favorite_station": {
-        "name": "Favorite Station",
-        "type": "single_select",
-        "value": "The Swan"
-      },
-      "best_seasons": {
-        "name": "Best seasons",
-        "type": "multi_select",
-        "value": null
-      },
-      "start_date": {
-        "name": "Start Date",
-        "type": "date",
-        "value": "2004-09-21"
-      },
-      "will_negotiate": {
-        "name": "Willing to negotiate",
-        "type": "yes_no",
-        "value": null
-      },
-      "salary": {
-        "name": "Salary",
-        "type": "currency",
-        "value": "$123,000"
-      },
-      "notes": {
-        "name": "Notes",
-        "type": "long_text",
-        "value": "This is a note field"
-      }
-    }
+  "id": 1142785,
+  "version": 1,
+  "application_id": 91081818,
+  "created_at": "2018-06-06T20:23:10.378Z",
+  "updated_at": "2018-06-06T20:23:43.388Z",
+  "sent_at": "2018-06-07",
+  "resolved_at": "2018-06-06T20:23:43.387Z",
+  "starts_at": "2018-07-20",
+  "status": "accepted",
+  "custom_fields": {
+    "employment_type": "Contractor",
+    "favorite_station": "The Swan",
+    "best_seasons": null,
+    "start_date": "2004-09-21",
+    "willing_to_negotiate": null,
+    "salary": "Around $100k",
+    "notes": "This is a note field"
   },
+  "keyed_custom_fields": {
+    "time_type": {
+      "name": "Employment Type",
+      "type": "single_select",
+      "value": "Contractor"
+    },
+    "favorite_station": {
+      "name": "Favorite Station",
+      "type": "single_select",
+      "value": "The Swan"
+    },
+    "best_seasons": {
+      "name": "Best seasons",
+      "type": "multi_select",
+      "value": null
+    },
+    "start_date": {
+      "name": "Start Date",
+      "type": "date",
+      "value": "2004-09-21"
+    },
+    "will_negotiate": {
+      "name": "Willing to negotiate",
+      "type": "yes_no",
+      "value": null
+    },
+    "salary": {
+      "name": "Salary",
+      "type": "short_text",
+      "value": "Around $100k"
+    },
+    "notes": {
+      "name": "Notes",
+      "type": "long_text",
+      "value": "This is a note field"
+    }
+  }
+},
   {
-    "id": 5318,
+    "id": 1142765,
     "version": 1,
-    "application_id": 1234,
-    "created_at": "2014-02-13T22:30:58Z",
-    "updated_at": "2014-07-31T20:49:05.604Z",
+    "application_id": 91078894,
+    "created_at": "2018-06-06T20:21:15.639Z",
+    "updated_at": "2018-06-06T20:21:29.796Z",
     "sent_at": null,
     "resolved_at": null,
-    "starts_at": null,
+    "starts_at": "2018-06-30",
     "status": "deprecated",
     "custom_fields": {
       "employment_type": "Part-Time",
@@ -242,71 +242,71 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers'
 ```json
 [
   {
-    "id": 4949,
-    "version": 1,
-    "application_id": 1234,
-    "created_at": "2014-02-13T22:30:58Z",
-    "updated_at": "2014-07-31T20:49:05.604Z",
-    "sent_at": null,
-    "resolved_at": null,
-    "starts_at": null,
-    "status": "deprecated",
-    "custom_fields": {
-      "employment_type": "Contractor",
-      "favorite_station": "The Swan",
-      "best_seasons": null,
-      "start_date": null,
-      "willing_to_negotiate": null,
-      "salary": null,
-      "notes": null
-    },
-    "keyed_custom_fields": {
-      "time_type": {
-        "name": "Employment Type",
-        "type": "single_select",
-        "value": "Contractor"
-      },
-      "favorite_station": {
-        "name": "Favorite Station",
-        "type": "single_select",
-        "value": "The Swan"
-      },
-      "best_seasons": {
-        "name": "Best seasons",
-        "type": "multi_select",
-        "value": null
-      },
-      "start_date": {
-        "name": "Start Date",
-        "type": "date",
-        "value": null
-      },
-      "will_negotiate": {
-        "name": "Willing to negotiate",
-        "type": "yes_no",
-        "value": null
-      },
-      "salary": {
-        "name": "Salary",
-        "type": "currency",
-        "value": null
-      },
-      "notes": {
-        "name": "Notes",
-        "type": "long_text",
-        "value": null
-      }
-    }
+  "id": 1142785,
+  "version": 1,
+  "application_id": 91078894,
+  "created_at": "2018-06-06T20:23:10.378Z",
+  "updated_at": "2018-06-06T20:23:43.388Z",
+  "sent_at": "2018-06-07",
+  "resolved_at": "2018-06-06T20:23:43.387Z",
+  "starts_at": "2018-07-20",
+  "status": "accepted",
+  "custom_fields": {
+    "employment_type": "Contractor",
+    "favorite_station": "The Swan",
+    "best_seasons": null,
+    "start_date": "2004-09-21",
+    "willing_to_negotiate": null,
+    "salary": "Around $100k",
+    "notes": "This is a note field"
   },
+  "keyed_custom_fields": {
+    "time_type": {
+      "name": "Employment Type",
+      "type": "single_select",
+      "value": "Contractor"
+    },
+    "favorite_station": {
+      "name": "Favorite Station",
+      "type": "single_select",
+      "value": "The Swan"
+    },
+    "best_seasons": {
+      "name": "Best seasons",
+      "type": "multi_select",
+      "value": null
+    },
+    "start_date": {
+      "name": "Start Date",
+      "type": "date",
+      "value": "2004-09-21"
+    },
+    "will_negotiate": {
+      "name": "Willing to negotiate",
+      "type": "yes_no",
+      "value": null
+    },
+    "salary": {
+      "name": "Salary",
+      "type": "short_text",
+      "value": "Around $100k"
+    },
+    "notes": {
+      "name": "Notes",
+      "type": "long_text",
+      "value": "This is a note field"
+    }
+  }
+},
   {
-    "id": 5318,
-    "version": 2,
-    "application_id": 1234,
-    "created_at": "2014-02-13T22:30:58Z",
-    "updated_at": "2014-07-31T20:49:05.604Z",
+    "id": 1142765,
+    "version": 1,
+    "application_id": 91078894,
+    "created_at": "2018-06-06T20:21:15.639Z",
+    "updated_at": "2018-06-06T20:21:29.796Z",
     "sent_at": null,
     "resolved_at": null,
-    "starts_at": null,
+    "starts_at": "2018-06-30",
     "status": "deprecated",
     "custom_fields": {
       "employment_type": "Part-Time",
@@ -396,15 +396,15 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/curr
 
 ```json
 {
-  "id": 4949,
-  "version": 1,
-  "application_id": 1234,
-  "created_at": "2014-02-13T22:30:58Z",
-  "updated_at": "2014-07-31T20:49:05.604Z",
-  "sent_at": null,
+  "id": 1142768,
+  "version": 2,
+  "application_id": 91078894,
+  "created_at": "2018-06-06T20:21:29.911Z",
+  "updated_at": "2018-06-06T20:24:30.707Z",
+  "sent_at": "2018-06-06",
   "resolved_at": null,
-  "starts_at": null,
-  "status": "deprecated",
+  "starts_at": "2018-06-30",
+  "status": "unresolved",
   "custom_fields": {
     "employment_type": "Contractor",
     "favorite_station": "The Swan",
@@ -478,23 +478,23 @@ curl 'https://harvest.greenhouse.io/v1/offers/{id}'
 
 ```json
 {
-  "id": 4949,
+  "id": 1142785,
   "version": 1,
-  "application_id": 1234,
-  "created_at": "2014-02-13T22:30:58Z",
-  "updated_at": "2014-07-31T20:49:05.604Z",
-  "sent_at": null,
-  "resolved_at": null,
-  "starts_at": null,
-  "status": "deprecated",
+  "application_id": 91081818,
+  "created_at": "2018-06-06T20:23:10.378Z",
+  "updated_at": "2018-06-06T20:23:43.388Z",
+  "sent_at": "2018-06-07",
+  "resolved_at": "2018-06-06T20:23:43.387Z",
+  "starts_at": "2018-07-20",
+  "status": "accepted",
   "custom_fields": {
     "employment_type": "Contractor",
     "favorite_station": "The Swan",
     "best_seasons": null,
-    "start_date": null,
+    "start_date": "2004-09-21",
     "willing_to_negotiate": null,
-    "salary": null,
-    "notes": null
+    "salary": "Around $100k",
+    "notes": "This is a note field"
   },
   "keyed_custom_fields": {
     "time_type": {
@@ -515,7 +515,7 @@ curl 'https://harvest.greenhouse.io/v1/offers/{id}'
     "start_date": {
       "name": "Start Date",
       "type": "date",
-      "value": null
+      "value": "2004-09-21"
     },
     "will_negotiate": {
       "name": "Willing to negotiate",
@@ -524,13 +524,13 @@ curl 'https://harvest.greenhouse.io/v1/offers/{id}'
     },
     "salary": {
       "name": "Salary",
-      "type": "currency",
-      "value": null
+      "type": "short_text",
+      "value": "Around $100k"
     },
     "notes": {
       "name": "Notes",
       "type": "long_text",
-      "value": null
+      "value": "This is a note field"
     }
   }
 }
