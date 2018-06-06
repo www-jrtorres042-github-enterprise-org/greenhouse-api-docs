@@ -8,18 +8,18 @@ An organization’s offices.
 
 ```json
 {
-  "id": 175,
-  "name": "San Francisco",
-  "parent_id": 180,
-  "child_ids": [
-    190,
-    195
-  ],
+  "id": 47012,
+  "name": "New York",
   "location": {
-    "name": "San Francisco, CA"
+      "name": "New York, United States"
   },
-  "primary_contact_user_id": null,
-  "external_id": null
+  "primary_contact_user_id": 485538,
+  "parent_id": 50849,
+  "child_ids": [
+      50891,
+      50852
+  ],
+  "external_id": "12345"
 }
 ```
 
@@ -27,35 +27,35 @@ An organization’s offices.
 
 ```json
 {
-  "id": 175,
-  "name": "San Francisco",
-  "children": [
-    {
-      "id": 190,
-      "name": "West",
-      "children": [],
-      "location": {
-        "name": "San Francisco, CA"
-      },
-      "primary_contact_user_id": null,
-      "external_id": null
-    },
-    {
-      "id": 195,
-      "name": "East",
-      "children": [],
-      "location": {
-        "name": "San Francisco, CA"
-      },
-      "primary_contact_user_id": null,
-      "external_id": null
-    }
-  ],
+  "id": 47012,
+  "name": "New York",
   "location": {
-    "name": "San Francisco, CA"
+      "name": "New York, United States"
   },
-  "primary_contact_user_id": null,
-  "external_id": null
+  "primary_contact_user_id": 485538,
+  "external_id": "12345",
+  "children": [
+      {
+          "id": 50891,
+          "name": "Utica",
+          "location": {
+              "name": "Utica, New York, United States"
+          },
+          "primary_contact_user_id": 336474,
+          "external_id": "45647",
+          "children": []
+      },
+      {
+          "id": 50852,
+          "name": "New York City",
+          "location": {
+              "name": "New York, New York, United States"
+          },
+          "primary_contact_user_id": 676259,
+          "external_id": "67890",
+          "children": []
+      }
+  ]
 }
 ```
 
@@ -82,40 +82,40 @@ curl 'https://harvest.greenhouse.io/v1/offices'
 ```json
 [
   {
-    "id": 175,
-    "name": "San Francisco",
-    "parent_id": 180,
+    "id": 50891,
+    "name": "Utica",
+    "location": {
+        "name": "Utica, New York, United States"
+    },
+    "primary_contact_user_id": 336474,
+    "parent_id": 47012,
+    "child_ids": [],
+    "external_id": "45647"
+  },
+  {
+    "id": 47012,
+    "name": "New York",
+    "location": {
+        "name": "New York, United States"
+    },
+    "primary_contact_user_id": 485538,
+    "parent_id": 50849,
     "child_ids": [
-      190,
-      195
+        50891,
+        50852
     ],
-    "location": {
-      "name": "San Francisco, CA"
-    },
-    "primary_contact_user_id": null,
-    "external_id": null
+    "external_id": "12345"
   },
   {
-    "id": 344,
-    "name": "Bangkok",
-    "parent_id": null,
-    "child_ids": [],
+    "id": 50852,
+    "name": "New York City",
     "location": {
-      "name": "Bangkok Thailand"
+        "name": "New York, New York, United States"
     },
-    "primary_contact_user_id": null,
-    "external_id": null
-  },
-  {
-    "id": 145,
-    "name": "Remote Locations",
-    "parent_id": null,
+    "primary_contact_user_id": 676259,
+    "parent_id": 47012,
     "child_ids": [],
-    "location": {
-      "name": null
-    },
-    "primary_contact_user_id": null,
-    "external_id": null
+    "external_id": "67890"
   }
 ]
 ```
@@ -125,55 +125,40 @@ curl 'https://harvest.greenhouse.io/v1/offices'
 ```json
 [
   {
-    "id": 175,
-    "name": "San Francisco",
-    "children": [
-      {
-        "id": 190,
-        "name": "West",
-        "children": [],
-        "location": {
-          "name": "San Francisco, CA"
-        },
-        "primary_contact_user_id": null,
-        "external_id": null
-      },
-      {
-        "id": 195,
-        "name": "East",
-        "children": [],
-        "location": {
-          "name": "San Francisco, CA"
-        },
-        "primary_contact_user_id": null,
-        "external_id": null
-      }
+    "id": 50891,
+    "name": "Utica",
+    "location": {
+        "name": "Utica, New York, United States"
+    },
+    "primary_contact_user_id": 336474,
+    "parent_id": 47012,
+    "child_ids": [],
+    "external_id": "45647"
+  },
+  {
+    "id": 47012,
+    "name": "New York",
+    "location": {
+        "name": "New York, United States"
+    },
+    "primary_contact_user_id": 485538,
+    "parent_id": 50849,
+    "child_ids": [
+        50891,
+        50852
     ],
-    "location": {
-      "name": "San Francisco, CA"
-    },
-    "primary_contact_user_id": null,
-    "external_id": null
+    "external_id": "12345"
   },
   {
-    "id": 344,
-    "name": "Bangkok",
-    "children": [],
+    "id": 50852,
+    "name": "New York City",
     "location": {
-      "name": "Bangkok Thailand"
+        "name": "New York, New York, United States"
     },
-    "primary_contact_user_id": null,
-    "external_id": null
-  },
-  {
-    "id": 145,
-    "name": "Remote Locations",
-    "children": [],
-    "location": {
-      "name": null
-    },
-    "primary_contact_user_id": null,
-    "external_id": null
+    "primary_contact_user_id": 676259,
+    "parent_id": 47012,
+    "child_ids": [],
+    "external_id": "67890"
   }
 ]
 ```
@@ -207,15 +192,18 @@ curl 'https://harvest.greenhouse.io/v1/offices/{id}'
 
 ```json
 {
-  "id": 175,
-  "name": "San Francisco",
-  "parent_id": 180,
-  "child_ids": [190, 195],
+  "id": 47012,
+  "name": "New York",
   "location": {
-    "name": "San Francisco, CA"
+      "name": "New York, United States"
   },
-  "primary_contact_user_id": null,
-  "external_id": null
+  "primary_contact_user_id": 485538,
+  "parent_id": 50849,
+  "child_ids": [
+      50891,
+      50852
+  ],
+  "external_id": "12345"
 }
 ```
 
@@ -223,35 +211,35 @@ curl 'https://harvest.greenhouse.io/v1/offices/{id}'
 
 ```json
 {
-  "id": 175,
-  "name": "San Francisco",
-  "children": [
-    {
-      "id": 190,
-      "name": "West",
-      "children": [],
-      "location": {
-        "name": "San Francisco, CA"
-      },
-      "primary_contact_user_id": null,
-      "external_id": null
-    },
-    {
-      "id": 195,
-      "name": "East",
-      "children": [],
-      "location": {
-        "name": "San Francisco, CA"
-      },
-      "primary_contact_user_id": null,
-      "external_id": null
-    }
-  ],
+  "id": 47012,
+  "name": "New York",
   "location": {
-    "name": "San Francisco, CA"
+      "name": "New York, United States"
   },
-  "primary_contact_user_id": null,
-  "external_id": null
+  "primary_contact_user_id": 485538,
+  "external_id": "12345",
+  "children": [
+      {
+          "id": 50891,
+          "name": "Utica",
+          "location": {
+              "name": "Utica, New York, United States"
+          },
+          "primary_contact_user_id": 336474,
+          "external_id": "45647",
+          "children": []
+      },
+      {
+          "id": 50852,
+          "name": "New York City",
+          "location": {
+              "name": "New York, New York, United States"
+          },
+          "primary_contact_user_id": 676259,
+          "external_id": "67890",
+          "children": []
+      }
+  ]
 }
 ```
 
@@ -280,6 +268,7 @@ id | The ID of the office to retrieve
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/offices/{id}'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -289,7 +278,24 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/offices/{id}'
 ```
 {
    "name": "Research and Development",
-   "location": "New York, NY"
+   "location": "New York, NY",
+   "external_id": "1234567890"
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 50891,
+  "name": "Utica",
+  "location": {
+      "name": "Utica, New York, United States"
+  },
+  "primary_contact_user_id": 336474,
+  "parent_id": 47012,
+  "child_ids": [],
+  "external_id": "45647"
 }
 ```
 
@@ -320,18 +326,19 @@ external_id* | No | string | The office’s external ID. If included, this must 
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/offices
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command takes a JSON request, structured like this:
 
-```
+```json
 {
-  "name": "A New Office",
-  "parent_id": 12345,
-  "primary_contact_user_id": 234,
-  "location": "New York, NY"
+  "name": "Brooklyn",
+  "parent_id": 47012,
+  "primary_contact_user_id": 336474,
+  "location": "Brooklyn, NY"
 }
 ```
 
@@ -339,13 +346,13 @@ curl -X POST 'https://harvest.greenhouse.io/v1/offices
 
 ```json
 {
-  "id": 3,
-  "name": "A New Office",
+  "id": 58028,
+  "name": "Brooklyn",
   "location": {
-    "name": "New York, NY"
+      "name": "Brooklyn, NY"
   },
-  "primary_contact_user_id": 234,
-  "parent_id": 12345,
+  "primary_contact_user_id": 336474,
+  "parent_id": 47012,
   "child_ids": [],
   "external_id": null
 }
