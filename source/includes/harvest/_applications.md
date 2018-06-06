@@ -903,8 +903,8 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
-start_date | No* | string | The start_date of the employee. This is only required if start_dates are required and there is not an outstanding offer on the user that already contains a start date. Must be in the format YYYY-MM-DD |
-opening_id | No | integer | An opening ID to fill with this hire. This is the unique Greenhouse id of the opening (id in the openings endpoint) and not the human readable opening id text. If no opening is provided one will be selected. |
+start_date | No* | string | The start_date of the employee. This is only required if start_dates are required and there is not an outstanding offer on the user that already contains a start date. Must be in the format YYYY-MM-DD
+opening_id | No | integer | An opening ID to fill with this hire. This is the unique Greenhouse id of the opening (id in the openings endpoint) and not the human readable opening id text. If no opening is provided one will be selected.
 close_reason_id | No | integer | The close reason to assign to the opening that will be closed with this hire.
 
 <br>
