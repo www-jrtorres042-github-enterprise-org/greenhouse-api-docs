@@ -210,7 +210,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> The above returns a JSON response, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```json
 [
@@ -421,7 +421,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> The above returns a JSON response, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```json
 {
@@ -653,7 +653,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
 }
 ```
 
-> The above returns a JSON response, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```json
 {
@@ -878,7 +878,7 @@ max_value | number_range, currency_range | This contains the maximum value that 
 unit | currency, currency_range | This contains the currency unit for a currency custom field. It is only required when updating a currency custom field.  This should accept any 3-character currency code from the ISO-4217 standard.
 delete_value  | n/a | When this element is included with a value of "true" (note, string true, not boolean true) the custom field value will be removed from Greenhouse.  Note that updating a custom field value to nil or a blank string will not work, as validations require these to be non-blank values.
 
-> The above returns a JSON response, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```json
 {
@@ -1055,24 +1055,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs'
 }
 ```
 
-### HTTP Request
-
-`POST https://harvest.greenhouse.io/v1/jobs`
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | -----------
-template_job_id | Yes | Number | This is the job we will use to generate the new job. The new job will receive most of the settings of the template job. The On-Behalf-Of user must have access to this job.
-number_of_openings | Yes | Number | The number of openings that will be created for this job.
-job_post_name | No | String | This will be the name on the new job post. If this is not included, the job post names in the base job will be copied.
-job_name | No | String | This is the internal name of the new job.  If this is not included, the name of the new job will be "Copy Of (the template job's name)"
-department_id | No | Number | The department of the new job. This should be a department id from the Departments endpoint. If this element is omitted, the new job will receive the department of the template job. If this element is included but blank, it will create the job with no departments. If the organization requires jobs to have a department, this case will return a 422 response.
-office_ids | No | Array[Numbers] | The offices of the new job. These should be office ids from the Offices endpoint. If this element is omitted, the new job will receive the offices of the template job.  If this element is included but blank, it will create the job with no offices. If the organization requires jobs to have an office, this case will return a 422 response.
-requisition_id | No | String | A requisition id for this job.
-opening_ids | No | Array[Strings] | An array of opening ids for the new job. If this is included, the number of opening ids in this array must match the number_of_openings element.
-
-> The above returns a JSON response, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```json
 {
@@ -1232,6 +1215,24 @@ opening_ids | No | Array[Strings] | An array of opening ids for the new job. If 
 }
 ```
 
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/jobs`
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+template_job_id | Yes | Number | This is the job we will use to generate the new job. The new job will receive most of the settings of the template job. The On-Behalf-Of user must have access to this job.
+number_of_openings | Yes | Number | The number of openings that will be created for this job.
+job_post_name | No | String | This will be the name on the new job post. If this is not included, the job post names in the base job will be copied.
+job_name | No | String | This is the internal name of the new job.  If this is not included, the name of the new job will be "Copy Of (the template job's name)"
+department_id | No | Number | The department of the new job. This should be a department id from the Departments endpoint. If this element is omitted, the new job will receive the department of the template job. If this element is included but blank, it will create the job with no departments. If the organization requires jobs to have a department, this case will return a 422 response.
+office_ids | No | Array[Numbers] | The offices of the new job. These should be office ids from the Offices endpoint. If this element is omitted, the new job will receive the offices of the template job.  If this element is included but blank, it will create the job with no offices. If the organization requires jobs to have an office, this case will return a 422 response.
+requisition_id | No | String | A requisition id for this job.
+opening_ids | No | Array[Strings] | An array of opening ids for the new job. If this is included, the number of opening ids in this array must match the number_of_openings element.
+
+
 ## PUT: Replace Hiring Team
 
 ```shell
@@ -1291,7 +1292,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{id}'
   ]
 }
 ```
-> The above returns a JSON response, structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```json
 {
