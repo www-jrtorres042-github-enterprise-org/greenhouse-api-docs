@@ -89,6 +89,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
   }
 }
 ```
+
 ### Noteworthy attributes
 
 | Attribute | Description |
