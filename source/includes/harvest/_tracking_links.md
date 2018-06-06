@@ -6,14 +6,14 @@ Tracking Links are URLs which allow users to track the source and/or referrer of
 
 ```json
 {
-  "id": 162,
+  "id": 6004841,
   "token": "tnch4u",
   "created_at": "2012-10-07T15:06:35.975Z",
   "updated_at": "2016-09-27T17:52:56.533Z",
   "related_post_id": 1,
   "related_post_type": "SocialMediaPost",
-  "job_id": 271,
-  "job_post_id": 1275,
+  "job_id": 12314,
+  "job_post_id": 124263,
   "job_board": {
     "id": 8578,
     "company_name": "Business Corp",
@@ -25,6 +25,8 @@ Tracking Links are URLs which allow users to track the source and/or referrer of
   },
   "credited_to": {
     "id": 1,
+    "first_name": "Some",
+    "last_name": "Employee",
     "name": "Some Employee",
     "employee_id": "ABC12345"
   }
@@ -63,14 +65,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/tracking_links/{token}'
 
 ```json
 {
-  "id": 162,
+  "id": 6004841,
   "token": "tnch4u",
   "created_at": "2012-10-07T15:06:35.975Z",
   "updated_at": "2016-09-27T17:52:56.533Z",
   "related_post_id": 1,
   "related_post_type": "SocialMediaPost",
-  "job_id": 271,
-  "job_post_id": 1275,
+  "job_id": 12314,
+  "job_post_id": 124263,
   "job_board": {
     "id": 8578,
     "company_name": "Business Corp",
@@ -82,6 +84,8 @@ curl -X GET 'https://harvest.greenhouse.io/v1/tracking_links/{token}'
   },
   "credited_to": {
     "id": 1,
+    "first_name": "Some",
+    "last_name": "Employee",
     "name": "Some Employee",
     "employee_id": "ABC12345"
   }
