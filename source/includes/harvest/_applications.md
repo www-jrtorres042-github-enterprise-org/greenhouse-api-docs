@@ -6,87 +6,88 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 
 ```json
 {
-  "id": 985314,
-  "candidate_id": 978031,
-  "prospect": false,
-  "applied_at": "2016-03-26T20:11:39.000Z",
-  "rejected_at": "2016-08-17T21:08:29.686Z",
-  "last_activity_at": "2016-08-27T16:13:15.000Z",
-  "location": { 
-    "address": "New York, New York, USA" 
-  },
-  "source": {
-    "id": 1871,
-    "public_name": "Happy Hour"
-  },
-  "credited_to": {
-    "id": 4080,
-    "first_name": "Kate",
-    "last_name": "Austen",
-    "name": "Kate Austen",
-    "employee_id": "12345"
-  },
-  "rejection_reason": {
-    "id": 8,
-    "name": "Lacking skill(s)/qualification(s)",
-    "type": {
-      "id": 1,
-      "name": "We rejected them"
-    }
-  },
-"rejection_details": {
-  "custom_fields": {
-      "custom_rejection_question_field": "Not a good fit"
-  },
-  "keyed_custom_fields": {
-      "custom_rejection_question_field": {
-          "name": "Was this candidate a good fit?",
-          "type": "short_text",
-          "value": "This candidate wasn't a good fit."
-      }
-  },
-  "jobs": [
-    {
-      "id": 123,
-      "name": "Accounting Manager"
-    }
-  ],
-  "status": "rejected",
-  "current_stage": {
-    "id": 62828,
-    "name": "Recruiter Phone Screen"
-  },
-  "answers": [
-    {
-      "question": "Why do you want to work for us?",
-      "answer": "I heard you're awesome!"
+    "id": 985314,
+    "candidate_id": 978031,
+    "prospect": false,
+    "applied_at": "2016-03-26T20:11:39.000Z",
+    "rejected_at": "2016-08-17T21:08:29.686Z",
+    "last_activity_at": "2016-08-27T16:13:15.000Z",
+    "location": { 
+        "address": "New York, New York, USA" 
     },
-    {
-      "question": "How did you hear about this job?",
-      "answer": "From a former colleague."
-    }
-  ],
-  "prospect_detail": {
-      "prospect_pool": null,
-      "prospect_stage": null,
-      "prospect_owner": null
-  },
-  "custom_fields": {
-    "bio": "This is a bio",
-    "birthday": "1992-01-27"
-  },
-  "keyed_custom_fields": {
-    "date_of_birth": {
-      "name": "Birthday",
-      "type": "date",
-      "value": "1992-01-27"
+    "source": {
+        "id": 1871,
+        "public_name": "Happy Hour"
     },
-    "bio": {
-      "name": "Bio",
-      "type": "long_text",
-      "value": "This is a bio"
+    "credited_to": {
+        "id": 4080,
+        "first_name": "Kate",
+        "last_name": "Austen",
+        "name": "Kate Austen",
+        "employee_id": "12345"
+    },
+    "rejection_reason": {
+        "id": 8,
+        "name": "Lacking skill(s)/qualification(s)",
+        "type": {
+            "id": 1,
+            "name": "We rejected them"
+        }
+    },
+    "rejection_details": {
+        "custom_fields": {
+            "custom_rejection_question_field": "Not a good fit"
+        },
+        "keyed_custom_fields": {
+            "custom_rejection_question_field": {
+                "name": "Was this candidate a good fit?",
+                "type": "short_text",
+                "value": "Not a good fit."
+            }
+        }
+    },
+    "jobs": [
+        {
+            "id": 123,
+            "name": "Accounting Manager"
+        }
+    ],
+    "status": "rejected",
+    "current_stage": {
+        "id": 62828,
+        "name": "Recruiter Phone Screen"
+    },
+    "answers": [
+        {
+            "question": "Why do you want to work for us?",
+            "answer": "I heard you're awesome!"
+        },
+        {
+            "question": "How did you hear about this job?",
+            "answer": "From a former colleague."
+        }
+    ],
+    "prospect_detail": {
+        "prospect_pool": null,
+        "prospect_stage": null,
+        "prospect_owner": null
+    },
+    "custom_fields": {
+        "bio": "This is a bio",
+        "birthday": "1992-01-27"
+    },
+    "keyed_custom_fields": {
+        "date_of_birth": {
+            "name": "Birthday",
+            "type": "date",
+            "value": "1992-01-27"
+        },
+        "bio": {
+            "name": "Bio",
+            "type": "long_text",
+            "value": "This is a bio"
+        }
     }
-  }
 }
 ```
 
