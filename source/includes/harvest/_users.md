@@ -9,6 +9,8 @@ An organization's Greenhouse users.
 {
   "id": 112,
   "name": "Juliet Burke",
+  "first_name": "Juliet",
+  "last_name": "Burke",
   "updated_at": "2016-11-17T16:13:48.888Z",
   "created_at": "2015-11-18T22:26:32.243Z",  
   "disabled": false,
@@ -40,6 +42,8 @@ curl 'https://harvest.greenhouse.io/v1/users'
   {
     "id": 112,
     "name": "Juliet Burke",
+    "first_name": "Juliet",
+    "last_name": "Burke",
     "updated_at": "2016-11-17T16:13:48.888Z",
     "created_at": "2015-11-18T22:26:32.243Z",  
     "disabled": false,
@@ -52,13 +56,15 @@ curl 'https://harvest.greenhouse.io/v1/users'
   },
   {
     "id": 712,
-    "name": "Mr. Eko",
+    "name": "John Doe",
+    "first_name": "John",
+    "last_name": "Doe",
     "updated_at": "2016-11-03T18:05:47.361Z",
     "created_at": "2015-11-18T22:27:11.111Z",
     "disabled": false,
     "site_admin": true,
     "emails": [
-      "mr.eko@example.com"
+      "john.doe@example.com"
     ],
     "employee_id": "700"
   }
@@ -98,6 +104,8 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}'
 {
   "id": 112,
   "name": "Juliet Burke",
+  "first_name": "Juliet",
+  "last_name": "Burke",
   "updated_at": "2016-11-17T16:13:48.888Z",
   "created_at": "2015-11-18T22:26:32.243Z",  
   "disabled": false,
@@ -141,6 +149,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/disable'
 {
   "id": 253528,
   "name": "Bob Smith",
+  "first_name": "Bob",
+  "last_name": "Smith",
   "updated_at": "2017-03-23T18:58:27.796Z",
   "created_at": "2016-04-28T15:28:16.440Z",
   "disabled": true,
@@ -162,17 +172,26 @@ Disable a user. It is safe to call this method on a user that is currently disab
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}'
+-H "Content-Type: "application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command takes a JSON request, structured like this:
 
-```
+```json
 {
   "first_name": "Bob",
   "last_name": "Smith",
   "employee_id": "ABC12345"
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "success": "true"
 }
 ```
 
@@ -205,7 +224,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
-> The above command returns JSON structured like this:
+> The above command returns a JSON response, structured like this:
 
 ```json
 {
@@ -238,7 +257,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users'
 
 > The above command takes a JSON request, structured like this:
 
-```
+```json
 {
   "first_name": "Bob",
   "last_name": "Smith",
@@ -247,6 +266,25 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users'
   "employee_id": "ABC12345"
 }
 ```
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "id": 253818,
+    "name": "Bob Smith",
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "updated_at": "2018-06-07T22:12:31.303Z",
+    "created_at": "2016-04-28T19:10:46.688Z",
+    "disabled": false,
+    "site_admin": false,
+    "emails": [
+        "bob@email.org"
+    ],
+    "employee_id": "ABC12345"
+}
+```
+
 
 Create a new user with Basic permissions.
 
@@ -282,10 +320,20 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/email_addresses'
 
 > The above command takes a JSON request, structured like this:
 
-```
+```json
 {
   "email": "bob@email.org",
   "send_verification": true
+}
+```
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "id": 898318,
+    "user_id": 253818,
+    "email": "bob@email.org",
+    "verified": "false"
 }
 ```
 
