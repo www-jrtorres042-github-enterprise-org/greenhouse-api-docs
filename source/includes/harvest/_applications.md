@@ -110,7 +110,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 
 ```shell
 curl -X GET 'https://harvest.greenhouse.io/v1/applications'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 ```json
@@ -269,7 +269,7 @@ List all of an organization's applications.
 
 ```shell
 curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 ```json
@@ -386,7 +386,8 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 ## PATCH: Update Application
 
 ```shell
-curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}"
+curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -496,6 +497,7 @@ custom_fields[] | No |  custom_field | Array of hashes containing new custom fie
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -597,6 +599,7 @@ from_stage_id | Yes | integer | The ID of the job stage this application is curr
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -703,6 +706,7 @@ new_stage_id | No | integer | The stage on the destination job this application 
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -809,6 +813,7 @@ to_stage_id | Yes | integer | The ID of the job stage this application should be
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -940,9 +945,10 @@ rejection_email.email_template_id | Yes, if sending rejection_email | string | T
 ## POST: Unreject Application
 
 ```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'\
-  -H "On-Behalf-Of: {greenhouse user ID}"\
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > A successful response:

@@ -172,7 +172,7 @@ Disable a user. It is safe to call this method on a user that is currently disab
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}'
--H "Content-Type: "application/json"
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -251,6 +251,7 @@ Enable a user. It is safe to call this method on a user that is currently enable
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/users'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -314,6 +315,7 @@ employee_id | No | string | The user's external employee id.
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/users/{id}/email_addresses'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```

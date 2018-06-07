@@ -325,7 +325,7 @@ external_id* | No | string | The office’s external ID. If included, this must 
 ## POST: Add Office
 
 ```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/offices
+curl -X POST 'https://harvest.greenhouse.io/v1/offices'
 -H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
