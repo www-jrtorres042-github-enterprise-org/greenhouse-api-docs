@@ -83,14 +83,22 @@ This endpoint supports pagination. See the [Pagination](#pagination) section for
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
--d '{ "job_permission_id": {job_permission_id}'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
+> The above command takes a JSON request, structured like this:
+
+```json
+{ 
+  "job_permission_id": 27207466
+}
+```
+
 > The above command returns a JSON response, structured like this:
 
-```
+```json
 {
   "message": "Job Permission 321231 has been deleted."
 }
@@ -118,18 +126,26 @@ job\_permission\_id | Yes | integer | The ID of the job permission
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/jobs'
--d '{ "job_id": {job_id}, "user_role_id": {user_role_id} }'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command takes a JSON request, structured like this:
+
+```json
+{ 
+  "job_id": "150056", 
+  "user_role_id": "16229" 
+}
 ```
 
 > The above command returns a JSON response, structured like this:
 
-```
+```json
 {
-  "id": 271232,
-  "job_id": 12891,
-  "user_role_id": 1172
+  "id": 42906871,
+  "job_id": 150056,
+  "user_role_id": 16229
 }
 ```
 
@@ -163,7 +179,7 @@ The user role a user will get when a job with the specified criteria is created.
 {
   "id": 87819,
   "office_id": 29192,
-  "department_id": null,
+  "department_id": 23425,
   "user_role_id": 4730
 }
 ```
@@ -189,14 +205,14 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
 [
   {
     "id": 87819,
-    "office_id": null,
-    "department_id": null,
+    "office_id": 24141,
+    "department_id": 12315,
     "user_role_id": 4730
   },
   {
     "id": 92834,
     "office_id": 8232,
-    "department_id": null,
+    "department_id": 12315,
     "user_role_id": 4730
   },
   {
@@ -226,9 +242,17 @@ This endpoint supports pagination. See the [Pagination](#pagination) section for
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
--d '{ "future_job_permission_id": {future_job_permission_id}'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{ 
+  "future_job_permission_id": 427600 
+}
 ```
 
 > The above command returns a JSON response, structured like this:
@@ -261,9 +285,18 @@ future\_job\_permission\_id | Yes | integer | The ID of the future job permissio
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
--d '{ "office_id": {office_id}, "department_id": {department_id}, "user_role_id": {user_role_id} }'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command takes a JSON request, structured like this:
+
+```json
+{ 
+  "office_id": 58028, 
+  "department_id": 45644, 
+  "user_role_id": 7607 
+}
 ```
 
 > The above command returns a JSON response, structured like this:
