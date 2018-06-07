@@ -53,7 +53,7 @@ An organization's custom_fields.
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:
@@ -113,7 +113,7 @@ This endpoint supports pagination. See the [Pagination](#pagination) section for
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/custom_field/{id}'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:
@@ -182,7 +182,7 @@ Refers to the options available for single-select and multi-select custom fields
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:
@@ -227,8 +227,9 @@ This endpoint supports pagination. See the [Pagination](#pagination) section for
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
-  -H "On-Behalf-Of: {greenhouse user ID}"
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command takes a JSON request, structured like this:
@@ -280,8 +281,9 @@ Parameter | Required | Type | Description
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
-  -H "On-Behalf-Of: {greenhouse user ID}"
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command takes a JSON request, structured like this:
@@ -289,9 +291,21 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_o
 ```json
 {
   "options": [
-    {"id": 123, "name": "Option A", "priority": 5},
-    {"id": 234, "name": "Option B", "priority": 6},
-    {"id": 345, "name": "Option C", "priority": 7}
+    {
+      "id": 123, 
+      "name": "Option A", 
+      "priority": 5
+    },
+    {
+      "id": 234, 
+      "name": "Option B", 
+      "priority": 6
+    },
+    {
+      "id": 345, 
+      "name": "Option C", 
+      "priority": 7
+    }
   ]
 }
 ```
@@ -339,7 +353,9 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_
 
 ```json
 {
-  "option_ids": [1, 2, 3, 4]
+  "option_ids": [
+    85709, 85710
+  ]
 }
 ```
 

@@ -241,6 +241,7 @@ id | The ID of the department to retrieve
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/departments/{id}'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -295,6 +296,7 @@ external_id* | No | string | The department's external ID. If included, this mus
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/departments
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```

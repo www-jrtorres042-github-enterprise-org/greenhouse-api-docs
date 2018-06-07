@@ -261,7 +261,7 @@ An organization's candidates.
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/candidates'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:
@@ -488,7 +488,7 @@ List all of an organization's candidates.
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:

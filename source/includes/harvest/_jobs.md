@@ -16,19 +16,31 @@ An organization's jobs.
   "opened_at": "2013-12-11T14:42:58Z",
   "closed_at": "2013-12-12T14:42:58Z",
   "departments": [
-    {
-      "id": 562,
-      "name": "Exploration"
-    }
+      {
+          "id": 25907,
+          "name": "Second-Level department",
+          "parent_id": 25908,
+          "child_ids": [
+              14510
+          ],
+          "external_id": "12345"
+      }
   ],
   "offices": [
-    {
-      "id": 175,
-      "name": "San Francisco",
-      "location": {
-        "name": "San Francisco, CA"
+      {
+          "id": 47012,
+          "name": "New York",
+          "location": {
+              "name": "New York, United States"
+          },
+          "primary_contact_user_id": 150893,
+          "parent_id": 50849,
+          "child_ids": [
+              50852,
+              50891
+          ],
+          "external_id": "15679"
       }
-    }
   ],
   "custom_fields": {
     "employment_type": "Full-Time",
@@ -64,41 +76,62 @@ An organization's jobs.
     "hiring_managers": [
       {
         "id": 84275,
-        "name": "Kaylee Prime"
+        "first_name": "Kaylee",
+        "last_name": "Prime",
+        "name": "Kaylee Prime",
+        "employee_id": "13636"
       },
       {
         "id": 169779,
-        "name": "Hank Hollandaise"
+        "first_name": "Hank",
+        "last_name": "Hollandaise",
+        "name": "Hank Hollandaise",
+        "employee_id": "34537"
       }
     ],
     "recruiters": [
       {
         "id": 81111,
+        "first_name": "Samuel",
+        "last_name": "Skateboard",
         "name": "Samuel Skateboard",
+        "employee_id": "34531",
         "responsible": false
       },
       {
         "id": 153448,
+        "first_name": "Stegosaurus",
+        "last_name": "Heels",
         "name": "Stegosaurus Heels",
+        "employee_id": "45748",
         "responsible": true
       }
     ],
     "coordinators": [
       {
         "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
         "name": "Teddy Pizzazz",
+        "employee_id": "47327",
         "responsible": true
       },
       {
         "id": 177046,
+        "first_name": "Mirandella",
+        "last_name": "Lager",
         "name": "Mirandella Lager",
+        "employee_id": "43626",
         "responsible": false
       }
     ],
     "sourcers": [
       {
         "id": 122635,
-        "name": "Teddy Pizzazz"
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327"
       }
     ]
   },
@@ -138,7 +171,11 @@ An organization's jobs.
       "status": "closed",
       "opened_at": "2016-02-03T16:38:46.985Z",
       "closed_at": "2016-02-03T16:39:09.811Z",
-      "application_id": 1232
+      "application_id": 1232,
+      "close_reason": {
+        "id": 689,
+        "name": "Hired"
+      }
     }
   ]
 }
@@ -173,113 +210,184 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
+> The above command returns a JSON response, structured like this:
+
 ```json
 [
   {
-    "id": 144371,
-    "name": "Good Cop",
-    "requisition_id": "1",
-    "notes": null,
-    "confidential": true,
-    "status": "open",
-    "created_at": "2015-11-19T19:53:32.662Z",
-    "opened_at": "2015-11-19T19:53:32.662Z",
-    "closed_at": null,
-    "departments": [
+  "id": 6404,
+  "name": "Archaeologist",
+  "requisition_id": "abc123",
+  "notes": "<p>Resistance to electro-magnetic radiation a plus!</p>",
+  "confidential": false,
+  "status": "closed",
+  "created_at": "2013-12-10T14:42:58Z",
+  "opened_at": "2013-12-11T14:42:58Z",
+  "closed_at": "2013-12-12T14:42:58Z",
+  "departments": [
       {
-        "id": 13585,
-        "name": "Rule Enforcement"
+          "id": 25907,
+          "name": "Second-Level department",
+          "parent_id": 25908,
+          "child_ids": [
+              14510
+          ],
+          "external_id": "12345"
+      }
+  ],
+  "offices": [
+      {
+          "id": 47012,
+          "name": "New York",
+          "location": {
+              "name": "New York, United States"
+          },
+          "primary_contact_user_id": 150893,
+          "parent_id": 50849,
+          "child_ids": [
+              50852,
+              50891
+          ],
+          "external_id": "15679"
+      }
+  ],
+  "custom_fields": {
+    "employment_type": "Full-Time",
+    "maximum_budget": "$81.5k",
+    "salary_range": {
+      "min_value": 70000,
+      "max_value": 90000,
+      "unit": "USD"
+    }
+  },
+  "keyed_custom_fields": {
+    "employment_type": {
+      "name": "Time type",
+      "type": "single_select",
+      "value": "Full-Time"
+    },
+    "budget": {
+      "name": "Maximum Budget",
+      "type": "short_text",
+      "value": "Full-Time"
+    },
+    "salary_range": {
+      "name": "Salary Range",
+      "type": "currency_range",
+      "value": {
+        "min_value": 70000,
+        "max_value": 90000,
+        "unit": "USD"
+      }
+    }
+  },
+  "hiring_team": {
+    "hiring_managers": [
+      {
+        "id": 84275,
+        "first_name": "Kaylee",
+        "last_name": "Prime",
+        "name": "Kaylee Prime",
+        "employee_id": "13636"
+      },
+      {
+        "id": 169779,
+        "first_name": "Hank",
+        "last_name": "Hollandaise",
+        "name": "Hank Hollandaise",
+        "employee_id": "34537"
       }
     ],
-    "offices": [
+    "recruiters": [
       {
-        "id": 8787,
-        "name": "New York City",
-        "location": {
-          "name": "New York, NY, United States"
-        }
+        "id": 81111,
+        "first_name": "Samuel",
+        "last_name": "Skateboard",
+        "name": "Samuel Skateboard",
+        "employee_id": "34531",
+        "responsible": false
+      },
+      {
+        "id": 153448,
+        "first_name": "Stegosaurus",
+        "last_name": "Heels",
+        "name": "Stegosaurus Heels",
+        "employee_id": "45748",
+        "responsible": true
       }
     ],
-    "hiring_team": {
-      "hiring_managers": [
-        {
-          "id": 158108,
-          "name": "Sam McsSamson"
-        }
-      ],
-      "recruiters": [
-        {
-          "id": 158101,
-          "name": "Major Tom",
-          "responsible": true
-        }
-      ],
-      "coordinators": [
-        {
-          "id": 158109,
-          "name": "Roger Cord",
-          "responsible": true
-        }
-      ],
-      "sourcers": [
-        {
-          "id": 158102,
-          "name": "Lara Sourcerer"
-        }
-      ]
-    },
-    "custom_fields": {
-      "bonus": 1000,
-      "employment_type": "Full-time",
-      "options": "2000",
-      "salary": "54111"
-    },
-    "keyed_custom_fields": {
-      "bonus": {
-        "name": "Bonus",
-        "type": "number",
-        "value": 1000
+    "coordinators": [
+      {
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327",
+        "responsible": true
       },
-      "time_type": {
-        "name": "Employment Type",
-        "type": "single_select",
-        "value": "Full-time"
-      },
-      "stock_options": {
-        "name": "Options",
-        "type": "short_text",
-        "value": "2000"
-      },
-      "salary": {
-        "name": "Salary",
-        "type": "short_text",
-        "value": "54111"
+      {
+        "id": 177046,
+        "first_name": "Mirandella",
+        "last_name": "Lager",
+        "name": "Mirandella Lager",
+        "employee_id": "43626",
+        "responsible": false
       }
-    },
-    "openings": [
+    ],
+    "sourcers": [
       {
-        "id": 123,
-        "opening_id": "1-1",
-        "status": "closed",
-        "opened_at": "2015-11-19T19:53:32.564Z",
-        "closed_at": "2016-01-26T23:59:07.592Z",
-        "application_id": 24709881,
-        "close_reason": {
-          "id": 678,
-          "name": "Hire - Backfill"
-        }
-      },
-      {
-        "id": 124,
-        "opening_id": "1-2",
-        "status": "open",
-        "opened_at": "2015-11-19T19:53:32.565Z",
-        "closed_at": null,
-        "application_id": null,
-        "close_reason": null
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327"
       }
     ]
-  }
+  },
+  "openings": [
+    {
+      "id": 123,
+      "opening_id": "3-1",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.736Z",
+      "closed_at": "2017-11-20T23:14:14.736Z",
+      "application_id": 45678,
+      "close_reason": {
+        "id": 678,
+        "name": "Hired - Backfill"
+      }
+    },
+    {
+      "id": 124,
+      "opening_id": "3-2",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.739Z",
+      "closed_at": null,
+      "application_id": null,
+      "close_reason": null
+    },
+    {
+      "id": 125,
+      "opening_id": null,
+      "status": "open",
+      "opened_at": "2016-02-03T20:00:00.000Z",
+      "closed_at": null,
+      "application_id": null
+    },
+    {
+      "id": 126,
+      "opening_id": "2-4",
+      "status": "closed",
+      "opened_at": "2016-02-03T16:38:46.985Z",
+      "closed_at": "2016-02-03T16:39:09.811Z",
+      "application_id": 1232,
+      "close_reason": {
+        "id": 689,
+        "name": "Hired"
+      }
+    }
+  ]
+}
 ]
 ```
 
@@ -313,109 +421,180 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
+> The above command returns a JSON response, structured like this:
+
 ```json
 {
-  "id": 144371,
-  "name": "Good Cop",
-  "requisition_id": "1",
-  "notes": null,
+  "id": 6404,
+  "name": "Archaeologist",
+  "requisition_id": "abc123",
+  "notes": "<p>Resistance to electro-magnetic radiation a plus!</p>",
   "confidential": false,
-  "status": "open",
-  "created_at": "2015-11-19T19:53:32.662Z",
-  "opened_at": "2015-11-19T19:53:32.662Z",
-  "closed_at": null,
+  "status": "closed",
+  "created_at": "2013-12-10T14:42:58Z",
+  "opened_at": "2013-12-11T14:42:58Z",
+  "closed_at": "2013-12-12T14:42:58Z",
   "departments": [
-    {
-      "id": 13585,
-      "name": "Rule Enforcement"
-    }
+      {
+          "id": 25907,
+          "name": "Second-Level department",
+          "parent_id": 25908,
+          "child_ids": [
+              14510
+          ],
+          "external_id": "12345"
+      }
   ],
   "offices": [
-    {
-      "id": 8787,
-      "name": "New York City",
-      "location": {
-        "name": "New York, NY, United States"
+      {
+          "id": 47012,
+          "name": "New York",
+          "location": {
+              "name": "New York, United States"
+          },
+          "primary_contact_user_id": 150893,
+          "parent_id": 50849,
+          "child_ids": [
+              50852,
+              50891
+          ],
+          "external_id": "15679"
+      }
+  ],
+  "custom_fields": {
+    "employment_type": "Full-Time",
+    "maximum_budget": "$81.5k",
+    "salary_range": {
+      "min_value": 70000,
+      "max_value": 90000,
+      "unit": "USD"
+    }
+  },
+  "keyed_custom_fields": {
+    "employment_type": {
+      "name": "Time type",
+      "type": "single_select",
+      "value": "Full-Time"
+    },
+    "budget": {
+      "name": "Maximum Budget",
+      "type": "short_text",
+      "value": "Full-Time"
+    },
+    "salary_range": {
+      "name": "Salary Range",
+      "type": "currency_range",
+      "value": {
+        "min_value": 70000,
+        "max_value": 90000,
+        "unit": "USD"
       }
     }
-  ],
+  },
   "hiring_team": {
     "hiring_managers": [
       {
-        "id": 158108,
-        "name": "Sam McsSamson"
+        "id": 84275,
+        "first_name": "Kaylee",
+        "last_name": "Prime",
+        "name": "Kaylee Prime",
+        "employee_id": "13636"
+      },
+      {
+        "id": 169779,
+        "first_name": "Hank",
+        "last_name": "Hollandaise",
+        "name": "Hank Hollandaise",
+        "employee_id": "34537"
       }
     ],
     "recruiters": [
       {
-        "id": 158101,
-        "name": "Major Tom",
+        "id": 81111,
+        "first_name": "Samuel",
+        "last_name": "Skateboard",
+        "name": "Samuel Skateboard",
+        "employee_id": "34531",
+        "responsible": false
+      },
+      {
+        "id": 153448,
+        "first_name": "Stegosaurus",
+        "last_name": "Heels",
+        "name": "Stegosaurus Heels",
+        "employee_id": "45748",
         "responsible": true
       }
     ],
     "coordinators": [
       {
-        "id": 158109,
-        "name": "Roger Cord",
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327",
         "responsible": true
+      },
+      {
+        "id": 177046,
+        "first_name": "Mirandella",
+        "last_name": "Lager",
+        "name": "Mirandella Lager",
+        "employee_id": "43626",
+        "responsible": false
       }
     ],
     "sourcers": [
       {
-        "id": 158102,
-        "name": "Lara Sourcerer"
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327"
       }
     ]
-  },
-  "custom_fields": {
-    "bonus": "1000",
-    "employment_type": "Full-time",
-    "options": "2000",
-    "salary": "54111"
-  },
-  "keyed_custom_fields": {
-    "bonus": {
-      "name": "Bonus",
-      "type": "number",
-      "value": 1000
-    },
-    "time_type": {
-      "name": "Employment Type",
-      "type": "single_select",
-      "value": "Full-time"
-    },
-    "stock_options": {
-      "name": "Options",
-      "type": "short_text",
-      "value": "2000"
-    },
-    "salary": {
-      "name": "Salary",
-      "type": "short_text",
-      "value": "54111"
-    }
   },
   "openings": [
     {
       "id": 123,
-      "opening_id": "1-1",
-      "status": "closed",
-      "opened_at": "2015-11-19T19:53:32.564Z",
-      "closed_at": "2016-01-26T23:59:07.592Z",
-      "application_id": 24709881,
+      "opening_id": "3-1",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.736Z",
+      "closed_at": "2017-11-20T23:14:14.736Z",
+      "application_id": 45678,
       "close_reason": {
         "id": 678,
-        "name": "Hire - Backfill"
-       }
+        "name": "Hired - Backfill"
+      }
     },
     {
       "id": 124,
-      "opening_id": "1-2",
+      "opening_id": "3-2",
       "status": "open",
-      "opened_at": "2015-11-19T19:53:32.565Z",
+      "opened_at": "2015-11-20T23:14:14.739Z",
       "closed_at": null,
       "application_id": null,
       "close_reason": null
+    },
+    {
+      "id": 125,
+      "opening_id": null,
+      "status": "open",
+      "opened_at": "2016-02-03T20:00:00.000Z",
+      "closed_at": null,
+      "application_id": null
+    },
+    {
+      "id": 126,
+      "opening_id": "2-4",
+      "status": "closed",
+      "opened_at": "2016-02-03T16:38:46.985Z",
+      "closed_at": "2016-02-03T16:39:09.811Z",
+      "application_id": 1232,
+      "close_reason": {
+        "id": 689,
+        "name": "Hired"
+      }
     }
   ]
 }
@@ -439,13 +618,15 @@ id | The ID of the job to retrieve
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
+> The above command takes a JSON request, structured like this:
+
 ```json
 {
-   "id": 144371,
    "name": "New job name",
    "requisition_id": "1",
    "notes": "Here are some notes",
@@ -472,6 +653,184 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
 }
 ```
 
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 6404,
+  "name": "New job name",
+  "requisition_id": "1",
+  "notes": "Here are some notes",
+  "confidential": false,
+  "status": "closed",
+  "created_at": "2013-12-10T14:42:58Z",
+  "opened_at": "2013-12-11T14:42:58Z",
+  "closed_at": "2013-12-12T14:42:58Z",
+  "departments": [
+      {
+          "id": 74,
+          "name": "Second-Level department",
+          "parent_id": 25908,
+          "child_ids": [
+              14510
+          ],
+          "external_id": "12345"
+      }
+  ],
+  "offices": [
+      {
+          "id": 1556,
+          "name": "San Francisco",
+          "location": {
+              "name": "San Francisco, United States"
+          },
+          "primary_contact_user_id": 150893,
+          "parent_id": 50849,
+          "child_ids": [
+              50852,
+              50891
+          ],
+          "external_id": "15679"
+      }
+  ],
+  "custom_fields": {
+    "employment_type": "Full-Time",
+    "maximum_budget": "$81.5k",
+    "salary_range": {
+      "min_value": 70000,
+      "max_value": 90000,
+      "unit": "USD"
+    }
+  },
+  "keyed_custom_fields": {
+    "employment_type": {
+      "name": "Time type",
+      "type": "single_select",
+      "value": "Full-Time"
+    },
+    "budget": {
+      "name": "Maximum Budget",
+      "type": "short_text",
+      "value": "Full-Time"
+    },
+    "salary_range": {
+      "name": "Salary Range",
+      "type": "currency_range",
+      "value": {
+        "min_value": 70000,
+        "max_value": 90000,
+        "unit": "USD"
+      }
+    }
+  },
+  "hiring_team": {
+    "hiring_managers": [
+      {
+        "id": 84275,
+        "first_name": "Kaylee",
+        "last_name": "Prime",
+        "name": "Kaylee Prime",
+        "employee_id": "13636"
+      },
+      {
+        "id": 169779,
+        "first_name": "Hank",
+        "last_name": "Hollandaise",
+        "name": "Hank Hollandaise",
+        "employee_id": "34537"
+      }
+    ],
+    "recruiters": [
+      {
+        "id": 81111,
+        "first_name": "Samuel",
+        "last_name": "Skateboard",
+        "name": "Samuel Skateboard",
+        "employee_id": "34531",
+        "responsible": false
+      },
+      {
+        "id": 153448,
+        "first_name": "Stegosaurus",
+        "last_name": "Heels",
+        "name": "Stegosaurus Heels",
+        "employee_id": "45748",
+        "responsible": true
+      }
+    ],
+    "coordinators": [
+      {
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327",
+        "responsible": true
+      },
+      {
+        "id": 177046,
+        "first_name": "Mirandella",
+        "last_name": "Lager",
+        "name": "Mirandella Lager",
+        "employee_id": "43626",
+        "responsible": false
+      }
+    ],
+    "sourcers": [
+      {
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327"
+      }
+    ]
+  },
+  "openings": [
+    {
+      "id": 123,
+      "opening_id": "3-1",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.736Z",
+      "closed_at": "2017-11-20T23:14:14.736Z",
+      "application_id": 45678,
+      "close_reason": {
+        "id": 678,
+        "name": "Hired - Backfill"
+      }
+    },
+    {
+      "id": 124,
+      "opening_id": "3-2",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.739Z",
+      "closed_at": null,
+      "application_id": null,
+      "close_reason": null
+    },
+    {
+      "id": 125,
+      "opening_id": null,
+      "status": "open",
+      "opened_at": "2016-02-03T20:00:00.000Z",
+      "closed_at": null,
+      "application_id": null
+    },
+    {
+      "id": 126,
+      "opening_id": "2-4",
+      "status": "closed",
+      "opened_at": "2016-02-03T16:38:46.985Z",
+      "closed_at": "2016-02-03T16:39:09.811Z",
+      "application_id": 1232,
+      "close_reason": {
+        "id": 689,
+        "name": "Hired"
+      }
+    }
+  ]
+}
+```
 
 ### HTTP Request
 
@@ -519,9 +878,9 @@ max_value | number_range, currency_range | This contains the maximum value that 
 unit | currency, currency_range | This contains the currency unit for a currency custom field. It is only required when updating a currency custom field.  This should accept any 3-character currency code from the ISO-4217 standard.
 delete_value  | n/a | When this element is included with a value of "true" (note, string true, not boolean true) the custom field value will be removed from Greenhouse.  Note that updating a custom field value to nil or a blank string will not work, as validations require these to be non-blank values.
 
-> The above returns a JSON response, structured like this:
+> The above command returns a JSON response, structured like this:
 
-```
+```json
 {
   "id": 112746,
   "name": "new name",
@@ -537,7 +896,8 @@ delete_value  | n/a | When this element is included with a value of "true" (note
       "id": 74,
       "name": "Guideshops",
       "parent_id": null,
-      "child_ids": []
+      "child_ids": [],
+      "external_id": "EXTERNAL_ID_1234"
     }
   ],
   "offices": [
@@ -547,77 +907,116 @@ delete_value  | n/a | When this element is included with a value of "true" (note
       "location": {
         "name": "San Diego, CA, United States"
       },
+      "primary_contact_user_id": 12345,
       "parent_id": null,
-      "child_ids": []
+      "child_ids": [],
+      "external_id": "ABC456"
     }
   ],
   "hiring_team": {
-    "hiring_managers": [],
-    "recruiters": [],
-    "coordinators": [],
-    "sourcers": []
-  },
-  "custom_fields": {
-    "employment_type": "Full-time",
-    "salary": "$123,000",
-    "bonus": 1000,
-    "options": "1500"
-  },
-  "keyed_custom_fields": {
-    "bonus": {
-      "name": "Bonus",
-      "type": "number",
-      "value": 1000
-    },
-    "time_type": {
-      "name": "Employment Type",
-      "type": "single_select",
-      "value": "Full-time"
-    },
-    "stock_options": {
-      "name": "Options",
-      "type": "short_text",
-      "value": "1500"
-    },
-    "salary": {
-      "name": "Salary",
-      "type": "short_text",
-      "value": "$123,000"
-    }
+    "hiring_managers": [
+      {
+        "id": 84275,
+        "first_name": "Kaylee",
+        "last_name": "Prime",
+        "name": "Kaylee Prime",
+        "employee_id": "13636"
+      },
+      {
+        "id": 169779,
+        "first_name": "Hank",
+        "last_name": "Hollandaise",
+        "name": "Hank Hollandaise",
+        "employee_id": "34537"
+      }
+    ],
+    "recruiters": [
+      {
+        "id": 81111,
+        "first_name": "Samuel",
+        "last_name": "Skateboard",
+        "name": "Samuel Skateboard",
+        "employee_id": "34531",
+        "responsible": false
+      },
+      {
+        "id": 153448,
+        "first_name": "Stegosaurus",
+        "last_name": "Heels",
+        "name": "Stegosaurus Heels",
+        "employee_id": "45748",
+        "responsible": true
+      }
+    ],
+    "coordinators": [
+      {
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327",
+        "responsible": true
+      },
+      {
+        "id": 177046,
+        "first_name": "Mirandella",
+        "last_name": "Lager",
+        "name": "Mirandella Lager",
+        "employee_id": "43626",
+        "responsible": false
+      }
+    ],
+    "sourcers": [
+      {
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327"
+      }
+    ]
   },
   "openings": [
     {
       "id": 123,
-      "opening_id": null,
-      "status": "closed",
-      "opened_at": "2015-09-10T19:01:46.077Z",
-      "closed_at": "2015-09-21T21:28:17.628Z",
-      "application_id": 18682391,
+      "opening_id": "3-1",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.736Z",
+      "closed_at": "2017-11-20T23:14:14.736Z",
+      "application_id": 45678,
       "close_reason": {
         "id": 678,
-        "name": "Hire - Backfill"
+        "name": "Hired - Backfill"
       }
     },
     {
       "id": 124,
-      "opening_id": null,
-      "status": "closed",
-      "opened_at": "2015-09-21T21:28:17.679Z",
-      "closed_at": "2016-03-09T20:07:35.649Z",
-      "application_id": 18492607,
-      "close_reason": {
-        "id": 679,
-        "name": "Hired"
-      }
+      "opening_id": "3-2",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.739Z",
+      "closed_at": null,
+      "application_id": null,
+      "close_reason": null
     },
     {
       "id": 125,
       "opening_id": null,
       "status": "open",
-      "opened_at": "2016-03-09T20:07:35.675Z",
+      "opened_at": "2016-02-03T20:00:00.000Z",
       "closed_at": null,
-      "application_id": null,
-      "close_reason": null
+      "application_id": null
+    },
+    {
+      "id": 126,
+      "opening_id": "2-4",
+      "status": "closed",
+      "opened_at": "2016-02-03T16:38:46.985Z",
+      "closed_at": "2016-02-03T16:39:09.811Z",
+      "application_id": 1232,
+      "close_reason": {
+        "id": 689,
+        "name": "Hired"
+      }
     }
   ]
 }
@@ -630,9 +1029,12 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/jobs'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
+
+> The above command takes a JSON request, structured like this:
 
 ```json
 {
@@ -653,6 +1055,166 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs'
 }
 ```
 
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 112746,
+  "name": "Internal Name That Appears On Hiring Plans",
+  "requisition_id": "abc-123",
+  "notes": "Looking for the best!",
+  "confidential": false,
+  "status": "open",
+  "created_at": "2015-09-10T19:01:46.078Z",
+  "opened_at": "2015-09-10T19:01:46.078Z",
+  "closed_at": null,
+  "departments": [
+    {
+      "id": 123,
+      "name": "Guideshops",
+      "parent_id": null,
+      "child_ids": [
+        52461,
+        34065,
+        25908
+      ],
+      "external_id": "EXTERNAL_ID_1234"
+    }
+  ],
+  "offices": [
+    {
+      "id": 234,
+      "name": "San Diego",
+      "location": {
+        "name": "San Diego, CA, United States"
+      },
+      "primary_contact_user_id": 25463,
+      "parent_id": 50850,
+      "child_ids": [
+        24719    
+      ],
+      "external_id": "abc13425"
+    },
+    {
+      "id": 345,
+      "name": "New York",
+      "location": {
+        "name": "New York, NY, United States"
+      },
+      "parent_id": null,
+      "child_ids": [],
+      "external_id": "13432"
+    }
+  ],
+   "hiring_team": {
+    "hiring_managers": [
+      {
+        "id": 84275,
+        "first_name": "Kaylee",
+        "last_name": "Prime",
+        "name": "Kaylee Prime",
+        "employee_id": "13636"
+      },
+      {
+        "id": 169779,
+        "first_name": "Hank",
+        "last_name": "Hollandaise",
+        "name": "Hank Hollandaise",
+        "employee_id": "34537"
+      }
+    ],
+    "recruiters": [
+      {
+        "id": 81111,
+        "first_name": "Samuel",
+        "last_name": "Skateboard",
+        "name": "Samuel Skateboard",
+        "employee_id": "34531",
+        "responsible": false
+      },
+      {
+        "id": 153448,
+        "first_name": "Stegosaurus",
+        "last_name": "Heels",
+        "name": "Stegosaurus Heels",
+        "employee_id": "45748",
+        "responsible": true
+      }
+    ],
+    "coordinators": [
+      {
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327",
+        "responsible": true
+      },
+      {
+        "id": 177046,
+        "first_name": "Mirandella",
+        "last_name": "Lager",
+        "name": "Mirandella Lager",
+        "employee_id": "43626",
+        "responsible": false
+      }
+    ],
+    "sourcers": [
+      {
+        "id": 122635,
+        "first_name": "Teddy",
+        "last_name": "Pizzazz",
+        "name": "Teddy Pizzazz",
+        "employee_id": "47327"
+      }
+    ]
+  },
+  "openings": [
+    {
+      "id": 123,
+      "opening_id": "3-1",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.736Z",
+      "closed_at": "2017-11-20T23:14:14.736Z",
+      "application_id": 45678,
+      "close_reason": {
+        "id": 678,
+        "name": "Hired - Backfill"
+      }
+    },
+    {
+      "id": 124,
+      "opening_id": "3-2",
+      "status": "open",
+      "opened_at": "2015-11-20T23:14:14.739Z",
+      "closed_at": null,
+      "application_id": null,
+      "close_reason": null
+    },
+    {
+      "id": 125,
+      "opening_id": null,
+      "status": "open",
+      "opened_at": "2016-02-03T20:00:00.000Z",
+      "closed_at": null,
+      "application_id": null
+    },
+    {
+      "id": 126,
+      "opening_id": "2-4",
+      "status": "closed",
+      "opened_at": "2016-02-03T16:38:46.985Z",
+      "closed_at": "2016-02-03T16:39:09.811Z",
+      "application_id": 1232,
+      "close_reason": {
+        "id": 689,
+        "name": "Hired"
+      }
+    }
+  ]
+}
+```
+
 ### HTTP Request
 
 `POST https://harvest.greenhouse.io/v1/jobs`
@@ -670,133 +1232,17 @@ office_ids | No | Array[Numbers] | The offices of the new job. These should be o
 requisition_id | No | String | A requisition id for this job.
 opening_ids | No | Array[Strings] | An array of opening ids for the new job. If this is included, the number of opening ids in this array must match the number_of_openings element.
 
-> The above returns a JSON response, structured like this:
-
-```
-{
-  "id": 112746,
-  "name": "Internal Name That Appears On Hiring Plans",
-  "requisition_id": "abc-123",
-  "notes": "Looking for the best!",
-  "confidential": false,
-  "status": "open",
-  "created_at": "2015-09-10T19:01:46.078Z",
-  "opened_at": "2015-09-10T19:01:46.078Z",
-  "closed_at": null,
-  "departments": [
-    {
-      "id": 123,
-      "name": "Guideshops",
-      "parent_id": null,
-      "child_ids": []
-    }
-  ],
-  "offices": [
-    {
-      "id": 234,
-      "name": "San Diego",
-      "location": {
-        "name": "San Diego, CA, United States"
-      },
-      "parent_id": null,
-      "child_ids": []
-    },
-    {
-      "id": 345,
-      "name": "New York",
-      "location": {
-        "name": "New York, NY, United States"
-      },
-      "parent_id": null,
-      "child_ids": []
-    }
-  ],
-   "hiring_team": {
-    "hiring_managers": [
-      {
-        "id": 158108,
-        "name": "Sam McsSamson"
-      }
-    ],
-    "recruiters": [
-      {
-        "id": 158101,
-        "name": "Major Tom",
-        "responsible": true
-      }
-    ],
-    "coordinators": [
-      {
-        "id": 158109,
-        "name": "Roger Cord",
-        "responsible": true
-      }
-    ],
-    "sourcers": [
-      {
-        "id": 158102,
-        "name": "Lara Sourcerer"
-      }
-    ]
-  },
-  "custom_fields": {
-    "employment_type": "Full-time",
-    "salary": "$123,000",
-    "bonus": 1000,
-    "options": "1500"
-  },
-  "keyed_custom_fields": {
-    "bonus": {
-      "name": "Bonus",
-      "type": "number",
-      "value": 1000
-    },
-    "time_type": {
-      "name": "Employment Type",
-      "type": "single_select",
-      "value": "Full-time"
-    },
-    "stock_options": {
-      "name": "Options",
-      "type": "short_text",
-      "value": "1500"
-    },
-    "salary": {
-      "name": "Salary",
-      "type": "short_text",
-      "value": "$123,000"
-    }
-  },
-  "openings": [
-    {
-      "id": 123,
-      "opening_id": "abc-123-1",
-      "status": "open",
-      "opened_at": "2015-09-10T19:01:46.077Z",
-      "closed_at": null,
-      "application_id": null,
-      "close_reason": null
-    },
-    {
-      "id": 124,
-      "opening_id": "abc-123-2",
-      "status": "open",
-      "opened_at": "2015-09-10T19:01:46.077Z",
-      "closed_at": null,
-      "application_id": null,
-      "close_reason": null
-    }
-  ]
-}
-```
 
 ## PUT: Replace Hiring Team
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{id}'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
+
+> The above command takes a JSON request, structured like this:
 
 ```json
 {
@@ -844,6 +1290,13 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{id}'
       "responsible_for_inactive_candidates": false
     }
   ]
+}
+```
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "success": true
 }
 ```
 

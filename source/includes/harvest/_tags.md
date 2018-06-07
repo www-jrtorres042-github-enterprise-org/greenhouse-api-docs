@@ -57,7 +57,7 @@ curl -X GET 'https://harvest.greenhouse.io/v1/tags/candidate'
 ## GET: List tags applied to candidate
 
 ```shell
-curl -X GET 'https://harvest.greenhouse.io/v1/candidates/{id}/tags
+curl -X GET 'https://harvest.greenhouse.io/v1/candidates/{id}/tags'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -66,9 +66,8 @@ curl -X GET 'https://harvest.greenhouse.io/v1/candidates/{id}/tags
 ```json
 [
   {
-    "id": 41892882,
-    "candidate_tag_id": 1094,
-    "candidate_tag_name": "Accounting Candidate"
+    "id": 239759,
+    "name": "Don't have a job open for them now"
   }
 ]
 ```

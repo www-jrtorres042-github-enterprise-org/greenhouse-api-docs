@@ -15,8 +15,10 @@ All submitted scorecards ordered by candidate.
   "interviewed_at": "2016-08-18T16:00:00.000Z",
   "submitted_by": {
     "id": 4080,
+    "first_name": "Kate",
+    "last_name": "Austen",
     "name": "Kate Austen",
-    "employee_id": null
+    "employee_id": "12345"
   },
   "submitted_at": "2014-03-26T21:59:51Z",
   "overall_recommendation": "yes",
@@ -41,13 +43,13 @@ All submitted scorecards ordered by candidate.
     },
     {
       "name": "Project Management",
-      "type": "Skills",
+      "type": "Qualifications",
       "note": null,
       "rating": "mixed"
     },
     {
       "name": "Problem Solver",
-      "type": "Skills",
+      "type": "Qualifications",
       "note": null,
       "rating": "no"
     },
@@ -136,8 +138,10 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
     "interviewed_at": "2016-08-18T16:00:00.000Z",
     "submitted_by": {
       "id": 4080,
+      "first_name": "Kate",
+      "last_name": "Austen",
       "name": "Kate Austen",
-      "employee_id": null
+      "employee_id": "12345"
     },
     "submitted_at": "2014-03-26T21:59:51Z",
     "overall_recommendation": "yes",
@@ -162,13 +166,13 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
       },
       {
         "name": "Project Management",
-        "type": "Skills",
+        "type": "Qualifications",
         "note": null,
         "rating": "mixed"
       },
       {
         "name": "Problem Solver",
-        "type": "Skills",
+        "type": "Qualifications",
         "note": null,
         "rating": "no"
       },
@@ -224,54 +228,23 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
       }
     ]
   },
-  { },
-]
-```
-
-List all of an organization's scorecards.
-
-### HTTP Request
-
-`GET https://harvest.greenhouse.io/v1/scorecards`
-
-### Querystring parameters
-
-| Parameter | Description |
-|-----------|-------------|
-| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
-| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
-| created_before | Return only scorecards that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| created_after | Return only scorecards that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| updated_before | Return only scorecards that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| updated_after | Return only scorecards that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-
-<br>
-[See noteworthy response attributes.] (#the-scorecard-object)
-
-## GET: List Scorecards for Application
-
-```shell
-curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-```json
-[
   {
-    "id": 123,
-    "updated_at": "2016-08-22T19:52:38.384Z",
-    "created_at": "2016-08-22T19:52:38.384Z",
-    "interview": "Application Review",
-    "candidate_id": 1234,
-    "application_id": 3456,
-    "interviewed_at": "2016-08-18T16:00:00.000Z",
+    "id": 3414169,
+    "updated_at": "2016-01-08T19:07:08.295Z",
+    "created_at": "2016-01-08T19:07:08.295Z",
+    "interview": "Behavioral Phone Interview",
+    "candidate_id": 14271904,
+    "application_id": 23558552,
+    "interviewed_at": "2016-01-08T17:00:00.000Z",
     "submitted_by": {
-      "id": 4080,
-      "name": "Kate Austen",
-      "employee_id": null
-    },    
-    "submitted_at": "2014-03-26T21:59:51Z",
-    "overall_recommendation": "yes",
+        "id": 158104,
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "name": "Dane Doe",
+        "employee_id": "034509364"
+    },
+    "submitted_at": "2016-01-08T19:07:08.295Z",
+    "overall_recommendation": "no",
     "attributes": [
       {
         "name": "Communication",
@@ -293,13 +266,13 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
       },
       {
         "name": "Project Management",
-        "type": "Skills",
+        "type": "Qualifications",
         "note": null,
         "rating": "mixed"
       },
       {
         "name": "Problem Solver",
-        "type": "Skills",
+        "type": "Qualifications",
         "note": null,
         "rating": "no"
       },
@@ -351,11 +324,242 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
       {
         "id": 1234569,
         "question": "Where would the candidate be willing to work?",
-        "answer": "London, Dubai, San Diego" 
+        "answer": "London, Dubai, San Diego"
+      }
+    ]     
+  }
+]
+```
+
+List all of an organization's scorecards.
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/scorecards`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
+| created_before | Return only scorecards that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| created_after | Return only scorecards that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_before | Return only scorecards that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| updated_after | Return only scorecards that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+
+<br>
+[See noteworthy response attributes.] (#the-scorecard-object)
+
+## GET: List Scorecards for Application
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+```json
+[
+  {
+    "id": 211231,
+    "updated_at": "2016-08-22T19:52:38.384Z",
+    "created_at": "2016-08-22T19:52:38.384Z",
+    "interview": "Application Review",
+    "candidate_id": 2131415,
+    "application_id": 23558552,
+    "interviewed_at": "2016-08-18T16:00:00.000Z",
+    "submitted_by": {
+      "id": 4080,
+      "first_name": "Kate",
+      "last_name": "Austen",
+      "name": "Kate Austen",
+      "employee_id": "12345"
+    },
+    "submitted_at": "2014-03-26T21:59:51Z",
+    "overall_recommendation": "yes",
+    "attributes": [
+      {
+        "name": "Communication",
+        "type": "Skills",
+        "note": "What a great communicator!",
+        "rating": "yes"
+      },
+      {
+        "name": "Adaptable",
+        "type": "Skills",
+        "note": null,
+        "rating": "yes"
+      },
+      {
+        "name": "Relationship Manager",
+        "type": "Skills",
+        "note": null,
+        "rating": "mixed"
+      },
+      {
+        "name": "Project Management",
+        "type": "Qualifications",
+        "note": null,
+        "rating": "mixed"
+      },
+      {
+        "name": "Problem Solver",
+        "type": "Qualifications",
+        "note": null,
+        "rating": "no"
+      },
+      {
+        "name": "Analytical",
+        "type": "Skills",
+        "note": null,
+        "rating": "definitely_not"
+      }
+    ],
+    "ratings": {
+      "definitely_not": [
+        "Analytical"
+      ],
+      "no": [
+        "Problem Solver"
+      ],
+      "mixed": [
+        "Relationship Manager",
+        "Project Management"
+      ],
+      "yes": [
+        "Communication",
+        "Adaptable"
+      ],
+      "strong_yes": []
+    },
+    "questions": [
+      {
+        "id": null,
+        "question": "Key Take-Aways",
+        "answer": "Seems like a decent candidate."
+      },
+      {
+        "id": null,
+        "question": "Private Notes",
+        "answer": "Seems like a decent candidate."
+      },
+      {
+        "id": 1234567,
+        "question": "Does the candidate have experience designing APIs?",
+        "answer": "Yes"
+      },
+      {
+        "id": 1234568,
+        "question": "Which team would you suggest for this candidate?",
+        "answer": "Alpha Team"
+      },
+      {
+        "id": 1234569,
+        "question": "Where would the candidate be willing to work?",
+        "answer": "London, Dubai, San Diego"
       }
     ]
   },
-  { },
+  {
+    "id": 3414169,
+    "updated_at": "2016-01-08T19:07:08.295Z",
+    "created_at": "2016-01-08T19:07:08.295Z",
+    "interview": "Behavioral Phone Interview",
+    "candidate_id": 14271904,
+    "application_id": 23558552,
+    "interviewed_at": "2016-01-08T17:00:00.000Z",
+    "submitted_by": {
+        "id": 158104,
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "name": "Dane Doe",
+        "employee_id": "034509364"
+    },
+    "submitted_at": "2016-01-08T19:07:08.295Z",
+    "overall_recommendation": "no",
+    "attributes": [
+      {
+        "name": "Communication",
+        "type": "Skills",
+        "note": "What a great communicator!",
+        "rating": "yes"
+      },
+      {
+        "name": "Adaptable",
+        "type": "Skills",
+        "note": null,
+        "rating": "yes"
+      },
+      {
+        "name": "Relationship Manager",
+        "type": "Skills",
+        "note": null,
+        "rating": "mixed"
+      },
+      {
+        "name": "Project Management",
+        "type": "Qualifications",
+        "note": null,
+        "rating": "mixed"
+      },
+      {
+        "name": "Problem Solver",
+        "type": "Qualifications",
+        "note": null,
+        "rating": "no"
+      },
+      {
+        "name": "Analytical",
+        "type": "Skills",
+        "note": null,
+        "rating": "definitely_not"
+      }
+    ],
+    "ratings": {
+      "definitely_not": [
+        "Analytical"
+      ],
+      "no": [
+        "Problem Solver"
+      ],
+      "mixed": [
+        "Relationship Manager",
+        "Project Management"
+      ],
+      "yes": [
+        "Communication",
+        "Adaptable"
+      ],
+      "strong_yes": []
+    },
+    "questions": [
+      {
+        "id": null,
+        "question": "Key Take-Aways",
+        "answer": "Seems like a decent candidate."
+      },
+      {
+        "id": null,
+        "question": "Private Notes",
+        "answer": "Seems like a decent candidate."
+      },
+      {
+        "id": 1234567,
+        "question": "Does the candidate have experience designing APIs?",
+        "answer": "Yes"
+      },
+      {
+        "id": 1234568,
+        "question": "Which team would you suggest for this candidate?",
+        "answer": "Alpha Team"
+      },
+      {
+        "id": 1234569,
+        "question": "Where would the candidate be willing to work?",
+        "answer": "London, Dubai, San Diego"
+      }
+    ]     
+  }
 ]
 ```
 
@@ -385,18 +589,20 @@ curl 'https://harvest.greenhouse.io/v1/scorecards/{id}'
 
 ```json
 {
-  "id": 123,
+  "id": 211231,
   "updated_at": "2016-08-22T19:52:38.384Z",
   "created_at": "2016-08-22T19:52:38.384Z",
   "interview": "Application Review",
-  "candidate_id": 1234,
-  "application_id": 3456,
+  "candidate_id": 2131415,
+  "application_id": 23558552,
   "interviewed_at": "2016-08-18T16:00:00.000Z",
   "submitted_by": {
     "id": 4080,
+    "first_name": "Kate",
+    "last_name": "Austen",
     "name": "Kate Austen",
-    "employee_id": null
-  }, 
+    "employee_id": "12345"
+  },
   "submitted_at": "2014-03-26T21:59:51Z",
   "overall_recommendation": "yes",
   "attributes": [
@@ -420,13 +626,13 @@ curl 'https://harvest.greenhouse.io/v1/scorecards/{id}'
     },
     {
       "name": "Project Management",
-      "type": "Skills",
+      "type": "Qualifications",
       "note": null,
       "rating": "mixed"
     },
     {
       "name": "Problem Solver",
-      "type": "Skills",
+      "type": "Qualifications",
       "note": null,
       "rating": "no"
     },

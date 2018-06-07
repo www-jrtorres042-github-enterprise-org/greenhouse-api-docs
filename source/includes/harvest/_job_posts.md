@@ -17,7 +17,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
   "job_id": 1234,
   "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
   "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-  "updated_at": "2014-04-01T17:56:19Z",
+  "updated_at": "2016-11-21T15:39:24Z",
+  "created_at": "2014-04-01T17:56:19Z",
   "questions": [
     {
       "required": true,
@@ -25,7 +26,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "label": "First Name",
       "name": "first_name",
       "type": "short_text",
-      "values": []
+      "values": [],
+      "description": null
     },
     {
       "required": true,
@@ -33,7 +35,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "label": "Last Name",
       "name": "last_name",
       "type": "short_text",
-      "values": []
+      "values": [],
+      "description": null
     },
     {
       "required": true,
@@ -41,7 +44,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "label": "Email",
       "name": "email",
       "type": "short_text",
-      "values": []
+      "values": [],
+      "description": null
     },
     {
       "required": false,
@@ -49,7 +53,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "label": "Phone",
       "name": "phone",
       "type": "short_text",
-      "values": []
+      "values": [],
+      "description": null
     },
     {
       "required": true,
@@ -57,7 +62,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "label": "Resume",
       "name": "resume",
       "type": "attachment",
-      "values": []
+      "values": [],
+      "description": null
     },
     {
       "required": false,
@@ -65,7 +71,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "label": "Cover Letter",
       "name": "cover_letter",
       "type": "attachment",
-      "values": []
+      "values": [],
+      "description": null
     },
     {
       "required": false,
@@ -82,7 +89,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
           "value": 1,
           "label": "Yes"
         }
-      ]
+      ],
+      "description": "<p>Please select Yes or No.</p>"
     },
     {
       "required": false,
@@ -103,7 +111,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
           "value": 864,
           "label": "Maybe"
         }
-      ]
+      ],
+      "description": null
     },
     {
       "required": true,
@@ -111,7 +120,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "label": "LinkedIn Profile",
       "name": "question_45678",
       "type": "short_text",
-      "values": []
+      "values": [],
+      "description": "<p>Please enter the URL for your LinkedIn profile.</p>"
     },
     {
       "required": true,
@@ -119,7 +129,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
       "label": "How did you hear about this job?",
       "name": "question_56789",
       "type": "short_text",
-      "values": []
+      "values": [],
+      "description": null
     }
   ]
 }
@@ -161,7 +172,8 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-    "updated_at": "2014-04-01T17:56:19Z",
+    "updated_at": "2016-11-21T15:39:24Z",
+    "created_at": "2014-04-01T17:56:19Z",
     "questions": [
       {
         "required": true,
@@ -169,11 +181,114 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
         "label": "First Name",
         "name": "first_name",
         "type": "short_text",
-        "values": []
+        "values": [],
+        "description": null
       },
-      {  }
+      {
+        "required": true,
+        "private": false,
+        "label": "Last Name",
+        "name": "last_name",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Email",
+        "name": "email",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Phone",
+        "name": "phone",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Resume",
+        "name": "resume",
+        "type": "attachment",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Cover Letter",
+        "name": "cover_letter",
+        "type": "attachment",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Have you ever won the lottery?",
+        "name": "question_234567",
+        "type": "boolean",
+        "values": [
+          {
+            "value": 0,
+            "label": "No"
+          },
+          {
+            "value": 1,
+            "label": "Yes"
+          }
+        ],
+        "description": "<p>Please select Yes or No.</p>"
+      },
+      {
+        "required": false,
+        "private": true,
+        "label": "Do you know what 'the numbers' are?",
+        "type": "multi_select",
+        "name": "question_345678[]",
+        "values": [
+          {
+            "value": 862,
+            "label": "Yes"
+          },
+          {
+            "value": 863,
+            "label": "No"
+          },
+          {
+            "value": 864,
+            "label": "Maybe"
+          }
+        ],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "LinkedIn Profile",
+        "name": "question_45678",
+        "type": "short_text",
+        "values": [],
+        "description": "<p>Please enter the URL for your LinkedIn profile.</p>"
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "How did you hear about this job?",
+        "name": "question_56789",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      }
     ]
-  },
+  }
 ]
 ```
 
@@ -210,19 +325,19 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
 ```json
 [
   {
-    "id": 129547,
-    "live": true,
-    "title": "Test job one",
+    "id": 123,
+    "title": "Button Pusher",
     "location": {
-      "name": "Material Plane"
+      "name": "The Island"
     },
-    "internal": false,
-    "external": true,
-    "job_id": 146218,
-    "content": "job post content",
-    "updated_at": "2016-09-19T14:04:25.297Z",
-    "internal_content": "",
-    "created_at": "2015-11-22T05:49:35.145Z",
+    "internal": true,
+    "external": false,
+    "live": true,
+    "job_id": 1234,
+    "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
+    "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
+    "updated_at": "2016-11-21T15:39:24Z",
+    "created_at": "2014-04-01T17:56:19Z"
     "questions": [
       {
         "required": true,
@@ -230,7 +345,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
         "label": "First Name",
         "name": "first_name",
         "type": "short_text",
-        "values": []
+        "values": [],
+        "description": null
       },
       {
         "required": true,
@@ -238,7 +354,102 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
         "label": "Last Name",
         "name": "last_name",
         "type": "short_text",
-        "values": []
+        "values": [],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Email",
+        "name": "email",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Phone",
+        "name": "phone",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Resume",
+        "name": "resume",
+        "type": "attachment",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Cover Letter",
+        "name": "cover_letter",
+        "type": "attachment",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Have you ever won the lottery?",
+        "name": "question_234567",
+        "type": "boolean",
+        "values": [
+          {
+            "value": 0,
+            "label": "No"
+          },
+          {
+            "value": 1,
+            "label": "Yes"
+          }
+        ],
+        "description": "<p>Please select Yes or No.</p>"
+      },
+      {
+        "required": false,
+        "private": true,
+        "label": "Do you know what 'the numbers' are?",
+        "type": "multi_select",
+        "name": "question_345678[]",
+        "values": [
+          {
+            "value": 862,
+            "label": "Yes"
+          },
+          {
+            "value": 863,
+            "label": "No"
+          },
+          {
+            "value": 864,
+            "label": "Maybe"
+          }
+        ],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "LinkedIn Profile",
+        "name": "question_45678",
+        "type": "short_text",
+        "values": [],
+        "description": "<p>Please enter the URL for your LinkedIn profile.</p>"
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "How did you hear about this job?",
+        "name": "question_56789",
+        "type": "short_text",
+        "values": [],
+        "description": null
       }
     ]
   },
@@ -253,7 +464,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "external": true,
     "job_id": 146218,
     "content": "job post content two",
-    "updated_at": "2016-09-19T14:04:25.297Z",
+    "updated_at": "2016-11-21T15:39:24Z",
+    "created_at": "2014-04-01T17:56:19Z"
     "internal_content": "",
     "created_at": "2015-11-22T05:49:35.145Z",
     "questions": [
@@ -263,7 +475,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
         "label": "First Name",
         "name": "first_name",
         "type": "short_text",
-        "values": []
+        "values": [],
+        "description": null
       },
       {
         "required": true,
@@ -271,7 +484,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
         "label": "Last Name",
         "name": "last_name",
         "type": "short_text",
-        "values": []
+        "values": [],
+        "description": null
       }
     ]
   }
@@ -309,29 +523,134 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
 
 ```json
 {
-  "id": 123,
-  "title": "Button Pusher",
-  "location": {
-    "name": "The Island"
-  },
-  "internal": true,
-  "external": false,
-  "live": true,
-  "job_id": 1234,
-  "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
-  "internal_content": null,
-  "updated_at": "2014-04-01T17:56:19Z",
-  "questions": [
-    {
-      "required": true,
-      "private": false,
-      "label": "First Name",
-      "type": "short_text",
-      "values": []
+    "id": 123,
+    "title": "Button Pusher",
+    "location": {
+      "name": "The Island"
     },
-    {  }
-  ]
-}
+    "internal": true,
+    "external": false,
+    "live": true,
+    "job_id": 1234,
+    "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
+    "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
+    "updated_at": "2016-11-21T15:39:24Z",
+    "created_at": "2014-04-01T17:56:19Z"
+    "questions": [
+      {
+        "required": true,
+        "private": false,
+        "label": "First Name",
+        "name": "first_name",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Last Name",
+        "name": "last_name",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Email",
+        "name": "email",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Phone",
+        "name": "phone",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "Resume",
+        "name": "resume",
+        "type": "attachment",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Cover Letter",
+        "name": "cover_letter",
+        "type": "attachment",
+        "values": [],
+        "description": null
+      },
+      {
+        "required": false,
+        "private": false,
+        "label": "Have you ever won the lottery?",
+        "name": "question_234567",
+        "type": "boolean",
+        "values": [
+          {
+            "value": 0,
+            "label": "No"
+          },
+          {
+            "value": 1,
+            "label": "Yes"
+          }
+        ],
+        "description": "<p>Please select Yes or No.</p>"
+      },
+      {
+        "required": false,
+        "private": true,
+        "label": "Do you know what 'the numbers' are?",
+        "type": "multi_select",
+        "name": "question_345678[]",
+        "values": [
+          {
+            "value": 862,
+            "label": "Yes"
+          },
+          {
+            "value": 863,
+            "label": "No"
+          },
+          {
+            "value": 864,
+            "label": "Maybe"
+          }
+        ],
+        "description": null
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "LinkedIn Profile",
+        "name": "question_45678",
+        "type": "short_text",
+        "values": [],
+        "description": "<p>Please enter the URL for your LinkedIn profile.</p>"
+      },
+      {
+        "required": true,
+        "private": false,
+        "label": "How did you hear about this job?",
+        "name": "question_56789",
+        "type": "short_text",
+        "values": [],
+        "description": null
+      }
+    ]
+  }
 ```
 
 Retrieve the corresponding job post for a given Job ID.

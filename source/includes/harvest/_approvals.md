@@ -185,6 +185,7 @@ id | The ID of the approval flow to retrieve
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/approval_flows/{id}/request_approvals'
+-H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -272,8 +273,9 @@ type | 'job' or 'offer', where 'offer' returns only approvals which are for a sp
 
 ```shell
 curl -X PUT 'https://harvest.greenhouse.io/v1/approver_groups/{id}/replace_approvers'
-  -H "On-Behalf-Of: {greenhouse user ID}"
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command takes a JSON request, structured like this:
