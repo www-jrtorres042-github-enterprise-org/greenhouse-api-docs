@@ -821,7 +821,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
 ```json
 {
   "start_date": "2017-03-15",
-  "opening_id": "ABC-123",
+  "opening_id": 454,
   "close_reason_id": 43432
 }
 ```
