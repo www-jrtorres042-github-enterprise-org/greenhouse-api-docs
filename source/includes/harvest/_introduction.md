@@ -55,7 +55,7 @@ Harvest uses Basic Auth over HTTPS for authentication. The username is your Gree
 
 Harvest API keys can be obtained in Greenhouse.  In order to create a Harvest API key, a user must be granted the "Can manage ALL organization's API Credentials" in the "Developer permission" section. That user can then go Configure >> Dev Center >> API Credential Management.  From there, you can create a Harvest API key and choose which endpoints it may access.
 
-**Important Note:** Users with Harvest API keys may access all the data in the endpoint.  Access to data in Harvest in binary: everything or nothing. Harvest API keys should be given to internal developers with this understanding and to third parties with caution.  Each key should only be allowed to access the endpoints it absolutely needs.
+**Important Note:** Users with Harvest API keys may access all the data in the endpoint.  Access to data in Harvest is binary: everything or nothing. Harvest API keys should be given to internal developers with this understanding and to third parties with caution.  Each key should only be allowed to access the endpoints it absolutely needs.
 
 ### Authorization header
 
@@ -81,7 +81,7 @@ If you're making test API requests with cURL you can use the `-u` flag to set th
 
 ### Setting permissions for API Keys
 
-You can specify which API endpoints your API keys have access to from the Greenhouse Dev Center. This will allow you to permit or deny access to each endpoint individually. Any API keys created before January 18th, 2017 will have full permissions to all API endpoints that existed at that time, but any new API keys created after that point will need to be explicitly granted any required endpoint permissions.
+You can specify which API endpoints your API keys have access to from the Greenhouse Dev Center. This will allow you to permit or deny access to each endpoint individually. Any API keys created before January 18th, 2017 will have full permissions to all API endpoints that existed at that time, but any new API keys created after that point will need to be explicitly granted the required endpoint permissions.
 
 To add or remove endpoint permissions on an API key, go to the Dev Center in Greenhouse, click "API Credential Management," then click "Manage Permissions" next to your Harvest API Key. From there, check or uncheck permissions for any endpoints.
 
@@ -155,7 +155,7 @@ Unless otherwise specified, API methods generally conform to the following:
 
 Error Code | Meaning
 ---------- | -------
-401 | Unauthorized -- Invalid Harvest API key.  Check to make sure you've passing it in via the `Authorization` header (Basic Auth)
+401 | Unauthorized -- Invalid Harvest API key.  Check to make sure you're passing it in via the `Authorization` header (Basic Auth)
 403 | Forbidden -- You do not have access to that record.
 404 | Not Found -- Resource not found
 500 | Server Error -- We had a problem with our server. Try again later or contact us: support@greenhouse.io
