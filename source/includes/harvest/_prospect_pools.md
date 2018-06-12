@@ -70,19 +70,19 @@ curl 'https://harvest.greenhouse.io/v1/prospect_pools'
         "prospect_stages": [
             {
                 "id": 90,
-                "name": "1st. Follow Up Sent-90"
+                "name": "1st. Follow Up Sent"
             },
             {
                 "id": 91,
-                "name": "2nd Follow Up Sent-91"
+                "name": "2nd Follow Up Sent"
             },
             {
                 "id": 92,
-                "name": "In Discussion-92"
+                "name": "In Discussion"
             },
             {
                 "id": 93,
-                "name": "Discussed-93"
+                "name": "Discussed"
             },
             {
                 "id": 94,
