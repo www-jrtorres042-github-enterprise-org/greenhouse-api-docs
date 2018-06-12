@@ -86,7 +86,7 @@ curl 'https://harvest.greenhouse.io/v1/prospect_pools'
             },
             {
                 "id": 94,
-                "name": "Had email listed on their github profile-94"
+                "name": "Had email listed on their github profile"
             }
         ]
     }
