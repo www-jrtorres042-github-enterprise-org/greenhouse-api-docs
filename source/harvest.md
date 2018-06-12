@@ -29,6 +29,7 @@ includes:
   - harvest/jobs
   - harvest/offers
   - harvest/offices
+  - harvest/prospect_pools
   - harvest/rejection_reasons
   - harvest/scheduled_interviews
   - harvest/scorecards
