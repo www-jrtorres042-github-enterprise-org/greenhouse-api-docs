@@ -13,6 +13,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
   },
   "internal": true,
   "external": false,
+  "active": true,
   "live": true,
   "job_id": 1234,
   "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
@@ -141,6 +142,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 | Attribute | Description |
 |-----------|-------------|
 | id | Job post ID
+| active | If `false`, this job post has been deleted.
 | internal | If `true`, this job post has been posted (or is *to be posted*) on an internal job board.
 | external | If `true`, this job post has been posted (or is *to be posted*) on an external job board.
 | job_id | The ID of the [job](#jobs) that this job post is for.
@@ -168,6 +170,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
     },
     "internal": true,
     "external": false,
+    "active": true,
     "live": true,
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
@@ -309,6 +312,7 @@ List all of an organization's job posts.
 | updated_before | Return only job posts that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only job posts that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | live | If `true`, return only live job posts.
+| active | If `true`, only return active job posts.  If `false`, only return deleted job posts.  When omitted, return both active and deleted job posts.
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
@@ -331,6 +335,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts/{id}'
     },
     "internal": true,
     "external": false,
+    "active": true,
     "live": true,
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
@@ -482,12 +487,13 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     },
     "internal": true,
     "external": false,
+    "active": true,
     "live": true,
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "updated_at": "2016-11-21T15:39:24Z",
-    "created_at": "2014-04-01T17:56:19Z"
+    "created_at": "2014-04-01T17:56:19Z",
     "questions": [
       {
         "required": true,
@@ -615,7 +621,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "job_id": 146218,
     "content": "job post content two",
     "updated_at": "2016-11-21T15:39:24Z",
-    "created_at": "2014-04-01T17:56:19Z"
+    "created_at": "2014-04-01T17:56:19Z",
     "internal_content": "",
     "created_at": "2015-11-22T05:49:35.145Z",
     "questions": [
@@ -655,6 +661,12 @@ Parameter | Description
 --------- | -----------
 id | The ID of the job whose job posts you want to retrieve
 
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| active | If `true`, only return active job posts.  If `false`, only return deleted job posts.  When omitted, return both active and deleted job posts.
+
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
@@ -680,12 +692,13 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
     },
     "internal": true,
     "external": false,
+    "active": true,
     "live": true,
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "updated_at": "2016-11-21T15:39:24Z",
-    "created_at": "2014-04-01T17:56:19Z"
+    "created_at": "2014-04-01T17:56:19Z",
     "questions": [
       {
         "required": true,
