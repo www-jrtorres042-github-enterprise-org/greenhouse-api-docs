@@ -825,7 +825,7 @@ questions | If present, will return an array of questions associated with this j
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
 
-## PATCH: Update Job Post's Status
+## PATCH: Update Job Post
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/job_posts/{id}'
