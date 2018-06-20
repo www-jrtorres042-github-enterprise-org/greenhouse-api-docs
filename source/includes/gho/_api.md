@@ -328,7 +328,7 @@ dateOfBirthFilter | [DateOfBirthFilter](#dateofbirthfilter) | filter employees b
 departmentFilter | [DepartmentFilter](#departmentfilter) | filter employees by their department | 
 departmentIds | [\[Int\]](#int) | DEPRECATED. Use departmentFilter instead | 
 emailFilter | [EmailFilter](#emailfilter) | filter employees by their email | 
-emails | [\[String\]](#string) | DEPRECATED. Use emnailFilter instead | 
+emails | [\[String\]](#string) | DEPRECATED. Use emailFilter instead | 
 employmentStatusFilter | [EmploymentStatusFilter](#employmentstatusfilter) | filter employees by their employment status | 
 employmentStatuses | [\[EmploymentStatus\]](#employmentstatus) | DEPRECATED. Use employmentStatusFilter instead | 
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
