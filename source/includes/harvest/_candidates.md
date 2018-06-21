@@ -825,6 +825,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
       "value": "@johnlocke"
     }
   ],
+  "recruiter": { "user_id": 4354 },
+  "coordinator": { "email": "coordinator@example.com" },
   "tags": [
     "Walkabout",
     "Orientation"
@@ -1011,6 +1013,12 @@ website_addresses[] | No | website_address | Array of website addresses. Passing
 social_media_addresses[] | No | social_media_address | Array of social media addresses. Passing an empty array will clear all.
 tags[] | No | string | Array of tags as strings. Passing an empty array will clear all.
 custom_fields[] | No |  custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
+recruiter | No | Hash | An object representing the candidate's new recruiter
+recruiter[id] | No | Integer | The ID of the new recruiter - either id or email must be present.
+recruiter[email] | No | String | The email of the new recruiter - either id or email must be present.
+coordinator | No | Hash | An object representing the candidate's new coordinator
+coordinator[id] | No | Integer | The ID of the new coordinator - either id or email must be present.
+coordinator[email] | No | String | The email of the new coordinator - either id or email must be present.
 
 ### Custom Field Parameters
 
