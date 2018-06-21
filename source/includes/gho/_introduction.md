@@ -111,3 +111,18 @@ and the budgets for API keys, at any time.
 ### Maximum Depth
 
 The Greenhouse Onboarding API limits the maximum depth of any request to 10.
+
+## A Basic Request
+In order to make a GraphQL request, you make a standard POST request to our GraphQL endpoint.  In its most simple form,
+the body of this request will be a JSON payload with a single key: “query”. The value for the “query” key is the GraphQL
+query itself, and it is expressed as a simple string.  If we wanted to make a request to retrieve the email address of
+an employee with ID 25, the GraphQL query would look like this:
+```{
+  employee(id: 25) {
+    email
+  }
+}```
+We now need to pack this query into the JSON object as a string, culminating in the following JSON object:
+```{
+    "query": "{\n  employee(id: 25) {\n    email\n  }\n}"
+}```
