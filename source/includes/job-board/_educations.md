@@ -58,7 +58,7 @@ Returns a list of all of your organization's degrees.
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/education/degrees`
+`GET https://boards-api.greenhouse.io/v1/boards/{board_token}/education/degrees`
 
 ### URL Parameters
 
@@ -129,7 +129,7 @@ Returns a list of all of your organization's disciplines.
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/education/disciplines`
+`GET https://boards-api.greenhouse.io/v1/boards/{board_token}/education/disciplines`
 
 ### URL Parameters
 
@@ -203,7 +203,7 @@ Returns a list of all of your organization's schools.
 
 ### HTTP Request
 
-`GET https://api.greenhouse.io/v1/boards/{board_token}/education/schools`
+`GET https://boards-api.greenhouse.io/v1/boards/{board_token}/education/schools`
 
 ### URL Parameters
 
