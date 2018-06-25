@@ -252,9 +252,9 @@ Note that all 3 fields must be included. If only `location` is sent and `latitud
 * `first_name`, `last_name`, and `phone` fields must not contain a URL
 * `email` field must contain a valid email address
 * `educations` object must contain valid `school_name_id`, `degree_id`, `discipline_id`, `start_date`, and `end_date`
-* `employments` object must contain a valid `start_date` and `end_date`
+* `employments` object must contain `company_name`, `title`, `current`, `start_date` and `end_date`
 * `start_date` must be before `end_date`
-* Field type in POST request must match the field type specified on the job post question
+* Field values must match the field type specified on the job post question
 
 **Attachments:**
 
