@@ -59,13 +59,13 @@ curl -X POST \
   -F "educations[][start_date][year]=2012" \
   -F "educations[][end_date][month]=5" \
   -F "educations[][end_date][year]=2016" \
-  -F 'employments[][company_name]=Business Co' \
-  -F 'employments[][title]=Sales Manager' \
-  -F 'employments[][start_date][month]=1' \
-  -F 'employments[][start_date][year]=2016' \
-  -F 'employments[][end_date][month]=2' \
-  -F 'employments[][end_date][year]=2018' \
-  -F 'employments[][current]=false'
+  -F "employments[][company_name]=Business Co" \
+  -F "employments[][title]=Sales Manager" \
+  -F "employments[][start_date][month]=1" \
+  -F "employments[][start_date][year]=2016" \
+  -F "employments[][end_date][month]=2" \
+  -F "employments[][end_date][year]=2018" \
+  -F "employments[][current]=false"
   -F "mapped_url_token=token12345" \
   -F "question_12349_url=http://dropbox.com/dl/attachment.pdf" \
   -F "question_12349_url_filename=attachment.pdf" \
@@ -249,10 +249,11 @@ Note that all 3 fields must be included. If only `location` is sent and `latitud
 
 **Field validations:** 
 
+* `first_name`, `last_name`, and `email` fields are required 
 * `first_name`, `last_name`, and `phone` fields must not contain a URL
 * `email` field must contain a valid email address
 * `educations` object must contain valid `school_name_id`, `degree_id`, `discipline_id`, `start_date`, and `end_date`
-* `employments` object must contain `company_name`, `title`, `current`, `start_date` and `end_date`
+* `employments` object must contain `company_name`, `title`, `start_date` and `current` (must be `true` or `false`). If *current=false*, must contain `end_date`
 * `start_date` must be before `end_date`
 * Field values must match the field type specified on the job post question
 
