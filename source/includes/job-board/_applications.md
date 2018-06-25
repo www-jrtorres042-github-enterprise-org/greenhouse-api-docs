@@ -41,8 +41,8 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
 
 ```
 curl -X POST \ 
-  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
   -H "Content-Type: multipart/form-data" \
+  -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6" \
   -F "first_name=Sammy" \
   -F "last_name=McSamson" \
   -F "email=sammy@example.com" \
@@ -59,12 +59,19 @@ curl -X POST \
   -F "educations[][start_date][year]=2012" \
   -F "educations[][end_date][month]=5" \
   -F "educations[][end_date][year]=2016" \
+  -F "employments[][company_name]=Business Co" \
+  -F "employments[][title]=Sales Manager" \
+  -F "employments[][start_date][month]=1" \
+  -F "employments[][start_date][year]=2016" \
+  -F "employments[][end_date][month]=2" \
+  -F "employments[][end_date][year]=2018" \
+  -F "employments[][current]=false"
   -F "mapped_url_token=token12345" \
   -F "question_12349_url=http://dropbox.com/dl/attachment.pdf" \
   -F "question_12349_url_filename=attachment.pdf" \
   -F "question_12350_content=SGVsbG8sIHdvcmxkIQo=" \
   -F "question_12350_content_filename=something_else.txt" \
-  "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
+  "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
 > or, you can POST a JSON encoded body (with `Content-Type: application/json`):
@@ -111,9 +118,23 @@ curl -X POST \
         "end_date": { "month": "2", "year": "2012"}
       }
     ],
+     "employments": [
+    {
+        "company_name": "Business Co.",
+        "title": "Sales Manager",
+        "start_date": {
+          "month": "1",
+          "year": "2016"
+        },
+        "end_date": {
+          "month": "2",
+          "year": "2018"
+        },
+        "current": "false"
+    },
     "mapped_url_token":"token12345"
   }' \
-  "https://api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
+  "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
 Use this endpoint to submit a new application. This endpoint accepts a multipart form POST representing a job application. Application forms are job-specific and will be constructed via the "questions" array available via the [Job method](#retrieve-a-job). Please see the [Job method](#retrieve-a-job) documentation for instructions on submitting location information through the API.
@@ -130,7 +151,7 @@ Note that when submitting an application through this method, Greenhouse will no
 
 ### HTTP Request
 
-`POST https://api.greenhouse.io/v1/boards/{board_token}/jobs/{id}`
+`POST https://boards-api.greenhouse.io/v1/boards/{board_token}/jobs/{id}`
 
 Parameter | Description
  --------- | -----------
@@ -158,8 +179,8 @@ email | Applicant's email address
 *longitude | Applicant's home longitude. This is a *hidden* field and should not be exposed directly to the applicant.
 *resume | *Please see below for details.*
 *cover_letter | *Please see below for details.*
-*educations | An array of education objects. Each education object should have five fields: school_name_id, degree_id, discipline_id, start_date, and end_date. start_date and end_date will use a hash of month and year. You can get the school_name_id, degree_id, discipline_id from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints.
-
+*educations | An array of education objects. Each education object should have five fields: `school_name_id`, `degree_id`, `discipline_id`, `start_date`, and `end_date`. You can get the `school_name_id`, `degree_id`, `discipline_id` from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints. `start_date` and `end_date` will use a hash of month and year.
+*employments | An array of employments objects. Each employment object should have: `company_name`, `title`, `start_date`, and `current` (must be `true` or `false`). If `current` is `false`, must have `end_date`. `start_date` and `end_date` will use a hash of month and year.
 ### Submitting Attachments
 
 We support 4 methods of uploading attachments when submitting a candidate application:
@@ -217,3 +238,27 @@ longitude for the selected location using the [Google Place Details API](https:/
 this API call.
 
 Note that all 3 fields must be included. If only `location` is sent and `latitude` and `longitude` are omitted, `location` will be ignored entirely.
+
+### Validations on POST Requests
+
+**Job validations:**
+
+* The job must be live and published
+* The job board must be live and published
+* The job post ID must exist on the job board with the supplied board_token
+
+**Field validations:** 
+
+* `first_name`, `last_name`, and `email` fields are required 
+* `first_name`, `last_name`, and `phone` fields must not contain a URL
+* `email` field must contain a valid email address
+* `educations` object must contain valid `school_name_id`, `degree_id`, `discipline_id`, `start_date`, and `end_date`
+* `employments` object must contain `company_name`, `title`, `start_date` and `current` (must be `true` or `false`). If *current=false*, must contain `end_date`
+* `start_date` must be before `end_date`
+* Field values must match the field type specified on the job post question
+
+**Attachments:**
+
+* Must be a supported file type (pdf, doc, docx, txt, rtf)
+* File size must be > 0 bytes
+
