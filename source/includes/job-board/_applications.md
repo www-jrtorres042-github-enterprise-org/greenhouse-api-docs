@@ -217,3 +217,26 @@ longitude for the selected location using the [Google Place Details API](https:/
 this API call.
 
 Note that all 3 fields must be included. If only `location` is sent and `latitude` and `longitude` are omitted, `location` will be ignored entirely.
+
+### Validations on POST Requests
+
+**Job validations:**
+
+* The job must be live and published
+* The job board must be live and published
+* The job post ID must exist on the job board with the supplied board_token
+
+**Field validations:** 
+
+* `first_name`, `last_name`, and `phone` fields must not contain a URL
+* `email` field must contain a valid email address
+* `educations` object must contain valid `school_name_id`, `degree_id`, `discipline_id`, `start_date`, and `end_date`
+* `employments` object must contain a valid `start_date` and `end_date`
+* `start_date` must be before `end_date`
+* Field type in POST request must match the field type specified on the job post question
+
+**Attachments:**
+
+* Must be a supported file type (pdf, doc, docx, txt, rtf)
+* File size must be > 0 bytes
+
