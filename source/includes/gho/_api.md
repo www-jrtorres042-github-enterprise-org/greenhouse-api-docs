@@ -89,7 +89,47 @@ id | [Int](#int) |  |
 # Request only those employees that have title "Account Manager". For each employee that fits the criteria,
 # return their id and email
 {
-  employees(first: 25, titles: ["Account Manager"]) {
+  employees(first: 25, titleFilter: { titles: ["Account Manager"] }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+
+```
+
+```graphql
+# Request only those employees that have a department set (department is not null). For each employee that fits the criteria,
+# return their id and email
+{
+  employees(first: 25, departmentFilter: { anyValue: true }) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}
+
+```
+
+```graphql
+# Request only those employees that lack a department (department is null). For each employee that fits the criteria,
+# return their id and email
+{
+  employees(first: 25, departmentFilter: { noValue: true }) {
     pageInfo {
       hasNextPage
       endCursor
@@ -109,7 +149,7 @@ id | [Int](#int) |  |
 # Request only those employees that have a startDate between 2017-03-25 and 2018-03-25.
 # These dates are exclusive (e.g. someone who started on 2017-03-25 or 2018-03-25 would not be included.
 {
-  employees(first: 25, startDate: { after: "2017-03-25", before: "2018-03-25" }) {
+  employees(first: 25, startDateFilter: { dateFilter: { after: "2017-03-25", before: "2018-03-25" } }) {
     pageInfo {
       hasNextPage
       endCursor
@@ -198,7 +238,7 @@ id | [Int](#int) |  |
 
 ```graphql
 # Request employees that have a value set for the "favorite_food" Custom Field. Return each employee's ID and
-# customFieldValues, but only return the customFieldValue for the "favorite_food" customFieldValue.
+# customFieldValues, but only return the customFieldValue for the "favorite_food" customField.
 {
   employees(
     first: 25,
@@ -276,27 +316,38 @@ id | [Int](#int) |  |
 }
 
 ```
-A collection of Onboarding employee records
+A collection of Onboarding employee records. The following arguments are depreacated and should be avoided as support for them will be dropped: dateOfBirth, departmentIds, emails, employmentStatuses, hrManagerIds, locationIds, managerIds, personalEmails, startDate, titles, and workCountryCodes. Each of these arguments has a newer, more powerful companion named *Filter. For example, departmentIds has been replaced by the argument departmentFilter - which allows for the specification of department IDs, but also allows for more flexibility (e.g. filtering by lack/presence of a given field - as opposed to filtering by specific values).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 after | [String](#string) | Returns the elements in the list that come after the specified global ID. | 
 before | [String](#string) | Returns the elements in the list that come before the specified global ID. | 
-customFieldValues | [\[CustomFieldValuesInput\]](#customfieldvaluesinput) |  | 
-dateOfBirth | [DateFilter](#datefilter) |  | 
-departmentIds | [\[Int\]](#int) |  | 
-emails | [\[String\]](#string) |  | 
-employmentStatuses | [\[EmploymentStatus\]](#employmentstatus) |  | 
+customFieldValues | [\[CustomFieldValuesInput\]](#customfieldvaluesinput) | filter employees by their custom field values | 
+dateOfBirth | [DateFilter](#datefilter) | DEPRECATED. Use dateOfBirthFilter instead | 
+dateOfBirthFilter | [DateOfBirthFilter](#dateofbirthfilter) | filter employees by their date of birth | 
+departmentFilter | [DepartmentFilter](#departmentfilter) | filter employees by their department | 
+departmentIds | [\[Int\]](#int) | DEPRECATED. Use departmentFilter instead | 
+emailFilter | [EmailFilter](#emailfilter) | filter employees by their email | 
+emails | [\[String\]](#string) | DEPRECATED. Use emailFilter instead | 
+employmentStatusFilter | [EmploymentStatusFilter](#employmentstatusfilter) | filter employees by their employment status | 
+employmentStatuses | [\[EmploymentStatus\]](#employmentstatus) | DEPRECATED. Use employmentStatusFilter instead | 
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
-hrManagerIds | [\[Int\]](#int) |  | 
+hrManagerFilter | [HrManagerFilter](#hrmanagerfilter) | filter employees by their hr manager | 
+hrManagerIds | [\[Int\]](#int) | DEPRECATED. Use hrManagerFilter instead | 
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
-locationIds | [\[Int\]](#int) |  | 
-managerIds | [\[Int\]](#int) |  | 
-personalEmails | [\[String\]](#string) |  | 
-startDate | [DateFilter](#datefilter) |  | 
-titles | [\[String\]](#string) |  | 
-updatedAt | [DateTimeFilter](#datetimefilter) |  | 
-workCountryCodes | [\[String\]](#string) |  | 
+locationFilter | [LocationFilter](#locationfilter) | filter employees by their location | 
+locationIds | [\[Int\]](#int) | DEPRECATED. Use locationFilter instead | 
+managerFilter | [ManagerFilter](#managerfilter) | filter employees by their manager | 
+managerIds | [\[Int\]](#int) | DEPRECATED. Use managerFilter instead | 
+personalEmailFilter | [PersonalEmailFilter](#personalemailfilter) | filter employees by their personal email | 
+personalEmails | [\[String\]](#string) | DEPRECATED. Use personalEmailFilter instead | 
+startDate | [DateFilter](#datefilter) | DEPRECATED. Use startDateFilter instead | 
+startDateFilter | [StartDateFilter](#startdatefilter) | filter employees by their start date | 
+titleFilter | [TitleFilter](#titlefilter) | filter employees by their title | 
+titles | [\[String\]](#string) | DEPRECATED. Use titleFilter instead | 
+updatedAt | [DateTimeFilter](#datetimefilter) | filter employees based on when they were last updated | 
+workCountryCodeFilter | [WorkCountryCodeFilter](#workcountrycodefilter) | filter employees by their work country code | 
+workCountryCodes | [\[String\]](#string) | DEPRECATED. Use WorkCountryCodeFilter instead | 
 ## location \([Location](#location)\)
 A single location
 
@@ -373,7 +424,7 @@ mutation {
       email: "joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
-        { id: "favorite_food", value: "Egg McMuffins" }
+        { customFieldId: "favorite_food", value: "Egg McMuffins" }
       ]
     }
   ) {
@@ -402,7 +453,7 @@ mutation {
       email: "joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
-        { id: "required_equipment", value: "[\"Ergonomic Keyboard\", \"Standing Desk\"]" }
+        { customFieldId: "required_equipment", value: "[\"Ergonomic Keyboard\", \"Standing Desk\"]" }
       ]
     }
   ) {
@@ -430,7 +481,7 @@ mutation {
       email: "joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
-        { id: "primary_social_club", value: 14 }
+        { customFieldId: "primary_social_club", value: 14 }
       ]
     }
   ) {
@@ -459,7 +510,7 @@ mutation {
       workCountryCode: "USA"
       customFieldValues: [
         {
-          id: "address",
+          customFieldId: "address",
           value: "{\"address_line_1\":\"123 Test Street\",\"address_line_2\":\"Apartment 1\",\"city\":\"Pawnee\", \"state\":\"IN\", \"zipcode\":\"12345\",\"country\":\"USA\"}"
         }
       ]
@@ -486,11 +537,11 @@ mutation {
     pendingHireInfo: {
       firstName: "Joe"
       lastName: "Schmoe"
-      email:"joe12344321@example.com"
+      email:"joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
         {
-          id: "emergency_contact",
+          customFieldId: "emergency_contact",
           value: "{\"first_name\": \"Joe\", \"last_name\": \"Schmoe\", \"email\":\"jschmoe@aol.com\", \"phone\": \"123.456.7890\", \"relationship\": \"Other\"}" }
       ]
     }
@@ -516,10 +567,10 @@ mutation {
     pendingHireInfo: {
       firstName: "Joe"
       lastName: "Schmoe"
-      email:"joe4321@example.com"
+      email:"joe123@example.com"
       workCountryCode: "USA"
       customFieldValues: [
-        { id: "fully_vested", value: "2019-12-12" }
+        { customFieldId: "fully_vested", value: "2019-12-12" }
       ]
     }
   ) {
@@ -572,7 +623,7 @@ mutation {
     id: 20,
     employeeUpdates: {
       customFieldValues: [
-        { id: "favorite_food", value: "Egg McMuffins" }
+        { customFieldId: "favorite_food", value: "Egg McMuffins" }
       ]
     }
   ) {
@@ -598,7 +649,7 @@ mutation {
     id: 20,
     employeeUpdates: {
       customFieldValues: [
-        { id: "required_equipment", value: "[\"Ergonomic Keyboard\", \"Standing Desk\"]" }
+        { customFieldId: "required_equipment", value: "[\"Ergonomic Keyboard\", \"Standing Desk\"]" }
       ]
     }
   ) {
@@ -623,7 +674,7 @@ mutation {
     id: 20,
     employeeUpdates: {
       customFieldValues: [
-        { id: "primary_social_club", value: 14 }
+        { customFieldId: "primary_social_club", value: 14 }
       ]
     }
   ) {
@@ -648,7 +699,7 @@ mutation {
     employeeUpdates: {
       customFieldValues: [
         {
-          id: "address",
+          customFieldId: "address",
           value: "{\"address_line_1\":\"123 Test Street\",\"address_line_2\":\"Apartment 1\",\"city\":\"Pawnee\", \"state\":\"IN\", \"zipcode\":\"12345\",\"country\":\"USA\"}"
         }
       ]
@@ -674,7 +725,7 @@ mutation {
     employeeUpdates: {
       customFieldValues: [
         {
-          id: "emergency_contact",
+          customFieldId: "emergency_contact",
           value: "{\"first_name\": \"Joe\", \"last_name\": \"Schmoe\", \"email\":\"jschmoe@aol.com\", \"phone\": \"123.456.7890\", \"relationship\": \"Other\"}" }
       ]
     }
@@ -698,7 +749,7 @@ mutation {
     id: 20,
     employeeUpdates: {
       customFieldValues: [
-        { id: "fully_vested", value: "2019-12-12" }
+        { customFieldId: "fully_vested", value: "2019-12-12" }
       ]
     }
   ) {
@@ -842,7 +893,7 @@ phoneNumber | [String](#string) |
 preferredFirstName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 preferredLastName | [String](#string) | 
 profileImage | [File](#file) | A file containing the employee's profile image. This image is displayed in emails, reports and directory pages.
-signatureRequests | [\[SignatureRequest\]](#signaturerequest) | These are E-Signature requests initiated through Greenhouse Onboardinging. Keep in mind that these requests can be in a number of different states in their lifecycle and may not always have a signed document available to download.
+signatureRequests | [\[SignatureRequest\]](#signaturerequest) | These are E-Signature requests initiated through Greenhouse Onboarding. Keep in mind that these requests can be in a number of different states in their lifecycle and may not always have a signed document available to download.
 startDate | [Date](#date) | 
 suffix | [String](#string) | 
 title | [String](#string) | The employee's job title.
@@ -1114,6 +1165,15 @@ after | [Date](#date) |  |
 before | [Date](#date) |  | 
 on | [Date](#date) |  | 
 
+## DateOfBirthFilter
+Filter employees based on their date of birth
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+dateFilter | [DateFilter](#datefilter) |  | 
+noValue | [Boolean](#boolean) |  | 
+
 ## DateTimeFilter
 Specify a range of datetimes using after (exclusive >), before (exclusive <)
 
@@ -1122,12 +1182,93 @@ Argument | Type | Description | Required
 after | [DateTime](#datetime) |  | 
 before | [DateTime](#datetime) |  | 
 
+## DepartmentFilter
+Filter employees based on their department
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+departmentIds | [\[Int\]](#int) |  | 
+noValue | [Boolean](#boolean) |  | 
+
+## EmailFilter
+Filter employees based on their email address
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+emails | [\[String\]](#string) |  | 
+noValue | [Boolean](#boolean) |  | 
+
+## EmploymentStatusFilter
+Filter employees based on their Employment Status
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+employmentStatuses | [\[EmploymentStatus\]](#employmentstatus) |  | 
+noValue | [Boolean](#boolean) |  | 
+
+## HrManagerFilter
+Filter employees based on their HR Manager
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+hrManagerIds | [\[Int\]](#int) |  | 
+noValue | [Boolean](#boolean) |  | 
+
+## LocationFilter
+Filter employees based on their location
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+locationIds | [\[Int\]](#int) |  | 
+noValue | [Boolean](#boolean) |  | 
+
+## ManagerFilter
+Filter employees based on their Manager
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+managerIds | [\[Int\]](#int) |  | 
+noValue | [Boolean](#boolean) |  | 
+
+## PersonalEmailFilter
+Filter employees based on their personal email address
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+noValue | [Boolean](#boolean) |  | 
+personalEmails | [\[String\]](#string) |  | 
+
+## StartDateFilter
+Filter employees based on their start date
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+dateFilter | [DateFilter](#datefilter) |  | 
+noValue | [Boolean](#boolean) |  | 
+
+## TitleFilter
+Filter employees based on their title
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+noValue | [Boolean](#boolean) |  | 
+titles | [\[String\]](#string) |  | 
+
 ## UpdateCustomFieldValue
 Used to update an employee's Custom Field Value
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [ID!](#id) |  | Required
+customFieldId | [ID!](#id) |  | Required
 value | [Value](#value) |  | 
 
 ## UpdateEmployee
@@ -1157,6 +1298,15 @@ startDate | [Date](#date) |  |
 suffix | [String](#string) |  | 
 title | [String](#string) |  | 
 workCountryCode | [String](#string) |  | 
+
+## WorkCountryCodeFilter
+Filter employees based on their work country code
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+anyValue | [Boolean](#boolean) |  | 
+noValue | [Boolean](#boolean) |  | 
+workCountryCodes | [\[String\]](#string) |  | 
 
 # Scalars
 ## Boolean
@@ -1279,3 +1429,4 @@ COMPLETED | Document has been successfully signed and verified.
 ERROR | Could not be completed due to an error processing the E-Signature.
 WAITING_FOR_COUNTER_SIGNATURE | Document awaiting counter-signer signature.
 WAITING_FOR_SIGNATURE | Waiting for the employee to sign the document.
+
