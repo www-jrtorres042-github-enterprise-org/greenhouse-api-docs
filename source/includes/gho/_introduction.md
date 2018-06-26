@@ -111,3 +111,41 @@ and the budgets for API keys, at any time.
 ### Maximum Depth
 
 The Greenhouse Onboarding API limits the maximum depth of any request to 10.
+
+## A Basic Request
+```graphql
+# If we wanted to retrieve the email address of the employee 
+# with ID 25, the GraphQL query would look like this:
+
+{
+  employee(id: 25) {
+    email
+  }
+}
+```
+
+```graphql
+# We then pack this query into a JSON object as a string
+
+{
+    "query": "{\n  employee(id: 25) {\n    email\n  }\n}"
+}
+```
+
+```shell
+# Here's what the final cURL request would look like
+
+curl 'https://onboarding-api.greenhouse.io/graphql' \
+  -X POST \
+  -u your_access_key:your_secret_key \
+  -d '{"query":"{\n  employee(id: 25) {\n    email\n  }\n}"}' \
+  -H 'content-type: application/json'
+
+# and here's what the response would look like
+
+{"data":{"employee":{"email":"employee_25_email@example.com"}}}
+```
+
+GraphQL requests are simply POSTs made to our API endpoint.  In its most simple form, the request payload consists of a 
+JSON object with a single key: "query". The corresponding value for the "query" key is the GraphQL query itself, and it 
+is expressed as a string.
