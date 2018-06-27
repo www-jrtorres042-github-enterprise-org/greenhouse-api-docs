@@ -6,89 +6,91 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 
 ```json
 {
-  "id": 985314,
-  "candidate_id": 978031,
-  "prospect": false,
-  "applied_at": "2016-03-26T20:11:39.000Z",
-  "rejected_at": "2016-08-17T21:08:29.686Z",
-  "last_activity_at": "2016-08-27T16:13:15.000Z",
-  "location": { 
-    "address": "New York, New York, USA" 
-  },
-  "source": {
-    "id": 1871,
-    "public_name": "Happy Hour"
-  },
-  "credited_to": {
-    "id": 4080,
-    "first_name": "Kate",
-    "last_name": "Austen",
-    "name": "Kate Austen",
-    "employee_id": "12345"
-  },
-  "rejection_reason": {
-    "id": 8,
-    "name": "Lacking skill(s)/qualification(s)",
-    "type": {
-      "id": 1,
-      "name": "We rejected them"
-    }
-  },
-"rejection_details": {
-  "custom_fields": {
-      "custom_rejection_question_field": "Not a good fit"
-  },
-  "keyed_custom_fields": {
-      "custom_rejection_question_field": {
-          "name": "Was this candidate a good fit?",
-          "type": "short_text",
-          "value": "This candidate wasn't a good fit."
-      }
-  }
-  "jobs": [
-    {
-      "id": 123,
-      "name": "Accounting Manager"
-    }
-  ],
-  "status": "rejected",
-  "current_stage": {
-    "id": 62828,
-    "name": "Recruiter Phone Screen"
-  },
-  "answers": [
-    {
-      "question": "Why do you want to work for us?",
-      "answer": "I heard you're awesome!"
+    "id": 985314,
+    "candidate_id": 978031,
+    "prospect": false,
+    "applied_at": "2016-03-26T20:11:39.000Z",
+    "rejected_at": "2016-08-17T21:08:29.686Z",
+    "last_activity_at": "2016-08-27T16:13:15.000Z",
+    "location": { 
+        "address": "New York, New York, USA" 
     },
-    {
-      "question": "How did you hear about this job?",
-      "answer": "From a former colleague."
-    }
-  ],
-  "prospect_detail": {
-      "prospect_pool": null,
-      "prospect_stage": null,
-      "prospect_owner": null
-  },
-  "custom_fields": {
-    "bio": "This is a bio",
-    "birthday": "1992-01-27"
-  },
-  "keyed_custom_fields": {
-    "date_of_birth": {
-      "name": "Birthday",
-      "type": "date",
-      "value": "1992-01-27"
+    "source": {
+        "id": 1871,
+        "public_name": "Happy Hour"
     },
-    "bio": {
-      "name": "Bio",
-      "type": "long_text",
-      "value": "This is a bio"
+    "credited_to": {
+        "id": 4080,
+        "first_name": "Kate",
+        "last_name": "Austen",
+        "name": "Kate Austen",
+        "employee_id": "12345"
+    },
+    "rejection_reason": {
+        "id": 8,
+        "name": "Lacking skill(s)/qualification(s)",
+        "type": {
+            "id": 1,
+            "name": "We rejected them"
+        }
+    },
+    "rejection_details": {
+        "custom_fields": {
+            "custom_rejection_question_field": "Not a good fit"
+        },
+        "keyed_custom_fields": {
+            "custom_rejection_question_field": {
+                "name": "Was this candidate a good fit?",
+                "type": "short_text",
+                "value": "Not a good fit."
+            }
+        }
+    },
+    "jobs": [
+        {
+            "id": 123,
+            "name": "Accounting Manager"
+        }
+    ],
+    "status": "rejected",
+    "current_stage": {
+        "id": 62828,
+        "name": "Recruiter Phone Screen"
+    },
+    "answers": [
+        {
+            "question": "Why do you want to work for us?",
+            "answer": "I heard you're awesome!"
+        },
+        {
+            "question": "How did you hear about this job?",
+            "answer": "From a former colleague."
+        }
+    ],
+    "prospect_detail": {
+        "prospect_pool": null,
+        "prospect_stage": null,
+        "prospect_owner": null
+    },
+    "custom_fields": {
+        "bio": "This is a bio",
+        "birthday": "1992-01-27"
+    },
+    "keyed_custom_fields": {
+        "date_of_birth": {
+            "name": "Birthday",
+            "type": "date",
+            "value": "1992-01-27"
+        },
+        "bio": {
+            "name": "Bio",
+            "type": "long_text",
+            "value": "This is a bio"
+        }
     }
-  }
 }
 ```
+
 ### Noteworthy attributes
 
 | Attribute | Description |
@@ -261,6 +263,7 @@ List all of an organization's applications.
 | created_after | Return only applications that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | last_activity_after | Return only applications where 'last_activity_at' is at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | job_id | If supplied, only return applications that involve this job. Will return both candidates and prospects.
+| status | If supplied, only return applications that match this status. Accepted values are active, converted, hired, and rejected. If anything else is used, an empty response will be returned rather than an error.
 
 <br>
 [See noteworthy response attributes.](#the-application-object)
@@ -806,6 +809,115 @@ from_stage_id | Yes | integer | The ID of the job stage this application is curr
 to_stage_id | Yes | integer | The ID of the job stage this application should be moved to.
 
 <br>
+
+[See noteworthy response attributes.] (#the-application-object)
+
+## POST: Hire Application
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "start_date": "2017-03-15",
+  "opening_id": 454,
+  "close_reason_id": 43432
+}
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "id": 48206478,
+  "candidate_id": 36952451,
+  "prospect": false,
+  "applied_at": "2017-02-01T14:26:02.282Z",
+  "rejected_at": null,
+  "last_activity_at": "2017-02-01T14:51:12.670Z",
+  "location": { 
+    "address": "New York, New York, USA" 
+  },
+  "source": {
+    "id": 33,
+    "public_name": "Glassdoor"
+  },
+  "credited_to": null,
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 211706,
+      "name": "Community Manager - New York"
+    }
+  ],
+  "status": "hired",
+  "current_stage": null,
+  "answers": [
+    {
+      "question": "How many years experience do you have?",
+      "answer": "2-4"
+    },
+    {
+      "question": "Can do you the travel required for this job?",
+      "answer": "Yes"
+    }
+  ],
+  "prospect_detail": {
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
+  },
+  "custom_fields": {
+    "current_title": "Community Manager",
+    "requires_visa_sponsorship?": false
+  },
+  "keyed_custom_fields": {
+    "current_title": {
+      "name": "Current Title",
+      "type": "short_text",
+      "value": "Community Manager"
+    },
+    "requires_visa_sponsorship_": {
+      "name": "Requires visa sponsorship?",
+      "type": "boolean",
+      "value": false
+    }
+  }
+}
+```
+
+Hire this application. The application must not be a prospect and all approvals for the job and offer must have occurred. 
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/applications/{id}/hire`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+start_date | No* | string | The start_date of the employee. Must be in the format YYYY-MM-DD
+opening_id | No | integer | An opening ID to fill with this hire. This is the unique Greenhouse id of the opening (id in the openings endpoint) and not the human readable opening id text. If no opening is provided one will be selected.
+close_reason_id | No | integer | The close reason to assign to the opening that will be closed with this hire.
+
+* - Start date may be required if the organization requires offers to have start dates and the application's current offer does not have one set.
+
+<br>
+
+Note that "current_stage" in the response JSON is null. A hired application no longer has a current stage.
 
 [See noteworthy response attributes.] (#the-application-object)
 
