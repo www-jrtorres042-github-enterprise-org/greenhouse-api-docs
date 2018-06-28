@@ -409,6 +409,7 @@ List all of an organization's jobs.
 | updated_after | Return only jobs that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | requisition_id | If included, will return only the jobs that match the given requisition_id
 | opening_id | If included, will return only the jobs that contain at least one opening with the given opening_id.
+| status | One of 'open', 'closed', or 'draft'. If included, will only return jobs with that status.
 
 <br>
 [See noteworthy response attributes.](#the-job-object)
