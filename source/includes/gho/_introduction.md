@@ -50,9 +50,39 @@ on the API Management screen.
 The Greenhouse Onboarding API imposes limits on the the number of requests a single client can send us, as well as the
 complexity of these requests.  This is done to ensure our servers can always service requests as quickly as possible.
 
-### Request Costs
+### Request Limits
+```graphql
+# Retrieve an employee's email address as well as the 
+# current rate limit information
+{
+  employee(id: 1) {
+    email
+  }
+  rateLimit {
+    cost
+    limit
+    remaining
+    resetAt
+  }
+}
 
-```json
+# The response
+{
+  "data": {
+    "employee": {
+      "email": "email@example.com"
+    },
+    "rateLimit": {
+      "cost": 1,
+      "limit": 1000,
+      "remaining": 999,
+      "resetAt": "2018-07-03T18:00:00Z"
+    }
+  }
+}
+
+# If the rate limit is ever exceeded, the request will be rejected, 
+# and the response will contain the following
 {
   "errors": [
     {
@@ -65,52 +95,62 @@ complexity of these requests.  This is done to ensure our servers can always ser
 }
 ```
 
-GraphQL gives clients the ability to specify the exact data to be returned in each request.  This means that some
-requests can query lots of data, while others are much simpler and only return a handful of fields.  For this reason,
-a simple rate-limiting protocol of "X requests per hour" is not a good fit.
+As in a typical REST API, we limit the number of requests that a consumer can make in a given time period. This
+information is exposed in the API through the `rateLimit` query (see the example to the right).  The `rateLimit` object
+contains the `cost` of the request (which will always be 1), the `limit` (the total number of requests allowed in an
+hour), the `remaining` requests for the current hour, and the `resetAt` timestamp (which indicates when the number of
+requests will be replenished).
 
-Instead, each API key is given a budget of "API points" that can be spent on requests.  Each request can have a separate
-cost.  Once the API key has run out of points, all further requests will return an error message stating that requests
-are now being throttled.
+If the rate limit is exceeded, the request will be rejected (see the example response to the right).
 
-This message indicates the total number of API points this API key has in its budget and when the API points will
-be restored to the maximum limit.
-
-```graphql
+### Maximum Complexity
+```
+# Say we had the following query:
 {
-  employee(id: 1) {
+  employee(id: 25) {
     email
   }
+}
 
-  rateLimit {
-    cost
-    limit
-    remaining
+# To request the complexity score of this query, simply 
+# include complexityInfo as such:
+{
+  employee(id: 25) {
+    email
+  }
+  complexityInfo {
+    score
+    maximum
   }
 }
-```
 
-```json
+# The response:
 {
   "data": {
-     "employee": {
-       "email": "test@example.com"
+    "employee": {
+      "email": "email_address@example.com"
     },
-    "rateLimit": {
-      "cost": 1,
-      "limit": 100,
-      "remaining": 99
+    "complexityInfo": {
+      "score": 1,
+      "maximum": 2500
     }
   }
 }
 ```
-Clients can ask for this information before their requests have been throttled by querying for the `rateLimit` object.
+GraphQL gives clients the ability to specify the exact data to be returned in each request.  This means that some
+requests can query lots of data, while others are much simpler and only return a handful of fields.  For this reason,
+a simple rate-limiting protocol of "X requests per hour" alone is not a good fit.
+
+While we limit the number of requests made over time (described above), we also limit the complexity of any given 
+request.  The more complex the query, the higher its complexity `score`. If this `score` exceeds our 
+`maximum`, the request will be rejected and an error response will be returned.
+
 In general, the more complex a query, the higher its cost.  We reserve the right to change the costs for each query,
-and the budgets for API keys, at any time.
+and the budgets for API keys, at any time. However, for the time being, a query's complexity score can be estimated like so:
 
-### Maximum Depth
-
-The Greenhouse Onboarding API limits the maximum depth of any request to 10.
+* For non-connections (e.g. an `employee` or a `department` query) - simply add up each field being requested.
+* For connections (e.g an `employees` or `departments` query) - add up all requested fields and multiply by the number
+of requested records (e.g. the `first` or `last` argument)
 
 ## A Basic Request
 ```graphql
