@@ -108,9 +108,55 @@ Clients can ask for this information before their requests have been throttled b
 In general, the more complex a query, the higher its cost.  We reserve the right to change the costs for each query,
 and the budgets for API keys, at any time.
 
-### Maximum Depth
+### Maximum Complexity
 
-The Greenhouse Onboarding API limits the maximum depth of any request to 10.
+```
+# Say we had the following query:
+{
+  employee(id: 25) {
+    email
+  }
+}
+
+# To request the complexity score of this query, simply 
+# include complexityInfo as such:
+{
+  employee(id: 25) {
+    email
+  }
+  complexityInfo {
+    score
+    maximum
+  }
+}
+
+# The response:
+{
+  "data": {
+    "employee": {
+      "email": "email_address@example.com"
+    },
+    "complexityInfo": {
+      "score": 1,
+      "maximum": 2500
+    }
+  }
+}
+```
+
+In addition to limiting the number of points used in a given time period, we limit the "complexity" of any given 
+request. The more complex the query, the higher its complexity score. If this score exceeds our maximum, the request 
+will be rejected and an error response will be returned.
+
+In general, the more complex a query, the higher its cost. We reserve the right to change the costs for each query, 
+and the budgets for API keys, at any time. However, for the time being, a query's complexity score can be estimated 
+like so:
+
+For non-connections (e.g. an employee or a department query)
+  - simply add up each field being requested.
+  
+For connections (e.g an employees or departments query)
+  - add up all requested fields and multiply by the number of requested records (e.g. the first or last argument)
 
 ## A Basic Request
 ```graphql
