@@ -47,11 +47,6 @@ on the API Management screen.
 
 ## Rate Limiting
 
-The Greenhouse Onboarding API imposes limits on the the number of requests a single client can send us, as well as the
-complexity of these requests.  This is done to ensure our servers can always service requests as quickly as possible.
-
-### Request Costs
-
 ```json
 {
   "errors": [
@@ -65,16 +60,10 @@ complexity of these requests.  This is done to ensure our servers can always ser
 }
 ```
 
-GraphQL gives clients the ability to specify the exact data to be returned in each request.  This means that some
-requests can query lots of data, while others are much simpler and only return a handful of fields.  For this reason,
-a simple rate-limiting protocol of "X requests per hour" is not a good fit.
+The Greenhouse Onboarding API imposes limits on the amount of data a single client can request over time, as well as the
+complexity of individual requests.  This is done to ensure our servers can always service requests as quickly as possible.
 
-Instead, each API key is given a budget of "API points" that can be spent on requests.  Each request can have a separate
-cost.  Once the API key has run out of points, all further requests will return an error message stating that requests
-are now being throttled.
-
-This message indicates the total number of API points this API key has in its budget and when the API points will
-be restored to the maximum limit.
+### Request Costs
 
 ```graphql
 {
@@ -104,8 +93,20 @@ be restored to the maximum limit.
   }
 }
 ```
-Clients can ask for this information before their requests have been throttled by querying for the `rateLimit` object.
-In general, the more complex a query, the higher its cost.  We reserve the right to change the costs for each query,
+
+GraphQL gives clients the ability to specify the exact data to be returned in each request.  This means that some
+requests can query lots of data, while others are much simpler and only return a handful of fields.  For this reason,
+a simple rate-limiting protocol of "X requests per hour" is not a good fit.
+
+Instead, each API key is given a budget of "API points" that can be spent on requests.  Each request can have a separate
+cost.  Once the API key has run out of points, all further requests will return an error message stating that requests
+are now being throttled.
+
+This message indicates the total number of API points this API key has in its budget and when the API points will
+be restored to the maximum limit.
+
+Clients can ask for this information by querying for the `rateLimit` object.
+In general, the more involved a query, the higher its cost.  We reserve the right to change the costs for each query,
 and the budgets for API keys, at any time.
 
 ### Maximum Complexity
@@ -144,19 +145,19 @@ and the budgets for API keys, at any time.
 }
 ```
 
-In addition to limiting the number of points used in a given time period, we limit the "complexity" of any given 
-request. The more complex the query, the higher its complexity score. If this score exceeds our maximum, the request 
-will be rejected and an error response will be returned.
+In addition to limiting the number of API points used in a given time period, we limit the "complexity" of any given 
+request. If this score exceeds our maximum, the request will be rejected and an error response will be returned.
 
-In general, the more complex a query, the higher its cost. We reserve the right to change the costs for each query, 
-and the budgets for API keys, at any time. However, for the time being, a query's complexity score can be estimated 
-like so:
+We reserve the right to adjust the complexity score of any given field at any time. However, for the time being, a 
+query's complexity score can be estimated like so:
 
-For non-connections (e.g. an employee or a department query)
-  - simply add up each field being requested.
+* For non-connections (e.g. an employee or a department query): simply add up each field being requested.
   
-For connections (e.g an employees or departments query)
-  - add up all requested fields and multiply by the number of requested records (e.g. the first or last argument)
+* For connections (e.g an employees or departments query): add up all requested fields and multiply by the number of 
+requested records (e.g. the `first` or `last` argument)
+  
+Clients can determine a query's complexity score by also requesting the `complexityInfo` object (see example to the
+right).
 
 ## A Basic Request
 ```graphql
