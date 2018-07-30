@@ -149,19 +149,22 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
         "departments": [
           {
             "id": 7,
-            "name": "Technology"
+            "name": "Technology",
+            "external_id": "ex-dept-1"
           }
         ],
         "offices": [
           {
             "id": 13,
             "name": "New York City",
-            "location": "New York, NY"
+            "location": "New York, NY",
+            "external_id": "ex-office-1"
           },
           {
             "id": 14,
             "name": "St. Louis",
-            "location": null
+            "location": null,
+            "external_id": null
           }
         ],
         "custom_fields": {
@@ -196,19 +199,22 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
           "departments": [
             {
               "id": 7,
-              "name": "Technology"
+              "name": "Technology",
+              "external_id": "ex-dept-1"
             }
           ],
           "offices": [
             {
               "id": 13,
               "name": "New York City",
-              "location": "New York, NY"
+              "location": "New York, NY",
+              "external_id": "ex-office-1"
             },
             {
               "id": 14,
               "name": "St. Louis",
-              "location": null
+              "location": null,
+              "external_id": null
             }
           ],
           "custom_fields": {
@@ -485,14 +491,16 @@ This web hook will fire when a candidate or prospect is merged with another cand
           "departments": [
             {
               "id": 237,
-              "name": "Community"
+              "name": "Community",
+              "external_id": "ex-dept-1"
             }
           ],
           "offices": [
             {
               "id": 54,
               "name": "New York",
-              "location": "New York, NY"
+              "location": "New York, NY",
+              "external_id": "ex-office-1"
             }
           ],
           "custom_fields": {
@@ -639,14 +647,16 @@ See web hook [common attributes](#common-attributes).
           "departments": [
             {
               "id": 14501,
-              "name": "Community"
+              "name": "Community",
+              "external_id": "ex-dept-1"
             }
           ],
           "offices": [
             {
               "id": 9099,
               "name": "New York",
-              "location": "New York, NY"
+              "location": "New York, NY",
+              "external_id": "ex-office-1"
             }
           ],
           "custom_fields": {
@@ -790,14 +800,16 @@ See web hook [common attributes](#common-attributes).
           "departments": [
             {
               "id": 237,
-              "name": "Community"
+              "name": "Community",
+              "external_id": "ex-dept-1"
             }
           ],
           "offices": [
             {
               "id": 9099,
               "name": "New York",
-              "location": "New York, NY"
+              "location": "New York, NY",
+              "external_id": "ex-office-1"
             }
           ],
           "custom_fields": {
@@ -926,14 +938,16 @@ See web hook [common attributes](#common-attributes).
           "departments": [
             {
               "id": 237,
-              "name": "Community"
+              "name": "Community",
+              "external_id": "ex-dept-1"
             }
           ],
           "offices": [
             {
               "id": 9099,
               "name": "New York",
-              "location": "New York, NY"
+              "location": "New York, NY",
+              "external_id": "ex-office-1"
             }
           ],
           "custom_fields": {
@@ -1175,14 +1189,16 @@ See web hook [common attributes](#common-attributes).
           "departments": [
             {
               "id": 237,
-              "name": "Community"
+              "name": "Community",
+              "external_id": "ex-dept-1"
             }
           ],
           "offices": [
             {
               "id": 54,
               "name": "New York",
-              "location": "New York, NY"
+              "location": "New York, NY",
+              "external_id": "ex-office-1"
             }
           ],
           "custom_fields": {

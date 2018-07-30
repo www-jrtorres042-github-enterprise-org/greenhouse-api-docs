@@ -14,7 +14,8 @@ This web hook fires when departments are deleted from the Greenhouse system from
       "child_ids": [
         23328
       ],
-      "parent_id": 5
+      "parent_id": 5,
+      "external_id": "ex-office-1"
     }
   }
 }
@@ -47,7 +48,8 @@ This web hook fires when offices are deleted from the Greenhouse system from the
         123,
         456
       ],
-      "parent_id": 789
+      "parent_id": 789,
+      "external_id": "ex-dep-1"
     }
   }
 }

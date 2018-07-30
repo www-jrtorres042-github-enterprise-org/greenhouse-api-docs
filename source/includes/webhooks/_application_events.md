@@ -185,14 +185,16 @@
           "departments": [
             {
               "id": 8717,
-              "name": "Data Science"
+              "name": "Data Science",
+              "external_id": "ex-dept-1"
             }
           ],
           "offices": [
             {
               "id": 16478,
               "name": "London",
-              "location": "London, United Kingdom"
+              "location": "London, United Kingdom",
+              "external_id": "ex-office-1"
             }
           ],
           "hiring_team": {
