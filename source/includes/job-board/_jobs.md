@@ -232,7 +232,7 @@ job_id | ID of the job to retrieve
 
 Parameter | Description
 --------- | -----------
-*questions | If set to `true`, include an array of job application fields `questions`. If the job post has `location` set to `optional` or `required`, an array of questions used to capture the applicant's location, `location_questions`, is also included.
+*questions | If set to `true`, include additional fields in the response:<br><br>- `questions`: An array of custom questions defined for this job post<br>- `location_questions`: An array of questions used to capture the applicant's location (included only if the job post has the location configured as "optional" or "required")<br>- `compliance`: An array of questions used by government contractors to capture applicant information to comply with EEOC regulations (included only if the job post has EEOC questions enabled)
 
 ### Questions
 
