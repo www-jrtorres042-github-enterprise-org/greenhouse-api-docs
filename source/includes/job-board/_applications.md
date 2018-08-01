@@ -118,8 +118,8 @@ curl -X POST \
         "end_date": { "month": "2", "year": "2012"}
       }
     ],
-     "employments": [
-    {
+    "employments": [
+      {
         "company_name": "Business Co.",
         "title": "Sales Manager",
         "start_date": {
@@ -131,7 +131,8 @@ curl -X POST \
           "year": "2018"
         },
         "current": "false"
-    },
+      }
+    ],
     "mapped_url_token":"token12345"
   }' \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
