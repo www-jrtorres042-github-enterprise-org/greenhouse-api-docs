@@ -4,15 +4,22 @@
 
 ```json
 {
-  "id":127817,
-  "internal_job_id":144381,
-  "title":"Bad Cop",
-  "updated_at":"2016-01-14T10:55:28-05:00",
-  "location":{
-    "name":"NYC"
-  },
-  "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
-  "metadata":null
+  "jobs": [
+    {
+      "id":127817,
+      "internal_job_id":144381,
+      "title":"Bad Cop",
+      "updated_at":"2016-01-14T10:55:28-05:00",
+      "location":{
+        "name":"NYC"
+      },
+      "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
+      "metadata":null
+    }
+  ],
+  "meta": {
+    "total": 1
+  }
 }
 ```
 
@@ -20,52 +27,59 @@
 
 ```json
 {
-  "id":127817,
-  "internal_job_id":144381,
-  "title":"Bad Cop",
-  "updated_at":"2016-01-14T10:55:28-05:00",
-  "location":{
-    "name":"NYC"
-  },
-  "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
-  "metadata":null,
-  "content":"&lt;p&gt;The Rule Enforcement team is dedicated to keeping all employees in line. &amp;nbsp;Rule enforcers use&amp;nbsp;various tactics such as physical intimidation, awkward pauses, and dramatic coffee sips in order to make sure everyone does what they&#39;re told.",
-  "departments":[
+  "jobs": [
     {
-      "id":13583,
-      "name":"Department of Departments",
-      "parent_id":null,
-      "child_ids":[
-        13585
-      ]
-    },
-    {
-      "id":13585,
-      "name":"Rule Enforcement",
-      "parent_id":13583,
-      "child_ids":[
+      "id":127817,
+      "internal_job_id":144381,
+      "title":"Bad Cop",
+      "updated_at":"2016-01-14T10:55:28-05:00",
+      "location":{
+        "name":"NYC"
+      },
+      "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
+      "metadata":null,
+      "content":"&lt;p&gt;The Rule Enforcement team is dedicated to keeping all employees in line. &amp;nbsp;Rule enforcers use&amp;nbsp;various tactics such as physical intimidation, awkward pauses, and dramatic coffee sips in order to make sure everyone does what they&#39;re told.",
+      "departments":[
+        {
+          "id":13583,
+          "name":"Department of Departments",
+          "parent_id":null,
+          "child_ids":[
+            13585
+          ]
+        },
+        {
+          "id":13585,
+          "name":"Rule Enforcement",
+          "parent_id":13583,
+          "child_ids":[
+          ]
+        }
+      ],
+      "offices":[
+        {
+          "id":8304,
+          "name":"East Coast",
+          "location":"United States",
+          "parent_id":null,
+          "child_ids":[
+            8787
+          ]
+        },
+        {
+          "id":8787,
+          "name":"New York City",
+          "location":"New York, NY, United States",
+          "parent_id":8304,
+          "child_ids":[
+          ]
+        }
       ]
     }
   ],
-  "offices":[
-    {
-      "id":8304,
-      "name":"East Coast",
-      "location":"United States",
-      "parent_id":null,
-      "child_ids":[
-        8787
-      ]
-    },
-    {
-      "id":8787,
-      "name":"New York City",
-      "location":"New York, NY, United States",
-      "parent_id":8304,
-      "child_ids":[
-      ]
-    }
-  ]
+  "meta": {
+    "total": 1
+  }
 }
 ```
 
