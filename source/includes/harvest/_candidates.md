@@ -86,8 +86,8 @@ An organization's candidates.
             "applied_at": "2017-09-27T12:03:02.728Z",
             "rejected_at": "2017-09-27T12:11:40.877Z",
             "last_activity_at": "2017-09-28T12:29:30.481Z",
-            "location": { 
-                "address": "New York, New York, USA" 
+            "location": {
+                "address": "New York, New York, USA"
             },
             "source": {
                 "id": 16,
@@ -335,8 +335,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
             "applied_at": "2017-09-27T12:21:37.234Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T12:29:30.481Z",
-            "location": { 
-                "address": "New York, New York, USA" 
+            "location": {
+                "address": "New York, New York, USA"
             },
             "source": {
                 "id": 16,
@@ -456,7 +456,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
             "value": "2018"
         }
      }
-  } 
+  }
 ]
 ```
 
@@ -575,8 +575,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "applied_at": "2017-09-27T12:03:02.728Z",
             "rejected_at": "2017-09-27T12:11:40.877Z",
             "last_activity_at": "2017-09-28T12:29:30.481Z",
-            "location": { 
-                "address": "New York, New York, USA" 
+            "location": {
+                "address": "New York, New York, USA"
             },
             "source": {
                 "id": 16,
@@ -928,8 +928,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
               "applied_at": "2017-08-15T03:31:46.637Z",
               "rejected_at": null,
               "last_activity_at": "2017-09-28T12:54:34.243Z",
-              "location": { 
-                  "address": "New York, New York, USA" 
+              "location": {
+                  "address": "New York, New York, USA"
               },
               "source": {
                   "id": 12,
@@ -1252,8 +1252,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
             "applied_at": "2017-09-28T13:27:54.873Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T13:27:55.213Z",
-            "location": { 
-                "address": "New York, New York, USA" 
+            "location": {
+                "address": "New York, New York, USA"
             },
             "source": null,
             "credited_to": null,
@@ -1667,8 +1667,8 @@ Parameter | Required | Type | Description
 school_id | Yes | integer |  The ID of the college attended; from the GET schools endpoint
 discipline_id | Yes | integer | The ID of the discipline of the candidate's education; from the GET disciplines endpoint.
 degree_id | Yes | integer | The type of degree received; from the GET degrees endpoint
-start_date | Yes | DateTime | The date the candidate began attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
-end_date | Yes | DateTime | The date the candidate finished attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
+start_date | Yes | DateTime | The date the candidate began attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.*
+end_date | Yes | DateTime | The date the candidate finished attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.*
 
 * - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but only Month and Year will be displayed on the candidate profile in Greenhouse. The "latest education" will be updated automatically. Day and time information in these timestamps will be recorded but not referenced in Greenhouse.
 
@@ -1753,10 +1753,10 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 company_name | Yes | String |  A free text field indicating an employer's name
 title | Yes | String | A free text field indicating the candidate's title while at the employer.
-start_date | Yes | DateTime | The date the candidate began at employer. Timestamp must be in in [ISO-8601] (#general-considerations) format.* 
+start_date | Yes | DateTime | The date the candidate began at employer. Timestamp must be in in [ISO-8601] (#general-considerations) format.*
 end_date | No | DateTime | The date the candidate finished at employer. Timestamp must be in in [ISO-8601] (#general-considerations) format.* An empty end_date indicates current employment.
 
-* - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but time will be ignored in the context of employment. The "latest employment" will be updated automatically. 
+* - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but time will be ignored in the context of employment. The "latest employment" will be updated automatically.
 
 
 ## DELETE: Remove Employment From Candidate
@@ -2193,7 +2193,7 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, offers, credited_to, headline, all_offer_versions, follow_up_reminders, candidate_photo, custom_application_fields, education, employment, candidate_stage_data, prospect_owner, custom_rejection_question_fields, touchpoints, prospect_pool_and_stage, prospect_jobs, prospect_offices, and prospect_offices_and_departments
+fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, offers, credited_to, headline, all_offer_versions, follow_up_reminders, candidate_photo, custom_application_fields, education, employment, candidate_stage_data, prospect_owner, custom_rejection_question_fields, touchpoints, prospect_pool_and_stage, prospect_jobs, prospect_offices, prospect_offices_and_departments, and third_party_integrations
 
 
 ## PUT: Merge Candidates
@@ -2208,9 +2208,9 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
 > The above command takes a JSON request, structured like this:
 
 ```json
-{ 
-    "primary_candidate_id": 73821, 
-    "duplicate_candidate_id": 839283 
+{
+    "primary_candidate_id": 73821,
+    "duplicate_candidate_id": 839283
 }
 ```
 
@@ -2276,8 +2276,8 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
             "applied_at": "2017-09-07T23:00:25.746Z",
             "rejected_at": null,
             "last_activity_at": "2017-09-28T13:41:43.631Z",
-            "location": { 
-                "address": "New York, New York, USA" 
+            "location": {
+                "address": "New York, New York, USA"
             },
             "source": {
                 "id": 7,

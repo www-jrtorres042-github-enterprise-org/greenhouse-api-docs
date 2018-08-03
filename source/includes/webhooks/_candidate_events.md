@@ -1205,7 +1205,7 @@ See web hook [common attributes](#common-attributes).
 
 ## Candidate anonymized
 
-This web hook will fire when a particular candidate receives an anonymize event. Anonymize events may occur from the [Anonymize Endpoint](#put-anonymize-candidate) in Harvest or may be configured in the GDPR page in the Greenhouse application. An anonymize web hook consists of the action type, the id of the candidate who had properties anonymized, and the information that was anonymized. 
+This web hook will fire when a particular candidate receives an anonymize event. Anonymize events may occur from the [Anonymize Endpoint](#put-anonymize-candidate) in Harvest or may be configured in the GDPR page in the Greenhouse application. An anonymize web hook consists of the action type, the id of the candidate who had properties anonymized, and the information that was anonymized.
 
 ```json
 {
@@ -1263,5 +1263,6 @@ A list of possible anonymized fields are provided. If the item in "attribute" is
 | `social_media_links` | Remove all values from `candidate.social_media_addresses` |
 | `source` | Remove `application.source` in all this candidate's applications. |
 | `tags` | Remove all values from `candidate.tags` |
+| `third_party_integrations` | Disconnect the candidate's profile from the LinkedIn CSA and RSC integrations. |
 | `touchpoints` | Destroy all touchpoints on the candidate, all the candidate's applications, and any notes associated with touchpoints. |
 | `websites` | Remove all values from `candidate.website_addresses` |
