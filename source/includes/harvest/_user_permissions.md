@@ -179,7 +179,9 @@ The user role a user will get when a job with the specified criteria is created.
 {
   "id": 87819,
   "office_id": 29192,
+  "external_office_id": "ex-office-1",
   "department_id": 23425,
+  "external_department_id": "ex-dept-1",
   "user_role_id": 4730
 }
 ```
@@ -190,8 +192,10 @@ The user role a user will get when a job with the specified criteria is created.
 |-----------|-------------|
 | id | The future job permission's unique identifier |
 | office_id | The ID of the office of the job |
+| external_office_id | The ID of the office in an external system. This is set by users and has no bearing on any other object in Greenhouse. If not set in Greenhouse, this will be null. |
 | department_id | The ID of the department of the job|
-| user\_role\_id | The ID of the user role that will be granted|
+| external_department_id | The ID of the department in an external system. This is set by users and has no bearing on any other object in Greenhouse. If not set in Greenhouse, this will be null. |
+| user\_role\_id | The ID of the user role that will be granted |
 
 
 ## GET: List Future Job Permissions
@@ -206,19 +210,25 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs'
   {
     "id": 87819,
     "office_id": 24141,
+    "external_office_id": "ex-office-1",
     "department_id": 12315,
+    "external_department_id": "ex-dept-1",
     "user_role_id": 4730
   },
   {
     "id": 92834,
     "office_id": 8232,
+    "external_office_id": "ex-office-2",
     "department_id": 12315,
+    "external_department_id": "ex-dept-2",
     "user_role_id": 4730
   },
   {
     "id": 82129,
     "office_id": 8232,
+    "external_office_id": "ex-office-2",
     "department_id": 92921,
+    "external_department_id": null,
     "user_role_id": 4730
   }
 ]
@@ -305,7 +315,9 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/users/{id}/permissions/future_jobs
 {
   "id": 9283,
   "office_id": 281921,
+  "external_office_id": "ex-office-1",
   "department_id": 61921,
+  "external_department_id": "ex-dept-1",
   "user_role_id": 91821
 }
 ```
