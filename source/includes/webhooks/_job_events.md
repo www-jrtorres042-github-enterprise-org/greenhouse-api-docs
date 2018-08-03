@@ -19,19 +19,22 @@
       "departments": [
         {
           "id": 7,
-          "name": "Technology"
+          "name": "Technology",
+          "external_id": "ex-dept-1"
         }
       ],
       "offices": [
         {
           "id": 13,
           "name": "New York City",
-          "location": "New York, NY"
+          "location": "New York, NY",
+          "external_id": "ex-office-1"
         },
         {
           "id": 14,
           "name": "St. Louis",
-          "location": null
+          "location": null,
+          "external_id": null
         }
       ],
       "hiring_team": {
@@ -128,14 +131,16 @@ This web hook only fires when jobs are deleted from the Greenhouse system. This 
       "departments": [
         {
           "id": 74,
-          "name": "Guideshops"
+          "name": "Guideshops",
+          "external_id": "ex-dept-1"
         }
       ],
       "offices": [
         {
           "id": 104,
           "name": "New York",
-          "location": "New York, NY"
+          "location": "New York, NY",
+          "external_id": "ex-office-1"
         }
       ],
       "hiring_team": {
@@ -214,14 +219,16 @@ The Job Updated event is triggered any time one or more of the following fields 
       "departments": [
         {
           "id": 74,
-          "name": "Guideshops"
+          "name": "Guideshops",
+          "external_id": "ex-dept-1"
         }
       ],
       "offices": [
         {
           "id": 104,
           "name": "New York",
-          "location": "New York, NY"
+          "location": "New York, NY",
+          "external_id": "ex-office-1"
         }
       ],
       "hiring_team": {
