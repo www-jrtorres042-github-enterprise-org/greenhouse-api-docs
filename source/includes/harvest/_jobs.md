@@ -1229,7 +1229,9 @@ number_of_openings | Yes | Number | The number of openings that will be created 
 job_post_name | No | String | This will be the name on the new job post. If this is not included, the job post names in the base job will be copied.
 job_name | No | String | This is the internal name of the new job.  If this is not included, the name of the new job will be "Copy Of (the template job's name)"
 department_id | No | Number | The department of the new job. This should be a department id from the Departments endpoint. If this element is omitted, the new job will receive the department of the template job. If this element is included but blank, it will create the job with no departments. If the organization requires jobs to have a department, this case will return a 422 response.
+external_department_id | No | String | This may be used instead of department_id and represents the ID of the department in an external system. If this is used, department_id must be blank and vice versa.
 office_ids | No | Array[Numbers] | The offices of the new job. These should be office ids from the Offices endpoint. If this element is omitted, the new job will receive the offices of the template job.  If this element is included but blank, it will create the job with no offices. If the organization requires jobs to have an office, this case will return a 422 response.
+external_office_ids | No | Array[Srings] | This may be used instead of office_ids and represents the IDs of the offices in an external system. If this is used, office_ids must be blank and vice versa.
 requisition_id | No | String | A requisition id for this job.
 opening_ids | No | Array[Strings] | An array of opening ids for the new job. If this is included, the number of opening ids in this array must match the number_of_openings element.
 
