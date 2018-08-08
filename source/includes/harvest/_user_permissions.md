@@ -339,5 +339,7 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 office_id | No | integer | The ID of the office. Set to null to include all offices.
+external_office_id | No | string | An ID that represents the office in an external system. This may be used instead of office_id. If included, office_id must be blank, and vice versa.
 department_id | No | integer | The ID of the department. Set to null to include all departments.
+external_department_id | No | string | This may be used instead of department_id. If included, department_id must be blank, and vice versa.
 user\_role\_id | Yes | integer | The ID of the user role
