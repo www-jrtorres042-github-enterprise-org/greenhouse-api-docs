@@ -634,7 +634,9 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
    "team_and_responsibilities": "Info",
    "how_to_sell_this_job": "the snacks",
    "office_ids": [1556],
+   "external_office_ids": ["office-1"],
    "department_id": 74,
+   "external_department_id": "dept-1",
    "custom_fields": [
     {
         "id": 1234,
@@ -675,7 +677,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
           "child_ids": [
               14510
           ],
-          "external_id": "12345"
+          "external_id": "dept-1"
       }
   ],
   "offices": [
@@ -691,7 +693,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
               50852,
               50891
           ],
-          "external_id": "15679"
+          "external_id": "office-1"
       }
   ],
   "custom_fields": {
@@ -861,7 +863,9 @@ team_and_responsibilities | No | string | A description of the team the candidat
 how_to_sell_this_job | No | string | A description for the recruiter of the desirable aspects of the job
 custom_fields | No | custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
 office_ids | No | Array | Replace the current offices for this job with new offices. If your organization requires at least one office, trying to set this to blank will return an error.
+external_office_ids | No | Array | This may be used instead of office_ids and represents the ID of the office in an external system. If this is used, office_id must be blank and vice versa.
 department_id* | No | number | Replace the current department for this job with a different department.
+external_department_id* | No | string | This may be used instead of department_id and represents the ID of the department in an external system. If used, department_id must be blank and vice versa.
 
 * - Updates to these fields may re-trigger approvals. For approvals to start recruiting, this will reset approvals only if the job is in draft mode. If the job is open for hiring, these approvals will not reset. For official job approvals, this will reset approvals only if the job is open.
 
