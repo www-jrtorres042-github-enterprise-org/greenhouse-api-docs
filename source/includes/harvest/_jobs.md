@@ -410,6 +410,10 @@ List all of an organization's jobs.
 | requisition_id | If included, will return only the jobs that match the given requisition_id
 | opening_id | If included, will return only the jobs that contain at least one opening with the given opening_id.
 | status | One of 'open', 'closed', or 'draft'. If included, will only return jobs with that status.
+| department_id | If included, will return only the jobs in this specific department.
+| external_department_id | This may be used instead of department_id and represents the ID of the department in an external system.
+| office_id | If included, will return only the jobs in this specific office.
+| external_office_id | This may be used instead of office_id and represents the ID of the office in an external system.
 
 <br>
 [See noteworthy response attributes.](#the-job-object)
@@ -1049,12 +1053,12 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs'
    "job_name": "Internal Name That Appears On Hiring Plans",
    "department_id": 123,
    "office_ids": [
-      234, 
+      234,
       345
     ],
    "requisition_id": "abc-123",
    "opening_ids": [
-      "abc-123-1", 
+      "abc-123-1",
       "abc-123-2"
     ]
 }
