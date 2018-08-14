@@ -22,7 +22,15 @@ An organization's approvals
       "resolved_at": null,
       "priority": 1,
       "job_id": 12321,
-      "offer_id": null
+      "offer_id": null,
+      "approvers": [
+        {
+          "id": 1234,
+          "name": "Michael Clayton",
+          "employee_id": "abc-123",
+          "email_addresses": ["mclayton@example.com"]
+        }
+      ]
     },
     {
       "id": 2011241,
@@ -31,7 +39,15 @@ An organization's approvals
       "resolved_at": "2018-03-30T19:34:17.374Z",
       "priority": 0,
       "job_id": 12321,
-      "offer_id": null
+      "offer_id": null,
+      "approvers": [
+        {
+          "id": 1235,
+          "name": "Clay Michaels",
+          "employee_id": "abc-124",
+          "email_addresses": ["cmichaels@example.com"]
+        }
+      ]
     }
   ]
 }
@@ -76,7 +92,15 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
                 "resolved_at": null,
                 "priority": 1,
                 "job_id": 12321,
-                "offer_id": null
+                "offer_id": null,
+                "approvers": [
+                  {
+                    "id": 1234,
+                    "name": "Michael Clayton",
+                    "employee_id": "abc-123",
+                    "email_addresses": ["mclayton@example.com"]
+                  }
+               ]
             },
             {
                 "id": 2011241,
@@ -85,7 +109,15 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
                 "resolved_at": "2018-03-30T19:34:17.374Z",
                 "priority": 0,
                 "job_id": 12321,
-                "offer_id": null
+                "offer_id": null,
+                "approvers": [
+                  {
+                    "id": 1235,
+                    "name": "Clay Michaels",
+                    "employee_id": "abc-124",
+                    "email_addresses": ["cmichaels@example.com"]
+                  }
+               ]
             }
         ]
     },
@@ -106,7 +138,15 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
                 "resolved_at": null,
                 "priority": 1,
                 "job_id": 12321,
-                "offer_id": null
+                "offer_id": null,
+                "approvers": [
+                  {
+                    "id": 1234,
+                    "name": "Michael Clayton",
+                    "employee_id": "abc-123",
+                    "email_addresses": ["mclayton@example.com"]
+                  }
+               ]
             },
         ]
     }
@@ -153,7 +193,15 @@ curl 'https://harvest.greenhouse.io/v1/approval_flows/{id}'
       "resolved_at": null,
       "priority": 1,
       "job_id": 12321,
-      "offer_id": null
+      "offer_id": null,
+      "approvers": [
+        {
+          "id": 1234,
+          "name": "Michael Clayton",
+          "employee_id": "abc-123",
+          "email_addresses": ["mclayton@example.com"]
+        }
+      ]
     },
     {
       "id": 2011241,
@@ -162,7 +210,15 @@ curl 'https://harvest.greenhouse.io/v1/approval_flows/{id}'
       "resolved_at": "2018-03-30T19:34:17.374Z",
       "priority": 0,
       "job_id": 12321,
-      "offer_id": null
+      "offer_id": null,
+      "approvers": [
+        {
+          "id": 1235,
+          "name": "Clay Michaels",
+          "employee_id": "abc-125",
+          "email_addresses": ["cmichaels@example.com"]
+        }
+      ]
     }
   ]
 }
