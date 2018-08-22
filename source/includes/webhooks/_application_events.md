@@ -452,6 +452,35 @@ This web hook fires when creating a new offer in Greenhouse. This may also fire 
 }
 ```
 
+## Offer approved
+
+This web hook fires when an offer requires approval and the approval is received. 
+
+```json
+{
+    "action": "offer_approved",
+    "payload": {
+        "id": 12345,
+        "application_id": 234556,
+        "job_id": 45678,
+        "user_id": 67890,
+        "version": 1,
+        "sent_on": "2013-03-22",
+        "resolved_at": "2013-03-25T00:00:00Z",
+        "start_date": "04/15/2013",
+        "notes": "Vacation scheduled 4/20 - 4/23",
+        "offer_status": "Accepted",
+        "custom_fields": {
+            "custom_application_field": {
+                "name": "Custom Application Field",
+                "type": "short_text",
+                "value": "Example"
+            }
+        }
+    }
+}
+```
+
 ## Offer updated
 
 This web hook fires when an offer is updated. In some cases, an offer may be changed without generating a new version. In that case, this will fire by itself. If a change causes a new offer version to be generated, this will fire on the old version with the update to deprecate this offer and also a new "create" web hook will fire for the new version. This web hook should also fire when a person is hired,  which marks the offer as "accepted." 
