@@ -1,4 +1,7 @@
 # Queries
+## complexityInfo \([ComplexityInfo](#complexityinfo)\)
+The complexity information for the current query
+
 ## contactRelationships \([\[String\]](#string)\)
 The list of valid options for the 'Contact' custom field type
 
@@ -412,6 +415,18 @@ before | [String](#string) | Returns the elements in the list that come before t
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
 # Mutations
+## addDepartment \([AddDepartmentPayload](#adddepartmentpayload)\)
+Add a new Department
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+addDepartmentInput | [AddDepartmentInput!](#adddepartmentinput) |  | Required
+## addLocation \([AddLocationPayload](#addlocationpayload)\)
+Add a new Location
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+addLocationInput | [AddLocationInput!](#addlocationinput) |  | Required
 ## addPendingHire \([PendingHire](#pendinghire)\)
 ```graphql
 # Create a PendingHire with required information as well as a value for a text Custom Field (long text, confirmable,
@@ -591,6 +606,24 @@ Add a Pending Hire to Greenhouse Onboarding
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 pendingHireInfo | [AddPendingHireInput!](#addpendinghireinput) |  | Required
+## deleteDepartment \([DeleteDepartmentPayload](#deletedepartmentpayload)\)
+Delete a Department
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+deleteDepartmentInput | [DeleteDepartmentInput!](#deletedepartmentinput) |  | Required
+## deleteLocation \([DeleteLocationPayload](#deletelocationpayload)\)
+Delete a Location
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+deleteLocationInput | [DeleteLocationInput!](#deletelocationinput) |  | Required
+## updateDepartment \([UpdateDepartmentPayload](#updatedepartmentpayload)\)
+Update a Department
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+updateDepartmentInput | [UpdateDepartmentInput!](#updatedepartmentinput) |  | Required
 ## updateEmployeeProfile \([Employee](#employee)\)
 ```graphql
 # Update an employee's email address, date of birth, and department. Return these fields to confirm the change.
@@ -770,7 +803,35 @@ Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 employeeUpdates | [UpdateEmployee!](#updateemployee) |  | Required
 id | [ID!](#id) |  | Required
+## updateLocation \([UpdateLocationPayload](#updatelocationpayload)\)
+Update a Location
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+updateLocationInput | [UpdateLocationInput!](#updatelocationinput) |  | Required
 # Types
+## AddDepartmentPayload
+The result of running an addDepartment mutation
+
+Field | Type | Description
+--------- | ----------- | -----------
+department | [Department](#department) | The new department
+
+## AddLocationPayload
+The result of running an addLocation mutation
+
+Field | Type | Description
+--------- | ----------- | -----------
+location | [Location](#location) | The new location
+
+## ComplexityInfo
+Information about the current request's complexity. If the complexity exceeds the maxium, the request will fail
+
+Field | Type | Description
+--------- | ----------- | -----------
+maximum | [Int](#int) | 
+score | [Int](#int) | 
+
 ## Country
 A country
 
@@ -829,13 +890,29 @@ updatedAt | [DateTime](#datetime) |
 value | [Value](#value) | A different type of value will be stored based upon the field type of the [CustomField](#customfield). Some types have the data stored as a nested object. Note that the type is a scalar named [Value](#value). Even though it appears to be an object, you are not able to use GraphQL to determine its shape.
 valueUpdatedAt | [DateTime](#datetime) | The time of the most recent update to this field.
 
+## DeleteDepartmentPayload
+The result of running an deleteDepartment mutation
+
+Field | Type | Description
+--------- | ----------- | -----------
+deletedDepartmentId | [ID](#id) | The ID of the department that was just deleted
+
+## DeleteLocationPayload
+The result of running an deleteLocation mutation
+
+Field | Type | Description
+--------- | ----------- | -----------
+deletedLocationId | [ID](#id) | The ID of the location that was just deleted
+
 ## Department
 Represents a single department in your company. Employees may belong to zero or one department. Departments are used in a variety of ways in Greenhouse Onboarding, including permissions and onboarding plans.
 
 Field | Type | Description
 --------- | ----------- | -----------
 createdAt | [DateTime](#datetime) | 
+departmentLead | [Employee](#employee) | 
 description | [String](#string) | 
+email | [String](#string) | 
 id | [ID](#id) | 
 name | [String](#string) | 
 updatedAt | [DateTime](#datetime) | 
@@ -931,9 +1008,12 @@ Represents a single location in your company. Employees may belong to zero or on
 
 Field | Type | Description
 --------- | ----------- | -----------
+address | [String](#string) | 
 createdAt | [DateTime](#datetime) | 
 description | [String](#string) | 
+email | [String](#string) | 
 id | [ID](#id) | 
+locationLead | [Employee](#employee) | 
 name | [String](#string) | 
 updatedAt | [DateTime](#datetime) | 
 
@@ -958,8 +1038,14 @@ node | [Location](#location) | The item at the end of the edge.
 
 Field | Type | Description
 --------- | ----------- | -----------
+addDepartment | [AddDepartmentPayload](#adddepartmentpayload) | Add a new Department
+addLocation | [AddLocationPayload](#addlocationpayload) | Add a new Location
 addPendingHire | [PendingHire](#pendinghire) | Add a Pending Hire to Greenhouse Onboarding
+deleteDepartment | [DeleteDepartmentPayload](#deletedepartmentpayload) | Delete a Department
+deleteLocation | [DeleteLocationPayload](#deletelocationpayload) | Delete a Location
+updateDepartment | [UpdateDepartmentPayload](#updatedepartmentpayload) | Update a Department
 updateEmployeeProfile | [Employee](#employee) | Update an employee's profile
+updateLocation | [UpdateLocationPayload](#updatelocationpayload) | Update a Location
 
 ## OtherCriterion
 A tag that can be used to refine on onboarding plan
@@ -1119,7 +1205,42 @@ Field | Type | Description
 cursor | [String!](#string) | A cursor for use in pagination.
 node | [Team](#team) | The item at the end of the edge.
 
+## UpdateDepartmentPayload
+The result of running an updateDepartment mutation
+
+Field | Type | Description
+--------- | ----------- | -----------
+department | [Department](#department) | The updated department
+
+## UpdateLocationPayload
+The result of running an updateLocation mutation
+
+Field | Type | Description
+--------- | ----------- | -----------
+location | [Location](#location) | The updated location
+
 # Input Objects
+## AddDepartmentInput
+The input object used to add a [Department](#department).
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+departmentLead | [ID](#id) |  | 
+description | [String](#string) |  | 
+email | [String](#string) |  | 
+name | [String](#string) |  | 
+
+## AddLocationInput
+The input object used to add a [Location](#location).
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+address | [String](#string) |  | 
+description | [String](#string) |  | 
+email | [String](#string) |  | 
+locationLead | [ID](#id) |  | 
+name | [String](#string) |  | 
+
 ## AddPendingHireInput
 Specify the properties of a new PendingHire
 
@@ -1181,6 +1302,20 @@ Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 after | [DateTime](#datetime) |  | 
 before | [DateTime](#datetime) |  | 
+
+## DeleteDepartmentInput
+The input object used to delete a [Department](#department).
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+id | [ID!](#id) |  | Required
+
+## DeleteLocationInput
+The input object used to delete a [Location](#location).
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+id | [ID!](#id) |  | Required
 
 ## DepartmentFilter
 Filter employees based on their department
@@ -1271,6 +1406,17 @@ Argument | Type | Description | Required
 customFieldId | [ID!](#id) |  | Required
 value | [Value](#value) |  | 
 
+## UpdateDepartmentInput
+The input object used to update a [Department](#department).
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+departmentLead | [ID](#id) |  | 
+description | [String](#string) |  | 
+email | [String](#string) |  | 
+id | [ID!](#id) |  | Required
+name | [String](#string) |  | 
+
 ## UpdateEmployee
 The input object used to update an [Employee](#employee).
 
@@ -1298,6 +1444,18 @@ startDate | [Date](#date) |  |
 suffix | [String](#string) |  | 
 title | [String](#string) |  | 
 workCountryCode | [String](#string) |  | 
+
+## UpdateLocationInput
+The input object used to update a [Location](#location).
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+address | [String](#string) |  | 
+description | [String](#string) |  | 
+email | [String](#string) |  | 
+id | [ID!](#id) |  | Required
+locationLead | [ID](#id) |  | 
+name | [String](#string) |  | 
 
 ## WorkCountryCodeFilter
 Filter employees based on their work country code
@@ -1429,4 +1587,3 @@ COMPLETED | Document has been successfully signed and verified.
 ERROR | Could not be completed due to an error processing the E-Signature.
 WAITING_FOR_COUNTER_SIGNATURE | Document awaiting counter-signer signature.
 WAITING_FOR_SIGNATURE | Waiting for the employee to sign the document.
-
