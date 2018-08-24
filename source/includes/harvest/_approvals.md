@@ -386,3 +386,76 @@ add_user_id | The user id of the new approver. Must have access to this approval
 Parameter | Description
 --------- | -----------
 approval_flow_id | The approval flow that was changed. |
+
+## PUT: Create or replace an approval flow
+
+```shell
+curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+    "approval_type": "offer_candidate",
+    "offer_id": 343,
+    "sequential": false,
+    "approver_groups": [
+        {
+            "approvals_required": 2,
+            "approvers": [
+                { "user_id": 1432 },
+                { "email": "eddie.vedder@example.com" }
+            ]
+        },
+        {
+            "approvals_required": 1,
+            "approvers": [
+                { "employee_id": "abc-123" }
+            ]
+        }
+    ]
+}
+```
+
+> The above returns a JSON success message with the following information.
+
+```json
+{
+    "success": true,
+    "approval_flow_id": 49394,
+}
+```
+
+Endpoint may create or replace the entirety of an approval flow on a certain job or offer. If no approval flow exists, it will create it. Otherwise, it will modify the existing one. The priority of the approver group is implied by the order, with the first receiving first priority. Approvers who already exist in the group with matching priority will remain unchanged, approvers who are not included will be removed, and new approvers will be added.
+
+### HTTP Request
+
+`PUT https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes. Must have access to the approval flow.
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+job_id | We will replace the approval flow on this job.
+
+### Input JSON Parameters
+
+Parameter | Description
+--------- | -----------
+approval_type | Required. One of offer_job, open_job, or offer_candidate. Designates which of the approval flows to replace.
+offer_id | Optional. If included, it will search for an offer approval for this specific offer only. The job level approval will stay unchanged. If this is included, only 'offer_candidate' is a valid approval type.
+sequential | Required. Accepts boolean true or false.
+approver_groups | The list of approver groups. The order of the approver group list implies the 'priority' value in the approver group object, with the first listed group receiving the highest priority and so on.
+approvals_required | Required. The number of approvals that must be given for this group to be considered approved and sent to the next group. Must be a number greater than zero.
+approvers | Must contain the Greenhouse user_id, e-mail address, or employee_id for an active user in Greenhouse. The user must have access to the job. The number of users supplied must be greater than or equal to the approvals_required value for this group.
+ 
