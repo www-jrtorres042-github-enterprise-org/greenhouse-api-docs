@@ -78,6 +78,8 @@
         "external_id": null,
         "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/060/304/738/original/cats_schrodinger.png?AWSAccessKeyId=AKIAI2HNOZGNEUVWYNFQ&Expires=1511732959&Signature=YcaE3lmhvfwSzvgbl4sUrQzP12U%3D",
         "url": "http://app.greenhouse.io/people/60304594",
+        "is_private": false,
+        "can_email": true,
         "phone_numbers": [
           {
             "value": "555-555-5555",
@@ -369,6 +371,8 @@ This web hook only fires when individual applications are destroyed.  This occur
         "external_id": null,
         "photo_url": "https://photo.com/photo.jpg",
         "url": "https://app.greenhouse.io/people/13857579",
+        "is_private": false,
+        "can_email": true,
         "phone_numbers": [
           {
             "value": "330-281-8004",

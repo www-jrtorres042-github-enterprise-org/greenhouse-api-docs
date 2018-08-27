@@ -67,6 +67,8 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
         "title": "Previous Title",
         "external_id": "12345",
         "url": "https://app.greenhouse.io/people/35897443",
+        "is_private": false,
+        "can_email": true,
         "phone_numbers": [
           {
             "value": "518-555-1212",
@@ -393,6 +395,8 @@ This web hook will fire when a candidate or prospect is merged with another cand
         "external_id": "241b399ce4b0fd1c84e5528d",
         "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
         "url": "https://app.greenhouse.io/people/265772",
+        "is_private": false,
+        "can_email": true,
         "phone_numbers": [
           {
             "value": "330-281-8004",
@@ -581,6 +585,8 @@ See web hook [common attributes](#common-attributes).
         "external_id": null,
         "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
         "url": "https://app.greenhouse.io/people/265788",
+        "is_private": false,
+        "can_email": true,
         "phone_numbers": [
           {
             "value": "330-281-8004",
@@ -734,6 +740,8 @@ See web hook [common attributes](#common-attributes).
         "created_at": "2013-10-04T01:24:48Z",
         "external_id": null,
         "photo_url": "www.example.com/photo.png",
+        "is_private": false,
+        "can_email": true,
         "phone_numbers": [
           {
             "value": "330-281-8004",
@@ -872,6 +880,8 @@ See web hook [common attributes](#common-attributes).
         "created_at": "2013-10-04T01:24:48Z",
         "external_id": null,
         "photo_url": "www.example.com/photo.png",
+        "is_private": false,
+        "can_email": true,
         "phone_numbers": [
           {
             "value": "330-281-8004",
@@ -1119,6 +1129,8 @@ See web hook [common attributes](#common-attributes).
         "created_at": "2014-12-02T23:10:16Z",
         "external_id": null,
         "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+        "is_private": false,
+        "can_email": true,
         "phone_numbers": [
           {
             "value": "123456",
