@@ -170,6 +170,10 @@ user\_role\_id | Yes | integer | The ID of the user role
 
 Note: This endpoint does not support assigning a user role to a user for a confidential job.
 
+### Response
+
+Adding a job permission to a regular user returns status 201. 
+Adding a job permission to a site admin user has no effect, and returns 204.
 
 ## The future job permission object
 
@@ -343,3 +347,8 @@ external_office_id | No | string | An ID that represents the office in an extern
 department_id | No | integer | The ID of the department. Set to null to include all departments.
 external_department_id | No | string | This may be used instead of department_id. If included, department_id must be blank, and vice versa.
 user\_role\_id | Yes | integer | The ID of the user role
+
+### Response
+
+Adding a future job permission to a regular user returns status 201. 
+Adding a future job permission to a site admin user has no effect, and returns 204.
