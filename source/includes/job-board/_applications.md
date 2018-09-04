@@ -71,6 +71,11 @@ curl -X POST \
   -F "question_12349_url_filename=attachment.pdf" \
   -F "question_12350_content=SGVsbG8sIHdvcmxkIQo=" \
   -F "question_12350_content_filename=something_else.txt" \
+  -F "demographic_answers[][question_id]=87" \
+  -F "demographic_answers[][answer_options][][answer_option_id]=194" \
+  -F "demographic_answers[][question_id]=88" \
+  -F "demographic_answers[][answer_options][][answer_option_id]=212" \
+  -F "demographic_answers[][answer_options][][text]=Free-form Answer" \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
 
@@ -118,8 +123,8 @@ curl -X POST \
         "end_date": { "month": "2", "year": "2012"}
       }
     ],
-     "employments": [
-    {
+    "employments": [
+      {
         "company_name": "Business Co.",
         "title": "Sales Manager",
         "start_date": {
@@ -131,8 +136,28 @@ curl -X POST \
           "year": "2018"
         },
         "current": "false"
-    },
-    "mapped_url_token":"token12345"
+      }
+    ],
+    "mapped_url_token":"token12345",
+    "demographic_answers":[
+      {
+        "question_id": 87,
+        "answer_options": [
+          {
+            "answer_option_id": 194
+          }
+        ]
+      },
+      {
+        "question_id": 88,
+        "answer_options": [
+          {
+            "answer_option_id": 212,
+            "text": "Free-form Answer"
+          }
+        ]
+      }
+    ]
   }' \
   "https://boards-api.greenhouse.io/v1/boards/very_awesome_inc/jobs/127817"
 ```
@@ -181,6 +206,8 @@ email | Applicant's email address
 *cover_letter | *Please see below for details.*
 *educations | An array of education objects. Each education object should have five fields: `school_name_id`, `degree_id`, `discipline_id`, `start_date`, and `end_date`. You can get the `school_name_id`, `degree_id`, `discipline_id` from our [List Schools](#list-schools), [List Degrees](#list-degrees), and [List Disciplines](#list-disciplines) endpoints. `start_date` and `end_date` will use a hash of month and year.
 *employments | An array of employments objects. Each employment object should have: `company_name`, `title`, `start_date`, and `current` (must be `true` or `false`). If `current` is `false`, must have `end_date`. `start_date` and `end_date` will use a hash of month and year.
+*demographic_answers | An array of demographic answer objects, applicable only if your organization has Greenhouse Inclusion and demographic questions are enabled on the job post. Each object must have a `question_id` field. The `answer_options` field is an array of objects, one for each `answer_option_id` the candidate selected. For answer options which support free-form responses, a `text` field may also be supplied with the candidate's hand-typed answer. Note that these questions are always optional, so the `answer_options` array may be empty, null, or omitted if the candidate did not make any selections.
+
 ### Submitting Attachments
 
 We support 4 methods of uploading attachments when submitting a candidate application:

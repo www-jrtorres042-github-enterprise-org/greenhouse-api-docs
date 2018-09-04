@@ -4,15 +4,22 @@
 
 ```json
 {
-  "id":127817,
-  "internal_job_id":144381,
-  "title":"Bad Cop",
-  "updated_at":"2016-01-14T10:55:28-05:00",
-  "location":{
-    "name":"NYC"
-  },
-  "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
-  "metadata":null
+  "jobs": [
+    {
+      "id":127817,
+      "internal_job_id":144381,
+      "title":"Bad Cop",
+      "updated_at":"2016-01-14T10:55:28-05:00",
+      "location":{
+        "name":"NYC"
+      },
+      "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
+      "metadata":null
+    }
+  ],
+  "meta": {
+    "total": 1
+  }
 }
 ```
 
@@ -20,52 +27,59 @@
 
 ```json
 {
-  "id":127817,
-  "internal_job_id":144381,
-  "title":"Bad Cop",
-  "updated_at":"2016-01-14T10:55:28-05:00",
-  "location":{
-    "name":"NYC"
-  },
-  "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
-  "metadata":null,
-  "content":"&lt;p&gt;The Rule Enforcement team is dedicated to keeping all employees in line. &amp;nbsp;Rule enforcers use&amp;nbsp;various tactics such as physical intimidation, awkward pauses, and dramatic coffee sips in order to make sure everyone does what they&#39;re told.",
-  "departments":[
+  "jobs": [
     {
-      "id":13583,
-      "name":"Department of Departments",
-      "parent_id":null,
-      "child_ids":[
-        13585
-      ]
-    },
-    {
-      "id":13585,
-      "name":"Rule Enforcement",
-      "parent_id":13583,
-      "child_ids":[
+      "id":127817,
+      "internal_job_id":144381,
+      "title":"Bad Cop",
+      "updated_at":"2016-01-14T10:55:28-05:00",
+      "location":{
+        "name":"NYC"
+      },
+      "absolute_url":"https://boards.greenhouse.io/vaulttec/jobs/127817",
+      "metadata":null,
+      "content":"&lt;p&gt;The Rule Enforcement team is dedicated to keeping all employees in line. &amp;nbsp;Rule enforcers use&amp;nbsp;various tactics such as physical intimidation, awkward pauses, and dramatic coffee sips in order to make sure everyone does what they&#39;re told.",
+      "departments":[
+        {
+          "id":13583,
+          "name":"Department of Departments",
+          "parent_id":null,
+          "child_ids":[
+            13585
+          ]
+        },
+        {
+          "id":13585,
+          "name":"Rule Enforcement",
+          "parent_id":13583,
+          "child_ids":[
+          ]
+        }
+      ],
+      "offices":[
+        {
+          "id":8304,
+          "name":"East Coast",
+          "location":"United States",
+          "parent_id":null,
+          "child_ids":[
+            8787
+          ]
+        },
+        {
+          "id":8787,
+          "name":"New York City",
+          "location":"New York, NY, United States",
+          "parent_id":8304,
+          "child_ids":[
+          ]
+        }
       ]
     }
   ],
-  "offices":[
-    {
-      "id":8304,
-      "name":"East Coast",
-      "location":"United States",
-      "parent_id":null,
-      "child_ids":[
-        8787
-      ]
-    },
-    {
-      "id":8787,
-      "name":"New York City",
-      "location":"New York, NY, United States",
-      "parent_id":8304,
-      "child_ids":[
-      ]
-    }
-  ]
+  "meta": {
+    "total": 1
+  }
 }
 ```
 
@@ -197,6 +211,49 @@ content | If set to `true`, include the description, department and office of ea
 }
 ```
 
+> When demographic questions are enabled:
+
+```json
+{
+  "id": 44444,
+  "title": "Product Engineer",
+  ...
+  "demographic_questions": {
+    "header": "Diversity and Inclusion at Acme Corp.",
+    "description": "<p>Acme Corp. is dedicated to...</p>",
+    "questions": [
+      {
+        "id": 1,
+        "label": "Favorite Color",
+        "required": false,
+        "answer_options": [
+          {
+            "id": 100,
+            "label": "Red",
+            "free_form": false
+          },
+          {
+            "id": 101,
+            "label": "Green",
+            "free_form": false
+          },
+          {
+            "id": 102,
+            "label": "Blue",
+            "free_form": false
+          },
+          {
+            "id": 102,
+            "label": "Prefer to Type My Own",
+            "free_form": true
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 Returns a job post. Setting the questions querystring parameter to
 `"true"` will include the list of job application fields; these fields
 can be used to dynamically construct your own job application form.
@@ -218,9 +275,9 @@ job_id | ID of the job to retrieve
 
 Parameter | Description
 --------- | -----------
-*questions | If set to `true`, include an array of job application fields `questions`. If the job post has `location` set to `optional` or `required`, an array of questions used to capture the applicant's location, `location_questions`, is also included.
+*questions | If set to `true`, include additional fields in the response:<br><br>- `questions`: An array of custom questions defined for this job post<br>- `location_questions`: An array of questions used to capture the applicant's location (included only if the job post has the location configured as "optional" or "required")<br>- `compliance`: An array of questions used by government contractors to capture applicant information to comply with EEOC regulations (included only if the job post has EEOC questions enabled)<br>- `demographic_questions`: An object containing demographic questions and related information (included only if your organization has Greenhouse Inclusion, and the job post has demographic questions enabled)
 
-### Questions
+### Questions / Location Questions / Compliance
 
 Possible field types:
 
@@ -234,3 +291,7 @@ Possible field types:
 | multi_value_multi_select | Can be represented as either a set of checkboxes or a multi-select
 
 Please note that it is possible for multiple fields to be aggregated beneath a single question. The "Resume" field is a prime example, with both an input_file and textarea type accepted. If marked as required, then we expect at least one of these fields to contain a valid value when your form is submitted to the [application submission](#applications) endpoint.
+
+### Demographic Questions
+
+For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered as checkboxes or a multi-select. The candidate may select zero, one, or more answer options per question. If an answer option is selected that has `free_form` set to `true`, the candidate must be allowed to type a free-form response. The free-form response is optional.
