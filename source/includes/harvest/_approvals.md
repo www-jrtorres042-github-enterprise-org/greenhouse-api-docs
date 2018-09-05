@@ -430,7 +430,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{job_id}/approval_flows'
 }
 ```
 
-Endpoint may create or replace the entirety of an approval flow on a certain job or offer. If no approval flow exists, it will create it. Otherwise, it will modify the existing one. The priority of the approver group is implied by the order, with the first receiving first priority. Approvers who already exist in the group with matching priority will remain unchanged, approvers who are not included will be removed, and new approvers will be added.
+Endpoint may create or replace the entirety of an approval flow on a certain job or offer. If no approval flow exists, it will create it. Otherwise, it will modify the existing one. The priority of the approver group is implied by the order of the approver_groups element, with the first receiving first priority. Approvers who already exist in the group with matching priority will remain unchanged, approvers who are not included will be removed, and new approvers will be added. If modifying an approval that has been started, this endpoint will restart it, which will remove previous approvals, and notify the first group that an approval is due. Approvals in the rejected or approved state can not be modified by this endpoint.
 
 ### HTTP Request
 
@@ -452,10 +452,10 @@ job_id | We will replace the approval flow on this job.
 
 Parameter | Description
 --------- | -----------
-approval_type | Required. One of offer_job, open_job, or offer_candidate. Designates which of the approval flows to replace.
-offer_id | Optional. If included, it will search for an offer approval for this specific offer only. The job level approval will stay unchanged. If this is included, only 'offer_candidate' is a valid approval type.
+approval_type | Required. One of offer_job, open_job, or offer_candidate. Designates which of the approval flows to replace. This is used for look-up and will not be edited by the endpoint.
+offer_id | Optional. If included, it will search for an offer approval for this specific offer only. The job level approval will stay unchanged. If this is included, only 'offer_candidate' is a valid approval type. This is used for look-up and will not be edited by the endpoint.
 sequential | Required. Accepts boolean true or false.
 approver_groups | The list of approver groups. The order of the approver group list implies the 'priority' value in the approver group object, with the first listed group receiving the highest priority and so on.
 approvals_required | Required. The number of approvals that must be given for this group to be considered approved and sent to the next group. Must be a number greater than zero.
-approvers | Must contain the Greenhouse user_id, e-mail address, or employee_id for an active user in Greenhouse. The user must have access to the job. The number of users supplied must be greater than or equal to the approvals_required value for this group.
+approvers | Must contain the Greenhouse user_id, e-mail address, or employee_id for an active user in Greenhouse. The user must have access to the job. The number of users supplied must be greater than or equal to the approvals_required value for this group. If the approver appears in more than one group, he will be appear in the group with the highest priority and ignored in later groups.
  
