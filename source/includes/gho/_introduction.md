@@ -63,7 +63,8 @@ on the API Management screen.
 The Greenhouse Onboarding API imposes limits on the amount of data a single client can request over time, as well as the
 complexity of individual requests.  This is done to ensure our servers can always service requests as quickly as possible.
 
-### Request Costs
+### Request Limits
+
 
 ```graphql
 {
@@ -72,7 +73,7 @@ complexity of individual requests.  This is done to ensure our servers can alway
   }
 
   rateLimit {
-    cost
+    resetAt
     limit
     remaining
   }
@@ -86,7 +87,7 @@ complexity of individual requests.  This is done to ensure our servers can alway
        "email": "test@example.com"
     },
     "rateLimit": {
-      "cost": 1,
+      "resetAt": "2018-09-12T18:00:00Z",
       "limit": 100,
       "remaining": 99
     }
@@ -94,20 +95,9 @@ complexity of individual requests.  This is done to ensure our servers can alway
 }
 ```
 
-GraphQL gives clients the ability to specify the exact data to be returned in each request.  This means that some
-requests can query lots of data, while others are much simpler and only return a handful of fields.  For this reason,
-a simple rate-limiting protocol of "X requests per hour" is not a good fit.
+In order to ensure API stability, we limit the number of requests that can made per time period. When the request limit has been reached, every ensuing request will fail until the time period expires. Once the time period expires, the number of requests will be replenished to make new requests successfully. 
 
-Instead, each API key is given a budget of "API points" that can be spent on requests.  Each request can have a separate
-cost.  Once the API key has run out of points, all further requests will return an error message stating that requests
-are now being throttled.
-
-This message indicates the total number of API points this API key has in its budget and when the API points will
-be restored to the maximum limit.
-
-Clients can ask for this information by querying for the `rateLimit` object.
-In general, the more involved a query, the higher its cost.  We reserve the right to change the costs for each query,
-and the budgets for API keys, at any time.
+Clients can access this information by querying the `rateLimit` object. The number of remaining requests can be accessed via the `remaining` field. The maximum number of requests per time period can be accessed via the `limit` field. The reset time can be accessed via the `resetAt` field. 
 
 ### Maximum Complexity
 
