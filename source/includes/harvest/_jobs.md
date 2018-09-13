@@ -414,6 +414,7 @@ List all of an organization's jobs.
 | external_department_id | This may be used instead of department_id and represents the ID of the department in an external system.
 | office_id | If included, will return only the jobs in this specific office.
 | external_office_id | This may be used instead of office_id and represents the ID of the office in an external system.
+| custom_field_option_id | The job contains a custom field with this custom_field_option_id selected. Option IDs can be retrieved from the [GET Custom Field Options endpoint](#the-custom-field-options-object).
 
 <br>
 [See noteworthy response attributes.](#the-job-object)
