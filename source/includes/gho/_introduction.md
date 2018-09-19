@@ -47,7 +47,9 @@ on the API Management screen.
 
 ## Rate Limiting
 
-```json
+```
+# When the rate limit is reached, ensuing requests will result 
+# in the following response (until the next time period begins):
 {
   "errors": [
     {
@@ -65,27 +67,19 @@ complexity of individual requests.  This is done to ensure our servers can alway
 
 ### Request Limits
 
-
-```graphql
+```
+# To request the current rate limit information:
 {
-  employee(id: 1) {
-    email
-  }
-
   rateLimit {
     resetAt
     limit
     remaining
   }
 }
-```
 
-```json
+# rateLimit response:
 {
-  "data": {
-     "employee": {
-       "email": "test@example.com"
-    },
+  "data": { 
     "rateLimit": {
       "resetAt": "2018-09-12T18:00:00Z",
       "limit": 100,
@@ -95,9 +89,7 @@ complexity of individual requests.  This is done to ensure our servers can alway
 }
 ```
 
-In order to ensure API stability, we limit the number of requests that can made per time period. When the request limit has been reached, every ensuing request will fail until the time period expires. Once the time period expires, the number of requests will be replenished to make new requests successfully. 
-
-Clients can access this information by querying the `rateLimit` object. The number of remaining requests can be accessed via the `remaining` field. The maximum number of requests per time period can be accessed via the `limit` field. The reset time can be accessed via the `resetAt` field. 
+In order to ensure API stability, we limit the number of requests that can made within a given time window. Consumers can access this rate limit information by querying the `rateLimit` type (see example to the right). The number of remaining requests is indicated by the value in the `remaining` field. When this request limit has been reached, every ensuing request will fail until the next time window begins (indicated by the `resetAt` field). Then, once the next time window starts, the number of requests will be replenished (to the number indicated by the `limit` property). 
 
 ### Maximum Complexity
 
@@ -135,7 +127,7 @@ Clients can access this information by querying the `rateLimit` object. The numb
 }
 ```
 
-In addition to limiting the number of API points used in a given time period, we limit the "complexity" of any given 
+In addition to limiting the number of requests used in a given time period, we limit the "complexity" of any given 
 request. If this score exceeds our maximum, the request will be rejected and an error response will be returned.
 
 We reserve the right to adjust the complexity score of any given field at any time. However, for the time being, a 
@@ -146,7 +138,7 @@ query's complexity score can be estimated like so:
 * For connections (e.g an employees or departments query): add up all requested fields and multiply by the number of 
 requested records (e.g. the `first` or `last` argument)
   
-Clients can determine a query's complexity score by also requesting the `complexityInfo` object (see example to the
+Clients can also determine a query's complexity score by requesting the `complexityInfo` object (see example to the
 right).
 
 ## A Basic Request
