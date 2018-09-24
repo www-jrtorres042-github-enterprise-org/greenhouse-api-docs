@@ -230,6 +230,8 @@ curl 'https://harvest.greenhouse.io/v1/offers'
 | resolved_after | Return only offers that were resolved at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | resolved_before | Return only offers that were resolved at or before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | status | Return only offers that have a particular status.  One of: `unresolved`, `accepted`, `rejected`, `deprecated`.
+| sent_after | Return only offers that have been sent on or after the provided date. Date must be in YYYY-MM-DD format.
+| sent_before | Return only offers that have been sent on or before the provided date. Date must be in YYYY-MM-DD format.
 
 <br>
 [See noteworthy response attributes.](#the-offer-object)
