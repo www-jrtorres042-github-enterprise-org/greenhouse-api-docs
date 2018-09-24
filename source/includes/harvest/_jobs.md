@@ -1244,6 +1244,60 @@ external_office_ids | No | Array[Srings] | This may be used instead of office_id
 requisition_id | No | String | A requisition id for this job.
 opening_ids | No | Array[Strings] | An array of opening ids for the new job. If this is included, the number of opening ids in this array must match the number_of_openings element.
 
+## GET: Hiring Team
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/jobs/{id}/hiring_team'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "hiring_managers": [
+        {"user_id": 11, "active": true},
+        {"user_id": 12, "active": false}
+    ],
+    "recruiters": [
+        {"user_id": 13, "active": false, "responsible": false},
+        {"user_id": 14, "active": true, "responsible": false},
+        {"user_id": 15, "active": true, "responsible": true}
+    ],
+    "coordinators": [
+        {"user_id": 16, "active": false, "responsible": false},
+        {"user_id": 17, "active": true, "responsible": false},
+        {"user_id": 18, "active": true, "responsible": true}
+    ],
+    "sourcers": [
+        {"user_id": 19, "active": true},
+        {"user_id": 20, "active": false}
+    ]
+}
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/jobs/{id}/hiring_team`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the job to retrieve
+
+### Notable Response Parameters
+
+Parameter | Type | Description
+--------- | ----------- | -----------
+active | boolean | This flag informs you if the user still has access to the job in question. In the case where a former hiring team member loses permission to the job, that member may still have historical information related to the job so the relationship is maintained.
+responsible | boolean | This flag only exists for recruiters or coordinators and tells you if the team member has been designated as the "responsible" member for future candidates on the job. This is analogous to the "responsible_for_future_candidates" field on the PUT hiring team endpoint. It is unrelated to active or inactive candidates, which trigger an in the moment migration and are not stored on the hiring team.
+
+
+<br>
+
+
 
 ## PUT: Replace Hiring Team
 
