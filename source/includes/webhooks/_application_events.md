@@ -127,7 +127,8 @@
         "recruiter": {
           "id": 92120,
           "email": "employee@test.com",
-          "name": "Betty Smith"
+          "name": "Betty Smith",
+          "employee_id": "123ABC"
         },
         "coordinator": {
           "id": 92427,
