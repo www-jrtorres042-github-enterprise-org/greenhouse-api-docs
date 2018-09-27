@@ -132,7 +132,8 @@
         "coordinator": {
           "id": 92427,
           "email": "user@example.com",
-          "name": "Bonnie Bonnet"
+          "name": "Bonnie Bonnet",
+          "employee_id": "456DEF"
         },
         "attachments": [
           {
