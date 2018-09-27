@@ -57,7 +57,7 @@ Currently, Web Hooks for all event types include these common attributes:
 | Attribute | Note |
 |-----------|------|
 | `application.id` | Unique Greenhouse identifier of the application. Information not included in the web hook can be retrieved via [Harvest API - GET Applications](/harvest.html#applications)
-| `application.credited_to` | If populated and a Greenhouse user, the user's Greenhouse ID and e-mail address will be provided. If populated and not a Greenhouse user, just the name will be provided.
+| `application.credited_to` | If populated and a Greenhouse user, the user's Greenhouse ID, e-mail address, and Employee ID (if available) will be provided. If populated and not a Greenhouse user, just the name will be provided.
 | `application.status` | One of: `rejected`, `hired`, `active`
 | `application.candidate.id` | Unique Greenhouse identifier of the candidate. Information not included in the web hook can be retrieved via [Harvest API - GET Candidates](/harvest.html#candidates)
 | `application.candidate.phone_numbers[].type` | One of: `home`, `work`, `mobile`, `skype`, `other`
