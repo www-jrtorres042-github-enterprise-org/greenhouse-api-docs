@@ -116,7 +116,8 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
         "recruiter": {
           "id": 55,
           "email": "bob_johnson@localhost.com",
-          "name": "Bob Johnson"
+          "name": "Bob Johnson",
+          "employee_id": "456DEF"
         },
         "coordinator": {
           "id": 56,
@@ -449,7 +450,8 @@ This web hook will fire when a candidate or prospect is merged with another cand
         "recruiter": {
           "id": 3128,
           "email": "alicia.flopple.3128@example.com",
-          "name": "Alicia Flopple"
+          "name": "Alicia Flopple",
+          "employee_id": "789GHI"
         },
         "coordinator": {
           "id": 3128,
@@ -1047,7 +1049,8 @@ See web hook [common attributes](#common-attributes).
       "recruiter": {
         "id": 169779,
         "email": "hank.hollandaise.169779@example.com",
-        "name": "Hank Hollandaise"
+        "name": "Hank Hollandaise",
+        "employee_id": "123ABC"
       },
       "coordinator": {
         "id": 83637,
@@ -1172,7 +1175,8 @@ See web hook [common attributes](#common-attributes).
         "recruiter": {
           "id": 3128,
           "email": "alicia.flopple.3128@example.com",
-          "name": "Alicia Flopple"
+          "name": "Alicia Flopple",
+          "employee_id": "456DEF"
         },
         "coordinator": null,
         "attachments": [
