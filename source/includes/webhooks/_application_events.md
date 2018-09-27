@@ -21,7 +21,8 @@
       "credited_to": {
         "id": 92120,
         "email": "test123@example.com",
-        "name": "Greenhouse Admin"
+        "name": "Greenhouse Admin",
+        "employee_id": "123ABC"
       },
       "rejection_reason": null,
       "rejection_details": null,
@@ -333,7 +334,8 @@ This web hook only fires when individual applications are destroyed.  This occur
       "credited_to": {
         "id": 3695,
         "email": "beauregard.blacksmith.3695@example.com",
-        "name": "Beauregard Blacksmith"
+        "name": "Beauregard Blacksmith",
+        "employee_id": "123ABC"
       },
       "rejection_reason": null,
       "rejection_details": null,
