@@ -53,7 +53,8 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
       "credited_to": {
         "id": 158104,
         "email": "bob_johnson1@localhost.com",
-        "name": "Robert Johnson"
+        "name": "Robert Johnson",
+        "employee_id": "123ABC"
       },
       "source": {
         "id": 25,
@@ -351,7 +352,8 @@ This web hook will fire when a candidate or prospect is merged with another cand
       "credited_to": {
         "id": 15,
         "email": "ada@example.com",
-        "name": "Ada Lacey"
+        "name": "Ada Lacey",
+        "employee_id": "123ABC"
       },
       "rejection_reason": null,
       "rejection_details": null,
@@ -1108,7 +1110,8 @@ See web hook [common attributes](#common-attributes).
       "credited_to": {
         "id": 2622,
         "email": "carl.buddha.2622@example.com",
-        "name": "Carl Buddha"
+        "name": "Carl Buddha",
+        "employee_id": "123ABC"
       },
       "rejection_reason": null,
       "rejection_details": null,
