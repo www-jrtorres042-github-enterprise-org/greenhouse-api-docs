@@ -21,7 +21,8 @@
       "credited_to": {
         "id": 92120,
         "email": "test123@example.com",
-        "name": "Greenhouse Admin"
+        "name": "Greenhouse Admin",
+        "employee_id": "123ABC"
       },
       "rejection_reason": null,
       "rejection_details": null,
@@ -124,14 +125,16 @@
         ],
         "employments": [],
         "recruiter": {
-          "id": 92120,
+          "id": 92121,
           "email": "employee@test.com",
-          "name": "Betty Smith"
+          "name": "Betty Smith",
+          "employee_id": "123ABC"
         },
         "coordinator": {
           "id": 92427,
           "email": "user@example.com",
-          "name": "Bonnie Bonnet"
+          "name": "Bonnie Bonnet",
+          "employee_id": "456DEF"
         },
         "attachments": [
           {
@@ -333,7 +336,8 @@ This web hook only fires when individual applications are destroyed.  This occur
       "credited_to": {
         "id": 3695,
         "email": "beauregard.blacksmith.3695@example.com",
-        "name": "Beauregard Blacksmith"
+        "name": "Beauregard Blacksmith",
+        "employee_id": "123ABC"
       },
       "rejection_reason": null,
       "rejection_details": null,

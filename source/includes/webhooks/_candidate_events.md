@@ -53,7 +53,8 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
       "credited_to": {
         "id": 158104,
         "email": "bob_johnson1@localhost.com",
-        "name": "Robert Johnson"
+        "name": "Robert Johnson",
+        "employee_id": "123ABC"
       },
       "source": {
         "id": 25,
@@ -115,12 +116,14 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
         "recruiter": {
           "id": 55,
           "email": "bob_johnson@localhost.com",
-          "name": "Bob Johnson"
+          "name": "Bob Johnson",
+          "employee_id": "456DEF"
         },
         "coordinator": {
           "id": 56,
           "email": "bob_johnson_approver1@localhost.com",
-          "name": "Robert J Approver"
+          "name": "Robert J Approver",
+          "employee_id": "789GHI"
         },
         "attachments": [
           {
@@ -351,7 +354,8 @@ This web hook will fire when a candidate or prospect is merged with another cand
       "credited_to": {
         "id": 15,
         "email": "ada@example.com",
-        "name": "Ada Lacey"
+        "name": "Ada Lacey",
+        "employee_id": "123ABC"
       },
       "rejection_reason": null,
       "rejection_details": null,
@@ -446,12 +450,14 @@ This web hook will fire when a candidate or prospect is merged with another cand
         "recruiter": {
           "id": 3128,
           "email": "alicia.flopple.3128@example.com",
-          "name": "Alicia Flopple"
+          "name": "Alicia Flopple",
+          "employee_id": "789GHI"
         },
         "coordinator": {
           "id": 3128,
           "email": "alicia.flopple.3128@example.com",
-          "name": "Alicia Flopple"
+          "name": "Alicia Flopple",
+          "employee_id": "789GHI"
         },
         "attachments": [
           {
@@ -1043,12 +1049,14 @@ See web hook [common attributes](#common-attributes).
       "recruiter": {
         "id": 169779,
         "email": "hank.hollandaise.169779@example.com",
-        "name": "Hank Hollandaise"
+        "name": "Hank Hollandaise",
+        "employee_id": "123ABC"
       },
       "coordinator": {
         "id": 83637,
         "email": "sterling.kang.83637@example.com",
-        "name": "Sterling Kang"
+        "name": "Sterling Kang",
+        "employee_id": "456DEF"
       },
       "attachments": [
         {
@@ -1108,7 +1116,8 @@ See web hook [common attributes](#common-attributes).
       "credited_to": {
         "id": 2622,
         "email": "carl.buddha.2622@example.com",
-        "name": "Carl Buddha"
+        "name": "Carl Buddha",
+        "employee_id": "123ABC"
       },
       "rejection_reason": null,
       "rejection_details": null,
@@ -1166,7 +1175,8 @@ See web hook [common attributes](#common-attributes).
         "recruiter": {
           "id": 3128,
           "email": "alicia.flopple.3128@example.com",
-          "name": "Alicia Flopple"
+          "name": "Alicia Flopple",
+          "employee_id": "456DEF"
         },
         "coordinator": null,
         "attachments": [
