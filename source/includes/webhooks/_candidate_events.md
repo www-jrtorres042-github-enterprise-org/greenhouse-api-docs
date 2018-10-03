@@ -457,7 +457,7 @@ This web hook will fire when a candidate or prospect is merged with another cand
           "id": 3128,
           "email": "alicia.flopple.3128@example.com",
           "name": "Alicia Flopple",
-          "employee_id": "123ABC"
+          "employee_id": "789GHI"
         },
         "attachments": [
           {
