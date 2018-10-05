@@ -1294,10 +1294,7 @@ Parameter | Type | Description
 active | boolean | This flag informs you if the user still has access to the job in question. In the case where a former hiring team member loses permission to the job, that member may still have historical information related to the job so the relationship is maintained.
 responsible | boolean | This flag only exists for recruiters or coordinators and tells you if the team member has been designated as the "responsible" member for future candidates on the job. This is analogous to the "responsible_for_future_candidates" field on the PUT hiring team endpoint. It is unrelated to active or inactive candidates, which trigger an in the moment migration and are not stored on the hiring team.
 
-
 <br>
-
-
 
 ## PUT: Replace Hiring Team
 
@@ -1374,12 +1371,132 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{id}'
 
 There are four types of hiring team members, represented by the four hashes sent in the JSON body.  If any of these types are not included, hiring team members of that type will not be changed.  If a blank element `{}` is included, that part of the hiring team will be cleared.  
 
-Note that this PUT method REPLACES the existing members of the hiring team.  For each element included in the JSON request body, the existing hiring team members in Greenhouse will be removed and replaced with the current members. Also, this process is transactional: if there is one failure, no elements will be updated.  Finally, if you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
+Note that this PUT method REPLACES the existing members of the hiring team.  For each element included in the JSON request body, the existing hiring team members in Greenhouse will be removed and replaced with the current members. _This includes the removal of disabled and inactive users, who can never be re-added._ For more granular control over additions and removals, use the POST or DELETE methods on this endpoint. Also, this process is transactional: if there is one failure, no elements will be updated.  Finally, if you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 responsible_for_future_candidates | Yes for coordinator or recruiter | boolean | The user becomes the responsible person for all new candidates. Only one user in the group of users may be designated as responsible.
 responsible_for_active_candidates | Yes for coordinator or recruiter | boolean | The user becomes the responsible person for all existing candidates with active applications
 responsible_for_inactive_candidates | Yes for coordinator or recruiter | boolean | The user becomes the responsible person for all hired and rejected candidates
+
+On success, this will return a 200 response code with a success message in the JSON body.
+
+## POST: Add Hiring Team Members
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/jobs/{id}'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "hiring_managers": [
+    {
+      "user_id": 1234
+    },
+    {
+      "user_id": 2345
+    }
+  ],
+  "sourcers": [
+    {
+      "user_id": 3456
+    },
+    {
+      "user_id": 4567
+    }
+  ],
+  "recruiters": [
+    {
+      "user_id": 5678,
+      "responsible_for_future_candidates": true,
+      "responsible_for_active_candidates": true,
+      "responsible_for_inactive_candidates": true
+    },
+    {
+      "user_id": 6789,
+      "responsible_for_future_candidates": false,
+      "responsible_for_active_candidates": false,
+      "responsible_for_inactive_candidates": false
+    }
+  ],
+  "coordinators": [
+    {
+      "user_id": 7890,
+      "responsible_for_future_candidates": true,
+      "responsible_for_active_candidates": false,
+      "responsible_for_inactive_candidates": false
+    },
+    {
+      "user_id": 8901,
+      "responsible_for_future_candidates": false,
+      "responsible_for_active_candidates": false,
+      "responsible_for_inactive_candidates": false
+    }
+  ]
+}
+```
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "success": true
+}
+```
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/jobs/{id}/hiring_team`
+
+### JSON Body Parameters
+
+This method adds new hiring team members. If a user is designated as "responsible_for_future_candites" and a responsible user already exists, the new user will become the responsible user and the old user will no longer be responsible. This endpoint is transactional, if any items fail to add, the entire request will fail and no changes will be made. Finally, if you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+responsible_for_future_candidates | Yes for coordinator or recruiter | boolean | The user becomes the responsible person for all new candidates. Only one user in the group of users may be designated as responsible.
+responsible_for_active_candidates | Yes for coordinator or recruiter | boolean | The user becomes the responsible person for all existing candidates with active applications
+responsible_for_inactive_candidates | Yes for coordinator or recruiter | boolean | The user becomes the responsible person for all hired and rejected candidates
+
+On success, this will return a 200 response code with a success message in the JSON body.
+
+## DELETE: Remove Hiring Team Member
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/jobs/{id}'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "hiring_managers": [1234, 2345],
+  "sourcers": [3456, 4567],
+  "recruiters": [5678, 6789],
+  "coordinators": [7890, 8901]
+}
+```
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "success": true
+}
+```
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/jobs/{id}/hiring_team`
+
+### JSON Body Parameters
+
+This method removes hiring team members with the designated user ids from the designated type. If a user id is provided that does not exist in the hiring team of that type, it will be ignored and no error will be raised. Disabled and inactive users can be removed with this endpoint, but you will be unable to re-add them. If you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
 
 On success, this will return a 200 response code with a success message in the JSON body.
