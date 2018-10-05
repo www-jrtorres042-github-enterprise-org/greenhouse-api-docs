@@ -8,6 +8,7 @@ Interviews that have been scheduled for the specified application. Note that all
 {
   "id": 9128481,
   "application_id": 4684156,
+  "external_event_id": "event123",
   "start": {
     "date_time": "2014-03-26T22:15:00.000Z"
   },
@@ -32,8 +33,10 @@ Interviews that have been scheduled for the specified application. Note that all
   "interviewers": [
     {
       "id": 4080,
+      "employee_id": "employee123",
       "name": "Kate Austen",
       "email": "kate.austen@example.com",
+      "response_status": "needs_action",
       "scorecard_id": 11274
     }
   ]
@@ -65,6 +68,7 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
   {
     "id": 9128481,
     "application_id": 4684156,
+    "external_event_id": "event123",
     "start": {
       "date_time": "2014-03-26T22:15:00.000Z"
     },
@@ -89,8 +93,10 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
     "interviewers": [
       {
         "id": 4080,
+        "employee_id": "employee123",
         "name": "Kate Austen",
         "email": "kate.austen@example.com",
+        "response_status": "needs_action",
         "scorecard_id": 11274
       }
     ]
@@ -98,6 +104,7 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
   {
     "id": 9128482,
     "application_id": 432905,
+    "external_event_id": "event456",
     "start": {
       "date": "2017-08-22"
     },
@@ -120,8 +127,10 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
     "interviewers": [
       {
         "id": 3412,
+        "employee_id": "employee456",
         "name": "Charlie Pace",
         "email": "youalleverybody@example.com",
+        "response_status": "needs_action",
         "scorecard_id": null
       }
     ]
@@ -164,6 +173,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
   {
     "id": 9128481,
     "application_id": 4684156,
+    "external_event_id": "event123",
     "start": {
       "date_time": "2014-03-26T22:15:00.000Z"
     },
@@ -188,8 +198,10 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
     "interviewers": [
       {
         "id": 4080,
+        "employee_id": "employee123",
         "name": "Kate Austen",
         "email": "kate.austen@example.com",
+        "response_status": "needs_action",
         "scorecard_id": 11274
       }
     ]
@@ -197,6 +209,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
   {
     "id": 9128482,
     "application_id": 4684156,
+    "external_event_id": "event456",
     "start": {
       "date": "2017-08-22"
     },
@@ -219,8 +232,10 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
     "interviewers": [
       {
         "id": 3412,
+        "employee_id": "employee456",
         "name": "Charlie Pace",
         "email": "youalleverybody@example.com",
+        "response_status": "needs_action",
         "scorecard_id": null
       }
     ]
@@ -260,6 +275,7 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 {
   "id": 9128481,
   "application_id": 4684156,
+  "external_event_id": "event123",
   "start": {
     "date_time": "2014-03-26T22:15:00.000Z"
   },
@@ -284,8 +300,10 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
   "interviewers": [
     {
       "id": 4080,
+      "employee_id": "employee123",
       "name": "Kate Austen",
       "email": "kate.austen@example.com",
+      "response_status": "needs_action",
       "scorecard_id": 11274
     }
   ]
