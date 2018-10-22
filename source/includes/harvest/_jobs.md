@@ -1229,6 +1229,12 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs'
 
 `POST https://harvest.greenhouse.io/v1/jobs`
 
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
 ### JSON Body Parameters
 
 Parameter | Required | Type | Description

@@ -150,6 +150,12 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings'
 
 `DELETE https://harvest.greenhouse.io/v1/jobs/{job_id}/openings`
 
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
 ### JSON Body Parameters
 
 Parameter | Required | Type | Description
@@ -185,6 +191,12 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings/{d}'
 ### HTTP Request
 
 `PATCH https://harvest.greenhouse.io/v1/jobs/{job_id}/openings/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 ### URL Parameters
 
@@ -231,6 +243,12 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings'
 ### HTTP Request
 
 `POST https://harvest.greenhouse.io/v1/jobs/{job_id}/openings`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 ### URL Parameters
 

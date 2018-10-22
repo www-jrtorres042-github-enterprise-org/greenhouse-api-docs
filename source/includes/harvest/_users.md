@@ -168,6 +168,12 @@ Disable a user. It is safe to call this method on a user that is currently disab
 
 `PATCH https://harvest.greenhouse.io/v1/users/{id}/disable`
 
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
 ## PATCH: Edit User
 
 ```shell
@@ -246,6 +252,12 @@ Enable a user. It is safe to call this method on a user that is currently enable
 ### HTTP Request
 
 `PATCH https://harvest.greenhouse.io/v1/users/{id}/enable`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
 ## POST: Add User
 

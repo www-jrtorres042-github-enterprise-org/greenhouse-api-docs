@@ -252,6 +252,12 @@ Given an approval flow, request it be started. This will change the state of the
 
 `POST https://harvest.greenhouse.io/v1/approval_flows/{id}/request_approvals`
 
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
 ## GET: Pending Approvals For User
 
 ```shell
