@@ -1162,7 +1162,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
   ],
   "employments": [
       {
-          "id": 8485064,
           "company_name": "Greenhouse",
           "title": "Engineer",
           "start_date": "2012-08-15T00:00:00.000Z",
@@ -1854,7 +1853,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   ],
   "employments": [
       {
-          "id": 8485064,
           "company_name": "Greenhouse",
           "title": "Engineer",
           "start_date": "2012-08-15T00:00:00.000Z",
