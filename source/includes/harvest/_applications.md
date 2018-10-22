@@ -1063,7 +1063,13 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> A successful response:
+> The above command requires an empty JSON body:
+
+```json
+{}
+```
+
+> The above returns a JSON response, structured like this:
 
 ```json
 {
