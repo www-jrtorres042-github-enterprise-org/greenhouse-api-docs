@@ -2,7 +2,7 @@
 
 ## The scheduled interview object 
 
-Interviews that have been scheduled for the specified application.
+Interviews that have been scheduled for the specified application. Note that all-day interviews will have a start and end date with no specified time.
 
 ```json
 {
@@ -99,10 +99,10 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
     "id": 9128482,
     "application_id": 432905,
     "start": {
-      "date_time": "2017-08-22T12:00:00.000Z"
+      "date": "2017-08-22"
     },
     "end": {
-      "date_time": "2017-08-22T12:30:00.000Z"
+      "date": "2017-08-23"
     },
     "location": "Small Conference Room",
     "status": "complete",
@@ -198,10 +198,10 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
     "id": 9128482,
     "application_id": 4684156,
     "start": {
-      "date_time": "2017-08-22T12:00:00.000Z"
+      "date": "2017-08-22"
     },
     "end": {
-      "date_time": "2017-08-22T12:30:00.000Z"
+      "date": "2017-08-23"
     },
     "location": "Small Conference Room",
     "status": "complete",

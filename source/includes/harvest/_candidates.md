@@ -252,7 +252,7 @@ An organization's candidates.
 | website_addresses[].type | One of: ["personal", "company", "portfolio", "blog", "other"]
 | recruiter | The recruiter [user](#users) who is responsible for this candidate.
 | coordinator | The coordinator [user](#users) who is responsible for this candidate.
-| attachments[].type | One of: ["admin_only", "public", "cover_letter", "offer_packet", "resume", "take_home_test"]
+| attachments[].type | One of: ["resume", "cover_letter", "admin_only", "public", "offer_packet", "offer_letter", "take_home_test", "other"]
 | attachments[].url | URLs expire in 30 days.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
@@ -1090,7 +1090,7 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 filename | Yes | string | Name of the file
 type | Yes | string | One of: ["resume", "cover_letter", "admin_only"]
-content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url)
+content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url). String must be UTF-8 encoded.
 url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content)
 content_type | No* | string | The content-type of the document you are sending. When using a URL, this generally isn't needed, as the responding server will deliver a content type.  This should be included for encoded content.  Accepted content types are: <ul><li>"application/atom+xml"</li><li>"application/javascript"</li><li>"application/json"</li><li>"application/msgpack"</li><li>"application/msword"</li><li>"application/pdf"</li><li>"application/rss+xml"</li><li>"application/vnd.ms-excel"</li><li>"application/vnd.openxmlformats-<br>officedocument.spreadsheetml.sheet"</li><li>"application/vnd.openxmlformats-<br>officedocument.wordprocessingml.document"</li><li>"application/vnd.ms-powerpoint"</li><li>"application/xml"</li><li>"application/x-www-form-urlencoded"</li><li>"application/x-yaml"</li><li>"application/zip"</li><li>"multipart/form-data"</li><li>"image/bmp"</li><li>"image/gif"</li><li>"image/jpeg"</li><li>"image/png"</li><li>"image/tiff"</li><li>"text/calendar"</li><li>"text/css"</li><li>"text/csv"</li><li>"text/html"</li><li>"text/javascript"</li><li>"text/plain"</li><li>"text/vcard"</li><li>"video/mpeg"</li></ul>
 
@@ -1162,7 +1162,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
   ],
   "employments": [
       {
-          "id": 8485064,
           "company_name": "Greenhouse",
           "title": "Engineer",
           "start_date": "2012-08-15T00:00:00.000Z",
@@ -1854,7 +1853,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   ],
   "employments": [
       {
-          "id": 8485064,
           "company_name": "Greenhouse",
           "title": "Engineer",
           "start_date": "2012-08-15T00:00:00.000Z",
