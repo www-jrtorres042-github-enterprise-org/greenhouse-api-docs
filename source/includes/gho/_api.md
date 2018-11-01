@@ -344,7 +344,6 @@ managerFilter | [ManagerFilter](#managerfilter) | filter employees by their mana
 managerIds | [\[Int\]](#int) | DEPRECATED. Use managerFilter instead | 
 personalEmailFilter | [PersonalEmailFilter](#personalemailfilter) | filter employees by their personal email | 
 personalEmails | [\[String\]](#string) | DEPRECATED. Use personalEmailFilter instead | 
-requiredFieldsCompletedAtFilter | RequiredFieldsCompletedAtFilter | filter employees by when they completed their required fields | 
 startDate | [DateFilter](#datefilter) | DEPRECATED. Use startDateFilter instead | 
 startDateFilter | [StartDateFilter](#startdatefilter) | filter employees by their start date | 
 titleFilter | [TitleFilter](#titlefilter) | filter employees by their title | 
