@@ -972,7 +972,6 @@ phoneNumber | [String](#string) |
 preferredFirstName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 preferredLastName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 profileImage | [File](#file) | A file containing the employee's profile image. This image is displayed in emails, reports and directory pages.
-requiredFieldsCompletedAt | [DateTime](#datetime) | When the employee's required fields were completed
 signatureRequests | [\[SignatureRequest!\]](#signaturerequest) | These are E-Signature requests initiated through Greenhouse Onboarding. Keep in mind that these requests can be in a number of different states in their lifecycle and may not always have a signed document available to download.
 startDate | [Date](#date) | 
 suffix | [String](#string) | 
