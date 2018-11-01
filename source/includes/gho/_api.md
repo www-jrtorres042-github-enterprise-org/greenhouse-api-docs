@@ -344,7 +344,7 @@ managerFilter | [ManagerFilter](#managerfilter) | filter employees by their mana
 managerIds | [\[Int\]](#int) | DEPRECATED. Use managerFilter instead | 
 personalEmailFilter | [PersonalEmailFilter](#personalemailfilter) | filter employees by their personal email | 
 personalEmails | [\[String\]](#string) | DEPRECATED. Use personalEmailFilter instead | 
-requiredFieldsCompletedAtFilter | [RequiredFieldsCompletedAtFilter](#requiredfieldscompletedatfilter) | filter employees by when they completed their required fields | 
+requiredFieldsCompletedAtFilter | RequiredFieldsCompletedAtFilter | filter employees by when they completed their required fields | 
 startDate | [DateFilter](#datefilter) | DEPRECATED. Use startDateFilter instead | 
 startDateFilter | [StartDateFilter](#startdatefilter) | filter employees by their start date | 
 titleFilter | [TitleFilter](#titlefilter) | filter employees by their title | 
@@ -1384,15 +1384,6 @@ Argument | Type | Description | Required
 anyValue | [Boolean](#boolean) |  | 
 noValue | [Boolean](#boolean) |  | 
 personalEmails | [\[String\]](#string) |  | 
-
-## RequiredFieldsCompletedAtFilter
-Filter employees based on when their required custom fields have been completed
-
-Argument | Type | Description | Required
---------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-dateTimeFilter | [DateTimeFilter](#datetimefilter) |  | 
-noValue | [Boolean](#boolean) |  | 
 
 ## StartDateFilter
 Filter employees based on their start date
