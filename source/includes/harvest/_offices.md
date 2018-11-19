@@ -59,7 +59,7 @@ An organization’s offices.
 }
 ```
 
-### Noteworthy attributes 
+### Noteworthy attributes
 
 | Attribute | Description |
 |-----------|-------------|
@@ -380,6 +380,6 @@ Parameter | Required | Type | Description
 `parent_id`* | no | number | The office id for the new office to be nested under.  If this isn't included, the office will be created at the top level.
 `external_id`** | no | string | The external_id for the office.
 
-\* - The tiered office feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
+\* - The tiered office feature is available only for customers with the Pro or Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
 
-\** - The external_id feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
+\** - The external_id feature is available only for customers with the Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
