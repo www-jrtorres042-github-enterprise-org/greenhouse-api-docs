@@ -70,7 +70,7 @@ An organization's departments.
 List all of an organization's departments.
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/departments' 
+curl 'https://harvest.greenhouse.io/v1/departments'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -157,7 +157,7 @@ curl 'https://harvest.greenhouse.io/v1/departments'
 ## GET: Retrieve Department
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/departments/{id}' 
+curl 'https://harvest.greenhouse.io/v1/departments/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -343,6 +343,6 @@ name |  yes | string | The name of your new department.  Must be less than 255 c
 parent_id* | no | number | The department id for the new department to be nested under.  If this isn't included, the department will be created at the top level.
 external_id** | no | string | The external_id for the office.
 
-\* - The tiered department feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
+\* - The tiered department feature is available only for customers with the Pro or Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
 
-\** - The external_id feature is available only for customers with Standard or Premium Greenhouse Recruiting. Use of this field will return an error for Basic Greenhouse Recruiting customers.
+\** - The external_id feature is available only for customers with the Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.

@@ -45,37 +45,37 @@ Every application may have zero or one EEOC object.
 
 ### Race
 
-| id | description |
-|------|------|
-|1|American Indian or Alaskan Native
-|2|Asian
-|3|Black or African American
-|4|Hispanic or Latino
-|5|White
-|6|Native Hawaiian or Other Pacific Islander
-|7|Two or More Races
-|8|Decline To Self Identify
+| description |
+|------|
+|American Indian or Alaskan Native
+|Asian
+|Black or African American
+|Hispanic or Latino
+|White
+|Native Hawaiian or Other Pacific Islander
+|Two or More Races
+|Decline To Self Identify
 
 ### Gender
-| id | description |
-|----|-----------|
-|1|Male
-|2|Female
-|3|Decline To Self Identify
+| description |
+|-----------|
+|Male
+|Female
+|Decline To Self Identify
 
 ### Veteran Status
-| id | description |
-|----|-----------|
-|1|I am not a protected veteran
-|2|I identify as one or more of the classifications of a protected veteran
-|3|I don't wish to answer
+| description |
+|-----------|
+|I am not a protected veteran
+|I identify as one or more of the classifications of a protected veteran
+|I don't wish to answer
 
 ### Disability Status
-| id | description |
-|----|-----------|
-|1|Yes, I have a disability (or previously had a disability)
-|2|No, I don't have a disability
-|3|I don't wish to answer
+| description |
+|-----------|
+|Yes, I have a disability (or previously had a disability)
+|No, I don't have a disability
+|I don't wish to answer
 
 ## GET: List EEOC
 

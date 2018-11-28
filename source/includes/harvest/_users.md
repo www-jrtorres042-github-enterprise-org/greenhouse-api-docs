@@ -219,9 +219,9 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 first_name | No | string | The user's new first name. If included, this cannot be blank.
 last_name | No | string | The user's new last name. If included, this cannot be blank.
-employee_id* | No | string | The user's external employee id. If included, this cannot be blank, nor can it match any other employee-id for a user in this organization. 
+employee_id* | No | string | The user's external employee id. If included, this cannot be blank, nor can it match any other employee-id for a user in this organization.
 
-\* - If the employee id feature is not enabled for your organization, attempting to edit this field will raise an API Error.
+\* - If the employee_id feature is not enabled for your organization, attempting to edit this field will raise an API Error.
 
 ## PATCH: Enable User
 
@@ -322,6 +322,7 @@ send_email_invite* | No | boolean | If true, an email will be sent to the user a
 employee_id | No | string | The user's external employee id.
 
 \* - A newly created user will not be able to login until they create a password via the invitation link or configured in an SSO system.
+\** - The employee_id feature is available only for customers with the Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
 
 ## POST: Add E-mail Address To User
 
