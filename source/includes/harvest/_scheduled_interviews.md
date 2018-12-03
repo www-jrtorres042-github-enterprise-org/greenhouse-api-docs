@@ -399,11 +399,11 @@ curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 }
 ```
 
-Create a new scheduled interview.
+Create a new Scheduled Interview.
 
 ### HTTP Request
 
-`POST https://harvest.greenhouse.io/v1/scheduled_interviews/{id}`
+`POST https://harvest.greenhouse.io/v1/scheduled_interviews`
 
 ### Headers
 
@@ -425,3 +425,101 @@ location| No | string | A textual description of the location of the interview.
 <aside class="notice">
     There may be a delay between when Greenhouse receives the POST: Create Scheduled Interview request and when Greenhouse creates the full Scheduled Interview record, which will result in a truncated API response. The truncated response body will contain the id of the newly Scheduled Interview. You can retrieve the full Scheduled Interview record by requesting the Scheduled Interview ID with the GET: Scheduled Interview endpoint. If you receive a 404 error from the GET: Scheduled Interview endpoint, this indicates that the full Scheduled Interview record is still not available. Until the Scheduled Interview record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
 </aside>
+
+## Patch: Update Interview
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+	"organizer": {
+		"user_id": 102361
+	},
+	"attendees": [
+		{ "user_id": 102361, "response_status": "needs_action" },
+		{ "email": "lucius.barbarossa.46444@example.com", "response_status": "declined" }
+	],
+	"starts_at": "2018-11-12T13:15:00Z",
+	"ends_at": "2018-11-12T14:15:00Z",
+	"external_event_id": "external_event_id_0",
+	"location": "Dunder Mifflin, Scranton"
+}
+```
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "id": 109170954,
+  "application_id": 102717457,
+  "external_event_id": "external_event_id_0",
+  "start": {
+    "date_time": "2018-12-12T13:15:00.000Z"
+  },
+  "end": {
+    "date_time": "2018-12-12T14:15:00.000Z"
+  },
+  "location": "Big Conference Room",
+  "status": "scheduled",
+  "created_at": "2018-10-17T19:22:07.302Z",
+  "updated_at": "2018-12-03T20:45:14.320Z",
+  "interview": {
+    "id": 8055374,
+    "name": "Executive Interview"
+  },
+  "organizer": {
+    "id": 102361,
+    "first_name": "Champ",
+    "last_name": "Telluride",
+    "name": "Champ Telluride",
+    "employee_id": null
+  },
+  "interviewers": [
+    {
+      "id": 102361,
+      "employee_id": null,
+      "name": "Champ Telluride",
+      "email": "champ.telluride.102361@example.com",
+      "response_status": "accepted",
+      "scorecard_id": null
+    },
+    {
+      "id": 46444,
+      "employee_id": "AAA1",
+      "name": "Lucius Barbarossa",
+      "email": "lucius.barbarossa.46444@example.com",
+      "response_status": "declined",
+      "scorecard_id": null
+    }
+  ]
+}
+```
+
+Update a Scheduled Interview.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/scheduled_interviews/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+organizer | No | user | The organizer of the event. Can be specified by user_id, email, or employee_id.
+attendees[] | No | attendee | Array of attendees. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
+starts_at | No | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+ends_at | No | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+external_event_id | No | string | A unique identifer for this interview.
+location| No | string | A textual description of the location of the interview.
