@@ -399,7 +399,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 }
 ```
 
-Create a new Scheduled Interview.
+Create a new Scheduled Interview. 
+
+[See noteworthy response attributes.] (#the-scheduled-interview-object)
 
 ### HTTP Request
 
@@ -501,7 +503,10 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 }
 ```
 
-Update a Scheduled Interview.
+Update a Scheduled Interview. Note that only Scheduled Interviews created through harvest can be updated. Additionally, you can 
+only update Scheduled Interviews in the following statues: Scheduled, Awaiting Feedback.
+
+[See noteworthy response attributes.] (#the-scheduled-interview-object)
 
 ### HTTP Request
 
@@ -523,3 +528,34 @@ starts_at | No | string | A datetime specifying when the interview starts. Must 
 ends_at | No | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | No | string | A unique identifer for this interview.
 location| No | string | A textual description of the location of the interview.
+
+## Delete: Remove Interview
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "message": "Interview 109170954 has been deleted."
+}
+```
+
+Delete a Scheduled Interview by `id`. Note that only Scheduled Interviews created through harvest can be deleted. Additionally, you can 
+only delete Scheduled Interviews in the following statues: Scheduled, Awaiting Feedback.
+
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/scheduled_interviews/{id}`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+<br>
