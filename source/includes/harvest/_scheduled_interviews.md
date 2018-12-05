@@ -416,7 +416,7 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 application_id | Yes | integer | The id of the application for which we will scheduled an interview.
 interview_id | Yes | integer | The id of the interview we'd like to schedule. This id can be found in the [job stage object](#the-job-stage-object). It refers to an interview type (e.g. "Executive Interview" or "On-site Interview") that is associated with a hiring plan's interview step.  This differs from a "Scheduled Interview" which refers to an instantiated interview that is associated with an application, interviewers, start time, etc.
-interviewers[] | Yes | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
+interviewers[] | Yes | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted). Each user must be a valid interviewer for the hiring plan.
 start | Yes | string | A datetime specifying when the interview starts. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 end | Yes | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | Yes | string | A unique identifer for this interview.
@@ -517,7 +517,7 @@ On-Behalf-Of | ID of the user issuing this request. Will become the interview or
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-interviewers[] | No | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
+interviewers[] | No | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted). Each user must be a valid interviewer for the hiring plan.
 start | No | string | A datetime specifying when the interview starts. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 end | No | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | No | string | A unique identifer for this interview.
