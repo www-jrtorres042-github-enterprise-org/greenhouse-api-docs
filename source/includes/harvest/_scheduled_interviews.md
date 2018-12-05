@@ -53,7 +53,7 @@ Interviews that have been scheduled for the specified application. Note that all
 | location | The location of the interview.
 | status | One of: `scheduled`, `awaiting_feedback`, `complete`
 | organizer | The [user](#users) who is the organizer for this interview
-| interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed.
+| interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed. This object will also contain the interviewer's `response_status` which indicates how they've responded to the interview invitation (one of `needs_action`, `declined`, `tentative`, or `accepted`).
 
 ## GET: List Scheduled Interviews
 
