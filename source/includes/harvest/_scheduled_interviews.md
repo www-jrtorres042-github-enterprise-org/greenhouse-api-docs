@@ -1,6 +1,6 @@
 # Scheduled Interviews
 
-## The scheduled interview object 
+## The Scheduled Interview object 
 
 Interviews that have been scheduled for the specified application. Note that all-day interviews will have a start and end date with no specified time.
 
@@ -55,7 +55,7 @@ Interviews that have been scheduled for the specified application. Note that all
 | organizer | The [user](#users) who is the organizer for this interview
 | interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed.
 
-## GET: List Interviews
+## GET: List Scheduled Interviews
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
@@ -161,7 +161,7 @@ Parameter | Description
 | ends_before | Only return scheduled interviews scheduled to end before this timestamp.
 | ends_after | Only return scheduled interviews scheduled to end at or after this timestamp.
 
-## GET: List Interviews for Application
+## GET: List Scheduled Interviews for Application
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
@@ -264,7 +264,7 @@ Parameter | Description
 <br>
 [See noteworthy response attributes.] (#the-scheduled-interview-object)
 
-## GET: Retrieve Interview
+## GET: Retrieve Scheduled Interview
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
@@ -322,7 +322,7 @@ Parameter | Description
 --------- | -----------
 id | The ID of the scheduled interview to retrieve
 
-## Post: Create Interview
+## Post: Create Scheduled Interview
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
@@ -414,9 +414,11 @@ On-Behalf-Of | ID of the user issuing this request. Will become the interview or
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
+application_id | Yes | integer | The id of the application for which we will scheduled an interview.
+interview_id | Yes | integer | The id of the interview we'd like to schedule. This id can be found in the [job stage object](#the-job-stage-object). It refers to an interview type (e.g. "Executive Interview" or "On-site Interview") that is associated with a hiring plan's interview step.  This differs from a "Scheduled Interview" which refers to an instantiated interview that is associated with an application, interviewers, start time, etc.
 interviewers[] | Yes | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
-start | Yes | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
-end | Yes | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+start | Yes | string | A datetime specifying when the interview starts. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+end | Yes | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | Yes | string | A unique identifer for this interview.
 location| No | string | A textual description of the location of the interview.
 
@@ -424,7 +426,7 @@ location| No | string | A textual description of the location of the interview.
     There may be a delay between when Greenhouse receives the POST: Create Scheduled Interview request and when Greenhouse creates the full Scheduled Interview record, which will result in a truncated API response. The truncated response body will contain the id of the newly Scheduled Interview. You can retrieve the full Scheduled Interview record by requesting the Scheduled Interview ID with the GET: Scheduled Interview endpoint. If you receive a 404 error from the GET: Scheduled Interview endpoint, this indicates that the full Scheduled Interview record is still not available. Until the Scheduled Interview record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
 </aside>
 
-## Patch: Update Interview
+## Patch: Update Scheduled Interview
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
@@ -516,12 +518,12 @@ On-Behalf-Of | ID of the user issuing this request. Will become the interview or
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 interviewers[] | No | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
-start | No | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
-end | No | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+start | No | string | A datetime specifying when the interview starts. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+end | No | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | No | string | A unique identifer for this interview.
 location| No | string | A textual description of the location of the interview.
 
-## Delete: Remove Interview
+## Delete: Remove Scheduled Interview
 
 ```shell
 curl -X DELETE 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
