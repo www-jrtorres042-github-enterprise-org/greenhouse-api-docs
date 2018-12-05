@@ -337,9 +337,6 @@ curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 {
 	"application_id": 102717462,
 	"interview_id": 8055374,
-	"organizer": {
-		"user_id": 102361
-	},
 	"interviewers": [
 		{ "user_id": 102361, "response_status": "accepted" },
 		{ "email": "lucius.barbarossa.46444@example.com", "response_status": "declined" }
@@ -411,13 +408,12 @@ Create a new Scheduled Interview.
 
 Header | Description
 --------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+On-Behalf-Of | ID of the user issuing this request. Will become the interview organizer. The user must have permission to manage the associcated application.
 
 ### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-organizer | Yes | user | The organizer of the event. Can be specified by user_id, email, or employee_id.
 interviewers[] | Yes | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
 start | Yes | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 end | Yes | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
@@ -441,9 +437,6 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 
 ```json
 {
-	"organizer": {
-		"user_id": 102361
-	},
 	"interviewers": [
 		{ "user_id": 102361, "response_status": "needs_action" },
 		{ "email": "lucius.barbarossa.46444@example.com", "response_status": "declined" }
@@ -516,13 +509,12 @@ only update Scheduled Interviews in the following statues: Scheduled, Awaiting F
 
 Header | Description
 --------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+On-Behalf-Of | ID of the user issuing this request. Will become the interview organizer. The user must have permission to manage the associcated application.
 
 ### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-organizer | No | user | The organizer of the event. Can be specified by user_id, email, or employee_id.
 interviewers[] | No | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
 start | No | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 end | No | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
