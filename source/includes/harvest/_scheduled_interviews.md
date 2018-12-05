@@ -340,12 +340,12 @@ curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 	"organizer": {
 		"user_id": 102361
 	},
-	"attendees": [
+	"interviewers": [
 		{ "user_id": 102361, "response_status": "accepted" },
 		{ "email": "lucius.barbarossa.46444@example.com", "response_status": "declined" }
 	],
-	"starts_at": "2018-12-12T13:15:00Z",
-	"ends_at": "2018-12-12T14:15:00Z",
+	"start": "2018-12-12T13:15:00Z",
+	"end": "2018-12-12T14:15:00Z",
 	"external_event_id": "external_event_id_1",
 	"location": "Big Conference Room"
 }
@@ -418,9 +418,9 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 organizer | Yes | user | The organizer of the event. Can be specified by user_id, email, or employee_id.
-attendees[] | Yes | attendee | Array of attendees. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
-starts_at | Yes | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
-ends_at | Yes | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+interviewers[] | Yes | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
+start | Yes | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+end | Yes | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | Yes | string | A unique identifer for this interview.
 location| No | string | A textual description of the location of the interview.
 
@@ -444,12 +444,12 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
 	"organizer": {
 		"user_id": 102361
 	},
-	"attendees": [
+	"interviewers": [
 		{ "user_id": 102361, "response_status": "needs_action" },
 		{ "email": "lucius.barbarossa.46444@example.com", "response_status": "declined" }
 	],
-	"starts_at": "2018-11-12T13:15:00Z",
-	"ends_at": "2018-11-12T14:15:00Z",
+	"start": "2018-11-12T13:15:00Z",
+	"end": "2018-11-12T14:15:00Z",
 	"external_event_id": "external_event_id_0",
 	"location": "Dunder Mifflin, Scranton"
 }
@@ -523,9 +523,9 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 organizer | No | user | The organizer of the event. Can be specified by user_id, email, or employee_id.
-attendees[] | No | attendee | Array of attendees. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
-starts_at | No | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
-ends_at | No | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+interviewers[] | No | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
+start | No | string | A datetime specifying when the interview starts. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
+end | No | string | A datetime specifying when the interview ends. Must be provided in ISO-8601 (#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | No | string | A unique identifer for this interview.
 location| No | string | A textual description of the location of the interview.
 
