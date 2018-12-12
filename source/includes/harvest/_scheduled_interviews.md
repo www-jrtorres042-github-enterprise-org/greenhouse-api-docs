@@ -160,6 +160,9 @@ Parameter | Description
 | starts_after | Only return scheduled interviews scheduled to start at or after this timestamp.
 | ends_before | Only return scheduled interviews scheduled to end before this timestamp.
 | ends_after | Only return scheduled interviews scheduled to end at or after this timestamp.
+| external_event_id | Only return the scheduled interview that has the specified `external_event_id`.
+| actionable | Only certain scheduled interviews can be updated/deleted. They must have been created through harvest, have a status of "scheduled" or "awaiting feedback," and belong to an active application. When set to true, this filter will return only scheduled interviews that meet those criteria.
+
 
 ## GET: List Scheduled Interviews for Application
 
@@ -260,6 +263,8 @@ Parameter | Description
 | created_after | Return only scheduled interviews that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only scheduled interviews that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only scheduled interviews that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
+| external_event_id | Only return the scheduled interview that has the specified `external_event_id`.
+| actionable | Only certain scheduled interviews can be updated/deleted. They must have been created through harvest, have a status of "scheduled" or "awaiting feedback," and belong to an active application. When set to true, this filter will return only scheduled interviews that meet those criteria.
 
 <br>
 [See noteworthy response attributes.] (#the-scheduled-interview-object)
