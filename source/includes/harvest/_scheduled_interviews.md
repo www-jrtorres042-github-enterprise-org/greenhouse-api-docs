@@ -330,7 +330,7 @@ id | The ID of the scheduled interview to retrieve
 ## Post: Create Scheduled Interview
 
 ```shell
-curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
+curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews'
 -H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
