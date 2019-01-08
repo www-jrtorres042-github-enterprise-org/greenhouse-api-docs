@@ -74,6 +74,7 @@ An organization's candidates.
         "name": "Jane Smith",
         "employee_id": "12345"
     },
+    "can_email": true,
     "tags": [
         "Python",
         "Ruby"
@@ -323,6 +324,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
         "employee_id": null
     },
     "coordinator": null,
+    "can_email": true,
     "tags": [
         "Python",
         "Ruby"
@@ -563,6 +565,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
         "name": "Jane Smith",
         "employee_id": "12345"
     },
+    "can_email": true,
     "tags": [
         "Python",
         "Ruby"
@@ -827,6 +830,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
   ],
   "recruiter": { "user_id": 4354 },
   "coordinator": { "email": "coordinator@example.com" },
+  "can_email": true,
   "tags": [
     "Walkabout",
     "Orientation"
@@ -916,6 +920,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
           "employee_id": null
       },
       "coordinator": null,
+      "can_email": true,
       "tags": [
           "Walkabout",
           "Orientation"
@@ -1239,6 +1244,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
     ],
     "recruiter": null,
     "coordinator": null,
+    "can_email": true,
     "tags": [
         "Orientation",
         "Walkabout"
@@ -1931,6 +1937,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
   ],
   "recruiter": null,
   "coordinator": null,
+  "can_email": true,
   "tags": [
     "Orientation",
     "Walkabout"
@@ -2099,6 +2106,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
         "employee_id": null
     },
     "coordinator": null,
+    "can_email": true,
     "tags": [
         "Python",
         "Ruby"
@@ -2263,6 +2271,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
     "social_media_addresses": [],
     "recruiter": null,
     "coordinator": null,
+    "can_email": true,
     "tags": [
         "Comp Sci"
     ],
