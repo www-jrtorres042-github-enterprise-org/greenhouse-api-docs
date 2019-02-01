@@ -1,10 +1,10 @@
 # Introduction
 
 ```
-  _          _ _             
- | |__   ___| | | ___        
- | '_ \ / _ \ | |/ _ \       
- | | | |  __/ | | (_) |      
+  _          _ _
+ | |__   ___| | | ___
+ | '_ \ / _ \ | |/ _ \
+ | | | |  __/ | | (_) |
  |_| |_|\___|_|_|\___/     _
  __      _____  _ __| | __| |
  \ \ /\ / / _ \| '__| |/ _` |
@@ -16,9 +16,9 @@ With Harvest, you have access to most of your Greenhouse data!
 
 The Harvest API was designed to allow our customers to export their data from Greenhouse. However, it can also be used to...
 
- 1. Update candidate information.
- 2. Add attachments to candidate profiles.
- 3. Advance, move, and reject applications.
+1.  Update candidate information.
+2.  Add attachments to candidate profiles.
+3.  Advance, move, and reject applications.
 
 We have usage examples for cURL (and soon, Ruby)! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
@@ -53,9 +53,9 @@ $ curl https://harvest.greenhouse.io/v1/candidates/ -u a7183e1b7e9ab09b8a5cfa87d
 
 Harvest uses Basic Auth over HTTPS for authentication. The username is your Greenhouse API token and the password should be blank. Unauthenticated requests will return an HTTP 401 response.
 
-Harvest API keys can be obtained in Greenhouse.  In order to create a Harvest API key, a user must be granted the "Can manage ALL organization's API Credentials" in the "Developer permission" section. That user can then go Configure >> Dev Center >> API Credential Management.  From there, you can create a Harvest API key and choose which endpoints it may access.
+Harvest API keys can be obtained in Greenhouse. In order to create a Harvest API key, a user must be granted the "Can manage ALL organization's API Credentials" in the "Developer permission" section. That user can then go Configure >> Dev Center >> API Credential Management. From there, you can create a Harvest API key and choose which endpoints it may access.
 
-**Important Note:** Users with Harvest API keys may access all the data in the endpoint.  Access to data in Harvest is binary: everything or nothing. Harvest API keys should be given to internal developers with this understanding and to third parties with caution.  Each key should only be allowed to access the endpoints it absolutely needs.
+**Important Note:** Users with Harvest API keys may access all the data in the endpoint. Access to data in Harvest is binary: everything or nothing. Harvest API keys should be given to internal developers with this understanding and to third parties with caution. Each key should only be allowed to access the endpoints it absolutely needs.
 
 ### Authorization header
 
@@ -106,21 +106,21 @@ Link: <https://harvest.greenhouse.io/v1/candidates?page=2&per_page=2>; rel="next
 
 API methods that return a collection of results are always paginated. Paginated results will include a `Link` (see [RFC-5988](https://tools.ietf.org/html/rfc5988)) response header with the following information.
 
-* `next`. The corresponding URL is the link to the next page.
-* `prev`. The corresponding URL is the link to the previous page.
-* `last`. The corresponding URL is the link to the last page.
+- `next`. The corresponding URL is the link to the next page.
+- `prev`. The corresponding URL is the link to the previous page.
+- `last`. The corresponding URL is the link to the last page.
 
 Note that when this header is not set, there is only one page, the first page, of results.
 
-As of February 2017,  we are transitioning to a new method for paging while maintaining backwards compatibility.  Currently, the new method *only* supports providing a `next` link and is used by the following endpoints:
+As of February 2017, we are transitioning to a new method for paging while maintaining backwards compatibility. Currently, the new method _only_ supports providing a `next` link and is used by the following endpoints:
 
-* [GET: List EEOC](#get-list-eeoc)
-* [GET: List User Roles](#get-list-user-roles)
-* [GET: List Custom Fields](#get-list-custom-fields)
-* [GET: List Custom Field Options](#get-list-custom-field-options)
-* [GET: List Job Openings](#get-list-job-openings)
-* [GET: List Approvals For Job](#get-list-approvals-for-job)
-* [GET: Pending Approvals For User](#get-pending-approvals-for-user)
+- [GET: List EEOC](#get-list-eeoc)
+- [GET: List User Roles](#get-list-user-roles)
+- [GET: List Custom Fields](#get-list-custom-fields)
+- [GET: List Custom Field Options](#get-list-custom-field-options)
+- [GET: List Job Openings](#get-list-job-openings)
+- [GET: List Approvals For Job](#get-list-approvals-for-job)
+- [GET: Pending Approvals For User](#get-pending-approvals-for-user)
 
 <aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 
@@ -131,8 +131,8 @@ As of February 2017,  we are transitioning to a new method for paging while main
   "message": "Validation error",
   "errors": [
     {
-        "message": "Must be one of: candidate, prospect",
-        "field": "type"
+      "message": "Must be one of: candidate, prospect",
+      "field": "type"
     }
   ]
 }
@@ -153,9 +153,16 @@ Unless otherwise specified, API methods generally conform to the following:
 
 ## Errors
 
-Error Code | Meaning
----------- | -------
-401 | Unauthorized -- Invalid Harvest API key.  Check to make sure you're passing it in via the `Authorization` header (Basic Auth)
-403 | Forbidden -- You do not have access to that record.
-404 | Not Found -- Resource not found
-500 | Server Error -- We had a problem with our server. Try again later or contact us: support@greenhouse.io
+| Error Code | Meaning                                                                                                                      |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 401        | Unauthorized -- Invalid Harvest API key. Check to make sure you're passing it in via the `Authorization` header (Basic Auth) |
+| 403        | Forbidden -- You do not have access to that record.                                                                          |
+| 404        | Not Found -- Resource not found                                                                                              |
+| 500        | Server Error -- We had a problem with our server. Try again later or contact us: support@greenhouse.io                       |
+
+## Harvest Change Log
+
+| Date                   | Description                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------- |
+| Feb 1, 2019 11:28:00AM | Added partial response (HTTP Status code 202) to [POST: Create Job](#post-create-job) |
+| Jan 8, 2019 12:00:00PM | Added `can_email` flag to [Candidates Endpoints](#the-candidate-object)               |
