@@ -22,9 +22,9 @@ A collection of custom fields
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified global ID. | 
-before | [String](#string) | Returns the elements in the list that come before the specified global ID. | 
-fieldTypes | [\[CustomFieldTypes\]](#customfieldtypes) |  | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
+fieldTypes | [\[CustomFieldType\]](#customfieldtype) |  | 
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
 ids | [\[ID\]](#id) |  | 
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
@@ -39,8 +39,8 @@ All departments
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified global ID. | 
-before | [String](#string) | Returns the elements in the list that come before the specified global ID. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
 ## employee \([Employee](#employee)\)
@@ -323,8 +323,8 @@ A collection of Onboarding employee records. The following arguments are depreac
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified global ID. | 
-before | [String](#string) | Returns the elements in the list that come before the specified global ID. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
 customFieldValues | [\[CustomFieldValuesInput\]](#customfieldvaluesinput) | filter employees by their custom field values | 
 dateOfBirth | [DateFilter](#datefilter) | DEPRECATED. Use dateOfBirthFilter instead | 
 dateOfBirthFilter | [DateOfBirthFilter](#dateofbirthfilter) | filter employees by their date of birth | 
@@ -362,8 +362,8 @@ All locations
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified global ID. | 
-before | [String](#string) | Returns the elements in the list that come before the specified global ID. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
 ## otherCriteria \([OtherCriterionConnection](#othercriterionconnection)\)
@@ -371,8 +371,8 @@ All other criteria
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified global ID. | 
-before | [String](#string) | Returns the elements in the list that come before the specified global ID. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
 ## otherCriterion \([OtherCriterion](#othercriterion)\)
@@ -395,8 +395,8 @@ All team categories
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified global ID. | 
-before | [String](#string) | Returns the elements in the list that come before the specified global ID. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
 ## teamCategory \([TeamCategory](#teamcategory)\)
@@ -410,8 +410,8 @@ All teams
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified global ID. | 
-before | [String](#string) | Returns the elements in the list that come before the specified global ID. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
 first | [Int](#int) | Returns the first _n_ elements from the list. | 
 last | [Int](#int) | Returns the last _n_ elements from the list. | 
 # Mutations
@@ -829,31 +829,31 @@ Information about the current request's complexity. If the complexity exceeds th
 
 Field | Type | Description
 --------- | ----------- | -----------
-maximum | [Int](#int) | 
-score | [Int](#int) | 
+maximum | [Int!](#int) | 
+score | [Int!](#int) | 
 
 ## Country
 A country
 
 Field | Type | Description
 --------- | ----------- | -----------
-countryCode | [String](#string) | 
-name | [String](#string) | 
-states | [\[State\]](#state) | 
+countryCode | [String!](#string) | 
+name | [String!](#string) | 
+states | [\[State!\]!](#state) | 
 
 ## CustomField
 Represents a single CustomField record for your company. CustomFields can be stored and displayed in a variety of ways. The types are described via the [CustomFieldTypes](#customfieldtypes) enum.
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime](#datetime) | 
+createdAt | [DateTime!](#datetime) | 
 customFieldGroup | [CustomFieldGroup](#customfieldgroup) | 
-fieldType | [CustomFieldTypes](#customfieldtypes) | The field type determines how users input and view the data for this field.
-id | [String](#string) | A unique identifier for this CustomField.
-multipleChoiceOptions | [\[String\]](#string) | 
-name | [String](#string) | The name of this custom field as users would see it inside Greenhouse Onboarding.
+fieldType | [CustomFieldType!](#customfieldtype) | The field type determines how users input and view the data for this field.
+id | [String!](#string) | A unique identifier for this CustomField.
+multipleChoiceOptions | [\[String!\]](#string) | 
+name | [String!](#string) | The name of this custom field as users would see it inside Greenhouse Onboarding.
 teamCategory | [TeamCategory](#teamcategory) | 
-updatedAt | [DateTime](#datetime) | 
+updatedAt | [DateTime!](#datetime) | 
 
 ## CustomFieldConnection
 The connection type for CustomField.
@@ -861,6 +861,7 @@ The connection type for CustomField.
 Field | Type | Description
 --------- | ----------- | -----------
 edges | [\[CustomFieldEdge\]](#customfieldedge) | A list of edges.
+nodes | [\[CustomField\]](#customfield) | A list of nodes.
 pageInfo | [PageInfo!](#pageinfo) | Information to aid in pagination.
 
 ## CustomFieldEdge
@@ -876,19 +877,19 @@ A Group of Custom Field
 
 Field | Type | Description
 --------- | ----------- | -----------
-id | [ID](#id) | 
-name | [String](#string) | 
+id | [ID!](#id) | 
+name | [String!](#string) | 
 
 ## CustomFieldValue
 A Custom Field Value Record
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime](#datetime) | 
-customField | [CustomField](#customfield) | 
-updatedAt | [DateTime](#datetime) | 
+createdAt | [DateTime!](#datetime) | 
+customField | [CustomField!](#customfield) | 
+updatedAt | [DateTime!](#datetime) | 
 value | [Value](#value) | A different type of value will be stored based upon the field type of the [CustomField](#customfield). Some types have the data stored as a nested object. Note that the type is a scalar named [Value](#value). Even though it appears to be an object, you are not able to use GraphQL to determine its shape.
-valueUpdatedAt | [DateTime](#datetime) | The time of the most recent update to this field.
+valueUpdatedAt | [DateTime!](#datetime) | The time of the most recent update to this field.
 
 ## DeleteDepartmentPayload
 The result of running an deleteDepartment mutation
@@ -909,13 +910,14 @@ Represents a single department in your company. Employees may belong to zero or 
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime](#datetime) | 
+createdAt | [DateTime!](#datetime) | 
 departmentLead | [Employee](#employee) | 
 description | [String](#string) | 
 email | [String](#string) | 
-id | [ID](#id) | 
-name | [String](#string) | 
-updatedAt | [DateTime](#datetime) | 
+externalId | [String](#string) | 
+id | [ID!](#id) | 
+name | [String!](#string) | 
+updatedAt | [DateTime!](#datetime) | 
 
 ## DepartmentConnection
 The connection type for Department.
@@ -923,6 +925,7 @@ The connection type for Department.
 Field | Type | Description
 --------- | ----------- | -----------
 edges | [\[DepartmentEdge\]](#departmentedge) | A list of edges.
+nodes | [\[Department\]](#department) | A list of nodes.
 pageInfo | [PageInfo!](#pageinfo) | Information to aid in pagination.
 
 ## DepartmentEdge
@@ -938,10 +941,10 @@ Represents a single document attached to an [Employee](#employee).
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime](#datetime) | 
+createdAt | [DateTime!](#datetime) | 
 file | [File](#file) | Contains the file payload.
-id | [ID](#id) | 
-updatedAt | [DateTime](#datetime) | 
+id | [ID!](#id) | 
+updatedAt | [DateTime!](#datetime) | 
 
 ## Employee
 A single Employee that works for your company.
@@ -949,33 +952,34 @@ A single Employee that works for your company.
 Field | Type | Description
 --------- | ----------- | -----------
 about | [String](#string) | A brief description of the employee. This information is displayed on both the employee's profile and is also featured prominently in the Welcome Experience for any new hires that report to this employee.
-createdAt | [DateTime](#datetime) | 
-customFieldValues | [\[CustomFieldValue\]](#customfieldvalue) | A list of all other profile information for this employee. Administrators can configure these fields on the [Settings > Custom Fields](https://onboarding.greenhouse.io/settings/fields) page.
+createdAt | [DateTime!](#datetime) | 
+customFieldValues | [\[CustomFieldValue!\]](#customfieldvalue) | A list of all other profile information for this employee. Administrators can configure these fields on the [Settings > Custom Fields](https://onboarding.greenhouse.io/settings/fields) page.
 dateOfBirth | [Date](#date) | Note that only administrators can see the birth year for employees
 dateOfTermination | [Date](#date) | This information is only available on terminated employees
 department | [Department](#department) | 
-documents | [\[Document\]](#document) | These are documents that came over from Greenhouse Recruiting, were attached directly to the employee profile, or attached to a task. This does _not_ include E-Signature requests.
+documents | [\[Document!\]](#document) | These are documents that came over from Greenhouse Recruiting or were attached directly to the employee profile. This does _not_ include E-Signature requests.
 email | [String](#string) | The employee's work email. They need this in order to sign in
-employmentStatus | [EmploymentStatus](#employmentstatus) | 
+employmentStatus | [EmploymentStatus!](#employmentstatus) | 
 firstName | [String](#string) | 
+greenhouseRecruitingData | [GreenhouseRecruitingData](#greenhouserecruitingdata) | The Greenhouse Recruiting 'hired' webhook data
 hrManager | [Employee](#employee) | The employee's HR Manager.
-id | [ID](#id) | 
+id | [ID!](#id) | 
 lastName | [String](#string) | 
 location | [Location](#location) | 
 manager | [Employee](#employee) | This employee's direct manager.
 middleName | [String](#string) | 
-otherCriteria | [\[OtherCriterion\]](#othercriterion) | 
+otherCriteria | [\[OtherCriterion!\]](#othercriterion) | 
 personalEmail | [String](#string) | The employee's personal email.
 phoneNumber | [String](#string) | 
 preferredFirstName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
-preferredLastName | [String](#string) | 
+preferredLastName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 profileImage | [File](#file) | A file containing the employee's profile image. This image is displayed in emails, reports and directory pages.
-signatureRequests | [\[SignatureRequest\]](#signaturerequest) | These are E-Signature requests initiated through Greenhouse Onboarding. Keep in mind that these requests can be in a number of different states in their lifecycle and may not always have a signed document available to download.
+signatureRequests | [\[SignatureRequest!\]](#signaturerequest) | These are E-Signature requests initiated through Greenhouse Onboarding. Keep in mind that these requests can be in a number of different states in their lifecycle and may not always have a signed document available to download.
 startDate | [Date](#date) | 
 suffix | [String](#string) | 
 title | [String](#string) | The employee's job title.
-updatedAt | [DateTime](#datetime) | 
-workCountryCode | [String](#string) | 
+updatedAt | [DateTime!](#datetime) | 
+workCountryCode | [String!](#string) | 
 
 ## EmployeeConnection
 The connection type for Employee.
@@ -983,6 +987,7 @@ The connection type for Employee.
 Field | Type | Description
 --------- | ----------- | -----------
 edges | [\[EmployeeEdge\]](#employeeedge) | A list of edges.
+nodes | [\[Employee\]](#employee) | A list of nodes.
 pageInfo | [PageInfo!](#pageinfo) | Information to aid in pagination.
 
 ## EmployeeEdge
@@ -1003,6 +1008,14 @@ fileName | [String](#string) | The original name of the file.
 fileSize | [Int](#int) | The file size, in bytes
 fileUrl | [String](#string) | An expiring URL you can use to download the file.
 
+## GreenhouseRecruitingData
+Greenhouse Recruiting 'Candidate hired' webhook data
+
+Field | Type | Description
+--------- | ----------- | -----------
+applicationId | [ID!](#id) | Greenhouse Recruiting application ID
+rawData | [String!](#string) | Greenhouse Recruiting 'Candidate hired' webhook payload
+
 ## Location
 Represents a single location in your company. Employees may belong to zero or one location. Locations are used in a variety of ways in Greenhouse Onboarding, including permissions and onboarding plans.
 
@@ -1012,6 +1025,7 @@ address | [String](#string) |
 createdAt | [DateTime](#datetime) | 
 description | [String](#string) | 
 email | [String](#string) | 
+externalId | [String](#string) | 
 id | [ID](#id) | 
 locationLead | [Employee](#employee) | 
 name | [String](#string) | 
@@ -1228,6 +1242,7 @@ Argument | Type | Description | Required
 departmentLead | [ID](#id) |  | 
 description | [String](#string) |  | 
 email | [String](#string) |  | 
+externalId | [String](#string) |  | 
 name | [String](#string) |  | 
 
 ## AddLocationInput
@@ -1238,6 +1253,7 @@ Argument | Type | Description | Required
 address | [String](#string) |  | 
 description | [String](#string) |  | 
 email | [String](#string) |  | 
+externalId | [String](#string) |  | 
 locationLead | [ID](#id) |  | 
 name | [String](#string) |  | 
 
@@ -1268,7 +1284,7 @@ title | [String](#string) |  |
 workCountryCode | [String!](#string) |  | Required
 
 ## CustomFieldValuesInput
-Limit employees to those that satisfy the specified CustomFieldValue criteria
+Limit employees to those that satisfy the specified CustomFieldValue criteria. Note: CustomFieldValues that belong to a CustomField with a CustomFieldType of "MASKED", are not filterable by textValues
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
@@ -1414,6 +1430,7 @@ Argument | Type | Description | Required
 departmentLead | [ID](#id) |  | 
 description | [String](#string) |  | 
 email | [String](#string) |  | 
+externalId | [String](#string) |  | 
 id | [ID!](#id) |  | Required
 name | [String](#string) |  | 
 
@@ -1453,6 +1470,7 @@ Argument | Type | Description | Required
 address | [String](#string) |  | 
 description | [String](#string) |  | 
 email | [String](#string) |  | 
+externalId | [String](#string) |  | 
 id | [ID!](#id) |  | Required
 locationLead | [ID](#id) |  | 
 name | [String](#string) |  | 
@@ -1474,7 +1492,7 @@ Represents `true` or `false` values.
 Representation of a date in YYYY-MM-DD format.
 
 ## DateTime
-Representation of datetime in ISO8661.
+Representation of datetime in ISO8601.
 
 ## Float
 Represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).
@@ -1548,7 +1566,7 @@ depend on the fieldType of its corresponding customField.
 
 # Enums
 NOTE: Enums are unquoted in user input but quotes in API output.
-## CustomFieldTypes
+## CustomFieldType
 Possible type values for CustomFieldValues
 
 Value | Description
@@ -1559,6 +1577,7 @@ CONTACT | Displayed as group of inputs. Stored as JSON.
 DATE | Displayed as a datepicker. Stored as a DateTime
 EMPLOYEE | Displayed as a dropdown of employees. Stored as an Employee ID.
 LONG_TEXT | Displayed as a multiline text box. Stored as a String.
+MASKED | Displayed as a single line text field (hidden in application). Stored as a String.
 MULTIPLE_CHOICE | Displayed as a dropdown. Stored as a String.
 MULTIPLE_SELECT | Displayed as a tag field. Stored as an Array of Strings.
 TEAM | Displayed as a dropdown of teams. Stored as a Team ID.
@@ -1587,3 +1606,4 @@ COMPLETED | Document has been successfully signed and verified.
 ERROR | Could not be completed due to an error processing the E-Signature.
 WAITING_FOR_COUNTER_SIGNATURE | Document awaiting counter-signer signature.
 WAITING_FOR_SIGNATURE | Waiting for the employee to sign the document.
+
