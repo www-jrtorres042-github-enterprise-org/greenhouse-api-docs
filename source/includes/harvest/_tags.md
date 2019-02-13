@@ -54,6 +54,40 @@ curl -X GET 'https://harvest.greenhouse.io/v1/tags/candidate'
 
 [See noteworthy response attributes.](#the-candidate-tag-object)
 
+## POST: Add New Candidate Tag
+
+Add a new candidate tag to this organization
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/tags/candidate'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+   "name": "New tag name",
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "id": 123456,
+    "name": "New tag name"
+}
+```
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/tags/candidate`
+
+Name is required and case insensitive. If a tag is supplied that already exists in Greenhouse with any combination of casing, a 200 response code will be returned. If the tag does not exist in Greenhouse, a 201 response code would be returned. The JSON response structure will be the same regardless of the success response code.
+
 ## GET: List tags applied to candidate
 
 ```shell
