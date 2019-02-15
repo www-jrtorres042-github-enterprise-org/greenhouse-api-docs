@@ -10,6 +10,7 @@
       "internal_job_id":144381,
       "title":"Bad Cop",
       "updated_at":"2016-01-14T10:55:28-05:00",
+      "requisition_id": "50",
       "location":{
         "name":"NYC"
       },
@@ -33,6 +34,7 @@
       "internal_job_id":144381,
       "title":"Bad Cop",
       "updated_at":"2016-01-14T10:55:28-05:00",
+      "requisition_id": "50",
       "location":{
         "name":"NYC"
       },
@@ -113,6 +115,7 @@ content | If set to `true`, include the description, department and office of ea
   "id":44444,
   "title":"Product Engineer",
   "updated_at":"2013-07-02T19:39:23Z",
+  "requisition_id": "50",
   "location":{
     "name":"San Francisco, CA"
   },
