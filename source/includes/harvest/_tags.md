@@ -69,7 +69,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/tags/candidate'
 
 ```json
 {
-   "name": "New tag name",
+   "name": "New tag name"
 }
 ```
 
