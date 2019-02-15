@@ -94,7 +94,6 @@ Removes a candidate tag from this organization
 
 ```shell
 curl -X DELETE 'https://harvest.greenhouse.io/v1/tags/candidate/{tag id}'
--H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
