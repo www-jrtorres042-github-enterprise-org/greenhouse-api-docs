@@ -50,6 +50,9 @@ Greenhouse uses a digital signature which is generated using the secret key ente
 
 The header contains: the SHA algorithm used to generate the signature, a space, and the signature. To verify the request came from Greenhouse, compute the HMAC digest using your secret key and the body and compare it to the signature portion (after the space) contained in the header. If they match, you can be sure the web hook was sent from Greenhouse.
 
+Important note on Unicode: Greenhouse will escape Unicode characters when they are encoded as JSON before computing the signature. For example, if the job post content is `<p>hello</p>`, the web hook body will represent it as `\u003cp\u003ehello\u003c/p\u003e`. When we compute the signature, we use the string exactly as it appears in the body, including the escaped unicode. Be sure to duplicate this process on the receiving end so the signatures match.
+
+
 ## Common Attributes
 
 Currently, Web Hooks for all event types include these common attributes:
