@@ -11,6 +11,7 @@ An organization's Greenhouse users.
   "name": "Juliet Burke",
   "first_name": "Juliet",
   "last_name": "Burke",
+  "primary_email_address": "juliet.burke@example.com",
   "updated_at": "2016-11-17T16:13:48.888Z",
   "created_at": "2015-11-18T22:26:32.243Z",  
   "disabled": false,
@@ -29,6 +30,7 @@ An organization's Greenhouse users.
 |-----------|-------------|
 | id | The user's unique identifier |
 | site_admin | If `true`, this user is a site admin, which means the user has full permissions on all non-private jobs.
+| primary_email_address | The e-mail address this user has designated as his or her primary e-mail address. This value should always also be in the emails array.
 
 ## GET: List Users
 
@@ -44,6 +46,7 @@ curl 'https://harvest.greenhouse.io/v1/users'
     "name": "Juliet Burke",
     "first_name": "Juliet",
     "last_name": "Burke",
+    "primary_email_address": "juliet.burke@example.com",
     "updated_at": "2016-11-17T16:13:48.888Z",
     "created_at": "2015-11-18T22:26:32.243Z",  
     "disabled": false,
@@ -59,6 +62,7 @@ curl 'https://harvest.greenhouse.io/v1/users'
     "name": "John Doe",
     "first_name": "John",
     "last_name": "Doe",
+    "primary_email_address": "john.doe@example.com",
     "updated_at": "2016-11-03T18:05:47.361Z",
     "created_at": "2015-11-18T22:27:11.111Z",
     "disabled": false,
@@ -106,6 +110,7 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}'
   "name": "Juliet Burke",
   "first_name": "Juliet",
   "last_name": "Burke",
+  "primary_email_address": "juliet.burke@example.com",
   "updated_at": "2016-11-17T16:13:48.888Z",
   "created_at": "2015-11-18T22:26:32.243Z",  
   "disabled": false,
@@ -151,6 +156,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/disable'
   "name": "Bob Smith",
   "first_name": "Bob",
   "last_name": "Smith",
+  "primary_email_address": "bob@email.org",
   "updated_at": "2017-03-23T18:58:27.796Z",
   "created_at": "2016-04-28T15:28:16.440Z",
   "disabled": true,
@@ -236,6 +242,9 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
 {
   "id": 253528,
   "name": "Bob Smith",
+  "first_name": "Bob",
+  "last_name": "Smith",
+  "primary_email_address": "bob@email.org",
   "updated_at": "2017-03-23T18:58:27.796Z",
   "created_at": "2016-04-28T15:28:16.440Z",
   "disabled": false,
@@ -287,6 +296,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users'
     "name": "Bob Smith",
     "first_name": "Bob",
     "last_name": "Smith",
+    "primary_email_address": "bob@email.org",
     "updated_at": "2018-06-07T22:12:31.303Z",
     "created_at": "2016-04-28T19:10:46.688Z",
     "disabled": false,
