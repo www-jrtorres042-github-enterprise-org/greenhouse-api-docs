@@ -20,7 +20,8 @@ An organization's Greenhouse users.
     "juliet.burke@example.com",
     "other.woman@example.com"
   ],
-  "employee_id": "221"
+  "employee_id": "221",
+  "linked_candidate_ids": [123, 654]
 }
 ```
 
@@ -31,6 +32,7 @@ An organization's Greenhouse users.
 | id | The user's unique identifier |
 | site_admin | If `true`, this user is a site admin, which means the user has full permissions on all non-private jobs.
 | primary_email_address | The e-mail address this user has designated as his or her primary e-mail address. This value should always also be in the emails array.
+| linked_candidate_ids[] | Contains the IDs of candidate records containing this user's personal applications. In other words, the records containing this user's personal interview records and information.
 
 ## GET: List Users
 
@@ -55,7 +57,8 @@ curl 'https://harvest.greenhouse.io/v1/users'
       "juliet.burke@example.com",
       "other.woman@example.com"
     ],
-    "employee_id": "221"
+    "employee_id": "221",
+    "linked_candidate_ids": [123, 654]
   },
   {
     "id": 712,
@@ -70,7 +73,8 @@ curl 'https://harvest.greenhouse.io/v1/users'
     "emails": [
       "john.doe@example.com"
     ],
-    "employee_id": "700"
+    "employee_id": "700",
+    "linked_candidate_ids": [789, 1022]
   }
 ]
 ```
@@ -119,7 +123,8 @@ curl 'https://harvest.greenhouse.io/v1/users/{id}'
     "juliet.burke@example.com",
     "other.woman@example.com"
   ],
-  "employee_id": "221"
+  "employee_id": "221",
+  "linked_candidate_ids": [123, 654]
 }
 ```
 
@@ -164,7 +169,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/disable'
   "emails": [
     "bob@email.org"
   ],
-  "employee_id": "221"
+  "employee_id": "221",
+  "linked_candidate_ids": [123, 654]
 }
 ```
 
@@ -252,7 +258,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
   "emails": [
     "bob@email.org"
   ],
-  "employee_id": "221"
+  "employee_id": "221",
+  "linked_candidate_ids": [123, 654]
 }
 ```
 
@@ -304,7 +311,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/users'
     "emails": [
         "bob@email.org"
     ],
-    "employee_id": "ABC12345"
+    "employee_id": "ABC12345",
+    "linked_candidate_ids": [123, 654]
 }
 ```
 
