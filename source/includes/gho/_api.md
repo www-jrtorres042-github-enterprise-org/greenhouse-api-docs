@@ -947,7 +947,7 @@ id | [ID!](#id) |
 updatedAt | [DateTime!](#datetime) | 
 
 ## Employee
-A single Employee that works for your company.
+A single Employee that works for your company. Employees have first class fields (e.g. title, start_date, email), and they also hold custom_field_values for user defined custom fields. These secondary values are held within the customFieldValues array.
 
 Field | Type | Description
 --------- | ----------- | -----------
@@ -1513,7 +1513,7 @@ A URL-formatted String
 The actual value of a Custom Field Value. This type is capable of holding both Strings and Integers. Its content will
 depend on the fieldType of its corresponding customField.
 
-### text, long_text, confirmable
+### text, long_text
 * Allowed Type(s): String
 * Must be less than 3000 chars
 
@@ -1572,7 +1572,6 @@ Possible type values for CustomFieldValues
 Value | Description
 --------- | ---------
 ADDRESS | Displayed as group of inputs. Stored as JSON.
-CONFIRMABLE | Displayed as a text field where the user has to enter the value twice. Stored as a String.
 CONTACT | Displayed as group of inputs. Stored as JSON.
 DATE | Displayed as a datepicker. Stored as a DateTime
 EMPLOYEE | Displayed as a dropdown of employees. Stored as an Employee ID.
