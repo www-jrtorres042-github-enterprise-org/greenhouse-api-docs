@@ -69,7 +69,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/tags/candidate'
 
 ```json
 {
-   "name": "New tag name",
+   "name": "New tag name"
 }
 ```
 
@@ -86,7 +86,22 @@ curl -X POST 'https://harvest.greenhouse.io/v1/tags/candidate'
 
 `POST https://harvest.greenhouse.io/v1/tags/candidate`
 
-Name is required and case insensitive. If a tag is supplied that already exists in Greenhouse with any combination of casing, a 200 response code will be returned. If the tag does not exist in Greenhouse, a 201 response code would be returned. The JSON response structure will be the same regardless of the success response code.
+Name is required and case insensitive. If a tag is supplied that already exists in Greenhouse with any combination of casing, a 200 response code will be returned. If the tag does not exist in Greenhouse, a 201 response code will be returned. The JSON response structure will be the same regardless of the success response code.
+
+## DELETE: Destroy a candidate tag
+
+Removes a candidate tag from this organization
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/tags/candidate/{tag id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+### HTTP Request
+
+`DELETE 'https://harvest.greenhouse.io/v1/tags/candidate/{tag id}`
+
+This endpoint creates an asynchronous job to remove this tag from all candidates to whom it is applied before removing the tag itself from Greenhouse. This data cannot be recovered. Due to the number of candidates that may have any given tag, it may take up to 24 hours for this job to process completely. A success message from this endpoint only states a deletion job has been enqueued, not that the job has been completed.
 
 ## GET: List tags applied to candidate
 
