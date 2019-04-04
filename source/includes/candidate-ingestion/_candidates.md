@@ -71,6 +71,7 @@ applications.profile_url | String | Yes | A URL to the candidate’s profile in 
 ```shell
 curl -X POST 'https://api.greenhouse.io/v1/partner/candidates'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Content-Type: application/json"
 ```
 
 ```json
