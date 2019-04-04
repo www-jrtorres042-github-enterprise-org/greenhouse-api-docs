@@ -5,6 +5,7 @@
 ```shell
 curl 'https://api.greenhouse.io/v1/partner/prospect_pools'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Content-Type: application/json"
 ```
 
 > API Response
