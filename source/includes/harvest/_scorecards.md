@@ -20,6 +20,13 @@ All submitted scorecards ordered by candidate.
     "name": "Kate Austen",
     "employee_id": "12345"
   },
+  "interviewer": {
+    "id": 821,
+    "first_name": "Robert",
+    "last_name": "Robertson",
+    "name": "Robert Robertson",
+    "employee_id": "100377"
+  },
   "submitted_at": "2014-03-26T21:59:51Z",
   "overall_recommendation": "yes",
   "attributes": [
@@ -113,7 +120,8 @@ All submitted scorecards ordered by candidate.
 |-----------|-------------|
 | id | The scorecard's unique identifier |
 | candidate_id | The ID of the [candidate](#candidates) whom this scorecard was written for.
-| submitted_by | The [user](#users) who submitted this scorecard.
+| submitted_by | The [user](#users) who submitted this scorecard.  Note that this user may not necessarily be the the interviewer, since scorecards can be submitted on behalf of other users.
+| interviewer | The [user](#users) who interviewed the candidate.
 | overall_recommendation | One of: `definitely_not`, `no`, `yes`, `strong_yes`, `no_decision`
 | attributes | Array containing the attributes of the Scorecard. Describes each attribute's name, type, rating (can be "no_decision"), and an optional note.
 
@@ -142,6 +150,13 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
       "last_name": "Austen",
       "name": "Kate Austen",
       "employee_id": "12345"
+    },
+    "interviewer": {
+      "id": 821,
+      "first_name": "Robert",
+      "last_name": "Robertson",
+      "name": "Robert Robertson",
+      "employee_id": "100377"
     },
     "submitted_at": "2014-03-26T21:59:51Z",
     "overall_recommendation": "yes",
@@ -242,6 +257,13 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
         "last_name": "Doe",
         "name": "Dane Doe",
         "employee_id": "034509364"
+    },
+    "interviewer": {
+      "id": 821,
+      "first_name": "Robert",
+      "last_name": "Robertson",
+      "name": "Robert Robertson",
+      "employee_id": "100377"
     },
     "submitted_at": "2016-01-08T19:07:08.295Z",
     "overall_recommendation": "no",
@@ -375,6 +397,13 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
       "name": "Kate Austen",
       "employee_id": "12345"
     },
+    "interviewer": {
+      "id": 821,
+      "first_name": "Robert",
+      "last_name": "Robertson",
+      "name": "Robert Robertson",
+      "employee_id": "100377"
+    },
     "submitted_at": "2014-03-26T21:59:51Z",
     "overall_recommendation": "yes",
     "attributes": [
@@ -474,6 +503,13 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
         "last_name": "Doe",
         "name": "Dane Doe",
         "employee_id": "034509364"
+    },
+    "interviewer": {
+      "id": 821,
+      "first_name": "Robert",
+      "last_name": "Robertson",
+      "name": "Robert Robertson",
+      "employee_id": "100377"
     },
     "submitted_at": "2016-01-08T19:07:08.295Z",
     "overall_recommendation": "no",
@@ -602,6 +638,13 @@ curl 'https://harvest.greenhouse.io/v1/scorecards/{id}'
     "last_name": "Austen",
     "name": "Kate Austen",
     "employee_id": "12345"
+  },
+  "interviewer": {
+    "id": 821,
+    "first_name": "Robert",
+    "last_name": "Robertson",
+    "name": "Robert Robertson",
+    "employee_id": "100377"
   },
   "submitted_at": "2014-03-26T21:59:51Z",
   "overall_recommendation": "yes",
