@@ -174,3 +174,4 @@ The timestamps below are Eastern Time.
 | Feb 13, 2019 03:30:00PM | Added ability to create new candidate tags via [POST: Add New Candidate Tag](#post-add-new-candidate-tag)      |
 | Feb 1, 2019 11:28:00AM  | Added partial response (HTTP Status code 202) to [POST: Create Job](#post-create-job)                          |
 | Jan 8, 2019 12:00:00PM  | Added `can_email` flag to [Candidates Endpoints](#the-candidate-object)                                        |
+| Apr 25, 2019 5:00:00PM  | Added ability to change prospect pool and stage via [PATCH: Update Application](#patch-update-application)     |
