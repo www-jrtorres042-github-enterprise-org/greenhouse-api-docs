@@ -42,7 +42,16 @@ Retrieve a candidate's data. Note that this call will only return candidates tha
 
 ### Request Parameters
 
-The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs. If you provide any candidate ids that don't exist or to which you do not have access, this endpoint will ignore them and only return the candidates that exist to this API key.
+The request should contain a single query parameter that specifies a comma-delimited list of candidate IDs or a single candidate ID. If you provide any candidate ids that don't exist or to which you do not have access, this endpoint will ignore them and only return the candidates that exist to this API key or Bearer token, or will return an empty response if you have only supplied one candidate ID.
+
+An empty array will be returned for "Retrieve Candidates" requests with a single candidate ID for the following use-cases:
+    1.Permissions changes made on a Greenhouse user account associated to the email address used to authenticate the request (e.g. User has been disabled or deprovisioned).
+    2.The candidate is on a job that the user account/email address doesn't have access to. Note that the user account must be at least a job admin on the job associated to the candidate ID. If added as a prospect, the user must have the permission to manage unattached prospects.
+    3.The candidate profile was manually deleted by the organization.
+    4.The source on the candidate profile was manually changed to a new source different from the original partner source.
+    5.The candidate has been merged with another profile generating a new candidate ID.
+
+If you would like more information about why you are not able to access a specific candidate ID, please contact the customer for more details, as Greenhouse Support will not share candidate details without the permission of the organization that owns the candidate record.
 
 Query Parameter Name | Required | Description
 -------------- | -------------- | --------------  | --------------
@@ -71,6 +80,7 @@ applications.profile_url | String | Yes | A URL to the candidate’s profile in 
 ```shell
 curl -X POST 'https://api.greenhouse.io/v1/partner/candidates'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "Content-Type: application/json"
 ```
 
 ```json
