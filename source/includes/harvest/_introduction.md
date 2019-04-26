@@ -166,7 +166,8 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                    |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Apr 8 , 2019 04:00:00PM | Added `interviewer` to [Scorecard object](#the-scorecard-object)                         |
+| Apr 25, 2019 5:00:00PM  | Added ability to change prospect pool and stage via [PATCH: Update Application](#patch-update-application)     |
+| Apr 8 , 2019 04:00:00PM | Added `interviewer` to [Scorecard object](#the-scorecard-object)                                               |
 | Mar 18, 2019 03:30:00PM | Added ability to delete a Candidate Tag via [DELETE: Destroy a Candidate Tag](#delete-destroy-a-candidate-tag) |
 | Mar 6, 2019 02:15:00PM  | Added `linked_candidate_ids` to [Users Endpoints](#users)                                                      |
 | Feb 28, 2019 02:34:00PM | Added `primary_email_address` to [Users Endpoints](#users)                                                     |
@@ -174,4 +175,3 @@ The timestamps below are Eastern Time.
 | Feb 13, 2019 03:30:00PM | Added ability to create new candidate tags via [POST: Add New Candidate Tag](#post-add-new-candidate-tag)      |
 | Feb 1, 2019 11:28:00AM  | Added partial response (HTTP Status code 202) to [POST: Create Job](#post-create-job)                          |
 | Jan 8, 2019 12:00:00PM  | Added `can_email` flag to [Candidates Endpoints](#the-candidate-object)                                        |
-| Apr 25, 2019 5:00:00PM  | Added ability to change prospect pool and stage via [PATCH: Update Application](#patch-update-application)     |
