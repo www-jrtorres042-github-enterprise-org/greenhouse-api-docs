@@ -124,6 +124,8 @@ As of February 2017, we are transitioning to a new method for paging while maint
 - [GET: List Demographic Questions](#get-list-demographic-questions)
 - [GET: List Demographic Answer Options](#get-list-demographic-answer-options)
 - [GET: List Demographic Answer Options For Demographic Question](#get-list-demographic-answer-options-for-demographic-question)
+- [GET: List Demographic Answers](#get-list-demographic-answers)
+- [GET: List Demographic Answers for Application](#get-list-demographic-answers-for-application)
 
 <aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 
