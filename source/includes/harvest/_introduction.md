@@ -121,6 +121,9 @@ As of February 2017, we are transitioning to a new method for paging while maint
 - [GET: List Job Openings](#get-list-job-openings)
 - [GET: List Approvals For Job](#get-list-approvals-for-job)
 - [GET: Pending Approvals For User](#get-pending-approvals-for-user)
+- [GET: List Demographic Questions](#get-list-demographic-questions)
+- [GET: List Demographic Answer Options](#get-list-demographic-answer-options)
+- [GET: List Demographic Answer Options For Demographic Question](#get-list-demographic-answer-options-for-demographic-question)
 
 <aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 

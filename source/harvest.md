@@ -19,6 +19,7 @@ includes:
   - harvest/candidates
   - harvest/close_reasons
   - harvest/custom_fields
+  - harvest/demographic_data
   - harvest/departments
   - harvest/education
   - harvest/eeoc
