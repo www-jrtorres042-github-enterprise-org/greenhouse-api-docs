@@ -320,3 +320,144 @@ id | ID of the demographic answer option you want to retrieve.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-option-object)
+
+## GET: List Demographic Answers
+
+List all of an organization's demographic answers.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/answers'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 123,
+    "free_form_text": "12am",
+    "application_id": 787,
+    "demographic_question_id": 25,
+    "demographic_answer_option_id": 106,
+    "created_at": "2019-04-29T18:46:03.707Z",
+    "updated_at": "2019-04-29T18:46:03.707Z"
+  },
+  {
+    "id": 456,
+    "free_form_text": null,
+    "application_id": 783,
+    "demographic_question_id": 29,
+    "demographic_answer_option_id": 109,
+    "created_at": "2017-01-29T15:09:46.806Z",
+    "updated_at": "2017-01-29T15:09:46.806Z"
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/answers`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+*per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-answer-object)
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
+## GET: List Demographic Answers For Application
+
+List all of the demographic answers for an application.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/applications/{id}/demographics/answers'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 123,
+    "free_form_text": "12am",
+    "application_id": 787,
+    "demographic_question_id": 25,
+    "demographic_answer_option_id": 106,
+    "created_at": "2019-04-29T18:46:03.707Z",
+    "updated_at": "2019-04-29T18:46:03.707Z"
+  },
+  {
+    "id": 456,
+    "free_form_text": null,
+    "application_id": 787,
+    "demographic_question_id": 29,
+    "demographic_answer_option_id": 109,
+    "created_at": "2017-01-29T15:09:46.806Z",
+    "updated_at": "2017-01-29T15:09:46.806Z"
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/applications/{id}/demographics/answers`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the application for which you want to retrieve demographic answers.
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+*per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-answer-object)
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
+## GET: Retrieve Demographic Answer
+
+Retrieve a demographic answer by its `id`.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/answers/{id}'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 123,
+  "free_form_text": "12am",
+  "application_id": 787,
+  "demographic_question_id": 25,
+  "demographic_answer_option_id": 106,
+  "created_at": "2019-04-29T18:46:03.707Z"
+}
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/answers/{id}`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the demographic answer you want to retrieve.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-answer-object)
