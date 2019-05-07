@@ -1,6 +1,6 @@
 # Demographic Data
 
-Greenhouse Inclusion ...
+Demographic questions and answers submitted during the application process. For more information on Greenhouse Inclusion, please visit [https://www.greenhouse.io/inclusion](https://www.greenhouse.io/inclusion).
 
 ## The Demographic Question object
 
