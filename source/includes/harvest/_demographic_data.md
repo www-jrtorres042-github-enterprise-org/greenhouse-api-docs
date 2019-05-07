@@ -119,7 +119,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
 
 | Parameter | Description |
 |-----------|-------------|
-*per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-question-object)
@@ -212,7 +212,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answer_options'
 
 | Parameter | Description |
 |-----------|-------------|
-*per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-option-object)
@@ -274,7 +274,7 @@ id | ID of the demographic question for which you want to retrieve demographic a
 
 | Parameter | Description |
 |-----------|-------------|
-*per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-option-object)
@@ -363,7 +363,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answers'
 
 | Parameter | Description |
 |-----------|-------------|
-*per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-object)
@@ -419,7 +419,7 @@ id | ID of the application for which you want to retrieve demographic answers.
 
 | Parameter | Description |
 |-----------|-------------|
-*per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-object)
