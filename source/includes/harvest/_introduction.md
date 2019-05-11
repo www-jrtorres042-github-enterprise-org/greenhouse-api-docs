@@ -121,6 +121,11 @@ As of February 2017, we are transitioning to a new method for paging while maint
 - [GET: List Job Openings](#get-list-job-openings)
 - [GET: List Approvals For Job](#get-list-approvals-for-job)
 - [GET: Pending Approvals For User](#get-pending-approvals-for-user)
+- [GET: List Demographic Questions](#get-list-demographic-questions)
+- [GET: List Demographic Answer Options](#get-list-demographic-answer-options)
+- [GET: List Demographic Answer Options For Demographic Question](#get-list-demographic-answer-options-for-demographic-question)
+- [GET: List Demographic Answers](#get-list-demographic-answers)
+- [GET: List Demographic Answers for Application](#get-list-demographic-answers-for-application)
 
 <aside class="warning">Since paging mechanisms may differ per paginated endpoint and may change in the future, it is important to use the Link headers and not page manually by changing the paging-related query parameters.</aside>
 
@@ -166,6 +171,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                    |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
+| May 7, 2019 3:30:00 PM  | Added [Demographic Data endpoints](#demographic-data)
 | Apr 8 , 2019 04:00:00PM | Added `interviewer` to [Scorecard object](#the-scorecard-object)                         |
 | Mar 18, 2019 03:30:00PM | Added ability to delete a Candidate Tag via [DELETE: Destroy a Candidate Tag](#delete-destroy-a-candidate-tag) |
 | Mar 6, 2019 02:15:00PM  | Added `linked_candidate_ids` to [Users Endpoints](#users)                                                      |
