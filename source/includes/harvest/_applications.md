@@ -494,9 +494,7 @@ source_id | No | integer | The ID of the application's source
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
-custom_fields[] | No | custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
-prospect_pool_id | No | integer | The ID of the prospect pool for the application
-prospect_stage_id | No | integer | The ID of the prospect pool stage for the application
+custom_fields[] | No |  custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
 
 ## POST: Advance Application
 
