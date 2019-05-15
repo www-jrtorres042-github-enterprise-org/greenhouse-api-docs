@@ -171,8 +171,9 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                    |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
-| May 7, 2019 3:30:00 PM  | Added [Demographic Data endpoints](#demographic-data)
-| Apr 8 , 2019 04:00:00PM | Added `interviewer` to [Scorecard object](#the-scorecard-object)                         |
+| May 15, 2019 5:00:00PM  | Added ability to change prospect pool and stage via [PATCH: Update Application](#patch-update-application)     |
+| May 7, 2019 3:30:00 PM  | Added [Demographic Data endpoints](#demographic-data)                                                          |
+| Apr 8 , 2019 04:00:00PM | Added `interviewer` to [Scorecard object](#the-scorecard-object)                                               |
 | Mar 18, 2019 03:30:00PM | Added ability to delete a Candidate Tag via [DELETE: Destroy a Candidate Tag](#delete-destroy-a-candidate-tag) |
 | Mar 6, 2019 02:15:00PM  | Added `linked_candidate_ids` to [Users Endpoints](#users)                                                      |
 | Feb 28, 2019 02:34:00PM | Added `primary_email_address` to [Users Endpoints](#users)                                                     |
