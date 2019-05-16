@@ -4,14 +4,18 @@ An organization's job stages.
 
 ## The job stage object
 
-```
+```json
 {
   "id": 72200,
   "name": "Face to Face",
+  "created_at": "2016-10-22T05:31:37.263Z",
+  "updated_at": "2016-10-22T05:31:37.263Z",
+  "job_id": 98765,
   "interviews": [
     {
       "id": 6001,
       "name": "Cultural Fit Interview",
+      "schedulable": true,
       "interview_kit": {
         "id": 9123,
         "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
@@ -26,6 +30,7 @@ An organization's job stages.
     {
       "id": 6002,
       "name": "Executive Interview",
+      "schedulable": true,
       "interview_kit": {
         "id": 9124,
         "content": "<h5>Purpose</h5><span>See if they can work with the boss.</span>",
@@ -50,7 +55,9 @@ An organization's job stages.
 | Attribute | Description |
 |-----------|-------------|
 | id | The job stage's unique identifier |
-| interviews | An array of interviews associated with this job stage.
+| name | The name for this job stage |
+| job_id | The job that this stage belongs to |
+| interviews | An array of interview steps associated with this job stage.<br>Each Step contains:<br>`id` - The step's unique identifier<br>`name` - The name of this interview step<br>`schedulable` - True / False value for whether this step can be scheduled<br>`interview_kit` - Details about the interview, including unique ID, interview prep content, and custom interview questions |
 
 
 ## GET: List Job Stages
@@ -74,6 +81,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
       {
         "id": 7890,
         "name": "Cultural Fit Interview",
+        "schedulable": true,
         "interview_kit": {
           "id": 9124,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
@@ -97,6 +105,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
       {
         "id": 7345,
         "name": "Executive Interview",
+        "schedulable": true,
         "interview_kit": {
           "id": 9125,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
@@ -158,6 +167,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
       {
         "id": 6001,
         "name": "Cultural Fit Interview",
+        "schedulable": true,
         "interview_kit": {
           "id": 9128,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
@@ -172,9 +182,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
       {
         "id": 6002,
         "name": "Executive Interview",
-        "created_at": "2015-11-22T05:31:37.263Z",
-        "updated_at": "2015-11-22T05:31:37.263Z",
-        "job_id": 146219,
+        "schedulable": true,
         "interview_kit": {
           "id": 9129,
           "content": "<h5>Purpose</h5><span>See if they can work with the boss.</span>",
@@ -210,6 +218,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
       {
         "id": 8004,
         "name": "Application Review",
+        "schedulable": false,
         "interview_kit": {
           "id": 9130,
           "content": null,
@@ -265,6 +274,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages/{id}'
     {
       "id": 7890,
       "name": "Cultural Fit Interview",
+      "schedulable": true,
       "interview_kit": {
         "id": 9127,
         "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
