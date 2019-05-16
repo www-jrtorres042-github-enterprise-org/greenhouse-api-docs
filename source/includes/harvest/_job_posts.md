@@ -15,6 +15,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
   "external": false,
   "active": true,
   "live": true,
+  "first_published_at": "2014-04-03T17:06:18Z",
   "job_id": 1234,
   "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
   "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
@@ -143,6 +144,8 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 |-----------|-------------|
 | id | Job post ID
 | active | If `false`, this job post has been deleted.
+| live | If `true`, this job post status is set to live.
+| first_published_at | Timestamp when this job post was first set to live.
 | internal | If `true`, this job post has been posted (or is *to be posted*) on an internal job board.
 | external | If `true`, this job post has been posted (or is *to be posted*) on an external job board.
 | job_id | The ID of the [job](#jobs) that this job post is for.
@@ -172,6 +175,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
     "external": false,
     "active": true,
     "live": true,
+    "first_published_at": "2014-04-03T17:06:18Z",
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
@@ -337,6 +341,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts/{id}'
     "external": false,
     "active": true,
     "live": true,
+    "first_published_at": "2014-04-03T17:06:18Z",
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
@@ -489,6 +494,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "external": false,
     "active": true,
     "live": true,
+    "first_published_at": "2014-04-03T17:06:18Z",
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
@@ -612,6 +618,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
   {
     "id": 129548,
     "live": true,
+    "first_published_at": "2014-04-03T17:06:18Z",
     "title": "Test job two",
     "location": {
       "name": "Material Plane"
@@ -694,6 +701,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
     "external": false,
     "active": true,
     "live": true,
+    "first_published_at": "2014-04-03T17:06:18Z",
     "job_id": 1234,
     "content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
