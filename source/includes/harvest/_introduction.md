@@ -171,6 +171,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                    |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
+| May 24, 2019 01:00:00PM  | Added ability to set location on job posts via office and custom location id via [PATCH: Update Job Post](#patch-update-job-post)     |
 | May 24, 2019 01:00:00PM  | Added `schedulable` field to [Job Stages Endpoints](#job-stages)
 | May 24, 2019 01:00:00PM  | Added `first_published_at` field to [Job Posts Endpoints](#job-posts)
 | May 15, 2019 05:00:00PM  | Added ability to change prospect pool and stage via [PATCH: Update Application](#patch-update-application)     |

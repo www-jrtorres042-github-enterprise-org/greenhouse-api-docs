@@ -891,6 +891,8 @@ Parameter | Required | Type | Description
 status | No | string | One of 'live' or 'offline'
 title | No | string | The new title for this job post.
 location | No | string | The new location for this job post. This is just a plain text string.
+location.office_id | No | integer | The new location for this job post. This will be set by an office ID. Only acceptable if the job board location configuration is limited to offices.
+location.custom_location_id | No | integer | The new location for this job post. This will be set by a custom location ID. Only acceptable if the job board location configuration is limited to a custom list.
 content | No | string | The new body of the job post. This will replace the entire existing job post body.
 
 **Important Note**: Due to JSON restrictions, the HTML body of the new job post should be a single line, with no newline characters and with all double quotes escaped. If your job posts require significant formatting, we recommend using Greenhouse's job post editor to make changes.
