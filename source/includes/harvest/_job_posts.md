@@ -846,6 +846,57 @@ questions | If present, will return an array of questions associated with this j
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
 
+
+## GET: Retrieve Custom Locations for Job Post
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/job_posts/{id}/custom_locations'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+     {
+         "id": 1234,
+         "value": "Boston",
+         "active": true,
+         "greenhouse_job_board_id": 111,
+         "created_at": "2019-05-15T15:19:53.617Z",
+         "updated_at": "2019-05-15T15:19:53.617Z"
+     },
+     {
+         "id": 2321,
+         "value": "New York",
+         "active": true,
+         "greenhouse_job_board_id": 111,
+         "created_at": "2019-05-15T15:53:35.586Z",
+         "updated_at": "2019-05-15T15:53:35.586Z"
+     },
+     {
+         "id": 4215,
+         "value": "San Francisco",
+         "active": true,
+         "greenhouse_job_board_id": 111,
+         "created_at": "2019-05-15T15:19:53.617Z",
+         "updated_at": "2019-05-15T15:19:53.617Z"
+     }
+ ]
+```
+
+List all the custom location options available for a given job post ID
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/job_posts/{id}/custom_locations`
+
+### URL parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the job post whose custom location options you want to retrieve
+
 ## PATCH: Update Job Post
 
 ```shell
