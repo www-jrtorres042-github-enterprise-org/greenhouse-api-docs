@@ -1,10 +1,10 @@
-#Job Openings
+# Job Openings
 
 This endpoint is used to managing openings on jobs.
 
 ## The job opening object
 
-```
+```json
 [
     {
         "id": 123,

@@ -11,6 +11,15 @@ An organization's offers.
   "application_id": 91081818,
   "job_id": 84593,
   "candidate_id": 7328851,
+  "opening": {
+    "id": 2586842,
+    "opening_id": "4-7",
+    "status": "open",
+    "opened_at": "2019-05-22T20:58:51.697Z",
+    "closed_at": null,
+    "application_id": null,
+    "close_reason": null
+  },
   "created_at": "2018-06-06T20:23:10.378Z",
   "updated_at": "2018-06-06T20:23:43.388Z",
   "sent_at": "2018-06-07",
@@ -80,6 +89,7 @@ An organization's offers.
 | status | One of: `unresolved`, `accepted`, `rejected`, `deprecated`.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
+| opening | The [Job Opening](#job-openings) associated with the offer. `null` if none.
 
 ## GET: List Offers
 
@@ -98,6 +108,15 @@ curl 'https://harvest.greenhouse.io/v1/offers'
   "application_id": 91081818,
   "job_id": 84593,
   "candidate_id": 7328851,
+  "opening": {
+    "id": 2586842,
+    "opening_id": "4-7",
+    "status": "open",
+    "opened_at": "2019-05-22T20:58:51.697Z",
+    "closed_at": null,
+    "application_id": null,
+    "close_reason": null
+  },
   "created_at": "2018-06-06T20:23:10.378Z",
   "updated_at": "2018-06-06T20:23:43.388Z",
   "sent_at": "2018-06-07",
@@ -157,6 +176,7 @@ curl 'https://harvest.greenhouse.io/v1/offers'
     "application_id": 91078894,
     "job_id": 837749,
     "candidate_id": 7327285,
+    "opening":  null,
     "created_at": "2018-06-06T20:21:15.639Z",
     "updated_at": "2018-06-06T20:21:29.796Z",
     "sent_at": null,
@@ -258,6 +278,15 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers'
   "application_id": 91078894,
   "job_id": 837749,
   "candidate_id": 7327285,
+  "opening": {
+    "id": 2586842,
+    "opening_id": "4-7",
+    "status": "open",
+    "opened_at": "2019-05-22T20:58:51.697Z",
+    "closed_at": null,
+    "application_id": null,
+    "close_reason": null
+  },
   "created_at": "2018-06-06T20:23:10.378Z",
   "updated_at": "2018-06-06T20:23:43.388Z",
   "sent_at": "2018-06-07",
@@ -317,6 +346,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers'
     "application_id": 91078894,
     "job_id": 837749,
     "candidate_id": 7327285,
+    "opening": null,
     "created_at": "2018-06-06T20:21:15.639Z",
     "updated_at": "2018-06-06T20:21:29.796Z",
     "sent_at": null,
@@ -416,6 +446,15 @@ curl 'https://harvest.greenhouse.io/v1/applications/{application_id}/offers/curr
   "application_id": 91078894,
   "job_id": 837749,
   "candidate_id": 7327285,
+  "opening": {
+    "id": 2586842,
+    "opening_id": "4-7",
+    "status": "open",
+    "opened_at": "2019-05-22T20:58:51.697Z",
+    "closed_at": null,
+    "application_id": null,
+    "close_reason": null
+  },
   "created_at": "2018-06-06T20:21:29.911Z",
   "updated_at": "2018-06-06T20:24:30.707Z",
   "sent_at": "2018-06-06",
@@ -500,6 +539,15 @@ curl 'https://harvest.greenhouse.io/v1/offers/{id}'
   "application_id": 91081818,
   "job_id": 84593,
   "candidate_id": 7328851,
+  "opening": {
+    "id": 2586842,
+    "opening_id": "4-7",
+    "status": "open",
+    "opened_at": "2019-05-22T20:58:51.697Z",
+    "closed_at": null,
+    "application_id": null,
+    "close_reason": null
+  },
   "created_at": "2018-06-06T20:23:10.378Z",
   "updated_at": "2018-06-06T20:23:43.388Z",
   "sent_at": "2018-06-07",
