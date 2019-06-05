@@ -264,7 +264,8 @@
               "value": {
                 "user_id": 117730,
                 "name": "Job Admin",
-                "email": "asegal+jobadmin@greenhouse.io"
+                "email": "asegal+jobadmin@greenhouse.io",
+                "employee_id": "user-abc"
               }
             }
           }

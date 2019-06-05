@@ -77,7 +77,97 @@ Currently, Web Hooks for all event types include these common attributes:
 | `application.jobs[].requisition_id` | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
 | `application.opening.opening_id` | This is an external opening id that may be defined for an HRIS system. This does not reference anything else in Greenhouse and may be blank.
 | `custom_fields` | Contains a hash map/associative array. The key of the hash map is an immutable key; which is an underscore-slugged version of the custom field's name at creation time. The exported properties reflect the active values of the custom field at the time of the export. All custom fields, public and private, will be exported. If a field exists but does not have a value, it will be exported with a value of null for singular values and empty arrays for multiple values. *Important Note*: If a custom field is created with the name `Salary` the key will be `salary`. If later the name of this custom field is changed to `Wage` or `Bonus`, the key will remain `salary`.
-| `custom_fields[].type` | One of: `short_text`, `long_text`, `boolean`, `single_select`, `multi_select`, `currency`, `currency_range`, `number`, `number_range`, `date`, or `url`.
+| `custom_fields[].type` | One of: `short_text`, `long_text`, `boolean`, `single_select`, `multi_select`, `currency`, `currency_range`, `number`, `number_range`, `date`, `url`, or `user`.
+
+## Custom Fields
+
+```json
+    {
+        "custom_fields": {
+            "short_text_field": {
+                "name": "Short Text Field",
+                "type": "short_text",
+                "value": "A text string with fewer than 255 characters."
+            },
+            "long_text_field": {
+                "name": "Long Text Field",
+                "type": "long_text",
+                "value": "A text string of any length."
+            },
+            "boolean_field": {
+                "name": "Boolean Field",
+                "type": "boolean",
+                "value": true (or false)
+            },
+            "single_select": {
+                "name": "Single Select Field",
+                "type": "single_select",
+                "value": "The text of selected custom field option."
+            },
+            "multi_select": {
+                "name": "Multi Select Field",
+                "type": "multi_select",
+                "value": [
+                    "An array containing the text of",
+                    "all the selected",
+                    "custom field options"
+                ]
+            },
+            "currency_field": {
+                "name": "Currency Field",
+                "type": "currency",
+                "value": {
+                    "amount": 80000,
+                    "unit": "USD"
+                }
+            },
+            "currency_range_field": {
+                "name": "Currency Range Field",
+                "type": "currency_range",
+                "value": {
+                    "min_value": 80000,
+                    "max_value": 150000,
+                    "unit": "USD"
+                }
+            },
+            "number_field": {
+                "name": "Number Field",
+                "type": "number",
+                "value": 125
+            },
+            "number_range_field": {
+                "name": "Number Range Field",
+                "type": "number_range",
+                "value": {
+                    "min_value": 80000,
+                    "max_value": 150000
+                }
+            },
+            "date_field": {
+                "name": "Date Field",
+                "type": "date",
+                "value": "YYYY-MM-DD"
+            },
+            "url_field": {
+                "name": "URL Field",
+                "type": "url",
+                "value": "https://www.thisisjustatextvalue.com"
+            },
+            "user_field": {
+                "name": "User Field",
+                "type": "user",
+                "value": {
+                    "user_id": 94354,
+                    "name": "Ben Smith",
+                    "email": "ben@example.com",
+                    "employee_id": "bs0615"
+                }
+            }
+        }
+    }
+```
+
+Custom fields may be attached to several objects within the Greenhouse Recruiting system. These fields may appear on candidates, applications, offers, and other objects in the system. These fields share several properties and are always indicated in web hooks by the "custom_fields" element. However, the "value" attribute of custom fields are different depending on the "type" attribute, so you must check the "type" attribute in order to predict what will be included in the value "attribute". As described in the previous section, the type attribute will be one of short_text, long_text, boolean, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. An example of each of these fields' expected value format are provided. 
 
 ## Disabled web hooks
 
