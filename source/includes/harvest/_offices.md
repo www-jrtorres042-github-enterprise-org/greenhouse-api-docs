@@ -412,6 +412,7 @@ Parameter | Required | Type | Description
 `location` | no | string | This is a text representation of the office's location.  This is free-form text.  It is not geo-located.
 `primary_contact_user_id` | no | number | The id of the user who will be the primary in-house contact for this office.  This user must be a site-admin.
 `parent_id`* | no | number | The office id for the new office to be nested under.  If this isn't included, the office will be created at the top level.
+`parent_external_id` | no | string | The external id for the parent office. This can be used instead of parent_id, but only one of this or parent_id may be included. If both are included, this will fail. 
 `external_id`** | no | string | The external_id for the office.
 
 \* - The tiered office feature is available only for customers with the Pro or Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
