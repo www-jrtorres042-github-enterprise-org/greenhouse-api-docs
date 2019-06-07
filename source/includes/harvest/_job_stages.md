@@ -16,6 +16,16 @@ An organization's job stages.
       "id": 6001,
       "name": "Cultural Fit Interview",
       "schedulable": true,
+      "estimated_minutes": 30,
+      "default_interviewer_users": [
+        {
+          "id": 821,
+          "first_name": "Robert",
+          "last_name": "Robertson",
+          "name": "Robert Robertson",
+          "employee_id": "100377"
+        }
+      ],
       "interview_kit": {
         "id": 9123,
         "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
@@ -31,6 +41,16 @@ An organization's job stages.
       "id": 6002,
       "name": "Executive Interview",
       "schedulable": true,
+      "estimated_minutes": 60,
+      "default_interviewer_users": [
+        {
+          "id": 4080,
+          "first_name": "Kate",
+          "last_name": "Austen",
+          "name": "Kate Austen",
+          "employee_id": "12345"
+        }
+      ],
       "interview_kit": {
         "id": 9124,
         "content": "<h5>Purpose</h5><span>See if they can work with the boss.</span>",
@@ -82,6 +102,16 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
         "id": 7890,
         "name": "Cultural Fit Interview",
         "schedulable": true,
+        "estimated_minutes": 30,
+        "default_interviewer_users": [
+          {
+            "id": 821,
+            "first_name": "Robert",
+            "last_name": "Robertson",
+            "name": "Robert Robertson",
+            "employee_id": "100377"
+          }
+        ],
         "interview_kit": {
           "id": 9124,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
@@ -106,6 +136,16 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
         "id": 7345,
         "name": "Executive Interview",
         "schedulable": true,
+        "estimated_minutes": 60,
+        "default_interviewer_users": [
+          {
+            "id": 4080,
+            "first_name": "Kate",
+            "last_name": "Austen",
+            "name": "Kate Austen",
+            "employee_id": "12345"
+          }
+        ],
         "interview_kit": {
           "id": 9125,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
@@ -168,6 +208,16 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
         "id": 6001,
         "name": "Cultural Fit Interview",
         "schedulable": true,
+        "estimated_minutes": 30,
+        "default_interviewer_users": [
+          {
+            "id": 821,
+            "first_name": "Robert",
+            "last_name": "Robertson",
+            "name": "Robert Robertson",
+            "employee_id": "100377"
+          }
+        ],
         "interview_kit": {
           "id": 9128,
           "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
@@ -183,6 +233,19 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
         "id": 6002,
         "name": "Executive Interview",
         "schedulable": true,
+        "created_at": "2015-11-22T05:31:37.263Z",
+        "updated_at": "2015-11-22T05:31:37.263Z",
+        "job_id": 146219,
+        "estimated_minutes": 60,
+        "default_interviewer_users": [
+          {
+            "id": 4080,
+            "first_name": "Kate",
+            "last_name": "Austen",
+            "name": "Kate Austen",
+            "employee_id": "12345"
+          }
+        ],
         "interview_kit": {
           "id": 9129,
           "content": "<h5>Purpose</h5><span>See if they can work with the boss.</span>",
@@ -275,6 +338,16 @@ curl 'https://harvest.greenhouse.io/v1/job_stages/{id}'
       "id": 7890,
       "name": "Cultural Fit Interview",
       "schedulable": true,
+      "estimated_minutes": 30,
+      "default_interviewer_users": [
+        {
+          "id": 821,
+          "first_name": "Robert",
+          "last_name": "Robertson",
+          "name": "Robert Robertson",
+          "employee_id": "100377"
+        }
+      ],
       "interview_kit": {
         "id": 9127,
         "content": "<h5>Purpose</h5><span>Determine whether or not the candidate would be a strong fit.</span>",
