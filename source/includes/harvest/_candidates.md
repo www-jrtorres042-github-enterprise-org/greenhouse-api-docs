@@ -146,6 +146,8 @@ An organization's candidates.
                     "answer": "https://linkedin.com/example"
                 }
             ],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -187,6 +189,8 @@ An organization's candidates.
                 "name": "Face to Face"
             },
             "answers": [],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -362,6 +366,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
             "status": "active",
             "current_stage": null,
             "answers": [],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": {
                     "id": 224,
@@ -410,6 +416,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
                 "name": "Face to Face"
             },
             "answers": [],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -637,6 +645,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                     "answer": "https://linkedin.com/example"
                 }
             ],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -678,6 +688,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                 "name": "Face to Face"
             },
             "answers": [],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -961,6 +973,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
                   "name": "Face to Face"
               },
               "answers": [],
+              "prospective_office": null,
+              "prospective_department": null,
               "prospect_detail": {
                   "prospect_pool": null,
                   "prospect_stage": null,
@@ -1276,6 +1290,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
                 "name": "Application Review"
             },
             "answers": [],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -1306,6 +1322,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
                 "name": "Application Review"
             },
             "answers": [],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -1453,6 +1471,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
     "birthday": "1992-01-27",
     "bio": "This is my bio"
   },
+  "prospective_office": null,
+  "prospective_department": null,
   "prospect_detail": {
     "prospect_pool": null,
     "prospect_stage": null,
@@ -1959,6 +1979,38 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "status": "active",
       "current_stage": null,
       "answers": [],
+      "prospective_office": {
+          "primary_contact_user_id": null,
+          "parent_id": null,
+          "name": "New York",
+          "location": {
+              "name": "New York, NY"
+          },
+          "id": 59213,
+          "external_id": null,
+          "child_ids": []
+      },
+      "prospective_department": {
+          "parent_id": null,
+          "name": "Marketing",
+          "id": 9024,
+          "external_id": null,
+          "child_ids": []
+      },
+      "prospect_detail": {
+          "prospect_pool": {
+              "id": 227,
+              "name": "Opted In: In-Person Event"
+          },
+          "prospect_stage": {
+              "id": 826,
+              "name": "In Discussion"
+          },
+          "prospect_owner": {
+              "id": 92120,
+              "name": "Greenhouse Admin"
+          }
+      },
       "custom_fields": {
         "test": "A test value"
       },
@@ -2145,6 +2197,8 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
                 "name": "Application Review"
             },
             "answers": [],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,
@@ -2311,6 +2365,8 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
                 "name": "Application Review"
             },
             "answers": [],
+            "prospective_office": null,
+            "prospective_department": null,
             "prospect_detail": {
                 "prospect_pool": null,
                 "prospect_stage": null,

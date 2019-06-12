@@ -67,6 +67,8 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
             "answer": "From a former colleague."
         }
     ],
+    "prospective_office": null,
+    "prospective_department": null,
     "prospect_detail": {
         "prospect_pool": null,
         "prospect_stage": null,
@@ -106,6 +108,8 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 | answers | The answers provided to the questions in the job post for this application. Array contains the text value of the question and answer. Answers are always plaintext strings. Booleans will return `Yes` or `No`.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
+| prospective_office | The [department](#the-department-object) that this prospect application is being considered for. |
+| prospective_department | The [office](#the-office-object) that this prospect application is being considered for. |
 
 
 ## GET: List Applications
@@ -161,6 +165,8 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "answer": "mytestwebsite.com"
         }
     ],
+    "prospective_office": null,
+    "prospective_department": null,
     "prospect_detail": {
         "prospect_pool": null,
         "prospect_stage": null,
@@ -220,6 +226,24 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
           "answer": "mytestwebsite.com"
       }
     ],
+    "prospective_office": {
+      "primary_contact_user_id": null,
+      "parent_id": null,
+      "name": "New York",
+      "location": {
+        "name": "New York, NY"
+      },
+      "id": 59213,
+      "external_id": null,
+      "child_ids": []
+    },
+    "prospective_department": {
+      "parent_id": null,
+      "name": "Marketing",
+      "id": 9024,
+      "external_id": null,
+      "child_ids": []
+    },
     "prospect_detail": {
         "prospect_pool": {
             "id": 227,
@@ -244,7 +268,7 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "value": "Option 1"
         }
     }
-  }  
+  }
 ]
 ```
 List all of an organization's applications.
@@ -320,6 +344,8 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
             "answer": "mytestwebsite.com"
         }
     ],
+    "prospective_office": null,
+    "prospective_department": null,
     "prospect_detail": {
         "prospect_pool": null,
         "prospect_stage": null,
@@ -454,6 +480,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}'
           "answer": "mytestwebsite.com"
       }
   ],
+  "prospective_office": null,
+  "prospective_department": null,
   "prospect_detail": {
       "prospect_pool": null,
       "prospect_stage": null,
@@ -561,6 +589,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
           "answer": "mytestwebsite.com"
       }
   ],
+  "prospective_office": null,
+  "prospective_department": null,
   "prospect_detail": {
       "prospect_pool": null,
       "prospect_stage": null,
@@ -665,6 +695,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
           "answer": "mytestwebsite.com"
       }
   ],
+  "prospective_office": null,
+  "prospective_department": null,
   "prospect_detail": {
       "prospect_pool": null,
       "prospect_stage": null,
@@ -766,6 +798,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
       "answer": "Yes"
     }
   ],
+  "prospective_office": null,
+  "prospective_department": null,
   "prospect_detail": {
     "prospect_pool": null,
     "prospect_stage": null,
@@ -870,6 +904,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
       "answer": "Yes"
     }
   ],
+  "prospective_office": null,
+  "prospective_department": null,
   "prospect_detail": {
     "prospect_pool": null,
     "prospect_stage": null,
@@ -955,8 +991,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
   "applied_at": "2016-03-26T20:11:39.000Z",
   "rejected_at": "2016-08-17T21:08:29.686Z",
   "last_activity_at": "2016-08-27T16:13:15.000Z",
-  "location": { 
-    "address": "New York, New York, USA" 
+  "location": {
+    "address": "New York, New York, USA"
   },
   "source": {
     "id": 1871,
@@ -977,17 +1013,18 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
       "name": "We rejected them"
     }
   },
-"rejection_details": {
-  "custom_fields": {
+  "rejection_details": {
+    "custom_fields": {
       "custom_rejection_question_field": "Not a good fit"
-  },
-  "keyed_custom_fields": {
+    },
+    "keyed_custom_fields": {
       "custom_rejection_question_field": {
-          "name": "Was this candidate a good fit?",
-          "type": "short_text",
-          "value": "This candidate wasn't a good fit."
+        "name": "Was this candidate a good fit?",
+        "type": "short_text",
+        "value": "This candidate wasn't a good fit."
       }
-  }
+    }
+  },
   "jobs": [
     {
       "id": 123,
@@ -1009,10 +1046,12 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
       "answer": "From a former colleague."
     }
   ],
+  "prospective_office": null,
+  "prospective_department": null,
   "prospect_detail": {
-      "prospect_pool": null,
-      "prospect_stage": null,
-      "prospect_owner": null
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
   },
   "custom_fields": {
     "bio": "This is a bio",
@@ -1082,11 +1121,11 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
   "rejected_at": null,
   "last_activity_at": "2017-09-29T13:00:28.038Z",
   "location": { 
-      "address": "New York, New York, USA" 
+    "address": "New York, New York, USA" 
   },
   "source": {
-      "id": 2,
-      "public_name": "Jobs page on your website"
+    "id": 2,
+    "public_name": "Jobs page on your website"
   },
   "credited_to": {
     "id": 4080,
@@ -1098,40 +1137,42 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
   "rejection_reason": null,
   "rejection_details": null,
   "jobs": [
-      {
-          "id": 107761,
-          "name": "UX Designer - Boston"
-      }
+    {
+      "id": 107761,
+      "name": "UX Designer - Boston"
+    }
   ],
   "status": "active",
   "current_stage": {
-      "id": 767358,
-      "name": "Application Review"
+    "id": 767358,
+    "name": "Application Review"
   },
   "answers": [
-      {
-          "question": "How did you hear about this job?",
-          "answer": "Online Research"
-      },
-      {
-          "question": "Website",
-          "answer": "mytestwebsite.com"
-      }
+    {
+      "question": "How did you hear about this job?",
+      "answer": "Online Research"
+    },
+    {
+      "question": "Website",
+      "answer": "mytestwebsite.com"
+    }
   ],
+  "prospective_office": null,
+  "prospective_department": null,
   "prospect_detail": {
-      "prospect_pool": null,
-      "prospect_stage": null,
-      "prospect_owner": null
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
   },
   "custom_fields": {
-      "application_custom_test": "Option 1"
+    "application_custom_test": "Option 1"
   },
   "keyed_custom_fields": {
-      "application_custom_test": {
-          "name": "Application Custom Test",
-          "type": "single_select",
-          "value": "Option 1"
-      }
+    "application_custom_test": {
+      "name": "Application Custom Test",
+      "type": "single_select",
+      "value": "Option 1"
+    }
   }
 ```
 
