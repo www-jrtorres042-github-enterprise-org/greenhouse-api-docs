@@ -1689,13 +1689,19 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-school_id | Yes | integer |  The ID of the college attended; from the GET schools endpoint
-discipline_id | Yes | integer | The ID of the discipline of the candidate's education; from the GET disciplines endpoint.
-degree_id | Yes | integer | The type of degree received; from the GET degrees endpoint
-start_date | Yes | DateTime | The date the candidate began attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.*
-end_date | Yes | DateTime | The date the candidate finished attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.*
+school_id | No | integer |  The ID of the college attended; from the GET schools endpoint
+discipline_id | No | integer | The ID of the discipline of the candidate's education; from the GET disciplines endpoint.
+degree_id | No | integer | The type of degree received; from the GET degrees endpoint
+start_month | No | integer | The month the candidate began attendance. Must be between 1-12.
+start_year | No | integer | The year the candidate began attendance. Must be between 1900-2100.
+start_date | No | DateTime | The date the candidate began attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.*
+end_month | No | integer | The month the candidate finished attendance. Must be between 1-12.
+end_year | No | integer | The year the candidate finished attendance. Must be between 1900-2100.
+end_date | No | DateTime | The date the candidate finished attendance. Timestamp must be in in [ISO-8601] (#general-considerations) format.*
 
 * - Note that start_date and end_date accept an [ISO-8601] (#general-considerations) timestamp in accordance with Harvest's standard timestamp rules, but only Month and Year will be displayed on the candidate profile in Greenhouse. The "latest education" will be updated automatically. Day and time information in these timestamps will be recorded but not referenced in Greenhouse.
+* - Note that you can either have start_date, or start_month and start_year.
+* - Note that you can either have end_date, or end_month and end_year.
 
 ## DELETE: Remove Education From Candidate
 
