@@ -848,6 +848,63 @@ to_stage_id | Yes | integer | The ID of the job stage this application should be
 
 [See noteworthy response attributes.] (#the-application-object)
 
+## POST: Add Attachment to Application
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/attachments'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "filename" : "resume.pdf",
+  "type" : "resume",
+  "content" : "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs...",
+  "content_type" : "application/pdf"
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "filename": "resume.pdf",
+  "url": "https://prod.s3.amazonaws.com/...",
+  "type": "resume",
+  "content_type": "application/pdf"
+}
+```
+
+Post an attachment to an application by the application `id`.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/applications/{id}/attachments`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+filename | Yes | string | Name of the file
+type | Yes | string | One of: ["resume", "cover_letter", "other", "take_home_test", "offer_letter", "signed_offer_letter"]. For type `take_home_test`, there must be an outstanding test on the application. For type `offer_letter`, there must be an existing offer on the application, and this action will retrigger the approvals process. For type `signed_offer_letter`, there must be an approved, sent offer letter.
+content | No | string | Base64 encoded content of the attachment (if you are providing content, you do not need to provide url). String must be UTF-8 encoded.
+url | No | string | Url of the attachment (if you are providing the url, you do not need to provide the content)
+visibility | No | string | One of: ["public", "private", "admin_only"]. This only applies when attachment type is "other", and will be ignored for all other attachment types. If not supplied, type "other" documents will default to `admin_only`. Resumes, cover letters, and take home tests will always be `public`. Offer letters and signed offer letters will always be `private`.
+content_type | No* | string | The content-type of the document you are sending. When using a URL, this generally isn't needed, as the responding server will deliver a content type.  This should be included for encoded content.  Accepted content types are: <ul><li>"application/atom+xml"</li><li>"application/javascript"</li><li>"application/json"</li><li>"application/msgpack"</li><li>"application/msword"</li><li>"application/pdf"</li><li>"application/rss+xml"</li><li>"application/vnd.ms-excel"</li><li>"application/vnd.openxmlformats-<br>officedocument.spreadsheetml.sheet"</li><li>"application/vnd.openxmlformats-<br>officedocument.wordprocessingml.document"</li><li>"application/vnd.ms-powerpoint"</li><li>"application/xml"</li><li>"application/x-www-form-urlencoded"</li><li>"application/x-yaml"</li><li>"application/zip"</li><li>"multipart/form-data"</li><li>"image/bmp"</li><li>"image/gif"</li><li>"image/jpeg"</li><li>"image/png"</li><li>"image/tiff"</li><li>"text/calendar"</li><li>"text/css"</li><li>"text/csv"</li><li>"text/html"</li><li>"text/javascript"</li><li>"text/plain"</li><li>"text/vcard"</li><li>"video/mpeg"</li></ul>
+
+\* \- content_type is not required for purposes of backward compatibility. It is _strongly_ recommended that you always include content type for document uploads.
+
+
 ## POST: Hire Application
 
 ```shell

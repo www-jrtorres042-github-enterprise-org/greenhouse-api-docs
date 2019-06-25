@@ -171,6 +171,8 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| July 17, 2019 11:00:00AM | Added ability to update the current offer on an application via [PATCH: Update Current Offer](#patch-update-current-offer) |
+| July 17, 2019 11:00:00AM | Added ability to post new attachments to applications via [POST: Add Attachment to Application](#post-add-attachment-to-application) |
 | Jun 26, 2019 12:00:00PM | Added ability to create new Offices linked by external parent ids to [POST: Add Office](#post-add-office).                        |
 | Jun 26, 2019 12:00:00PM | Added ability to create new Departments linked by external parent ids to [POST: Add Department](#post-add-department).            |
 | Jun 26, 2019 12:00:00PM | Added child and parent office external IDs to the [Office object](#the-office-object).                                            |

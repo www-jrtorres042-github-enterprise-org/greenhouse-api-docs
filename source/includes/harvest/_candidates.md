@@ -1062,6 +1062,8 @@ delete_value  | n/a | When this element is included with a value of "true" (note
 
 ## POST: Add Attachment
 
+<aside class="warning">As of July 2019, we introduced the ability to add attachments to an individual application and to upload new types of attachments. Documentation can be found <a href="#post-add-attachment-to-application">here</a>.</aside>
+
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/attachments'
 -H "Content-Type: application/json"
