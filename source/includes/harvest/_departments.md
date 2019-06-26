@@ -10,10 +10,15 @@ An organization's departments.
 {
   "id": 12345,
   "name": "Technology",
-  "parent_id": null,
+  "parent_id": 12345,
+  "parent_department_external_id": "parent-1",
   "child_ids": [
       34065,
       25908
+  ],
+  "child_department_external_ids": [
+      "child-1",
+      "child-2"
   ],
   "external_id": "89076"
 }
@@ -64,6 +69,8 @@ An organization's departments.
 | id | The department's unique identifier |
 | name | The department's name
 | external_id | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
+| parent_department_external_id | The external_id of this department's parent.
+| parent_department_child_ids | the external_ids of this department's children. Note the order of this array may not match the order of the child_ids array. If there are five children and none of them have parent ids, this array will contain five null indices. 
 
 ## GET: List Departments
 
@@ -82,17 +89,24 @@ curl 'https://harvest.greenhouse.io/v1/departments'
     "id": 12345,
     "name": "Technology",
     "parent_id": null,
+    "parent_department_external_id": "",
     "child_ids": [
         34065,
         25908
     ],
+    "child_department_external_ids": [
+        "child-1",
+        "child-2"
+    ],
     "external_id": "89076"
-  }
+  },
   {
     "id": 67890,
     "name": "Administration",
     "parent_id": 54647,
+    "parent_department_external_id": "parent-1",
     "child_ids": [],
+    "child_department_external_ids": [],
     "external_id": null
   }
 ]
@@ -170,9 +184,14 @@ curl 'https://harvest.greenhouse.io/v1/departments/{id}'
   "id": 12345,
   "name": "Technology",
   "parent_id": null,
+  "parent_department_external_ids": "",
   "child_ids": [
       34065,
       25908
+  ],
+  "child_department_external_ids": [
+      "child-1",
+      "child-2"
   ],
   "external_id": "89076"
 }
@@ -262,9 +281,14 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/departments/{id}'
   "id": 45644,
   "name": "Engineering",
   "parent_id": null,
+  "parent_department_external_id": "",
   "child_ids": [
       34065,
       25908
+  ],
+  "child_department_external_ids": [
+      "child-1",
+      "child-2"
   ],
   "external_id": "EXTERNAL_ID_1234"
 }
@@ -318,7 +342,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/departments
   "id": 34535,
   "name": "A New Department",
   "parent_id": 12345,
+  "parent_department_external_ids": "parent-1",
   "child_ids": [],
+  "child_department_external_ids": [],
   "external_id": "456454"
 }
 ```

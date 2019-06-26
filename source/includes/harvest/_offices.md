@@ -15,9 +15,14 @@ An organization’s offices.
   },
   "primary_contact_user_id": 485538,
   "parent_id": 50849,
+  "parent_office_external_id": "parent-1",
   "child_ids": [
       50891,
       50852
+  ],
+  "child_office_external_ids": [
+      "child-1",
+      "child-2"
   ],
   "external_id": "12345"
 }
@@ -67,6 +72,8 @@ An organization’s offices.
 | name | The office's name |
 | location | The office's location |
 | external_id | An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
+| parent_office_external_id | The external_id of this office's parent.
+| parent_office_child_ids | the external_ids of this office's children. Note the order of this array may not match the order of the child_ids array. If there are five children and none of them have parent ids, this array will contain five null indices. 
 
 ## GET: List Offices
 
@@ -89,7 +96,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     },
     "primary_contact_user_id": 336474,
     "parent_id": 47012,
+    "parent_office_external_id": "parent-1",
     "child_ids": [],
+    "child_office_external_ids": [],
     "external_id": "45647"
   },
   {
@@ -100,9 +109,14 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     },
     "primary_contact_user_id": 485538,
     "parent_id": 50849,
+    "parent_office_external_id": "parent-2",
     "child_ids": [
         50891,
         50852
+    ],
+    "child_office_external_ids": [
+        "child-office-1",
+        nil
     ],
     "external_id": "12345"
   },
@@ -114,7 +128,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     },
     "primary_contact_user_id": 676259,
     "parent_id": 47012,
+    "parent_office_external_id": "parent-1",
     "child_ids": [],
+    "child_office_external_ids": [],
     "external_id": "67890"
   }
 ]
@@ -132,7 +148,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     },
     "primary_contact_user_id": 336474,
     "parent_id": 47012,
+    "parent_office_external_id": "parent-1",
     "child_ids": [],
+    "child_office_external_ids": [],
     "external_id": "45647"
   },
   {
@@ -143,9 +161,14 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     },
     "primary_contact_user_id": 485538,
     "parent_id": 50849,
+    "parent_office_external_id": "parent-2",
     "child_ids": [
         50891,
         50852
+    ],
+    "child_office_external_ids": [
+        "child-office-1",
+        nil
     ],
     "external_id": "12345"
   },
@@ -157,7 +180,9 @@ curl 'https://harvest.greenhouse.io/v1/offices'
     },
     "primary_contact_user_id": 676259,
     "parent_id": 47012,
+    "parent_office_external_id": "parent-1",
     "child_ids": [],
+    "child_office_external_ids": [],
     "external_id": "67890"
   }
 ]
@@ -199,9 +224,14 @@ curl 'https://harvest.greenhouse.io/v1/offices/{id}'
   },
   "primary_contact_user_id": 485538,
   "parent_id": 50849,
+  "parent_office_external_id": "parent-1",
   "child_ids": [
       50891,
       50852
+  ],
+  "child_office_external_ids": [
+      "child-office-1",
+      nil
   ],
   "external_id": "12345"
 }
@@ -294,7 +324,9 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/offices/{id}'
   },
   "primary_contact_user_id": 336474,
   "parent_id": 47012,
+  "parent_office_external_id": "parent-1",
   "child_ids": [],
+  "child_office_external_id": [],
   "external_id": "45647"
 }
 ```
@@ -353,7 +385,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/offices'
   },
   "primary_contact_user_id": 336474,
   "parent_id": 47012,
+  "parent_office_external_id": "parent-1",
   "child_ids": [],
+  "child_office_external_id": [],
   "external_id": null
 }
 ```
