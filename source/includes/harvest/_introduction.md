@@ -169,21 +169,25 @@ Unless otherwise specified, API methods generally conform to the following:
 
 The timestamps below are Eastern Time.
 
-| Date                    | Description                                                                                                    |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Jun 12, 2019 02:00:00PM  | Added `prospective_department` and `prospective_office` to the [Application object](#the-application-object).     |
-| Jun 7, 2019 02:00:00PM  | Added default interviewers and estimated duration to the [Job Stage object](#the-job-stage-object)             |
-| May 24, 2019 01:00:00PM  | Added ability to set location on job posts via office and custom location id via [PATCH: Update Job Post](#patch-update-job-post)     |
-| May 24, 2019 01:00:00PM  | Added `schedulable` field to [Job Stages Endpoints](#job-stages)
-| May 24, 2019 01:00:00PM  | Added `first_published_at` field to [Job Posts Endpoints](#job-posts)
-| May 15, 2019 05:00:00PM  | Added ability to change prospect pool and stage via [PATCH: Update Application](#patch-update-application)     |
-| May 15, 2019 03:15:00PM  | Added `opening` field to [Offers](#offers).                                                                   |
-| May 7, 2019 03:30:00PM  | Added [Demographic Data endpoints](#demographic-data)                                                          |
-| Apr 8 , 2019 04:00:00PM | Added `interviewer` to [Scorecard object](#the-scorecard-object)                                               |
-| Mar 18, 2019 03:30:00PM | Added ability to delete a Candidate Tag via [DELETE: Destroy a Candidate Tag](#delete-destroy-a-candidate-tag) |
-| Mar 6, 2019 02:15:00PM  | Added `linked_candidate_ids` to [Users Endpoints](#users)                                                      |
-| Feb 28, 2019 02:34:00PM | Added `primary_email_address` to [Users Endpoints](#users)                                                     |
-| Feb 28, 2019 12:30:00PM | Added `updated_at` to [Jobs Endpoints](#jobs)                                                                  |
-| Feb 13, 2019 03:30:00PM | Added ability to create new candidate tags via [POST: Add New Candidate Tag](#post-add-new-candidate-tag)      |
-| Feb 1, 2019 11:28:00AM  | Added partial response (HTTP Status code 202) to [POST: Create Job](#post-create-job)                          |
-| Jan 8, 2019 12:00:00PM  | Added `can_email` flag to [Candidates Endpoints](#the-candidate-object)                                        |
+| Date                    | Description                                                                                                                       |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Jun 26, 2019 12:00:00PM | Added ability to create new Offices linked by external parent ids to [POST: Add Office](#post-add-office).                        |
+| Jun 26, 2019 12:00:00PM | Added ability to create new Departments linked by external parent ids to [POST: Add Department](#post-add-department).            |
+| Jun 26, 2019 12:00:00PM | Added child and parent office external IDs to the [Office object](#the-office-object).                                            |
+| Jun 26, 2019 12:00:00PM | Added child and parent department external IDs to the [Department object](#the-department-object).                                |
+| Jun 12, 2019 02:00:00PM | Added `prospective_department` and `prospective_office` to the [Application object](#the-application-object).                     |
+| Jun 7, 2019 02:00:00PM  | Added default interviewers and estimated duration to the [Job Stage object](#the-job-stage-object)                                |
+| May 24, 2019 01:00:00PM | Added ability to set location on job posts via office and custom location id via [PATCH: Update Job Post](#patch-update-job-post) |
+| May 24, 2019 01:00:00PM | Added `schedulable` field to [Job Stages Endpoints](#job-stages)                                                                  |
+| May 24, 2019 01:00:00PM | Added `first_published_at` field to [Job Posts Endpoints](#job-posts)                                                             |
+| May 15, 2019 05:00:00PM | Added ability to change prospect pool and stage via [PATCH: Update Application](#patch-update-application)                        |
+| May 15, 2019 03:15:00PM | Added `opening` field to [Offers](#offers).                                                                                       |
+| May 7, 2019 03:30:00PM  | Added [Demographic Data endpoints](#demographic-data)                                                                             |
+| Apr 8 , 2019 04:00:00PM | Added `interviewer` to [Scorecard object](#the-scorecard-object)                                                                  |
+| Mar 18, 2019 03:30:00PM | Added ability to delete a Candidate Tag via [DELETE: Destroy a Candidate Tag](#delete-destroy-a-candidate-tag)                    |
+| Mar 6, 2019 02:15:00PM  | Added `linked_candidate_ids` to [Users Endpoints](#users)                                                                         |
+| Feb 28, 2019 02:34:00PM | Added `primary_email_address` to [Users Endpoints](#users)                                                                        |
+| Feb 28, 2019 12:30:00PM | Added `updated_at` to [Jobs Endpoints](#jobs)                                                                                     |
+| Feb 13, 2019 03:30:00PM | Added ability to create new candidate tags via [POST: Add New Candidate Tag](#post-add-new-candidate-tag)                         |
+| Feb 1, 2019 11:28:00AM  | Added partial response (HTTP Status code 202) to [POST: Create Job](#post-create-job)                                             |
+| Jan 8, 2019 12:00:00PM  | Added `can_email` flag to [Candidates Endpoints](#the-candidate-object)                                                           |

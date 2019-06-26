@@ -333,6 +333,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/departments
   "parent_id": 12345,
   "external_id": "456454"
 }
+
+or 
+
+{
+  "name": "A New Department",
+  "external_parent_id": "parent-1",
+  "external_id": "456454"
+}
 ```
 
 > The above command returns a JSON response, structured like this:
@@ -367,6 +375,7 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
 name |  yes | string | The name of your new department.  Must be less than 255 characters and unique within your organization.
 parent_id* | no | number | The department id for the new department to be nested under.  If this isn't included, the department will be created at the top level.
+external_parent_id** | no | string | The external id of the parent departments. This may be used instead of parent_id. Only one of this or parent_id may be populated. If both are included, it will raise an error.
 external_id** | no | string | The external_id for the office.
 
 \* - The tiered department feature is available only for customers with the Pro or Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
