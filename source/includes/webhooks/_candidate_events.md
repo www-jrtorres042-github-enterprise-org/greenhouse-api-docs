@@ -300,7 +300,7 @@ See web hook [common attributes](#common-attributes).
 | `application.job` | Deprecated. Use `application.jobs[]` instead
 | `application.job.close_date` | Deprecated. Use `application.jobs[].closed_at` instead.
 | `application.job.open_date` | Deprecated. Use `application.jobs[].opened_at` instead.
-| `application.opening.custom_fields` | This element may be omitted if the organization does not have custom fields for openings enables.
+| `application.opening.custom_fields` | This element may be omitted if the organization does not have custom fields for openings enabled.
 
 ## Candidate merged
 
