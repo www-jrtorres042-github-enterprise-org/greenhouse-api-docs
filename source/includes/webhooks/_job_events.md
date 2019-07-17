@@ -57,6 +57,18 @@
         ],
         "coordinators": []
       },
+      "openings": [
+        {
+          "id": 1234,
+          "opening_id": "abc-1",
+          "custom_fields": []
+        },
+        {
+          "id": 1235,
+          "opening_id": "abc-2",
+          "custom_fields": []
+        }
+      ],
       "custom_fields": {
         "approved": {
           "name": "Approved",
@@ -88,6 +100,7 @@ The Job Created event is triggered when a new job is created from scratch or cop
 | Attribute | Note |
 |-----------|------|
 | `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
+| `openings` | Field contains all the openings in this job. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.
 
 ## Job deleted
 
@@ -163,6 +176,18 @@ This web hook only fires when jobs are deleted from the Greenhouse system. This 
         ],
         "coordinators": []
       },
+      "openings": [
+        {
+          "id": 1234,
+          "opening_id": "abc-1",
+          "custom_fields": []
+        },
+        {
+          "id": 1235,
+          "opening_id": "abc-2",
+          "custom_fields": []
+        }
+      ],
       "custom_fields": {
         "bonus": {
           "name": "Bonus",
@@ -196,6 +221,7 @@ The Job Updated event is triggered any time one or more of the following fields 
 | Attribute | Note |
 |-----------|------|
 | `hiring_team` | Field contains the Greenhouse users responsible for this job.  Each field contains the user's Greenhouse user id and the user's external employee id from the customer's system.  The employee id will be null if it has not been set in Greenhouse.
+| `openings` | Field contains all the openings in this job. The custom field element on each opening may be omitted if the organization does not have custom fields on openings enabled.
 
 ## Job Approved
 
@@ -251,6 +277,18 @@ The Job Updated event is triggered any time one or more of the following fields 
         ],
         "coordinators": []
       },
+      "openings": [
+        {
+          "id": 1234,
+          "opening_id": "abc-1",
+          "custom_fields": []
+        },
+        {
+          "id": 1235,
+          "opening_id": "abc-2",
+          "custom_fields": []
+        }
+      ],
       "custom_fields": {
         "bonus": {
           "name": "Bonus",
