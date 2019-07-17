@@ -77,7 +77,7 @@
         "company": "Current Company Co.",
         "created_at": "2017-10-27T14:44:42Z",
         "external_id": null,
-        "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/060/304/738/original/cats_schrodinger.png?AWSAccessKeyId=AKIAI2HNOZGNEUVWYNFQ&Expires=1511732959&Signature=YcaE3lmhvfwSzvgbl4sUrQzP12U%3D",
+        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
         "url": "http://app.greenhouse.io/people/60304594",
         "is_private": false,
         "can_email": true,
@@ -139,12 +139,12 @@
         "attachments": [
           {
             "filename": "Test Cover Letter.docx",
-            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/081/539/559/original/Test%20Cover%20Letter.docx?AWSAccessKeyId=AKIAI2HNOZGNEUVWYNFQ&Expires=1511732684&Signature=prY2TFZT6WbAqzOhvkJdVeNnfCo%3D",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "cover_letter"
           },
           {
             "filename": "Test Resume.docx",
-            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/081/539/558/original/Test%20Resume.docx?AWSAccessKeyId=AKIAI2HNOZGNEUVWYNFQ&Expires=1511732684&Signature=M24vittUtIXRgL6lDYOB0pRBv9Q%3D",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "resume"
           }
         ],
