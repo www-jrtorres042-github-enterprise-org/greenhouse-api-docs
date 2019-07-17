@@ -15,11 +15,11 @@ An organization's candidates.
     "updated_at": "2017-09-28T12:29:30.497Z",
     "last_activity": "2017-09-28T12:29:30.481Z",
     "is_private": false,
-    "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=cg%2BhyNTvvNgTTzWtsMJJZvPRYH4%3D",
+    "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
     "attachments": [
         {
             "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
-            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/683/131/original/John_Locke_Offer_Packet_09_27_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=R5TbJPzD7TO5NgX8K8Y0yogPstY%3D",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "offer_packet"
         }
     ],
@@ -283,11 +283,11 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
     "updated_at": "2017-09-28T12:29:30.497Z",
     "last_activity": "2017-09-28T12:29:30.481Z",
     "is_private": false,
-    "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=cg%2BhyNTvvNgTTzWtsMJJZvPRYH4%3D",
+    "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
     "attachments": [
         {
             "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
-            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/683/131/original/John_Locke_Offer_Packet_09_27_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=R5TbJPzD7TO5NgX8K8Y0yogPstY%3D",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "offer_packet"
         }
     ],
@@ -514,11 +514,11 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
     "updated_at": "2017-09-28T12:29:30.497Z",
     "last_activity": "2017-09-28T12:29:30.481Z",
     "is_private": false,
-    "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=cg%2BhyNTvvNgTTzWtsMJJZvPRYH4%3D",
+    "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
     "attachments": [
         {
             "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
-            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/683/131/original/John_Locke_Offer_Packet_09_27_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509193807&Signature=R5TbJPzD7TO5NgX8K8Y0yogPstY%3D",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "offer_packet"
         }
     ],
@@ -877,11 +877,11 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
       "updated_at": "2017-09-28T12:54:34.257Z",
       "last_activity": "2017-09-28T12:54:34.243Z",
       "is_private": true,
-      "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509195274&Signature=NHilozZgXPHOI9uvpKTnf3A50Gc%3D",
+      "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
       "attachments": [
           {
               "filename": "John_Locke_Offer_Packet_09_28_2017.pdf",
-              "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/815/020/original/John_Locke_Offer_Packet_09_28_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509195274&Signature=Vb7z8GlHJXvwqhvx%2BTrIZ32zaVo%3D",
+              "url": "https://prod-heroku.s3.amazonaws.com/...",
               "type": "offer_packet"
           }
       ],
@@ -2126,11 +2126,11 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
     "updated_at": "2017-09-28T13:36:04.725Z",
     "last_activity": "2017-09-28T13:31:37.929Z",
     "is_private": false,
-    "photo_url": "https://prod-heroku.s3.amazonaws.com/people/photos/053/883/394/original/corgi.jpg?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509197765&Signature=pr0qNjZvTvLCV2td9hebhEa7P3Y%3D",
+    "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
     "attachments": [
         {
             "filename": "John_Locke_Offer_Packet_09_28_2017.pdf",
-            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/077/815/020/original/John_Locke_Offer_Packet_09_28_2017.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509197765&Signature=rV%2FW668FnnG4EFGLJbHrnY%2B7Mvs%3D",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "offer_packet"
         }
     ],
@@ -2293,12 +2293,12 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
     "attachments": [
         {
             "filename": "Justin Locke resume.pdf",
-            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/048/999/636/original/Byron%20Sonnett%20resume.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509198103&Signature=Zc%2BenNvJyxH4FatQBRFz8248GUM%3D",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "resume"
         },
          {
             "filename": "Justin Locke cover leter.pdf",
-            "url": "https://prod-heroku.s3.amazonaws.com/person_attachments/data/048/999/636/original/Byron%20Sonnett%20resume.pdf?AWSAccessKeyId=AKIAIK36UTOKQ5F2YNMQ&Expires=1509198103&Signature=Zc%2BenNvJyxH4FatQBRFz8248GUM%3D",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
             "type": "cover_letter"
         }
     ],
