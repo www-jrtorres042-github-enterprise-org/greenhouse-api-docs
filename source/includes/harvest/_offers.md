@@ -617,3 +617,50 @@ id | ID of the offer to retrieve
 
 <br>
 [See noteworthy response attributes.](#the-offer-object)
+
+## PATCH: Update Current Offer
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/offers/current_offer'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "start_date": "2018-03-15",
+  "sent_at": "2018-06-27",
+  "created_at": "2017-09-29T12:56:05Z"
+}
+```
+
+> The above returns a JSON response, structured like this:
+
+```json
+{
+  "success": true
+}
+```
+
+Update the current offer on the given application. The response will only tell you if the update succeeded.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/applications/{id}/offers/current_offer`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Description
+--------- | ----------- | ----------- 
+start_date | No | The day the candidate will start. A date string, formatted like "YYYY-MM-DD". For compatibility, this will also accept an ISO timestamp, but the time will be ignored.
+sent_at | No | The date the offer is sent. A date string, formatted like "YYYY-MM-DD". For compatibility, this will also accept an ISO timestamp, but the time will be ignored.
+created_at | No | The date the offer was created. An ISO time-string formatted like "YYYY-MM-DDTHH:MM:SSZ"
