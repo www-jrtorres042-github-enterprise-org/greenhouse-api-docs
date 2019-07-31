@@ -364,6 +364,10 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answers'
 | Parameter | Description |
 |-----------|-------------|
 | *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *created_before | Return only answers created before this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+| *created_after  | Return only answers created at or after this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+| *updated_before | Return only answers updated before this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+| *updated_after  | Return only answers updated at or after this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-object)
@@ -420,6 +424,10 @@ id | ID of the application for which you want to retrieve demographic answers.
 | Parameter | Description |
 |-----------|-------------|
 | *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+| *created_before | Return only answers created before this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+| *created_after  | Return only answers created at or after this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+| *updated_before | Return only answers updated before this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
+| *updated_after  | Return only answers updated at or after this timestamp. Timestamp must be in [ISO-8601] (#general-considerations) format.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-object)

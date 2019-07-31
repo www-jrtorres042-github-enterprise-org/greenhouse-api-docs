@@ -171,6 +171,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Jul 31, 2019 01:00:00PM | Added ability to filter demographic data answers by created_at and updated_at dates [GET: Demographic Answers](#get-list-demographic-answers) |
 | Jul 17, 2019 01:00:00PM | Added ability to update the current offer on an application via [PATCH: Update Current Offer](#patch-update-current-offer) |
 | Jul 17, 2019 01:00:00PM | Added ability to post new attachments to applications via [POST: Add Attachment to Application](#post-add-attachment-to-application) |
 | Jun 26, 2019 12:00:00PM | Added ability to create new Offices linked by external parent ids to [POST: Add Office](#post-add-office).                        |
