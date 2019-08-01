@@ -1,10 +1,10 @@
 # Sending Updates to Greenhouse
 
-## If you have implemented the polling option:
+### If you have implemented the polling option:
 
 After a successful `send_test` request, Greenhouse will check whether the test instance has been completed by polling the `test_status` endpoint hourly. We will discontinue polling the `test_status` endpoint after we receive a `partner_status` of `complete`, or after 8 weeks has passed since the test was sent.
 
-## If you have implemented the PATCH Completed Test option:
+### If you have implemented the PATCH Completed Test option:
 
 After a successful `send_test` request, you can alert Greenhouse to updates of the test's status by sending a PATCH Completed Test request to the URL found in the `url` field of the `send_test` request. This will trigger a <a href="#test-status">Test Status</a> request from Greenhouse.
 
@@ -17,13 +17,9 @@ Tells Greenhouse the current status of a take home test.
 ### Request
 
 ```shell
-curl 'https://www.testing-partner.com/api/test_status'
+curl 'https://www.testing-partner.com/api/test_status?partner_interview_id=12345'
+	
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-```json
-{
-	"partner_interview_id": "12345"
-}
 ```
 
 Greenhouse will send a `GET` request to the `test_status` endpoint provided by the Assessment Partner. The `GET` request will contain a single query string parameter: `partner_interview_id`.
