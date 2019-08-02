@@ -19,7 +19,8 @@ curl -X POST 'https://www.testing-partner.com/api/send_test'
 		"resume_url": "https://hogwarts.com/resume",
 		"phone_number": "123-456-7890",
 		"email": "hpotter@hogwarts.edu",
-		"greenhouse_profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
+		"greenhouse_profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709",
+		"url": "https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345"
 	}
 }
 ```
@@ -35,7 +36,7 @@ resume_url | String | No | A URL to the candidate’s resume. This URL will expi
 phone_number | String | No | The candidate’s phone number.
 email | String | Yes | The candidate’s email address. The test should be sent to this address.
 greenhouse_profile_url | String | Yes | URL to the candidate’s Greenhouse application. Allows the partner to link back to Greenhouse.
-
+url | String | Yes | URL to which to send the PATCH Completed Test request, if using
 
 ### Response
 
