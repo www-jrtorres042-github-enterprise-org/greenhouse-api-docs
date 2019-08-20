@@ -14,6 +14,7 @@ includes:
   - assessment/introduction
   - assessment/list_tests
   - assessment/send_test
+  - assessment/patch_completed_test
   - assessment/test_status
   - assessment/response_error
   - assessment/errors

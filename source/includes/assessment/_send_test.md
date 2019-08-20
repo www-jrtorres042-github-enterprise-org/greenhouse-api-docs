@@ -36,7 +36,7 @@ resume_url | String | No | A URL to the candidate’s resume. This URL will expi
 phone_number | String | No | The candidate’s phone number.
 email | String | Yes | The candidate’s email address. The test should be sent to this address.
 greenhouse_profile_url | String | Yes | URL to the candidate’s Greenhouse application. Allows the partner to link back to Greenhouse.
-url | String | Yes | URL to which to send the PATCH Completed Test request, if using
+url | String | Yes | URL to which to send the [PATCH Completed Test](#patch-completed-test) request, if using
 
 ### Response
 
