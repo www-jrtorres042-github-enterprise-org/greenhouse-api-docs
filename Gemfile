@@ -9,4 +9,4 @@ gem 'rouge', '~> 2.0.0'
 gem 'redcarpet', '~> 3.5.0'
 
 gem 'rake', '~> 12.3.2'
-gem 'therubyracer', '~> 0.12.3', platforms: :ruby
+gem 'mini_racer'
