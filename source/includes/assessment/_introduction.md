@@ -33,6 +33,8 @@ When a candidate reaches this Interview Stage, the user will click the "Send Tes
 
 Greenhouse will periodically poll the [Test Status endpoint](#test-status) to retrieve the candidate's test status and results. When the candidate completes the test, Greenhouse will notify the appropriate user that the test is complete. The user will be able to view the candidate’s score, navigate to the partner site to see more details, and make an advance or reject decision within Greenhouse. The user will also be able to filter candidates by score and advance or reject candidates in bulk.
 
+Alternatively, Greenhouse's Assessment API now includes the ability to notify Greenhouse of completed tests via the [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint to avoid long polling!
+
 ## Authentication
 
 Every request Greenhouse sends to a Assessment Partner’s API will utilize HTTP Basic Authentication over HTTPS. As such, we require each of the API endpoints to use HTTPS.
@@ -68,6 +70,7 @@ Unless otherwise specified, API methods generally conform to the following:
 
 The timestamps below are Eastern Time.
 
-| Date                    | Description                                                                            |
-| ----------------------- | -------------------------------------------------------------------------------------- |
-| Aug 21, 2019 12:00:00PM | Added Change Log and General Consideration sections to the Assessment API documenation |
+| Date                   | Description                                                                            |
+| ---------------------- | -------------------------------------------------------------------------------------- |
+| Aug 21, 2019 2:00:00PM | Added Change Log and General Consideration sections to the Assessment API documenation |
+| Aug 21, 2019 2:00:00PM | Added [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint         |
