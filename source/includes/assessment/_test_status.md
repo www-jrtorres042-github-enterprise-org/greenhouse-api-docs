@@ -6,7 +6,7 @@ After a successful `send_test` request, Greenhouse will check whether the test i
 
 ### If you have implemented the PATCH Completed Test option:
 
-After a successful `send_test` request, you can alert Greenhouse to updates of the test's status by sending a [PATCH Completed Test](#patch-completed-test) request to the URL found in the `url` field of the `send_test` request. This will trigger a <a href="#test-status">Test Status</a> request from Greenhouse.
+After a successful `send_test` request, you can alert Greenhouse to updates of the test's status by sending a [PATCH Completed Test](#patch-mark-test-as-completed) request to the URL found in the `url` field of the `send_test` request. This will trigger a <a href="#test-status">Test Status</a> request from Greenhouse.
 
 # Test Status
 
