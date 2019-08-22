@@ -21,31 +21,30 @@ If the mutual customer’s users have accounts in both Greenhouse and the partne
 1. **Application Name**: The name of the application as it would appear in Greenhouse.
 2. **Application URL**: The URL to the primary application.
 3. **Callback URL**: This is the URL to which Greenhouse will send
-authenticated users.
+   authenticated users.
 4. **Logo Image**: This is a 128x128 image that will be included in the
-permissions modal.
+   permissions modal.
 
 When Greenhouse receives this information, we will supply the partner with a consumer key, a consumer secret, a token URL, and an authorize URL. For example:
 
-
-Attribute | Example Value
--------------- | -------------- 
-Consumer Key| bMipe4KWf987654321GrLG1Nfk1234567UshvloD
-Consumer Secret | LQdulabcdefghijklEZok2fE5xGzeBcDa123gNXtN
-Token URL| https://api.greenhouse.io/oauth/token
-Authorize URL | https://api.greenhouse.io/oauth/authorize
+| Attribute       | Example Value                             |
+| --------------- | ----------------------------------------- |
+| Consumer Key    | bMipe4KWf987654321GrLG1Nfk1234567UshvloD  |
+| Consumer Secret | LQdulabcdefghijklEZok2fE5xGzeBcDa123gNXtN |
+| Token URL       | https://api.greenhouse.io/oauth/token     |
+| Authorize URL   | https://api.greenhouse.io/oauth/authorize |
 
 <aside class="notice">
 Your Consumer Secret is confidential, and is best kept private. Greenhouse will request to encrypt the Consumer Secret before we send it to you via email. 
 </aside>
 
-The partner should use this information to initiate an OAuth 2.0 flow in their application. Note the customer user can rescind this at any time. Further information about how to configure this (including a sample Ruby Gem) can be found [on GitHub.] (https://github.com/grnhse/omniauth-greenhouse)
+The partner should use this information to initiate an OAuth 2.0 flow in their application. Note the customer user can rescind this at any time. Further information about how to configure this (including a sample Ruby Gem) can be found [on GitHub.](https://github.com/grnhse/omniauth-greenhouse)
 
 When the user attempts to connect with Greenhouse, they will see a prompt asking them to confirm the connection. This prompt will then associate the user’s account in the partner system with their Greenhouse account.
 
 <img src="/images/prompt.png" alt= "Prompt Image" max-width>
 
-Once the OAuth process is complete and the user grants the partner permission to access their data on Greenhouse, the partner will receive an access token.  This access token must be included in the Authorization header:
+Once the OAuth process is complete and the user grants the partner permission to access their data on Greenhouse, the partner will receive an access token. This access token must be included in the Authorization header:
 
 `Authorization: Bearer <access_token>`
 
@@ -55,7 +54,7 @@ If your users only have an account in Greenhouse and you will be submitting cand
 
 `On-Behalf-Of: john.smith@example.com`
 
-Normally, this will be a service user created specifically for this purpose. If this header is missing, or Greenhouse doesn’t recognize the address, the API will issue a *401 Unauthorized* response. The application must also supply the API key. Via basic auth, you will include the API key as the basic auth username and nothing as the password. Since only a username needs to be provided in our case, you’ll need to append a : (colon) to the API token and then Base64 encode the resulting string. This may be included via URL:
+Normally, this will be a service user created specifically for this purpose. If this header is missing, or Greenhouse doesn’t recognize the address, the API will issue a _401 Unauthorized_ response. The application must also supply the API key. Via basic auth, you will include the API key as the basic auth username and nothing as the password. Since only a username needs to be provided in our case, you’ll need to append a : (colon) to the API token and then Base64 encode the resulting string. This may be included via URL:
 
 `https://<base64_encoded_api_key>:@api.greenhouse.io/v1/partners/candidates`
 
@@ -66,12 +65,29 @@ or as an authorized header:
 In all cases, the customer will have supplied the partner with a Partner API Key and a service user. Both items are required to submit candidates.
 
 ## OAuth Scopes
+
 If you use OAuth for authentication, there are 3 permission scopes to be aware of. Some endpoints will require a specific permission scope while others require none.
 
-* `candidates.create`: Create new candidates or prospects
-* `candidates.view`: View candidates imported via this partner
-* `jobs.view`: View my jobs.
+- `candidates.create`: Create new candidates or prospects
+- `candidates.view`: View candidates imported via this partner
+- `jobs.view`: View my jobs.
 
 <aside class="warning">
 These scopes do not apply if you are authenticating via Basic Auth.
 </aside>
+
+## General considerations
+
+Unless otherwise specified, API methods generally conform to the following:
+
+- Properties without a value will use `null` instead of being undefined
+- "Snake Case" is used for attribute names (e.g. `first_name`)
+- We reserve the right to add more properties to objects, but will never change or remove them
+
+## Ingestion API Change Log
+
+The timestamps below are Eastern Time.
+
+| Date                    | Description                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| Aug 22, 2019 11:00:00AM | Added Change Log and General Consideration sections to the Ingestion API documentation |

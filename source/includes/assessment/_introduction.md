@@ -70,7 +70,7 @@ Unless otherwise specified, API methods generally conform to the following:
 
 The timestamps below are Eastern Time.
 
-| Date                   | Description                                                                            |
-| ---------------------- | -------------------------------------------------------------------------------------- |
-| Aug 21, 2019 2:00:00PM | Added Change Log and General Consideration sections to the Assessment API documenation |
-| Aug 21, 2019 2:00:00PM | Added [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint         |
+| Date                   | Description                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------- |
+| Aug 21, 2019 2:00:00PM | Added Change Log and General Consideration sections to the Assessment API documentation |
+| Aug 21, 2019 2:00:00PM | Added [PATCH - Mark Test as Completed](#patch-mark-test-as-completed) endpoint          |
