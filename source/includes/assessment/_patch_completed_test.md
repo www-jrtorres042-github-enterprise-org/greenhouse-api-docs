@@ -16,4 +16,4 @@ No parameters are necessary with this request.
 
 ### Response
 
-> HTTP status code only.
+The response will return only the HTTP status code.
