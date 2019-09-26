@@ -1406,7 +1406,7 @@ applications | Yes | Array | An array of application objects. At least one requi
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
-## POST: Add Candidate Application
+## POST: Add Application to Candidate/Prospect
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
@@ -1415,7 +1415,29 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
-> The above command takes a JSON request, structured like this:
+> To create a prospect application for jobs 123 and 456:
+
+```json
+{
+  "prospect": "true",
+  "job_ids": [123, 456],
+  "prospective_office_id": 58319,
+  "prospective_department_id": 9021,
+  "prospect_pool_id": 1640,
+  "prospect_pool_stage_id": 7594,
+  "prospect_owner_id": 107468
+}
+```
+
+> To create a prospect application on no jobs:
+
+```json
+{
+  "prospect": "true"
+}
+```
+
+> To create a candidate application:
 
 ```json
 {
@@ -1483,7 +1505,10 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
 }
 ```
 
-Create a new application for this candidate or prospect. If a prospect, this will add a new candidate application to the given job on their profile, this will not convert their existing prospect application into a candidate application.
+
+Create a new application for an existing candidate or prospect.
+
+The new application can be a candidate application or a prospect application, depending on the `"prospect"` parameter which defaults to `"false"`.  The JSON body parameters differ depending on whether you are creating a prospect application or a candidate application.  The main difference is that prospect applications can be considered for zero, one, or multiple jobs.
 
 ### HTTP Request
 
@@ -1495,7 +1520,7 @@ Header | Description
 --------- | -----------
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
-### JSON Body Parameters
+### JSON Body Parameters for Candidate application
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | ----------- | -----------
@@ -1506,6 +1531,22 @@ referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
 attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
+
+### JSON Body Parameters for Prospect application
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- |
+prospect | Yes | boolean | Set to `"true"` in order to create a prospect application.
+job_ids | No | array | An optional array of Job IDs to consider this prospect for.
+source_id | No | integer | The id of the source to be credited for this application
+referrer | No | object | An object representing the referrer
+referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
+referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+prospect_pool_id | No | integer | Prospect Pool ID.
+prospect_pool_stage_id | No | integer | Prospect Pool Stage ID.  `prospect_pool_id` is required, and the prospect pool stage must belong to the given prospect pool.
+prospect_owner_id | No | integer |User ID of the prospect owner.
+prospective_department_id | No | integer | Department ID to consider this prospect for.
+prospective_office_id | No | integer | Office ID to consider this prospect for.  `prospective_department_id` is required in order to set a prospective office.
 
 ## POST: Add Note
 
