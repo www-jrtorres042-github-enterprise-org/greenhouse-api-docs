@@ -258,6 +258,8 @@ curl 'https://harvest.greenhouse.io/v1/offers'
 | status | Return only offers that have a particular status.  One of: `unresolved`, `accepted`, `rejected`, `deprecated`.
 | sent_after | Return only offers that have been sent on or after the provided date. Date must be in YYYY-MM-DD format.
 | sent_before | Return only offers that have been sent on or before the provided date. Date must be in YYYY-MM-DD format.
+| starts_after | Return only offers whose start date has been set to on or after the provided date. Date must be in YYYY-MM-DD format.
+| starts_before | Return only offers whose start date has been set to on or before the provided date. Date must be in the YYYY-MM-DD format.
 
 <br>
 [See noteworthy response attributes.](#the-offer-object)
