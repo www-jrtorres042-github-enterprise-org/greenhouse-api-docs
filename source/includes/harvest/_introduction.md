@@ -171,6 +171,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Oct 1, 2019 11:00:00AM | Added ability to filter offers by start_date with starts_before and starts_after. [GET: Offers](#get-list-offers) |
 | Sep 18, 2019 01:00:00PM | Added ability to create prospect applications for existing candidates/prospects [POST: Add Application to Candidate/Prospect](#post-add-application-to-candidate-prospect) |
 | Jul 31, 2019 01:00:00PM | Added ability to filter demographic data answers by created_at and updated_at dates [GET: Demographic Answers](#get-list-demographic-answers) |
 | Jul 17, 2019 01:00:00PM | Added ability to update the current offer on an application via [PATCH: Update Current Offer](#patch-update-current-offer) |
