@@ -91,6 +91,7 @@ Returns the list of all job posts. The `id` field contains the unique identifier
 When submitting a job application, you will use the <code>id</code> field to specify the application's target job post.
 </aside>
 
+Prospect posts include a null value for `internal_job_id`
 
 ### HTTP Request
 

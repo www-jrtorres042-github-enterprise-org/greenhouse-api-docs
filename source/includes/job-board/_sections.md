@@ -1,4 +1,4 @@
-# Sections
+# Prospect Post Sections
 
 ## List sections
 
@@ -48,7 +48,7 @@
 }
 ```
 
-Returns a list of your organization's sections and jobs.
+Returns a list of your organization’s sections and prospect posts. Prospect posts can be listed under a specific department or section. To view all prospect posts, list jobs and filter results by null `internal_job_id`
 
 
 ### HTTP Request
@@ -90,7 +90,7 @@ board_token | Job Board URL token
 }
 ```
 
-Returns a list of jobs for a given `section_id`.
+Returns a list of prospect posts for a given `section_id`
 
 ### HTTP Request
 
