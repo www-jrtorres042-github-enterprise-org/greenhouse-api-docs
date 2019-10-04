@@ -13,7 +13,23 @@ This endpoint is used to managing openings on jobs.
         "opened_at": "2015-11-19T19:53:32.565Z",
         "closed_at": null,
         "application_id": null,
-        "close_reason": null
+        "close_reason": null,
+      	"custom_fields": {
+    	    "employment_type": "Full-Time",
+             "maximum_budget": "$81.5k"
+  	},
+  	"keyed_custom_fields": {
+    	    "employment_type": {
+      		"name": "Time type",
+      		"type": "single_select",
+      		"value": "Full-Time"
+    	    },
+    	    "budget": {
+      		"name": "Maximum Budget",
+      		"type": "short_text",
+      		"value": "$81.5k"
+    	    }
+    	}
     },
     {
         "id": 123,
@@ -25,7 +41,23 @@ This endpoint is used to managing openings on jobs.
         "close_reason": {
           "id": 678,
           "name": "Hired - Backfill"
-        }
+        },
+      	"custom_fields": {
+    	    "employment_type": "Full-Time",
+             "maximum_budget": "$81.5k"
+  	},
+  	"keyed_custom_fields": {
+    	    "employment_type": {
+      		"name": "Time type",
+      		"type": "single_select",
+      		"value": "Full-Time"
+    	    },
+    	    "budget": {
+      		"name": "Maximum Budget",
+      		"type": "short_text",
+      		"value": "$81.5k"
+    	    }
+    	}
     }
 ]
 ```
@@ -40,6 +72,7 @@ This endpoint is used to managing openings on jobs.
 | opened_at | This is the date and time this opening was created. |
 | closed_at | This is when the opening was closed; usually via the opening being filled. This should be null for opened openings. |
 | application_id | The application that was used to fill this opening. This should only be set on a closed opening, null otherwise. |
+| custom_fields | These are the custom fields that are specific to openings. This index, along with keyed_custom_fields, may not be included if your organization does not have access to custom fields on openings.
 
 ## GET: List Job Openings
 
@@ -51,25 +84,57 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings' -H "Authorization
 ```json
 [
   {
-    "id": 123,
-    "opening_id": "OPENED-1",
-    "status": "open",
-    "opened_at": "2015-11-19T19:53:32.565Z",
-    "closed_at": null,
-    "application_id": null,
-    "close_reason": null
+      "id": 123,
+      "opening_id": "OPENED-1",
+      "status": "open",
+      "opened_at": "2015-11-19T19:53:32.565Z",
+      "closed_at": null,
+      "application_id": null,
+      "close_reason": null,
+      "custom_fields": {
+    	  "employment_type": "Full-Time",
+          "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+          "employment_type": {
+      	      "name": "Time type",
+      	      "type": "single_select",
+      	      "value": "Full-Time"
+    	  },
+    	  "budget": {
+      	      "name": "Maximum Budget",
+      	      "type": "short_text",
+      	      "value": "$81.5k"
+    	  }
+      }
   },
   {
-    "id": 123,
-    "opening_id": "CLOSED-1",
-    "status": "closed",
-    "opened_at": "2015-11-19T19:53:32.565Z",
-    "closed_at": "2015-12-14T19:53:32.565Z",
-    "application_id": 65565,
-    "close_reason": {
-      "id": 678,
-      "name": "Hired - Backfill"
-    }
+      "id": 123,
+      "opening_id": "CLOSED-1",
+      "status": "closed",
+      "opened_at": "2015-11-19T19:53:32.565Z",
+      "closed_at": "2015-12-14T19:53:32.565Z",
+      "application_id": 65565,
+      "close_reason": {
+          "id": 678,
+          "name": "Hired - Backfill"
+      },
+      "custom_fields": {
+    	  "employment_type": "Full-Time",
+          "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+          "employment_type": {
+      	      "name": "Time type",
+      	      "type": "single_select",
+      	      "value": "Full-Time"
+    	  },
+    	  "budget": {
+      	      "name": "Maximum Budget",
+      	      "type": "short_text",
+      	      "value": "$81.5k"
+    	  }
+      }
   }
 ]
 ```
@@ -112,7 +177,23 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings/{id}' -H "Authoriz
     "opened_at": "2015-11-19T19:53:32.565Z",
     "closed_at": null,
     "application_id": null,
-    "close_reason": null
+    "close_reason": null,
+    "custom_fields": {
+    	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+    },
+    "keyed_custom_fields": {
+        "employment_type": {
+      	    "name": "Time type",
+      	    "type": "single_select",
+      	    "value": "Full-Time"
+    	},
+    	"budget": {
+      	    "name": "Maximum Budget",
+      	    "type": "short_text",
+      	    "value": "$81.5k"
+    	}
+    }
 }
 ```
 
@@ -273,12 +354,44 @@ openings.opening_id | yes | Array | This is a string that contains an opening_id
         {
             "id": 123456,
             "opening_id": "abc-123",
-            "open_date": "2017-10-02T19:53:32.565Z"
+            "open_date": "2017-10-02T19:53:32.565Z",
+    	    "custom_fields": {
+    		"employment_type": "Full-Time",
+        		"maximum_budget": "$81.5k"
+    	    },
+    	    "keyed_custom_fields": {
+        		"employment_type": {
+      	    	    "name": "Time type",
+      	    	    "type": "single_select",
+      	    	    "value": "Full-Time"
+    		},
+    		"budget": {
+      	    	    "name": "Maximum Budget",
+      	    	    "type": "short_text",
+      	    	    "value": "$81.5k"
+    		}
+    	    }
         },
         {
             "id": 123457,
             "opening_id": null,
-            "open_date": "2017-10-02T19:53:32.565Z"
+            "open_date": "2017-10-02T19:53:32.565Z"",
+    	    "custom_fields": {
+    		"employment_type": "Full-Time",
+        		"maximum_budget": "$81.5k"
+    	    },
+    	    "keyed_custom_fields": {
+        		"employment_type": {
+      	    	    "name": "Time type",
+      	    	    "type": "single_select",
+      	    	    "value": "Full-Time"
+    		},
+    		"budget": {
+      	    	    "name": "Maximum Budget",
+      	    	    "type": "short_text",
+      	    	    "value": "$81.5k"
+    		}
+    	    }
         }
     ]
 }
