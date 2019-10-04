@@ -354,44 +354,12 @@ openings.opening_id | yes | Array | This is a string that contains an opening_id
         {
             "id": 123456,
             "opening_id": "abc-123",
-            "open_date": "2017-10-02T19:53:32.565Z",
-    	    "custom_fields": {
-    		"employment_type": "Full-Time",
-        		"maximum_budget": "$81.5k"
-    	    },
-    	    "keyed_custom_fields": {
-        		"employment_type": {
-      	    	    "name": "Time type",
-      	    	    "type": "single_select",
-      	    	    "value": "Full-Time"
-    		},
-    		"budget": {
-      	    	    "name": "Maximum Budget",
-      	    	    "type": "short_text",
-      	    	    "value": "$81.5k"
-    		}
-    	    }
+            "open_date": "2017-10-02T19:53:32.565Z"
         },
         {
             "id": 123457,
             "opening_id": null,
-            "open_date": "2017-10-02T19:53:32.565Z",
-    	    "custom_fields": {
-    		"employment_type": "Full-Time",
-        		"maximum_budget": "$81.5k"
-    	    },
-    	    "keyed_custom_fields": {
-        		"employment_type": {
-      	    	    "name": "Time type",
-      	    	    "type": "single_select",
-      	    	    "value": "Full-Time"
-    		},
-    		"budget": {
-      	    	    "name": "Maximum Budget",
-      	    	    "type": "short_text",
-      	    	    "value": "$81.5k"
-    		}
-    	    }
+            "open_date": "2017-10-02T19:53:32.565Z"
         }
     ]
 }
