@@ -786,6 +786,22 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
       "close_reason": {
         "id": 678,
         "name": "Hired - Backfill"
+      },
+      "custom_fields": {
+      	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+        "employment_type": {
+      	  "name": "Time type",
+      	  "type": "single_select",
+      	  "value": "Full-Time"
+    	},
+    	"budget": {
+      	  "name": "Maximum Budget",
+      	  "type": "short_text",
+      	  "value": "$81.5k"
+    	}
       }
     },
     {
@@ -795,7 +811,23 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
       "opened_at": "2015-11-20T23:14:14.739Z",
       "closed_at": null,
       "application_id": null,
-      "close_reason": null
+      "close_reason": null,
+      "custom_fields": {
+      	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+        "employment_type": {
+      	  "name": "Time type",
+      	  "type": "single_select",
+      	  "value": "Full-Time"
+    	},
+    	"budget": {
+      	  "name": "Maximum Budget",
+      	  "type": "short_text",
+      	  "value": "$81.5k"
+    	}
+      }
     },
     {
       "id": 125,
@@ -803,7 +835,23 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
       "status": "open",
       "opened_at": "2016-02-03T20:00:00.000Z",
       "closed_at": null,
-      "application_id": null
+      "application_id": null,
+      "custom_fields": {
+      	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+        "employment_type": {
+      	  "name": "Time type",
+      	  "type": "single_select",
+      	  "value": "Full-Time"
+    	},
+    	"budget": {
+      	  "name": "Maximum Budget",
+      	  "type": "short_text",
+      	  "value": "$81.5k"
+    	}
+      }
     },
     {
       "id": 126,
@@ -815,6 +863,22 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
       "close_reason": {
         "id": 689,
         "name": "Hired"
+      },
+      "custom_fields": {
+      	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+        "employment_type": {
+      	  "name": "Time type",
+      	  "type": "single_select",
+      	  "value": "Full-Time"
+    	},
+    	"budget": {
+      	  "name": "Maximum Budget",
+      	  "type": "short_text",
+      	  "value": "$81.5k"
+    	}
       }
     }
   ]
@@ -979,6 +1043,22 @@ The custom field parameter structure is different in the PATCH method then in GE
       "close_reason": {
         "id": 678,
         "name": "Hired - Backfill"
+      },
+      "custom_fields": {
+      	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+        "employment_type": {
+      	  "name": "Time type",
+      	  "type": "single_select",
+      	  "value": "Full-Time"
+    	},
+    	"budget": {
+      	  "name": "Maximum Budget",
+      	  "type": "short_text",
+      	  "value": "$81.5k"
+    	}
       }
     },
     {
@@ -988,7 +1068,23 @@ The custom field parameter structure is different in the PATCH method then in GE
       "opened_at": "2015-11-20T23:14:14.739Z",
       "closed_at": null,
       "application_id": null,
-      "close_reason": null
+      "close_reason": null,
+      "custom_fields": {
+      	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+        "employment_type": {
+      	  "name": "Time type",
+      	  "type": "single_select",
+      	  "value": "Full-Time"
+    	},
+    	"budget": {
+      	  "name": "Maximum Budget",
+      	  "type": "short_text",
+      	  "value": "$81.5k"
+    	}
+      }
     },
     {
       "id": 125,
@@ -996,7 +1092,23 @@ The custom field parameter structure is different in the PATCH method then in GE
       "status": "open",
       "opened_at": "2016-02-03T20:00:00.000Z",
       "closed_at": null,
-      "application_id": null
+      "application_id": null,
+      "custom_fields": {
+      	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+        "employment_type": {
+      	  "name": "Time type",
+      	  "type": "single_select",
+      	  "value": "Full-Time"
+    	},
+    	"budget": {
+      	  "name": "Maximum Budget",
+      	  "type": "short_text",
+      	  "value": "$81.5k"
+    	}
+      }
     },
     {
       "id": 126,
@@ -1008,6 +1120,22 @@ The custom field parameter structure is different in the PATCH method then in GE
       "close_reason": {
         "id": 689,
         "name": "Hired"
+      },
+      "custom_fields": {
+      	"employment_type": "Full-Time",
+        "maximum_budget": "$81.5k"
+      },
+      "keyed_custom_fields": {
+        "employment_type": {
+      	  "name": "Time type",
+      	  "type": "single_select",
+      	  "value": "Full-Time"
+    	},
+    	"budget": {
+      	  "name": "Maximum Budget",
+      	  "type": "short_text",
+      	  "value": "$81.5k"
+    	}
       }
     }
   ]
