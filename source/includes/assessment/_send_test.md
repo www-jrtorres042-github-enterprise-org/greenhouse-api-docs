@@ -18,9 +18,9 @@ curl -X POST 'https://www.testing-partner.com/api/send_test'
     "resume_url": "https://hogwarts.com/resume",
     "phone_number": "123-456-7890",
     "email": "hpotter@hogwarts.edu",
-    "greenhouse_profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709",
-    "url": "https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345"
-  }
+    "greenhouse_profile_url": "https://app.greenhouse.io/people/17681532?application_id=26234709"
+  },
+  "url": "https://app.greenhouse.io/integrations/testing_partners/take_home_tests/12345"
 }
 ```
 
