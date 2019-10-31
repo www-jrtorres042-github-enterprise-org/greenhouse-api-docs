@@ -181,6 +181,7 @@
           "name": "Data Scientist",
           "requisition_id": "ABC",
           "notes": null,
+          "confidential": false,
           "job_post_id": 263533,
           "status": "open",
           "created_at": "2016-07-14T17:21:30Z",
