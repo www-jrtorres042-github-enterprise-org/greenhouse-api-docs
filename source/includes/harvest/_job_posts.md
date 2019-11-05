@@ -169,7 +169,13 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
     "id": 123,
     "title": "Button Pusher",
     "location": {
-      "name": "The Island"
+        "id": 123456,
+        "name": "New York, NY",
+        "office_id": null,
+        "job_post_location_type": {
+            "id": 1,
+            "name": "Free Text"
+        }
     },
     "internal": true,
     "external": false,
@@ -335,7 +341,13 @@ curl 'https://harvest.greenhouse.io/v1/job_posts/{id}'
     "id": 123,
     "title": "Button Pusher",
     "location": {
-        "name": "The Island"
+      "id": 123456,
+      "name": "New York, NY",
+      "office_id": null,
+      "job_post_location_type": {
+       "id": 1,
+       "name": "Free Text"
+      }
     },
     "internal": true,
     "external": false,
@@ -488,7 +500,13 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "id": 123,
     "title": "Button Pusher",
     "location": {
-      "name": "The Island"
+      "id": 123456,
+      "name": "New York, NY",
+      "office_id": null,
+      "job_post_location_type": {
+        "id": 1,
+        "name": "Free Text"
+      }
     },
     "internal": true,
     "external": false,
@@ -695,7 +713,13 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
     "id": 123,
     "title": "Button Pusher",
     "location": {
-      "name": "The Island"
+      "id": 123456,
+      "name": "New York, NY",
+      "office_id": null,
+      "job_post_location_type": {
+       "id": 1,
+       "name": "Free Text"
+      }
     },
     "internal": true,
     "external": false,
