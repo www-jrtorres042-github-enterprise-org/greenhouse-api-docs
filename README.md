@@ -52,8 +52,8 @@ You're going to need:
 Or use the included Dockerfile! (must install Docker first)
 
 ```shell
-docker build -t slate .
-docker run -d -p 4567:4567 --name slate -v $(pwd)/source:/app/source slate
+docker build -t greenhouse-api-docs .
+docker run -p 4567:4567 greenhouse-api-docs
 ```
 
 You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
