@@ -11,7 +11,7 @@ To begin the integration process, please send the following information to us at
 3. URL for your `test_status` API call
 4. A sample API key
 
-We'll add your integration to our [Partners page](http://www.greenhouse.io/partners), add your FAQ article to our help section, and provide you with a Sandbox account to test the integration.
+The Partnerships team will configure the assessment and provide next steps on receiving access to a Sandbox account to test the integration. For any third party assessment partner building an integration to use with mutual customers, it is required to provide documentation on the integration for the Greenhouse Help Center.
 
 ## Workflow
 
