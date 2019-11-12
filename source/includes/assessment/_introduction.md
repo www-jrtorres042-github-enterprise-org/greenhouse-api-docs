@@ -11,7 +11,7 @@ To begin the integration process, please send the following information to us at
 3. URL for your `test_status` API call
 4. A sample API key
 
-The Partnerships team will configure endpoint URLs for creating assessment stages and provide next steps on receiving access to a Sandbox account to test the integration. For any third party assessment partner building an integration to use with mutual customers, it is required to provide documentation on the integration for the Greenhouse Help Center.
+The Partnerships team will configure endpoint URLs for creating assessment stages and provide next steps on receiving access to a Sandbox account to test the integration. If you are building an integration for use by mutual customers, we will need documentation on the integration for the Greenhouse Help Center.
 
 ## Workflow
 
