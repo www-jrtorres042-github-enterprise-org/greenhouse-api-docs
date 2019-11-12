@@ -323,7 +323,12 @@ The Job Approved event is triggered when the final approval is received in a Gre
 
 ## Job Post created
 
-This web hook fires when a job post is created. This occurs when a new job post is added from the job set up.
+This web hook fires when a job post or prospect post is created. This occurs when a new job post or prospect post is added from the job set up.
+
+If `job_id` **is** present in the payload, the payload represents a new **job post**.
+
+If `job_id` **is not** present, the payload represents a new **prospect post**.
+
 
 ```json
 {
@@ -368,7 +373,11 @@ This web hook fires when a job post is created. This occurs when a new job post 
 
 ## Job Post updated
 
-This web hook fires when a job post is updated via the "Edit Job Post" page. It also fires when the live status of the job changes from on to off or vice-versa.
+This web hook fires when a job post or prospect post is updated via the "Edit Job Post" page. It also fires when the live status of the job changes from on to off or vice-versa.
+
+If `job_id` **is** present in the payload, the payload represents an updated **job post**.
+
+If `job_id` **is not** present, the payload represents an updated **prospect post**.
 
 ```json
 {
@@ -413,7 +422,11 @@ This web hook fires when a job post is updated via the "Edit Job Post" page. It 
 
 ## Job Post deleted
 
-This web hook fires when a job post is deleted.  This occurs when the delete link is clicked on a job post. Only job posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
+This web hook fires when a job post or prospect post is deleted.  This occurs when the delete link is clicked on a job post. Only job posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
+
+If `job_id` **is** present in the payload, the payload represents a deleted **job post**.
+
+If `job_id` **is not** present, the payload represents a deleted **prospect post**.
 
 ```json
 {
