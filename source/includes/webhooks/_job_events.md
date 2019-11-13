@@ -422,7 +422,7 @@ If `job_id` **is not** present, the payload represents an updated **prospect pos
 
 ## Job Post deleted
 
-This web hook fires when a job post or prospect post is deleted.  This occurs when the delete link is clicked on a job post. Only job posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
+This web hook fires when a job post or prospect post is deleted.  This occurs when the delete link is clicked on a post. Only posts that are not live may be deleted. This will not fire if a job itself is deleted; a job being deleted implies all of its posts have been deleted with them.
 
 If `job_id` **is** present in the payload, the payload represents a deleted **job post**.
 
