@@ -146,7 +146,7 @@ employee_id | The Employee ID of the user to retrieve
 <br>
 [See noteworthy response attributes.] (#the-user-object)
 
-## PATCH: Disable User
+## PATCH: Disable User (v1)
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/disable'
@@ -186,7 +186,61 @@ Header | Description
 --------- | -----------
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
 
-## PATCH: Edit User
+## PATCH: Disable User (v2)
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v2/users/disable'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "user": {"email": "test@example.com"}
+}
+
+- or -
+
+{
+  "user": {"user_id": 11234}
+}
+
+- or -
+
+{
+  "user": {"employee_id": "user-123"}
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 11234,
+  "name": "Bob Smith",
+  "first_name": "Bob",
+  "last_name": "Smith",
+  "primary_email_address": "test@example.com",
+  "updated_at": "2017-03-23T18:58:27.796Z",
+  "created_at": "2016-04-28T15:28:16.440Z",
+  "disabled": true,
+  "site_admin": false,
+  "emails": [
+    "bob@email.org"
+  ],
+  "employee_id": "user-123",
+  "linked_candidate_ids": [123, 654]
+}
+```
+
+Disable a user. The V2 endpoint allows you to disable a user via their Greenhouse user id, their internal employee id, or their e-mail address in Greenhouse. Any of the e-mail addresses tied to the user's account can be used. The user information must be provided in a JSON body. Only one of user_id, employee_id (if available), or e-mail address may be provided. Employee id or e-mail address must be a string. User ID must be a number.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v2/users/disable`
+
+## PATCH: Edit User (v1)
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}'
@@ -235,7 +289,48 @@ employee_id* | No | string | The user's external employee id. If included, this 
 
 \* - If the employee_id feature is not enabled for your organization, attempting to edit this field will raise an API Error.
 
-## PATCH: Enable User
+## PATCH: Edit User (v2)
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v2/users/
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "user": {
+    "email": "test@example.com"
+  },
+  "payload": {
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "employee_id": "ABC12345"
+  }	
+}
+```
+> Note that the "user" element may also contain "user_id" or "employee_id" as in the v2/enable and v2/disable endpoints.
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+    "success": "true",
+    "message: "User updated",
+    "user": {"id": 1234}
+}
+```
+
+Edit a user's basic information. The V2 endpoint allows you to look up the user via their Greenhouse user id, their internal employee id, or their e-mail address in Greenhouse. Any of the e-mail addresses tied to the user's account can be used. The user information must be provided in a JSON body. Only one of user_id, employee_id (if available), or e-mail address may be provided. Employee id or e-mail address must be a string. User ID must be a number. 
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/users/`
+
+## PATCH: Enable User (v1)
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/users/{id}/enable'
@@ -274,6 +369,60 @@ Enable a user. It is safe to call this method on a user that is currently enable
 Header | Description
 --------- | -----------
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+## PATCH: Enable User (v2)
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v2/users/enable'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "user": {"email": "test@example.com"}
+}
+
+- or -
+
+{
+  "user": {"user_id": 11234}
+}
+
+- or -
+
+{
+  "user": {"employee_id": "user-123"}
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 253528,
+  "name": "Bob Smith",
+  "first_name": "Bob",
+  "last_name": "Smith",
+  "primary_email_address": "bob@email.org",
+  "updated_at": "2017-03-23T18:58:27.796Z",
+  "created_at": "2016-04-28T15:28:16.440Z",
+  "disabled": false,
+  "site_admin": false,
+  "emails": [
+    "bob@email.org"
+  ],
+  "employee_id": "221",
+  "linked_candidate_ids": [123, 654]
+}
+```
+
+Enable a user. The V2 endpoint allows you to enable a user via their Greenhouse user id, their internal employee id, or their e-mail address in Greenhouse. Any of the e-mail addresses tied to the user's account can be used. The user information must be provided in a JSON body. Only one of user_id, employee_id (if available), or e-mail address may be provided. Employee id or e-mail address must be a string. User ID must be a number.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v2/users/enable`
 
 ## POST: Add User
 

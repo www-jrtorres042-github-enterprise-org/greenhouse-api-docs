@@ -171,6 +171,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Nov 12, 2019 10:00:00 AM | Added a v2 version of [PATCH: Edit User](#patch-edit-user-v2), [PATCH: Disable User](#patch-disable-user-v2), and [PATCH: Enable User](#patch-enable-user-v2)
 | Oct 7, 2019 03:00:00 PM | Added custom fields to openings on organizations with this option enabled. [GET: Openings](#get-list-job-openings)
 | Oct 1, 2019 11:00:00AM | Added ability to filter offers by start_date with starts_before and starts_after. [GET: Offers](#get-list-offers) |
 | Sep 18, 2019 01:00:00PM | Added ability to create prospect applications for existing candidates/prospects [POST: Add Application to Candidate/Prospect](#post-add-application-to-candidate-prospect) |
