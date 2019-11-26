@@ -171,6 +171,8 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Nov 26, 2019 11:00:00 AM | Updated the error response text to be more descriptive when attempting to delete a required custom field |
+| Nov 26, 2019 11:00:00 AM | Added ability to update custom fields on an application's current offer via [PATCH: Update Current Offer](#patch-update-current-offer) |
 | Nov 12, 2019 10:00:00 AM | Added a v2 version of [PATCH: Edit User](#patch-edit-user-v2), [PATCH: Disable User](#patch-disable-user-v2), and [PATCH: Enable User](#patch-enable-user-v2)
 | Oct 7, 2019 03:00:00 PM | Added custom fields to openings on organizations with this option enabled. [GET: Openings](#get-list-job-openings)
 | Oct 1, 2019 11:00:00AM | Added ability to filter offers by start_date with starts_before and starts_after. [GET: Offers](#get-list-offers) |
