@@ -1152,6 +1152,33 @@ rejection_email | No | hash | An email will be sent to the candidate notifying t
 rejection_email.send_email_at | No | string | The rejection email will be delayed until this time.
 rejection_email.email_template_id | Yes, if sending rejection_email | string | The template the to use for the rejection email.
 
+## PATCH: Update Rejection Reason
+
+``````shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "rejection_reason_id": 815
+}
+```
+
+> The above returns a JSON response, structured like this:
+{
+    id: 12345,
+    message: "Rejection reason updated to 815 (Higher Salary Offer Made)",
+    success: true
+}
+
+This endpoint updates the rejection reason on a currently rejected application. An application in any other state will return an error. The rejection reason id may be either a custom rejection reason for your organization or a Greenhouse default rejection reason.
+
+
 ## POST: Unreject Application
 
 ```shell
