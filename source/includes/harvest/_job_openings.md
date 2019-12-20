@@ -315,7 +315,10 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs/{job_id}/openings'
 ```json
 {
     "openings": [
-      {"opening_id": "abc-123"},
+      {
+          "opening_id": "abc-123",
+          "custom_fields": [ { "id": 123, "value": "some value" } ]
+      },
       {"opening_id": null}
     ]
 }
@@ -341,10 +344,24 @@ job_id | The ID of the job on which to add new openings.
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-openings | yes | Array | This an array of opening IDs, which contain one element.
+openings | yes | Array | This an array of hashes, which can contain an opening ID and custom fields.
 openings.opening_id | yes | Array | This is a string that contains an opening_id. One new opening will be created for each hash element in the array. Opening ID is not required to have a string value and may be null.  Greenhouse has an internal limit of 100 open openings. If you attempt to create more than 100 openings in a single request, or if this request would create more than 100 open openings, the request will fail.
+openings.custom_fields[] | No | Array | Array of custom field objects containing new custom field values. Passing an empty array does nothing. If you have any required custom fields configured for openings, they must be supplied for each new opening, or the request will fail. See the "Custom Field Object Parameters" section below for more details.
 
 **Note**: Adding new openings may re-trigger approvals. For approvals to start recruiting, this will reset approvals only if the job is in draft mode. If the job is open for hiring, these approvals will not reset. For official job approvals, this will reset approvals only if the job is open.
+
+### Custom Field Object Parameters
+
+The custom field parameter structure is different in the POST method than in GET methods and responses. Certain types of custom fields require different elements to be included. See below for the description of each item in a custom field element and what is required depending on the type.
+
+Parameter | Required for | Description
+---------- | -------------- | ----------------
+id | all | The custom field ID for this particular custom field.  One of this or `name_key` is required.
+name_key | all | The name key for this custom field. This can be found in Greenhouse while editing custom options as `Immutable Field Key`. One of this or `id` is required.
+value | all | The new custom field value.  In most cases this will be a string or a number.  In the case of single-select or multi-select custom fields, this will be a custom field option ID or an array of custom field option IDs, respectively. In the case of single-select fields, this can also be a string that matches an existing option's name exactly. See the [Custom Field Object for more details](#the-custom-field-object).
+| min_value | number_range, currency range | The minimum value for a range. Must be less than max_value.
+| max_value | number_range, currency_range | The maximum value for a range. Must be greater than min_value
+unit | currency | This contains the currency unit for a currency custom field. It is only required when updating a currency custom field.  This should accept any 3-character currency code from the ISO-4217 standard.
 
 > The above returns a JSON response, structured like this:
 
