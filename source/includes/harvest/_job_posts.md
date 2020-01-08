@@ -7,6 +7,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 ```json
 {
   "id": 123,
+  "demographic_question_set_id": 999,
   "title": "Button Pusher",
   "location": {
     "name": "The Island"
@@ -143,6 +144,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 | Attribute | Description |
 |-----------|-------------|
 | id | Job post ID
+| demographic_question_set_id | The demographic question set associated with this job post
 | active | If `false`, this job post has been deleted.
 | live | If `true`, this job post status is set to live.
 | first_published_at | Timestamp when this job post was first set to live.
@@ -167,6 +169,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
 [
   {
     "id": 123,
+    "demographic_question_set_id": 999,
     "title": "Button Pusher",
     "location": {
         "id": 123456,
@@ -339,6 +342,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts/{id}'
 ```json
 {
     "id": 123,
+    "demographic_question_set_id": 999,
     "title": "Button Pusher",
     "location": {
       "id": 123456,
@@ -498,6 +502,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
 [
   {
     "id": 123,
+    "demographic_question_set_id": 999,
     "title": "Button Pusher",
     "location": {
       "id": 123456,
@@ -635,6 +640,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
   },
   {
     "id": 129548,
+    "demographic_question_set_id": 999,
     "live": true,
     "first_published_at": "2014-04-03T17:06:18Z",
     "title": "Test job two",
@@ -711,6 +717,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
 ```json
 {
     "id": 123,
+    "demographic_question_set_id": 999,
     "title": "Button Pusher",
     "location": {
       "id": 123456,
