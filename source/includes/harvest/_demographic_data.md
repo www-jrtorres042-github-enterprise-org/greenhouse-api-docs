@@ -98,6 +98,49 @@ Demographic questions and answers submitted during the application process. For 
 | demographic_question_id | The demographic question which was answered.
 | demographic_answer_option_id | The demographic answer option which was selected.
 
+## GET: List Demographic Question Sets
+
+List all of an organization's demographic question sets.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/question_sets'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1991,
+    "title": "Question Set A",
+    "description": "<p>Questions for US candidates</p>",
+    "active": true
+  },
+  {
+    "id": 1992,
+    "title": "Question Set B",
+    "description": "<p>Questions for European candidates</p>",
+    "active": true
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/question_sets`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-question-object)
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
 ## GET: List Demographic Questions
 
 List all of an organization's demographic questions.
@@ -146,6 +189,40 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
 [See noteworthy response attributes.](#the-demographic-question-object)
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
+## GET: Retrieve Demographic Question Set
+
+Retrieve a demographic question set by its `id`.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1991,
+  "title": "Question Set",
+  "description": "<p>Questions for candidates</p>",
+  "active": true
+}
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/question_sets/{id}`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the demographic question set you want to retrieve.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-question-set-object)
 
 ## GET: Retrieve Demographic Question
 
@@ -490,3 +567,63 @@ id | ID of the demographic answer you want to retrieve.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-object)
+
+## GET: List Demographic Questions For Demographic Question Set
+
+List all of the demographic questions for a demographic question set.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 123,
+    "question_set_id": 456,
+    "name": "What is your favorite color?",
+    "translations": [
+      {
+        "language": "en",
+        "name": "What is your favorite color?"
+      }
+    ]
+  },
+  {
+    "id": 897,
+    "question_set_id": 555,
+    "name": "Pizza or pasta?",
+    "translations": [
+      {
+        "language": "en",
+        "name": "Pizza or pasta?"
+      }
+    ]
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the demographic question set for which you want to retrieve demographic questions
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-question-set-object)
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
