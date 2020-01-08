@@ -28,6 +28,8 @@ Demographic questions and answers submitted during the application process. For 
 ```json
 {
   "id": 123,
+  "question_set_id": 456,
+  "name": "What is your favorite color?",
   "translations": [
     {
       "language": "en",
@@ -42,6 +44,7 @@ Demographic questions and answers submitted during the application process. For 
 | Attribute | Description |
 |-----------|-------------|
 | id | The demographic question's unique identifier |
+| question_set_id | The demographic question set that this belongs to
 | translations.language | Only `en` (English) is supported at this time.
 | translations.name | The question text
 | active | If `false`, the question has been deleted.
@@ -156,6 +159,8 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
 [
   {
     "id": 123,
+    "question_set_id": 456,
+    "name": "What is your favorite color?",
     "translations": [
       {
         "language": "en",
@@ -164,7 +169,9 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
     ]
   },
   {
-    "id": 456,
+    "id": 897,
+    "question_set_id": 555,
+    "name": "Pizza or pasta?",
     "translations": [
       {
         "language": "en",
@@ -238,6 +245,8 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}'
 ```json
 {
   "id": 123,
+  "question_set_id": 456,
+  "name": "What is your favorite color?",
   "translations": [
     {
       "language": "en",
