@@ -45,8 +45,9 @@ Demographic questions and answers submitted during the application process. For 
 |-----------|-------------|
 | id | The demographic question's unique identifier |
 | question_set_id | The demographic question set that this belongs to
-| translations.language | Only `en` (English) is supported at this time.
-| translations.name | The question text
+| name | The question text
+| translations.language | Translations have been deprecated.  Only `en` (English) is supported at this time.
+| translations.name | Translations have been deprecated. This value will be the same as `name` above.
 | active | If `false`, the question has been deleted.
 
 ## The Demographic Answer Option object
@@ -56,6 +57,7 @@ Demographic questions and answers submitted during the application process. For 
   "id": 456,
   "free_form": false,
   "active": true,
+  "name": "Blue",
   "demographic_question_id": 123,
   "translations": [
     {
@@ -71,8 +73,9 @@ Demographic questions and answers submitted during the application process. For 
 | Attribute | Description |
 |-----------|-------------|
 | id | The demographic answer option's unique identifier |
-| translations.language | Only `en` (English) is supported at this time.
-| translations.name | The answer option text.
+| name | The answer option text
+| translations.language | Translations have been deprecated.  Only `en` (English) is supported at this time.
+| translations.name | Translations have been deprecated. This value will be the same as `name` above.
 | active | If `false`, the answer option has been deleted.
 | free_form | If `true`, the answer option allows free-form user input.
 | demographic_question_id | The demographic question for which the answer option belongs to.
@@ -288,6 +291,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answer_options'
     "id": 456,
     "free_form": false,
     "active": true,
+    "name": "Blue",
     "demographic_question_id": 123,
     "translations": [
       {
@@ -300,6 +304,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answer_options'
     "id": 789,
     "free_form": true,
     "active": true,
+    "name": "Other",
     "demographic_question_id": 123,
     "translations": [
       {
@@ -343,6 +348,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}/answer_option
     "id": 456,
     "free_form": false,
     "active": true,
+    "name": "Blue",
     "demographic_question_id": 123,
     "translations": [
       {
@@ -355,6 +361,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}/answer_option
     "id": 789,
     "free_form": true,
     "active": true,
+    "name": "Other",
     "demographic_question_id": 123,
     "translations": [
       {
@@ -404,6 +411,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answer_options/{id}'
   "id": 456,
   "free_form": false,
   "active": true,
+  "name": "Blue",
   "demographic_question_id": 123,
   "translations": [
     {
