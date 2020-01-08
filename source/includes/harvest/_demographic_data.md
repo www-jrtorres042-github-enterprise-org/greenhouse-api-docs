@@ -2,6 +2,27 @@
 
 Demographic questions and answers submitted during the application process. For more information on Greenhouse Inclusion, please visit [https://www.greenhouse.io/inclusion](https://www.greenhouse.io/inclusion).
 
+
+## The Demographic Question Set object
+
+```json
+{
+  "id": 1991,
+  "title": "Question Set",
+  "description": "<p>Questions for candidates</p>",
+  "active": true
+}
+```
+
+### Noteworthy attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| id | The demographic question set's unique identifier |
+| title | The title of the demographic question set
+| description | The demographic question set's description.  This is a rich text field which may contain HTML.
+| active | If `false`, the demographic question set has been deleted.
+
 ## The Demographic Question object
 
 ```json
