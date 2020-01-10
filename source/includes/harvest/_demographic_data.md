@@ -28,7 +28,7 @@ Demographic questions and answers submitted during the application process. For 
 ```json
 {
   "id": 123,
-  "question_set_id": 456,
+  "demographic_question_set_id": 456,
   "name": "What is your favorite color?",
   "translations": [
     {
@@ -44,7 +44,7 @@ Demographic questions and answers submitted during the application process. For 
 | Attribute | Description |
 |-----------|-------------|
 | id | The demographic question's unique identifier |
-| question_set_id | The demographic question set that this belongs to
+| demographic_question_set_id | The demographic question set that this belongs to
 | name | The question text
 | translations.language | Translations have been deprecated.  Only `en` (English) is supported at this time.
 | translations.name | Translations have been deprecated. This value will be the same as `name` above.
@@ -162,7 +162,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
 [
   {
     "id": 123,
-    "question_set_id": 456,
+    "demographic_question_set_id": 456,
     "name": "What is your favorite color?",
     "translations": [
       {
@@ -173,7 +173,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
   },
   {
     "id": 897,
-    "question_set_id": 555,
+    "demographic_question_set_id": 555,
     "name": "Pizza or pasta?",
     "translations": [
       {
@@ -248,7 +248,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}'
 ```json
 {
   "id": 123,
-  "question_set_id": 456,
+  "demographic_question_set_id": 456,
   "name": "What is your favorite color?",
   "translations": [
     {
@@ -600,7 +600,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions
 [
   {
     "id": 123,
-    "question_set_id": 456,
+    "demographic_question_set_id": 456,
     "name": "What is your favorite color?",
     "translations": [
       {
@@ -611,7 +611,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions
   },
   {
     "id": 897,
-    "question_set_id": 555,
+    "demographic_question_set_id": 555,
     "name": "Pizza or pasta?",
     "translations": [
       {
