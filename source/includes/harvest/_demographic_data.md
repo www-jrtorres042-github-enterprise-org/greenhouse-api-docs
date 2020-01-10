@@ -143,7 +143,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/question_sets'
 | *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 
 <br>
-[See noteworthy response attributes.](#the-demographic-question-object)
+[See noteworthy response attributes.](#the-demographic-question-set-object)
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
