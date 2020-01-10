@@ -21,6 +21,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
   "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
   "updated_at": "2016-11-21T15:39:24Z",
   "created_at": "2014-04-01T17:56:19Z",
+  "demographic_question_set_id": 999,
   "questions": [
     {
       "required": true,
@@ -151,6 +152,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 | job_id | The ID of the [job](#jobs) that this job post is for.
 | content | The text of the job post as posted to the external job board.
 | internal_content | The text of the job post if posted to the internal job board, if different than the external job board.
+| demographic_question_set_id | The demographic question set associated with this job post
 | questions | An array of questions associated with this job post.
 | questions.name | When submitting applications through the Job Board API, this is the name of the POST parameter used to submit questions. Custom questions are prefixed with "question_" while Greenhouse standard application questions have a consistent name for every job post. 
 
@@ -187,6 +189,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts'
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "updated_at": "2016-11-21T15:39:24Z",
     "created_at": "2014-04-01T17:56:19Z",
+    "demographic_question_set_id": 999,
     "questions": [
       {
         "required": true,
@@ -359,6 +362,7 @@ curl 'https://harvest.greenhouse.io/v1/job_posts/{id}'
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "updated_at": "2016-11-21T15:39:24Z",
     "created_at": "2014-04-01T17:56:19Z",
+    "demographic_question_set_id": 999,
     "questions": [
         {
             "required": true,
@@ -518,6 +522,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "updated_at": "2016-11-21T15:39:24Z",
     "created_at": "2014-04-01T17:56:19Z",
+    "demographic_question_set_id": 999,
     "questions": [
       {
         "required": true,
@@ -635,6 +640,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_posts'
   },
   {
     "id": 129548,
+    "demographic_question_set_id": 999,
     "live": true,
     "first_published_at": "2014-04-03T17:06:18Z",
     "title": "Test job two",
@@ -731,6 +737,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/job_post'
     "internal_content": "<p>Do you want to save the world? &nbsp;If so, apply today!</p>",
     "updated_at": "2016-11-21T15:39:24Z",
     "created_at": "2014-04-01T17:56:19Z",
+    "demographic_question_set_id": 999,
     "questions": [
       {
         "required": true,

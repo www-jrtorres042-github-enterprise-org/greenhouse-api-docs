@@ -2,11 +2,35 @@
 
 Demographic questions and answers submitted during the application process. For more information on Greenhouse Inclusion, please visit [https://www.greenhouse.io/inclusion](https://www.greenhouse.io/inclusion).
 
+
+## The Demographic Question Set object
+
+```json
+{
+  "id": 1991,
+  "title": "Question Set",
+  "description": "<p>Questions for candidates</p>",
+  "active": true
+}
+```
+
+### Noteworthy attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| id | The demographic question set's unique identifier |
+| title | The title of the demographic question set
+| description | The demographic question set's description.  This is a rich text field which may contain HTML.
+| active | If `false`, the demographic question set has been deleted.
+
 ## The Demographic Question object
 
 ```json
 {
   "id": 123,
+  "active": true,
+  "demographic_question_set_id": 456,
+  "name": "What is your favorite color?",
   "translations": [
     {
       "language": "en",
@@ -21,8 +45,10 @@ Demographic questions and answers submitted during the application process. For 
 | Attribute | Description |
 |-----------|-------------|
 | id | The demographic question's unique identifier |
-| translations.language | Only `en` (English) is supported at this time.
-| translations.name | The question text
+| demographic_question_set_id | The demographic question set that this belongs to
+| name | The question text
+| translations.language | Translations have been deprecated but are kept for backwards compatibility. Only `en` (English) is supported at this time.
+| translations.name | Translations have been deprecated but are kept for backwards compatibility. This value will be the same as `name` above.
 | active | If `false`, the question has been deleted.
 
 ## The Demographic Answer Option object
@@ -32,6 +58,7 @@ Demographic questions and answers submitted during the application process. For 
   "id": 456,
   "free_form": false,
   "active": true,
+  "name": "Blue",
   "demographic_question_id": 123,
   "translations": [
     {
@@ -47,8 +74,9 @@ Demographic questions and answers submitted during the application process. For 
 | Attribute | Description |
 |-----------|-------------|
 | id | The demographic answer option's unique identifier |
-| translations.language | Only `en` (English) is supported at this time.
-| translations.name | The answer option text.
+| name | The answer option text
+| translations.language | Translations have been deprecated but are kept for backwards compatibility.  Only `en` (English) is supported at this time.
+| translations.name | Translations have been deprecated but are kept for backwards compatibility. This value will be the same as `name` above.
 | active | If `false`, the answer option has been deleted.
 | free_form | If `true`, the answer option allows free-form user input.
 | demographic_question_id | The demographic question for which the answer option belongs to.
@@ -77,6 +105,84 @@ Demographic questions and answers submitted during the application process. For 
 | demographic_question_id | The demographic question which was answered.
 | demographic_answer_option_id | The demographic answer option which was selected.
 
+## GET: List Demographic Question Sets
+
+List all of an organization's demographic question sets.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/question_sets'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1991,
+    "title": "Question Set A",
+    "description": "<p>Questions for US candidates</p>",
+    "active": true
+  },
+  {
+    "id": 1992,
+    "title": "Question Set B",
+    "description": "<p>Questions for European candidates</p>",
+    "active": true
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/question_sets`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-question-set-object)
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
+## GET: Retrieve Demographic Question Set
+
+Retrieve a demographic question set by its `id`.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1991,
+  "title": "Question Set",
+  "description": "<p>Questions for candidates</p>",
+  "active": true
+}
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/question_sets/{id}`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the demographic question set you want to retrieve.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-question-set-object)
+
+
 ## GET: List Demographic Questions
 
 List all of an organization's demographic questions.
@@ -92,6 +198,10 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
 [
   {
     "id": 123,
+    "active": true,
+    "demographic_question_set_id": 456,
+
+    "name": "What is your favorite color?",
     "translations": [
       {
         "language": "en",
@@ -100,7 +210,10 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
     ]
   },
   {
-    "id": 456,
+    "id": 897,
+    "active": true,
+    "demographic_question_set_id": 555,
+    "name": "Pizza or pasta?",
     "translations": [
       {
         "language": "en",
@@ -114,6 +227,68 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
 ### HTTP Request
 
 `GET https://harvest.greenhouse.io/v1/demographics/questions`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-question-object)
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
+
+## GET: List Demographic Questions For Demographic Question Set
+
+List all of the demographic questions for a demographic question set.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 123,
+    "active": true,
+    "demographic_question_set_id": 456,
+    "name": "What is your favorite color?",
+    "translations": [
+      {
+        "language": "en",
+        "name": "What is your favorite color?"
+      }
+    ]
+  },
+  {
+    "id": 897,
+    "active": true,
+    "demographic_question_set_id": 555,
+    "name": "Pizza or pasta?",
+    "translations": [
+      {
+        "language": "en",
+        "name": "Pizza or pasta?"
+      }
+    ]
+  }
+]
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the demographic question set for which you want to retrieve demographic questions
 
 ### Querystring parameters
 
@@ -140,6 +315,9 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}'
 ```json
 {
   "id": 123,
+  "active": true,
+  "demographic_question_set_id": 456,
+  "name": "What is your favorite color?",
   "translations": [
     {
       "language": "en",
@@ -181,6 +359,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answer_options'
     "id": 456,
     "free_form": false,
     "active": true,
+    "name": "Blue",
     "demographic_question_id": 123,
     "translations": [
       {
@@ -193,6 +372,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answer_options'
     "id": 789,
     "free_form": true,
     "active": true,
+    "name": "Other",
     "demographic_question_id": 123,
     "translations": [
       {
@@ -236,6 +416,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}/answer_option
     "id": 456,
     "free_form": false,
     "active": true,
+    "name": "Blue",
     "demographic_question_id": 123,
     "translations": [
       {
@@ -248,6 +429,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}/answer_option
     "id": 789,
     "free_form": true,
     "active": true,
+    "name": "Other",
     "demographic_question_id": 123,
     "translations": [
       {
@@ -297,6 +479,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/answer_options/{id}'
   "id": 456,
   "free_form": false,
   "active": true,
+  "name": "Blue",
   "demographic_question_id": 123,
   "translations": [
     {
