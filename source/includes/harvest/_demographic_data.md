@@ -147,6 +147,41 @@ curl 'https://harvest.greenhouse.io/v1/demographics/question_sets'
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
+## GET: Retrieve Demographic Question Set
+
+Retrieve a demographic question set by its `id`.
+
+```shell
+curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}'
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1991,
+  "title": "Question Set",
+  "description": "<p>Questions for candidates</p>",
+  "active": true
+}
+```
+
+### HTTP Request
+
+`GET https://harvest.greenhouse.io/v1/demographics/question_sets/{id}`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the demographic question set you want to retrieve.
+
+<br>
+[See noteworthy response attributes.](#the-demographic-question-set-object)
+
+
 ## GET: List Demographic Questions
 
 List all of an organization's demographic questions.
@@ -200,39 +235,65 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
-## GET: Retrieve Demographic Question Set
+## GET: List Demographic Questions For Demographic Question Set
 
-Retrieve a demographic question set by its `id`.
+List all of the demographic questions for a demographic question set.
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}'
+curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 1991,
-  "title": "Question Set",
-  "description": "<p>Questions for candidates</p>",
-  "active": true
-}
+[
+  {
+    "id": 123,
+    "demographic_question_set_id": 456,
+    "name": "What is your favorite color?",
+    "translations": [
+      {
+        "language": "en",
+        "name": "What is your favorite color?"
+      }
+    ]
+  },
+  {
+    "id": 897,
+    "demographic_question_set_id": 555,
+    "name": "Pizza or pasta?",
+    "translations": [
+      {
+        "language": "en",
+        "name": "Pizza or pasta?"
+      }
+    ]
+  }
+]
 ```
 
 ### HTTP Request
 
-`GET https://harvest.greenhouse.io/v1/demographics/question_sets/{id}`
+`GET https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions`
 
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-id | ID of the demographic question set you want to retrieve.
+id | ID of the demographic question set for which you want to retrieve demographic questions
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-question-set-object)
+
+This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
 ## GET: Retrieve Demographic Question
 
@@ -584,63 +645,3 @@ id | ID of the demographic answer you want to retrieve.
 
 <br>
 [See noteworthy response attributes.](#the-demographic-answer-object)
-
-## GET: List Demographic Questions For Demographic Question Set
-
-List all of the demographic questions for a demographic question set.
-
-```shell
-curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions'
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 123,
-    "demographic_question_set_id": 456,
-    "name": "What is your favorite color?",
-    "translations": [
-      {
-        "language": "en",
-        "name": "What is your favorite color?"
-      }
-    ]
-  },
-  {
-    "id": 897,
-    "demographic_question_set_id": 555,
-    "name": "Pizza or pasta?",
-    "translations": [
-      {
-        "language": "en",
-        "name": "Pizza or pasta?"
-      }
-    ]
-  }
-]
-```
-
-### HTTP Request
-
-`GET https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions`
-
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-id | ID of the demographic question set for which you want to retrieve demographic questions
-
-### Querystring parameters
-
-| Parameter | Description |
-|-----------|-------------|
-| *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
-
-<br>
-[See noteworthy response attributes.](#the-demographic-question-set-object)
-
-This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
