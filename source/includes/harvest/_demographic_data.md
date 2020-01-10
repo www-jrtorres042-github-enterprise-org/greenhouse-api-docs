@@ -291,7 +291,7 @@ id | ID of the demographic question set for which you want to retrieve demograph
 | *per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 
 <br>
-[See noteworthy response attributes.](#the-demographic-question-set-object)
+[See noteworthy response attributes.](#the-demographic-question-object)
 
 This endpoint supports pagination. See the [Pagination](#pagination) section for more detail.
 
