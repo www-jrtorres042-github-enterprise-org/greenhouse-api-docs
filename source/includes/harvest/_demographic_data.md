@@ -28,6 +28,7 @@ Demographic questions and answers submitted during the application process. For 
 ```json
 {
   "id": 123,
+  "active": true,
   "demographic_question_set_id": 456,
   "name": "What is your favorite color?",
   "translations": [
@@ -197,7 +198,9 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
 [
   {
     "id": 123,
+    "active": true,
     "demographic_question_set_id": 456,
+
     "name": "What is your favorite color?",
     "translations": [
       {
@@ -208,6 +211,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
   },
   {
     "id": 897,
+    "active": true,
     "demographic_question_set_id": 555,
     "name": "Pizza or pasta?",
     "translations": [
@@ -250,6 +254,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions
 [
   {
     "id": 123,
+    "active": true,
     "demographic_question_set_id": 456,
     "name": "What is your favorite color?",
     "translations": [
@@ -261,6 +266,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions
   },
   {
     "id": 897,
+    "active": true,
     "demographic_question_set_id": 555,
     "name": "Pizza or pasta?",
     "translations": [
@@ -309,6 +315,7 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}'
 ```json
 {
   "id": 123,
+  "active": true,
   "demographic_question_set_id": 456,
   "name": "What is your favorite color?",
   "translations": [
