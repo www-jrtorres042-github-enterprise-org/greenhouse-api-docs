@@ -46,8 +46,8 @@ Demographic questions and answers submitted during the application process. For 
 | id | The demographic question's unique identifier |
 | demographic_question_set_id | The demographic question set that this belongs to
 | name | The question text
-| translations.language | Translations have been deprecated.  Only `en` (English) is supported at this time.
-| translations.name | Translations have been deprecated. This value will be the same as `name` above.
+| translations.language | Translations have been deprecated but are kept for backwards compatibility. Only `en` (English) is supported at this time.
+| translations.name | Translations have been deprecated but are kept for backwards compatibility. This value will be the same as `name` above.
 | active | If `false`, the question has been deleted.
 
 ## The Demographic Answer Option object
@@ -74,8 +74,8 @@ Demographic questions and answers submitted during the application process. For 
 |-----------|-------------|
 | id | The demographic answer option's unique identifier |
 | name | The answer option text
-| translations.language | Translations have been deprecated.  Only `en` (English) is supported at this time.
-| translations.name | Translations have been deprecated. This value will be the same as `name` above.
+| translations.language | Translations have been deprecated but are kept for backwards compatibility.  Only `en` (English) is supported at this time.
+| translations.name | Translations have been deprecated but are kept for backwards compatibility. This value will be the same as `name` above.
 | active | If `false`, the answer option has been deleted.
 | free_form | If `true`, the answer option allows free-form user input.
 | demographic_question_id | The demographic question for which the answer option belongs to.
