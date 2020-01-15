@@ -171,6 +171,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Jan 15, 2020 04:00:00PM | Added ability to update a rejection reason on a rejected application. [PATCH: Update Rejection Reason](#patch-update-rejection-reason) |
 | Dec 20, 2019 04:00:00PM | Added ability to assign custom field values in a [POST: Job Openings](#post-create-new-openings) request |
 | Nov 26, 2019 11:00:00 AM | Updated the error response text to be more descriptive when attempting to delete a required custom field |
 | Nov 26, 2019 11:00:00 AM | Added ability to update custom fields on an application's current offer via [PATCH: Update Current Offer](#patch-update-current-offer) |
