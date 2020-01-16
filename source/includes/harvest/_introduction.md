@@ -171,6 +171,8 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| | Added ability to update custom field values in a [PATCH: Job Openings](#patch-edit-openings) request |
+| | Added ability to re-open a closed job opening in a [PATCH: Job Openings](#patch-edit-openings) request |
 | Jan 15, 2020 04:00:00PM | Added ability to update a rejection reason on a rejected application. [PATCH: Update Rejection Reason](#patch-update-rejection-reason) |
 | Dec 20, 2019 04:00:00PM | Added ability to assign custom field values in a [POST: Job Openings](#post-create-new-openings) request |
 | Nov 26, 2019 11:00:00 AM | Updated the error response text to be more descriptive when attempting to delete a required custom field |
