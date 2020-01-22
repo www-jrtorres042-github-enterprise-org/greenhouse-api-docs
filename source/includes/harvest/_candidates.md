@@ -217,6 +217,9 @@ An organization's candidates.
             "end_date": "2016-05-15T00:00:00.000Z"
         }
     ],
+    "linked_user_ids": [
+        989604
+    ],
     "custom_fields": {
         "desired_salary": "1000000000",
         "work_remotely": true,
@@ -261,6 +264,7 @@ An organization's candidates.
 | attachments[].url | URLs expire in 30 days.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
+| linked_user_ids | If the candidate is an internal applicant, this returns the Greenhouse user ID of the candidate.
 
 ## GET: List Candidates
 
@@ -443,6 +447,9 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
             "start_date": "2012-08-15T00:00:00.000Z",
             "end_date": "2016-05-15T00:00:00.000Z"
         }
+    ],
+    "linked_user_ids": [
+            989604
     ],
     "custom_fields": {
         "desired_salary": "1000000000",
@@ -715,6 +722,9 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
             "start_date": "2012-08-15T00:00:00.000Z",
             "end_date": "2016-05-15T00:00:00.000Z"
         }
+    ],
+    "linked_user_ids": [
+            989604
     ],
     "custom_fields": {
         "desired_salary": "1000000000",
