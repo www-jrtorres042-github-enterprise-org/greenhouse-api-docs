@@ -307,8 +307,8 @@ Parameter | Required for | Description
 id | all | The custom field ID for this particular custom field.  One of this or `name_key` is required.
 name_key | all | The name key for this custom field. This can be found in Greenhouse while editing custom options as `Immutable Field Key`. One of this or `id` is required.
 value | all | The new custom field value.  In most cases this will be a string or a number.  In the case of single-select or multi-select custom fields, this will be a custom field option ID or an array of custom field option IDs, respectively. In the case of single-select fields, this can also be a string that matches an existing option's name exactly. See the [Custom Field Object for more details](#the-custom-field-object).
-| min_value | number_range, currency range | The minimum value for a range. Must be less than max_value.
-| max_value | number_range, currency_range | The maximum value for a range. Must be greater than min_value
+min_value | number_range, currency range | The minimum value for a range. Must be less than max_value.
+max_value | number_range, currency_range | The maximum value for a range. Must be greater than min_value
 unit | currency | This contains the currency unit for a currency custom field. It is only required when updating a currency custom field.  This should accept any 3-character currency code from the ISO-4217 standard.
 delete_value  | n/a | When this element is included with a value of "true" (note, string true, not boolean true) the custom field value will be removed from Greenhouse.  Note that updating a custom field value to nil or a blank string will not work, as validations require these to be non-blank values. Required custom fields cannot be deleted and attempting to delete them will cause the request to fail.
 
