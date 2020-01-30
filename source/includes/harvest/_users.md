@@ -91,12 +91,12 @@ List all of an organization's Greenhouse users.
 |-----------|-------------|
 | per_page | Return up to this number of objects per response. Must be an integer between 1 and 500. Defaults to 100.
 | page | A cursor for use in pagination.  Returns the n-th chunk of `per_page` objects.
-| employee_id | Return a single user that matches this employee id.
+| employee_id | Return only users that matches this employee id.
 | created_before | Return only users that were created before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | created_after | Return only users that were created at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_before | Return only users that were updated before this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | updated_after | Return only users that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
-| email | Return only the user who has this e-mail address as their primary e-mail or a secondary e-mail.
+| email | Return a single user who has this e-mail address as their primary e-mail or a secondary e-mail.
 
 <br>
 [See noteworthy response attributes.] (#the-user-object)
