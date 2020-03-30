@@ -319,7 +319,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v2/users/
 ```json
 {
     "success": "true",
-    "message: "User updated",
+    "message": "User updated",
     "user": {"id": 1234}
 }
 ```
@@ -328,7 +328,7 @@ Edit a user's basic information. The V2 endpoint allows you to look up the user 
 
 ### HTTP Request
 
-`PATCH https://harvest.greenhouse.io/v1/users/`
+`PATCH https://harvest.greenhouse.io/v2/users/`
 
 ## PATCH: Enable User (v1)
 
