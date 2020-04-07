@@ -171,6 +171,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Apr 5, 2020 09:00:00AM | Added V2 of [POST: Scheduled Interviews](#post-scheduled-interviews) and [PATCH: Scheduled Interviews](#patch-scheduled-interviews). Deprecated V1.
 | Jan 30, 2020 05:30:00PM | Added ability to update custom field values in a [PATCH: Job Openings](#patch-edit-openings) request |
 | Jan 30, 2020 05:30:00PM | Added ability to re-open a closed job opening in a [PATCH: Job Openings](#patch-edit-openings) request |
 | Jan 15, 2020 04:00:00PM | Added ability to update a rejection reason on a rejected application. [PATCH: Update Rejection Reason](#patch-update-rejection-reason) |
