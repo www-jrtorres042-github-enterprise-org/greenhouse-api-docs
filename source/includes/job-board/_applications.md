@@ -35,7 +35,7 @@ Please keep in mind that the HTTP Basic Auth API token is a secret key.  Any for
   </label><br/>
   <label>
     <input type="checkbox" name="data_compliance[gdpr_consent_given]" value="1" />
-    Organization has my consent to collect, store, and process my data for the purpose
+    {{ORGANIZATION}} has my consent to collect, store, and process my data for the purpose
     of considering me for employment.
   </label>
   <input type="submit" />
