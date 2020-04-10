@@ -1018,6 +1018,6 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-status | No | string | One of 'live' or 'offline'
+status | Yes | string | One of 'live' or 'offline'
 
 The ability to update a job post's status is on a different permission than the other properties of a job post. To reflect this in Harvest, status was separated into its own endpoint in V2. Updating status on the V1 endpoint is deprecated.
