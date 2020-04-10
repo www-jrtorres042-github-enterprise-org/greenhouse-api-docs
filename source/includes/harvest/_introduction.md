@@ -171,8 +171,9 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Apr 12, 2020 09:00:00AM | V1 of [PATCH: Update Job Post] has been deprecated. Updating a job post's status has been extracted to [PATCH: Update Job Post Status], while updating all other properties remains on [PATCH: Update Job Post]. The new endpoint more accurately reflects the permissions required by the On-Behalf-Of user to access and edit the Job Post's properties.
-| Apr 5, 2020 09:00:00AM | Added V2 of [POST: Scheduled Interviews](#post-scheduled-interviews) and [PATCH: Scheduled Interviews](#patch-scheduled-interviews). Deprecated V1.
+| Apr 13, 2020 09:00:00AM | The V1 endpoints for [PATCH: Edit User], [PATCH: Disable User], and [PATCH: Enable User] have been deprecated. Users should move to the V2 endpoints as soon as convenient. This change was made to take advantage of additional ways to look up users in Greenhouse. |
+| Apr 12, 2020 09:00:00AM | V1 of [PATCH: Update Job Post] has been deprecated. Updating a job post's status has been extracted to [PATCH: Update Job Post Status], while updating all other properties remains on [PATCH: Update Job Post]. The new endpoint more accurately reflects the permissions required by the On-Behalf-Of user to access and edit the Job Post's properties. |
+| Apr 5, 2020 09:00:00AM | Added V2 of [POST: Scheduled Interviews](#post-scheduled-interviews) and [PATCH: Scheduled Interviews](#patch-scheduled-interviews). Deprecated V1. |
 | Jan 30, 2020 05:30:00PM | Added ability to update custom field values in a [PATCH: Job Openings](#patch-edit-openings) request |
 | Jan 30, 2020 05:30:00PM | Added ability to re-open a closed job opening in a [PATCH: Job Openings](#patch-edit-openings) request |
 | Jan 15, 2020 04:00:00PM | Added ability to update a rejection reason on a rejected application. [PATCH: Update Rejection Reason](#patch-update-rejection-reason) |
