@@ -931,7 +931,7 @@ id | The ID of the job post whose custom location options you want to retrieve
 ## PATCH: Update Job Post
 
 ```shell
-curl -X PATCH 'https://harvest.greenhouse.io/v1/job_posts/{id}'
+curl -X PATCH 'https://harvest.greenhouse.io/v2/job_posts/{id}'
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
@@ -940,7 +940,6 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/job_posts/{id}'
 
 ```json
 {
-    "status": "live",
     "title": "New Job Title",
     "location": "NYC",
     "content": "<p style=\"text-align: center;\"><span style=\"font-weight: 400;\">My exciting new job post!</span></p><p>Check it out!</p>"
@@ -970,7 +969,6 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-status | No | string | One of 'live' or 'offline'
 title | No | string | The new title for this job post.
 location | No | string | The new location for this job post. This is just a plain text string.
 location.office_id | No | integer | The new location for this job post. This will be set by an office ID. Only acceptable if the job board location configuration is limited to offices.
@@ -978,3 +976,48 @@ location.custom_location_id | No | integer | The new location for this job post.
 content | No | string | The new body of the job post. This will replace the entire existing job post body.
 
 **Important Note**: Due to JSON restrictions, the HTML body of the new job post should be a single line, with no newline characters and with all double quotes escaped. If your job posts require significant formatting, we recommend using Greenhouse's job post editor to make changes.
+
+The V1 version of this endpoint was deprecated on 4/12/2020. To more correctly reflect job post permissions in Greenhouse Recruiting, updating the status of a job post was extracted into its own endpoint. We considered changing access permission to a job post a breaking change, so this V2 endpoint was created. Usage of this endpoint is the same as the V1 endpoint except it does not support updating status. To update status, use the Update Job Post Status endpoint below. The access permission in that endpoint is the same as the previous access permission in the V1 endpoint.
+
+## PATCH: Update Job Post Status
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v2/job_posts/{id}/status'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+    "status": "live", (or "offline")
+}
+```
+> The above returns a JSON response on success:
+
+```json
+{
+    "success": true
+}
+```
+
+Update the status of a job post to "live" or "offline."
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/job_posts/{id}/status`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+status | No | string | One of 'live' or 'offline'
+
+The ability to update a job post's status is on a different permission than the other properties of a job post. To reflect this in Harvest, status was separated into its own endpoint in V2. Updating status on the V1 endpoint is deprecated.
