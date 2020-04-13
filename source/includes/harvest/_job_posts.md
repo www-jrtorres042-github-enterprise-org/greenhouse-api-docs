@@ -957,7 +957,7 @@ Update some properties of a job post.
 
 ### HTTP Request
 
-`PATCH https://harvest.greenhouse.io/v1/job_posts/{id}`
+`PATCH https://harvest.greenhouse.io/v2/job_posts/{id}`
 
 ### Headers
 
@@ -1006,7 +1006,7 @@ Update the status of a job post to "live" or "offline."
 
 ### HTTP Request
 
-`PATCH https://harvest.greenhouse.io/v1/job_posts/{id}/status`
+`PATCH https://harvest.greenhouse.io/v2/job_posts/{id}/status`
 
 ### Headers
 
