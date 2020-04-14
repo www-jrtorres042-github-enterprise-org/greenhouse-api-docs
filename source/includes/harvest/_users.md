@@ -169,7 +169,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v2/users/'
   }	
 }
 ```
-> The user element may also contain "employee_id" or "user_id". It must contain, and can only contain, one of these elements.
+> The user element must contain one of 'employee_id', 'email', or 'user_id', but not more than one.
 
 > The above command returns a JSON response, structured like this:
 
