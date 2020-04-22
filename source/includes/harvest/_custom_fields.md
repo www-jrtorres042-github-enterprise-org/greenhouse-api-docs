@@ -20,12 +20,14 @@ An organization's custom_fields.
     {
       "id": 123,
       "name": "Name One",
-      "priority": 1
+      "priority": 1,
+      "external_id": "name-one"
     },
     {
       "id": 234,
       "name": "Name Two",
-      "priority": 2
+      "priority": 2,
+      "external_id": null
     }
   ]
 }
@@ -48,6 +50,7 @@ An organization's custom_fields.
 | name_key | Listed as "immutable field key" in Greenhouse, this value is based of the name of the field when it is created and does not change as the field's name is later updated.
 | custom_field_options | For single_select and multi_select field_types, this is the list of options for that select.
 | custom_field_options.priority | Numeric value used for ordering the custom field options.
+| custom_field_options.external_id | String value, the external_id for the custom field option
 
 ## GET: List Custom Fields
 
