@@ -79,12 +79,14 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
       {
         "id": 123,
         "name": "Name One",
-        "priority": 1
+        "priority": 1,
+        "external_id": "name-one"
       },
       {
         "id": 234,
         "name": "Name Two",
-        "priority": 2
+        "priority": 2,
+        "external_id": null
       }
     ]
   }
@@ -138,12 +140,14 @@ curl 'https://harvest.greenhouse.io/v1/custom_field/{id}'
     {
       "id": 123,
       "name": "Name One",
-      "priority": 1
+      "priority": 1,
+      "external_id": "name-one"
     },
     {
       "id": 234,
       "name": "Name Two",
-      "priority": 2
+      "priority": 2,
+      "external_id": null
     }
   ]
 }
@@ -170,7 +174,8 @@ Refers to the options available for single-select and multi-select custom fields
 {
   "id": 123456,
   "name": "Option A",
-  "priority": 0
+  "priority": 0,
+  "external_id": "option-a"
 }
 ```
 
@@ -179,6 +184,7 @@ Refers to the options available for single-select and multi-select custom fields
 | Attribute | Description |
 |-----------|-------------|
 | priority | Numeric field used for ordering in Greenhouse.
+| external_id | String field, the external_id for the custom field option.
 
 
 ## GET: List Custom Field Options
@@ -195,17 +201,20 @@ curl 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
   {
     "id": 123456,
     "name": "Option A",
-    "priority": 0
+    "priority": 0,
+    "external_id": "option-a"
   },
   {
     "id": 123457,
     "name": "Option B",
-    "priority": 1
+    "priority": 1,
+    "external_id": "option-b"
   },
   {
     "id": 123458,
     "name": "Option C",
-    "priority": 2
+    "priority": 2,
+    "external_id": null
   }
 ]
 ```
