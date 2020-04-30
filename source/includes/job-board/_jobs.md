@@ -49,13 +49,6 @@
           "child_ids":[
             13585
           ]
-        },
-        {
-          "id":13585,
-          "name":"Rule Enforcement",
-          "parent_id":13583,
-          "child_ids":[
-          ]
         }
       ],
       "offices":[
