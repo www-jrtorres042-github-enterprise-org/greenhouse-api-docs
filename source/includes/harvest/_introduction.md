@@ -172,6 +172,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| May 5, 2020 12:00:00PM | Added "interview_step" field to the scorecards response. This provides the "ID" of the existing "interview" field. The "name" sub-element of the "interview_step" element should match the current "interview" element. The "interview" field is maintained for backward compatibility.
 | Apr 22, 2020 09:00:00AM | Added external_id as field to the [Custom Field Option object](#the-custom-field-options-object). |
 | Apr 13, 2020 09:00:00AM | The V1 endpoints for [PATCH: Edit User], [PATCH: Disable User], and [PATCH: Enable User] have been deprecated. Users should move to the V2 endpoints as soon as convenient. This change was made to take advantage of additional ways to look up users in Greenhouse. |
 | Apr 12, 2020 09:00:00AM | V1 of [PATCH: Update Job Post] has been deprecated. Updating a job post's status has been extracted to [PATCH: Update Job Post Status], while updating all other properties remains on [PATCH: Update Job Post]. The new endpoint more accurately reflects the permissions required by the On-Behalf-Of user to access and edit the Job Post's properties. |
