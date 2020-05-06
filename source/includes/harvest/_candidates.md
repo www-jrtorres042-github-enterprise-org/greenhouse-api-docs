@@ -1408,7 +1408,7 @@ coordinator[id] | No | Integer | The ID of the coordinator - either id or email 
 coordinator[email] | No | String | The email of the coordinator - either id or email must be present.
 custom_fields | No | Array | Array of custom field value objects - See "Custom Field Parameters" under [Edit candidate] (#patch-edit-candidate) for parameters.
 activity_feed_notes | No | Array | An array of activity feed objects. See [Add Note] (#post-add-note) for parameters.
-applications | Yes | Array | An array of application objects. At least one required. See [Add Application] (#post-add-candidate-application) for parameters.
+applications | Yes | Array | An array of application objects. At least one required. See [Add Application] (#post-add-application-to-candidate-prospect) for parameters.
 
 <aside class="notice">
     There may be a delay between when Greenhouse receives the POST: Add Candidate request and when Greenhouse creates the full candidate record, which will result in a truncated API response. The truncated response body will contain the Candidate ID and the Application ID(s) of the newly created candidate. You can retrieve the full candidate record by requesting the Candidate ID with the GET: Retrieve Candidate endpoint. If you receive a 404 error from the GET: Retrieve Candidate endpoint, this indicates that the full candidate record is still not available. Until the candidate record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
