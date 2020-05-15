@@ -48,7 +48,7 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
     "application": {
       "id": 46194062,
       "opening": {
-        "opening_id": "1234-56"
+        "opening_id": "1234-56",
         "custom_fields": []
       },
       "credited_to": {
