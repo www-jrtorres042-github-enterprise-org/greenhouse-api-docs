@@ -325,6 +325,7 @@ Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
 before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
+createdAt | [DateTimeFilter](#datetimefilter) | filter employees based on when they were created | 
 customFieldValues | [\[CustomFieldValuesInput\]](#customfieldvaluesinput) | filter employees by their custom field values | 
 dateOfBirth | [DateFilter](#datefilter) | DEPRECATED. Use dateOfBirthFilter instead | 
 dateOfBirthFilter | [DateOfBirthFilter](#dateofbirthfilter) | filter employees by their date of birth | 
