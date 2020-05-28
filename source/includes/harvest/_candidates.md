@@ -15,7 +15,7 @@ An organization's candidates.
     "updated_at": "2017-09-28T12:29:30.497Z",
     "last_activity": "2017-09-28T12:29:30.481Z",
     "is_private": false,
-    "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+    "photo_url": null,
     "attachments": [
         {
             "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
@@ -265,6 +265,7 @@ An organization's candidates.
 | custom_fields | Contains a hash of the custom fields configured for this resource. The properties in this hash reflect the active custom fields as of the time this method is called.
 | keyed_custom_fields | This contains the same information as custom_fields but formatted in a different way that includes more information.  This will tell you the type of custom field data to expect, the text name of custom field, and the value.  The key of this hash is the custom field's immutable field key, which will not change even if the name of the custom field is changed in Greenhouse.
 | linked_user_ids | If the candidate is an internal applicant, this returns the Greenhouse user ID of the candidate.
+| photo_url | Note: this field has been removed from Greenhouse and will always be null. For backwards compatibility, the field will remain in API payloads
 
 ## GET: List Candidates
 
@@ -287,7 +288,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
     "updated_at": "2017-09-28T12:29:30.497Z",
     "last_activity": "2017-09-28T12:29:30.481Z",
     "is_private": false,
-    "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+    "photo_url": null,
     "attachments": [
         {
             "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
@@ -521,7 +522,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
     "updated_at": "2017-09-28T12:29:30.497Z",
     "last_activity": "2017-09-28T12:29:30.481Z",
     "is_private": false,
-    "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+    "photo_url": null,
     "attachments": [
         {
             "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
@@ -887,7 +888,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
       "updated_at": "2017-09-28T12:54:34.257Z",
       "last_activity": "2017-09-28T12:54:34.243Z",
       "is_private": true,
-      "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+      "photo_url": null,
       "attachments": [
           {
               "filename": "John_Locke_Offer_Packet_09_28_2017.pdf",
@@ -2183,7 +2184,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
     "updated_at": "2017-09-28T13:36:04.725Z",
     "last_activity": "2017-09-28T13:31:37.929Z",
     "is_private": false,
-    "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+    "photo_url": null,
     "attachments": [
         {
             "filename": "John_Locke_Offer_Packet_09_28_2017.pdf",
@@ -2312,7 +2313,7 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, offers, credited_to, headline, all_offer_versions, follow_up_reminders, candidate_photo, custom_application_fields, education, employment, candidate_stage_data, prospect_owner, custom_rejection_question_fields, touchpoints, prospect_pool_and_stage, prospect_jobs, prospect_offices, prospect_offices_and_departments, and third_party_integrations
+fields | Yes | comma-delimited string | The set of field names that should be anonymized on the candidate from the following list: full_name, current_company, current_title, tags, phone_numbers, emails, social_media_links, websites, addresses, location, custom_candidate_fields, source, recruiter, coordinator, attachments, application_questions, referral_questions, notes, rejection_notes, email_addresses, activity_items, innotes, inmails, rejection_reason, scorecards_and_interviews, offers, credited_to, headline, all_offer_versions, follow_up_reminders, custom_application_fields, education, employment, candidate_stage_data, prospect_owner, custom_rejection_question_fields, touchpoints, prospect_pool_and_stage, prospect_jobs, prospect_offices, prospect_offices_and_departments, and third_party_integrations
 
 
 ## PUT: Merge Candidates
