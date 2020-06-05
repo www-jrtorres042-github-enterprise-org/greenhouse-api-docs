@@ -75,7 +75,7 @@ An organization's custom_fields.
 | expose_in_job_board_api | Boolean.  Only relevant for Job custom fields. If true, then the field will be shown in the Job Board API.
 | api_only | Boolean.  Only relevant for Job custom fields.  If true, this custom field can only be edited from the API.
 | offices | If this custom field only applies to a subset of offices, then this list contains each office.  Otherwise, if the list is empty, it applies to all offices.
-| departments | If this custom field only applies to a subset of departments, then this list contains each department.  Otherwise, if the list is empty, it applies to all department. 
+| departments | If this custom field only applies to a subset of departments, then this list contains each department.  Otherwise, if the list is empty, it applies to all departments. 
 | template_token_string | Token string used in email and offer document templates
 
 ## GET: List Custom Fields
