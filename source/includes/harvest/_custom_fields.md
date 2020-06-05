@@ -7,7 +7,7 @@ An organization's custom_fields.
 ```json
 {
   "id": 123456,
-  "name": "Custom Field Name",
+  "name": "Seniority Level",
   "field_type": "job",
   "priority": 1,
   "value_type": "single_select",
@@ -16,16 +16,36 @@ An organization's custom_fields.
   "require_approval": true,
   "trigger_new_version": false,
   "name_key": "custom_field_name",
+  "description": "Seniority of this role",
+  "expose_in_job_board_api": true,
+  "api_only": false,
+  "offices": [
+    {
+      "id": 11915,
+      "name": "New York",
+      "location": {
+        "name": "New York, New York, United States"
+      },
+      "primary_contact_user_id": null,
+      "parent_id": null,
+      "parent_office_external_id": null,
+      "child_ids": [],
+      "child_office_external_ids": [],
+      "external_id": null
+    }
+  ],
+  "departments": [],
+  "template_token_string": "{{SENIORITY}}",
   "custom_field_options": [
     {
       "id": 123,
-      "name": "Name One",
+      "name": "Junior",
       "priority": 1,
-      "external_id": "name-one"
+      "external_id": "jr"
     },
     {
       "id": 234,
-      "name": "Name Two",
+      "name": "Senior",
       "priority": 2,
       "external_id": null
     }
@@ -40,17 +60,23 @@ An organization's custom_fields.
 | id | The custom field's unique identifier |
 | name | The field's name in Greenhouse |
 | active | Boolean value which is false if the custom field has been deleted, true otherwise. |
-| field_type | One of job, candidate, application, offer, rejection_question, referral_question. This is also included in the URL as an argument, which will return only custom fields that match the given type.
+| field_type | One of job, candidate, application, offer, opening, rejection_question, referral_question. This is also included in the URL as an argument, which will return only custom fields that match the given type.
 | priority | Numeric field used for ordering in Greenhouse.
 | value_type | One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
 | private | Boolean value to say if this field is private in Greenhouse.
 | required | The object this field exists on can not be saved if this value is not set.
-| require_approval | Only applicable to job custom fields, changes to this fields requires an approval flow in Greenhouse to be re-done.
+| require_approval | Only applicable to job and opening custom fields, changes to this fields requires an approval flow in Greenhouse to be re-done.
 | trigger_new_version | Only applicable to offer custom fields, changes to this field creates a new offer version.
 | name_key | Listed as "immutable field key" in Greenhouse, this value is based of the name of the field when it is created and does not change as the field's name is later updated.
 | custom_field_options | For single_select and multi_select field_types, this is the list of options for that select.
 | custom_field_options.priority | Numeric value used for ordering the custom field options.
 | custom_field_options.external_id | String value, the external_id for the custom field option
+| description | The custom field's description
+| expose_in_job_board_api | Boolean.  Only relevant for Job custom fields. If true, then the field will be shown in the Job Board API.
+| api_only | Boolean.  Only relevant for Job custom fields.  If true, this custom field can only be edited from the API.
+| offices | Only relevant for Job, Opening, and Offer custom fields. If this custom field only applies to a subset of offices, then this list contains each office.  Otherwise, if the list is empty, it applies to all offices.
+| departments | Only relevant for Job, Opening, and Offer custom fields. If this custom field only applies to a subset of departments, then this list contains each department.  Otherwise, if the list is empty, it applies to all departments. 
+| template_token_string | Token string used in email and offer document templates
 
 ## GET: List Custom Fields
 
@@ -75,6 +101,12 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
     "require_approval": true,
     "trigger_new_version": false,
     "name_key": "custom_field_name",
+    "description": "Field description",
+    "expose_in_job_board_api": false,
+    "api_only": false,
+    "offices": [],
+    "departments": [],
+    "template_token_string": "{{FIELD1}}",
     "custom_field_options": [
       {
         "id": 123,
@@ -136,6 +168,12 @@ curl 'https://harvest.greenhouse.io/v1/custom_field/{id}'
   "require_approval": true,
   "trigger_new_version": false,
   "name_key": "custom_field_name",
+  "description": "Field description",
+  "expose_in_job_board_api": false,
+  "api_only": false,
+  "offices": [],
+  "departments": [],
+  "template_token_string": "{{FIELD1}}",
   "custom_field_options": [
     {
       "id": 123,
