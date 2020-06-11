@@ -360,7 +360,7 @@ Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 first | [Int](#int) | Returns the first _n_ elements from the list. |
 last | [Int](#int) | Returns the last _n_ elements from the list. |
->>>>>>> Updates GHO API for custom employment statuses
+
 ## location \([Location](#location)\)
 A single location
 
