@@ -852,7 +852,6 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
   ],
   "recruiter": { "user_id": 4354 },
   "coordinator": { "email": "coordinator@example.com" },
-  "can_email": true,
   "tags": [
     "Walkabout",
     "Orientation"
