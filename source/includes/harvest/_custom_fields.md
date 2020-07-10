@@ -75,7 +75,7 @@ An organization's custom_fields.
 | expose_in_job_board_api | Boolean.  Only relevant for Job custom fields. If true, then the field will be shown in the Job Board API.
 | api_only | Boolean.  Only relevant for Job custom fields.  If true, this custom field can only be edited from the API.
 | offices | Only relevant for Job, Opening, and Offer custom fields. If this custom field only applies to a subset of offices, then this list contains each office.  Otherwise, if the list is empty, it applies to all offices.
-| departments | Only relevant for Job, Opening, and Offer custom fields. If this custom field only applies to a subset of departments, then this list contains each department.  Otherwise, if the list is empty, it applies to all departments. 
+| departments | Only relevant for Job, Opening, and Offer custom fields. If this custom field only applies to a subset of departments, then this list contains each department.  Otherwise, if the list is empty, it applies to all departments.
 | template_token_string | Token string used in email and offer document templates
 
 ## GET: List Custom Fields
@@ -135,10 +135,10 @@ curl 'https://harvest.greenhouse.io/v1/custom_fields/{field_type}'
 |-----------|-------------|
 | *field_type | Returns only custom fields of this type. For example, if “offer” is included in the URL as the field_type, the endpoint will only return custom fields with the “offer” field type.  One of: `offer`, `candidate`, `application`, `job`, `rejection_question`, `referral_question`.
 
-### Querystring parameters   
+### Querystring parameters
 
-| Parameter | Description |   
-|-----------|-------------|   
+| Parameter | Description |
+|-----------|-------------|
 | include_inactive | When `true`, include inactive custom fields. Otherwise excludes inactive custom fields.  Defaults to `false`.
 
 <br>
@@ -224,6 +224,97 @@ Refers to the options available for single-select and multi-select custom fields
 | priority | Numeric field used for ordering in Greenhouse.
 | external_id | String field, the external_id for the custom field option.
 
+
+## POST: Create Custom Field
+
+NOTE: this endpoint currently only supports creating custom fields for applications.
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/custom_fields/'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "name": "Custom Field Name",
+  "field_type": "application",
+  "value_type": "single_select",
+  "private": false,
+  "generate_email_token": true,
+  "custom_field_options": [
+    {
+      "name": "Name One",
+      "priority": 1,
+      "external_id": "name-one"
+    },
+    {
+      "name": "Name Two",
+      "priority": 2,
+      "external_id": null
+    }
+  ]
+}
+```
+
+### JSON Body Parameters
+
+| Attribute | Type | Required | Description |
+|-----------|-------------|-------------|-------------|
+| name | string | yes | The field's name in Greenhouse |
+| field_type | string | yes | One of job, candidate, application, offer, opening, rejection_question, referral_question.
+| value_type | string | yes | One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
+| private | boolean | no | Boolean value to say if this field is private in Greenhouse. Defaults to false if not provided.
+| custom_field_options | array of Custom Field Options | yes for some field_type | For single_select and multi_select field_types, this is the list of options for that select.
+| custom_field_options.name | string | yes | The name of the new custom field option.
+| custom_field_options.priority | integer | yes | Numeric value used for ordering the custom field options.
+| custom_field_options.external_id | string | no | The external_id for the custom field. Used for integrating with external HRIS.
+| generate_email_token | boolean | no | If this is sent as true, a default `template_token_string` will be generated for the new Custom Field.
+
+> The above returns a success message on success with a 201 response.
+
+>  If successful, the above command returns a 201 response code along with a JSON representation of the newly created custom field. The JSON structure looks like this:
+
+```json
+[
+  {
+    "id": 123456,
+    "name": "Custom Field Name",
+    "active": true,
+    "field_type": "job",
+    "priority": 1,
+    "value_type": "single_select",
+    "private": true,
+    "required": false,
+    "require_approval": true,
+    "trigger_new_version": false,
+    "name_key": "custom_field_name",
+    "description": "Field description",
+    "expose_in_job_board_api": false,
+    "api_only": false,
+    "offices": [],
+    "departments": [],
+    "template_token_string": "{{FIELD1}}",
+    "custom_field_options": [
+      {
+        "id": 123,
+        "name": "Name One",
+        "priority": 1,
+        "external_id": "name-one"
+      },
+      {
+        "id": 234,
+        "name": "Name Two",
+        "priority": 2,
+        "external_id": null
+      }
+    ]
+  }
+]
+```
 
 ## GET: List Custom Field Options
 
@@ -342,18 +433,18 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_o
 {
   "options": [
     {
-      "id": 123, 
-      "name": "Option A", 
+      "id": 123,
+      "name": "Option A",
       "priority": 5
     },
     {
-      "id": 234, 
-      "name": "Option B", 
+      "id": 234,
+      "name": "Option B",
       "priority": 6
     },
     {
-      "id": 345, 
-      "name": "Option C", 
+      "id": 345,
+      "name": "Option C",
       "priority": 7
     }
   ]
