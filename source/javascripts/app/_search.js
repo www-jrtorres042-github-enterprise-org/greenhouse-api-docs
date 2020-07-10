@@ -37,11 +37,10 @@
   }
 
   function debounced_search(wait) {
-    let timeout;
+    var timeout;
 
-    return function executedFunction(event) {
-      const later = () => {
-        timeout = null;
+    return function(event) {
+      var later = function() {
         search(event);
       };
 
@@ -50,12 +49,10 @@
     };
   };
 
-  const search = function(event) {
+  function search(event) {
     unhighlight();
     searchResults.addClass('visible');
-    const searchInput = event.target;
-
-    if searchInput.value
+    var searchInput = event.target;
 
     // ESC clears the field
     if (event.keyCode === 27) searchInput.value = '';
