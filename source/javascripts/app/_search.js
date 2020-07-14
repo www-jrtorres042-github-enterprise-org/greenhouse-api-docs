@@ -12,7 +12,7 @@
   index.field('title', { boost: 10 });
   index.field('body');
   index.pipeline.add(lunr.trimmer, lunr.stopWordFilter);
-  var debounce_delay = 700;
+  var debounceDelay = 700;
 
   $(populate);
   $(bind);
@@ -33,10 +33,10 @@
     content = $('.content');
     searchResults = $('.search-results');
 
-    $('#input-search').on('keyup', debounced_search(debounce_delay));
+    $('#input-search').on('keyup', debounced_search(debounceDelay));
   }
 
-  function debounced_search(wait) {
+  function debounced_search(delay) {
     var timeout;
 
     return function(event) {
@@ -45,7 +45,7 @@
       };
 
       clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
+      timeout = setTimeout(later, delay);
     };
   };
 
