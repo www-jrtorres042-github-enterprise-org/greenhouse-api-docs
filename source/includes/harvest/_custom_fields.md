@@ -316,11 +316,36 @@ curl -X POST 'https://harvest.greenhouse.io/v1/custom_fields/'
 ]
 ```
 
+## DELETE: Destroy Custom Field
+
+```shell
+curl -X DELETE 'https://harvest.greenhouse.io/v1/custom_fields/{id}'
+-H "Authorization: Basic MGQwMzFkeODyN2VhZmEMWRjMzc1YZjMqmUwNjsdlMjQ6"
+```
+
+> If the deletion is successful, the above command returns JSON structured like this:
+
+```json
+{
+  "success": "Custom Field ID 12345 has been deleted."
+}
+```
+### HTTP Request
+
+`DELETE https://harvest.greenhouse.io/v1/custom_fields/{id}`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the custom field to delete
+
 ## GET: List Custom Field Options
 
 ```shell
 curl 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_options'
--H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+-H "On-Behalf-Of: {greenhouse user ID}" -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
 > The above command returns JSON structured like this:
