@@ -245,6 +245,13 @@ curl -X POST 'https://harvest.greenhouse.io/v1/custom_fields/'
   "value_type": "single_select",
   "private": false,
   "generate_email_token": true,
+  "required": false,
+  "require_approval": false,
+  "expose_in_job_board_api": true,
+  "api_only": false,
+  "trigger_new_version": false,
+  "office_ids": [123, 456],
+  "department_ids": [567, 890],
   "custom_field_options": [
     {
       "name": "Name One",
@@ -265,9 +272,16 @@ curl -X POST 'https://harvest.greenhouse.io/v1/custom_fields/'
 | Attribute | Type | Required | Description |
 |-----------|-------------|-------------|-------------|
 | name | string | yes | The field's name in Greenhouse |
-| field_type | string | yes | One of job, candidate, application, offer, opening, rejection_question, referral_question.
+| field_type | string | yes | One of job, candidate, application, offer, opening.
 | value_type | string | yes | One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
-| private | boolean | no | Boolean value to say if this field is private in Greenhouse. Defaults to false if not provided.
+| private | boolean | no | Boolean value to say if this field is private in Greenhouse. Defaults to false if not provided for non-offer custom fields. For offer custom fields, private is always true.
+| required | boolean | no | Boolean value to determine if this field must be filled out in order to save the custom field. Only used for job, offer, and opening type custom fields. Defaults to false.
+| require_approval | boolean | no | Boolean value to determine if changes to this custom field triggers re-approvals. Only used for job and opening custom fields. Defaults to false.
+| trigger_new_version | boolean | no | Boolean value to determine if changes to this field triggers the automatic creation of a new offer version. Only used in offer custom fields. Defaults to false.
+| expose_in_job_board_api | boolean | no | Boolean value to determine if this custom field and its value will be provied in the Job Board API response for this job. These fields are included in the metadata section of the Job Board API response. Only used in job custom fields. Defaults to false.
+| api_only | boolean | no | Boolean value to determine if updates to this custom field may only be made via Harvest. Only used in job custom fields. Defaults to false. If this feature is not available for your organization, attempting to create a field with this set to true will return an API Error.
+office_ids | Array of integers | no | If included, this custom field is only displayed on objects associated with these offices. This is only used for job, opening, and offer custom fields. If not included, custom field will be shown for all offices.
+department_ids | Array of integers | no | If included, this custom field is only displayed on objects associated with these departments. This is only used for job, opening, and offer custom fields. If not included, custom field will be shown for all departments.
 | custom_field_options | array of Custom Field Options | yes for some field_type | For single_select and multi_select field_types, this is the list of options for that select.
 | custom_field_options.name | string | yes | The name of the new custom field option.
 | custom_field_options.priority | integer | yes | Numeric value used for ordering the custom field options.
