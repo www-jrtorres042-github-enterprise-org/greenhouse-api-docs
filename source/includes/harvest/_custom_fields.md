@@ -351,7 +351,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_fields/{id}'
   "name": "New Name",
   "description": "New description",
   "private": false,
-  "template_token_string": "token123"
+  "template_token_string": "NEW_NAME"
 }
 ```
 
@@ -376,7 +376,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_fields/{id}'
     "api_only": false,
     "offices": [],
     "departments": [],
-    "template_token_string": "{{token123}}",
+    "template_token_string": "{{NEW_NAME}}",
     "custom_field_options": [
       {
         "id": 123,
