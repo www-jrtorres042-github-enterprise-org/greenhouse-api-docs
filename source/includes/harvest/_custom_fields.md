@@ -267,30 +267,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/custom_fields/'
 }
 ```
 
-### JSON Body Parameters
-
-| Attribute | Type | Required | Description |
-|-----------|-------------|-------------|-------------|
-| name | string | yes | The field's name in Greenhouse |
-| field_type | string | yes | One of job, candidate, application, offer, opening.
-| value_type | string | yes | One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
-| private | boolean | no | Boolean value to say if this field is private in Greenhouse. Defaults to false if not provided for non-offer custom fields. For offer custom fields, private is always true.
-| required | boolean | no | Boolean value to determine if this field must be filled out in order to save the custom field. Only used for job, offer, and opening type custom fields. Defaults to false.
-| require_approval | boolean | no | Boolean value to determine if changes to this custom field triggers re-approvals. Only used for job and opening custom fields. Defaults to false.
-| trigger_new_version | boolean | no | Boolean value to determine if changes to this field triggers the automatic creation of a new offer version. Only used in offer custom fields. Defaults to false.
-| expose_in_job_board_api | boolean | no | Boolean value to determine if this custom field and its value will be provied in the Job Board API response for this job. These fields are included in the metadata section of the Job Board API response. Only used in job custom fields. Defaults to false.
-| api_only | boolean | no | Boolean value to determine if updates to this custom field may only be made via Harvest. Only used in job custom fields. Defaults to false. If this feature is not available for your organization, attempting to create a field with this set to true will return an API Error.
-office_ids | Array of integers | no | If included, this custom field is only displayed on objects associated with these offices. This is only used for job, opening, and offer custom fields. If not included, custom field will be shown for all offices.
-department_ids | Array of integers | no | If included, this custom field is only displayed on objects associated with these departments. This is only used for job, opening, and offer custom fields. If not included, custom field will be shown for all departments.
-| custom_field_options | array of Custom Field Options | yes for some field_type | For single_select and multi_select field_types, this is the list of options for that select.
-| custom_field_options.name | string | yes | The name of the new custom field option.
-| custom_field_options.priority | integer | yes | Numeric value used for ordering the custom field options.
-| custom_field_options.external_id | string | no | The external_id for the custom field. Used for integrating with external HRIS.
-| generate_email_token | boolean | no | If this is sent as true, a default `template_token_string` will be generated for the new Custom Field.
-
-> The above returns a success message on success with a 201 response.
-
->  If successful, the above command returns a 201 response code along with a JSON representation of the newly created custom field. The JSON structure looks like this:
+> If successful, the above command returns a 201 response code along with a JSON representation of the newly created custom field. The JSON structure looks like this:
 
 ```json
 [
@@ -330,10 +307,120 @@ department_ids | Array of integers | no | If included, this custom field is only
 ]
 ```
 
-## DELETE: Destroy Custom Field
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/custom_fields`
+
+### JSON Body Parameters
+
+| Attribute | Type | Required | Description |
+|-----------|-------------|-------------|-------------|
+| name | string | yes | The field's name in Greenhouse |
+| description | string | no | The field's description in Greenhouse |
+| field_type | string | yes | One of job, candidate, application, offer, opening, rejection_question, referral_question.
+| value_type | string | yes | One of short_text, long_text, yes_no, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user
+| private | boolean | no | Boolean value to say if this field is private in Greenhouse. Defaults to false if not provided for non-offer custom fields. For offer custom fields, private is always true.
+| required | boolean | no | Boolean value to determine if this field must be filled out in order to save the custom field. Only used for job, offer, and opening type custom fields. Defaults to false.
+| require_approval | boolean | no | Boolean value to determine if changes to this custom field triggers re-approvals. Only used for job and opening custom fields. Defaults to false.
+| trigger_new_version | boolean | no | Boolean value to determine if changes to this field triggers the automatic creation of a new offer version. Only used in offer custom fields. Defaults to false.
+| expose_in_job_board_api | boolean | no | Boolean value to determine if this custom field and its value will be provied in the Job Board API response for this job. These fields are included in the metadata section of the Job Board API response. Only used in job custom fields. Defaults to false.
+| api_only | boolean | no | Boolean value to determine if updates to this custom field may only be made via Harvest. Only used in job custom fields. Defaults to false. If this feature is not available for your organization, attempting to create a field with this set to true will return an API Error.
+office_ids | Array of integers | no | If included, this custom field is only displayed on objects associated with these offices. This is only used for job, opening, and offer custom fields. If not included, custom field will be shown for all offices.
+department_ids | Array of integers | no | If included, this custom field is only displayed on objects associated with these departments. This is only used for job, opening, and offer custom fields. If not included, custom field will be shown for all departments.
+| custom_field_options | array of Custom Field Options | yes for some field_type | For single_select and multi_select field_types, this is the list of options for that select.
+| custom_field_options.name | string | yes | The name of the new custom field option.
+| custom_field_options.priority | integer | yes | Numeric value used for ordering the custom field options.
+| custom_field_options.external_id | string | no | The external_id for the custom field. Used for integrating with external HRIS.
+| generate_email_token | boolean | no | If this is sent as true, a default `template_token_string` will be generated for the new Custom Field.
+
+
+## PATCH: Update Custom Field
+
+This endpoint updates an existing custom field.
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_fields/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkeODyN2VhZmEMWRjMzc1YZjMqmUwNjsdlMjQ6"
+```
+
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "name": "New Name",
+  "description": "New description",
+  "private": false,
+  "template_token_string": "token123"
+}
+```
+
+> If the update is successful, the above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 123456,
+    "name": "New Name",
+    "active": true,
+    "field_type": "job",
+    "priority": 1,
+    "value_type": "single_select",
+    "private": false,
+    "required": false,
+    "require_approval": true,
+    "trigger_new_version": false,
+    "name_key": "custom_field_name",
+    "description": "New description",
+    "expose_in_job_board_api": false,
+    "api_only": false,
+    "offices": [],
+    "departments": [],
+    "template_token_string": "{{token123}}",
+    "custom_field_options": [
+      {
+        "id": 123,
+        "name": "Name One",
+        "priority": 1,
+        "external_id": "name-one"
+      },
+      {
+        "id": 234,
+        "name": "Name Two",
+        "priority": 2,
+        "external_id": null
+      }
+    ]
+  }
+]
+```
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/custom_fields/{id}`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the custom field to update
+
+### JSON Body Parameters
+
+This endpoint accepts the same JSON body parameters as the [Create Custom Field endpoint](#post-create-custom-field).  There is one exception - instead of the `generate_email_token` field which is used during creation, the `template_token_string` field can be used to set or change the template token on an existing custom field.
+
+| Attribute | Type | Required | Description |
+|-----------|-------------|-------------|-------------|
+| template_token_string | string | no | Sets the template token which is used in email and offer document templates.
+
+## DELETE: Delete Custom Field
+
+This endpoint deletes a custom field.  Note that custom fields are soft-deleted in order to maintain historical data. Soft-deleted custom fields will be hidden to users but will continue to be returned in the API with their `active` flag set to `false`.
 
 ```shell
 curl -X DELETE 'https://harvest.greenhouse.io/v1/custom_fields/{id}'
+-H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkeODyN2VhZmEMWRjMzc1YZjMqmUwNjsdlMjQ6"
 ```
 
@@ -344,6 +431,7 @@ curl -X DELETE 'https://harvest.greenhouse.io/v1/custom_fields/{id}'
   "success": "Custom Field ID 12345 has been deleted."
 }
 ```
+
 ### HTTP Request
 
 `DELETE https://harvest.greenhouse.io/v1/custom_fields/{id}`
