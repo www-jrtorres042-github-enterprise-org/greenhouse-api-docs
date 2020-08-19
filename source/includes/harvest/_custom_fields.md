@@ -336,7 +336,7 @@ department_ids | Array of integers | no | If included, this custom field is only
 
 ## PATCH: Update Custom Field
 
-This endpoint updates an existing custom field.  Currently, it only supports `application` custom fields.
+This endpoint updates an existing custom field.
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_fields/{id}'
@@ -408,12 +408,11 @@ id | The ID of the custom field to update
 
 ### JSON Body Parameters
 
+This endpoint accepts the same JSON body parameters as the [Create Custom Field endpoint](#post-create-custom-field).  There is one exception - instead of the `generate_email_token` field which is used during creation, the `template_token_string` field can be used to set or change the template token on an existing custom field.
+
 | Attribute | Type | Required | Description |
 |-----------|-------------|-------------|-------------|
-| name | string | no | The field's name in Greenhouse |
-| description | string | no | The field's description in Greenhouse |
-| private | boolean | no | Boolean value to say if this field is private in Greenhouse.
-| generate_email_token | boolean | no | If this is sent as true, a default `template_token_string` will be generated for the new Custom Field.
+| template_token_string | string | no | Sets the template token which is used in email and offer document templates.
 
 ## DELETE: Delete Custom Field
 
