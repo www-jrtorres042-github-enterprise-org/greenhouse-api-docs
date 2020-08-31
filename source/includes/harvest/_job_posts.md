@@ -2,7 +2,7 @@
 
 Describes the online job posts for an organization's jobs (as seen on the Job Board).
 
-## The job post object 
+## The job post object
 
 ```json
 {
@@ -154,12 +154,12 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 | internal_content | The text of the job post if posted to the internal job board, if different than the external job board.
 | demographic_question_set_id | The demographic question set associated with this job post
 | questions | An array of questions associated with this job post.
-| questions.name | When submitting applications through the Job Board API, this is the name of the POST parameter used to submit questions. Custom questions are prefixed with "question_" while Greenhouse standard application questions have a consistent name for every job post. 
+| questions.name | When submitting applications through the Job Board API, this is the name of the POST parameter used to submit questions. Custom questions are prefixed with "question_" while Greenhouse standard application questions have a consistent name for every job post.
 
 ## GET: List Job Posts
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/job_posts' 
+curl 'https://harvest.greenhouse.io/v1/job_posts'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -326,6 +326,7 @@ List all of an organization's job posts.
 | updated_after | Return only job posts that were updated at or after this timestamp. Timestamp must be in in [ISO-8601] (#general-considerations) format.
 | live | If `true`, return only live job posts.
 | active | If `true`, only return active job posts.  If `false`, only return deleted job posts.  When omitted, return both active and deleted job posts.
+| full_content | If `true`, returns the board introduction, description, and board conclusion as one `content` or `internal_content` element.  When omitted, only returns the post's editable description.
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
@@ -333,7 +334,7 @@ List all of an organization's job posts.
 ## GET: Retrieve Job Post
 
 ```shell
-curl 'https://harvest.greenhouse.io/v1/job_posts/{id}' 
+curl 'https://harvest.greenhouse.io/v1/job_posts/{id}'
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
 ```
 
@@ -485,6 +486,12 @@ Get a single job post.
 ### HTTP Request
 
 `GET https://harvest.greenhouse.io/v1/job_posts/{id}`
+
+### Querystring parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| full_content | If `true`, returns the board introduction, description, and board conclusion as one `content` or `internal_content` element.  When omitted, only returns the post's editable description.
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
@@ -697,6 +704,8 @@ id | The ID of the job whose job posts you want to retrieve
 | Parameter | Description |
 |-----------|-------------|
 | active | If `true`, only return active job posts.  If `false`, only return deleted job posts.  When omitted, return both active and deleted job posts.
+| full_content | If `true`, returns the board introduction, description, and board conclusion as one `content` or `internal_content` element.  When omitted, only returns the post's editable description.
+
 
 
 <br>
@@ -871,8 +880,10 @@ id | The ID of the job whose job post you want to retrieve
 
 Parameter | Description
 --------- | -----------
-content | If present, will return the text of the job post as posted to the external job board.
-questions | If present, will return an array of questions associated with this job post.
+| content | If present, will return the text of the job post as posted to the external job board.
+| questions | If present, will return an array of questions associated with this job post.
+| full_content | If `true`, returns the board introduction, description, and board conclusion as one `content` or `internal_content` element.  When omitted, only return the post's editable description.
+
 
 <br>
 [See noteworthy response attributes.](#the-job-post-object)
