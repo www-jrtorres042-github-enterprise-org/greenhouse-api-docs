@@ -1172,9 +1172,9 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 > The above returns a JSON response, structured like this:
 ```json
 {
-    id: 12345,
-    message: "Rejection reason updated to 815 (Higher Salary Offer Made)",
-    success: true
+    "id": 12345,
+    "message": "Rejection reason updated to 815 (Higher Salary Offer Made)",
+    "success": true
 }
 ```
 
