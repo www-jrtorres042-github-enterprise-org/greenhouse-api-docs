@@ -1154,7 +1154,7 @@ rejection_email.email_template_id | Yes, if sending rejection_email | string | T
 
 ## PATCH: Update Rejection Reason
 
-``````shell
+```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 -H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
@@ -1170,13 +1170,37 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 ```
 
 > The above returns a JSON response, structured like this:
+```json
 {
-    id: 12345,
-    message: "Rejection reason updated to 815 (Higher Salary Offer Made)",
-    success: true
+    "id": 12345,
+    "message": "Rejection reason updated to 815 (Higher Salary Offer Made)",
+    "success": true
 }
+```
 
 This endpoint updates the rejection reason on a currently rejected application. An application in any other state will return an error. The rejection reason id may be either a custom rejection reason for your organization or a Greenhouse default rejection reason.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/applications/{id}/reject`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### URL parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the application to update
+
+### JSON Body Parameters
+
+Parameter | Required | Description
+--------- | ----------- | -----------
+rejection_reason_id | yes | The ID of the new rejection reason
 
 
 ## POST: Unreject Application
