@@ -100,7 +100,7 @@ board_token | Job Board URL token
 
 Parameter | Description
 --------- | -----------
-content | If set to `true`, include the description, department and office of each job post.
+content | If set to `true`, include the full post description, department, and office of each job post.
 
 ## Retrieve a job
 
@@ -157,7 +157,7 @@ content | If set to `true`, include the description, department and office of ea
       "label":"First Name",
       "fields":[
         {
-          "name":"first_name", 
+          "name":"first_name",
           "type":"input_text"
         }
       ]
@@ -303,3 +303,7 @@ For organizations using Greenhouse Inclusion, the response may contain demograph
 ### Data Compliance
 
 For organizations with GDPR rules configured and operating with a legal basis of explicit consent, the response may contain data_compliance objects. These objects will include whether a response is required and the data retention period in days as configured by the appropriate rule.
+
+### Board-level Introductions and Conclusions
+
+For organizations with Default Descriptions authored on the Job Board, the `content` field will include the Board-level Introduction, Post-level Description, and Board-level Conclusion as a single concatenated string.
