@@ -89,7 +89,15 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
             "type": "long_text",
             "value": "This is a bio"
         }
-    }
+    },
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "type": "offer_packet"
+        }
+    ]
+
 }
 ```
 
@@ -181,7 +189,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "type": "single_select",
             "value": "Option 1"
         }
-    }
+    },
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "type": "offer_packet"
+        }
+    ]
 },
 {
     "id": 69306509,
@@ -267,7 +282,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "type": "single_select",
             "value": "Option 1"
         }
-    }
+    },
+    "attachments": [
+        {
+            "filename": "Jack_Smith_Offer_Packet_09_27_2020.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "type": "offer_packet"
+        }
+    ]
   }
 ]
 ```
@@ -360,7 +382,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
             "type": "single_select",
             "value": "Option 1"
         }
-    }
+    },
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "type": "offer_packet"
+        }
+    ]
 }
 
 ```
@@ -496,7 +525,14 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}'
           "type": "single_select",
           "value": "Option 1"
       }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -605,7 +641,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
           "type": "single_select",
           "value": "Option 1"
       }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -711,7 +754,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
           "type": "single_select",
           "value": "Option 1"
       }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -820,7 +870,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
       "type": "boolean",
       "value": false
     }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -983,7 +1040,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
       "type": "boolean",
       "value": false
     }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -1125,7 +1189,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
       "type": "long_text",
       "value": "This is a bio"
     }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -1281,7 +1352,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
       "type": "single_select",
       "value": "Option 1"
     }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 ```
 
 > An unsuccessful response:
