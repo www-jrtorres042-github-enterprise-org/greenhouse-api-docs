@@ -203,7 +203,7 @@ An organization's candidates.
                 "prospect_stage": null,
                 "prospect_owner": null
             },
-			attachments: []
+			"attachments": []
         }
     ],
     "educations": [
