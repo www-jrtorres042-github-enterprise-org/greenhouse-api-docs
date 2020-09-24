@@ -152,7 +152,14 @@ An organization's candidates.
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+			"attachments": [
+      			{
+          			"filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          			"url": "https://prod-heroku.s3.amazonaws.com/...",
+          			"type": "offer_packet"
+      			}
+  			]
         },
         {
             "id": 65153308,
@@ -195,7 +202,8 @@ An organization's candidates.
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+			"attachments": []
         }
     ],
     "educations": [
@@ -386,7 +394,14 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
                     "id": 92120,
                     "name": "Greenhouse Admin"
                 }
-            }
+            },
+			"attachments": [
+      			{
+          			"filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          			"url": "https://prod-heroku.s3.amazonaws.com/...",
+          			"type": "offer_packet"
+      			}
+  			]
         },
         {
             "id": 65153308,
@@ -427,7 +442,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+			"attachments": []
         }
     ],
     "educations": [
@@ -659,7 +675,14 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+			"attachments": [
+      			{
+          			"filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          			"url": "https://prod-heroku.s3.amazonaws.com/...",
+          			"type": "offer_packet"
+      			}
+  			]
         },
         {
             "id": 65153308,
@@ -702,7 +725,8 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+			"attachments": []
         }
     ],
     "educations": [
@@ -989,7 +1013,14 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
                   "prospect_pool": null,
                   "prospect_stage": null,
                   "prospect_owner": null
-              }
+              },
+			  "attachments": [
+      			  {
+          			  "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          			  "url": "https://prod-heroku.s3.amazonaws.com/...",
+          			  "type": "offer_packet"
+      			  }
+  			  ]
           }
       ],
       "educations": [],
@@ -1308,7 +1339,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+			"attachments": []
         },
         {
             "id": 69201604,
@@ -1340,7 +1372,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+			"attachments": []
         }
     ],
     "educations": [
@@ -2262,7 +2295,14 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+			"attachments": [
+      			{
+          			"filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          			"url": "https://prod-heroku.s3.amazonaws.com/...",
+          			"type": "offer_packet"
+      			}
+  			]
         }
     ],
     "educations": [
@@ -2430,7 +2470,19 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
                 "prospect_pool": null,
                 "prospect_stage": null,
                 "prospect_owner": null
-            }
+            },
+    		"attachments": [
+        		{
+            		"filename": "Justin Locke resume.pdf",
+            		"url": "https://prod-heroku.s3.amazonaws.com/...",
+            		"type": "resume"
+        		},
+         		{
+            		"filename": "Justin Locke cover leter.pdf",
+            		"url": "https://prod-heroku.s3.amazonaws.com/...",
+            		"type": "cover_letter"
+        		}
+    		]
         }
     ],
     "educations": [
