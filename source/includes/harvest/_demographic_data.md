@@ -36,7 +36,8 @@ Demographic questions and answers submitted during the application process. For 
       "language": "en",
       "name": "What is your favorite color?"
     }
-  ]
+  ],
+  "required": true
 }
 ```
 
@@ -50,6 +51,7 @@ Demographic questions and answers submitted during the application process. For 
 | translations.language | Translations have been deprecated but are kept for backwards compatibility. Only `en` (English) is supported at this time.
 | translations.name | Translations have been deprecated but are kept for backwards compatibility. This value will be the same as `name` above.
 | active | If `false`, the question has been deleted.
+| required | If `true`, the question must be filled out by the applicant.
 
 ## The Demographic Answer Option object
 
@@ -207,7 +209,8 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
         "language": "en",
         "name": "What is your favorite color?"
       }
-    ]
+    ],
+    "required": true
   },
   {
     "id": 897,
@@ -219,7 +222,8 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions'
         "language": "en",
         "name": "Pizza or pasta?"
       }
-    ]
+    ],
+    "required": false
   }
 ]
 ```
@@ -262,7 +266,8 @@ curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions
         "language": "en",
         "name": "What is your favorite color?"
       }
-    ]
+    ],
+    "required": true
   },
   {
     "id": 897,
@@ -274,7 +279,8 @@ curl 'https://harvest.greenhouse.io/v1/demographics/question_sets/{id}/questions
         "language": "en",
         "name": "Pizza or pasta?"
       }
-    ]
+    ],
+    "required": false
   }
 ]
 ```
@@ -323,7 +329,8 @@ curl 'https://harvest.greenhouse.io/v1/demographics/questions/{id}'
       "language": "en",
       "name": "What is your favorite color?"
     }
-  ]
+  ],
+  "required": true
 }
 ```
 
