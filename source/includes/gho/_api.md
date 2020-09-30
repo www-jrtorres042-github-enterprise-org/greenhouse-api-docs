@@ -969,8 +969,8 @@ dateOfTermination | [Date](#date) | This information is only available on termin
 department | [Department](#department) |
 documents | [\[Document!\]](#document) | These are documents that came over from Greenhouse Recruiting or were attached directly to the employee profile. This does _not_ include E-Signature requests.
 email | [String](#string) | The employee's work email. They need this in order to sign in
-firstName | [String](#string) |
 employmentStatus | [String](#string) |
+firstName | [String](#string) |
 greenhouseRecruitingData | [GreenhouseRecruitingData](#greenhouserecruitingdata) | The Greenhouse Recruiting 'hired' webhook data
 hrManager | [Employee](#employee) | The employee's HR Manager.
 id | [ID!](#id) |
