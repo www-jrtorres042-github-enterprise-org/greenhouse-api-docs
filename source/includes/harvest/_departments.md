@@ -378,6 +378,6 @@ parent_id* | no | number | The department id for the new department to be nested
 external_parent_id** | no | string | The external id of the parent departments. This may be used instead of parent_id. Only one of this or parent_id may be populated. If both are included, it will raise an error.
 external_id** | no | string | The external_id for the office.
 
-\* - The tiered department feature is available only for customers with the Pro or Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
+\* - The tiered department feature is available only for customers with the Advanced or Expert Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
 
-\** - The external_id feature is available only for customers with the Enterprise Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.
+\** - The external_id feature is available only for customers with the Expert Greenhouse Recruiting package. Use of this field will return an error for other Greenhouse Recruiting customers.

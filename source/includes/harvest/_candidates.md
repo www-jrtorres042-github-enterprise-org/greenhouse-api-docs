@@ -2297,7 +2297,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
 }
 ```
 
-Anonymize the data associated with a candidate. Please note that this endpoint is only available to customers with Enterprise-level accounts.
+Anonymize the data associated with a candidate. Please note that this endpoint is only available to customers with Expert-level accounts.
 
 ### HTTP Request
 
