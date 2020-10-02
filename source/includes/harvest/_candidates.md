@@ -1398,6 +1398,8 @@ addresses[] | No | address | Array of addresses. Passing an empty array will cle
 email_addresses[] | No | email_address | Array of email addresses. Passing an empty array will clear all.
 website_addresses[] | No | website_address | Array of website addresses. Passing an empty array will clear all.
 social_media_addresses[] | No | social_media_address | Array of social media addresses. Passing an empty array will clear all.
+educations | No | Array | An array of education records. See [Add Education] (#post-add-education) for parameters.
+employments | No | Array | An array of employment records. See [Add Employment] (#post-add-employment) for parameters.
 tags[] | No | string | Array of tags as strings. Passing an empty array will clear all.
 custom_fields[] | No |  custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
 recruiter | No | Object | An object representing the candidate's recruiter
