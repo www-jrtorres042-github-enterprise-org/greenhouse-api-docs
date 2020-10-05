@@ -327,7 +327,7 @@ Parameter | Description
 --------- | -----------
 id | The ID of the scheduled interview to retrieve
 
-## Post: Create Scheduled Interview
+## POST: Create Scheduled Interview
 
 ```shell
 curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews'
@@ -407,7 +407,11 @@ Create a new Scheduled Interview.
 
 ### HTTP Request
 
-`POST https://harvest.greenhouse.io/v1/scheduled_interviews`
+[DEPRECATED] ~~`POST https://harvest.greenhouse.io/v1/scheduled_interviews`~~
+
+POST `https://harvest.greenhouse.io/v2/scheduled_interviews`
+
+Greenhouse deprecated the V1 endpoint on April 5th, 2020. The V2 endpoint was released so the validations performed by Harvest matched the validations performed when creating an interview in the Greenhouse application. Specifically, Greenhouse allows the addition of users with e-mail addresses that do not match any users in the organization and users who do not otherwise have permission to see the job, both of which Harvest prevented. Changing the validations in this way was considered a breaking change and a second version of the endpoint was released. The V1 endpoint should not be used as it is no longer supported and will be removed in a future release.
 
 ### Headers
 
@@ -421,17 +425,17 @@ Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
 application_id | Yes | integer | The id of the application for which we will scheduled an interview.
 interview_id | Yes | integer | The id of the interview we'd like to schedule. This id can be found in the [job stage object](#the-job-stage-object). It refers to an interview type (e.g. "Executive Interview" or "On-site Interview") that is associated with a hiring plan's interview step.  This differs from a "Scheduled Interview" which refers to an instantiated interview that is associated with an application, interviewers, start time, etc.
-interviewers[] | Yes | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted). Each user must be a valid interviewer for the hiring plan.
+interviewers[] | Yes | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
 start | Yes | string | A datetime specifying when the interview starts. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 end | Yes | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | Yes | string | A unique identifer for this interview.
 location| No | string | A textual description of the location of the interview.
 
 <aside class="notice">
-    There may be a delay between when Greenhouse receives the POST: Create Scheduled Interview request and when Greenhouse creates the full Scheduled Interview record, which will result in a truncated API response. The truncated response body will contain the id of the newly Scheduled Interview. You can retrieve the full Scheduled Interview record by requesting the Scheduled Interview ID with the GET: Scheduled Interview endpoint. If you receive a 404 error from the GET: Scheduled Interview endpoint, this indicates that the full Scheduled Interview record is still not available. Until the Scheduled Interview record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available.
+    For the V1 endpoint only: There may be a delay between when Greenhouse receives the POST: Create Scheduled Interview request and when Greenhouse creates the full Scheduled Interview record, which will result in a truncated API response. The truncated response body will contain the id of the newly Scheduled Interview. You can retrieve the full Scheduled Interview record by requesting the Scheduled Interview ID with the GET: Scheduled Interview endpoint. If you receive a 404 error from the GET: Scheduled Interview endpoint, this indicates that the full Scheduled Interview record is still not available. Until the Scheduled Interview record has been made fully-available in the API, please continue to request the record until the API returns a successful response. Our recommendation is to perform this check every 30 seconds until the data becomes available. This issue has been resolved in V2.
 </aside>
 
-## Patch: Update Scheduled Interview
+## PATCH: Update Scheduled Interview
 
 ```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
@@ -510,19 +514,23 @@ only update Scheduled Interviews in the following statues: Scheduled, Awaiting F
 
 ### HTTP Request
 
-`PATCH https://harvest.greenhouse.io/v1/scheduled_interviews/{id}`
+DEPRECATED ~~`PATCH https://harvest.greenhouse.io/v1/scheduled_interviews/{id}`~~
+
+`PATCH: `PATCH https://harvest.greenhouse.io/v2/scheduled_interviews/{id}`
+
+Greenhouse deprecated the V1 endpoint on April 5th, 2020. The V2 endpoint was released so the validations performed by Harvest matched the validations performed when updating an interview in the Greenhouse application. Specifically, Greenhouse allows the addition of users with e-mail addresses that do not match any users in the organization and users who do not otherwise have permission to see the job, both of which Harvest prevented. Changing the validations in this way was considered a breaking change and a second version of the endpoint was released. The V1 endpoint should not be used as it is no longer supported and will be removed in a future release.
 
 ### Headers
 
 Header | Description
 --------- | -----------
-On-Behalf-Of | ID of the user issuing this request. Will become the interview organizer. The user must have permission to manage the associcated application.
+On-Behalf-Of | ID of the user issuing this request. Will become the interview organizer. The user must have permission to manage the associated application.
 
 ### JSON Body Parameters
 
 Parameter | Required | Type | Description
 --------- | ----------- | ----------- | -----------
-interviewers[] | No | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted). Each user must be a valid interviewer for the hiring plan.
+interviewers[] | No | interviewer | Array of interviewers. Each must specify a user by user_id, email, or employee_id. Each must include a response status (one of needs_action, declined, tentative, or accepted).
 start | No | string | A datetime specifying when the interview starts. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 end | No | string | A datetime specifying when the interview ends. Must be provided in [ISO-8601](#general-considerations) format (e.g. 2018-11-05T13:12:14Z).
 external_event_id | No | string | A unique identifer for this interview.

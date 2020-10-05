@@ -49,13 +49,6 @@
           "child_ids":[
             13585
           ]
-        },
-        {
-          "id":13585,
-          "name":"Rule Enforcement",
-          "parent_id":13583,
-          "child_ids":[
-          ]
         }
       ],
       "offices":[
@@ -107,7 +100,7 @@ board_token | Job Board URL token
 
 Parameter | Description
 --------- | -----------
-content | If set to `true`, include the description, department and office of each job post.
+content | If set to `true`, include the full post description, department, and office of each job post.
 
 ## Retrieve a job
 
@@ -164,7 +157,7 @@ content | If set to `true`, include the description, department and office of ea
       "label":"First Name",
       "fields":[
         {
-          "name":"first_name", 
+          "name":"first_name",
           "type":"input_text"
         }
       ]
@@ -210,6 +203,13 @@ content | If set to `true`, include the description, department and office of ea
       "name":"Field Name",
       "value_type":"text",
       "value":"Some value"
+    }
+  ],
+  "data_compliance": [
+    {
+      "type": "gdpr",
+      "requires_consent": true,
+      "retention_period": 12345
     }
   ]
 }
@@ -299,3 +299,11 @@ Please note that it is possible for multiple fields to be aggregated beneath a s
 ### Demographic Questions
 
 For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered as checkboxes or a multi-select. The candidate may select zero, one, or more answer options per question. If an answer option is selected that has `free_form` set to `true`, the candidate must be allowed to type a free-form response. The free-form response is optional.
+
+### Data Compliance
+
+For organizations with GDPR rules configured and operating with a legal basis of explicit consent, the response may contain data_compliance objects. These objects will include whether a response is required and the data retention period in days as configured by the appropriate rule.
+
+### Board-level Introductions and Conclusions
+
+For organizations with Default Descriptions authored on the Job Board, the `content` field will include the Board-level Introduction, Post-level Description, and Board-level Conclusion as a single concatenated string.

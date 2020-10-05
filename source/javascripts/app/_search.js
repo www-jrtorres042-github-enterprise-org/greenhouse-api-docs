@@ -12,6 +12,7 @@
   index.field('title', { boost: 10 });
   index.field('body');
   index.pipeline.add(lunr.trimmer, lunr.stopWordFilter);
+  var debounceDelay = 700;
 
   $(populate);
   $(bind);
@@ -32,18 +33,32 @@
     content = $('.content');
     searchResults = $('.search-results');
 
-    $('#input-search').on('keyup', search);
+    $('#input-search').on('keyup', debounced_search(debounceDelay));
   }
+
+  function debounced_search(delay) {
+    var timeout;
+
+    return function(event) {
+      var later = function() {
+        search(event);
+      };
+
+      clearTimeout(timeout);
+      timeout = setTimeout(later, delay);
+    };
+  };
 
   function search(event) {
     unhighlight();
     searchResults.addClass('visible');
+    var searchInput = event.target;
 
     // ESC clears the field
-    if (event.keyCode === 27) this.value = '';
+    if (event.keyCode === 27) searchInput.value = '';
 
-    if (this.value) {
-      var results = index.search(this.value).filter(function(r) {
+    if (searchInput.value) {
+      var results = index.search(searchInput.value).filter(function(r) {
         return r.score > 0.0001;
       });
 
@@ -53,10 +68,10 @@
           var elem = document.getElementById(result.ref);
           searchResults.append("<li><a href='#" + result.ref + "'>" + $(elem).text() + "</a></li>");
         });
-        highlight.call(this);
+        highlight.call(searchInput);
       } else {
         searchResults.html('<li></li>');
-        $('.search-results li').text('No Results Found for "' + this.value + '"');
+        $('.search-results li').text('No Results Found for "' + searchInput.value + '"');
       }
     } else {
       unhighlight();

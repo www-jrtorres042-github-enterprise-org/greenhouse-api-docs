@@ -154,7 +154,8 @@ Unless otherwise specified, API methods generally conform to the following:
 - Timestamps are rendered in ISO-8601 format (e.g. `2016-02-03T16:38:46.985Z)
 - URLs to external resources are valid for 30 days
 - We reserve the right to add more properties to objects, but will never change or remove them
-- Custom Fields on the [application object](#applications) are only available to customers with Expert-level accounts
+- Custom Fields on the [application object](#applications) are only available to customers with Enterprise-level accounts
+- Resumes, cover letters, and other document attachments in Greenhouse are hosted on Amazon Web Services and are provided via signed, temporary URLs. Due to the ephemeral nature of these resource links, users should download these documents immediately after the request is made and should not rely on these URLs to be available for future requests. In the event AWS S3 is experiencing issues, document attachments will not be available in Harvest.
 
 ## Errors
 
@@ -171,6 +172,15 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| September 28, 2020 12:00:00PM | "Required" field added to Demographic Questions.
+| September 23, 2020 03:00:00PM | Attachments have been added at the application level. Previously, an aggregation of all attachments on all applications was included at the candidate level and not at all in the applications endpoint. Now, the applications endpoint includes attachments specific to each application and the candidates endpoint includes attachments in each application specific to that application.
+| September 10, 2020 05:00:00PM | A new querystring parameter has been added to [job post](#job-posts) GET requests to return Board-level Introductions and Conclusions (if present). When included in a request, the "content" or "internal_content" fields will return a concatenated string that includes the Board-level introduction, the Post-level description, and the Board-level conclusion. |
+| May 28, 2020 05:00:00PM | Candidate photos have been removed from Greenhouse and will no longer be accepted as a field to be anonymized in [PUT Anonymize Candidates](#put-anonymize-candidate) |
+| May 5, 2020 12:00:00PM | Added "interview_step" field to the scorecards response. This provides the "ID" of the existing "interview" field. The "name" sub-element of the "interview_step" element should match the current "interview" element. The "interview" field is maintained for backward compatibility.
+| Apr 22, 2020 09:00:00AM | Added external_id as field to the [Custom Field Option object](#the-custom-field-options-object). |
+| Apr 13, 2020 09:00:00AM | The V1 endpoints for [PATCH: Edit User], [PATCH: Disable User], and [PATCH: Enable User] have been deprecated. Users should move to the V2 endpoints as soon as convenient. This change was made to take advantage of additional ways to look up users in Greenhouse. |
+| Apr 12, 2020 09:00:00AM | V1 of [PATCH: Update Job Post] has been deprecated. Updating a job post's status has been extracted to [PATCH: Update Job Post Status], while updating all other properties remains on [PATCH: Update Job Post]. The new endpoint more accurately reflects the permissions required by the On-Behalf-Of user to access and edit the Job Post's properties. |
+| Apr 5, 2020 09:00:00AM | Added V2 of [POST: Scheduled Interviews](#post-scheduled-interviews) and [PATCH: Scheduled Interviews](#patch-scheduled-interviews). Deprecated V1. |
 | Jan 30, 2020 05:30:00PM | Added ability to update custom field values in a [PATCH: Job Openings](#patch-edit-openings) request |
 | Jan 30, 2020 05:30:00PM | Added ability to re-open a closed job opening in a [PATCH: Job Openings](#patch-edit-openings) request |
 | Jan 15, 2020 04:00:00PM | Added ability to update a rejection reason on a rejected application. [PATCH: Update Rejection Reason](#patch-update-rejection-reason) |

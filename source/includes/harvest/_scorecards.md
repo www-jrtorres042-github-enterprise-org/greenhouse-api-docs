@@ -10,6 +10,10 @@ All submitted scorecards ordered by candidate.
   "updated_at": "2016-08-22T19:52:38.384Z",
   "created_at": "2016-08-22T19:52:38.384Z",
   "interview": "Application Review",
+  "interview_step": {
+    "id": 432,
+    "name": "Application Review"
+  },
   "candidate_id": 1234,
   "application_id": 3456,
   "interviewed_at": "2016-08-18T16:00:00.000Z",
@@ -141,6 +145,10 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
     "updated_at": "2016-08-22T19:52:38.384Z",
     "created_at": "2016-08-22T19:52:38.384Z",
     "interview": "Application Review",
+    "interview_step": {
+      "id": 432,
+      "name": "Application Review"
+    },
     "candidate_id": 1234,
     "application_id": 3456,
     "interviewed_at": "2016-08-18T16:00:00.000Z",
@@ -248,6 +256,10 @@ curl 'https://harvest.greenhouse.io/v1/scorecards'
     "updated_at": "2016-01-08T19:07:08.295Z",
     "created_at": "2016-01-08T19:07:08.295Z",
     "interview": "Behavioral Phone Interview",
+    "interview_step": {
+      "id": 433,
+      "name": "Behavioral Phone Interview"
+    },
     "candidate_id": 14271904,
     "application_id": 23558552,
     "interviewed_at": "2016-01-08T17:00:00.000Z",
@@ -387,6 +399,10 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
     "updated_at": "2016-08-22T19:52:38.384Z",
     "created_at": "2016-08-22T19:52:38.384Z",
     "interview": "Application Review",
+    "interview_step": {
+      "id": 432,
+      "name": "Application Review"
+    },
     "candidate_id": 2131415,
     "application_id": 23558552,
     "interviewed_at": "2016-08-18T16:00:00.000Z",
@@ -494,6 +510,10 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scorecards'
     "updated_at": "2016-01-08T19:07:08.295Z",
     "created_at": "2016-01-08T19:07:08.295Z",
     "interview": "Behavioral Phone Interview",
+    "interview_step": {
+      "id": 433,
+      "name": "Behavioral Phone Interview"
+    },
     "candidate_id": 14271904,
     "application_id": 23558552,
     "interviewed_at": "2016-01-08T17:00:00.000Z",
@@ -629,6 +649,10 @@ curl 'https://harvest.greenhouse.io/v1/scorecards/{id}'
   "updated_at": "2016-08-22T19:52:38.384Z",
   "created_at": "2016-08-22T19:52:38.384Z",
   "interview": "Application Review",
+  "interview_step": {
+    "id": 432,
+    "name": "Application Review"
+  },
   "candidate_id": 2131415,
   "application_id": 23558552,
   "interviewed_at": "2016-08-18T16:00:00.000Z",

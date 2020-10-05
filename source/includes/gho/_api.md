@@ -10,39 +10,39 @@ The list of countries
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-countryCodes | [\[String\]](#string) |  | 
+countryCodes | [\[String\]](#string) |  |
 ## customField \([CustomField](#customfield)\)
 A custom field
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [ID](#id) |  | 
+id | [ID](#id) |  |
 ## customFields \([CustomFieldConnection](#customfieldconnection)\)
 A collection of custom fields
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
-before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
-fieldTypes | [\[CustomFieldType\]](#customfieldtype) |  | 
-first | [Int](#int) | Returns the first _n_ elements from the list. | 
-ids | [\[ID\]](#id) |  | 
-last | [Int](#int) | Returns the last _n_ elements from the list. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. |
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. |
+fieldTypes | [\[CustomFieldType\]](#customfieldtype) |  |
+first | [Int](#int) | Returns the first _n_ elements from the list. |
+ids | [\[ID\]](#id) |  |
+last | [Int](#int) | Returns the last _n_ elements from the list. |
 ## department \([Department](#department)\)
 A single department
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [Int](#int) |  | 
+id | [Int](#int) |  |
 ## departments \([DepartmentConnection](#departmentconnection)\)
 All departments
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
-before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
-first | [Int](#int) | Returns the first _n_ elements from the list. | 
-last | [Int](#int) | Returns the last _n_ elements from the list. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. |
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. |
+first | [Int](#int) | Returns the first _n_ elements from the list. |
+last | [Int](#int) | Returns the last _n_ elements from the list. |
 ## employee \([Employee](#employee)\)
 ```graphql
 # Request an employee but limit their customFieldValues to those of specific customFields.
@@ -86,7 +86,7 @@ An Onboarding employee record
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [Int](#int) |  | 
+id | [Int](#int) |  |
 ## employees \([EmployeeConnection](#employeeconnection)\)
 ```graphql
 # Request only those employees that have title "Account Manager". For each employee that fits the criteria,
@@ -323,64 +323,74 @@ A collection of Onboarding employee records. The following arguments are depreac
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
-before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
-customFieldValues | [\[CustomFieldValuesInput\]](#customfieldvaluesinput) | filter employees by their custom field values | 
-dateOfBirth | [DateFilter](#datefilter) | DEPRECATED. Use dateOfBirthFilter instead | 
-dateOfBirthFilter | [DateOfBirthFilter](#dateofbirthfilter) | filter employees by their date of birth | 
-departmentFilter | [DepartmentFilter](#departmentfilter) | filter employees by their department | 
-departmentIds | [\[Int\]](#int) | DEPRECATED. Use departmentFilter instead | 
-emailFilter | [EmailFilter](#emailfilter) | filter employees by their email | 
-emails | [\[String\]](#string) | DEPRECATED. Use emailFilter instead | 
-employmentStatusFilter | [EmploymentStatusFilter](#employmentstatusfilter) | filter employees by their employment status | 
-employmentStatuses | [\[EmploymentStatus\]](#employmentstatus) | DEPRECATED. Use employmentStatusFilter instead | 
-first | [Int](#int) | Returns the first _n_ elements from the list. | 
-hrManagerFilter | [HrManagerFilter](#hrmanagerfilter) | filter employees by their hr manager | 
-hrManagerIds | [\[Int\]](#int) | DEPRECATED. Use hrManagerFilter instead | 
-last | [Int](#int) | Returns the last _n_ elements from the list. | 
-locationFilter | [LocationFilter](#locationfilter) | filter employees by their location | 
-locationIds | [\[Int\]](#int) | DEPRECATED. Use locationFilter instead | 
-managerFilter | [ManagerFilter](#managerfilter) | filter employees by their manager | 
-managerIds | [\[Int\]](#int) | DEPRECATED. Use managerFilter instead | 
-personalEmailFilter | [PersonalEmailFilter](#personalemailfilter) | filter employees by their personal email | 
-personalEmails | [\[String\]](#string) | DEPRECATED. Use personalEmailFilter instead | 
-startDate | [DateFilter](#datefilter) | DEPRECATED. Use startDateFilter instead | 
-startDateFilter | [StartDateFilter](#startdatefilter) | filter employees by their start date | 
-titleFilter | [TitleFilter](#titlefilter) | filter employees by their title | 
-titles | [\[String\]](#string) | DEPRECATED. Use titleFilter instead | 
-updatedAt | [DateTimeFilter](#datetimefilter) | filter employees based on when they were last updated | 
-workCountryCodeFilter | [WorkCountryCodeFilter](#workcountrycodefilter) | filter employees by their work country code | 
-workCountryCodes | [\[String\]](#string) | DEPRECATED. Use WorkCountryCodeFilter instead | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. |
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. |
+createdAt | [DateTimeFilter](#datetimefilter) | filter employees based on when they were created |
+customFieldValues | [\[CustomFieldValuesInput\]](#customfieldvaluesinput) | filter employees by their custom field values |
+dateOfBirth | [DateFilter](#datefilter) | DEPRECATED. Use dateOfBirthFilter instead |
+dateOfBirthFilter | [DateOfBirthFilter](#dateofbirthfilter) | filter employees by their date of birth |
+departmentFilter | [DepartmentFilter](#departmentfilter) | filter employees by their department |
+departmentIds | [\[Int\]](#int) | DEPRECATED. Use departmentFilter instead |
+emailFilter | [EmailFilter](#emailfilter) | filter employees by their email |
+emails | [\[String\]](#string) | DEPRECATED. Use emailFilter instead |
+employmentStatusFilter | [EmploymentStatusFilter](#employmentstatusfilter) | filter employees by their employment status |
+employmentStatuses | [\[String\]](#string) | DEPRECATED. Use employmentStatusFilter instead |
+first | [Int](#int) | Returns the first _n_ elements from the list. |
+hrManagerFilter | [HrManagerFilter](#hrmanagerfilter) | filter employees by their hr manager |
+hrManagerIds | [\[Int\]](#int) | DEPRECATED. Use hrManagerFilter instead |
+last | [Int](#int) | Returns the last _n_ elements from the list. |
+locationFilter | [LocationFilter](#locationfilter) | filter employees by their location |
+locationIds | [\[Int\]](#int) | DEPRECATED. Use locationFilter instead |
+managerFilter | [ManagerFilter](#managerfilter) | filter employees by their manager |
+managerIds | [\[Int\]](#int) | DEPRECATED. Use managerFilter instead |
+personalEmailFilter | [PersonalEmailFilter](#personalemailfilter) | filter employees by their personal email |
+personalEmails | [\[String\]](#string) | DEPRECATED. Use personalEmailFilter instead |
+startDate | [DateFilter](#datefilter) | DEPRECATED. Use startDateFilter instead |
+startDateFilter | [StartDateFilter](#startdatefilter) | filter employees by their start date |
+titleFilter | [TitleFilter](#titlefilter) | filter employees by their title |
+titles | [\[String\]](#string) | DEPRECATED. Use titleFilter instead |
+updatedAt | [DateTimeFilter](#datetimefilter) | filter employees based on when they were last updated |
+workCountryCodeFilter | [WorkCountryCodeFilter](#workcountrycodefilter) | filter employees by their work country code |
+workCountryCodes | [\[String\]](#string) | DEPRECATED. Use WorkCountryCodeFilter instead |
+
+## employmentStatuses
+A list of employment status custom field options
+
+Argument | Type | Description | Required
+--------- | ----------- | ----------- | -----------
+first | [Int](#int) | Returns the first _n_ elements from the list. |
+last | [Int](#int) | Returns the last _n_ elements from the list. |
+
 ## location \([Location](#location)\)
 A single location
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [Int](#int) |  | 
+id | [Int](#int) |  |
 ## locations \([LocationConnection](#locationconnection)\)
 All locations
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
-before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
-first | [Int](#int) | Returns the first _n_ elements from the list. | 
-last | [Int](#int) | Returns the last _n_ elements from the list. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. |
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. |
+first | [Int](#int) | Returns the first _n_ elements from the list. |
+last | [Int](#int) | Returns the last _n_ elements from the list. |
 ## otherCriteria \([OtherCriterionConnection](#othercriterionconnection)\)
 All other criteria
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
-before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
-first | [Int](#int) | Returns the first _n_ elements from the list. | 
-last | [Int](#int) | Returns the last _n_ elements from the list. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. |
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. |
+first | [Int](#int) | Returns the first _n_ elements from the list. |
+last | [Int](#int) | Returns the last _n_ elements from the list. |
 ## otherCriterion \([OtherCriterion](#othercriterion)\)
 A single other criterion
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [Int](#int) |  | 
+id | [Int](#int) |  |
 ## rateLimit \([RateLimit](#ratelimit)\)
 Information about your current API quota
 
@@ -389,31 +399,31 @@ A single team
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [Int](#int) |  | 
+id | [Int](#int) |  |
 ## teamCategories \([TeamCategoryConnection](#teamcategoryconnection)\)
 All team categories
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
-before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
-first | [Int](#int) | Returns the first _n_ elements from the list. | 
-last | [Int](#int) | Returns the last _n_ elements from the list. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. |
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. |
+first | [Int](#int) | Returns the first _n_ elements from the list. |
+last | [Int](#int) | Returns the last _n_ elements from the list. |
 ## teamCategory \([TeamCategory](#teamcategory)\)
 A single team category
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-id | [Int](#int) |  | 
+id | [Int](#int) |  |
 ## teams \([TeamConnection](#teamconnection)\)
 All teams
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [String](#string) | Returns the elements in the list that come after the specified cursor. | 
-before | [String](#string) | Returns the elements in the list that come before the specified cursor. | 
-first | [Int](#int) | Returns the first _n_ elements from the list. | 
-last | [Int](#int) | Returns the last _n_ elements from the list. | 
+after | [String](#string) | Returns the elements in the list that come after the specified cursor. |
+before | [String](#string) | Returns the elements in the list that come before the specified cursor. |
+first | [Int](#int) | Returns the first _n_ elements from the list. |
+last | [Int](#int) | Returns the last _n_ elements from the list. |
 # Mutations
 ## addDepartment \([AddDepartmentPayload](#adddepartmentpayload)\)
 Add a new Department
@@ -829,31 +839,31 @@ Information about the current request's complexity. If the complexity exceeds th
 
 Field | Type | Description
 --------- | ----------- | -----------
-maximum | [Int!](#int) | 
-score | [Int!](#int) | 
+maximum | [Int!](#int) |
+score | [Int!](#int) |
 
 ## Country
 A country
 
 Field | Type | Description
 --------- | ----------- | -----------
-countryCode | [String!](#string) | 
-name | [String!](#string) | 
-states | [\[State!\]!](#state) | 
+countryCode | [String!](#string) |
+name | [String!](#string) |
+states | [\[State!\]!](#state) |
 
 ## CustomField
 Represents a single CustomField record for your company. CustomFields can be stored and displayed in a variety of ways. The types are described via the [CustomFieldTypes](#customfieldtypes) enum.
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime!](#datetime) | 
-customFieldGroup | [CustomFieldGroup](#customfieldgroup) | 
+createdAt | [DateTime!](#datetime) |
+customFieldGroup | [CustomFieldGroup](#customfieldgroup) |
 fieldType | [CustomFieldType!](#customfieldtype) | The field type determines how users input and view the data for this field.
 id | [String!](#string) | A unique identifier for this CustomField.
-multipleChoiceOptions | [\[String!\]](#string) | 
+multipleChoiceOptions | [\[String!\]](#string) |
 name | [String!](#string) | The name of this custom field as users would see it inside Greenhouse Onboarding.
-teamCategory | [TeamCategory](#teamcategory) | 
-updatedAt | [DateTime!](#datetime) | 
+teamCategory | [TeamCategory](#teamcategory) |
+updatedAt | [DateTime!](#datetime) |
 
 ## CustomFieldConnection
 The connection type for CustomField.
@@ -877,17 +887,17 @@ A Group of Custom Field
 
 Field | Type | Description
 --------- | ----------- | -----------
-id | [ID!](#id) | 
-name | [String!](#string) | 
+id | [ID!](#id) |
+name | [String!](#string) |
 
 ## CustomFieldValue
 A Custom Field Value Record
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime!](#datetime) | 
-customField | [CustomField!](#customfield) | 
-updatedAt | [DateTime!](#datetime) | 
+createdAt | [DateTime!](#datetime) |
+customField | [CustomField!](#customfield) |
+updatedAt | [DateTime!](#datetime) |
 value | [Value](#value) | A different type of value will be stored based upon the field type of the [CustomField](#customfield). Some types have the data stored as a nested object. Note that the type is a scalar named [Value](#value). Even though it appears to be an object, you are not able to use GraphQL to determine its shape.
 valueUpdatedAt | [DateTime!](#datetime) | The time of the most recent update to this field.
 
@@ -910,14 +920,14 @@ Represents a single department in your company. Employees may belong to zero or 
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime!](#datetime) | 
-departmentLead | [Employee](#employee) | 
-description | [String](#string) | 
-email | [String](#string) | 
-externalId | [String](#string) | 
-id | [ID!](#id) | 
-name | [String!](#string) | 
-updatedAt | [DateTime!](#datetime) | 
+createdAt | [DateTime!](#datetime) |
+departmentLead | [Employee](#employee) |
+description | [String](#string) |
+email | [String](#string) |
+externalId | [String](#string) |
+id | [ID!](#id) |
+name | [String!](#string) |
+updatedAt | [DateTime!](#datetime) |
 
 ## DepartmentConnection
 The connection type for Department.
@@ -941,10 +951,10 @@ Represents a single document attached to an [Employee](#employee).
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime!](#datetime) | 
+createdAt | [DateTime!](#datetime) |
 file | [File](#file) | Contains the file payload.
-id | [ID!](#id) | 
-updatedAt | [DateTime!](#datetime) | 
+id | [ID!](#id) |
+updatedAt | [DateTime!](#datetime) |
 
 ## Employee
 A single Employee that works for your company. Employees have first class fields (e.g. title, start_date, email), and they also hold custom_field_values for user defined custom fields. These secondary values are held within the customFieldValues array.
@@ -952,34 +962,34 @@ A single Employee that works for your company. Employees have first class fields
 Field | Type | Description
 --------- | ----------- | -----------
 about | [String](#string) | A brief description of the employee. This information is displayed on both the employee's profile and is also featured prominently in the Welcome Experience for any new hires that report to this employee.
-createdAt | [DateTime!](#datetime) | 
+createdAt | [DateTime!](#datetime) |
 customFieldValues | [\[CustomFieldValue!\]](#customfieldvalue) | A list of all other profile information for this employee. Administrators can configure these fields on the [Settings > Custom Fields](https://onboarding.greenhouse.io/settings/fields) page.
 dateOfBirth | [Date](#date) | Note that only administrators can see the birth year for employees
 dateOfTermination | [Date](#date) | This information is only available on terminated employees
-department | [Department](#department) | 
+department | [Department](#department) |
 documents | [\[Document!\]](#document) | These are documents that came over from Greenhouse Recruiting or were attached directly to the employee profile. This does _not_ include E-Signature requests.
 email | [String](#string) | The employee's work email. They need this in order to sign in
-employmentStatus | [EmploymentStatus!](#employmentstatus) | 
-firstName | [String](#string) | 
+employmentStatus | [String](#string) |
+firstName | [String](#string) |
 greenhouseRecruitingData | [GreenhouseRecruitingData](#greenhouserecruitingdata) | The Greenhouse Recruiting 'hired' webhook data
 hrManager | [Employee](#employee) | The employee's HR Manager.
-id | [ID!](#id) | 
-lastName | [String](#string) | 
-location | [Location](#location) | 
+id | [ID!](#id) |
+lastName | [String](#string) |
+location | [Location](#location) |
 manager | [Employee](#employee) | This employee's direct manager.
-middleName | [String](#string) | 
-otherCriteria | [\[OtherCriterion!\]](#othercriterion) | 
+middleName | [String](#string) |
+otherCriteria | [\[OtherCriterion!\]](#othercriterion) |
 personalEmail | [String](#string) | The employee's personal email.
-phoneNumber | [String](#string) | 
+phoneNumber | [String](#string) |
 preferredFirstName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 preferredLastName | [String](#string) | This is the name that your employee prefers to go by. If this value is set, Greenhouse Onboarding will display this name everywhere in the product instead of the employee's legal name.
 profileImage | [File](#file) | A file containing the employee's profile image. This image is displayed in emails, reports and directory pages.
 signatureRequests | [\[SignatureRequest!\]](#signaturerequest) | These are E-Signature requests initiated through Greenhouse Onboarding. Keep in mind that these requests can be in a number of different states in their lifecycle and may not always have a signed document available to download.
-startDate | [Date](#date) | 
-suffix | [String](#string) | 
+startDate | [Date](#date) |
+suffix | [String](#string) |
 title | [String](#string) | The employee's job title.
-updatedAt | [DateTime!](#datetime) | 
-workCountryCode | [String!](#string) | 
+updatedAt | [DateTime!](#datetime) |
+workCountryCode | [String!](#string) |
 
 ## EmployeeConnection
 The connection type for Employee.
@@ -1021,15 +1031,15 @@ Represents a single location in your company. Employees may belong to zero or on
 
 Field | Type | Description
 --------- | ----------- | -----------
-address | [String](#string) | 
-createdAt | [DateTime](#datetime) | 
-description | [String](#string) | 
-email | [String](#string) | 
-externalId | [String](#string) | 
-id | [ID](#id) | 
-locationLead | [Employee](#employee) | 
-name | [String](#string) | 
-updatedAt | [DateTime](#datetime) | 
+address | [String](#string) |
+createdAt | [DateTime](#datetime) |
+description | [String](#string) |
+email | [String](#string) |
+externalId | [String](#string) |
+id | [ID](#id) |
+locationLead | [Employee](#employee) |
+name | [String](#string) |
+updatedAt | [DateTime](#datetime) |
 
 ## LocationConnection
 The connection type for Location.
@@ -1066,10 +1076,10 @@ A tag that can be used to refine on onboarding plan
 
 Field | Type | Description
 --------- | ----------- | -----------
-createdAt | [DateTime](#datetime) | 
-id | [ID](#id) | 
-name | [String](#string) | 
-updatedAt | [DateTime](#datetime) | 
+createdAt | [DateTime](#datetime) |
+id | [ID](#id) |
+name | [String](#string) |
+updatedAt | [DateTime](#datetime) |
 
 ## OtherCriterionConnection
 The connection type for OtherCriterion.
@@ -1102,27 +1112,27 @@ A Pending Hire Record
 
 Field | Type | Description
 --------- | ----------- | -----------
-about | [String](#string) | 
-createdAt | [DateTime](#datetime) | 
-customFieldValues | [\[CustomFieldValue\]](#customfieldvalue) | 
-dateOfBirth | [Date](#date) | 
-department | [Department](#department) | 
-email | [String](#string) | 
-employmentStatus | [EmploymentStatus](#employmentstatus) | 
-firstName | [String](#string) | 
-hrManager | [Employee](#employee) | 
-id | [ID](#id) | 
-lastName | [String](#string) | 
-location | [Location](#location) | 
-manager | [Employee](#employee) | 
-personalEmail | [String](#string) | 
-phoneNumber | [String](#string) | 
-preferredFirstName | [String](#string) | 
-preferredLastName | [String](#string) | 
-startDate | [Date](#date) | 
-title | [String](#string) | 
-updatedAt | [DateTime](#datetime) | 
-workCountryCode | [String](#string) | 
+about | [String](#string) |
+createdAt | [DateTime](#datetime) |
+customFieldValues | [\[CustomFieldValue\]](#customfieldvalue) |
+dateOfBirth | [Date](#date) |
+department | [Department](#department) |
+email | [String](#string) |
+employmentStatus | [String](#string) |
+firstName | [String](#string) |
+hrManager | [Employee](#employee) |
+id | [ID](#id) |
+lastName | [String](#string) |
+location | [Location](#location) |
+manager | [Employee](#employee) |
+personalEmail | [String](#string) |
+phoneNumber | [String](#string) |
+preferredFirstName | [String](#string) |
+preferredLastName | [String](#string) |
+startDate | [Date](#date) |
+title | [String](#string) |
+updatedAt | [DateTime](#datetime) |
+workCountryCode | [String](#string) |
 
 ## RateLimit
 Information about your current API quota
@@ -1140,12 +1150,12 @@ An E-Signature Request for assigned to an [Employee](#employee).
 Field | Type | Description
 --------- | ----------- | -----------
 counterSigner | [Employee](#employee) | The employee responsible for counter-signing this document, if applicable.
-createdAt | [DateTime](#datetime) | 
+createdAt | [DateTime](#datetime) |
 file | [File](#file) | This is available only for completed signatures.
-id | [ID](#id) | 
-signatureRequestTemplate | [SignatureRequestTemplate!](#signaturerequesttemplate) | 
-status | [SignatureRequestStatus](#signaturerequeststatus) | 
-updatedAt | [DateTime](#datetime) | 
+id | [ID](#id) |
+signatureRequestTemplate | [SignatureRequestTemplate!](#signaturerequesttemplate) |
+status | [SignatureRequestStatus](#signaturerequeststatus) |
+updatedAt | [DateTime](#datetime) |
 
 ## SignatureRequestTemplate
 A template used when assigning signature requests.
@@ -1153,39 +1163,39 @@ A template used when assigning signature requests.
 Field | Type | Description
 --------- | ----------- | -----------
 counterSigner | [Employee](#employee) | The default employee responsible for counter-signing documents created from this template, if applicable. Individual SignatureRequest objects can override the counter signer.
-createdAt | [DateTime](#datetime) | 
+createdAt | [DateTime](#datetime) |
 name | [String](#string) | The name of the template. This is the label administrators will see.
 publicName | [String](#string) | The public-facing name of the template. This is the name the new hire will see. If this is null, new hires will see the name field.
-updatedAt | [DateTime](#datetime) | 
+updatedAt | [DateTime](#datetime) |
 
 ## State
 A state
 
 Field | Type | Description
 --------- | ----------- | -----------
-country | [Country](#country) | 
-name | [String](#string) | 
-stateCode | [String](#string) | 
+country | [Country](#country) |
+name | [String](#string) |
+stateCode | [String](#string) |
 
 ## Team
 A Team record
 
 Field | Type | Description
 --------- | ----------- | -----------
-description | [String](#string) | 
-email | [String](#string) | 
-id | [ID](#id) | 
-location | [String](#string) | 
-name | [String](#string) | 
-teamCategory | [TeamCategory](#teamcategory) | 
+description | [String](#string) |
+email | [String](#string) |
+id | [ID](#id) |
+location | [String](#string) |
+name | [String](#string) |
+teamCategory | [TeamCategory](#teamcategory) |
 
 ## TeamCategory
 A Team Category Record
 
 Field | Type | Description
 --------- | ----------- | -----------
-id | [ID](#id) | 
-name | [String](#string) | 
+id | [ID](#id) |
+name | [String](#string) |
 
 ## TeamCategoryConnection
 The connection type for TeamCategory.
@@ -1239,48 +1249,48 @@ The input object used to add a [Department](#department).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-departmentLead | [ID](#id) |  | 
-description | [String](#string) |  | 
-email | [String](#string) |  | 
-externalId | [String](#string) |  | 
-name | [String](#string) |  | 
+departmentLead | [ID](#id) |  |
+description | [String](#string) |  |
+email | [String](#string) |  |
+externalId | [String](#string) |  |
+name | [String](#string) |  |
 
 ## AddLocationInput
 The input object used to add a [Location](#location).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-address | [String](#string) |  | 
-description | [String](#string) |  | 
-email | [String](#string) |  | 
-externalId | [String](#string) |  | 
-locationLead | [ID](#id) |  | 
-name | [String](#string) |  | 
+address | [String](#string) |  |
+description | [String](#string) |  |
+email | [String](#string) |  |
+externalId | [String](#string) |  |
+locationLead | [ID](#id) |  |
+name | [String](#string) |  |
 
 ## AddPendingHireInput
 Specify the properties of a new PendingHire
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-about | [String](#string) |  | 
-customFieldValues | [\[UpdateCustomFieldValue\]](#updatecustomfieldvalue) |  | 
-dateOfBirth | [Date](#date) |  | 
-department | [ID](#id) |  | 
-email | [String](#string) |  | 
-employmentStatus | [EmploymentStatus](#employmentstatus) |  | 
+about | [String](#string) |  |
+customFieldValues | [\[UpdateCustomFieldValue\]](#updatecustomfieldvalue) |  |
+dateOfBirth | [Date](#date) |  |
+department | [ID](#id) |  |
+email | [String](#string) |  |
+employmentStatus | [String](#string) |  |
 firstName | [String!](#string) |  | Required
-hrManager | [ID](#id) |  | 
+hrManager | [ID](#id) |  |
 lastName | [String!](#string) |  | Required
-location | [ID](#id) |  | 
-manager | [ID](#id) |  | 
-middleName | [String](#string) |  | 
-personalEmail | [String](#string) |  | 
-phoneNumber | [String](#string) |  | 
-preferredFirstName | [String](#string) |  | 
-preferredLastName | [String](#string) |  | 
-startDate | [Date](#date) |  | 
-suffix | [String](#string) |  | 
-title | [String](#string) |  | 
+location | [ID](#id) |  |
+manager | [ID](#id) |  |
+middleName | [String](#string) |  |
+personalEmail | [String](#string) |  |
+phoneNumber | [String](#string) |  |
+preferredFirstName | [String](#string) |  |
+preferredLastName | [String](#string) |  |
+startDate | [Date](#date) |  |
+suffix | [String](#string) |  |
+title | [String](#string) |  |
 workCountryCode | [String!](#string) |  | Required
 
 ## CustomFieldValuesInput
@@ -1288,36 +1298,36 @@ Limit employees to those that satisfy the specified CustomFieldValue criteria. N
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-dateValue | [DateFilter](#datefilter) |  | 
+dateValue | [DateFilter](#datefilter) |  |
 id | [String!](#string) |  | Required
-idValues | [\[Int\]](#int) |  | 
-textValues | [\[String\]](#string) |  | 
+idValues | [\[Int\]](#int) |  |
+textValues | [\[String\]](#string) |  |
 
 ## DateFilter
 Specify a range of dates using after (exclusive >), before (exclusive <), or on (exact match)
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [Date](#date) |  | 
-before | [Date](#date) |  | 
-on | [Date](#date) |  | 
+after | [Date](#date) |  |
+before | [Date](#date) |  |
+on | [Date](#date) |  |
 
 ## DateOfBirthFilter
 Filter employees based on their date of birth
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-dateFilter | [DateFilter](#datefilter) |  | 
-noValue | [Boolean](#boolean) |  | 
+anyValue | [Boolean](#boolean) |  |
+dateFilter | [DateFilter](#datefilter) |  |
+noValue | [Boolean](#boolean) |  |
 
 ## DateTimeFilter
 Specify a range of datetimes using after (exclusive >), before (exclusive <)
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-after | [DateTime](#datetime) |  | 
-before | [DateTime](#datetime) |  | 
+after | [DateTime](#datetime) |  |
+before | [DateTime](#datetime) |  |
 
 ## DeleteDepartmentInput
 The input object used to delete a [Department](#department).
@@ -1338,81 +1348,81 @@ Filter employees based on their department
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-departmentIds | [\[Int\]](#int) |  | 
-noValue | [Boolean](#boolean) |  | 
+anyValue | [Boolean](#boolean) |  |
+departmentIds | [\[Int\]](#int) |  |
+noValue | [Boolean](#boolean) |  |
 
 ## EmailFilter
 Filter employees based on their email address
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-emails | [\[String\]](#string) |  | 
-noValue | [Boolean](#boolean) |  | 
+anyValue | [Boolean](#boolean) |  |
+emails | [\[String\]](#string) |  |
+noValue | [Boolean](#boolean) |  |
 
 ## EmploymentStatusFilter
 Filter employees based on their Employment Status
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-employmentStatuses | [\[EmploymentStatus\]](#employmentstatus) |  | 
-noValue | [Boolean](#boolean) |  | 
+anyValue | [Boolean](#boolean) |  |
+employmentStatuses | [\[String\]](#string) |  |
+noValue | [Boolean](#boolean) |  |
 
 ## HrManagerFilter
 Filter employees based on their HR Manager
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-hrManagerIds | [\[Int\]](#int) |  | 
-noValue | [Boolean](#boolean) |  | 
+anyValue | [Boolean](#boolean) |  |
+hrManagerIds | [\[Int\]](#int) |  |
+noValue | [Boolean](#boolean) |  |
 
 ## LocationFilter
 Filter employees based on their location
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-locationIds | [\[Int\]](#int) |  | 
-noValue | [Boolean](#boolean) |  | 
+anyValue | [Boolean](#boolean) |  |
+locationIds | [\[Int\]](#int) |  |
+noValue | [Boolean](#boolean) |  |
 
 ## ManagerFilter
 Filter employees based on their Manager
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-managerIds | [\[Int\]](#int) |  | 
-noValue | [Boolean](#boolean) |  | 
+anyValue | [Boolean](#boolean) |  |
+managerIds | [\[Int\]](#int) |  |
+noValue | [Boolean](#boolean) |  |
 
 ## PersonalEmailFilter
 Filter employees based on their personal email address
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-noValue | [Boolean](#boolean) |  | 
-personalEmails | [\[String\]](#string) |  | 
+anyValue | [Boolean](#boolean) |  |
+noValue | [Boolean](#boolean) |  |
+personalEmails | [\[String\]](#string) |  |
 
 ## StartDateFilter
 Filter employees based on their start date
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-dateFilter | [DateFilter](#datefilter) |  | 
-noValue | [Boolean](#boolean) |  | 
+anyValue | [Boolean](#boolean) |  |
+dateFilter | [DateFilter](#datefilter) |  |
+noValue | [Boolean](#boolean) |  |
 
 ## TitleFilter
 Filter employees based on their title
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-noValue | [Boolean](#boolean) |  | 
-titles | [\[String\]](#string) |  | 
+anyValue | [Boolean](#boolean) |  |
+noValue | [Boolean](#boolean) |  |
+titles | [\[String\]](#string) |  |
 
 ## UpdateCustomFieldValue
 Used to update an employee's Custom Field Value
@@ -1420,69 +1430,69 @@ Used to update an employee's Custom Field Value
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 customFieldId | [ID!](#id) |  | Required
-value | [Value](#value) |  | 
+value | [Value](#value) |  |
 
 ## UpdateDepartmentInput
 The input object used to update a [Department](#department).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-departmentLead | [ID](#id) |  | 
-description | [String](#string) |  | 
-email | [String](#string) |  | 
-externalId | [String](#string) |  | 
+departmentLead | [ID](#id) |  |
+description | [String](#string) |  |
+email | [String](#string) |  |
+externalId | [String](#string) |  |
 id | [ID!](#id) |  | Required
-name | [String](#string) |  | 
+name | [String](#string) |  |
 
 ## UpdateEmployee
 The input object used to update an [Employee](#employee).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-about | [String](#string) |  | 
-customFieldValues | [\[UpdateCustomFieldValue\]](#updatecustomfieldvalue) |  | 
-dateOfBirth | [Date](#date) |  | 
-department | [ID](#id) |  | 
-email | [String](#string) |  | 
-employmentStatus | [EmploymentStatus](#employmentstatus) |  | 
-firstName | [String](#string) |  | 
-hrManager | [ID](#id) |  | 
-lastName | [String](#string) |  | 
-location | [ID](#id) |  | 
-manager | [ID](#id) |  | 
-middleName | [String](#string) |  | 
-otherCriteria | [\[ID\]](#id) |  | 
-personalEmail | [String](#string) |  | 
-phoneNumber | [String](#string) |  | 
-preferredFirstName | [String](#string) |  | 
-preferredLastName | [String](#string) |  | 
-profileImage | [URL](#url) |  | 
-startDate | [Date](#date) |  | 
-suffix | [String](#string) |  | 
-title | [String](#string) |  | 
-workCountryCode | [String](#string) |  | 
+about | [String](#string) |  |
+customFieldValues | [\[UpdateCustomFieldValue\]](#updatecustomfieldvalue) |  |
+dateOfBirth | [Date](#date) |  |
+department | [ID](#id) |  |
+email | [String](#string) |  |
+employmentStatus | [String](#string) |  |
+firstName | [String](#string) |  |
+hrManager | [ID](#id) |  |
+lastName | [String](#string) |  |
+location | [ID](#id) |  |
+manager | [ID](#id) |  |
+middleName | [String](#string) |  |
+otherCriteria | [\[ID\]](#id) |  |
+personalEmail | [String](#string) |  |
+phoneNumber | [String](#string) |  |
+preferredFirstName | [String](#string) |  |
+preferredLastName | [String](#string) |  |
+profileImage | [URL](#url) |  |
+startDate | [Date](#date) |  |
+suffix | [String](#string) |  |
+title | [String](#string) |  |
+workCountryCode | [String](#string) |  |
 
 ## UpdateLocationInput
 The input object used to update a [Location](#location).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-address | [String](#string) |  | 
-description | [String](#string) |  | 
-email | [String](#string) |  | 
-externalId | [String](#string) |  | 
+address | [String](#string) |  |
+description | [String](#string) |  |
+email | [String](#string) |  |
+externalId | [String](#string) |  |
 id | [ID!](#id) |  | Required
-locationLead | [ID](#id) |  | 
-name | [String](#string) |  | 
+locationLead | [ID](#id) |  |
+name | [String](#string) |  |
 
 ## WorkCountryCodeFilter
 Filter employees based on their work country code
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-anyValue | [Boolean](#boolean) |  | 
-noValue | [Boolean](#boolean) |  | 
-workCountryCodes | [\[String\]](#string) |  | 
+anyValue | [Boolean](#boolean) |  |
+noValue | [Boolean](#boolean) |  |
+workCountryCodes | [\[String\]](#string) |  |
 
 # Scalars
 ## Boolean
@@ -1581,18 +1591,6 @@ MULTIPLE_CHOICE | Displayed as a dropdown. Stored as a String.
 MULTIPLE_SELECT | Displayed as a tag field. Stored as an Array of Strings.
 TEAM | Displayed as a dropdown of teams. Stored as a Team ID.
 TEXT | Displayed as a single line text field. Stored as a String.
-
-## EmploymentStatus
-Possible employment statuses for an employee
-
-Value | Description
---------- | ---------
-CONTRACTOR | 
-FULL_TIME | 
-INTERN | 
-PART_TIME | 
-TEMPORARY | 
-TERMINATED | 
 
 ## SignatureRequestStatus
 Possible status values for a Signature Request

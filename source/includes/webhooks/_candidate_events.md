@@ -48,7 +48,7 @@ This web hook will fire when a candidate or prospect is deleted from Greenhouse.
     "application": {
       "id": 46194062,
       "opening": {
-        "opening_id": "1234-56"
+        "opening_id": "1234-56",
         "custom_fields": []
       },
       "credited_to": {
@@ -400,7 +400,7 @@ This web hook will fire when a candidate or prospect is merged with another cand
         "company": null,
         "created_at": "2013-10-04T01:24:44Z",
         "external_id": "241b399ce4b0fd1c84e5528d",
-        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+        "photo_url": null,
         "url": "https://app.greenhouse.io/people/265772",
         "is_private": false,
         "can_email": true,
@@ -593,7 +593,7 @@ See web hook [common attributes](#common-attributes).
         "company": null,
         "created_at": "2013-10-04T01:24:48Z",
         "external_id": null,
-        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+        "photo_url": null,
         "url": "https://app.greenhouse.io/people/265788",
         "is_private": false,
         "can_email": true,
@@ -750,7 +750,7 @@ See web hook [common attributes](#common-attributes).
         "company": null,
         "created_at": "2013-10-04T01:24:48Z",
         "external_id": null,
-        "photo_url": "www.example.com/photo.png",
+        "photo_url": null,
         "is_private": false,
         "can_email": true,
         "phone_numbers": [
@@ -891,7 +891,7 @@ See web hook [common attributes](#common-attributes).
         "company": null,
         "created_at": "2013-10-04T01:24:48Z",
         "external_id": null,
-        "photo_url": "www.example.com/photo.png",
+        "photo_url": null,
         "is_private": false,
         "can_email": true,
         "phone_numbers": [
@@ -1144,7 +1144,7 @@ See web hook [common attributes](#common-attributes).
         "company": null,
         "created_at": "2014-12-02T23:10:16Z",
         "external_id": null,
-        "photo_url": "https://prod-heroku.s3.amazonaws.com/...",
+        "photo_url": null,
         "is_private": false,
         "can_email": true,
         "phone_numbers": [
@@ -1274,7 +1274,6 @@ A list of possible anonymized fields are provided. If the item in "attribute" is
 | `all_offer_versions` | For each of this candidate's applications, destroy all offers. (For legacy reasons, this will also raise an [Offer Deleted](#offer-deleted) web hook if one is configured.) |
 | `application_questions` | For each of this candidate's applications, destroy all values from `application.answers`. |
 | `attachments` | Destroy all attachments on this candidate and all their associated applications. |
-| `candidate_photo` | Destroy the candidate's photo. |
 | `candidate_stage_data` | For each of this candidate's applications, set the `created_at` time to now, remove the candidate from the current stage, destroy all stage transition information, and set the candidate back to the first stage. |
 | `coordinator` | Set `candidate.coordinator` to null |
 | `credited_to` | For each of this candidate's application, destroy `application.credited_to`. |

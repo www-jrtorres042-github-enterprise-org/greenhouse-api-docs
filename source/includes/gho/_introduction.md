@@ -27,7 +27,7 @@ Mutations | Mutate data (similar to POST, PUT, PATCH, DELETE). They also return 
 Type | Each type describes an object in GHO (e.g. Employee or Department). Each type has its own set of fields which contain the information (e.g. Employee has a first name, Department contains a description).
 Input Objects | Queries and Mutations take input objects as arguments. These arguments have names and values. The value will either be a scalar or a more complex structured input.
 Scalars | The most basic data type. All types (e.g. Employee) have fields that contain scalars or other types that eventually boil down to scalars.
-Enums | ENUMs are hard-coded values. They are strings that must be a certain value. E.g. an Employee's "employmentStatus" can only be one of [CONTRACTOR FULL_TIME INTERN PART_TIME TEMPORARY TERMINATED].
+Enums | ENUMs are hard-coded values. They are strings that must be a certain value. E.g. a Signature Request's "status" can only be one of [BEING_PROCESSED CANCELED COMPLETED ERROR WAITING_FOR_COUNTER_SIGNATURE WAITING_FOR_SIGNATURE].
 
 ## Authentication
 

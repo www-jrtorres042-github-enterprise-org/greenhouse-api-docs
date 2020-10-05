@@ -48,4 +48,4 @@ Property Name | Type | Required | Description
 id | Integer | Yes | The ID of the job.
 name | String | Yes | The name as it appears in Greenhouse, NOT necessarily how it appears on the public job board.
 status | String | Yes | Always ‘open’.
-public | Boolean | Yes | True if this job is published on the organization’s careers page.
+public | Boolean | Yes | True if this job has any job posts that are currently live on any job board.

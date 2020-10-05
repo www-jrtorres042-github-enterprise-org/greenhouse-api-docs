@@ -89,7 +89,15 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
             "type": "long_text",
             "value": "This is a bio"
         }
-    }
+    },
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "type": "offer_packet"
+        }
+    ]
+
 }
 ```
 
@@ -181,7 +189,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "type": "single_select",
             "value": "Option 1"
         }
-    }
+    },
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "type": "offer_packet"
+        }
+    ]
 },
 {
     "id": 69306509,
@@ -267,7 +282,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "type": "single_select",
             "value": "Option 1"
         }
-    }
+    },
+    "attachments": [
+        {
+            "filename": "Jack_Smith_Offer_Packet_09_27_2020.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "type": "offer_packet"
+        }
+    ]
   }
 ]
 ```
@@ -360,7 +382,14 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
             "type": "single_select",
             "value": "Option 1"
         }
-    }
+    },
+    "attachments": [
+        {
+            "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+            "url": "https://prod-heroku.s3.amazonaws.com/...",
+            "type": "offer_packet"
+        }
+    ]
 }
 
 ```
@@ -496,7 +525,14 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}'
           "type": "single_select",
           "value": "Option 1"
       }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -522,7 +558,7 @@ source_id | No | integer | The ID of the application's source
 referrer | No | object | An object representing the referrer
 referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
 referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
-custom_fields[] | No | custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing.
+custom_fields[] | No | custom_field | Array of hashes containing new custom field values.  Passing an empty array does nothing. [Click here](#custom-field-parameters) for more information on structuring custom field data for edit requests.
 prospect_pool_id | No | integer | The ID of the prospect pool for the application
 prospect_stage_id | No | integer | The ID of the prospect pool stage for the application
 
@@ -605,7 +641,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
           "type": "single_select",
           "value": "Option 1"
       }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -711,7 +754,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
           "type": "single_select",
           "value": "Option 1"
       }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -820,7 +870,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
       "type": "boolean",
       "value": false
     }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -983,7 +1040,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
       "type": "boolean",
       "value": false
     }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -1125,7 +1189,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
       "type": "long_text",
       "value": "This is a bio"
     }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 }
 ```
 
@@ -1154,7 +1225,7 @@ rejection_email.email_template_id | Yes, if sending rejection_email | string | T
 
 ## PATCH: Update Rejection Reason
 
-``````shell
+```shell
 curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 -H "Content-Type: application/json"
 -H "On-Behalf-Of: {greenhouse user ID}"
@@ -1170,13 +1241,37 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
 ```
 
 > The above returns a JSON response, structured like this:
+```json
 {
-    id: 12345,
-    message: "Rejection reason updated to 815 (Higher Salary Offer Made)",
-    success: true
+    "id": 12345,
+    "message": "Rejection reason updated to 815 (Higher Salary Offer Made)",
+    "success": true
 }
+```
 
 This endpoint updates the rejection reason on a currently rejected application. An application in any other state will return an error. The rejection reason id may be either a custom rejection reason for your organization or a Greenhouse default rejection reason.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/applications/{id}/reject`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### URL parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the application to update
+
+### JSON Body Parameters
+
+Parameter | Required | Description
+--------- | ----------- | -----------
+rejection_reason_id | yes | The ID of the new rejection reason
 
 
 ## POST: Unreject Application
@@ -1257,7 +1352,14 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
       "type": "single_select",
       "value": "Option 1"
     }
-  }
+  },
+  "attachments": [
+      {
+          "filename": "John_Locke_Offer_Packet_09_27_2017.pdf",
+          "url": "https://prod-heroku.s3.amazonaws.com/...",
+          "type": "offer_packet"
+      }
+  ]
 ```
 
 > An unsuccessful response:
