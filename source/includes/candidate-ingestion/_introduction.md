@@ -76,7 +76,7 @@ Basic users have the most restrictions, since their abilities in the UI are also
 
 Basic users can:
 * *Retreive jobs* Retreive information about the current user
-*  *Create prospects* on no jobs Create candidates on jobs
+* *Create prospects* on no jobs Create candidates on jobs
 
 They can't:
 * *Retreive prospects* Retreive candidates

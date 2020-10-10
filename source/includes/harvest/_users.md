@@ -255,16 +255,15 @@ curl -X PATCH 'https://harvest.greenhouse.io/v2/users/disable'
 
 Disable a user. This endpoint allows you to disable a user via their Greenhouse user id, their internal employee id, or their e-mail address in Greenhouse. Any of the e-mail addresses tied to the user's account can be used. The user information must be provided in a JSON body. Only one of user_id, employee_id (if available), or e-mail address may be provided. Employee id or e-mail address must be a string. User ID must be a number. It is safe to call this method on a user that is currently disabled. If the user is already disabled, nothing happens.
 
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v2/users/disable`
+
 ### Headers
 
 Header | Description
 --------- | -----------
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
-
-### HTTP Request
-
-`PATCH https://harvest.greenhouse.io/v2/users/disable`
-
 
 ## PATCH: Enable User
 
@@ -272,6 +271,25 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 curl -X PATCH 'https://harvest.greenhouse.io/v2/users/enable'
 -H "On-Behalf-Of: {greenhouse user ID}"
 -H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "user": {"email": "test@example.com"}
+}
+
+- or -
+
+{
+  "user": {"user_id": 11234}
+}
+
+- or -
+
+{
+  "user": {"employee_id": "user-123"}
+}
 ```
 > The above command returns a JSON response, structured like this:
 
