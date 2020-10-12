@@ -199,7 +199,7 @@ An organization's jobs.
 | openings[].closed_at      | Timestamp when the opening was closed. An opening is closed when it is filled or removed.                                                                                                                                                                                                                                                                                           |
 | openings[].application_id | If the opening is closed and a candidate was hired to fill the opening, this is the ID of the candidate's application. Otherwise, null.                                                                                                                                                                                                                                             |
 | openings[].close_reason   | If the opening is closed, it may or may not have a reason for the closure. This contains the id and name of the close reason.                                                                                                                                                                                                                                                       |
-| is_template | Is this job designated as a template used to create other jobs. True or false.
+| is_template | Is this job designated as a template used to create other jobs. This may be true, false, or null. Null is an indication this job was created before template job feature.
 |
 | copied_from_id | If this job was copied from another job, this field contains the id of the source job.
 
