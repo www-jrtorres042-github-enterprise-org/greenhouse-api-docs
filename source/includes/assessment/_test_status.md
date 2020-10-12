@@ -1,7 +1,7 @@
 # Sending Updates to Greenhouse
 
 ### If you have implemented the polling option:
-<aside class="warning">The polling option has been deprecated as of October 1, 2019. All Assessment API implementations after this date must use the PATCH Completed Test endpoint.</aside>
+<aside class="warning">The polling option has been deprecated as of October 1, 2019. All Assessment API implementations after this date must use the PATCH Completed Test endpoint. However, existing integrations will continue to work with the original test status method.</aside>
 After a successful `send_test` request, Greenhouse will check whether the test instance has been completed by polling the `test_status` endpoint hourly. We will discontinue polling the `test_status` endpoint after we receive a `partner_status` of `complete`, or after 8 weeks has passed since the test was sent.
 
 ### If you have implemented the PATCH Completed Test option:
