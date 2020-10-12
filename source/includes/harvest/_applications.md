@@ -441,6 +441,148 @@ On-Behalf-Of | ID of the user issuing this request. Required for auditing purpos
 
 [See noteworthy response attributes.] (#the-candidate-object)
 
+## POST: Add Application to Candidate/Prospect
+
+```shell
+curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
+-H "Content-Type: application/json"
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+
+> To create a prospect application for jobs 123 and 456:
+
+```json
+{
+  "prospect": "true",
+  "job_ids": [123, 456],
+  "prospective_office_id": 58319,
+  "prospective_department_id": 9021,
+  "prospect_pool_id": 1640,
+  "prospect_pool_stage_id": 7594,
+  "prospect_owner_id": 107468
+}
+```
+
+> To create a prospect application on no jobs:
+
+```json
+{
+  "prospect": "true"
+}
+```
+
+> To create a candidate application:
+
+```json
+{
+  "job_id": 266926,
+  "source_id": 7,
+  "initial_stage_id": 2708728,
+  "referrer": {
+    "type": "id",
+    "value": 770
+  },
+  "attachments": [{
+    "filename": "resume.pdf",
+    "type": "resume",
+    "content": "MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6...",
+    "content_type": "application/pdf"
+}
+```
+
+> The above command returns a JSON response, structured like this:
+
+```json
+{
+  "id": 38776620,
+  "candidate_id": 15803530,
+  "prospect": false,
+  "applied_at": "2016-11-08T19:50:49.746Z",
+  "rejected_at": null,
+  "last_activity_at": "2016-11-04T19:46:40.377Z",
+  "source": {
+    "id": 7,
+    "public_name": "Indeed"
+  },
+  "credited_to": {
+        "id": 770,
+        "first_name": "Moon",
+        "last_name": "Colorado",
+        "name": "Moon Colorado",
+        "employee_id": null
+    },
+  "rejection_reason": null,
+  "rejection_details": null,
+  "jobs": [
+    {
+      "id": 266926,
+      "name": "Construction Project Manager"
+    }
+  ],
+  "status": "active",
+  "current_stage": {
+    "id": 1945557,
+    "name": "Application Review"
+  },
+  "answers": [],
+  "custom_fields": {
+    "birthday": "1992-01-27",
+    "bio": "This is my bio"
+  },
+  "prospective_office": null,
+  "prospective_department": null,
+  "prospect_detail": {
+    "prospect_pool": null,
+    "prospect_stage": null,
+    "prospect_owner": null
+  }
+}
+```
+
+
+Create a new application for an existing candidate or prospect.
+
+The new application can be a candidate application or a prospect application, depending on the `"prospect"` parameter which defaults to `"false"`.  The JSON body parameters differ depending on whether you are creating a prospect application or a candidate application.  The main difference is that prospect applications can be considered for zero, one, or multiple jobs.
+
+### HTTP Request
+
+`POST https://harvest.greenhouse.io/v1/candidates/{id}/applications`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters for Candidate application
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- | -----------
+job_id | Yes | integer | The ID of the job you want to create an application to for this candidate
+source_id | No | integer | The id of the source to be credited for this application
+initial_stage_id | No | integer | The ID of the job stage this application will be created in.
+referrer | No | object | An object representing the referrer
+referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
+referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+attachments | No | array | An array of attachments to be uploaded to this application. See [Add Attachment] (#post-add-attachment) for parameters.
+
+### JSON Body Parameters for Prospect application
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | ----------- |
+prospect | Yes | boolean | Set to `"true"` in order to create a prospect application.
+job_ids | No | array | An optional array of Job IDs to consider this prospect for.
+source_id | No | integer | The id of the source to be credited for this application
+referrer | No | object | An object representing the referrer
+referrer[type] | No | string | A string representing the type of referrer: 'id', 'email', or 'outside'
+referrer[value] | No | string | The id of the user who made the referral (not the referrer id)
+prospect_pool_id | No | integer | Prospect Pool ID.
+prospect_pool_stage_id | No | integer | Prospect Pool Stage ID.  `prospect_pool_id` is required, and the prospect pool stage must belong to the given prospect pool.
+prospect_owner_id | No | integer |User ID of the prospect owner.
+prospective_department_id | No | integer | Department ID to consider this prospect for.
+prospective_office_id | No | integer | Office ID to consider this prospect for.  `prospective_department_id` is required in order to set a prospective office.
+
 ## PATCH: Update Application
 
 ```shell
