@@ -16,6 +16,8 @@ An organization's jobs.
   "opened_at": "2013-12-11T14:42:58Z",
   "closed_at": "2013-12-12T14:42:58Z",
   "updated_at": "2013-12-12T14:42:58Z",
+  "is_template": false,
+  "copied_from_id": 2345,
   "departments": [
     {
       "id": 25907,
@@ -197,6 +199,9 @@ An organization's jobs.
 | openings[].closed_at      | Timestamp when the opening was closed. An opening is closed when it is filled or removed.                                                                                                                                                                                                                                                                                           |
 | openings[].application_id | If the opening is closed and a candidate was hired to fill the opening, this is the ID of the candidate's application. Otherwise, null.                                                                                                                                                                                                                                             |
 | openings[].close_reason   | If the opening is closed, it may or may not have a reason for the closure. This contains the id and name of the close reason.                                                                                                                                                                                                                                                       |
+| is_template | Is this job designated as a template used to create other jobs. True or false.
+|
+| copied_from_id | If this job was copied from another job, this field contains the id of the source job.
 
 ## GET: List Jobs
 
@@ -220,6 +225,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs'
     "opened_at": "2013-12-11T14:42:58Z",
     "closed_at": "2013-12-12T14:42:58Z",
     "updated_at": "2013-12-12T14:42:58Z",
+    "is_template": false,
+    "copied_from_id": 2345,
     "departments": [
       {
         "id": 25907,
@@ -431,6 +438,8 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}'
   "opened_at": "2013-12-11T14:42:58Z",
   "closed_at": "2013-12-12T14:42:58Z",
   "updated_at": "2013-12-12T14:42:58Z",
+  "is_template": false,
+  "copied_from_id": 2345,
   "departments": [
     {
       "id": 25907,
@@ -660,6 +669,8 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/jobs/{id}'
   "opened_at": "2013-12-11T14:42:58Z",
   "closed_at": "2013-12-12T14:42:58Z",
   "updated_at": "2013-12-12T14:42:58Z",
+  "is_template": false,
+  "copied_from_id": 2345,
   "departments": [
     {
       "id": 74,
@@ -943,6 +954,8 @@ The custom field parameter structure is different in the PATCH method then in GE
   "notes": "Looking for the best!",
   "confidential": false,
   "status": "open",
+  "is_template": false,
+  "copied_from_id": 2345,
   "created_at": "2015-09-10T19:01:46.078Z",
   "opened_at": "2015-09-10T19:01:46.078Z",
   "updated_at": "2018-12-12T14:42:58Z",
@@ -1179,6 +1192,8 @@ curl -X POST 'https://harvest.greenhouse.io/v1/jobs'
   "notes": "Looking for the best!",
   "confidential": false,
   "status": "open",
+  "is_template": false,
+  "copied_from_id": 12345,
   "created_at": "2015-09-10T19:01:46.078Z",
   "opened_at": "2015-09-10T19:01:46.078Z",
   "updated_at": "2015-09-10T19:01:46.078Z",
