@@ -64,6 +64,30 @@ or as an authorized header:
 
 In all cases, the customer will have supplied the partner with a Partner API Key and a service user. Both items are required to submit candidates.
 
+### Note: Capabilities with the Ingestion API will be limited to the permissions of the On-Behalf-Of user
+
+There are four user types, **Site Admin**, **Job Admin**, **Interviewer**, and **Basic**.
+
+Site Admins have access to all jobs by default, whereas Job Admins/Interviewers are assigned to specific jobs. Job Admins/Interviewers will only be able to retrieve jobs via the API that they are assigned access to, or that are live on the company's job board. However they can add Candidates to jobs they have access to, as well as jobless Prospects to Greenhouse.
+
+Because all user permissions are job-based, in order to retrieve jobless Prospects from the API, Site Admins, Job Admins, and Interviewers need the additional Greenhouse permission to manage jobless Prospects. Otherwise, they can only add Prospects, and not retrieve them. This is true of the UI as well.
+
+Basic users have the most restrictions, since their abilities in the UI are also very limited:
+
+Basic users can:
+* *Retreive jobs* Retreive information about the current user
+* *Create prospects* on no jobs Create candidates on jobs
+
+They can't:
+* *Retreive prospects* Retreive candidates
+* Create a tracking link
+
+<aside class="warning">
+All user accounts must be active. Disabled users won't be able to do anything with the Ingestion API.
+</aside>
+
+
+
 ## OAuth Scopes
 
 If you use OAuth for authentication, there are 3 permission scopes to be aware of. Some endpoints will require a specific permission scope while others require none.
