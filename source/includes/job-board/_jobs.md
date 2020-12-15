@@ -304,7 +304,7 @@ Please note that it is possible for multiple fields to be aggregated beneath a s
 | multi_value_single_select | Can be represented as either a set of radio buttons or a select
 | multi_value_multi_select | Can be represented as either a set of checkboxes or a multi-select
 
-For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered given the table above based on the question 'type'. The candidate must select an answer option for questions with `required` set to `true`. If an answer option is selected that has `free_form` set to `true`, the candidate must be allowed to type a free-form response. This free-form response is only required if no other answer options have been selected by the candidate.
+For organizations using Greenhouse Inclusion, the response may contain demographic questions. Each question contains an array of answer options that may be rendered based on the question 'type' defined in the table above. The candidate must select an answer option for questions with `required` set to `true`. If an answer option is selected that has `free_form` set to `true`, the candidate must be allowed to type a free-form response. This free-form response is only required if no other answer options have been selected by the candidate.
 
 ### Data Compliance
 
