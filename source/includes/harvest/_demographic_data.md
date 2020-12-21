@@ -37,7 +37,8 @@ Demographic questions and answers submitted during the application process. For 
       "name": "What is your favorite color?"
     }
   ],
-  "required": true
+  "required": true,
+  "answer_type": "multi_value_multi_select"
 }
 ```
 
@@ -52,6 +53,7 @@ Demographic questions and answers submitted during the application process. For 
 | translations.name | Translations have been deprecated but are kept for backwards compatibility. This value will be the same as `name` above.
 | active | If `false`, the question has been deleted.
 | required | If `true`, the question must be filled out by the applicant.
+| answer_type | The type of answer that can be provided for the question. Value will be either `multi_value_single_select` or `multi_value_multi_select`.
 
 ## The Demographic Answer Option object
 
