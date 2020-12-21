@@ -353,13 +353,8 @@ updatedAt | [DateTimeFilter](#datetimefilter) | filter employees based on when t
 workCountryCodeFilter | [WorkCountryCodeFilter](#workcountrycodefilter) | filter employees by their work country code |
 workCountryCodes | [\[String\]](#string) | DEPRECATED. Use WorkCountryCodeFilter instead |
 
-## employmentStatuses
-A list of employment status custom field options
-
-Argument | Type | Description | Required
---------- | ----------- | ----------- | -----------
-first | [Int](#int) | Returns the first _n_ elements from the list. |
-last | [Int](#int) | Returns the last _n_ elements from the list. |
+## employmentStatuses \([\[String\]](#string)\)
+The list of valid options for Employment Status
 
 ## location \([Location](#location)\)
 A single location
@@ -969,7 +964,7 @@ dateOfTermination | [Date](#date) | This information is only available on termin
 department | [Department](#department) |
 documents | [\[Document!\]](#document) | These are documents that came over from Greenhouse Recruiting or were attached directly to the employee profile. This does _not_ include E-Signature requests.
 email | [String](#string) | The employee's work email. They need this in order to sign in
-employmentStatus | [String](#string) |
+employmentStatus | [String](#string) | [Valid options](#employmentstatuses-string)
 firstName | [String](#string) |
 greenhouseRecruitingData | [GreenhouseRecruitingData](#greenhouserecruitingdata) | The Greenhouse Recruiting 'hired' webhook data
 hrManager | [Employee](#employee) | The employee's HR Manager.
@@ -1118,7 +1113,7 @@ customFieldValues | [\[CustomFieldValue\]](#customfieldvalue) |
 dateOfBirth | [Date](#date) |
 department | [Department](#department) |
 email | [String](#string) |
-employmentStatus | [String](#string) |
+employmentStatus | [String](#string) | [Valid options](#employmentstatuses-string)
 firstName | [String](#string) |
 hrManager | [Employee](#employee) |
 id | [ID](#id) |
@@ -1277,7 +1272,7 @@ customFieldValues | [\[UpdateCustomFieldValue\]](#updatecustomfieldvalue) |  |
 dateOfBirth | [Date](#date) |  |
 department | [ID](#id) |  |
 email | [String](#string) |  |
-employmentStatus | [String](#string) |  |
+employmentStatus | [String](#string) | [Valid options](#employmentstatuses-string) |
 firstName | [String!](#string) |  | Required
 hrManager | [ID](#id) |  |
 lastName | [String!](#string) |  | Required
@@ -1367,7 +1362,7 @@ Filter employees based on their Employment Status
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 anyValue | [Boolean](#boolean) |  |
-employmentStatuses | [\[String\]](#string) |  |
+employmentStatuses | [\[String\]](#string) | [Valid options](#employmentstatuses-string) |
 noValue | [Boolean](#boolean) |  |
 
 ## HrManagerFilter
@@ -1454,7 +1449,7 @@ customFieldValues | [\[UpdateCustomFieldValue\]](#updatecustomfieldvalue) |  |
 dateOfBirth | [Date](#date) |  |
 department | [ID](#id) |  |
 email | [String](#string) |  |
-employmentStatus | [String](#string) |  |
+employmentStatus | [String](#string) | [Valid options](#employmentstatuses-string) |
 firstName | [String](#string) |  |
 hrManager | [ID](#id) |  |
 lastName | [String](#string) |  |
