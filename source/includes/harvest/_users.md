@@ -218,15 +218,15 @@ curl -X PATCH 'https://harvest.greenhouse.io/v2/users/disable'
 {
   "user": {"email": "test@example.com"}
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"user_id": 11234}
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"employee_id": "user-123"}
 }
@@ -278,15 +278,15 @@ curl -X PATCH 'https://harvest.greenhouse.io/v2/users/enable'
 {
   "user": {"email": "test@example.com"}
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"user_id": 11234}
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"employee_id": "user-123"}
 }
@@ -323,6 +323,73 @@ Enable a user. You may enable a user via their Greenhouse user id, their interna
 Header | Description
 --------- | -----------
 On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+
+## PATCH: Change user permission level
+
+```shell
+curl -X PATCH 'https://harvest.greenhouse.io/v1/users/permission_level'
+-H "On-Behalf-Of: {greenhouse user ID}"
+-H "Authorization: Basic MGQwMzFkODIyN2VhZmE2MWRjMzc1YTZjMmUwNjdlMjQ6"
+```
+> The above command takes a JSON request, structured like this:
+
+```json
+{
+  "user": {"email": "test@example.com"},
+  "level": "basic"
+}
+```
+> or
+```json
+{
+  "user": {"user_id": 11234},
+  "level": "basic"
+}
+```
+> or
+```json
+{
+  "user": {"employee_id": "user-123"},
+  "level": "basic"
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "success": true
+}
+```
+
+Changes the permissions user level, i.e. Site Admin, Job Admin, Basic user
+
+This endpoint will only convert the user to a Basic user. Other permission levels are not supported due to security constraints. This means changing the user permission level is not reversible through this endpoint.
+
+When converting a user’s permission level to Basic, any previously assigned job-based, developer, or user-specific permissions will be removed. Note that this will remove the user from assigned roles on any jobs, e.g. Recruiter or Coordinator. This will also remove the user from any outstanding approval flows.
+
+### HTTP Request
+
+`PATCH https://harvest.greenhouse.io/v1/users/permission_level`
+
+### Headers
+
+Header | Description
+--------- | -----------
+On-Behalf-Of | ID of the user issuing this request. Required for auditing purposes.
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+user | Yes | object | An object containing one of email, user_id, or employee_id fields.
+email | No | string | The email address associated with the user. <br> One of email, user_id, or employee_id is required.
+user_id | No | string | The ID of the user. <br> One of email, user_id, or employee_id is required.
+employee_id | No | string | The external employee_id of the user. <br> One of email, user_id, or employee_id is required.
+level | Yes | string | The permission level to be assigned to the user. <br> The only accepted value is “basic”. Other permission levels are not accepted due to security constraints.
+
+Note: This endpoint accepts users with Job Admin or Site Admin permission levels. Basic users will be ignored and will return a 200 response.
 
 
 ## POST: Add User
