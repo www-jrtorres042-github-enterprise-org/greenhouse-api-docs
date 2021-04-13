@@ -218,15 +218,15 @@ curl -X PATCH 'https://harvest.greenhouse.io/v2/users/disable'
 {
   "user": {"email": "test@example.com"}
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"user_id": 11234}
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"employee_id": "user-123"}
 }
@@ -278,15 +278,15 @@ curl -X PATCH 'https://harvest.greenhouse.io/v2/users/enable'
 {
   "user": {"email": "test@example.com"}
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"user_id": 11234}
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"employee_id": "user-123"}
 }
@@ -339,16 +339,16 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/users/permission_level'
   "user": {"email": "test@example.com"},
   "level": "basic"
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"user_id": 11234},
   "level": "basic"
 }
-
-- or -
-
+```
+> or
+```json
 {
   "user": {"employee_id": "user-123"},
   "level": "basic"
