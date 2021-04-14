@@ -9,10 +9,12 @@ curl 'https://api.greenhouse.io/v1/partner/current_user'
 > API Response 
 
 ```json
-{ 
-	"first_name": "Ron", 
-	"last_name": "Weasley", 
-	"email": "rweasley@hogwarts.edu"
+{
+  "full_name": "Ron Weasley",
+  "first_name": "Ron",
+  "last_name": "Weasley",
+  "email": "rweasley@hogwarts.edu",
+  "id": 1234
 }
 ```
 
@@ -28,8 +30,10 @@ This request is simply the URL. It takes no parameters.
 
 ### Response Parameters
 
-Property Name | Type | Required
--------------- | -------------- | -------------- 
-first_name | String | Yes
-last_name | String | Yes
-email | String | Yes
+Property Name | Type | Required | Description
+-------------- | -------------- | -------------- | --------------
+full_name | String | Yes | The current user's full name
+first_name | String | Yes | The current user's first name
+last_name | String | Yes | The current user's last name
+email | String | Yes | The email address associated with the current user
+id | Integer | Yes | The ID of the current user
