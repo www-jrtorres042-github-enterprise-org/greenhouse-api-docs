@@ -63,6 +63,12 @@ availalable at the output of `boot2docker ip` instead of `localhost:4567`.*
 
 Now that Slate is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
 
+### Releasing
+1. Merge your branch to master
+2. Run `bundle exec rake publish` - this will build & push to the `gh-pages` branch
+3. Validate the changes are up on `https://developers.greenhouse.io/` - sometimes there is a few minutes lag
+
+
 Examples of Slate in the Wild
 ---------------------------------
 
