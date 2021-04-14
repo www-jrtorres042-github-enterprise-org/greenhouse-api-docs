@@ -42,9 +42,9 @@ job_id | Integer | Yes
 ### Response Parameters
 
 
-Property Name | Type | Required | Description
--------------- | -------------- | -------------- | -------------- 
-tracking_link | String | Yes | URL for newly created tracking link.
-job | String | Yes | The name of the job tied to this tracking link.
-source | String | Yes | The name of the source tied to this tracking link (e.g. the name of your application).
-referrer | String | Yes | The name of the user tied to this tracking link.
+Property Name | Type            | Description
+-------------- | -------------- | --------------
+tracking_link  | String         | URL for newly created tracking link.
+job            | String         | The name of the job tied to this tracking link.
+source         | String         | The name of the source tied to this tracking link (e.g. the name of your application).
+referrer       | String         | The name of the user tied to this tracking link.

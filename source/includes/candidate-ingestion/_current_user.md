@@ -30,10 +30,10 @@ This request is simply the URL. It takes no parameters.
 
 ### Response Parameters
 
-Property Name | Type | Required | Description
--------------- | -------------- | -------------- | --------------
-full_name | String | Yes | The current user's full name
-first_name | String | Yes | The current user's first name
-last_name | String | Yes | The current user's last name
-email | String | Yes | The email address associated with the current user
-id | Integer | Yes | The ID of the current user
+Property Name | Type           | Description
+------------- | -------------- | --------------
+full_name     | String         | The current user's full name
+first_name    | String         | The current user's first name
+last_name     | String         | The current user's last name
+email         | String         | The email address associated with the current user
+id            | Integer        | The ID of the current user

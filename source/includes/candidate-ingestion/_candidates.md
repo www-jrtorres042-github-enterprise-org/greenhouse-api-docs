@@ -63,16 +63,16 @@ candidate_ids | Yes | Comma-delimited list of Candidate IDs (e.g. 123, 456)
 
 The response will always be an array of objects, even if only one `candidate_id` is provided.
 
-Property Name  | Type | Required | Description
--------------- | -------------- | --------------  | --------------
-id | Integer | Yes | The ID of the candidate
-external_id | String | No | The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.
-applications[]| Array | Yes | An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.
-applications.id | Integer | Yes | The ID of the application.
-applications.job | String | Yes | Name of the job this application is for (e.g. "Software developer).
-applications.status | String | No | The candidate’s current status. Must be one of "rejected," "active," or "hired."
-applications.stage | String | Yes | The applicant’s current stage in the interview pipeline (e.g. "Recruiter Phone Screen").
-applications.profile_url | String | Yes | A URL to the candidate’s profile in Greenhouse. You must be signed in to Greenhouse to view the profile.
+Property Name            | Type           | Description
+------------------------ | -------------- | --------------
+id                       | Integer        | The ID of the candidate
+external_id              | String         | The external ID that was provided in your initial candidate creation request. Can be null if you request the status of a candidate not associated with an external entity.
+applications[]           | Array          | An array containing 0 or more applications representing the jobs to which this candidate has applied. Each of the sub-elements are required for each of the applications.
+applications.id          | Integer        | The ID of the application.
+applications.job         | String         | Name of the job this application is for (e.g. "Software developer).
+applications.status      | String         | The candidate’s current status. Must be one of "rejected," "active," or "hired."
+applications.stage       | String         | The applicant’s current stage in the interview pipeline (e.g. "Recruiter Phone Screen").
+applications.profile_url | String         | A URL to the candidate’s profile in Greenhouse. You must be signed in to Greenhouse to view the profile.
 
 
 
@@ -193,9 +193,9 @@ prospect_owner_email | String | No | Used to set the prospect owner for a prospe
 
  The API will respond with a single object if a single object was provided or an array of objects if an array was provided.
 
-Property Name  | Type | Required | Description
--------------- | -------------- | --------------  | --------------
-id | Integer | Yes | The ID of the newly created candidate in Greenhouse.
-application_id | Integer | Yes | The ID of the application implicitly created in Greenhouse.
-external_id | String | Yes | The external ID that was provided in your request.
-profile_url | String | Yes | A URL to the candidate’s profile within Greenhouse. The user must be signed into Greenhouse to view the profile.
+Property Name  | Type           | Description
+-------------- | -------------- | --------------
+id             | Integer        | The ID of the newly created candidate in Greenhouse.
+application_id | Integer        | The ID of the application implicitly created in Greenhouse.
+external_id    | String         | The external ID that was provided in your request.
+profile_url    | String         | A URL to the candidate’s profile within Greenhouse. The user must be signed into Greenhouse to view the profile.
