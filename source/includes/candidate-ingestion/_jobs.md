@@ -43,9 +43,9 @@ This request is simply the URL. It takes no parameters.
 
 ### Response Parameters
 
-Property Name | Type | Required | Description
--------------- | -------------- | -------------- | -------------- 
-id | Integer | Yes | The ID of the job.
-name | String | Yes | The name as it appears in Greenhouse, NOT necessarily how it appears on the public job board.
-status | String | Yes | Always ‘open’.
-public | Boolean | Yes | True if this job has any job posts that are currently live on any job board.
+| Property Name | Type           | Description
+--------------- | -------------- | --------------
+id              | Integer        | The ID of the job.
+name            | String         | The name as it appears in Greenhouse, NOT necessarily how it appears on the public job board.
+status          | String         | Always ‘open’.
+public          | Boolean        | True if this job has any job posts that are currently live on any job board.
