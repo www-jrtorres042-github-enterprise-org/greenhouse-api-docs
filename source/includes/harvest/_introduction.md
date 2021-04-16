@@ -172,6 +172,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| April 13, 2021 01:00:00PM | Added ability to change user permission level to basic.
 | September 28, 2020 12:00:00PM | "Required" field added to Demographic Questions.
 | September 23, 2020 03:00:00PM | Attachments have been added at the application level. Previously, an aggregation of all attachments on all applications was included at the candidate level and not at all in the applications endpoint. Now, the applications endpoint includes attachments specific to each application and the candidates endpoint includes attachments in each application specific to that application.
 | September 10, 2020 05:00:00PM | A new querystring parameter has been added to [job post](#job-posts) GET requests to return Board-level Introductions and Conclusions (if present). When included in a request, the "content" or "internal_content" fields will return a concatenated string that includes the Board-level introduction, the Post-level description, and the Board-level conclusion. |

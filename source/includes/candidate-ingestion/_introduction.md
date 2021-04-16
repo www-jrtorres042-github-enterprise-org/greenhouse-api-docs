@@ -114,4 +114,5 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                            |
 | ----------------------- | -------------------------------------------------------------------------------------- |
+| Apr 15, 2021 03:00:00PM | Added `full_name` and `id` to the [GET current_user] response |
 | Aug 22, 2019 11:00:00AM | Added Change Log and General Consideration sections to the Ingestion API documentation |
