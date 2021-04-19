@@ -22,7 +22,7 @@ Every application may have zero or one EEOC object.
   },
   "disability_status": {
     "id": 1,
-    "description": "Yes, I have a disability (or previously had a disability)"
+    "description": "Yes, I have a disability, or have a history/record of having a disability"
   },
   "submitted_at": "2017-01-29T15:09:46.806Z"
 }
@@ -73,8 +73,8 @@ Every application may have zero or one EEOC object.
 ### Disability Status
 | description |
 |-----------|
-|Yes, I have a disability (or previously had a disability)
-|No, I don't have a disability
+|Yes, I have a disability, or have a history/record of having a disability
+|No, I don’t have a disability, or a history/record of having a disability
 |I don't wish to answer
 
 ## GET: List EEOC
@@ -104,7 +104,7 @@ curl 'https://harvest.greenhouse.io/v1/eeoc'
     },
     "disability_status": {
       "id": 1,
-      "description": "Yes, I have a disability (or previously had a disability)"
+      "description": "Yes, I have a disability, or have a history/record of having a disability"
     },
     "submitted_at": "2017-01-29T15:09:46.806Z"
   },
@@ -122,7 +122,7 @@ curl 'https://harvest.greenhouse.io/v1/eeoc'
     "veteran_status": null,
     "disability_status": {
       "id": 1,
-      "description": "Yes, I have a disability (or previously had a disability)"
+      "description": "Yes, I have a disability, or have a history/record of having a disability"
     },
     "submitted_at": "2017-01-30T17:10:32.432Z"
   }
@@ -169,7 +169,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/eeoc'
   },
   "disability_status": {
     "id": 1,
-    "description": "Yes, I have a disability (or previously had a disability)"
+    "description": "Yes, I have a disability, or have a history/record of having a disability"
   },
   "submitted_at": "2017-01-29T15:09:46.806Z"
 }
