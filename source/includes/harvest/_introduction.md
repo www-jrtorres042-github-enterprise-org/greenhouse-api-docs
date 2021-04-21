@@ -172,6 +172,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| April 21, 2021 11:00:00AM | Added ability to change external_id for custom field options.
 | April 13, 2021 01:00:00PM | Added ability to change user permission level to basic.
 | September 28, 2020 12:00:00PM | "Required" field added to Demographic Questions.
 | September 23, 2020 03:00:00PM | Attachments have been added at the application level. Previously, an aggregation of all attachments on all applications was included at the candidate level and not at all in the applications endpoint. Now, the applications endpoint includes attachments specific to each application and the candidates endpoint includes attachments in each application specific to that application.

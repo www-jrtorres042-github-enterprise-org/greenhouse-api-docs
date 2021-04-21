@@ -505,9 +505,9 @@ curl -X POST 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_op
 ```json
 {
   "options": [
-    {"name": "Option A", "priority": 5},
-    {"name": "Option B", "priority": 6},
-    {"name": "Option C", "priority": 7}
+    {"name": "Option A", "priority": 5, "external_id": "3z84k11"},
+    {"name": "Option B", "priority": 6, "external_id": "bmlpk1"},
+    {"name": "Option C", "priority": 7, "external_id": "32290"}
   ]
 }
 ```
@@ -539,7 +539,7 @@ Parameter | Required | Type | Description
 | options | Yes | array | An array of one or many new custom field options.
 | name | Yes | string | The name of the new custom field option.  If a new field is added with the same name as an existing custom field option in this custom field, it will be ignored.  No error will be raised in this case.
 | priority | Yes | integer | This is used to order the custom fields in Greenhouse.
-
+| external_id | No | string | The external_id for the custom field. Used for integrating with external HRIS.
 <br>
 
 **This returns a 201 on success.  It does not return the objects created.
@@ -562,17 +562,20 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/custom_field/{id}/custom_field_o
     {
       "id": 123,
       "name": "Option A",
-      "priority": 5
+      "priority": 5,
+      "external_id": "3z84k11"
     },
     {
       "id": 234,
       "name": "Option B",
-      "priority": 6
+      "priority": 6,
+      "external_id": null
     },
     {
       "id": 345,
       "name": "Option C",
-      "priority": 7
+      "priority": 7,
+      "external_id": "32290"
     }
   ]
 }
@@ -606,7 +609,7 @@ Parameter | Required | Type | Description
 | id | Yes | integer | The ID of the custom field option that will be updated.
 | name | No | string | If included, the custom field option with this ID will be updated to this name.  This can not duplicate the name of any other option in this field or any option in this request.
 | priority | No | integer | If included, The custom field option with this ID will be updated with this value.
-
+| external_id | No | string | If included, the custom field option will update its external_id with this value. Passing `null` will clear the external_id.
 <br>
 
 ## DELETE: Remove Custom Field Options
