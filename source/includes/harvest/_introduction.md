@@ -172,6 +172,7 @@ The timestamps below are Eastern Time.
 
 | Date                    | Description                                                                                                                       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| May 3, 2021 04:00:00PM | Added `job_post_id` field to application's response object.
 | April 21, 2021 11:00:00AM | Added ability to change external_id for custom field options.
 | April 13, 2021 01:00:00PM | Added ability to change user permission level to basic.
 | September 28, 2020 12:00:00PM | "Required" field added to Demographic Questions.

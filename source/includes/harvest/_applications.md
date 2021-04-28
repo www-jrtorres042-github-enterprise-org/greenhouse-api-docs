@@ -52,6 +52,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
             "name": "Accounting Manager"
         }
     ],
+    "job_post_id": 123,
     "status": "rejected",
     "current_stage": {
         "id": 62828,
@@ -109,6 +110,7 @@ Applications associate [candidates](#candidates) with [jobs](#jobs). There are 2
 | prospect | If `true`, this is a prospect application which means that the associated person is a prospect and has not yet applied for this job.
 | status | One of: `active`, `rejected`, `hired`.
 | jobs | An array containing the [job](#jobs) that the candidate applied for.
+| job_post_id | The ID of the job post through which the candidate applied. This value is null if the application was created through other means, e.g. manually adding candidates or importing candidates through sourcing integrations
 | candidate_id | The ID of the [candidate](#candidates) who is applying for this job.
 | current_stage | The current [stage](#job-stages) that this application is in.
 | credited_to.id | The ID of the user who will receive credit for this application.
@@ -158,6 +160,7 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "name": "UX Designer - Boston"
         }
     ],
+    "job_post_id": 123,
     "status": "active",
     "current_stage": {
         "id": 767358,
@@ -229,6 +232,7 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications'
             "name": "Web Developer "
         }
     ],
+    "job_post_id": null,
     "status": "hired",
     "current_stage": null,
     "answers": [
@@ -351,6 +355,7 @@ curl -X GET 'https://harvest.greenhouse.io/v1/applications/{id}'
             "name": "UX Designer - Boston"
         }
     ],
+    "job_post_id": 123,
     "status": "active",
     "current_stage": {
         "id": 767358,
@@ -520,6 +525,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates/{id}/applications'
       "name": "Construction Project Manager"
     }
   ],
+  "job_post_id": null,
   "status": "active",
   "current_stage": {
     "id": 1945557,
@@ -636,6 +642,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/applications/{id}'
           "name": "UX Designer - Boston"
       }
   ],
+  "job_post_id": 123,
   "status": "active",
   "current_stage": {
       "id": 767358,
@@ -752,6 +759,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/advance'
           "name": "UX Designer - Boston"
       }
   ],
+  "job_post_id": null,
   "status": "active",
   "current_stage": {
       "id": 456,
@@ -865,6 +873,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/transfer_to_job
           "name": "UX Designer - Boston"
       }
   ],
+  "job_post_id": null,
   "status": "active",
   "current_stage": {
       "id": 234567,
@@ -975,6 +984,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/move'
       "name": "Community Manager - New York"
     }
   ],
+  "job_post_id": 123,
   "status": "active",
   "current_stage": {
     "id": 1551142,
@@ -1148,6 +1158,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/hire'
       "name": "Community Manager - New York"
     }
   ],
+  "job_post_id": 123,
   "status": "hired",
   "current_stage": null,
   "answers": [
@@ -1294,6 +1305,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/reject'
       "name": "Accounting Manager"
     }
   ],
+  "job_post_id": 456,
   "status": "rejected",
   "current_stage": {
     "id": 62828,
@@ -1463,6 +1475,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/applications/{id}/unreject'
       "name": "UX Designer - Boston"
     }
   ],
+  "job_post_id": 123,
   "status": "active",
   "current_stage": {
     "id": 767358,

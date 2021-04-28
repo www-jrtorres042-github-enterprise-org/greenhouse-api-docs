@@ -127,6 +127,7 @@ An organization's candidates.
                     "name": "DevOps Engineer"
                 }
             ],
+            "job_post_id": 123,
             "status": "rejected",
             "current_stage": {
                 "id": 1073533,
@@ -190,6 +191,7 @@ An organization's candidates.
                     "name": "Data Scientist - BK"
                 }
             ],
+            "job_post_id": 456,
             "status": "active",
             "current_stage": {
                 "id": 2966800,
@@ -376,6 +378,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates'
                     "name": "Full Stack Engineer"
                 }
             ],
+            "job_post_id": 123,
             "status": "active",
             "current_stage": null,
             "answers": [],
@@ -650,6 +653,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                     "name": "DevOps Engineer"
                 }
             ],
+            "job_post_id": 123,
             "status": "rejected",
             "current_stage": {
                 "id": 1073533,
@@ -713,6 +717,7 @@ curl 'https://harvest.greenhouse.io/v1/candidates/{id}'
                     "name": "Data Scientist - BK"
                 }
             ],
+            "job_post_id": 456,
             "status": "active",
             "current_stage": {
                 "id": 2966800,
@@ -1001,6 +1006,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/candidates/{id}'
                       "name": "Data Scientist - BK"
                   }
               ],
+              "job_post_id": 123,
               "status": "active",
               "current_stage": {
                   "id": 2966800,
@@ -1327,6 +1333,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
                     "name": "Product Specialist"
                 }
             ],
+            "job_post_id": 123,
             "status": "active",
             "current_stage": {
                 "id": 1355395,
@@ -1360,6 +1367,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/candidates'
                     "name": "Operations Manger "
                 }
             ],
+            "job_post_id": 456,
             "status": "active",
             "current_stage": {
                 "id": 1579673,
@@ -1930,6 +1938,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/prospects'
       "rejection_reason": null,
       "rejection_details": null,
       "jobs": [],
+      "job_post_id": null,
       "status": "active",
       "current_stage": null,
       "answers": [],
@@ -2145,6 +2154,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/{id}/anonymize?fields={
                     "name": "Head of Product"
                 }
             ],
+            "job_post_id": 123,
             "status": "active",
             "current_stage": {
                 "id": 1567309,
@@ -2320,6 +2330,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/candidates/merge'
                     "name": "Product Manager"
                 }
             ],
+            "job_post_id": 123,
             "status": "active",
             "current_stage": {
                 "id": 1567309,
