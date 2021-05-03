@@ -11,6 +11,7 @@ An organization's job stages.
   "created_at": "2016-10-22T05:31:37.263Z",
   "updated_at": "2016-10-22T05:31:37.263Z",
   "job_id": 98765,
+  "priority": 0,
   "interviews": [
     {
       "id": 6001,
@@ -77,6 +78,7 @@ An organization's job stages.
 | id | The job stage's unique identifier |
 | name | The name for this job stage |
 | job_id | The job that this stage belongs to |
+| priority| Numeric field used for ordering, with the lowest values ordered first. For example, priority 0 indicates the first stage on a job
 | interviews | An array of interview steps associated with this job stage.<br>Each Step contains:<br>`id` - The step's unique identifier<br>`name` - The name of this interview step<br>`schedulable` - True / False value for whether this step can be scheduled<br>`interview_kit` - Details about the interview, including unique ID, interview prep content, and custom interview questions |
 
 
@@ -97,6 +99,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
     "created_at": "2015-11-22T05:31:37.263Z",
     "updated_at": "2015-11-22T05:31:37.263Z",
     "job_id": 12345,
+    "priority": 0,
     "interviews": [
       {
         "id": 7890,
@@ -131,6 +134,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages'
     "created_at": "2015-11-22T05:31:37.263Z",
     "updated_at": "2015-11-22T05:31:37.263Z",
     "job_id": 34567,
+    "priority": 1,
     "interviews": [
       {
         "id": 7345,
@@ -203,6 +207,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
     "created_at": "2015-11-22T05:31:37.263Z",
     "updated_at": "2015-11-22T05:31:37.263Z",
     "job_id": 146218,
+    "priority": 0,
     "interviews": [
       {
         "id": 6001,
@@ -269,6 +274,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
     "created_at": "2015-11-22T05:31:37.263Z",
     "updated_at": "2015-11-22T05:31:37.263Z",
     "job_id": 146220,
+    "priority": 1,
     "interviews": []
   },
   {
@@ -277,6 +283,7 @@ curl 'https://harvest.greenhouse.io/v1/jobs/{id}/stages'
     "created_at": "2015-11-22T05:31:37.263Z",
     "updated_at": "2015-11-22T05:31:37.263Z",
     "job_id": 146221,
+    "priority": 2,
     "interviews": [
       {
         "id": 8004,
@@ -333,6 +340,7 @@ curl 'https://harvest.greenhouse.io/v1/job_stages/{id}'
   "created_at": "2015-11-22T05:31:37.263Z",
   "updated_at": "2015-11-22T05:31:37.263Z",
   "job_id": 12345,
+  "priority": 1,
   "interviews": [
     {
       "id": 7890,
