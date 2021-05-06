@@ -938,9 +938,6 @@ Represents a single department in your company. Employees may belong to zero or 
 Field | Type | Description
 --------- | ----------- | -----------
 createdAt | [DateTime!](#datetime) |
-departmentLead | [Employee](#employee) |
-description | [String](#string) |
-email | [String](#string) |
 externalId | [String](#string) |
 id | [ID!](#id) |
 name | [String!](#string) |
@@ -1050,11 +1047,8 @@ Field | Type | Description
 --------- | ----------- | -----------
 address | [String](#string) |
 createdAt | [DateTime](#datetime) |
-description | [String](#string) |
-email | [String](#string) |
 externalId | [String](#string) |
 id | [ID](#id) |
-locationLead | [Employee](#employee) |
 name | [String](#string) |
 updatedAt | [DateTime](#datetime) |
 
@@ -1266,9 +1260,6 @@ The input object used to add a [Department](#department).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-departmentLead | [ID](#id) |  |
-description | [String](#string) |  |
-email | [String](#string) |  |
 externalId | [String](#string) |  |
 name | [String](#string) |  |
 
@@ -1278,10 +1269,7 @@ The input object used to add a [Location](#location).
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 address | [String](#string) |  |
-description | [String](#string) |  |
-email | [String](#string) |  |
 externalId | [String](#string) |  |
-locationLead | [ID](#id) |  |
 name | [String](#string) |  |
 
 ## AddPendingHireInput
@@ -1454,9 +1442,6 @@ The input object used to update a [Department](#department).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-departmentLead | [ID](#id) |  |
-description | [String](#string) |  |
-email | [String](#string) |  |
 externalId | [String](#string) |  |
 id | [ID!](#id) |  | Required
 name | [String](#string) |  |
@@ -1495,11 +1480,8 @@ The input object used to update a [Location](#location).
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 address | [String](#string) |  |
-description | [String](#string) |  |
-email | [String](#string) |  |
 externalId | [String](#string) |  |
 id | [ID!](#id) |  | Required
-locationLead | [ID](#id) |  |
 name | [String](#string) |  |
 
 ## WorkCountryCodeFilter
