@@ -90,7 +90,7 @@ id | [Int](#int) |  |
 ## employees \([EmployeeConnection](#employeeconnection)\)
 ```graphql
 # Request only those employees that have title "Account Manager". For each employee that fits the criteria,
-# return their id and email
+# return their id and work email
 {
   employees(first: 25, titleFilter: { titles: ["Account Manager"] }) {
     pageInfo {
@@ -110,7 +110,7 @@ id | [Int](#int) |  |
 
 ```graphql
 # Request only those employees that have a department set (department is not null). For each employee that fits the criteria,
-# return their id and email
+# return their id and work email
 {
   employees(first: 25, departmentFilter: { anyValue: true }) {
     pageInfo {
@@ -130,7 +130,7 @@ id | [Int](#int) |  |
 
 ```graphql
 # Request only those employees that lack a department (department is null). For each employee that fits the criteria,
-# return their id and email
+# return their id and work email
 {
   employees(first: 25, departmentFilter: { noValue: true }) {
     pageInfo {
@@ -218,7 +218,7 @@ id | [Int](#int) |  |
 
 ```graphql
 # Request only those employees that have a value set for their "favorite_food" Custom Field and "Blue" for their
-# "favorite_color" Custom Field. For each of these employees, return their ID and email address.
+# "favorite_color" Custom Field. For each of these employees, return their ID and work email address.
 {
   employees(
     first: 25,
@@ -298,7 +298,7 @@ id | [Int](#int) |  |
 
 ```graphql
 # Request employees that have Employee 35 or Employee 40 set as the value for the "mentor" Custom Field. For each of
-# these employees, return their id, email address, and "about me" text.
+# these employees, return their id, work email address, and "about me" text.
 {
   employees(
     first: 25,
@@ -631,7 +631,7 @@ Argument | Type | Description | Required
 updateDepartmentInput | [UpdateDepartmentInput!](#updatedepartmentinput) |  | Required
 ## updateEmployeeProfile \([Employee](#employee)\)
 ```graphql
-# Update an employee's email address, date of birth, and department. Return these fields to confirm the change.
+# Update an employee's work email address, date of birth, and department. Return these fields to confirm the change.
 mutation {
   updateEmployeeProfile(
     id: 25,
@@ -938,9 +938,6 @@ Represents a single department in your company. Employees may belong to zero or 
 Field | Type | Description
 --------- | ----------- | -----------
 createdAt | [DateTime!](#datetime) |
-departmentLead | [Employee](#employee) |
-description | [String](#string) |
-email | [String](#string) |
 externalId | [String](#string) |
 id | [ID!](#id) |
 name | [String!](#string) |
@@ -985,7 +982,7 @@ dateOfBirth | [Date](#date) | Note that only administrators can see the birth ye
 dateOfTermination | [Date](#date) | This information is only available on terminated employees
 department | [Department](#department) |
 documents | [\[Document!\]](#document) | These are documents that came over from Greenhouse Recruiting or were attached directly to the employee profile. This does _not_ include E-Signature requests.
-email | [String](#string) | The employee's work email. They need this in order to sign in
+email | [String](#string) | The employee's work email. They need this in order to sign in.
 employmentStatus | [String](#string) | [Valid options](#employmentstatuses-string)
 firstName | [String](#string) |
 greenhouseRecruitingData | [GreenhouseRecruitingData](#greenhouserecruitingdata) | The Greenhouse Recruiting 'hired' webhook data
@@ -1050,11 +1047,8 @@ Field | Type | Description
 --------- | ----------- | -----------
 address | [String](#string) |
 createdAt | [DateTime](#datetime) |
-description | [String](#string) |
-email | [String](#string) |
 externalId | [String](#string) |
 id | [ID](#id) |
-locationLead | [Employee](#employee) |
 name | [String](#string) |
 updatedAt | [DateTime](#datetime) |
 
@@ -1266,9 +1260,6 @@ The input object used to add a [Department](#department).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-departmentLead | [ID](#id) |  |
-description | [String](#string) |  |
-email | [String](#string) |  |
 externalId | [String](#string) |  |
 name | [String](#string) |  |
 
@@ -1278,10 +1269,7 @@ The input object used to add a [Location](#location).
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 address | [String](#string) |  |
-description | [String](#string) |  |
-email | [String](#string) |  |
 externalId | [String](#string) |  |
-locationLead | [ID](#id) |  |
 name | [String](#string) |  |
 
 ## AddPendingHireInput
@@ -1454,9 +1442,6 @@ The input object used to update a [Department](#department).
 
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
-departmentLead | [ID](#id) |  |
-description | [String](#string) |  |
-email | [String](#string) |  |
 externalId | [String](#string) |  |
 id | [ID!](#id) |  | Required
 name | [String](#string) |  |
@@ -1470,7 +1455,7 @@ about | [String](#string) |  |
 customFieldValues | [\[UpdateCustomFieldValue\]](#updatecustomfieldvalue) |  |
 dateOfBirth | [Date](#date) |  |
 department | [ID](#id) |  |
-email | [String](#string) |  |
+email | [String](#string) | The employee's work email. They need this in order to sign in |
 employmentStatus | [String](#string) | [Valid options](#employmentstatuses-string) |
 firstName | [String](#string) |  |
 hrManager | [ID](#id) |  |
@@ -1495,11 +1480,8 @@ The input object used to update a [Location](#location).
 Argument | Type | Description | Required
 --------- | ----------- | ----------- | -----------
 address | [String](#string) |  |
-description | [String](#string) |  |
-email | [String](#string) |  |
 externalId | [String](#string) |  |
 id | [ID!](#id) |  | Required
-locationLead | [ID](#id) |  |
 name | [String](#string) |  |
 
 ## WorkCountryCodeFilter
