@@ -16,6 +16,7 @@ Interviews that have been scheduled for the specified application. Note that all
     "date_time": "2014-03-26T22:30:00.000Z"
   },
   "location": "Big Conference Room",
+  "video_conferencing_url": "http://example.com",
   "status": "awaiting_feedback",
   "created_at": "2016-02-10T14:31:51.019Z",
   "updated_at": "2016-05-23T20:43:11.679Z",
@@ -45,15 +46,16 @@ Interviews that have been scheduled for the specified application. Note that all
 
 ### Noteworthy attributes
 
-| Attribute | Description |
-|-----------|-------------|
-| id | The scheduled interview's unique identifier |
-| start | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
-| end | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
-| location | The location of the interview.
-| status | One of: `scheduled`, `awaiting_feedback`, `complete`
-| organizer | The [user](#users) who is the organizer for this interview
-| interviewers | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed. This object will also contain the interviewer's `response_status` which indicates how they've responded to the interview invitation (one of `needs_action`, `declined`, `tentative`, or `accepted`).
+| Attribute              | Description |
+|------------------------|-------------|
+| id                     | The scheduled interview's unique identifier
+| start                  | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
+| end                    | A date_time value if this interview has a precise start time, or a date value if this is an all-day event.
+| location               | The location of the interview.
+| video_conferencing_url | The URL used for video interviews, such as Zoom, Google Meets, or Microsoft Teams. 
+| status                 | One of: `scheduled`, `awaiting_feedback`, `complete`
+| organizer              | The [user](#users) who is the organizer for this interview
+| interviewers           | An array containing the [users](#users) who have interviews with this candidate, including, if applicable, the ID of the scorecard they completed. This object will also contain the interviewer's `response_status` which indicates how they've responded to the interview invitation (one of `needs_action`, `declined`, `tentative`, or `accepted`).
 
 ## GET: List Scheduled Interviews
 
@@ -76,6 +78,7 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
       "date_time": "2014-03-26T22:30:00.000Z"
     },
     "location": "Big Conference Room",
+    "video_conferencing_url": "http://example.com",
     "status": "awaiting_feedback",
     "created_at": "2016-02-10T14:31:51.019Z",
     "updated_at": "2016-05-23T20:43:11.679Z",
@@ -112,6 +115,7 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews'
       "date": "2017-08-23"
     },
     "location": "Small Conference Room",
+    "video_conferencing_url": "http://example.com",
     "status": "complete",
     "interview": {
       "id": 7002,
@@ -184,6 +188,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
       "date_time": "2014-03-26T22:30:00.000Z"
     },
     "location": "Big Conference Room",
+    "video_conferencing_url": "http://example.com",
     "status": "awaiting_feedback",
     "created_at": "2016-02-10T14:31:51.019Z",
     "updated_at": "2016-05-23T20:43:11.679Z",
@@ -220,6 +225,7 @@ curl 'https://harvest.greenhouse.io/v1/applications/{id}/scheduled_interviews'
       "date": "2017-08-23"
     },
     "location": "Small Conference Room",
+    "video_conferencing_url": "http://example.com",
     "status": "complete",
     "interview": {
       "id": 7002,
@@ -288,6 +294,7 @@ curl 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
     "date_time": "2014-03-26T22:30:00.000Z"
   },
   "location": "Big Conference Room",
+  "video_conferencing_url": "http://example.com",
   "status": "awaiting_feedback",
   "created_at": "2016-02-10T14:31:51.019Z",
   "updated_at": "2016-05-23T20:43:11.679Z",
@@ -366,6 +373,7 @@ curl -X POST 'https://harvest.greenhouse.io/v1/scheduled_interviews'
     "date_time": "2018-12-12T14:15:00.000Z"
   },
   "location": "Big Conference Room",
+  "video_conferencing_url": "http://example.com",
   "status": "scheduled",
   "created_at": "2018-10-17T19:22:07.302Z",
   "updated_at": "2018-12-03T20:45:14.320Z",
@@ -472,6 +480,7 @@ curl -X PATCH 'https://harvest.greenhouse.io/v1/scheduled_interviews/{id}'
     "date_time": "2018-12-12T14:15:00.000Z"
   },
   "location": "Big Conference Room",
+  "video_conferencing_url": "http://example.com",
   "status": "scheduled",
   "created_at": "2018-10-17T19:22:07.302Z",
   "updated_at": "2018-12-03T20:45:14.320Z",
