@@ -19,9 +19,9 @@ Represents rejection reasons configured by an organization under the Custom Opti
 
 | Attribute | Description |
 |-----------|-------------|
-| id | The rejection reason's unique identifier |
+| id | The rejection reason's unique identifier
 | name | The rejection reason's name
-| type | One of `{"id": 1, "name": "We rejected them"}`, `{"id": 2, "name": "They rejected us"}`, `{"id": 3, "name": "None specified"}`
+| type | An object containing the type ID and the rejection reason type, which will be one of "We rejected them", "They rejected us", and "None Specified". Note that type IDs may vary across organizations.
 
 ## GET: List Rejection Reasons
 
