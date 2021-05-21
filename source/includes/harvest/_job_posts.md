@@ -149,7 +149,7 @@ Describes the online job posts for an organization's jobs (as seen on the Job Bo
 | first_published_at | Timestamp when this job post was first set to live.
 | internal | If `true`, this job post has been posted (or is *to be posted*) on an internal job board.
 | external | If `true`, this job post has been posted (or is *to be posted*) on an external job board.
-| job_id | The ID of the [job](#jobs) that this job post is for.
+| job_id | The ID of the [job](#jobs) that this job post is for. Indicates a prospect post if null.
 | content | The text of the job post as posted to the external job board.
 | internal_content | The text of the job post if posted to the internal job board, if different than the external job board.
 | demographic_question_set_id | The demographic question set associated with this job post

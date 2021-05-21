@@ -1489,7 +1489,7 @@ curl -X PUT 'https://harvest.greenhouse.io/v1/jobs/{id}'
 
 ### JSON Body Parameters
 
-There are four types of hiring team members, represented by the four hashes sent in the JSON body. If any of these types are not included, hiring team members of that type will not be changed. If a blank element `{}` is included, that part of the hiring team will be cleared.
+There are four types of hiring team members, represented by the four hashes sent in the JSON body. If any of these types are not included, hiring team members of that type will not be changed. If an empty list is provided for any of the four types, all users will be removed.
 
 Note that this PUT method REPLACES the existing members of the hiring team. For each element included in the JSON request body, the existing hiring team members in Greenhouse will be removed and replaced with the current members. _This includes the removal of disabled and inactive users, who can never be re-added._ For more granular control over additions and removals, use the POST or DELETE methods on this endpoint. Also, this process is transactional: if there is one failure, no elements will be updated. Finally, if you have a Hiring Team Updated web hook configured, you will receive one web hook notification per element, so you may receive up to four web hook notifications when this endpoint is used.
 

@@ -196,6 +196,7 @@ The timestamps below are Eastern Time.
 | Oct 7, 2019 03:00:00 PM | Added custom fields to openings on organizations with this option enabled. [GET: Openings](#get-list-job-openings)
 | Oct 1, 2019 11:00:00AM | Added ability to filter offers by start_date with starts_before and starts_after. [GET: Offers](#get-list-offers) |
 | Sep 18, 2019 01:00:00PM | Added ability to create prospect applications for existing candidates/prospects [POST: Add Application to Candidate/Prospect](#post-add-application-to-candidate-prospect) |
+| Aug 12, 2019 05:00:00PM | Prospect post data will return in Job Posts endpoints. |
 | Jul 31, 2019 01:00:00PM | Added ability to filter demographic data answers by created_at and updated_at dates [GET: Demographic Answers](#get-list-demographic-answers) |
 | Jul 17, 2019 01:00:00PM | Added ability to update the current offer on an application via [PATCH: Update Current Offer](#patch-update-current-offer) |
 | Jul 17, 2019 01:00:00PM | Added ability to post new attachments to applications via [POST: Add Attachment to Application](#post-add-attachment-to-application) |
