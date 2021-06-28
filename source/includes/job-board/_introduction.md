@@ -23,10 +23,3 @@ Job Board data is publicly available, so authentication is not required for any 
 Only the application submission endpoint
 (`POST https://boards-api.greenhouse.io/v1/boards/{board_token}/jobs/{id}`) requires Basic Auth. The Job Board API Key must be **Base64 encoded** before it can be used to post applications.
 [Read more](#submit-an-application).
-
-## Libraries
-
-Greenhouse offers libraries to assist development with our Job Board API. 
-
-* [Ruby Library](https://github.com/grnhse/greenhouse_io)
-* [PHP Library] (https://github.com/grnhse/greenhouse-tools-php)
