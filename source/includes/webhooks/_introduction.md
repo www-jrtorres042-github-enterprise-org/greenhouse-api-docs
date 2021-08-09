@@ -167,7 +167,7 @@ Currently, Web Hooks for all event types include these common attributes:
     }
 ```
 
-Custom fields may be attached to several objects within the Greenhouse Recruiting system. These fields may appear on candidates, applications, offers, and other objects in the system. These fields share several properties and are always indicated in web hooks by the "custom_fields" element. However, the "value" attribute of custom fields are different depending on the "type" attribute, so you must check the "type" attribute in order to predict what will be included in the value "attribute". As described in the previous section, the type attribute will be one of short_text, long_text, boolean, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. An example of each of these fields' expected value format are provided. 
+Custom fields may be attached to several objects within the Greenhouse Recruiting system. These fields may appear on candidates, applications, offers, and other objects in the system. These fields share several properties and are always indicated in web hooks by the "custom_fields" element. However, the "value" attribute of custom fields are different depending on the "type" attribute, so you must check the "type" attribute in order to predict what will be included in the value "attribute". As described in the previous section, the type attribute will be one of short_text, long_text, boolean, single_select, multi_select, currency, currency_range, number, number_range, date, url, or user. An example of each of these fields' expected value format are provided.
 
 ## Disabled web hooks
 
@@ -175,16 +175,24 @@ If a web hook is disabled, it will not trigger when the event occurs. Web hooks 
 
 ## Retry policy
 
-In the event of a failed web hook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 24 retries with exponential backoff according to this formula:
+In the event of a failed web hook request (due to timeout, a non HTTP 200 response, or network issues), Greenhouse will attempt a maximum of 12 retries with exponential backoff according to this formula:
+`(retry_count ** 4) + 15 + (rand(30) * (retry_count + 1))` (i.e. 15, 16, 31, 96, 271, ... seconds + a random amount of time). It will perform 12 retries over approximately 12 hours.
 
-`5 + (retry number) ^ 4` seconds relative to the last attempt
+This table contains approximate retry waiting times:
 
-| Retry number | Time since last retry | Time since original attempt
-|--------------|-----------------------|----------------------------
-| 1 | 6 seconds | 6 seconds
-| 2 | 21 seconds | 27 seconds
-| 3 | 86 seconds | 113 seconds
-| 8 | 68.4 minutes | 2.4 hours
-| 12 | 5.8 hours | 16.9 hours
-| 20 | 44.4 hours | 8.3 days
-| 24 | 92.1 hours | 20.4 days
+| Retry number | Next retry backoff | Total waiting time |
+|---| -------------------| -------------------- |
+| 1 |     0d  0h  0m 30s |     0d  0h  0m 30s |
+| 2 |     0d  0h  0m 46s |     0d  0h  1m 16s |
+| 3 |     0d  0h  1m 16s |     0d  0h  2m 32s |
+| 4 |     0d  0h  2m 36s |     0d  0h  5m  8s |
+| 5 |     0d  0h  5m 46s |     0d  0h 10m 54s |
+| 6 |     0d  0h 12m 10s |     0d  0h 23m  4s |
+| 7 |     0d  0h 23m 36s |     0d  0h 46m 40s |
+| 8 |     0d  0h 42m 16s |     0d  1h 28m 56s |
+| 9 |     0d  1h 10m 46s |     0d  2h 39m 42s |
+| 10 |     0d  1h 52m  6s |     0d  4h 31m 48s |
+| 11 |     0d  2h 49m 40s |     0d  7h 21m 28s |
+| 12 |     0d  4h  7m 16s |     0d 11h 28m 44s |
+
+Note: This table was calculated under the assumption that `rand(30)` always returns 15.
