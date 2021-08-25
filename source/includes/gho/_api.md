@@ -1573,6 +1573,15 @@ depend on the fieldType of its corresponding customField.
 * Allowed Type(s): String
 * Must formatted as YYYY-MM-DD
 
+### legal_name
+* Allowed Type(s): String. Must be a JSON Object encoded string (with escaped quotes) e.g. `"{\"key\": \"value\"}"`
+* All values in the JSON Object must be Strings.
+* Must provide `first_name` and `last_name`
+
+### preferred_name
+* Allowed Type(s): String. Must be a JSON Object encoded string (with escaped quotes) e.g. `"{\"key\": \"value\"}"`
+* All values in the JSON Object must be Strings.
+
 # Enums
 NOTE: Enums are unquoted in user input but quotes in API output.
 ## CustomFieldType
@@ -1582,12 +1591,16 @@ Value | Description
 --------- | ---------
 ADDRESS | Displayed as group of inputs. Stored as JSON.
 CONTACT | Displayed as group of inputs. Stored as JSON.
+COUNTRY | Displayed as a dropdown. Stored as a String.
 DATE | Displayed as a datepicker. Stored as a DateTime
 EMPLOYEE | Displayed as a dropdown of employees. Stored as an Employee ID.
+IMAGE | Displayed as an image. Stored as a File.
+LEGAL_NAME | Displayed as a group of inputs. Stored as JSON.
 LONG_TEXT | Displayed as a multiline text box. Stored as a String.
 MASKED | Displayed as a single line text field (hidden in application). Stored as a String.
 MULTIPLE_CHOICE | Displayed as a dropdown. Stored as a String.
 MULTIPLE_SELECT | Displayed as a tag field. Stored as an Array of Strings.
+PREFERRED_NAME | Displayed as a group of inputs. Stored as JSON.
 TEAM | Displayed as a dropdown of teams. Stored as a Team ID.
 TEXT | Displayed as a single line text field. Stored as a String.
 
