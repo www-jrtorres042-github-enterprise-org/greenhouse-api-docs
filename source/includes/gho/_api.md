@@ -1281,7 +1281,7 @@ about | [String](#string) |  |
 customFieldValues | [\[UpdateCustomFieldValue\]](#updatecustomfieldvalue) |  |
 dateOfBirth | [Date](#date) |  |
 department | [ID](#id) |  |
-email | [String](#string) |  |
+email | [String](#string) |  | Required
 employmentStatus | [String](#string) | [Valid options](#employmentstatuses-string) |
 firstName | [String!](#string) |  | Required
 hrManager | [ID](#id) |  |
